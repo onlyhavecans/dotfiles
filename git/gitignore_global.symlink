@@ -1,0 +1,24 @@
+#Universal backup
+*~
+*.swp
+
+# Folder config files
+Desktop.ini
+.DS_Store
+
+#Thumbnail cache files
+._*
+Thumbs.db
+
+#Mac Trash
+.Spotlight-V100
+.Trashes
+
+#Ignore compiled python
+*.pyc
+
+#Project Files for Expresso
+*.esproj
+
+#Project files for PyCharm
+*.idea

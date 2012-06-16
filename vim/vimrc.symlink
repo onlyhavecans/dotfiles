@@ -1,0 +1,35 @@
+filetype on            " enables filetype detection
+filetype plugin on     " enables filetype specific pugins
+filetype plugin indent on " enables filetype detection for indenting
+
+call pathogen#infect() 
+
+"Make my stuff extra extra perdy
+syntax enable
+set background=light
+colorscheme solarized
+
+" Toggle line numbers and map F2 to show/hide for easy copying
+set number
+nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+
+"I want to switch from using tabs to spaces
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+
+"Enable code folding and map it to F9
+set foldmethod=indent
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
+
+" A syntax for placeholders
+" Pressing Control-j jumps to the next match.
+inoremap <c-j> <Esc>/<++><CR><Esc>cf>
+
+"Clean Saves
+set backupcopy=yes
+
+let g:pydiction_location = '.vim/pydiction-1.2/complete-dict'
