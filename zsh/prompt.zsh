@@ -12,5 +12,3 @@ current_virtenv(){
 		echo `basename \"$VIRTUAL_ENV\"`
 	fi
 }
-
-RPROMPT="%{${fg_bold[cyan]}%}(virtenv: %{${fg[magenta]}%}$(current_virtenv)%{${fg_bold[cyan]}%})%{${reset_color}%} $RPROMPT"

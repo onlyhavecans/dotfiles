@@ -7,7 +7,7 @@ else
 	export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 fi
 export WORKON_HOME=~/Virtualenvs #Where my enviroments go
-export PROJECT_HOME=~/PyProjects #Default Project basebath
+export PROJECT_HOME=/Volumes/Code #Default Project basebath
 export PIP_VIRTUALENV_BASE=~/Virtualenvs #How PIP uses wrapper
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export PIP_REQUIRE_VIRTUALENV=true #PIP Only Allows installs in to VirtualEnv
