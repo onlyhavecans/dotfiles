@@ -11,3 +11,6 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 setopt hist_ignore_space
+
+setopt hist_expire_dups_first
+setopt hist_find_no_dups
