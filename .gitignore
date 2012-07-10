@@ -1,3 +1,8 @@
 tiny.world
 vim/vim.symlink/backups
 gitconfig.symlink
+irc/weechat.symlink/logs
+plugins.xml.gz
+.netrwhist
+urls.log
+weechat.log

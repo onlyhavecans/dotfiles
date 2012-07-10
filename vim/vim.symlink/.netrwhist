@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/david/Dropbox/Code/Bunny Geeklets/.git'
-let g:netrw_dirhist_2='/Users/bunnyman/.local'
-let g:netrw_dirhist_3='/Users/bunnyman/.ssh'
-let g:netrw_dirhist_4='/Users/bunnyman/.subversion'
