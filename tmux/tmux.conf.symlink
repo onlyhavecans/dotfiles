@@ -1,19 +1,11 @@
-# Back to Screen meta
-set-option -g prefix C-a
-unbind-key C-b
-bind-key a send-prefix
-
 # Screen Navigation
-bind-key C-a last-window
+bind-key C-b last-window
 bind-key Space next-window
 bind-key C-Space previous-window
 
 # Options
 set-option -sg escape-time 50 
 set-option -g base-index 1
-set-option -g default-terminal screen-256color
-set-option -g lock-command vlock
-set-window-option -g xterm-keys on  # to make ctrl-arrow, etc. work
 
 set-option -g set-titles on
-set-option -g set-titles-string '[#S:#I #H] #W'  # use screen title
+#set-option -g set-titles-string '[#S:#I #H] #W'  # use screen title
