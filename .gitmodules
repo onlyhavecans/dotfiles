@@ -10,3 +10,6 @@
 [submodule "vim/vim.symlink/bundle/vim-git"]
 	path = vim/vim.symlink/bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
+[submodule "vim/vim.symlink/bundle/vim-markdown"]
+	path = vim/vim.symlink/bundle/vim-markdown
+	url = git://github.com/plasticboy/vim-markdown.git
