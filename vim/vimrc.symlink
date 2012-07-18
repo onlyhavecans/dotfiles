@@ -1,11 +1,13 @@
 set nocompatible
 
-filetype on            " enables filetype detection
-filetype plugin on     " enables filetype specific pugins
-filetype plugin indent on " enables filetype detection for indenting
+filetype off
 
 call pathogen#infect()
 call pathogen#helptags()
+
+filetype on            " enables filetype detection
+filetype plugin on     " enables filetype specific pugins
+filetype plugin indent on " enables filetype detection for indenting
 
 " ================ General Config ====================
 
