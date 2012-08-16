@@ -13,5 +13,3 @@
 [submodule "vim/vim.symlink/bundle/vim-markdown"]
 	path = vim/vim.symlink/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown.git
-	path = vim/vim.symlink/bundle/minibufexpl
-	url = git://github.com/fholgado/minibufexpl.vim.git
