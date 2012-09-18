@@ -13,3 +13,6 @@
 [submodule "vim/vim.symlink/bundle/vim-markdown"]
 	path = vim/vim.symlink/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown.git
+[submodule "vim/vim.symlink/bundle/iaVim"]
+	path = vim/vim.symlink/bundle/iaVim
+	url = git://github.com/laktek/distraction-free-writing-vim.git
