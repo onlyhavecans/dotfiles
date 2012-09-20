@@ -15,7 +15,9 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 
   # ~/.oh-my-zsh/plugins/*
   # Custom plugins ~/.oh-my-zsh/custom/plugins/
-  plugins=(git vi-mode osx pip python brew)
+  plugins=(git github vi-mode virtualenvwrapper pip python osx brew)
+
+
 
   source $ZSH/oh-my-zsh.sh
 fi  
