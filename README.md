@@ -17,7 +17,7 @@ I stole my Rakefile from https://github.com/holman/dotfiles
 * The world.tiny is ignored but an example is included
 
 ### vim ###
-* Some but not all of the bundles are git linked
+* All bundles are git submodules
 * The configuration is python oriented
 
 ### git ###
