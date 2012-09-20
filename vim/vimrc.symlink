@@ -2,6 +2,7 @@ set nocompatible
 
 filetype off
 
+let g:pathogen_disabled = [ 'pathogen' ]    " don't load self
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -24,7 +25,7 @@ set autoread                    "Reload files changed outside vim
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
-set hidden
+""set hidden
 
 "turn on syntax highlighting
 syntax on

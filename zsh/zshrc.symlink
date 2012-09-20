@@ -15,9 +15,13 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 
   # ~/.oh-my-zsh/plugins/*
   # Custom plugins ~/.oh-my-zsh/custom/plugins/
-  plugins=(git github vi-mode virtualenvwrapper pip python osx brew)
-
-
+  plugins=(git github vi-mode virtualenvwrapper pip python)
+  kernel=$(uname -s)
+  if [[ $kernel == Darwin ]]; then
+    plugins+=(osx brew)
+  elif [[ $kernel == Linux ]]; then
+    plugins+=(debian)
+  fi
 
   source $ZSH/oh-my-zsh.sh
 fi  
