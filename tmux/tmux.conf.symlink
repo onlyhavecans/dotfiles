@@ -1,11 +1,21 @@
+# Change Prefix to screen it up
+set -g prefix C-a
+unbind C-b
+
 # Screen Navigation
-bind-key C-b last-window
-bind-key Space next-window
+bind-key C-a last-window
 bind-key C-Space previous-window
 
-# Options
-set-option -sg escape-time 50 
+# Change command delay short
+set-option -sg escape-time 1
+
+# Start window/session index at 1
 set-option -g base-index 1
+setw -g pane-base-index 1
 
 set-option -g set-titles on
 #set-option -g set-titles-string '[#S:#I #H] #W'  # use screen title
+
+# Bind stuff up
+# Reload config with r
+bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
