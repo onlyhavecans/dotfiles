@@ -3,6 +3,9 @@ set -g prefix C-a
 bind C-a send-prefix
 unbind C-b
 
+# Awesome term
+set -g default-terminal "screen-256color"
+
 # I demand trackpad respect
 setw -g mode-mouse off
 set -g mouse-select-pane off
@@ -45,3 +48,20 @@ bind H resize-pane -L 5
 bind J resize-pane -D 5
 bind K resize-pane -U 5
 bind L resize-pane -R 5
+
+## Color trouble
+#Make the active window name pop
+setw -g window-status-current-fg white
+setw -g window-status-current-attr bright
+
+#Make the active pane pop
+set -g pane-active-border-bg green
+
+## Status Bar
+set -g status-utf8 on
+set -g status-left "[#h]:#S"
+set -g status-left-length 45
+set -g status-right "%Y-%m-%d #[fg=white]%R "
+set -g status-justify centre
+setw -g monitor-activity on
+set -g visual-activity on
