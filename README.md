@@ -13,14 +13,18 @@ I stole my Rakefile from https://github.com/holman/dotfiles
     * Last is for things that might/will stomp on defaults and banners
 
 ### tinyfugue ###
+* **tiny.world is ignored** You need one of these
 * The configuration here is social muck oriented
-* The world.tiny is ignored but an example is included
 
 ### vim ###
 * The configuration is python oriented
 * All bundles are git submodules so after you check out;
     * `git submodule init && git submodule update`
 
+### weechat ###
+* **irc.conf is ignored**
+* This config isn't too special but it has some nice plugins
+
 ### git ###
-* The gitignore_global is mac/python oriented
-* gitconfig is missing
+* The global gitignore is mac/python oriented
+* **gitconfig is ignored**
