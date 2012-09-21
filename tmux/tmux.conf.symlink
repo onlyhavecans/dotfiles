@@ -3,6 +3,12 @@ set -g prefix C-a
 bind C-a send-prefix
 unbind C-b
 
+# I demand trackpad respect
+setw -g mode-mouse off
+set -g mouse-select-pane off
+set -g mouse-resize-pane off
+set -g mouse-select-window off
+
 # Screen Navigation
 bind-key C-Space previous-window
 
@@ -33,3 +39,9 @@ bind l select-pane -R
 #ctrl-vim for window
 bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
+
+# VIM CAPS for reszing
+bind H resize-pane -L 5
+bind J resize-pane -D 5
+bind K resize-pane -U 5
+bind L resize-pane -R 5
