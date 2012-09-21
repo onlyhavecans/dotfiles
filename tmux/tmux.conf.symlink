@@ -1,9 +1,9 @@
 # Change Prefix to screen it up
 set -g prefix C-a
+bind C-a send-prefix
 unbind C-b
 
 # Screen Navigation
-bind-key C-a last-window
 bind-key C-Space previous-window
 
 # Change command delay short
@@ -19,3 +19,17 @@ set-option -g set-titles on
 # Bind stuff up
 # Reload config with r
 bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
+
+# Easier splits
+bind | split-window -h
+bind - split-window -v
+
+#vim pane movement
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+#ctrl-vim for window
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
