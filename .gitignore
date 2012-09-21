@@ -1,9 +1,9 @@
-tiny.world
+tf/tf-dir.symlink/tiny.world
 vim/vim.symlink/backups
 gitconfig.symlink
 irc/weechat.symlink/logs
 plugins.xml.gz
 .netrwhist
+irc/weechat.symlink/irc.conf
 urls.log
 weechat.log
-irc.conf
