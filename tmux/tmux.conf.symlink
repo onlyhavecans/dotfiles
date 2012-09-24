@@ -49,6 +49,9 @@ bind J resize-pane -D 5
 bind K resize-pane -U 5
 bind L resize-pane -R 5
 
+# vim movement in C-[ mode
+setw -g mode-keys vi
+
 ## Color trouble
 #Make the active window name pop
 setw -g window-status-current-fg white
