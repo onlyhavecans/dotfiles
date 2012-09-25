@@ -10,6 +10,10 @@ if [[ -d '/usr/local/bin' ]]; then
 	PATH="/usr/local/bin:${PATH}"
 fi
 
+if [[ -d '/usr/local/sbin' ]]; then
+	PATH="/usr/local/sbin:${PATH}"
+fi
+
 #User Applications
 if [[ -d ${HOME}/Applications ]]; then
 	PATH=${HOME}/Applications:${PATH}
