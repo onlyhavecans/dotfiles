@@ -4,7 +4,7 @@ bind C-a send-prefix
 unbind C-b
 
 # Awesome term
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 
 # I demand trackpad respect
 setw -g mode-mouse off
