@@ -12,9 +12,6 @@ set -g mouse-select-pane off
 set -g mouse-resize-pane off
 set -g mouse-select-window off
 
-# Screen Navigation
-bind-key C-Space previous-window
-
 # Change command delay short
 set-option -sg escape-time 1
 
