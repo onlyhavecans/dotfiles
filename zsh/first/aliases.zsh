@@ -1,5 +1,5 @@
 #Good for the iTerm
-alias cleanup="sudo rm -rfv /private/var/log/asl/*.asl; sudo rm -rfv /Volumes/*/.Trashes;"
+alias cleanup="/usr/bin/sqlite3 ~/Library/Mail/Envelope\ Index vacuum; sudo rm -rfv /private/var/log/asl/*.asl; sudo rm -rfv /Volumes/*/.Trashes;"
 
 #Work Stuff
 alias root='TERM=vt220 ssh -Y $1 -l root'
