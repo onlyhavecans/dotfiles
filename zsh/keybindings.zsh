@@ -17,3 +17,6 @@ bindkey '\e[3~' delete-char
 
 bindkey '^[[A' up-line-or-search                    # start typing + [Up-Arrow] - fuzzy find history forward
 bindkey '^[[B' down-line-or-search                  # start typing + [Down-Arrow] - fuzzy find history backward
+bindkey '^p' up-line-or-search                      # start typing + [^p] - fuzzy find history forward
+bindkey '^n' down-line-or-search                    # start typing + [^n] - fuzzy find history backward
+
