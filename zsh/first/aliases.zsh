@@ -7,8 +7,7 @@ alias aws='TERM=xterm-256color ssh -l root -i ~/.ssh/smcloud.pem $1'
 alias usbserial='screen /dev/tty.PL2303-00002006 9600 8 1'
 
 #Remote workspace
-alias air='ssh air'
-alias serv='ssh -R 23456:localhost:22 vpn'
+alias serv='mosh --ssh="ssh -p 2222 -i ~/.ssh/Bunni5erv_rsa" vpn'
 alias killscreen="killall ScreensharingAgent"
 
 # ZSH Aliases
