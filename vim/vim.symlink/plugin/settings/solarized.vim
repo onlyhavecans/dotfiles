@@ -1,9 +1,9 @@
 
-"if has('gui_running')
-"    set background=dark
-"else
+if has('gui_running')
+    set background=dark
+else
     set background=light
-"endif
+endif
 
 hi! link txtBold Identifier
 hi! link zshVariableDef Identifier
