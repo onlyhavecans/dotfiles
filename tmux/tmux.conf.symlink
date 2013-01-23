@@ -1,10 +1,13 @@
-# Change Prefix to screen it up
+# Change Prefix to C-a since I use caps-ctrl
 set -g prefix C-a
 bind C-a send-prefix
 unbind C-b
 
 # Awesome term
 set -g default-terminal "screen-256color"
+
+# be agressive with resizing to prevent rare mosh lameness
+setw -g aggressive-resize on
 
 # I demand trackpad respect
 setw -g mode-mouse off
