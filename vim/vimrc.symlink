@@ -23,6 +23,7 @@ set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set autoread                    "Reload files changed outside vim
+let mapleader = ","
 
 " ================ Search Settings  =================
 
