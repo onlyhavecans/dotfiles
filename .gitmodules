@@ -28,3 +28,15 @@
 [submodule "vim/vim.symlink/bundle/vdebug"]
 	path = vim/vim.symlink/bundle/vdebug
 	url = git://github.com/joonty/vdebug.git
+[submodule "vim/vim.symlink/bundle/vim-puppet"]
+	path = vim/vim.symlink/bundle/vim-puppet
+	url = git://github.com/rodjek/vim-puppet.git
+[submodule "vim/vim.symlink/bundle/tabular"]
+	path = vim/vim.symlink/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/vim.symlink/bundle/snipmate"]
+	path = vim/vim.symlink/bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "vim/vim.symlink/bundle/syntastic"]
+	path = vim/vim.symlink/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
