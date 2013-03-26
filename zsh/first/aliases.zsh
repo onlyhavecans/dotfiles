@@ -1,14 +1,17 @@
 #Good for the iTerm
 alias cleanup="/usr/bin/sqlite3 ~/Library/Mail/V2/MailData/Envelope\ Index vacuum; sudo rm -rfv /private/var/log/asl/*.asl; sudo rm -rfv /Volumes/*/.Trashes;"
+#Broken out becasue this is fairly disruptive to the system
+alias launchRegister=" /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
 
 #Work Stuff
-alias root='TERM=vt220 ssh -Y $1 -l root -i /Volumes/iamaKey/ssh/DHA-SM_rsa'
-alias aws='TERM=xterm-256color ssh -l root -i /Volumes/iamaKey/ssh/smcloud.pem $1'
+alias root='TERM=vt220 ssh -Y $1 -l root'
+alias aws='TERM=xterm-256color ssh $1 -l ec2-user'
 alias usbserial='screen /dev/tty.PL2303-00002006 9600 8 1'
 
+#Brew annoyfix
+alias gpg=gpg2
+
 #Remote workspace
-alias key="ssh -F /Volumes/iamaKey/ssh/ssh_config"
-alias mish="mosh --ssh='ssh -F /Volumes/iamaKey/ssh/ssh_config'"
 alias killscreen="killall ScreensharingAgent"
 
 # ZSH Aliases
