@@ -12,7 +12,7 @@
 " "]M            Jump on next class or method (normal, visual, operator modes)
 
 " Load the goods"
-let g:pymode = 1
+"let g:pymode = 1
 let g:pymode_rope = 1
 
 " Documentation
