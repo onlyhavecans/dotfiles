@@ -12,7 +12,7 @@ if has("gui_running")
   autocmd VimEnter * set guitablabel=%N:\ %t\ %M
 
   set lines=55
-  set columns=95
+  set columns=125
 
   set guifont=Menlo\ for\ Powerline:h15,Terminus:h17
 else
