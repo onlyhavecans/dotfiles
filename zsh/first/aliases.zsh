@@ -11,6 +11,9 @@ alias usbserial='screen /dev/tty.PL2303-00002006 9600 8 1'
 #Brew annoyfix
 alias gpg=gpg2
 
+#gitplz
+alias gap='git add -p'
+
 #Remote workspace
 alias killscreen="killall ScreensharingAgent"
 

@@ -20,7 +20,7 @@ let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 
 " Set key 'R' for run python code
-let g:pymode_run_key = 'R'
+let g:pymode_run_key = 'r'
 
 " Switch pylint, pyflakes, pep8, mccabe code-checkers
 " Can have multiply values "pep8,pyflakes,mcccabe"

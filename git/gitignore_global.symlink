@@ -22,3 +22,4 @@ Thumbs.db
 
 #Project files for PyCharm
 *.idea
+.ropeproject

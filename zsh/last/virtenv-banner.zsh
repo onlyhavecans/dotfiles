@@ -12,5 +12,5 @@ set -A virtenvs `workon`
 bar
 echo "Installed Enviroment Wrappers;"
 echo ${fg[red]}$virtenvs${fg[default]}
-echo "Disable PIP lock; 'export PIP_REQUIRE_VIRTUALENV=false'"
+echo "Use syspip to edit system packages"
 bar
