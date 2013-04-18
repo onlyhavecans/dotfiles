@@ -22,9 +22,6 @@
 [submodule "vim/vim.symlink/bundle/vim-autoclose"]
 	path = vim/vim.symlink/bundle/vim-autoclose
 	url = https://github.com/andrewle/vim-autoclose.git
-[submodule "vim/vim.symlink/bundle/vdebug"]
-	path = vim/vim.symlink/bundle/vdebug
-	url = git://github.com/joonty/vdebug.git
 [submodule "vim/vim.symlink/bundle/vim-puppet"]
 	path = vim/vim.symlink/bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git

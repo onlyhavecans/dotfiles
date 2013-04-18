@@ -17,7 +17,7 @@ set number                      "Line numbers are good
 " Toggle line numbers to F2
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 set backspace=indent,eol,start  "Allow backspace in insert mode
-set showcmd                     "Show incomplete cmds down the bottom
+"set showcmd                     "Show incomplete cmds down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set autoread                    "Reload files changed outside vim
 
