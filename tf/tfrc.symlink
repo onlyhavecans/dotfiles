@@ -16,6 +16,11 @@
 /visual on
 
 ;;;
+; Turn off annoying messages
+;;;
+/set warn_5keys=off
+
+;;;
 ; Favorite std-libs
 ;;;
 /require kbstack.tf

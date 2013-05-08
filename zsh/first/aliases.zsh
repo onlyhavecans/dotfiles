@@ -21,6 +21,6 @@ alias assumed="!git ls-files -v | grep ^h | cut -c 3-"
 alias killscreen="killall ScreensharingAgent"
 
 # ZSH Aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="emacs ~/.zshrc"
+alias ohmyzsh="emacs ~/.oh-my-zsh"
 alias reload!='. ~/.zshrc'

@@ -1,5 +1,3 @@
-bindkey -v #vi mode
-
 bindkey '^[[H' beginning-of-line                    # [Home] - Go to beginning of line
 bindkey '^[[1~' beginning-of-line                   # [Home] - Go to beginning of line
 bindkey '^[OH' beginning-of-line                    # [Home] - Go to beginning of line
