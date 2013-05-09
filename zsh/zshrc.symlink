@@ -19,7 +19,7 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 
   # ~/.oh-my-zsh/plugins/*
   # Custom plugins ~/.oh-my-zsh/custom/plugins/
-  plugins=(git github colored-man fabric tmux virtualenvwrapper pip python)
+  plugins=(git github vi-mode colored-man fabric tmux virtualenvwrapper pip python)
   kernel=$(uname -s)
   if [[ $kernel == Darwin ]]; then
     plugins+=(osx brew)
