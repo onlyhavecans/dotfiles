@@ -6,3 +6,6 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " F3 to run
 map <F3> :NERDTreeToggle<CR>
+
+" open it if nothing specified
+autocmd vimenter * if !argc() | NERDTree | endif
