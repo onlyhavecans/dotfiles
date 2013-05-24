@@ -5,10 +5,7 @@ let g:pathogen_disabled = [ 'pathogen' ]    " don't load self
 call pathogen#infect()
 call pathogen#helptags()
 
-filetype on            " enables filetype detection
-filetype plugin on     " enables filetype specific pugins
-filetype plugin indent on " enables filetype detection for indenting
-syntax on
+set autoread                    "Reload files changed outside vim
 
 set background=dark
 
@@ -17,7 +14,6 @@ set number                      "Line numbers are good
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set gcr=a:blinkon0              "Disable cursor blink
-set autoread                    "Reload files changed outside vim
 
 "Set Mapleader
 let mapleader = ","
@@ -28,9 +24,6 @@ set list listchars=tab:\ \ ,trail:·
 
 "map sort to leader s
 vnoremap <Leader>s :sort<CR>
-
-" 80 column color marker
-set colorcolumn=80
 
 " ================ Search Settings  =================
 
@@ -66,6 +59,8 @@ set nowrap
 set linebreak    "Wrap lines at convenient points
 set nolist  " list disables linebreak
 
+set colorcolumn=80 " 80 column color marker
+
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
@@ -93,6 +88,13 @@ set wildignore+=*.png,*.jpg,*.gif
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+
+
+" ================ File types & Color  ========================
+filetype on            " enables filetype detection
+filetype plugin on     " enables filetype specific pugins
+filetype plugin indent on " enables filetype detection for indenting
+syntax on
 
 for f in split(glob('~/.vim/plugin/settings/*.vim'), '\n')
   exe 'source' f
