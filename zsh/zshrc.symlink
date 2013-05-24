@@ -2,6 +2,8 @@
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES=$HOME/dotfiles
 
@@ -22,7 +24,7 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
   plugins=(git github vi-mode colored-man fabric rbenv ruby tmux virtualenvwrapper pip python)
   kernel=$(uname -s)
   if [[ $kernel == Darwin ]]; then
-    plugins+=(osx brew)
+    plugins+=(osx brew ssh-agent)
   elif [[ $kernel == Linux ]]; then
     plugins+=(debian)
   fi
