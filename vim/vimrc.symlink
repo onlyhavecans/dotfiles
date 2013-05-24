@@ -1,11 +1,12 @@
 set nocompatible
 filetype off
 
+autocmd! bufwritepost .vimrc source %
+set autoread                    "Reload files changed outside vim
+
 let g:pathogen_disabled = [ 'pathogen' ]    " don't load self
 call pathogen#infect()
 call pathogen#helptags()
-
-set autoread                    "Reload files changed outside vim
 
 set background=dark
 
