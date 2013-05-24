@@ -1,5 +1,4 @@
 set nocompatible
-
 filetype off
 
 let g:pathogen_disabled = [ 'pathogen' ]    " don't load self
@@ -17,7 +16,6 @@ set number                      "Line numbers are good
 " Toggle line numbers to F2
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 set backspace=indent,eol,start  "Allow backspace in insert mode
-"set showcmd                     "Show incomplete cmds down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set autoread                    "Reload files changed outside vim
 
@@ -28,6 +26,12 @@ let g:mapleader = ","
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
+"map sort to leader s
+vnoremap <Leader>s :sort<CR>
+
+" 80 column color marker
+set colorcolumn=80
+
 " ================ Search Settings  =================
 
 set incsearch        "Find the next match as we type the search
@@ -37,7 +41,7 @@ set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 
 set noswapfile
 set nobackup
-set nowb
+set nowritebackup
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
