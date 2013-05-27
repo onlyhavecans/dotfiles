@@ -40,3 +40,6 @@
 [submodule "emacs/emacs.d.symlink/markdown-mode"]
 	path = emacs/emacs.d.symlink/markdown-mode
 	url = git://jblevins.org/git/markdown-mode.git
+[submodule "vim/vim.symlink/bundle/nerdtree-chmod"]
+	path = vim/vim.symlink/bundle/nerdtree-chmod
+	url = https://github.com/EvanDotPro/nerdtree-chmod

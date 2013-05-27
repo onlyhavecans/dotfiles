@@ -66,6 +66,11 @@ set nolist  " list disables linebreak
 
 set colorcolumn=80 " 80 column color marker
 
+" Auto rewrap with Q
+vnoremap Q gq
+nnoremap Q gqap
+
+
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
