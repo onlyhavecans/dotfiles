@@ -2,7 +2,7 @@
 " Keys:
 " K             Show python docs
 " <Ctrl-Space>  Rope autocomplete
-" <Ctrl-c>g     Rope goto definition
+" <Leader>g     Rope goto definition
 " <Ctrl-c>d     Rope show documentation
 " <Ctrl-c>f     Rope find occurrences
 " <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
@@ -12,7 +12,6 @@
 " "]M            Jump on next class or method (normal, visual, operator modes)
 
 " Load the goods"
-"let g:pymode = 1
 let g:pymode_rope = 1
 
 " Documentation
@@ -21,6 +20,12 @@ let g:pymode_doc_key = 'K'
 
 " Set key 'R' for run python code
 let g:pymode_run_key = "<leader>r"
+
+" Open goto in a new vert
+let g:pymode_rope_goto_def_newwin = "vnew"
+
+" Use Leader g for goto definition
+map <Leader>g :call RopeGotoDefinition()<CR>
 
 " Switch pylint, pyflakes, pep8, mccabe code-checkers
 " Can have multiply values "pep8,pyflakes,mcccabe"
