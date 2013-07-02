@@ -1,0 +1,21 @@
+#config {LOG} {PLAIN}
+#config {LOG LEVEL} {LOW}
+#config {COMMAND ECHO} {OFF}
+#config {CHARSET} {UTF-8}
+#config {MCCP} {ON}
+
+#nop This is my log on connect script
+#event {SESSION CONNECTED}
+{
+  #format {logpath} {tf-logs/%s/} {%0};
+  #format {logfile} {%s/%t.log} {$logpath} {%Y-%m-%d};
+  #system {mkdir -p $logpath};
+  #log {append} $logfile
+}
+
+#event {SESSION DISCONNECTED}
+{
+  #log off
+}
+
+#read dotfiles/muck/accounts.tin
