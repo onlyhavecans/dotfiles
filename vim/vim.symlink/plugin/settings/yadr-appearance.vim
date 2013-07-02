@@ -14,7 +14,8 @@ if has("gui_running")
   set lines=55
   set columns=125
 
-  set guifont=PragmataPro:h15,Terminus:h17
+  set guifont=PragmataPro:h12
+  set gfn=PragmataPro\ 12
 else
   "dont load csapprox if we no gui support - silences an annoying warning
   let g:CSApprox_loaded = 1
