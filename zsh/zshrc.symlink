@@ -18,7 +18,6 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 
   # Look in ~/.oh-my-zsh/themes/
   ZSH_THEME="agnoster"
-  DEFAULT_USER="bitm"
 
   # ~/.oh-my-zsh/plugins/*
   # Custom plugins ~/.oh-my-zsh/custom/plugins/
