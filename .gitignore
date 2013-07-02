@@ -1,4 +1,5 @@
-tf/tf-dir.symlink/tiny.world
+muck/tf-dir.symlink/tiny.world
+muck/accounts.tin
 vim/vim.symlink/backups
 gitconfig.symlink
 irc/weechat.symlink/logs

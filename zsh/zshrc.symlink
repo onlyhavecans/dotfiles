@@ -22,10 +22,10 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 
   # ~/.oh-my-zsh/plugins/*
   # Custom plugins ~/.oh-my-zsh/custom/plugins/
-  plugins=(git github vi-mode colored-man fabric zsh-syntax-highlighting rbenv ruby tmux virtualenvwrapper pip python)
+  plugins=(ssh-agent git github vi-mode colored-man zsh-syntax-highlighting rbenv virtualenvwrapper pip python)
   kernel=$(uname -s)
   if [[ $kernel == Darwin ]]; then
-    plugins+=(osx brew ssh-agent)
+    plugins+=(osx brew)
   elif [[ $kernel == Linux ]]; then
     plugins+=(debian)
   fi
