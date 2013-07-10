@@ -1,8 +1,9 @@
+#split 0 1
 #config {LOG} {PLAIN}
 #config {LOG LEVEL} {LOW}
 #config {COMMAND ECHO} {OFF}
-#config {CHARSET} {UTF-8}
 #config {MCCP} {ON}
+#config {CHARSET} {UTF-8}
 
 #nop This is my log on connect script
 #event {SESSION CONNECTED}
@@ -10,7 +11,9 @@
   #format {logpath} {tf-logs/%s/} {%0};
   #format {logfile} {%s/%t.log} {$logpath} {%Y-%m-%d};
   #system {mkdir -p $logpath};
-  #log {append} $logfile
+  #log {append} $logfile;
+  #sub {%0} {<429>%0<099>} {10}
+  #sub {^%0 %+$} {<429>%0} {9}
 }
 
 #event {SESSION DISCONNECTED}
@@ -18,4 +21,7 @@
   #log off
 }
 
+#class {tapestries} {read} dotfiles/muck/tapestries.tin
 #read dotfiles/muck/accounts.tin
+
+# vim:ft=tt
