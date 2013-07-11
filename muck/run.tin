@@ -1,8 +1,9 @@
+#split 0 1
 #config {LOG} {PLAIN}
 #config {LOG LEVEL} {LOW}
 #config {COMMAND ECHO} {OFF}
-#config {CHARSET} {UTF-8}
 #config {MCCP} {ON}
+#config {CHARSET} {UTF-8}
 
 #nop This is my log on connect script
 #event {SESSION CONNECTED}
@@ -10,7 +11,8 @@
   #format {logpath} {tf-logs/%s/} {%0};
   #format {logfile} {%s/%t.log} {$logpath} {%Y-%m-%d};
   #system {mkdir -p $logpath};
-  #log {append} $logfile
+  #log {append} $logfile;
+  #high {%0} <429>
 }
 
 #event {SESSION DISCONNECTED}
@@ -18,4 +20,11 @@
   #log off
 }
 
+#nop I like to multiplay so F6 & F7 to switch sessions
+#macro {\e[17~} {#session -}
+#macro {\e[18~} {#session +}
+
+#class {tapestries} {read} dotfiles/muck/tapestries.tin
 #read dotfiles/muck/accounts.tin
+
+# vim:ft=tt
