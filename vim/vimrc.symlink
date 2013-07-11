@@ -64,8 +64,6 @@ set nowrap
 set linebreak    "Wrap lines at convenient points
 set nolist  " list disables linebreak
 
-set colorcolumn=80 " 80 column color marker
-
 " Auto rewrap with Q
 vnoremap Q gq
 nnoremap Q gqap
