@@ -24,4 +24,8 @@
 #class {tapestries} {read} dotfiles/muck/tapestries.tin
 #read dotfiles/muck/accounts.tin
 
+#nop I like to multiplay so F6 & F7 to switch sessions
+#macro {\e[17~} {#session -}
+#macro {\e[18~} {#session +}
+
 # vim:ft=tt
