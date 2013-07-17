@@ -1,9 +1,20 @@
-#split 0 1
+#split {0}
 #config {LOG} {PLAIN}
 #config {LOG LEVEL} {LOW}
 #config {COMMAND ECHO} {OFF}
 #config {MCCP} {ON}
 #config {CHARSET} {UTF-8}
+
+#class {tapestries} {read} dotfiles/muck/tapestries.tin
+
+#nop I like to multiplay so F6 & F7 to switch sessions
+#macro {\e[17~} {#session -}
+#macro {\e[18~} {#session +}
+#nop This is who until I figure out layered highlights
+#high {^#SESSION '} <006>
+#high {' ACTIVATED.$} <006>
+
+#read dotfiles/muck/accounts.tin
 
 #nop This is my log on connect script
 #event {SESSION CONNECTED}
@@ -19,12 +30,5 @@
 {
   #log off
 }
-
-#nop I like to multiplay so F6 & F7 to switch sessions
-#macro {\e[17~} {#session -}
-#macro {\e[18~} {#session +}
-
-#class {tapestries} {read} dotfiles/muck/tapestries.tin
-#read dotfiles/muck/accounts.tin
 
 # vim:ft=tt
