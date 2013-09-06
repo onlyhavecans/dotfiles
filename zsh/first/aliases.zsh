@@ -4,7 +4,7 @@ alias cleanup="/usr/bin/sqlite3 ~/Library/Mail/V2/MailData/Envelope\ Index vacuu
 alias launchRegister=" /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
 
 #Work Stuff
-alias root='TERM=xterm-256color ssh -Y $1 -l root'
+alias root='TERM=xterm-256color ssh -YA $1 -l root'
 alias aws='TERM=xterm-256color ssh $1 -l ec2-user'
 alias usbserial='screen /dev/tty.PL2303-00002006 9600 8 1'
 

@@ -6,15 +6,20 @@ I stole my Rakefile from https://github.com/holman/dotfiles
 
 ## Apps ##
 ### zsh ###
-* zsh is my new shell. So the config fu is weak.
 * I now use oh-my-zsh as a base, but it's installed separately
 * zsh/first and zsh/last are used to order loading
     * First is for path init and global shell env
     * Last is for things that might/will stomp on defaults and banners
 
-### tinyfugue ###
+### muck ###
+* I am switching over to tt++ since tf has fallen behind times
+* It's heavily in work since the highlighting works differently
 * **tiny.world is ignored** You need one of these
 * The configuration here is social muck oriented
+
+### OpenBox ###
+* The files for openox will not link properly.
+* But it is what I use for work so there is some useful scripts
 
 ### vim ###
 * The configuration is python oriented
