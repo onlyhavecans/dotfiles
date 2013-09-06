@@ -1,1 +1,1 @@
-alias tt++="cd ~;tt++ dotfiles/muck/run.tin"
+alias tt++="cd ~;TERM=xterm-256color tt++ dotfiles/muck/run.tin"

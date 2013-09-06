@@ -23,7 +23,6 @@
   #format {logfile} {%s/%t.log} {$logpath} {%Y-%m-%d};
   #system {mkdir -p $logpath};
   #log {append} $logfile;
-  #high {%0} <429>
 }
 
 #event {SESSION DISCONNECTED}
