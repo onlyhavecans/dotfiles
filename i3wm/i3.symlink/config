@@ -144,3 +144,6 @@ assign [class="HipChat"] 2
 
 bindsym mod4+l exec i3lock -c 000000 --beep
 
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
