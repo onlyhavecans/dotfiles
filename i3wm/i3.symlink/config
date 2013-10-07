@@ -2,7 +2,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
 font pango:PragmataPro 12
@@ -18,7 +18,6 @@ bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -fn PragmataPro
-bindsym mod4+space exec dmenu_run
 
 # change focus
 bindsym $mod+h focus left
@@ -136,7 +135,7 @@ assign [class="VirtualBox"] vbox
 assign [class="Google"] 2
 assign [class="HipChat"] 2
 
-bindsym mod4+l exec i3lock -c 000000 --beep
+bindsym mod4+mod1+l exec i3lock -c 000000 --beep
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
