@@ -8,8 +8,8 @@
 #class {tapestries} {read} dotfiles/muck/tapestries.tin
 
 #nop I like to multiplay so F6 & F7 to switch sessions
-#macro {\e[17~} {#session -}
-#macro {\e[18~} {#session +}
+#macro {\e[17~} {#session -; #buffer {end};}
+#macro {\e[19~} {#session +; #buffer {end};}
 #nop This is who until I figure out layered highlights
 #high {^#SESSION '} <006>
 #high {' ACTIVATED.$} <006>
