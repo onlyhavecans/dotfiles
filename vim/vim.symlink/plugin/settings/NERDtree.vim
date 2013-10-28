@@ -9,6 +9,3 @@ map <F3> :NERDTreeToggle<CR>
 
 " Also map <leader>n for ipad time
 noremap <Leader>n :NERDTreeToggle<CR>
-
-" open it if nothing specified
-autocmd vimenter * if !argc() | NERDTree | endif
