@@ -23,3 +23,8 @@ Thumbs.db
 #Project files for PyCharm
 *.idea
 .ropeproject
+
+#Python build dirs
+*.egg-info
+build/*
+dist/*

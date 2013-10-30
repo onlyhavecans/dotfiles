@@ -11,16 +11,6 @@ I stole my Rakefile from https://github.com/holman/dotfiles
     * First is for path init and global shell env
     * Last is for things that might/will stomp on defaults and banners
 
-### muck ###
-* I am switching over to tt++ since tf has fallen behind times
-* It's heavily in work since the highlighting works differently
-* **tiny.world is ignored** You need one of these
-* The configuration here is social muck oriented
-
-### OpenBox ###
-* The files for openox will not link properly.
-* But it is what I use for work so there is some useful scripts
-
 ### vim ###
 * The configuration is python oriented
 * All bundles are git submodules so after you check out;
