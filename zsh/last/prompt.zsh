@@ -34,4 +34,24 @@ function _prompt_path() {
     _prompt_end blue default
 }
 
-PROMPT="$(_prompt_char)$(_prompt_userhost)$(_prompt_path)"
+
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git cvs svn
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+
+PROMPT=$'$(_prompt_userhost)$(_prompt_path)$(vcs_info_wrapper)
+$(_prompt_char)'

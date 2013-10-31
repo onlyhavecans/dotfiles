@@ -23,7 +23,8 @@ alias assumed="!git ls-files -v | grep ^h | cut -c 3-"
 #Remote workspace
 alias killscreen="killall ScreensharingAgent"
 
+alias ls="ls --color=auto"
+
 # ZSH Aliases
-alias zshconfig="emacs ~/.zshrc"
-alias ohmyzsh="emacs ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zshrc"
 alias reload!='. ~/.zshrc'
