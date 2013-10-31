@@ -13,6 +13,9 @@ alias gpg=gpg2
 
 #gitplz
 alias gap='git add -p'
+alias gst='git status'
+alias gc='git commit'
+alias gp='git pull'
 alias assume=update-index --assume-unchanged
 alias unassume=update-index --no-assume-unchanged
 alias assumed="!git ls-files -v | grep ^h | cut -c 3-"
