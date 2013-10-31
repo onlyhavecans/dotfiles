@@ -1,7 +1,7 @@
 ! truetype plz
 UXTerm.vt100.renderFont: true
 UXTerm*faceName: PragmataPro
-UXTerm*faceSize: 12
+UXTerm*faceSize: 11
 
 ! does this do anything? dunno
 Xft.dpi: 96
@@ -33,10 +33,10 @@ URxvt.lineSpace:            0
  
 ! Fonts
 URxvt.allow_bold:           true
-URxvt.font:                 [codeset=utf-8]xft:PragmataPro:size=12
-URxvt.boldFont:             [codeset=utf-8]xft:PragmataPro:size=12:style=bold
-URxvt.italicFont:           [codeset=utf-8]xft:PragmataPro:size=12:style=italic
-URxvt.boldItalicFont:       [codeset=utf-8]xft:PragmataPro:size=12:style=bolditalic
+URxvt.font:                 [codeset=utf-8]xft:PragmataPro:size=11
+URxvt.boldFont:             [codeset=utf-8]xft:PragmataPro:size=11:style=bold
+URxvt.italicFont:           [codeset=utf-8]xft:PragmataPro:size=11:style=italic
+URxvt.boldItalicFont:       [codeset=utf-8]xft:PragmataPro:size=11:style=bolditalic
  
 ! Fix font space
 URxvt*letterSpace: -1
