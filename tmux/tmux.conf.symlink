@@ -3,12 +3,6 @@ set -g prefix C-a
 bind C-a send-prefix
 unbind C-b
 
-# Awesome term
-set -g default-terminal "screen-256color"
-
-# be agressive with resizing to prevent rare mosh lameness
-setw -g aggressive-resize on
-
 # I demand trackpad respect
 setw -g mode-mouse off
 set -g mouse-select-pane off
@@ -52,8 +46,6 @@ bind L resize-pane -R 5
 # vim movement in C-[ mode
 setw -g mode-keys vi
 
-## Cool shortcuts
-
 ## Color trouble
 #Make the active window name pop
 setw -g window-status-current-fg white
@@ -70,3 +62,7 @@ set -g status-right "%Y-%m-%d #[fg=white]%R "
 set -g status-justify centre
 setw -g monitor-activity on
 set -g visual-activity on
+
+#termset
+set -g default-terminal "xterm-256color"
+setw -g utf8 on

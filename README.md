@@ -6,7 +6,7 @@ I stole my Rakefile from https://github.com/holman/dotfiles
 
 ## Apps ##
 ### zsh ###
-* I now use oh-my-zsh as a base, but it's installed separately
+* I dropped oh-my-zsh for a more trimmed exactly to my wants config
 * zsh/first and zsh/last are used to order loading
     * First is for path init and global shell env
     * Last is for things that might/will stomp on defaults and banners
