@@ -51,6 +51,8 @@ bind L resize-pane -R 5
 
 # vim movement in C-[ mode
 setw -g mode-keys vi
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
 
 ## Cool shortcuts
 
