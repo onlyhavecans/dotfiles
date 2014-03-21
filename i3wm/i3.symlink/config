@@ -127,9 +127,9 @@ bar {
         status_command i3status -c ~/.i3/i3status.conf
 }
 
-workspace 1 output DVI-0
+workspace 1 output DisplayPort-0 
 workspace 2 output VGA-0
-workspace "vbox" output DisplayPort-0
+workspace "vbox" output DVI-0
 
 assign [class="VirtualBox"] vbox
 assign [class="Google"] 2
