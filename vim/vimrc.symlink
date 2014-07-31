@@ -1,9 +1,10 @@
-"Required Vundle setup
 set nocompatible
-set shell=/bin/bash
+set shell=/bin/bash "This is a compatibility fix for fish-shell and plugins
+
+" ================ Vundle for packages ========================
 filetype off
 set runtimepath+=~/.vim/bundle/vundle
-call vundle#begin()
+call vundle#rc()
 
 Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
@@ -17,40 +18,51 @@ Plugin 'klen/python-mode'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tbunnyman/vim-marked'
 
-"Auto Reload settings changes
-autocmd! bufwritepost .vimrc source %
-set autoread                    "Reload files changed outside vim
+" ================ Mapleader comma! ========================
 
-
-" ================ File types & Color  ========================
-filetype on            " enables filetype detection
-filetype plugin on     " enables filetype specific pugins
-filetype plugin indent on " enables filetype detection for indenting
-syntax on
-set encoding=utf-8
-set background=dark
-
-
-" ================ Lines and cursors  ========================
-set number                      "Line numbers are good
-" Toggle line numbers to F2
-nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set gcr=a:blinkon0              "Disable cursor blink
-
-"Set Mapleader
 let mapleader = ","
 let g:mapleader = ","
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+" ================ My Cool shortcuts ========================
 
-"map sort to leader s
+" <F2> = Toggle line numbers
+nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+
+" <Leader>s = sort lines
 vnoremap <Leader>s :sort<CR>
 
-" The Smash jk esc! Seriously, esc on the homerow, also jj would be cool
+" jk smash = esc! Seriously, esc on the homerow
 inoremap jk <Esc>
 inoremap kj <Esc>
+
+" Q = Auto rewrap
+vnoremap Q gq
+nnoremap Q gqap
+
+" <ctrl>-hjkl = window movement"
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" ================ File types & Color  ========================
+
+set encoding=utf-8
+filetype on            " enables filetype detection
+filetype plugin on     " enables filetype specific pugins
+filetype plugin indent on " enables filetype detection for indenting
+syntax enable
+set background=dark
+"let g:solarized_termcolors=256
+colorscheme solarized
+
+" ================ Lines and cursors  ========================
+
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set gcr=a:blinkon0              "Disable cursor blink
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
 
 " ================ Search Settings  =================
 
@@ -86,22 +98,11 @@ set nowrap
 set linebreak    "Wrap lines at convenient points
 set nolist  " list disables linebreak
 
-" Auto rewrap with Q
-vnoremap Q gq
-nnoremap Q gqap
-
-
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
-
-" ctrl based window movement"
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " ================ Completion =======================
 
@@ -118,7 +119,6 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-
 " ================ Scrolling ========================
 
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
@@ -126,6 +126,7 @@ set sidescrolloff=15
 set sidescroll=1
 
 
+" ================ Sourcing plugin specific setting ========================
 
 for f in split(glob('~/.vim/settings/*.vim'), '\n')
   exe 'source' f

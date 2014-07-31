@@ -16,14 +16,13 @@ hi! link jOperators javascriptStringD
 hi! link jId Title
 hi! link jClass Title
 
-hi! link NERDTreeFile Constant
-hi! link NERDTreeDir Identifier
-
 hi! link sassMixinName Function
 hi! link sassDefinition Function
 hi! link sassProperty Type
 hi! link htmlTagName Type
 
+hi! link NERDTreeFile Constant
+hi! link NERDTreeDir Identifier
 hi! PreProc gui=bold
 
 
