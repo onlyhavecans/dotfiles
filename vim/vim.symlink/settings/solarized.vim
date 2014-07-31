@@ -28,4 +28,4 @@ hi! PreProc gui=bold
 
 
 " Enforce the colors set here
-au VimEnter * so ~/.vim/plugin/settings/solarized.vim
+au VimEnter * so ~/.vim/settings/solarized.vim

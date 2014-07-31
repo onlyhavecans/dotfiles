@@ -1,10 +1,6 @@
 muck/tf-dir.symlink/tiny.world
 muck/accounts.tin
 vim/vim.symlink/backups
+vim/vim.symlink/bundle
 gitconfig.symlink
-irc/weechat.symlink/logs
-plugins.xml.gz
 .netrwhist
-irc/weechat.symlink/irc.conf
-urls.log
-weechat.log

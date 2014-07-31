@@ -1,16 +1,37 @@
+"Required Vundle setup
 set nocompatible
 set shell=/bin/bash
 filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#begin()
 
+Plugin 'gmarik/vundle'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/powerline'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'evandotpro/nerdtree-chmod'
+Plugin 'townk/vim-autoclose'
+Plugin 'tpope/vim-fugitive'
+Plugin 'klen/python-mode'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tbunnyman/vim-marked'
+
+"Auto Reload settings changes
 autocmd! bufwritepost .vimrc source %
 set autoread                    "Reload files changed outside vim
 
-let g:pathogen_disabled = [ 'pathogen' ]    " don't load self
-call pathogen#infect()
-call pathogen#helptags()
 
+" ================ File types & Color  ========================
+filetype on            " enables filetype detection
+filetype plugin on     " enables filetype specific pugins
+filetype plugin indent on " enables filetype detection for indenting
+syntax on
+set encoding=utf-8
 set background=dark
 
+
+" ================ Lines and cursors  ========================
 set number                      "Line numbers are good
 " Toggle line numbers to F2
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
@@ -105,13 +126,7 @@ set sidescrolloff=15
 set sidescroll=1
 
 
-" ================ File types & Color  ========================
-filetype on            " enables filetype detection
-filetype plugin on     " enables filetype specific pugins
-filetype plugin indent on " enables filetype detection for indenting
-syntax on
 
-
-for f in split(glob('~/.vim/plugin/settings/*.vim'), '\n')
+for f in split(glob('~/.vim/settings/*.vim'), '\n')
   exe 'source' f
 endfor
