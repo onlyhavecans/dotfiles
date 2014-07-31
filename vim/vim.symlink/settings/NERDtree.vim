@@ -2,10 +2,5 @@
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeWinSize = 30
-let NERDTreeIgnore = ['\.pyc$']
-
-" F3 to run
-map <F3> :NERDTreeToggle<CR>
-
-" Also map <leader>n for ipad time
-noremap <Leader>n :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg', '\.pyc$']

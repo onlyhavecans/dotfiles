@@ -45,6 +45,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" <tab> = forward through buffers
+noremap <tab> <c-w><c-w>
+
+" :Q = quit all fast
+command -nargs=0 Quit :qa!
+
+" <F3> = Toggle NERDTree
+map <F3> :NERDTreeToggle<CR>
+" <Leader>n = Toggle NERDTree
+noremap <Leader>n :NERDTreeToggle<CR>
+
+" <F4> = Highlight the 81st column (from colorcolumn.vim)
+
+
 " ================ File types & Color  ========================
 
 set encoding=utf-8
@@ -53,7 +67,6 @@ filetype plugin on     " enables filetype specific pugins
 filetype plugin indent on " enables filetype detection for indenting
 syntax enable
 set background=dark
-"let g:solarized_termcolors=256
 colorscheme solarized
 
 " ================ Lines and cursors  ========================
