@@ -5,20 +5,18 @@ Yet another dotfiles repo.
 I stole my Rakefile from https://github.com/holman/dotfiles
 
 ## Apps ##
-### zsh ###
-* I dropped oh-my-zsh for a more trimmed exactly to my wants config
-* zsh/first and zsh/last are used to order loading
-    * First is for path init and global shell env
-    * Last is for things that might/will stomp on defaults and banners
+### Shell ###
+* I now use Fish. my Rakefile can't really handle the .conf layout so.... it's coming
 
 ### vim ###
 * The configuration is python oriented
-* All bundles are git submodules so after you check out;
-    * `git submodule init && git submodule update`
+* I finally broke the submodule trap with vundle.
+  * Rake the dotfiles
+  * git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  * vim +BundleInstall +qall
 
-### weechat ###
-* **irc.conf is ignored**
-* This config isn't too special but it has some nice plugins
+### irssi ###
+* Hmmm I need to move this back to dotfiles too
 
 ### git ###
 * The global gitignore is mac/python oriented
