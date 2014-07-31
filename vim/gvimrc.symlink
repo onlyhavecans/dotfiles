@@ -1,8 +1,24 @@
+set t_Co=256
 let g:solarized_termcolors=256
+colorscheme solarized
+
 set gfn=PragmataPro:h14
+
+set lines=55
+set columns=125
+
+" Show tab number (useful for Cmd0, Cmd-2.. mapping)
+" For some reason this doesn't work as a regular set command,
+" (the numbers don't show up) so I made it a VimEnter event
+autocmd VimEnter * set guitablabel=%N:\ %t\ %M
+
+" Disable the scrollbars (NERDTree)
+set guioptions-=r
+set guioptions-=L
 
 if has("gui_macvim")
   set guioptions=aAce
+  set guioptions-=T
   set fuoptions=maxvert,maxhorz
   set noballooneval
 

@@ -28,8 +28,11 @@ let g:mapleader = ","
 " <F2> = Toggle line numbers
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
-" <Leader>s = sort lines
-vnoremap <Leader>s :sort<CR>
+" <F3> = Toggle NERDTree
+map <F3> :NERDTreeToggle<CR>
+
+" <F4> = Highlight the 81st column (from colorcolumn.vim)
+nnoremap <F4> :ToggleColorColumn<cr>
 
 " jk smash = esc! Seriously, esc on the homerow
 inoremap jk <Esc>
@@ -39,24 +42,29 @@ inoremap kj <Esc>
 vnoremap Q gq
 nnoremap Q gqap
 
+" <Leader>s = sort lines
+vnoremap <Leader>s :sort<CR>
+
+" <Leader>n = Toggle NERDTree
+noremap <Leader>n :NERDTreeToggle<CR>
+
+" <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
+nmap <Leader>w :StripTrailingWhitespaces<CR>
+
+" :Q = quit all fast
+command -nargs=0 Quit :qa!
+
+" :w!! = write a file as sudo
+cmap w!! w !sudo tee % >/dev/null
+
+" <tab> = forward through buffers
+noremap <tab> <c-w><c-w>
+
 " <ctrl>-hjkl = window movement"
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" <tab> = forward through buffers
-noremap <tab> <c-w><c-w>
-
-" :Q = quit all fast
-command -nargs=0 Quit :qa!
-
-" <F3> = Toggle NERDTree
-map <F3> :NERDTreeToggle<CR>
-" <Leader>n = Toggle NERDTree
-noremap <Leader>n :NERDTreeToggle<CR>
-
-" <F4> = Highlight the 81st column (from colorcolumn.vim)
 
 
 " ================ File types & Color  ========================

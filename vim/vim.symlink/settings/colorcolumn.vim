@@ -13,4 +13,3 @@ function! s:ToggleColorColumn()
 endfunction
 
 command! ToggleColorColumn call <SID>ToggleColorColumn()
-nnoremap <F4> :ToggleColorColumn<cr>
