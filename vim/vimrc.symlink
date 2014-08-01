@@ -42,6 +42,9 @@ inoremap kj <Esc>
 vnoremap Q gq
 nnoremap Q gqap
 
+" <L>cd = change dir to current file
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
 " <Leader>s = sort lines
 vnoremap <Leader>s :sort<CR>
 
