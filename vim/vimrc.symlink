@@ -32,7 +32,7 @@ call vundle#end()
 
 " ================ Mapleader comma! ========================
 
-let mapleader = ","
+let mapleader   = ","
 let g:mapleader = ","
 
 " ================ My Cool shortcuts ========================
@@ -46,39 +46,6 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " <F4> = Highlight the 81st column (from colorcolumn.vim)
 nnoremap <F4> :ToggleColorColumn<cr>
 
-" jk smash = esc! Seriously, esc on the homerow
-inoremap jk <Esc>
-inoremap kj <Esc>
-
-" Q = Auto rewrap
-vnoremap Q gq
-nnoremap Q gqap
-
-" <Leader>c = comment out block
-vnoremap <Leader>c :TCommentBlock<CR>
-nnoremap <Leader>c :TCommentBlock<CR>
-
-" <Leader>cd = change dir to current file
-nnoremap <Leader>d :cd %:p:h<CR>:pwd<CR>
-
-" <Leader>s = sort lines
-vnoremap <Leader>s :sort<CR>
-
-" <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
-nnoremap <Leader>w :StripTrailingWhitespaces<CR>
-
-" <Leader>n = Toggle NERDTree
-noremap <Leader>n :NERDTreeToggle<CR>
-
-" :Q = quit all fast
-command -nargs=0 Quit :qa!
-
-" :w!! = write a file as sudo
-cmap w!! w !sudo tee % >/dev/null
-
-" :W = turn on Softwrapping
-cmap W Wrap
-
 " <tab> = forward through buffers
 noremap <tab> <c-w><c-w>
 
@@ -88,11 +55,44 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" jk smash = esc! Seriously, esc on the homerow
+inoremap jk <Esc>
+inoremap kj <Esc>
+
+" Q = Auto rewrap
+vnoremap Q gq
+nnoremap Q gqap
+
 " <Leader>a = Tab by following character
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+
+" <Leader>c = comment out block
+vnoremap <Leader>c :TCommentBlock<CR>
+nnoremap <Leader>c :TCommentBlock<CR>
+
+" <Leader>d = change dir to current file
+nnoremap <Leader>d :cd %:p:h<CR>:pwd<CR>
+
+" <Leader>n = Toggle NERDTree
+noremap <Leader>n :NERDTreeToggle<CR>
+
+" <Leader>s = sort lines
+vnoremap <Leader>s :sort<CR>
+
+" <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
+nnoremap <Leader>w :StripTrailingWhitespaces<CR>
+
+" :w!! = write a file as sudo
+cmap w!! w !sudo tee % >/dev/null
+
+" :W = turn on Softwrapping
+cmap W Wrap
+
+" :Q = quit all fast
+command -nargs=0 Quit :qa!
 
 " ================ File types & Color  ========================
 
