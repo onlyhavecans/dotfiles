@@ -29,7 +29,7 @@ let g:mapleader = ","
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 " <F3> = Toggle NERDTree
-map <F3> :NERDTreeToggle<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
 
 " <F4> = Highlight the 81st column (from colorcolumn.vim)
 nnoremap <F4> :ToggleColorColumn<cr>
@@ -48,11 +48,11 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 " <Leader>s = sort lines
 vnoremap <Leader>s :sort<CR>
 
+" <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
+nnoremap <Leader>w :StripTrailingWhitespaces<CR>
+
 " <Leader>n = Toggle NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
-
-" <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
-nmap <Leader>w :StripTrailingWhitespaces<CR>
 
 " :Q = quit all fast
 command -nargs=0 Quit :qa!
@@ -61,6 +61,7 @@ command -nargs=0 Quit :qa!
 cmap w!! w !sudo tee % >/dev/null
 
 " :W = turn on Softwrapping
+cmap W Wrap
 
 " <tab> = forward through buffers
 noremap <tab> <c-w><c-w>
@@ -114,6 +115,7 @@ set undofile
 set autoindent
 set smartindent
 set smarttab
+
 "I'm a spaces guy
 set shiftwidth=2
 set softtabstop=2
@@ -121,8 +123,8 @@ set tabstop=2
 set expandtab
 
 set nowrap
-set linebreak    "Wrap lines at convenient points
-set nolist  " list disables linebreak
+set linebreak " Wrap lines at convenient points
+set nolist    " list disables linebreak
 
 " ================ Folds ============================
 
@@ -150,7 +152,6 @@ set wildignore+=*.png,*.jpg,*.gif
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
-
 
 " ================ Sourcing plugin specific setting ========================
 
