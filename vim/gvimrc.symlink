@@ -5,8 +5,8 @@ colorscheme solarized
 
 set gfn=PragmataPro:h14
 
-set lines=55
-set columns=125
+set lines   = 55
+set columns = 125
 
 " Show tab number (useful for Cmd0, Cmd-2.. mapping)
 " For some reason this doesn't work as a regular set command,
@@ -32,7 +32,7 @@ if has("gui_macvim")
   " Command+Option+Right for next
   map <D-M-Right> :tabn<CR>
   " Command+Option+Left for previous
-  map <D-M-Left> :tabp<CR>
+  map <D-M-Left>  :tabp<CR>
 
   " Automatically resize splits
   " when resizing MacVim window

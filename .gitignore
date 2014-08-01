@@ -2,5 +2,4 @@ muck/tf-dir.symlink/tiny.world
 muck/accounts.tin
 vim/vim.symlink/backups
 vim/vim.symlink/bundle
-gitconfig.symlink
 .netrwhist

@@ -20,7 +20,6 @@ I stole my Rakefile from https://github.com/holman/dotfiles
 
 ### git ###
 * The global gitignore is mac/python oriented
-* **gitconfig is ignored**
 
 ### tmux ###
 * live by tmux
