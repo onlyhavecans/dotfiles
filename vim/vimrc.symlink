@@ -60,6 +60,8 @@ command -nargs=0 Quit :qa!
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
 
+" :W = turn on Softwrapping
+
 " <tab> = forward through buffers
 noremap <tab> <c-w><c-w>
 
