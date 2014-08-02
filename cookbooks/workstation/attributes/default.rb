@@ -6,6 +6,7 @@ default[:dotfiles] = {
   :links  => {
     "vim/vim.symlink"   => ".vim",
     "vim/vimrc.symlink" => ".vimrc",
+    "fish" => ".config/fish",
   }
 }
 
