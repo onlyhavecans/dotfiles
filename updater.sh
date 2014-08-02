@@ -19,6 +19,6 @@ fi
 
 git add -p
 git commit
-put push || exit 5
+git push || exit 5
 
 $CLIENT -z --runlist 'recipe[homebrew],recipe[workstation]'
