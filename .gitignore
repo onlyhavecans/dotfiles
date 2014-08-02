@@ -3,3 +3,6 @@ muck/accounts.tin
 vim/vim.symlink/backups
 vim/vim.symlink/bundle
 .netrwhist
+
+.kitchen/
+nodes/

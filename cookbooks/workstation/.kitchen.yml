@@ -1,0 +1,19 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-7.0
+
+suites:
+  - name: default
+    run_list:
+      - recipe[workstation::default]
+    attributes: {
+      "dotfiles": { "user"  : "vagrant",
+                    "remote": "https://github.com/tbunnyman/dotfiles.git" },
+      "vundle":   { "remote": "https://github.com/gmarik/Vundle.vim.git" }
+    }
