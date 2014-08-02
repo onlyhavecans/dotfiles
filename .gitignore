@@ -4,8 +4,8 @@ muck/accounts.tin
 .netrwhist
 
 # Vim folder
-vim/vim.symlink/backups
-vim/vim.symlink/bundle
+vim/backups
+vim/bundle
 
 # Chef
 .kitchen/
