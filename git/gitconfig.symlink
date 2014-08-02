@@ -3,6 +3,7 @@
 	email = WagThatTail@Me.com
 [core]
 	excludesfile = /Users/bitm/.gitignore_global
+  editor=vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
