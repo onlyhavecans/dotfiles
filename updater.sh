@@ -16,4 +16,9 @@ elif [[ -f /opt/chef/bin/chef-client ]]; then
   CLIENT=/opt/chef/bin/chef-client
 fi
 
+
+git add -p
+git commit
+put push || exit 5
+
 $CLIENT -z --runlist 'recipe[homebrew],recipe[workstation]'
