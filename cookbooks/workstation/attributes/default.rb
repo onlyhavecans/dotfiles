@@ -12,8 +12,8 @@ default[:dotfiles] = {
 }
 
 default[:vundle] = {
-  :pdir   => File.join(node[:dotfiles][:dir], "vim", "vim.symlink", "bundle"),
-  :vdir   => File.join(node[:dotfiles][:dir], "vim", "vim.symlink", "bundle", "Vundle.vim"),
+  :pdir   => File.join(node[:dotfiles][:dir], "vim", "bundle"),
+  :vdir   => File.join(node[:dotfiles][:dir], "vim", "bundle", "Vundle.vim"),
   :remote => "git@github.com:gmarik/Vundle.vim.git"
 }
 
