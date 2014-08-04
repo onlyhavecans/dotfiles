@@ -8,22 +8,22 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Lokaltog/powerline'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'evandotpro/nerdtree-chmod'
-Plugin 'townk/vim-autoclose'
-Plugin 'godlygeek/tabular'
-Plugin 'tomtom/tcomment_vim'
+Plugin 'gmarik/Vundle.vim'    " Package Manager
+Plugin 'Lokaltog/powerline'   " My powerline love
+Plugin 'scrooloose/syntastic' " Global Syntax test
+Plugin 'scrooloose/nerdtree'  " NEEEEEEEERD Tree
+Plugin 'tpope/vim-obsession'  " Session and window saving
+Plugin 'Raimondi/delimitMate' " Autoadding closing braces
+Plugin 'godlygeek/tabular'    " Text Alignment plugin
+Plugin 'tomtom/tcomment_vim'  " Auto block commenting
 
 " Language stuff
+Plugin 'tpope/vim-fugitive'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tbunnyman/vim-marked'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dag/vim-fish'
 Plugin 'klen/python-mode'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'dag/vim-fish'
 
 " Color Scheme
 Plugin 'altercation/vim-colors-solarized'

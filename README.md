@@ -2,21 +2,22 @@
 Yet another dotfiles repo.
 
 ## Notes ##
-I stole my Rakefile from https://github.com/holman/dotfiles
+I use chef-client --local-mode to deply all this. THis still new and rickety, expectially since I haven't refacotred EVERYTHING yet
 
 ## Apps ##
 ### Shell ###
-* I now use Fish. my Rakefile can't really handle the .conf layout so.... it's coming
+* fish-shell is the shell to have!
 
 ### vim ###
-* The configuration is python oriented
+* The configuration is python oriented with some ruby
+    * This is where I spend most of my day and I think it shows
 * I finally broke the submodule trap with vundle.
-  * Rake the dotfiles
-  * git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-  * vim +BundleInstall +qall
+  * Sadly chef won't fully bootsrtap this because of vim errors on inital load 
+  * to initalize new plugins: vim +PluginInstall +qall 
+  * to plugins: vim +PluginUpdate +qall 
 
-### irssi ###
-* Hmmm I need to move this back to dotfiles too
+### homebrew ###
+* My apps are managed by chef, I haven't gotten too deep into cask yet
 
 ### git ###
 * The global gitignore is mac/python oriented
@@ -24,3 +25,7 @@ I stole my Rakefile from https://github.com/holman/dotfiles
 ### tmux ###
 * live by tmux
 * die by tmux
+
+### irssi ###
+* Hmmm I need to move this back to dotfiles too
+
