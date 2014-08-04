@@ -8,14 +8,15 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'    " Package Manager
-Plugin 'Lokaltog/powerline'   " My powerline love
-Plugin 'scrooloose/syntastic' " Global Syntax test
-Plugin 'scrooloose/nerdtree'  " NEEEEEEEERD Tree
-Plugin 'tpope/vim-obsession'  " Session and window saving
-Plugin 'Raimondi/delimitMate' " Autoadding closing braces
-Plugin 'godlygeek/tabular'    " Text Alignment plugin
-Plugin 'tomtom/tcomment_vim'  " Auto block commenting
+Plugin 'gmarik/Vundle.vim'              " Package Manager
+Plugin 'Lokaltog/powerline'             " My powerline love
+Plugin 'scrooloose/syntastic'           " Global Syntax test
+Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
+Plugin 'tpope/vim-obsession'            " Session and window saving
+Plugin 'Raimondi/delimitMate'           " Autoadding closing braces
+Plugin 'godlygeek/tabular'              " Text Alignment plugin
+Plugin 'tomtom/tcomment_vim'            " Auto block commenting
+Plugin 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 
 " Language stuff
 Plugin 'tpope/vim-fugitive'
@@ -46,15 +47,6 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " <F4> = Highlight the 81st column (from colorcolumn.vim)
 nnoremap <F4> :ToggleColorColumn<cr>
 
-" <tab> = forward through buffers
-noremap <tab> <c-w><c-w>
-
-" <ctrl>-hjkl = window movement"
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " jk smash = esc! Seriously, esc on the homerow
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -64,12 +56,12 @@ vnoremap Q gq
 nnoremap Q gqap
 
 " <Leader>a = Tab by following character
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a= :Tabularize /=\zs<CR>
+vmap <Leader>a= :Tabularize /=\zs<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
-" <Leader>c = comment out 
+" <Leader>c = comment out
 vnoremap <Leader>c :TComment<CR>
 nnoremap <Leader>c :TComment<CR>
 
