@@ -20,6 +20,7 @@ elif [[ -f /opt/chef/bin/chef-client ]]; then
 fi
 
 
+git pull || exit 5
 git add -p
 git commit
 git push || exit 5
