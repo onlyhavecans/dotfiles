@@ -8,8 +8,6 @@ if test -z "$TMUX"
 end
 
 set EDITOR vim
-set -x PAGER vimpager
-set -x GIT_PAGER less
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"

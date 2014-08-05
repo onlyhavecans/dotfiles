@@ -13,7 +13,7 @@ set -g mouse-select-window off
 set-option -sg escape-time 1
 
 # Start window/session index at 1
-set-option -g base-index 1
+set  -g base-index 1
 setw -g pane-base-index 1
 
 set-option -g set-titles on
