@@ -25,3 +25,6 @@ git commit
 git push || exit 5
 
 $CLIENT -z --runlist 'recipe[homebrew],recipe[workstation]'
+vim +PluginInstall +qall
+vim +PluginUpdate +qall
+vim +PluginClean +qall
