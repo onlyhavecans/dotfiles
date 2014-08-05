@@ -3,10 +3,13 @@ if status --is-interactive
   /usr/local/bin/archey --color
 end
 
+if test -z "$TMUX"
+  set TERM screen-256color
+end
+
 set EDITOR vim
 set -x PAGER vimpager
 set -x GIT_PAGER less
-
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"

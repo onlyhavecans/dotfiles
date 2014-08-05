@@ -24,7 +24,13 @@ git add -p
 git commit
 git push || exit 5
 
+echo -n "Press enter to chef, kill to walk away"
+read reply
+
+# Most of the work
 $CLIENT -z --runlist 'recipe[homebrew],recipe[workstation]'
+
+# Update plugins
 vim +PluginInstall +qall
 vim +PluginUpdate +qall
 vim +PluginClean +qall
