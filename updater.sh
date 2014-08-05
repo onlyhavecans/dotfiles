@@ -8,6 +8,9 @@ if [[ ! -d /opt/chefdk ]]; then
   echo " !!!!!!!!!!!!!!!!! "
   echo " You should install Chef-dk at http://downloads.getchef.com/chef-dk "
 fi
+if [[ ! -d cookbooks/homebrew ]]; then
+  curl -L https://supermarket.getchef.com/cookbooks/homebrew/download | tar -zxf - -C cookbooks/
+fi
 
 CLIENT=$(which chef-client)
 if [[ -f /opt/chefdk/bin/chef-client ]]; then 
