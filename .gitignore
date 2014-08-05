@@ -9,6 +9,7 @@ vim/bundle
 
 # Chef
 .kitchen/
+cookbooks/homebrew/
 nodes/
 
 # fish
