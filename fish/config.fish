@@ -7,7 +7,7 @@ if test -z "$TMUX"
   set TERM screen-256color
 end
 
-set EDITOR vim
+set -x EDITOR vim
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
