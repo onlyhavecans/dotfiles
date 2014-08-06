@@ -23,7 +23,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tbunnyman/vim-marked'
 Plugin 'klen/python-mode'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'dag/vim-fish'
 
 " Color Scheme
@@ -76,6 +75,9 @@ vnoremap <Leader>s :sort<CR>
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>
+
+" <Leader>z = Pop a new tab with a copy of buffer (to emulate zoom)
+nnoremap <Leader>z :tabnew %<CR>
 
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
