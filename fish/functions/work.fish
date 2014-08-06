@@ -11,6 +11,7 @@ function work
       tmux split-window -v -t work
       tmux select-pane -t work:1.1
       tmux split-window -v -l 15 -t work:1.1
+      tmux split-window -v -l 8 -t work:1.1
       tmux select-pane -t work:1.1
     end
     exec tmux attach -d -t work
