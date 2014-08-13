@@ -21,8 +21,9 @@ Plugin 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 " Language stuff
 Plugin 'tpope/vim-fugitive'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'tbunnyman/vim-marked'
+Plugin 'itspriddle/vim-marked'
 Plugin 'klen/python-mode'
+Plugin 'vadv/vim-chef'
 Plugin 'dag/vim-fish'
 
 " Color Scheme
