@@ -2,6 +2,9 @@
 *~
 *.swp
 
+#Vim session files
+Session.vim
+
 # Folder config files
 Desktop.ini
 .DS_Store
@@ -14,15 +17,12 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-#Ignore compiled python
-*.pyc
-
-#Project Files for Expresso
-*.esproj
-
 #Project files for PyCharm
 *.idea
 .ropeproject
+
+#Ignore compiled python
+*.pyc
 
 #Python build dirs
 *.egg-info
