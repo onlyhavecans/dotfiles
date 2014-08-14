@@ -68,6 +68,9 @@ nnoremap <Leader>c :TComment<CR>
 " <Leader>d = change dir to current file
 nnoremap <Leader>d :cd %:p:h<CR>:pwd<CR>
 
+" <Leader>f = kill folding
+nnoremap <Leader>f :set nofoldenable
+
 " <Leader>n = Toggle NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
 
@@ -147,8 +150,6 @@ set nolist    " list disables linebreak
 
 " ================ Folds ============================
 
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 " ================ Completion =======================
