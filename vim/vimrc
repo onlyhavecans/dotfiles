@@ -69,13 +69,16 @@ nnoremap <Leader>c :TComment<CR>
 nnoremap <Leader>d :cd %:p:h<CR>:pwd<CR>
 
 " <Leader>f = kill folding
-nnoremap <Leader>f :set nofoldenable
+noremap <Leader>f :set nofoldenable<CR>
 
 " <Leader>n = Toggle NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
 
 " <Leader>o = Start 0bsessing
 noremap <Leader>o :Obsess<CR>
+
+" <Leader>r = Reload vim config
+noremap <Leader>r :so $MYVIMRC<CR>
 
 " <Leader>s = sort lines
 vnoremap <Leader>s :sort<CR>
