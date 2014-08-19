@@ -56,10 +56,12 @@ vnoremap Q gq
 nnoremap Q gqap
 
 " <Leader>a = Tab by following character
-nmap <Leader>a= :Tabularize /=\zs<CR>
-vmap <Leader>a= :Tabularize /=\zs<CR>
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>a. :Tabularize /=><CR>
+vmap <Leader>a. :Tabularize /=><CR>
 
 " <Leader>c = comment out
 vnoremap <Leader>c :TComment<CR>
