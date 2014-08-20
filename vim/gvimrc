@@ -5,8 +5,8 @@ colorscheme solarized
 
 set gfn=PragmataPro:h14
 
-set lines   = 55
-set columns = 125
+set lines=55
+set columns=125
 
 " Show tab number (useful for Cmd0, Cmd-2.. mapping)
 " For some reason this doesn't work as a regular set command,
