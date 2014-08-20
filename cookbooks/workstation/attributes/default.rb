@@ -2,7 +2,7 @@
 default[:dotfiles] = {
   :user   => node[:current_user],
   :dir    => File.join(Dir.home(node[:current_user]), "dotfiles"),
-  :remote => "git@github.com:tbunnyman/dotfiles.git",
+  :remote => "git@stash.bunni.biz:7999/cfg/dotfiles.git",
   :links  => {
     "vim"	 => ".vim",
     "vim/vimrc"  => ".vimrc",
