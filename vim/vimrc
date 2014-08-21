@@ -95,6 +95,9 @@ noremap <Leader>f :set nofoldenable<CR>
 " <Leader>h = Highlight changed lines using Git Gutter
 noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
 
+" disable man key
+nnoremap K <nop>
+
 " <Leader>n = Toggle NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
 
@@ -204,7 +207,9 @@ set sidescrolloff=15
 set sidescroll=1
 
 " ================ GitGutter ========================
-
+" Solarized needs this black
+highlight SignColumn ctermbg=0
+highlight SignColumn guibg=0
 
 " ================ Sourcing plugin specific setting ========================
 
