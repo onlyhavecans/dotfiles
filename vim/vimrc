@@ -134,6 +134,9 @@ set list listchars=tab:\ \ ,trail:·
 
 set incsearch        "Find the next match as we type the search
 set viminfo='100,f1  "Save up to 100 marks, enable capital marks
+let g:dash_map={ 'ruby' : 'chef' }
+let g:dash_map={ 'python' : 'twisted' }
+let g:dash_map={ 'python' : 'flask' }
 
 " ================ Turn Off Swap Files ==============
 
