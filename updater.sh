@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -x
+#!/usr/bin/env bash
 
 if  [[ ! -d /opt/chef && ! -d /opt/chefdk ]]; then
   curl -L https://www.opscode.com/chef/install.sh | sudo bash
@@ -17,4 +17,4 @@ fi
 git pull origin master || exit 5
 
 # Most of the work
-$CLIENT -z --runlist 'recipe[homebrew],recipe[workstation]'
+$CLIENT -z --runlist 'recipe[workstation]'

@@ -12,6 +12,16 @@ end
 node[:dotfiles][:links].each do |key, value|
   original = File.join(node[:dotfiles][:dir], key)
   dotted = File.join(Dir.home(node[:dotfiles][:user]), value)
+
+  # Chef can't overwrite folders with symlinks so destroy it if we find one.
+  # This is mostly for fish & vim
+  if !File.symlink?(dotted) && File.directory?(dotted)
+    directory dotted do
+      action :delete
+      recursive true
+    end
+  end
+
   link dotted do
     to original
   end

@@ -60,7 +60,6 @@ default[:homebrew][:casks] = [
   'bartender',
   'caffeine',
   'ccmenu',
-  'crashplan',
   'dropbox',
   'evernote',
   'fastscripts',
@@ -100,3 +99,4 @@ default[:homebrew][:casks] = [
   # 'karabiner',
   # 'vagrant',
   # 'virtualbox',
+  # 'crashplan',
