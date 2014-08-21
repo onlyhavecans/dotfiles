@@ -25,6 +25,7 @@ Plugin 'itspriddle/vim-marked'
 Plugin 'klen/python-mode'
 Plugin 'vadv/vim-chef'
 Plugin 'dag/vim-fish'
+Plugin 'rizzatti/dash.vim'
 
 " My special plugins
 Plugin 'ssh://git@stash.bunni.biz:7999/cfg/muck.git'
@@ -50,6 +51,14 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " <F4> = Highlight the 81st column (from colorcolumn.vim)
 nnoremap <F4> :ToggleColorColumn<cr>
 
+" <F5 = Mac OS X Dropzone
+
+" <F6> = change directory to current file's pwd
+nnoremap <F6> :cd %:p:h<CR>:pwd<CR>
+
+" <F7> = change directory to current file's pwd
+set pastetoggle=<F7>
+
 " jk smash = esc! Seriously, esc on the homerow
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -70,8 +79,8 @@ vmap <Leader>a. :Tabularize /=><CR>
 vnoremap <Leader>c :TComment<CR>
 nnoremap <Leader>c :TComment<CR>
 
-" <Leader>d = change dir to current file
-nnoremap <Leader>d :cd %:p:h<CR>:pwd<CR>
+" <Leader>d = Dash Search for current word
+nmap <silent> <leader>d <Plug>DashSearch
 
 " <Leader>f = kill folding
 noremap <Leader>f :set nofoldenable<CR>
