@@ -5,25 +5,19 @@
 # Copyright (C) 2014 
 # 
 
+##
 # Initalizing Homebrew
-# directory '/usr/local' do
-#   owner node[:current_user]
-#   group node[:root_group]
-#   mode "0775"
-# end
-
+# I'm using attributes for all of this
 include_recipe 'homebrew'
-include_recipe "homebrew::cask"
+include_recipe 'homebrew::install_formulas'
+include_recipe 'homebrew::install_casks'
 
+##
+# Cask is messy so clean up after it
+bash 'brew_alfred_link' do
+  code 'brew cask alfred link'
+end
 
-package "fish"
-package "dsh"
-package "gnupg2"
-package "archey"
-package "irssi"
-package "macvim"
-package "python"
-package "python3"
-
-homebrew_cask 'google-chrome'
-
+bash 'brew_cleanup' do
+  code 'brew cask cleanup'
+end

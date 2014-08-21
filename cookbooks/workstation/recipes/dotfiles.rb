@@ -1,12 +1,3 @@
-package "git"
-
-git node[:dotfiles][:dir] do
-  repository node[:dotfiles][:remote]
-  revision "master"
-  user node[:dotfiles][:user]
-  action :sync
-end
-
 node[:links][:oldstyle].each do |dir|
   linkglob = File.join(node[:dotfiles][:dir], dir, "*.symlink")
   Dir.glob(linkglob).each do |linkfile|
@@ -30,6 +21,8 @@ end
 ##
 # ensure Vundle
 ##
+package 'git'
+package 'vim'
 
 directory node[:vundle][:pdir] do
   owner node[:dotfiles][:user]
@@ -40,6 +33,9 @@ git node[:vundle][:vdir] do
   repository node[:vundle][:remote]
   revision "master"
   user node[:dotfiles][:user]
-  action :sync
+  action :checkout
 end
 
+bash 'initalize_vundle' do
+  code 'vim +PluginInstall +qall'
+end

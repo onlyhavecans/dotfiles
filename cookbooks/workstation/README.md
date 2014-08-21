@@ -1,4 +1,6 @@
-# workstation
+# Workstation
 
-TODO: Enter the cookbook description here.
+Initalize my workstation and link up all my dotfies.
+The readme in the main dotfiles is better
+
 
