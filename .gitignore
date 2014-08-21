@@ -8,7 +8,6 @@ vim/backups
 vim/bundle
 
 # Chef
-.kitchen/
 cookbooks/homebrew/
 nodes/
 

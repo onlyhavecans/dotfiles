@@ -1,9 +1,0 @@
-DEPENDENCIES
-  workstation
-    path: .
-    metadata: true
-
-GRAPH
-  homebrew (1.9.0)
-  workstation (0.1.0)
-    homebrew (>= 0.0.0)
