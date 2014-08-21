@@ -26,6 +26,9 @@ Plugin 'klen/python-mode'
 Plugin 'vadv/vim-chef'
 Plugin 'dag/vim-fish'
 
+" My special plugins
+Plugin 'ssh://git@stash.bunni.biz:7999/cfg/muck.git'
+
 " Color Scheme
 Plugin 'altercation/vim-colors-solarized'
 
