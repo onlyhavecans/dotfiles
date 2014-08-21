@@ -8,24 +8,31 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" General plugins
 Plugin 'gmarik/Vundle.vim'              " Package Manager
 Plugin 'Lokaltog/powerline'             " My powerline love
-Plugin 'scrooloose/syntastic'           " Global Syntax test
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
 Plugin 'tpope/vim-obsession'            " Session and window saving
-Plugin 'Raimondi/delimitMate'           " Autoadding closing braces
 Plugin 'godlygeek/tabular'              " Text Alignment plugin
 Plugin 'tomtom/tcomment_vim'            " Auto block commenting
 Plugin 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 
+" Programming tools
+Plugin 'tpope/vim-fugitive'             " How you use git as a vim user
+Plugin 'airblade/vim-gitgutter'         " Shows edits from git in gutter
+Plugin 'rizzatti/dash.vim'              " Dash is amazing for lookups
+Plugin 'scrooloose/syntastic'           " Global Syntax test
+Plugin 'itspriddle/vim-marked'          " Opens Marked 2 on current file
+Plugin 'Raimondi/delimitMate'           " Autoadding closing braces
+
 " Language stuff
-Plugin 'tpope/vim-fugitive'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'itspriddle/vim-marked'
-Plugin 'klen/python-mode'
-Plugin 'vadv/vim-chef'
-Plugin 'dag/vim-fish'
-Plugin 'rizzatti/dash.vim'
+Plugin 'plasticboy/vim-markdown'        " Markdown
+Plugin 'klen/python-mode'               " Python
+Plugin 'vadv/vim-chef'                  " Chef
+Plugin 'dag/vim-fish'                   " Fish is my shell
+
+" Testing
+Plugin 'terryma/vim-multiple-cursors'   " Stole from Collin
 
 " My special plugins
 Plugin 'ssh://git@stash.bunni.biz:7999/cfg/muck.git'
@@ -84,6 +91,9 @@ nmap <silent> <leader>d <Plug>DashSearch
 
 " <Leader>f = kill folding
 noremap <Leader>f :set nofoldenable<CR>
+
+" <Leader>h = Highlight changed lines using Git Gutter
+noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
 
 " <Leader>n = Toggle NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
@@ -192,6 +202,9 @@ set wildignore+=*.png,*.jpg,*.gif
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+
+" ================ GitGutter ========================
+
 
 " ================ Sourcing plugin specific setting ========================
 
