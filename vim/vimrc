@@ -24,6 +24,7 @@ Plugin 'rizzatti/dash.vim'              " Dash is amazing for lookups
 Plugin 'scrooloose/syntastic'           " Global Syntax test
 Plugin 'itspriddle/vim-marked'          " Opens Marked 2 on current file
 Plugin 'Raimondi/delimitMate'           " Autoadding closing braces
+Plugin 'SirVer/ultisnips'               " Switching to vim snips
 
 " Language stuff
 Plugin 'plasticboy/vim-markdown'        " Markdown
@@ -181,9 +182,14 @@ set nowrap
 set linebreak " Wrap lines at convenient points
 set nolist    " list disables linebreak
 
+let g:indent_guides_auto_colors = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
 " ================ Folds ============================
 
 set nofoldenable        "dont fold by default
+let g:vim_markdown_folding_disabled=1
 
 " ================ Completion =======================
 
@@ -205,11 +211,36 @@ set wildignore+=*.png,*.jpg,*.gif
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
 
 " ================ GitGutter ========================
+"
 " Solarized needs this black
 highlight SignColumn ctermbg=0
 highlight SignColumn guibg=0
+
+" ================ Syntastic ========================
+
+let g:syntastic_enable_signs=1
+
+" ================ UltiSnips ========================
+
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" ================ NERDTree ========================
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeWinSize = 30
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg', '\.pyc$']
+
+" ================ Powerline ========================
+
+set laststatus=2
 
 " ================ Sourcing plugin specific setting ========================
 
