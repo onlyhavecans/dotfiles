@@ -91,12 +91,11 @@ default[:homebrew][:casks] = [
   'transmit',
   'viscosity',
   'wineskin-winery',
+  # The package installers
+  'send-to-kindle',
+  'chefdk',
+  'karabiner',
+  'vagrant',
+  'virtualbox',
+  'crashplan',
 ]
-
-## Disabled because of lack of askpass
-  # 'send-to-kindle',
-  # 'chefdk',
-  # 'karabiner',
-  # 'vagrant',
-  # 'virtualbox',
-  # 'crashplan',
