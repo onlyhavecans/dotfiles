@@ -80,7 +80,6 @@ default[:homebrew][:casks] = [
   'phpstorm',
   'pycharm',
   'postgres',
-  'send-to-kindle',
   'skype',
   'skitch',
   'sourcetree',
@@ -89,8 +88,13 @@ default[:homebrew][:casks] = [
   'textexpander',
   'the-unarchiver',
   'transmit',
-  'vagrant',
-  'virtualbox',
   'viscosity',
   'wineskin-winery',
 ]
+
+## Disabled because of lack of askpass
+  # 'send-to-kindle',
+  # 'chefdk',
+  # 'karabiner',
+  # 'vagrant',
+  # 'virtualbox',
