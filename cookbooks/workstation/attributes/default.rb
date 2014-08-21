@@ -26,7 +26,7 @@ default[:links][:oldstyle] = [
 default[:vundle] = {
   :pdir   => File.join(node[:dotfiles][:dir], "vim", "bundle"),
   :vdir   => File.join(node[:dotfiles][:dir], "vim", "bundle", "Vundle.vim"),
-  :remote => "git@github.com:gmarik/Vundle.vim.git"
+  :remote => "https://github.com/gmarik/Vundle.vim.git"
 }
 
 ##
@@ -46,7 +46,7 @@ default[:workstation][:packages] = [
 
 ##
 # Mac Specific packages (homebrew)
-default[:homebrew][:formula] = [
+default[:homebrew][:formulas] = [
   'archey',
   'irssi',
 ]
@@ -56,9 +56,11 @@ default[:homebrew][:formula] = [
 default[:homebrew][:casks] = [
   'alfred',
   'anki',
+  'arduino',
   'bartender',
   'caffeine',
   'ccmenu',
+  'crashplan',
   'dropbox',
   'evernote',
   'fastscripts',
