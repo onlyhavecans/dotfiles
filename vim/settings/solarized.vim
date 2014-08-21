@@ -24,7 +24,3 @@ hi! link htmlTagName Type
 hi! link NERDTreeFile Constant
 hi! link NERDTreeDir Identifier
 hi! PreProc gui=bold
-
-
-" Enforce the colors set here
-au VimEnter * so ~/.vim/settings/solarized.vim

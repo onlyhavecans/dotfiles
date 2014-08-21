@@ -10,7 +10,7 @@ call vundle#begin()
 
 " General plugins
 Plugin 'gmarik/Vundle.vim'              " Package Manager
-Plugin 'Lokaltog/powerline'             " My powerline love
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
 Plugin 'tpope/vim-obsession'            " Session and window saving
 Plugin 'godlygeek/tabular'              " Text Alignment plugin
@@ -120,9 +120,6 @@ nnoremap <Leader>z :tabnew %<CR>
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
 
-" :W = turn on Softwrapping
-cmap W Wrap
-
 " :Q = quit all fast
 command -nargs=0 Quit :qa!
 
@@ -162,7 +159,10 @@ set nowritebackup
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 
-silent !mkdir ~/.vim/backups > /dev/null 2>&1
+let backupdir = expand('~/.vim/backups')
+if !isdirectory(backupdir)
+    call mkdir(backupdir)
+  endif
 set undodir=~/.vim/backups
 set undofile
 
@@ -180,7 +180,6 @@ set expandtab
 
 set nowrap
 set linebreak " Wrap lines at convenient points
-set nolist    " list disables linebreak
 
 let g:indent_guides_auto_colors = 1
 let g:indent_guides_start_level = 2
