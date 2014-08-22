@@ -241,6 +241,11 @@ let NERDTreeIgnore              = ['tmp', '.yardoc', 'pkg', '\.pyc$']
 
 set laststatus =2
 
+" ======================== delimitMate ========================
+
+let delimitMate_expand_space = 1
+let delimitMate_expand_cr    = 2
+
 " ================ Sourcing plugin specific setting ========================
 
 for f in split(glob('~/.vim/settings/*.vim'), '\n')
