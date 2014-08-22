@@ -25,6 +25,7 @@ Plugin 'scrooloose/syntastic'           " Global Syntax test
 Plugin 'itspriddle/vim-marked'          " Opens Marked 2 on current file
 Plugin 'Raimondi/delimitMate'           " Autoadding closing braces
 Plugin 'SirVer/ultisnips'               " Switching to vim snips
+Plugin 'honza/vim-snippets'             " Default snips
 
 " Language stuff
 Plugin 'plasticboy/vim-markdown'        " Markdown
@@ -146,8 +147,6 @@ set list listchars=tab:\ \ ,trail:·
 set incsearch        "Find the next match as we type the search
 set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 let g:dash_map={ 'ruby' : 'chef' }
-let g:dash_map={ 'python' : 'twisted' }
-let g:dash_map={ 'python' : 'flask' }
 
 " ================ Turn Off Swap Files ==============
 
