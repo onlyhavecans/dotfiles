@@ -183,7 +183,7 @@ set linebreak " Wrap lines at convenient points
 
 let g:indent_guides_auto_colors = 1
 let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+let g:indent_guides_guide_size  = 1
 
 " ================ Folds ============================
 
@@ -207,17 +207,17 @@ set wildignore+=*.png,*.jpg,*.gif
 
 " ================ Scrolling ========================
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
+set scrolloff     =8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff =15
+set sidescroll    =1
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
 " ================ GitGutter ========================
 "
 " Solarized needs this black
-highlight SignColumn ctermbg=0
-highlight SignColumn guibg=0
+highlight SignColumn ctermbg =0
+highlight SignColumn guibg   =0
 
 " ================ Syntastic ========================
 
@@ -231,15 +231,15 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " ================ NERDTree ========================
 
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let g:NERDTreeWinSize = 30
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg', '\.pyc$']
+let NERDTreeMinimalUI           = 1
+let NERDTreeDirArrows           = 1
+let g:NERDTreeWinSize           = 30
+let NERDTreeHighlightCursorline = 1
+let NERDTreeIgnore              = ['tmp', '.yardoc', 'pkg', '\.pyc$']
 
 " ================ Powerline ========================
 
-set laststatus=2
+set laststatus =2
 
 " ================ Sourcing plugin specific setting ========================
 
