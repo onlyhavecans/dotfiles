@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+echo "Do a pull just to be sure we are up to date"
+git pull origin master || exit 5
 
 echo "Check for chef"
 if  [[ ! -d /opt/chef && ! -d /opt/chefdk ]]; then
@@ -14,9 +16,6 @@ if [[ -f /opt/chefdk/bin/chef-client ]]; then
 elif [[ -f /opt/chef/bin/chef-client ]]; then
   CLIENT=/opt/chef/bin/chef-client
 fi
-
-echo "Do a pull just to be sure we are up to date"
-git pull origin master || exit 5
 
 echo "ensure homebrew permissions with a sudo"
 echo "(also a trick to make chef tasks that need sudo work"

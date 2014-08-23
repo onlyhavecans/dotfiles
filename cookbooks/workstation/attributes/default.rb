@@ -42,6 +42,8 @@ default[:workstation][:packages] = [
   'nmap',
   'python',
   'python3',
+  'youtube-dl',
+  'yara',
 ]
 
 ##
