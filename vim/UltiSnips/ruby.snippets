@@ -1,0 +1,35 @@
+snippet #! "ruby hashbang" b
+#!/usr/bin/env ruby
+endsnippet
+
+snippet dep "Cookbook Dependency" b
+depends "${1:recipe}"
+endsnippet
+
+snippet inc "Include recipe" b
+include_recipe '${1:cookbook::recipe}'
+endsnippet
+
+snippet py "Python Package" b
+python_pip "${1:package}" do
+	action ${2::install}
+end
+endsnippet
+
+snippet template "Chef Template" b
+template "${1:destination file}" do
+	source "${1/^\/.*\/([^\/]+)$/$1/}.erb"
+	owner "root"
+	group "root"
+	mode "${2:0644}"
+end
+endsnippet
+
+snippet cookbook "Chef Cookbook file" b
+cookbook_file "${1:destination file}" do
+	source "${1/^\/.*\/([^\/]+)$/$1/}"
+	owner "root"
+	group "root"
+	mode "${2:0644}"
+end
+endsnippet
