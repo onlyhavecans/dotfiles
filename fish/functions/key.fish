@@ -1,4 +1,4 @@
-function key
+function key --description "Load one of my keys"
   switch $argv
     case bitm
       ssh-add -t 12h ~/.ssh/bitm_rsa

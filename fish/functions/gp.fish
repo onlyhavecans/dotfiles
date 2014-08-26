@@ -1,3 +1,3 @@
-function gp
-  git push
+function gp --description "Git push"
+  git push $argv
 end

@@ -1,4 +1,4 @@
-function vundle
+function vundle --description "Vundle commands"
   switch $argv
     case install
       vim +PluginInstall +qall

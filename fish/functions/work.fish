@@ -1,4 +1,4 @@
-function work
+function work --description "Set up my standard workspace"
   if not test -z "$TMUX"
     echo "Oh no! You are already in TMUX"
   else
