@@ -1,27 +1,29 @@
 [user]
-	name = David Aronsohn
-	email = WagThatTail@Me.com
+  name = David Aronsohn
+  email = WagThatTail@Me.com
 [core]
-	excludesfile = /Users/bitm/.gitignore_global
+  excludesfile = /Users/bitm/.gitignore_global
   editor=vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.7/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [push]
-	default = simple
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
-[merge]
-	tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-[mergetool]
-	prompt = false
+  default = simple
+[alias]
+    pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
 [diff]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
+[merge]
+  tool = Kaleidoscope
+[difftool]
+  prompt = false
+[mergetool]
+  prompt = false
+#Silly tools fight for config down here
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustexitcode = true
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+  cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.7/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
