@@ -3,18 +3,16 @@ echo "Do a pull just to be sure we are up to date"
 git pull origin master || exit 5
 
 echo "Check for chef"
-if  [[ ! -d /opt/chef && ! -d /opt/chefdk ]]; then
-  curl -L https://www.opscode.com/chef/install.sh | sudo bash
+if  [[ ! -d /opt/chefdk ]]; then
+  curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -P chefdk
 fi
 
 echo "Update/Download homebrew cookbook"
 curl -#L https://supermarket.getchef.com/cookbooks/homebrew/download | tar -zxf - -C cookbooks/
 
 CLIENT=$(which chef-client)
-if [[ -f /opt/chefdk/bin/chef-client ]]; then 
+if [[ ! -f $CLIENT && -f /opt/chefdk/bin/chef-client ]]; then
   CLIENT=/opt/chefdk/bin/chef-client
-elif [[ -f /opt/chef/bin/chef-client ]]; then
-  CLIENT=/opt/chef/bin/chef-client
 fi
 
 echo "ensure homebrew permissions with a sudo"
