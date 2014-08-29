@@ -20,13 +20,20 @@ set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
 set -g __fish_git_prompt_color_cleanstate green bold
 
 set -g fish_color_user cyan
-set -g fish_color_host white
+set -g fish_color_host 707070
 set -g fish_color_error red
 set -g fish_color_cwd yellow
 
 function fish_prompt --description 'Write out the prompt'
 
   set -l last_status $status
+
+  if not test $last_status -eq 0
+    set_color $fish_color_error
+    printf 'fish: Prior command failed; [%s] \n' $last_status
+    set_color normal
+  end
+
 
   # Just calculate these once, to save a few cycles when displaying the prompt
   if not set -q __fish_prompt_hostname
@@ -40,22 +47,15 @@ function fish_prompt --description 'Write out the prompt'
   #user@hostname
   set_color $fish_color_user
   echo -n $USER
-  set_color $fish_color_host
+  set_color $fish_color_host -o
   printf '@%s ' $__fish_prompt_hostname
+  set_color normal
 
   # PWD
   set_color $fish_color_cwd
   echo -n (prompt_pwd)
   set_color normal
 
-  printf '%s ' (__fish_git_prompt)
-
-  if not test $last_status -eq 0
-    set_color $fish_color_error
-    printf '[%s] ' $last_status
-    set_color normal
-  end
-
-  echo -n '$ '
+  printf '%s> ' (__fish_git_prompt)
 
 end
