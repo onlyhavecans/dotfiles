@@ -20,7 +20,7 @@ set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
 set -g __fish_git_prompt_color_cleanstate green bold
 
 set -g fish_color_user cyan
-set -g fish_color_host 707070
+set -g fish_color_host 9C9C9C
 set -g fish_color_error red
 set -g fish_color_cwd yellow
 
