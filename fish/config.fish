@@ -13,10 +13,6 @@ set -x POWERLINE_ROOT $HOME/dotfiles/vim/bundle/powerline/
 set -x POWERLINE_COMMAND $POWERLINE_ROOT/scripts/powerline-render
 set -x POWERLINE_CONFIG_COMMAND $POWERLINE_ROOT/scripts/powerline-config
 eval $POWERLINE_ROOT/scripts/powerline-daemon -q
-# -p $HOME/dotfiles/powerline
-
-set fish_function_path $fish_function_path "$POWERLINE_ROOT/powerline/bindings/fish"
-powerline-setup
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
