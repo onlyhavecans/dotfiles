@@ -49,23 +49,24 @@ setw -g mode-keys vi
 bind-key -t vi-copy 'v' begin-selection
 bind-key -t vi-copy 'y' copy-selection
 
-## Color trouble
-#Make the active window name pop
-setw -g window-status-current-fg white
-setw -g window-status-current-attr bright
-
-#Make the active pane pop
-set -g pane-active-border-bg green
-
 ## Status Bar
+set -g status on
 set -g status-utf8 on
-set -g status-left "[#h]:#S"
-set -g status-left-length 45
-set -g status-right "%Y-%m-%d #[fg=white]%R "
-set -g status-justify centre
+set -g status-interval 1
+set -g status-bg colour234
+set -g status-fg colour248
 setw -g monitor-activity on
 set -g visual-activity on
+
+#set-option -g pane-border-bg black
+#set-option -g pane-border-fg colour245
+set-option -g pane-active-border-bg yellow
+set-option -g pane-active-border-fg yellow
+
 
 #termset
 set -g default-terminal "screen-256color"
 setw -g utf8 on
+
+#going powerline
+source-file "$HOME/dotfiles/vim/bundle/powerline/powerline/bindings/tmux/powerline.conf"
