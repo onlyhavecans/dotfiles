@@ -58,11 +58,8 @@ set -g status-fg colour248
 setw -g monitor-activity on
 set -g visual-activity on
 
-#set-option -g pane-border-bg black
-#set-option -g pane-border-fg colour245
 set-option -g pane-active-border-bg yellow
 set-option -g pane-active-border-fg yellow
-
 
 #termset
 set -g default-terminal "screen-256color"
@@ -70,3 +67,6 @@ setw -g utf8 on
 
 #going powerline
 source-file "$HOME/dotfiles/vim/bundle/powerline/powerline/bindings/tmux/powerline.conf"
+
+# Sometimes we need to be local
+ if '[ -f $HOME/.tmux.local.conf ]' 'source $HOME/.tmux.local.conf'
