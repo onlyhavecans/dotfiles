@@ -2,6 +2,7 @@ function muck --description "Activate my muck window"
   if not test -z "$TMUX"
     echo "Oh no! You are already in TMUX"
   else
+    cd ~/muck
     if not tmux has-session -t muck
       tmux new-session -d -c ~/muck -n chat -s muck
       tmux split-window -v -t muck
