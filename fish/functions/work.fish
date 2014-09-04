@@ -5,8 +5,9 @@ function work --description "Set up my standard workspace"
     if not tmux has-session -t work
       tmux new-session -d -s work
       #If you call vim directly instead of launching it it breaks tmux/vim
-      tmux send-keys -t work:1.1 'vim +NERDTree' C-m
-      tmux split-window -h -p 30 -t work 'irssi'
+      tmux send-keys -t work:1.1 'vim' C-m
+      tmux split-window -h -p 30 -t work
+      tmux send-keys -t work:1.2 'irssi' C-m
       tmux split-window -v -p 66 -t work
       tmux split-window -v -l 25 -t work
       tmux select-pane -t work:1.1

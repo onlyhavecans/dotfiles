@@ -251,3 +251,7 @@ let delimitMate_expand_cr    = 2
 for f in split(glob('~/.vim/settings/*.vim'), '\n')
   exe 'source' f
 endfor
+
+if filereadable(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
