@@ -32,7 +32,6 @@ end
 # ensure Vundle
 ##
 package 'git'
-package 'vim'
 
 directory node[:vundle][:pdir] do
   owner node[:dotfiles][:user]

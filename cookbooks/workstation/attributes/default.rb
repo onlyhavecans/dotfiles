@@ -5,7 +5,7 @@ default[:dotfiles] = {
   :dir    => File.join(Dir.home(node[:current_user]), "dotfiles"),
   :remote => "git@stash.bunni.biz:7999/cfg/dotfiles.git",
   :links  => {
-    "vim"	 => ".vim",
+    "vim"  => ".vim",
     "vim/vimrc"  => ".vimrc",
     "vim/gvimrc" => ".gvimrc",
     "fish"       => ".config/fish",
@@ -32,7 +32,6 @@ default[:vundle] = {
 ##
 # Generic packages to install
 default[:workstation][:packages] = [
-  'vim',
   'git',
   'fish',
   'dsh',
@@ -56,6 +55,14 @@ default[:homebrew][:formulas] = [
 ##
 # Mac Casks to install
 default[:homebrew][:casks] = [
+  # The package installers
+  'send-to-kindle',
+  'chefdk',
+  'karabiner',
+  'vagrant',
+  'virtualbox',
+  'crashplan',
+# The dropins
   'alfred',
   'anki',
   'arduino',
@@ -86,6 +93,7 @@ default[:homebrew][:casks] = [
   'skype',
   'skitch',
   'sourcetree',
+  'spillo',
   'spotify',
   'superduper',
   'textexpander',
@@ -93,11 +101,4 @@ default[:homebrew][:casks] = [
   'transmit',
   'viscosity',
   'wineskin-winery',
-  # The package installers
-  'send-to-kindle',
-  'chefdk',
-  'karabiner',
-  'vagrant',
-  'virtualbox',
-  'crashplan',
 ]
