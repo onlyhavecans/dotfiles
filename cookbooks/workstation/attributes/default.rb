@@ -87,6 +87,7 @@ default[:homebrew][:casks] = [
   'moom',
   'mysqlworkbench',
   'omnifocus',
+  'panic-unison',
   'phpstorm',
   'pycharm',
   'postgres',
