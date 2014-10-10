@@ -51,6 +51,9 @@ let g:mapleader = ","
 
 " ================ My Cool shortcuts ========================
 
+" <F1> = Disable help
+nnoremap <F1> <nop>
+
 " <F2> = Toggle line numbers
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
@@ -60,13 +63,19 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " <F4> = Highlight the 81st column (from colorcolumn.vim)
 nnoremap <F4> :ToggleColorColumn<cr>
 
-" <F5 = Mac OS X Dropzone
+" <F5> = Mac OS X Dropzone
 
 " <F6> = change directory to current file's pwd
 nnoremap <F6> :cd %:p:h<CR>:pwd<CR>
 
 " <F7> = change directory to current file's pwd
 set pastetoggle=<F7>
+
+" // = clears search highlight
+nnoremap <silent> // :noh<CR>
+
+" K = Disable man key
+nnoremap K <nop>
 
 " jk smash = esc! Seriously, esc on the homerow
 inoremap jk <Esc>
@@ -75,6 +84,14 @@ inoremap kj <Esc>
 " Q = Auto rewrap
 vnoremap Q gq
 nnoremap Q gqap
+
+" Y = copy from current character to end of line
+" (mimic y0's behavior but backwards)
+noremap Y y$
+
+" Ctrl+S = save
+nmap <C-s> :write!<CR>
+imap <C-s> <C-o>:write!<CR>
 
 " <Leader>a = Tab by following character
 nmap <Leader>a= :Tabularize /=<CR>
@@ -88,17 +105,19 @@ vmap <Leader>a. :Tabularize /=><CR>
 vnoremap <Leader>c :TComment<CR>
 nnoremap <Leader>c :TComment<CR>
 
-" <Leader>d = Dash Search for current word
-nmap <silent> <leader>d <Plug>DashSearch
+" Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
+" yanked stack (also, in visual mode)
+nnoremap <silent> <leader>d "_d
+xnoremap <silent> <leader>d "_d
+
+" <Leader>D = Dash Search for current word
+nmap <silent> <leader>D <Plug>DashSearch
 
 " <Leader>f = kill folding
 noremap <Leader>f :set nofoldenable<CR>
 
 " <Leader>h = Highlight changed lines using Git Gutter
 noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
-
-" disable man key
-nnoremap K <nop>
 
 " <Leader>n = Toggle NERDTree
 noremap <Leader>n :NERDTreeToggle<CR>
