@@ -15,3 +15,6 @@ nodes/
 fish_history
 fishd.*
 generated_completions
+
+# Dash Cheatsheet
+*.docset/
