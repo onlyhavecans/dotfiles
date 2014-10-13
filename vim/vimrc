@@ -68,7 +68,7 @@ nnoremap <F4> :ToggleColorColumn<cr>
 " <F6> = change directory to current file's pwd
 nnoremap <F6> :cd %:p:h<CR>:pwd<CR>
 
-" <F7> = change directory to current file's pwd
+" <F7> = Toggle paste mode
 set pastetoggle=<F7>
 
 " // = clears search highlight

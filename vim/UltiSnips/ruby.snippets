@@ -33,3 +33,10 @@ cookbook_file "${1:destination file}" do
 	mode "${2:0644}"
 end
 endsnippet
+
+snippet entry "Cheatsheet entry" b
+entry do
+	command '${1:command}'
+	name '${2:The command info}'
+end
+endsnippet
