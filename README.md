@@ -6,6 +6,11 @@ I use chef-client --local-mode to deply all this. THis still new and rickety, ex
 In order to make this a bit smoother updater.sh is the wrapper around chef and a few other cleanip tasks not ready for chef yet
 
 ## Apps ##
+### Dash ###
+I love Dash for mac. I even write my own cheatsheets for it.
+To install you have to `sudo /usr/bin/gem install cheatset`
+I will eventually get the generation and adding to dash automated but not right now
+
 ### Shell ###
 * fish-shell is the shell to have!
     * I use a lot of command aliases as functions.

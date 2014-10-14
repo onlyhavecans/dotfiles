@@ -142,4 +142,11 @@ cheatsheet do
     end
   end
 
+  category do
+    id 'vimdiff'
+    entry do
+      command 'dp'
+      name '(p)ush change over to other file. merge'
+    end
+  end
 end
