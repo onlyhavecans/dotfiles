@@ -56,9 +56,6 @@ default[:homebrew][:formulas] = [
 # Mac Casks to install
 default[:homebrew][:casks] = [
   # The package installers
-  'send-to-kindle',
-  'chefdk',
-  'karabiner',
   'vagrant',
   'virtualbox',
   'crashplan',
