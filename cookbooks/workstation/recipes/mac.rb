@@ -25,10 +25,6 @@ include_recipe 'homebrew::install_casks'
 
 ##
 # Cask is messy so clean up after it
-bash 'brew_alfred_link' do
-  code 'brew cask alfred link'
-end
-
 bash 'brew_cleanup' do
   code 'brew cask cleanup'
 end
