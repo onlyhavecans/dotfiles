@@ -1,5 +1,5 @@
 [user]
-  name = David Aronsohn
+	name = David Aronsohn
   email = WagThatTail@Me.com
 [core]
   excludesfile = /Users/bitm/.gitignore_global

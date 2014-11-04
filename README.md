@@ -22,6 +22,8 @@ I will eventually get the generation and adding to dash automated but not right 
   * Sadly chef won't fully bootsrtap this because of vim errors on inital load
   * to initalize new plugins: vim +PluginInstall +qall
   * to plugins: vim +PluginUpdate +qall
+* to use the codesearch stuff you need to install from https://github.com/junkblocker/codesearch
+  * Vundle will only init all thwe codesearch plugins if an index is present
 
 ### homebrew ###
 * My apps are managed by chef, I haven't gotten too deep into cask yet

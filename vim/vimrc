@@ -27,6 +27,13 @@ Plugin 'Raimondi/delimitMate'           " Autoadding closing braces
 Plugin 'SirVer/ultisnips'               " Switching to vim snips
 Plugin 'honza/vim-snippets'             " Default snips
 
+" Searching
+if filereadable($HOME.'/.csearchindex')
+  Plugin 'Shougo/unite.vim'
+  Plugin 'brandonbloom/csearch.vim'
+  Plugin 'junkblocker/unite-codesearch'
+endif
+
 " Language stuff
 Plugin 'plasticboy/vim-markdown'        " Markdown
 Plugin 'klen/python-mode'               " Python
@@ -100,6 +107,10 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 nmap <Leader>a. :Tabularize /=><CR>
 vmap <Leader>a. :Tabularize /=><CR>
+vmap <Leader>ad :Tabularize /\d<CR>
+nmap <Leader>ad :Tabularize /\d<CR>
+vmap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
+nmap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
 
 " <Leader>c = comment out
 vnoremap <Leader>c :TComment<CR>
@@ -128,8 +139,8 @@ noremap <Leader>o :Obsess<CR>
 " <Leader>r = Reload vim config
 noremap <Leader>r :so $MYVIMRC<CR>
 
-" <Leader>s = sort lines
-vnoremap <Leader>s :sort<CR>
+" <Leader>s = Search unite
+nnoremap <Leader>s :Unite codesearch<CR>
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>
@@ -141,7 +152,7 @@ nnoremap <Leader>z :tabnew %<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " :Q = quit all fast
-command -nargs=0 Quit :qa!
+command! -nargs=0 Quit :qa!
 
 " ================ File types & Color  ========================
 
@@ -264,6 +275,12 @@ set laststatus =2
 
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr    = 2
+
+" ======================== UniteCodeSearch ========================
+let g:unite_enable_start_insert        = 1
+let g:unite_split_rule                 = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight                  = 30
 
 " ================ Sourcing plugin specific setting ========================
 
