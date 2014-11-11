@@ -14,6 +14,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
 Plugin 'tpope/vim-obsession'            " Session and window saving
 Plugin 'godlygeek/tabular'              " Text Alignment plugin
+Plugin 'junegunn/vim-easy-align'        " Text Alignment plugin
 Plugin 'tomtom/tcomment_vim'            " Auto block commenting
 Plugin 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 
@@ -109,8 +110,8 @@ nmap <Leader>a. :Tabularize /=><CR>
 vmap <Leader>a. :Tabularize /=><CR>
 vmap <Leader>ad :Tabularize /\d<CR>
 nmap <Leader>ad :Tabularize /\d<CR>
-vmap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
-nmap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
+vmap <Leader>as :Tabularize /^\s*\S\+\s\+\zs<CR>
+nmap <Leader>as :Tabularize /^\s*\S\+\s\+\zs<CR>
 
 " <Leader>c = comment out
 vnoremap <Leader>c :TComment<CR>
@@ -177,6 +178,10 @@ set list listchars=tab:\ \ ,trail:·
 set incsearch        "Find the next match as we type the search
 set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 let g:dash_map={ 'ruby' : 'chef' }
+
+" ================ Numbers =================
+
+set nrformats=
 
 " ================ Turn Off Swap Files ==============
 
