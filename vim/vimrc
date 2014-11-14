@@ -101,6 +101,11 @@ noremap Y y$
 nmap <C-s> :write!<CR>
 imap <C-s> <C-o>:write!<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
+nmap <Leader>a <Plug>(EasyAlign)
+
 " <Leader>a = Tab by following character
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
@@ -110,8 +115,8 @@ nmap <Leader>a. :Tabularize /=><CR>
 vmap <Leader>a. :Tabularize /=><CR>
 vmap <Leader>ad :Tabularize /\d<CR>
 nmap <Leader>ad :Tabularize /\d<CR>
-vmap <Leader>as :Tabularize /^\s*\S\+\s\+\zs<CR>
-nmap <Leader>as :Tabularize /^\s*\S\+\s\+\zs<CR>
+vmap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
+nmap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
 
 " <Leader>c = comment out
 vnoremap <Leader>c :TComment<CR>
