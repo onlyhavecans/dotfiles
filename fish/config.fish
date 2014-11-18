@@ -1,5 +1,6 @@
 if status --is-interactive
-  set PATH /opt/chefdk/bin /opt/chefdk/embedded/bin $HOME/.chefdk/gem/ruby/2.1.0/bin $HOME/Applications /usr/local/bin /usr/local/sbin $PATH;
+  set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH;
+  set PATH $PATH /opt/chefdk/bin /opt/chefdk/embedded/bin $HOME/.chefdk/gem/ruby/2.1.0/bin;
   /usr/local/bin/archey --color
 end
 
@@ -9,7 +10,7 @@ end
 
 set -x EDITOR vim
 
-set -x POWERLINE_ROOT $HOME/dotfiles/vim/bundle/powerline/
+set -x POWERLINE_ROOT $HOME/dotfiles/vim/bundle/powerline
 set -x POWERLINE_COMMAND $POWERLINE_ROOT/scripts/powerline-render
 set -x POWERLINE_CONFIG_COMMAND $POWERLINE_ROOT/scripts/powerline-config
 eval $POWERLINE_ROOT/scripts/powerline-daemon -q
