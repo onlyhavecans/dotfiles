@@ -17,6 +17,8 @@ Plugin 'godlygeek/tabular'              " Text Alignment plugin
 Plugin 'junegunn/vim-easy-align'        " Text Alignment plugin
 Plugin 'tomtom/tcomment_vim'            " Auto block commenting
 Plugin 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
+Plugin 'terryma/vim-multiple-cursors'   " Stole from Collin
+Plugin 'kana/vim-textobj-entire'        " Textobject ae for entire file
 
 " Programming tools
 Plugin 'tpope/vim-fugitive'             " How you use git as a vim user
@@ -24,7 +26,7 @@ Plugin 'airblade/vim-gitgutter'         " Shows edits from git in gutter
 Plugin 'rizzatti/dash.vim'              " Dash is amazing for lookups
 Plugin 'scrooloose/syntastic'           " Global Syntax test
 Plugin 'itspriddle/vim-marked'          " Opens Marked 2 on current file
-Plugin 'Raimondi/delimitMate'           " Autoadding closing braces
+Plugin 'blueyed/delimitMate'           " Autoadding closing braces
 Plugin 'SirVer/ultisnips'               " Switching to vim snips
 Plugin 'honza/vim-snippets'             " Default snips
 
@@ -42,7 +44,6 @@ Plugin 'vadv/vim-chef'                  " Chef
 Plugin 'dag/vim-fish'                   " Fish is my shell
 
 " Testing
-Plugin 'terryma/vim-multiple-cursors'   " Stole from Collin
 
 " My special plugins
 Plugin 'ssh://git@stash.bunni.biz:7999/cfg/muck.git'

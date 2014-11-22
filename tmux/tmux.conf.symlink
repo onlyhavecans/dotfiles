@@ -20,6 +20,10 @@ set-option -g set-titles on
 #set-option -g set-titles-string '[#S:#I #H] #W'  # use screen title
 
 # Bind stuff up
+
+# Fuck you spacebar
+unbind Space
+
 # Reload config with r
 bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 
