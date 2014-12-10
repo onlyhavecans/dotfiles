@@ -18,7 +18,6 @@ Plugin 'junegunn/vim-easy-align'        " Text Alignment plugin
 Plugin 'tomtom/tcomment_vim'            " Auto block commenting
 Plugin 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plugin 'terryma/vim-multiple-cursors'   " Stole from Collin
-Plugin 'kana/vim-textobj-entire'        " Textobject ae for entire file
 
 " Programming tools
 Plugin 'tpope/vim-fugitive'             " How you use git as a vim user

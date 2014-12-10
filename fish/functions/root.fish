@@ -1,4 +1,4 @@
-function root --description "Loginto a box as root"
+function root --description "Log into work boxes"
   set TERM xterm-256color
-  ssh -YA -l root $argv
+  ssh -YA $argv
 end
