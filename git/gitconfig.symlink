@@ -1,8 +1,8 @@
 [user]
 	name = David Aronsohn
-  email = WagThatTail@Me.com
+	email = WagThatTail@Me.com
 [core]
-  excludesfile = /Users/bitm/.gitignore_global
+	excludesfile = /Users/bitm/.gitignore_global
   editor=vim
 [push]
   default = simple
@@ -25,8 +25,8 @@
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
