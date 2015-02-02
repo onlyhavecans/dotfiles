@@ -4,7 +4,7 @@ git pull origin master || exit 5
 
 echo "Check for chef"
 if  [[ ! -d /opt/chefdk ]]; then
-  curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -P chefdk
+  curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
 fi
 
 echo "Update/Download homebrew cookbook"
