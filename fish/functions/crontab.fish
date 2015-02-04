@@ -1,5 +1,5 @@
 function crontab --description "fix a dumb bug"
-  set EDITOR /usr/local/bin/vim
+  set EDITOR vim
   /usr/bin/crontab $argv
 end
 
