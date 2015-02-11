@@ -26,6 +26,7 @@ default['workstation']['links'] = {
 ##
 # Generic packages to install
 default['workstation']['packages'] = [
+  'ctags',
   'git',
   'fish',
   'dsh',
