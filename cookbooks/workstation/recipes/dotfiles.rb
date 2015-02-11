@@ -3,6 +3,7 @@ node['links']['oldstyle'].each do |dir|
   Dir.glob(linkglob).each do |linkfile|
     basefile = File.basename(linkfile)[0..-9]
     dest = File.join(Dir.home(node['dotfiles']['user']), ".#{basefile}")
+
     link dest do
       to linkfile
     end
