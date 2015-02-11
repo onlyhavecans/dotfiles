@@ -1,14 +1,12 @@
-# Old muck stufff
-muck/tf-dir.symlink/tiny.world
-muck/accounts.tin
-.netrwhist
 
 # Vim folder
+.netrwhist
 vim/backups
 vim/bundle
 
 # Chef
 cookbooks/homebrew/
+cookbooks/build-essential/
 nodes/
 
 # fish

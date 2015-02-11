@@ -9,15 +9,13 @@ fi
 
 echo "Update/Download homebrew cookbook"
 curl -#L https://supermarket.getchef.com/cookbooks/homebrew/download | tar -zxf - -C cookbooks/
+echo "Update/Download build-essential cookbook"
+curl -#L https://supermarket.getchef.com/cookbooks/build-essential/download | tar -zxf - -C cookbooks/
 
 CLIENT=$(which chef-client)
 if [[ ! -f $CLIENT && -f /opt/chefdk/bin/chef-client ]]; then
   CLIENT=/opt/chefdk/bin/chef-client
 fi
 
-echo "ensure homebrew permissions with a sudo"
-echo "(also a trick to make chef tasks that need sudo work"
-sudo chown -R `whoami`:staff /usr/local
-
-echo "Run chef"
-$CLIENT -z --runlist 'recipe[workstation]'
+echo "Run chef, NEEDS SUDO"
+sudo $CLIENT -z --runlist 'recipe[workstation]'
