@@ -15,11 +15,10 @@ node['dotfiles']['links'].each do |key, value|
 
   # Chef can't overwrite folders with symlinks so destroy it if we find one.
   # This is mostly for fish & vim
-  if !File.symlink?(dotted) && File.directory?(dotted)
-    directory dotted do
-      action :delete
-      recursive true
-    end
+  directory dotted do
+    action :delete
+    recursive true
+    only_if { !File.symlink?(dotted) && File.directory?(dotted) }
   end
 
   link dotted do
