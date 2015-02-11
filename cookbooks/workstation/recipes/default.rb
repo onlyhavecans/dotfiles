@@ -2,9 +2,13 @@
 # Cookbook Name:: workstation
 # Recipe:: default
 #
-# Copyright (C) 2014
+# Copyright (C) 2014-2015
 #
-#
+Chef::Resource.send(:include, Workstation::Mixin)
+Chef::Recipe.send(:include, Workstation::Mixin)
+
+Chef::Log.info("Workstation user is #{workstation_user}")
+Chef::Log.info("Workstation user's home path is #{workstation_user_home}")
 
 ##
 # Install all my OS specific goodies

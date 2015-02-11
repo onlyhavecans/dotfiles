@@ -1,18 +1,32 @@
+#
+# Cookbook Name:: workstation
+# Recipe:: dotfiles
+#
+# Copyright (C) 2014-2015
+#
+Chef::Resource.send(:include, Workstation::Mixin)
+Chef::Recipe.send(:include, Workstation::Mixin)
+
+##
+# Old dirty way
 node['links']['oldstyle'].each do |dir|
-  linkglob = File.join(node['dotfiles']['dir'], dir, "*.symlink")
+  linkglob = File.join(workstation_user_home, node['workstation']['dotfiles_dir'], dir, "*.symlink")
   Dir.glob(linkglob).each do |linkfile|
     basefile = File.basename(linkfile)[0..-9]
-    dest = File.join(Dir.home(node['dotfiles']['user']), ".#{basefile}")
+    dest = File.join(workstation_user_home, ".#{basefile}")
 
     link dest do
       to linkfile
+      user workstation_user
     end
   end
 end
 
-node['dotfiles']['links'].each do |key, value|
-  original = File.join(node['dotfiles']['dir'], key)
-  dotted = File.join(Dir.home(node['dotfiles']['user']), value)
+##
+# Proper dotfile links
+node['workstation']['links'].each do |key, value|
+  original = File.join(workstation_user_home, node['workstation']['dotfiles_dir'], key)
+  dotted = File.join(workstation_user_home, value)
 
   # Chef can't overwrite folders with symlinks so destroy it if we find one.
   # This is mostly for fish & vim
@@ -24,6 +38,7 @@ node['dotfiles']['links'].each do |key, value|
 
   link dotted do
     to original
+    user workstation_user
   end
 end
 
@@ -33,18 +48,21 @@ end
 ##
 package 'git'
 
-directory node['vundle']['pdir'] do
-  owner node['dotfiles']['user']
+vundle_dir = File.join(workstation_user_home, "vim", "bundle", "Vundle.vim")
+
+directory vundle_dir do
+  owner workstation_user
   recursive true
 end
 
-git node['vundle']['vdir'] do
-  repository node['vundle']['remote']
+git vundle_dir do
+  repository node['workstation']['vundle_remote']
   revision "master"
-  user node['dotfiles']['user']
+  user workstation_user
   action :checkout
 end
 
 bash 'initalize_vundle' do
   code 'vim +PluginInstall +qall'
+  user workstation_user
 end

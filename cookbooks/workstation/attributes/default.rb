@@ -1,16 +1,25 @@
+#
+# Author:: tBunnyMan
+# Cookbook Name:: attributes
+# Attributes:: default
+#
+# Copyright 2014-2015, tBunnyMan
+
+default['workstation']['user'] = nil
+default['workstation']['dotfiles_dir'] = 'dotfiles'
+default['workstation']['vundle_remote'] = "https://github.com/gmarik/Vundle.vim.git"
+
 ##
 # How to set up my dotfiles
-default['dotfiles'] = {
-  :user   => node['current_user'],
-  :dir    => File.join(Dir.home(node['current_user']), "dotfiles"),
-  :remote => "git@stash.bunni.biz:7999/cfg/dotfiles.git",
-  :links  => {
-    "vim"        => ".vim",
-    "vim/vimrc"  => ".vimrc",
-    "vim/gvimrc" => ".gvimrc",
-    "fish"       => ".config/fish",
-  }
+default['workstation']['links'] = {
+  "vim"        => ".vim",
+  "vim/vimrc"  => ".vimrc",
+  "vim/gvimrc" => ".gvimrc",
+  "fish"       => ".config/fish",
 }
+
+##
+# Vundle locations for vim
 
 ##
 # The old way
@@ -20,14 +29,6 @@ default['links']['oldstyle'] = [
   'python',
   'tmux',
 ]
-
-##
-# Vundle locations for vim
-default['vundle'] = {
-  :pdir   => File.join(node['dotfiles']['dir'], "vim", "bundle"),
-  :vdir   => File.join(node['dotfiles']['dir'], "vim", "bundle", "Vundle.vim"),
-  :remote => "https://github.com/gmarik/Vundle.vim.git"
-}
 
 ##
 # Generic packages to install
