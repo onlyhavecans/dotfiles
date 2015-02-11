@@ -12,23 +12,16 @@ default['workstation']['vundle_remote'] = "https://github.com/gmarik/Vundle.vim.
 ##
 # How to set up my dotfiles
 default['workstation']['links'] = {
-  "vim"        => ".vim",
-  "vim/vimrc"  => ".vimrc",
-  "vim/gvimrc" => ".gvimrc",
   "fish"       => ".config/fish",
+  "gitconfig"  => ".gitconfig",
+  "gitignore"  => ".gitignore_global",
+  "i3wm"       => ".i3",
+  "pylintrc"   => ".pylintrc",
+  "tmux.conf"  => ".tmux.conf",
+  "vim"        => ".vim",
+  "vim/gvimrc" => ".gvimrc",
+  "vim/vimrc"  => ".vimrc",
 }
-
-##
-# Vundle locations for vim
-
-##
-# The old way
-default['links']['oldstyle'] = [
-  'git',
-  'i3wm',
-  'python',
-  'tmux',
-]
 
 ##
 # Generic packages to install
