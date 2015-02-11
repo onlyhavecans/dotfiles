@@ -38,6 +38,3 @@ I will eventually get the generation and adding to dash automated but not right 
 * the tmux builders are set up as fish functions
   * work/school/muck/ect
 
-### irssi ###
-* Hmmm I need to move this back to dotfiles somehow someday
-

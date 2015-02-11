@@ -2,8 +2,8 @@
 # Cookbook Name:: workstation
 # Recipe:: mac
 #
-# Copyright (C) 2014 
-# 
+# Copyright (C) 2014
+#
 
 
 ##

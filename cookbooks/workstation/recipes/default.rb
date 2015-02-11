@@ -8,7 +8,7 @@
 
 ##
 # Install all my OS specific goodies
-case node[:platform]
+case node['platform']
   when 'debian', 'ubuntu'
     include_recipe 'workstation::ubuntu'
   when 'mac_os_x'
@@ -17,7 +17,7 @@ end
 
 ##
 # Install global packages
-node[:workstation][:packages].each do |my_package|
+node['workstation']['packages'].each do |my_package|
   package my_package
 end
 

@@ -1,8 +1,8 @@
 ##
 # How to set up my dotfiles
-default[:dotfiles] = {
-  :user   => node[:current_user],
-  :dir    => File.join(Dir.home(node[:current_user]), "dotfiles"),
+default['dotfiles'] = {
+  :user   => node['current_user'],
+  :dir    => File.join(Dir.home(node['current_user']), "dotfiles"),
   :remote => "git@stash.bunni.biz:7999/cfg/dotfiles.git",
   :links  => {
     "vim"  => ".vim",
@@ -14,7 +14,7 @@ default[:dotfiles] = {
 
 ##
 # The old way
-default[:links][:oldstyle] = [
+default['links']['oldstyle'] = [
   'git',
   'i3wm',
   'python',
@@ -23,15 +23,15 @@ default[:links][:oldstyle] = [
 
 ##
 # Vundle locations for vim
-default[:vundle] = {
-  :pdir   => File.join(node[:dotfiles][:dir], "vim", "bundle"),
-  :vdir   => File.join(node[:dotfiles][:dir], "vim", "bundle", "Vundle.vim"),
+default['vundle'] = {
+  :pdir   => File.join(node['dotfiles']['dir'], "vim", "bundle"),
+  :vdir   => File.join(node['dotfiles']['dir'], "vim", "bundle", "Vundle.vim"),
   :remote => "https://github.com/gmarik/Vundle.vim.git"
 }
 
 ##
 # Generic packages to install
-default[:workstation][:packages] = [
+default['workstation']['packages'] = [
   'git',
   'fish',
   'dsh',
@@ -47,14 +47,14 @@ default[:workstation][:packages] = [
 
 ##
 # Mac Specific packages (homebrew)
-default[:homebrew][:formulas] = [
+default['homebrew']['formulas'] = [
   'archey',
   'irssi',
 ]
 
 ##
 # Mac Casks to install
-default[:homebrew][:casks] = [
+default['homebrew']['casks'] = [
   # The package installers
   'vagrant',
   'virtualbox',
@@ -65,7 +65,6 @@ default[:homebrew][:casks] = [
   'arduino',
   'bartender',
   'caffeine',
-  'ccmenu',
   'coda',
   'dropbox',
   'evernote',
@@ -75,30 +74,24 @@ default[:homebrew][:casks] = [
   'flux',
   'google-chrome',
   'hex-fiend',
-  'hipchat',
-  'hoppergdbserver',
-  'hopper-disassembler',
   'iterm2',
   'kaleidoscope',
   'knox',
   'macvim',
   'marked',
   'moom',
+  'mplayerx',
   'mysqlworkbench',
   'omnifocus',
   'panic-unison',
-  'phpstorm',
-  'pycharm',
-  'postgres',
   'skype',
   'skitch',
-  'sourcetree',
   'spillo',
   'spotify',
   'superduper',
-  'textexpander',
   'the-unarchiver',
   'transmit',
   'viscosity',
+  'vlc',
   'wineskin-winery',
 ]
