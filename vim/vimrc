@@ -39,7 +39,7 @@ endif
 " Language stuff
 Plugin 'plasticboy/vim-markdown'        " Markdown
 Plugin 'klen/python-mode'               " Python
-Plugin 'vadv/vim-chef'                  " Chef
+Plugin 'dougireton/vim-chef'            " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plugin 'dag/vim-fish'                   " Fish is my shell
 
 " Testing
@@ -182,7 +182,6 @@ set list listchars=tab:→\ ,trail:∙
 
 set incsearch        "Find the next match as we type the search
 set viminfo='100,f1  "Save up to 100 marks, enable capital marks
-let g:dash_map={ 'ruby' : 'chef' }
 
 " ================ Numbers =================
 
@@ -260,7 +259,12 @@ highlight SignColumn guibg   =0
 
 " ================ Syntastic ========================
 
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_enable_signs=1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_ignore_files=['\m^/opt/chefdk/']
 
 " ================ UltiSnips ========================
 
