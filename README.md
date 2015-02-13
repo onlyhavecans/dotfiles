@@ -2,8 +2,7 @@
 Yet another dotfiles repo.
 
 ## Notes ##
-I use chef-client --local-mode to deply all this. THis still new and rickety, expectially since I haven't refacotred EVERYTHING yet
-In order to make this a bit smoother updater.sh is the wrapper around chef and a few other cleanip tasks not ready for chef yet
+I use chef-client --local-mode to deploy all of this. I can't totally recommend this to people yet since I am still working out the bugs and trying to get this to work perfectly all the time. I often will use this as a testbed to try new Chef techniques too
 
 ## Apps ##
 ### Dash ###
