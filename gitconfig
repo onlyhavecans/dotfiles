@@ -1,14 +1,13 @@
 [user]
-	name = David Aronsohn
-	email = WagThatTail@Me.com
+  name = David Aronsohn
+  email = bitm@slickdeals.net
 [core]
-	excludesfile = /Users/bitm/.gitignore_global
+  excludesfile = /Users/bitm/.gitignore_global
   editor=vim
 [push]
   default = simple
 [alias]
     pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
-
 [diff]
   tool = Kaleidoscope
 [merge]
