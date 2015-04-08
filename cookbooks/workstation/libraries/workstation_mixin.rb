@@ -19,7 +19,7 @@ module Workstation
     private
 
     def calculate_user
-      owner = workstation_user_attribute || sudo_user || current_user
+      owner = workstation_user_attribute || sudo_user || 'bitm'
       owner = 'bitm' if owner == 'root'
       owner
     end
