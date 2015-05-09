@@ -9,6 +9,11 @@ Chef::Recipe.send(:include, Workstation::Mixin)
 
 ##
 # ssh-askpass is a good thing
+directory "/usr/local/bin" do
+  recursive true
+  user workstation_user
+end
+
 cookbook_file "/usr/local/bin/ssh-askpass" do
   source "ssh-askpass"
   user workstation_user

@@ -27,6 +27,11 @@ end
 
 ##
 # Proper dotfile links
+directory File.join(workstation_user_home, ".config") do
+  user workstation_user
+  group workstation_user
+end
+
 node['workstation']['links'].each do |key, value|
   original = File.join(workstation_user_home, node['workstation']['dotfiles_dir'], key)
   dotted = File.join(workstation_user_home, value)
@@ -50,11 +55,13 @@ end
 # Setup Vundle
 package 'git'
 
-vundle_dir = File.join(workstation_user_home, ".vim", "bundle", "Vundle.vim")
+bundle_dir = File.join(workstation_user_home, ".vim", "bundle")
+vundle_dir = File.join(bundle_dir, "Vundle.vim")
 
-directory vundle_dir do
-  owner workstation_user
-  recursive true
+%w(bundle_dir vundle_dir).each do |vim_dirs|
+  directory vim_dirs do
+    owner workstation_user
+  end
 end
 
 git vundle_dir do
