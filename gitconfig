@@ -1,6 +1,6 @@
 [user]
   name = David Aronsohn
-  email = bitm@slickdeals.net
+  email = hipster@slickdeals.net
 [core]
   excludesfile = /Users/bitm/.gitignore_global
   editor=vim

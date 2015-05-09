@@ -10,7 +10,7 @@ call vundle#begin()
 
 " General plugins
 Plugin 'gmarik/Vundle.vim'              " Package Manager
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
 Plugin 'tpope/vim-obsession'            " Session and window saving
 Plugin 'godlygeek/tabular'              " Text Alignment plugin
@@ -280,6 +280,8 @@ let NERDTreeDirArrows           = 1
 let g:NERDTreeWinSize           = 30
 let NERDTreeHighlightCursorline = 1
 let NERDTreeIgnore              = ['tmp', '.yardoc', 'pkg', '\.pyc$']
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ================ Powerline ========================
 
