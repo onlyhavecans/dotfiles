@@ -17,6 +17,7 @@ default['workstation']['links'] = {
   "gitignore"  => ".gitignore_global",
   "i3wm"       => ".i3",
   "pylintrc"   => ".pylintrc",
+  "rubocop.yml" => ".rubocop.yml",
   "tmux.conf"  => ".tmux.conf",
   "vim"        => ".vim",
   "vim/gvimrc" => ".gvimrc",
