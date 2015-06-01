@@ -2,10 +2,10 @@
   name = David Aronsohn
   email = hipster@slickdeals.net
 [core]
-  excludesfile = /Users/bitm/.gitignore_global
+  excludesfile = ~/.gitignore_global
   editor=vim
 [push]
-  default = simple
+  default = current
 [alias]
     pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
 [diff]
