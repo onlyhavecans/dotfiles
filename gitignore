@@ -1,33 +1,58 @@
-#Universal backup
+# VIM Editor files
 *~
 *.swp
+Session.vim
+
+# EMACS Editor files
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+.org-id-locations
 
 # tags
 tags
 
-#Vim session files
-Session.vim
-
-# Folder config files
+# OS generated files
 Desktop.ini
 .DS_Store
-
-#Thumbnail cache files
+.DS_Store?
 ._*
-Thumbs.db
-
-#Mac Trash
 .Spotlight-V100
 .Trashes
+ehthumbs.db
+Thumbs.db
 
-#Project files for PyCharm
+# Project files for PyCharm/PHPStorm
 *.idea
 .ropeproject
 
-#Ignore compiled python
+# Compiled files
 *.pyc
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
 #Python build dirs
 *.egg-info
 build/*
 dist/*
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs
+*.log
