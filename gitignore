@@ -1,6 +1,7 @@
 # VIM Editor files
 *~
 *.swp
+*.swo
 Session.vim
 
 # EMACS Editor files
@@ -17,7 +18,7 @@ tramp
 tags
 
 # OS generated files
-Desktop.ini
+desktop.ini
 .DS_Store
 .DS_Store?
 ._*
@@ -29,9 +30,11 @@ Thumbs.db
 # Project files for PyCharm/PHPStorm
 *.idea
 .ropeproject
+.project
 
 # Compiled files
 *.pyc
+*.pyo
 *.com
 *.class
 *.dll
