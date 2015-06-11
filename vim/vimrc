@@ -254,8 +254,10 @@ au VimResized * exe "normal! \<c-w>="
 " ================ GitGutter ========================
 "
 " Solarized needs this black
-highlight SignColumn ctermbg =0
-highlight SignColumn guibg   =0
+highlight SignColumn ctermbg = 0
+highlight SignColumn guibg   = 0
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager    = 0
 
 " ================ Syntastic ========================
 
