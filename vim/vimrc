@@ -160,15 +160,19 @@ cmap w!! w !sudo tee % >/dev/null
 " :Q = quit all fast
 command! -nargs=0 Quit :qa!
 
-" ================ File types & Color  ========================
+" ================ File types ================================
 
 set encoding=utf-8
 filetype on          " enables filetype detection
 filetype plugin on   " enables filetype specific pugins
 filetype indent on   " enables filetype detection for indenting
 syntax enable
-colorscheme solarized
+
+" ================ Color =====================================
+
 set background=dark
+"let g:solarized_termcolors = 256
+colorscheme solarized
 
 " ================ Lines and cursors  ========================
 
