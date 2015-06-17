@@ -45,7 +45,7 @@ Plugin 'dag/vim-fish'                   " Fish is my shell
 " Testing
 
 " My special plugins
-Plugin 'ssh://git@stash.bunni.biz:7999/cfg/muck.git'
+Plugin 'ssh://bitm@colo00.bunni.biz/git/muck.git'
 
 " Color Scheme
 Plugin 'altercation/vim-colors-solarized'
