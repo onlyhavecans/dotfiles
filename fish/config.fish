@@ -22,3 +22,15 @@ eval $POWERLINE_ROOT/scripts/powerline-daemon -q
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
 set -x ACK_COLOR_MATCH "bold yellow"
+
+# Abbreviations
+abbr --add nerd vim +NERDTree
+abbr --add vundle vim +PluginUpdate +qall
+abbr --add flushdns sudo discoveryutil udnsflushcaches
+## Mo Git Mo Problems
+abbr --add gad git add --all
+abbr --add gap git add --patch
+abbr --add gc git commit
+abbr --add gp git push
+abbr --add gpu git pull
+abbr --add gst git status
