@@ -1,6 +1,4 @@
-snippet #! "ruby hashbang" b
-#!/usr/bin/env ruby
-endsnippet
+priority 50
 
 snippet dep "Cookbook Dependency" b
 depends "${1:recipe}"
@@ -19,18 +17,18 @@ endsnippet
 snippet template "Chef Template" b
 template "${1:destination file}" do
 	source "${1/^\/.*\/([^\/]+)$/$1/}.erb"
-	owner "root"
-	group "root"
-	mode "${2:0644}"
+	owner "${2:root}"
+	group "$2"
+	mode "${3:0644}"
 end
 endsnippet
 
 snippet cookbook "Chef Cookbook file" b
 cookbook_file "${1:destination file}" do
 	source "${1/^\/.*\/([^\/]+)$/$1/}"
-	owner "root"
-	group "root"
-	mode "${2:0644}"
+	owner "${2:root}"
+	group "$2"
+	mode "${3:0644}"
 end
 endsnippet
 
@@ -38,5 +36,20 @@ snippet entry "Cheatsheet entry" b
 entry do
 	command '${1:command}'
 	name '${2:The command info}'
+end
+endsnippet
+
+snippet if "if" b
+if $1
+	${2:${VISUAL}}
+end
+endsnippet
+
+snippet case "case switch" b
+case $1
+when ${2:true}
+	${3:${VISUAL}}
+when ${4:false}
+	$5
 end
 endsnippet
