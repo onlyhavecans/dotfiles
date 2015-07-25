@@ -26,7 +26,7 @@ set -x ACK_COLOR_MATCH "bold yellow"
 # Abbreviations
 abbr --add nerd vim +NERDTree
 abbr --add vundle vim +PluginUpdate +qall
-abbr --add flushdns sudo discoveryutil udnsflushcaches
+abbr --add flushdns sudo killall -HUP mDNSResponder
 ## Mo Git Mo Problems
 abbr --add gad git add --all
 abbr --add gap git add --patch
