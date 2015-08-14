@@ -14,28 +14,22 @@ python_pip "${1:package}" do
 end
 endsnippet
 
-snippet template "Chef Template" b
+snippet tf "Chef Template" b
 template "${1:destination file}" do
-	source "${1/^\/.*\/([^\/]+)$/$1/}.erb"
-	owner "${2:root}"
-	group "$2"
-	mode "${3:0644}"
+	source '${1/^\/.*\/([^\/]+)$/$1/}.erb'
+	owner  '${2:root}'
+	group  '$2'
+	mode   ${3:0644}
 end
 endsnippet
 
-snippet cookbook "Chef Cookbook file" b
+snippet cf "Chef Cookbook file" b
 cookbook_file "${1:destination file}" do
-	source "${1/^\/.*\/([^\/]+)$/$1/}"
-	owner "${2:root}"
-	group "$2"
-	mode "${3:0644}"
-end
-endsnippet
-
-snippet entry "Cheatsheet entry" b
-entry do
-	command '${1:command}'
-	name '${2:The command info}'
+template "${1:destination file}" do
+	source '${1/^\/.*\/([^\/]+)$/$1/}.erb'
+	owner  '${2:root}'
+	group  '$2'
+	mode   ${3:0644}
 end
 endsnippet
 
