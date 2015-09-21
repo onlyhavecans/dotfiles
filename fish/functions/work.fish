@@ -5,7 +5,7 @@ function work --description "Set up my standard workspace"
     if not tmux has-session -t work
       tmux new-session -d -s work
       tmux split-window -h -p 30 -t work
-      tmux send-keys -t work:1.2 'irssi' C-m
+      # tmux send-keys -t work:1.2 'irssi' C-m
       tmux split-window -v -p 66 -t work
       tmux split-window -v -l 25 -t work
       tmux select-pane -t work:1.1

@@ -7,7 +7,8 @@
 [push]
   default = current
 [alias]
-    pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
+    prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
+    prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
 [diff]
   tool = Kaleidoscope
 [merge]
