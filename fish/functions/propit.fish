@@ -1,5 +1,5 @@
 function propit --description "Reenable propupd for everyone"
-  set -l sites phx sdhq
+  set -l sites switch phx sdhq
   for i in $sites
     set -lx chef $i
     status_message "Clearing propupd flag on all servers in $i"
