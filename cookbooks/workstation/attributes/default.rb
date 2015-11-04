@@ -12,16 +12,17 @@ default['workstation']['vundle_remote'] = "https://github.com/gmarik/Vundle.vim.
 ##
 # How to set up my dotfiles
 default['workstation']['links'] = {
-  "fish"       => ".config/fish",
-  "gitconfig"  => ".gitconfig",
-  "gitignore"  => ".gitignore_global",
-  "i3wm"       => ".i3",
-  "pylintrc"   => ".pylintrc",
+  "fish"        => ".config/fish",
+  "gitconfig"   => ".gitconfig",
+  "gitignore"   => ".gitignore_global",
+  "gpg.conf"    => ".gnupg/gpg.conf",
+  "i3wm"        => ".i3",
+  "pylintrc"    => ".pylintrc",
   "rubocop.yml" => ".rubocop.yml",
-  "tmux.conf"  => ".tmux.conf",
-  "vim"        => ".vim",
-  "vim/gvimrc" => ".gvimrc",
-  "vim/vimrc"  => ".vimrc",
+  "tmux.conf"   => ".tmux.conf",
+  "vim"         => ".vim",
+  "vim/gvimrc"  => ".gvimrc",
+  "vim/vimrc"   => ".vimrc",
 }
 
 ##
@@ -53,22 +54,15 @@ default['homebrew']['formulas'] = [
 default['homebrew']['casks'] = [
   # The package installers
   'vagrant',
-  'virtualbox',
   'crashplan',
 # The dropins
   'alfred',
-  'arduino',
   'atom',
-  'bartender',
   'caffeine',
-  'coda',
   'dropbox',
-  'evernote',
   'fastscripts',
   'firefox',
   'flash-player',
-  'fluid',
-  'flux',
   'iterm2',
   'kaleidoscope',
   'macvim',
@@ -78,7 +72,6 @@ default['homebrew']['casks'] = [
   'omnifocus',
   'omnioutliner',
   'panic-unison',
-  'skype',
   'skitch',
   'spillo',
   'superduper',

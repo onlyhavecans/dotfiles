@@ -3,15 +3,15 @@
   email = hipster@slickdeals.net
 [core]
   excludesfile = ~/.gitignore_global
-  editor=vim
+  editor = vim
 [push]
   default = current
 [alias]
-    prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
-    prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
-	co = checkout
-	ci = commit
-	br = branch
+  prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
+  prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
+  co = checkout
+  ci = commit
+  br = branch
 [diff]
   tool = Kaleidoscope
 [merge]
@@ -28,8 +28,7 @@
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true

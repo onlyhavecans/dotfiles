@@ -35,3 +35,11 @@ bash 'brew_cleanup' do
   code 'brew cask cleanup'
   user workstation_user
 end
+
+##
+# My gnupg config requires a specific cert for my keyserver
+remote_file '/usr/local/etc/openssl/certs/hkps.pool.sks-keyservers.net.pem' do
+  source   'https://sks-keyservers.net/sks-keyservers.netCA.pem'
+  checksum '0666ee848e03a48f3ea7bb008dbe9d63dfde280af82fb4412a04bf4e24cab36b'
+  mode     0644
+end
