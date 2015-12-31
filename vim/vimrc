@@ -9,7 +9,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " General plugins
-Plugin 'gmarik/Vundle.vim'              " Package Manager
+Plugin 'VundleVim/Vundle.vim'           " Package Manager
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
 Plugin 'tpope/vim-obsession'            " Session and window saving
@@ -49,8 +49,15 @@ Plugin 'ssh://bitm@colo00.bunni.biz/git/muck.git'
 
 " Color Scheme
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'baskerville/bubblegum'
 
 call vundle#end()
+
+" ================ Color =====================================
+
+set background=dark
+"let g:solarized_termcolors = 256
+colorscheme solarized
 
 " ================ Mapleader comma! ========================
 
@@ -167,12 +174,6 @@ filetype on          " enables filetype detection
 filetype plugin on   " enables filetype specific pugins
 filetype indent on   " enables filetype detection for indenting
 syntax enable
-
-" ================ Color =====================================
-
-set background=dark
-"let g:solarized_termcolors = 256
-colorscheme solarized
 
 " ================ Lines and cursors  ========================
 
