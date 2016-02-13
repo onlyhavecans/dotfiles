@@ -12,13 +12,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'           " Package Manager
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
-Plugin 'tpope/vim-obsession'            " Session and window saving
 Plugin 'tpope/vim-surround'             " cs\" and cs' for surrounding
 Plugin 'godlygeek/tabular'              " Text Alignment plugin
 Plugin 'junegunn/vim-easy-align'        " Text Alignment plugin
 Plugin 'tomtom/tcomment_vim'            " Auto block commenting
 Plugin 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
-Plugin 'terryma/vim-multiple-cursors'   " Stole from Collin
 
 " Programming tools
 Plugin 'tpope/vim-fugitive'             " How you use git as a vim user
