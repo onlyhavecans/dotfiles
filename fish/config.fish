@@ -38,3 +38,5 @@ abbr --add gpb 'git push; and berkit'
 abbr --add gpu git pull
 abbr --add gst git status
 abbr --add gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish

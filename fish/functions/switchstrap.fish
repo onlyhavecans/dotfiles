@@ -1,5 +1,5 @@
 function switchstrap --description "A cheap and easy bootstrapper for the yolo generation"
   set -l serv $argv
   set -lx chef switch
-  knife bootstrap $serv --ssh-user root --node-name $serv --run-list 'recipe[sd_wrapper::sdlv]'
+  knife bootstrap $serv.lv.slickdeals.net --ssh-user root --node-name $serv.lv.slickdeals.net --run-list 'recipe[sd_wrapper::sdlv]'
 end
