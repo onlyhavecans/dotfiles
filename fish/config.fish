@@ -11,7 +11,9 @@ end
 set -x EDITOR vim
 
 # Chef DK (No longer fragile as of chef-dk 0.5.0)
-eval (chef shell-init fish)
+if test -z /opt/chef-dk/bin/chef
+  eval (chef shell-init fish)
+end
 
 # Powerline love
 set -x POWERLINE_ROOT $HOME/dotfiles/vim/bundle/powerline
