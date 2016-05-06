@@ -303,6 +303,9 @@ let g:unite_split_rule                 = "botright"
 let g:unite_force_overwrite_statusline = 0
 let g:unite_winheight                  = 30
 
+" ======================== Clipboard ========================
+set clipboard=unnamed
+
 " ================ Sourcing plugin specific setting ========================
 
 for f in split(glob('~/.vim/settings/*.vim'), '\n')
