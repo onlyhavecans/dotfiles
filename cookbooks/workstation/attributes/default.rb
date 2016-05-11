@@ -28,6 +28,7 @@ default['workstation']['links'] = {
 # Generic packages to install
 default['workstation']['packages'] = %w(
   archey
+  clamav
   ctags
   dsh
   exiftool
@@ -37,6 +38,7 @@ default['workstation']['packages'] = %w(
   hub
   keybase
   nmap
+  polipo
   python
   python3
   tmux

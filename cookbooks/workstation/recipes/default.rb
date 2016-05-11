@@ -78,16 +78,14 @@ end
 bundle_dir = File.join(workstation_user_home, '.vim', 'bundle')
 vundle_dir = File.join(bundle_dir, 'Vundle.vim')
 
-%W( #{bundle_dir} #{vundle_dir} ).each do |vim_dirs|
-  directory vim_dirs do
-    owner  workstation_user
-    action :create
-  end
+directory bundle_dir do
+  owner  workstation_user
+  action :create
 end
 
-git vundle_dir do
-  repository node['workstation']['vundle_remote']
-  revision   'master'
-  user       workstation_user
-  action     :checkout
+bash 'Initial_vundle_clone' do
+  code "git clone #{node['workstation']['vundle_remote']}"
+  cwd  bundle_dir
+  user workstation_user
+  not_if { ::File.exist?(vundle_dir) }
 end
