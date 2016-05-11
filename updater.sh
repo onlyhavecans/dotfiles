@@ -2,8 +2,8 @@
 echo "Do a pull just to be sure we are up to date"
 git pull origin master || exit 5
 
-echo "curlbash chef like I hate security"
 if [[ ! -d /opt/chefdk ]]; then
+echo "curlbash chef like I hate security b/c you didn't install chef-dk"
   curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
 fi
 
@@ -21,4 +21,7 @@ echo "Run chef, NEEDS SUDO"
 sudo $CLIENT -z --runlist 'recipe[workstation]'
 sudo rm -rf local-mode-cache
 
-echo "Awesome! don't forget to manuall vundle or pour to get vim plugins"
+echo ""
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "Awesome! don't forget to manually vundle or pour to get vim plugins"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
