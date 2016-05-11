@@ -2,10 +2,8 @@
 echo "Do a pull just to be sure we are up to date"
 git pull origin master || exit 5
 
-echo "Check for chef"
-if  [[ ! -d /opt/chefdk ]]; then
-  curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
-fi
+echo "curlbash chef like I hate security"
+curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
 
 echo "Update/Download homebrew cookbook"
 curl -#L https://supermarket.getchef.com/cookbooks/homebrew/download | tar -zxf - -C cookbooks/
