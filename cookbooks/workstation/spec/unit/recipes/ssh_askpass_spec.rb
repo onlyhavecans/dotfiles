@@ -2,22 +2,19 @@
 # Cookbook Name:: workstation
 # Spec:: default
 #
-# Copyright (c) 2015 The Authors, All Rights Reserved.
+# Copyright (c) 2016 The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
-describe 'workstation::default' do
-
+describe 'workstation::ssh_askpass' do
   context 'When all attributes are default, on an unspecified platform' do
-
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new
       runner.converge(described_recipe)
     end
 
     it 'converges successfully' do
-      chef_run # This should not raise an error
+      expect { chef_run  }.to_not raise_error
     end
-
   end
 end

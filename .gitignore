@@ -14,5 +14,8 @@ fish_history
 fishd.*
 generated_completions
 
+#Kitchen
+kitchen/logs
+
 # Dash Cheatsheet
 *.docset/
