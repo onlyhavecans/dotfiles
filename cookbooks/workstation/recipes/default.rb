@@ -78,7 +78,7 @@ end
 bundle_dir = File.join(workstation_user_home, '.vim', 'bundle')
 vundle_dir = File.join(bundle_dir, 'Vundle.vim')
 
-%W(bundle_dir vundle_dir).each do |vim_dirs|
+%W( #{bundle_dir} #{vundle_dir} ).each do |vim_dirs|
   directory vim_dirs do
     owner  workstation_user
     action :create
