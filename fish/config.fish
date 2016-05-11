@@ -11,7 +11,7 @@ end
 set -x EDITOR vim
 
 # Chef DK (No longer fragile as of chef-dk 0.5.0)
-if test -z /opt/chef-dk/bin/chef
+if test -x /opt/chefdk/bin/chef
   eval (chef shell-init fish)
 end
 
