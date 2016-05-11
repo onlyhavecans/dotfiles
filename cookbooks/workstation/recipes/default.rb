@@ -17,6 +17,8 @@ Chef::Log.info("Workstation user's home path is #{workstation_user_home}")
     user      workstation_user
     group     'admin'
     recursive true
+    action    :create
+    not_if { ::File.exist?(local_dir) }
   end
 end
 
