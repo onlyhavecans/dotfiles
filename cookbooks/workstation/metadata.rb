@@ -4,10 +4,8 @@ maintainer_email 'WagThatTail@Me.com'
 license          'BSD'
 description      'Installs/Configures workstation'
 long_description 'Installs/Configures workstation'
-version          '2.1.0'
+version          '4.0.0'
 
-%w(mac_os_x mac_os_x_server ubuntu).each do |os|
-  supports os
-end
+supports mac_os_x
 
 depends 'homebrew'
