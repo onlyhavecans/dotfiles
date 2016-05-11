@@ -12,10 +12,10 @@ Chef::Log.info("Workstation user's home path is #{workstation_user_home}")
 
 ##
 # All the following requires this, so lets only set this once
-%w( /usr/local /usr/local/bin /usr/local/etc ).each do |local_dir|
+%w( /usr/local/bin /usr/local/etc ).each do |local_dir|
   directory local_dir do
     user      workstation_user
-    group     'staff'
+    group     'admin'
     recursive true
   end
 end
@@ -28,8 +28,10 @@ include_recipe 'homebrew'
 
 ##
 # Install global packages
-package node['workstation']['packages'] do
-  action :install
+node['workstation']['packages'].each do |pkg|
+  package pkg do
+    action :install
+  end
 end
 
 bash 'brew_cleanup' do
@@ -49,7 +51,6 @@ end
 # Proper dotfile links
 directory File.join(workstation_user_home, '.config') do
   user   workstation_user
-  group  workstation_user
   action :create
 end
 
@@ -74,17 +75,12 @@ end
 
 ##
 # Setup Vundle
-package 'git' do
-  action :install
-end
-
 bundle_dir = File.join(workstation_user_home, '.vim', 'bundle')
 vundle_dir = File.join(bundle_dir, 'Vundle.vim')
 
 %w(bundle_dir vundle_dir).each do |vim_dirs|
   directory vim_dirs do
     owner  workstation_user
-    group  workstation_user
     action :create
   end
 end
