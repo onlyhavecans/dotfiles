@@ -6,15 +6,11 @@
 
 require 'spec_helper'
 
-describe 'workstation::default' do
-  context 'When all attributes are default, on an unspecified platform' do
+describe 'workstation::codesearch' do
+  context 'When all attributes are default, on Mac OS X' do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new(platform: 'mac_os_x', version: '10.11.1')
       runner.converge(described_recipe)
-    end
-
-    before(:each) do
-      stub_command("which git").and_return(true)
     end
 
     it 'converges successfully' do
