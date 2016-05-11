@@ -36,11 +36,6 @@ node['workstation']['packages'].each do |pkg|
   end
 end
 
-bash 'brew_cleanup' do
-  code 'brew cleanup -s'
-  user workstation_user
-end
-
 ##
 # My gnupg config requires a specific cert for my keyserver
 remote_file '/usr/local/etc/openssl/certs/hkps.pool.sks-keyservers.net.pem' do
