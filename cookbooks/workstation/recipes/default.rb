@@ -91,9 +91,3 @@ git vundle_dir do
   user       workstation_user
   action     :checkout
 end
-
-bash 'initalize_vundle' do
-  code 'vim +PluginInstall +qall'
-  user workstation_user
-end
-
