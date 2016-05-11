@@ -74,7 +74,9 @@ end
 
 ##
 # Setup Vundle
-package 'git'
+package 'git' do
+  action :install
+end
 
 bundle_dir = File.join(workstation_user_home, '.vim', 'bundle')
 vundle_dir = File.join(bundle_dir, 'Vundle.vim')
