@@ -15,6 +15,9 @@ if test -x /opt/chefdk/bin/chef; or test -x (which chef)
   eval (chef shell-init fish)
 end
 
+## I use vmware
+set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
+
 # Powerline love
 set -x POWERLINE_ROOT $HOME/dotfiles/vim/bundle/powerline
 set -x POWERLINE_COMMAND $POWERLINE_ROOT/scripts/powerline-render
