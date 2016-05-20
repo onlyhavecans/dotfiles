@@ -1,6 +1,14 @@
 if status --is-interactive
-  set PATH $HOME/Applications /usr/local/bin /usr/local/sbin
-  set PATH $PATH /usr/bin /bin /usr/sbin /sbin
+  set PATH /usr/bin /bin /usr/sbin /sbin
+
+  ## 2016-05-19
+  # Currently chef-dk is being a dick so interject it here and then set the rest of my path
+  # Chef DK (No longer fragile as of chef-dk 0.5.0)
+  if test -x /opt/chefdk/bin/chef; or test -x (which chef)
+    eval (/opt/chefdk/bin/chef shell-init fish)
+  end
+
+  set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
   /usr/local/bin/archey --color
 end
 
@@ -9,11 +17,6 @@ if test -z "$TMUX"
 end
 
 set -x EDITOR vim
-
-# Chef DK (No longer fragile as of chef-dk 0.5.0)
-if test -x /opt/chefdk/bin/chef; or test -x (which chef)
-  eval (chef shell-init fish)
-end
 
 ## I use vmware
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
