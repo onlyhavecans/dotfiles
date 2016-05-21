@@ -42,6 +42,7 @@ default['workstation']['packages'] = %w(
   polipo
   python
   python3
+  the_silver_searcher
   tmux
   tree
   vim

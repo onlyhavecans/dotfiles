@@ -24,15 +24,17 @@ Plugin 'airblade/vim-gitgutter'         " Shows edits from git in gutter
 Plugin 'rizzatti/dash.vim'              " Dash is amazing for lookups
 Plugin 'scrooloose/syntastic'           " Global Syntax test
 Plugin 'itspriddle/vim-marked'          " Opens Marked 2 on current file
-Plugin 'blueyed/delimitMate'           " Autoadding closing braces
+Plugin 'blueyed/delimitMate'            " Autoadding closing braces
 Plugin 'SirVer/ultisnips'               " Switching to vim snips
 Plugin 'honza/vim-snippets'             " Default snips
 
 " Searching
+Plugin 'mileszs/ack.vim'                " Experimenting with ag, the silver searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 if filereadable($HOME.'/.csearchindex')
-  Plugin 'Shougo/unite.vim'
   Plugin 'brandonbloom/csearch.vim'
-  Plugin 'junkblocker/unite-codesearch'
 endif
 
 " Language stuff
@@ -151,9 +153,9 @@ noremap <Leader>o :Obsess<CR>
 " <Leader>r = Reload vim config
 noremap <Leader>r :so $MYVIMRC<CR>
 
-" <Leader>s = Search unite^CSearch
-nnoremap <Leader>s :CSearch <C-r><C-w><CR>
-"nnoremap <Leader>s :Unite codesearch<CR>
+" <Leader>s = Search under word in my current search obsession
+nnoremap <Leader>s :Ack <C-r><C-w><CR>
+"nnoremap <Leader>s :CSearch <C-r><C-w><CR>
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>

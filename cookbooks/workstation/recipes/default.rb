@@ -49,9 +49,5 @@ end
 include_recipe "workstation::dotfiles"
 
 ##
-# codesearch
-include_recipe "workstation::codesearch"
-
-##
 # Setup Vundle
 include_recipe "workstation::vundle"
