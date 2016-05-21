@@ -151,8 +151,9 @@ noremap <Leader>o :Obsess<CR>
 " <Leader>r = Reload vim config
 noremap <Leader>r :so $MYVIMRC<CR>
 
-" <Leader>s = Search unite
-nnoremap <Leader>s :Unite codesearch<CR>
+" <Leader>s = Search unite^CSearch
+nnoremap <Leader>s :CSearch <C-r><C-w><CR>
+"nnoremap <Leader>s :Unite codesearch<CR>
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>
