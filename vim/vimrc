@@ -33,9 +33,9 @@ Plugin 'mileszs/ack.vim'                " Experimenting with ag, the silver sear
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-if filereadable($HOME.'/.csearchindex')
-  Plugin 'brandonbloom/csearch.vim'
-endif
+" if filereadable($HOME.'/.csearchindex')
+"   Plugin 'brandonbloom/csearch.vim'
+" endif
 
 " Language stuff
 Plugin 'plasticboy/vim-markdown'        " Markdown
