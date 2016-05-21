@@ -30,7 +30,6 @@ default['workstation']['links'] = {
 default['workstation']['packages'] = %w(
   archey
   clamav
-  ctags
   dsh
   exiftool
   fish
