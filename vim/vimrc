@@ -10,7 +10,9 @@ call vundle#begin()
 
 " General plugins
 Plugin 'VundleVim/Vundle.vim'           " Package Manager
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
 Plugin 'tpope/vim-surround'             " cs\" and cs' for surrounding
 Plugin 'godlygeek/tabular'              " Text Alignment plugin
@@ -141,8 +143,8 @@ nnoremap <silent> <leader>D <Plug>DashSearch
 " <Leader>e = open vimrc in a split for quick editing
 nnoremap <leader>e :split $MYVIMRC<cr>
 
-" <Leader>f = kill folding
-noremap <Leader>f :set nofoldenable<CR>
+" <Leader>f = toggle all folding
+noremap <Leader>f zi
 
 " <Leader>h = Highlight changed lines using Git Gutter
 noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
@@ -213,8 +215,8 @@ set nowritebackup
 
 let backupdir = expand('~/.vim/backups')
 if !isdirectory(backupdir)
-    call mkdir(backupdir)
-  endif
+  call mkdir(backupdir)
+endif
 set undodir=~/.vim/backups
 set undofile
 
@@ -239,7 +241,8 @@ let g:indent_guides_guide_size  = 1
 
 " ================ Folds ============================
 
-set nofoldenable        "dont fold by default
+set foldenable        "dont fold by default
+set foldmethod=indent
 let g:vim_markdown_folding_disabled=1
 
 " ================ Completion =======================
@@ -265,8 +268,13 @@ set sidescroll    =1
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
+" ================ airline ==========================
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='badwolf'
+
 " ================ GitGutter ========================
-"
+
 " Solarized needs this black
 highlight SignColumn ctermbg = 0
 let g:gitgutter_realtime = 0
@@ -291,6 +299,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " ================ NERDTree ========================
 
 let NERDTreeMinimalUI           = 1
+let NERDTreeShowHidden          = 1
 let NERDTreeDirArrows           = 1
 let g:NERDTreeWinSize           = 30
 let NERDTreeHighlightCursorline = 1
@@ -307,13 +316,8 @@ set laststatus =2
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr    = 2
 
-" ======================== UniteCodeSearch ========================
-let g:unite_enable_start_insert        = 1
-let g:unite_split_rule                 = "botright"
-let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight                  = 30
-
 " ======================== Clipboard ========================
+
 set clipboard=unnamed
 
 " ================ Sourcing plugin specific setting ========================
