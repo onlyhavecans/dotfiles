@@ -18,6 +18,11 @@ end
 
 set -x EDITOR vim
 
+## I'm using hub
+if test -x /usr/local/bin/hub
+  eval (hub alias -s)
+end
+
 ## I use vmware
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
 
