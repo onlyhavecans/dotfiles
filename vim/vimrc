@@ -79,7 +79,7 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " <F4> = Highlight the 81st column (from colorcolumn.vim)
 nnoremap <F4> :ToggleColorColumn<cr>
 
-" <F5> = Mac OS X Dropzone
+" <F5> = Empty
 
 " <F6> = change directory to current file's pwd
 nnoremap <F6> :cd %:p:h<CR>:pwd<CR>
@@ -115,16 +115,16 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
 " <Leader>a = Tab by following character
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-nmap <Leader>a. :Tabularize /=><CR>
-vmap <Leader>a. :Tabularize /=><CR>
-vmap <Leader>ad :Tabularize /\d<CR>
-nmap <Leader>ad :Tabularize /\d<CR>
-vmap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
-nmap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
+nnoremap <Leader>a= :Tabularize /=<CR>
+vnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a: :Tabularize /:\zs<CR>
+vnoremap <Leader>a: :Tabularize /:\zs<CR>
+nnoremap <Leader>a. :Tabularize /=><CR>
+vnoremap <Leader>a. :Tabularize /=><CR>
+vnoremap <Leader>ad :Tabularize /\d<CR>
+nnoremap <Leader>ad :Tabularize /\d<CR>
+vnoremap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
+nnoremap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
 
 " <Leader>c = comment out
 vnoremap <Leader>c :TComment<CR>
@@ -136,7 +136,10 @@ nnoremap <silent> <leader>d "_d
 xnoremap <silent> <leader>d "_d
 
 " <Leader>D = Dash Search for current word
-nmap <silent> <leader>D <Plug>DashSearch
+nnoremap <silent> <leader>D <Plug>DashSearch
+
+" <Leader>e = open vimrc in a split for quick editing
+nnoremap <leader>e :split $MYVIMRC<cr>
 
 " <Leader>f = kill folding
 noremap <Leader>f :set nofoldenable<CR>
@@ -150,11 +153,15 @@ noremap <Leader>n :NERDTreeToggle<CR>
 " <Leader>o = Start 0bsessing
 noremap <Leader>o :Obsess<CR>
 
+" <Leader>p = paste at end of line
+inoremap <Leader>p :normal $p
+nnoremap <Leader>p $p
+
 " <Leader>r = Reload vim config
 noremap <Leader>r :so $MYVIMRC<CR>
 
 " <Leader>s = Search under word in my current search obsession
-nnoremap <Leader>s :Ack <C-r><C-w><CR>
+noremap <Leader>s :Ack <C-r><C-w><CR>
 "nnoremap <Leader>s :CSearch <C-r><C-w><CR>
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
