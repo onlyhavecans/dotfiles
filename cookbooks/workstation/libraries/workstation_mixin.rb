@@ -16,6 +16,10 @@ module Workstation
       @workstation_user_home ||= calculate_home
     end
 
+    def dofiles_directory
+      @dofiles_directory ||= calculate_dotfiles_directory
+    end
+
     private
 
     def calculate_user
@@ -34,6 +38,10 @@ module Workstation
 
     def calculate_home
       File.join(Dir.home(workstation_user))
+    end
+
+    def calculate_dotfiles_directory
+      File.join(calculate_user, node['workstation']['dotfiles_dir'])
     end
 
   end
