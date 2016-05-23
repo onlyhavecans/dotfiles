@@ -10,7 +10,6 @@ call vundle#begin()
 
 " General plugins
 Plugin 'VundleVim/Vundle.vim'           " Package Manager
-" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
@@ -35,9 +34,6 @@ Plugin 'mileszs/ack.vim'                " Experimenting with ag, the silver sear
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-" if filereadable($HOME.'/.csearchindex')
-"   Plugin 'brandonbloom/csearch.vim'
-" endif
 
 " Language stuff
 Plugin 'plasticboy/vim-markdown'        " Markdown
@@ -59,7 +55,6 @@ call vundle#end()
 " ================ Color =====================================
 
 set background=dark
-"let g:solarized_termcolors = 256
 colorscheme solarized
 
 " ================ Mapleader comma! ========================
