@@ -41,7 +41,7 @@ module Workstation
     end
 
     def calculate_dotfiles_directory
-      File.join(calculate_user, node['workstation']['dotfiles_dir'])
+      File.join(workstation_user_home, node['workstation']['dotfiles_dir'])
     end
 
   end

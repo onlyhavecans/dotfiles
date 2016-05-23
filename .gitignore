@@ -1,8 +1,10 @@
-
 # Vim folder
 .netrwhist
 vim/backups
 vim/bundle
+
+# powerline
+powerline
 
 # Chef
 cookbooks/homebrew/
