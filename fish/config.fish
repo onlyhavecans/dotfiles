@@ -37,7 +37,7 @@ abbr --add flushdns sudo killall -HUP mDNSResponder
 ## Mo Git Mo Problems
 abbr --add gad git add --all
 abbr --add gap git add --patch
-abbr --add gc git commit
+abbr --add gc git commit -v
 abbr --add gp git push
 abbr --add gpb 'git push; and berkit'
 abbr --add gpu git pull
