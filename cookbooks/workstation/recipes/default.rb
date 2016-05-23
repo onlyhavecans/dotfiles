@@ -52,12 +52,10 @@ include_recipe "workstation::dotfiles"
 # Checkout Vundle
 vundle_dir = ::File.join(workstation_user_home, '.vim', 'bundle', 'Vundle.vim')
 workstation_checkout vundle_dir do
-  repo_url node['workstation']['vundle_remote']
+  repo_url 'https://github.com/VundleVim/Vundle.vim.git'
 end
 
-##
-# Checkout powerline
-powerline_dir = ::File.join(dofiles_directory, 'powerline')
-workstation_checkout powerline_dir do
-  repo_url node['workstation']['powerline_remote']
+tpm_dir = ::File.join(workstation_user_home, '.tmux', 'plugins', 'tpm')
+workstation_checkout tpm_dir do
+  repo_url 'https://github.com/tmux-plugins/tpm'
 end

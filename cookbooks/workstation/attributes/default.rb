@@ -7,8 +7,6 @@
 
 default['workstation']['user'] = nil
 default['workstation']['dotfiles_dir'] = 'dotfiles'
-default['workstation']['vundle_remote'] = 'https://github.com/VundleVim/Vundle.vim.git'
-default['workstation']['powerline_remote'] = 'https://github.com/powerline/powerline.git'
 
 ##
 # How to set up my dotfiles
