@@ -9,7 +9,7 @@ require 'spec_helper'
 describe 'workstation::default' do
   context 'When all attributes are default, on Mac OS X' do
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new(platform: 'mac_os_x', version: '10.11.1')
+      runner = ChefSpec::ServerRunner.new()
       runner.converge(described_recipe)
     end
 
