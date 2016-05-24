@@ -24,7 +24,7 @@ if test -x /usr/local/bin/hub
 end
 
 ## I use vmware
-set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
+#set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
