@@ -41,8 +41,6 @@ Plugin 'klen/python-mode'               " Python
 Plugin 'dougireton/vim-chef'            " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plugin 'dag/vim-fish'                   " Fish is my shell
 
-" Testing
-
 " My special plugins
 Plugin 'tbunnyman/mm.vim'
 
@@ -304,7 +302,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " ================ Powerline ========================
 
-set laststatus =2
+set laststatus=2
 
 " ======================== delimitMate ========================
 

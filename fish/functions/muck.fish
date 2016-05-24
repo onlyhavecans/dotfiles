@@ -9,11 +9,10 @@ function muck --description "Activate my muck window"
       tmux send-keys -t muck:1.2 'tail -F */out' C-m
       tmux resize-pane -y 2 -t muck:1.1
       tmux split-window -v -l 6 -t muck 'vim mucking_around'
-      tmux new-window -d -c ~/tf-logs -n past 'vim'
+      tmux new-window -d -n past 'vim'
       tmux split-window -h -t muck:1.1
       tmux select-pane -t muck:1.1
     end
     exec tmux attach -d -t muck
   end
 end
-
