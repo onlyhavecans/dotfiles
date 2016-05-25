@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
 Plugin 'tpope/vim-surround'             " cs\" and cs' for surrounding
+Plugin 'tpope/vim-obsession'            " obsessivly save sessions
 Plugin 'godlygeek/tabular'              " Text Alignment plugin
 Plugin 'junegunn/vim-easy-align'        " Text Alignment plugin
 Plugin 'tomtom/tcomment_vim'            " Auto block commenting
