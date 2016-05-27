@@ -1,14 +1,10 @@
 if status --is-interactive
   set PATH /usr/bin /bin /usr/sbin /sbin
-
-  ## 2016-05-19
-  # Currently chef-dk is being a dick so interject it here and then set the rest of my path
-  # Chef DK (No longer fragile as of chef-dk 0.5.0)
+  set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
   if test -x /opt/chefdk/bin/chef; or test -x (which chef)
     eval (/opt/chefdk/bin/chef shell-init fish)
   end
 
-  set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
   /usr/local/bin/archey --color
 end
 
@@ -30,19 +26,19 @@ set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
 set -x ACK_COLOR_MATCH "bold yellow"
 
+alias git /usr/local/bin/git
+alias nerd 'vim +NERDTree'
+alias vundle 'vim +PluginUpdate +qall'
+alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
+
 # Abbreviations
-abbr --add nerd vim +NERDTree
-abbr --add vundle vim +PluginUpdate +qall
-abbr --add flushdns sudo killall -HUP mDNSResponder
 ## Mo Git Mo Problems
 abbr --add gad git add --all
 abbr --add gap git add --patch
 abbr --add gc git commit -v
 abbr --add gp git push
-abbr --add gpb 'git push; and berkit'
 abbr --add gpu git pull
 abbr --add gst git status
-abbr --add gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 test -e {$HOME}/.local.fish ; and source {$HOME}/.local.fish
