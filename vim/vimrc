@@ -5,6 +5,11 @@ endif
 
 " ================ Vundle for packages ========================
 filetype off
+
+if empty(glob("~/.vim/bundle/Vundle.vim"))
+  call system('git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim')
+endif
+
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -51,10 +56,18 @@ Plugin 'baskerville/bubblegum'
 
 call vundle#end()
 
+" ================ File types ================================
+
+set encoding=utf-8
+filetype plugin indent on
+syntax enable
+
 " ================ Color =====================================
 
-set background=dark
-colorscheme solarized
+if !empty(glob("~/.vim/bundle/vim-colors-solarized"))
+  set background=dark
+  colorscheme solarized
+endif
 
 " ================ Mapleader comma! ========================
 
@@ -172,14 +185,6 @@ cmap w!! w !sudo tee % >/dev/null
 " :Q = quit all fast
 command! -nargs=0 Quit :qa!
 
-" ================ File types ================================
-
-set encoding=utf-8
-filetype on          " enables filetype detection
-filetype plugin on   " enables filetype specific pugins
-filetype indent on   " enables filetype detection for indenting
-syntax enable
-
 " ================ Lines and cursors  ========================
 
 set number                      "Line numbers are good
@@ -241,7 +246,7 @@ let g:vim_markdown_folding_disabled=1
 
 " ================ Completion =======================
 
-set wildmode=list:longest
+set wildmode=longest:full,full
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
