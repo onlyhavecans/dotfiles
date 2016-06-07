@@ -19,6 +19,7 @@ default['workstation']['links'] = {
   'pylintrc'    => '.pylintrc',
   'rubocop.yml' => '.rubocop.yml',
   'tmux.conf'   => '.tmux.conf',
+  'vim'         => '.config/nvim',
   'vim'         => '.vim',
   'vim/gvimrc'  => '.gvimrc',
   'vim/vimrc'   => '.vimrc',
