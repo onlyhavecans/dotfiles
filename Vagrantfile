@@ -10,6 +10,9 @@ required_plugins = %w(vagrant-vbguest vagrant-cachier vagrant-proxyconf)
 plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  ## Because freebsd
+  config.vbguest.auto_update = false
+
   ## My plugins are not optional, they are manditory
   if not plugins_to_install.empty?
     puts "Installing plugins: #{plugins_to_install.join(' ')}"
@@ -22,8 +25,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # https://github.com/tmatilai/vagrant-proxyconf
   if Vagrant.has_plugin?("vagrant-proxyconf")
-    config.proxy.http     = "http://127.0.0.1:8123/"
-    config.proxy.https    = "http://127.0.0.1:8123/"
+    # config.proxy.http     = "http://127.0.0.1:8123/"
+    # config.proxy.https    = "http://127.0.0.1:8123/"
     config.proxy.no_proxy = "localhost,127.0.0.1"
   end
 
