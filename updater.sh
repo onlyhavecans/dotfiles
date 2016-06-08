@@ -19,7 +19,6 @@ fi
 
 echo "Run chef, NEEDS SUDO"
 sudo $CLIENT -z --runlist 'recipe[workstation]'
-sudo rm -rf local-mode-cache
 
 echo ""
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"

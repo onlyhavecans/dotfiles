@@ -9,6 +9,7 @@ powerline
 # Chef
 cookbooks/homebrew/
 cookbooks/build-essential/
+local-mode-cache/
 nodes/
 
 # fish
