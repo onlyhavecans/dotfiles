@@ -7,9 +7,11 @@
 Chef::Resource.send(:include, Workstation::Mixin)
 Chef::Recipe.send(:include, Workstation::Mixin)
 
-directory ::File.join(workstation_user_home, '.config') do
-  user   workstation_user
-  action :create
+node['workstation']['dot_dirs'].each do |dot_dirs|
+  directory ::File.join(workstation_user_home, dot_dirs) do
+    user   workstation_user
+    action :create
+  end
 end
 
 node['workstation']['links'].each do |key, value|

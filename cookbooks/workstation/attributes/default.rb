@@ -10,6 +10,7 @@ default['workstation']['dotfiles_dir'] = 'dotfiles'
 
 ##
 # How to set up my dotfiles
+default['workstation']['dot_dirs'] = %w( .config .vagrant.d )
 default['workstation']['links'] = {
   'fish'        => '.config/fish',
   'gitconfig'   => '.gitconfig',
@@ -19,6 +20,7 @@ default['workstation']['links'] = {
   'pylintrc'    => '.pylintrc',
   'rubocop.yml' => '.rubocop.yml',
   'tmux.conf'   => '.tmux.conf',
+  'Vagrantfile' => '.vagrant.d/Vagrantfile',
   'vim'         => '.config/nvim',
   'vim'         => '.vim',
   'vim/gvimrc'  => '.gvimrc',
