@@ -3,6 +3,9 @@
 ##
 # I kitchen a lot while traveling so I need something very agressive in caching.
 #  These two plugins may seem reduntant but they give amazing coverage
+#
+# If you copy paste install this understand it has a minimum version requirement
+#  and also will FORCE INSTALL plugins. You may not want that. I do.
 
 Vagrant.require_version ">= 1.8"
 VAGRANTFILE_API_VERSION = "2"
@@ -10,9 +13,6 @@ required_plugins = %w(vagrant-vbguest vagrant-cachier vagrant-proxyconf)
 plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  ## Because freebsd
-  config.vbguest.auto_update = false
-
   ## My plugins are not optional, they are manditory
   if not plugins_to_install.empty?
     puts "Installing plugins: #{plugins_to_install.join(' ')}"
@@ -21,6 +21,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     else
       abort "Installation of one or more plugins has failed. Aborting."
     end
+  end
+
+  # https://github.com/dotless-de/vagrant-vbguest
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    # Because freebsd
+    config.vbguest.auto_update = false
   end
 
   # https://github.com/tmatilai/vagrant-proxyconf
@@ -38,7 +44,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.cache.scope = :box
     config.cache.auto_detect = true
     config.cache.enable :apt
-    config.cache.enable :apt_lists
     config.cache.enable :chef
     config.cache.enable :chef_gem
     config.cache.enable :gem
