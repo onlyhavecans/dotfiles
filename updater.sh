@@ -8,7 +8,7 @@ echo "curlbash chef like I hate security b/c you didn't install chef-dk"
 fi
 
 ## Vendor the cookbook to always have reqs
-cd workstation
+cd chef_workstation
 BERKS="/opt/chefdk/bin/berks"
 $BERKS install
 $BERKS update

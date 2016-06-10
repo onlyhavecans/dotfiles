@@ -39,7 +39,6 @@ default['workstation']['packages'] = %w(
   gnupg2
   hub
   keybase
-  neovim/neovim/neovim
   nmap
   polipo
   python

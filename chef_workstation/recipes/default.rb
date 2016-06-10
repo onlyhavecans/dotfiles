@@ -62,7 +62,14 @@ workstation_checkout vundle_dir do
   repo_url 'https://github.com/VundleVim/Vundle.vim.git'
 end
 
-tpm_dir = ::File.join(workstation_user_home, '.tmux', 'plugins', 'tpm')
+tmuxplugins_dir = ::File.join(workstation_user_home, '.tmux', 'plugins')
+directory tmuxplugins_dir do
+  owner     workstation_user
+  recursive true
+  action    :create
+end
+
+tpm_dir = ::File.join(tmuxplugins_dir, 'tpm')
 workstation_checkout tpm_dir do
   repo_url 'https://github.com/tmux-plugins/tpm'
 end
