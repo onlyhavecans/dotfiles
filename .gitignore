@@ -7,8 +7,7 @@ vim/bundle
 powerline
 
 # Chef
-cookbooks/homebrew/
-cookbooks/build-essential/
+cookbooks/*/
 local-mode-cache/
 nodes/
 
