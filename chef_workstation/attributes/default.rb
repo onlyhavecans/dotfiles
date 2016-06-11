@@ -51,3 +51,31 @@ default['workstation']['packages'] = %w(
   yara
   youtube-dl
 )
+
+## old casked apps
+# a-better-finder-rename
+# adobe-creative-cloud
+# alfred
+# anki
+# atom
+# bartender
+# bittorrent-sync
+# busycontacts
+# coda
+# dropbox
+# evernote
+# google-chrome
+# iterm2
+# kaledoscope
+# keyboard-maestro
+# openemu
+# screenhero
+# steam
+# transmit
+# vitamin-r
+
+# Casked applications
+default['workstation']['caskapps'] = %w(
+  vagrant
+  virtualbox
+)

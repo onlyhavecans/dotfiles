@@ -36,6 +36,12 @@ node['workstation']['packages'].each do |pkg|
   end
 end
 
+node['workstation']['caskapps'].each do |pkg|
+  homebrew_cask pkg do
+    action :install
+  end
+end
+
 ##
 # My gnupg config requires a specific cert for my keyserver
 remote_file '/usr/local/etc/openssl/certs/hkps.pool.sks-keyservers.net.pem' do
