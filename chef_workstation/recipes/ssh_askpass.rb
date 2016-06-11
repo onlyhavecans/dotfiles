@@ -16,3 +16,4 @@ cookbook_file '/usr/local/bin/ssh-askpass' do
 end
 
 ENV['SUDO_ASKPASS'] = '/usr/local/bin/ssh-askpass'
+ENV['SSH_ASKPASS'] = '/usr/local/bin/ssh-askpass'

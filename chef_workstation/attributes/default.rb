@@ -43,6 +43,7 @@ default['workstation']['packages'] = %w(
   polipo
   python
   python3
+  tarsnap
   the_silver_searcher
   tmux
   tree
