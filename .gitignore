@@ -3,11 +3,8 @@
 vim/backups
 vim/bundle
 
-# powerline
-powerline
-
 # Chef
-cookbooks/*/
+cookbooks/
 local-mode-cache/
 nodes/
 
@@ -18,6 +15,3 @@ generated_completions
 
 #Kitchen
 kitchen/logs
-
-# Dash Cheatsheet
-*.docset/
