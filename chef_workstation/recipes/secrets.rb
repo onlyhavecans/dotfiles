@@ -7,6 +7,10 @@
 Chef::Resource.send(:include, Workstation::Mixin)
 Chef::Recipe.send(:include, Workstation::Mixin)
 
+unless ::File.directory?(secrets_directory)
+  Chef::Log.fatal("You do not have a secrets directory!")
+end
+
 secrets_glob = ::File.join(secrets_directory, "*")
 secrets = ::Dir.glob(secrets_glob)
 
