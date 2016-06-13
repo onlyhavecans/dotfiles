@@ -52,6 +52,10 @@ end
 
 ##
 # Proper dotfile links
+include_recipe "workstation::secrets"
+
+##
+# Proper dotfile links
 include_recipe "workstation::dotfiles"
 
 ##

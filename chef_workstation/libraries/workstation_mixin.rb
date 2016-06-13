@@ -20,11 +20,15 @@ module Workstation
       @dofiles_directory ||= calculate_dotfiles_directory
     end
 
+    def secrets_directory
+      @secrets_directory ||= calculate_secrets_directory
+    end
+
     private
 
     def calculate_user
-      owner = workstation_user_attribute || sudo_user || 'bitm'
-      owner = 'bitm' if owner == 'root'
+      owner = workstation_user_attribute || sudo_user || 'dos'
+      owner = 'dos' if owner == 'root'
       owner
     end
 
@@ -42,6 +46,10 @@ module Workstation
 
     def calculate_dotfiles_directory
       File.join(workstation_user_home, node['workstation']['dotfiles_dir'])
+    end
+
+    def calculate_secrets_directory
+      File.join(workstation_user_home, node['workstation']['secrets_dir'])
     end
 
   end

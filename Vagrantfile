@@ -9,19 +9,8 @@
 
 Vagrant.require_version ">= 1.8"
 VAGRANTFILE_API_VERSION = "2"
-required_plugins = %w(vagrant-vbguest vagrant-cachier vagrant-proxyconf)
-plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  ## My plugins are not optional, they are manditory
-  if not plugins_to_install.empty?
-    puts "Installing plugins: #{plugins_to_install.join(' ')}"
-    if system("vagrant plugin install #{plugins_to_install.join(' ')}")
-      exit system('vagrant', *ARGV)
-    else
-      abort "Installation of one or more plugins has failed. Aborting."
-    end
-  end
 
   # https://github.com/dotless-de/vagrant-vbguest
   if Vagrant.has_plugin?("vagrant-vbguest")

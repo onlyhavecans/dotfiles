@@ -17,7 +17,8 @@ I use chef-client --local-mode to deploy all of this.
 * to use the the_silver_searcher stuff :Ack in vim
 
 ### gnupg ###
-I use gpg a lot and I stole most of my harderned config from riseup and grok
+I've pulled my config and added it to a special secrets dir that is not shared.
+I recommend using the riseup.net setup
 
 ### Vagrant ###
 I use vagrant a LOT in kitchen runs. I have a global vagrant file that will force install some plugins.
