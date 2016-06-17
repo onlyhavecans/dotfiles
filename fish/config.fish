@@ -19,8 +19,8 @@ if test -x /usr/local/bin/hub
   eval (hub alias -s)
 end
 
-## I use vmware
-#set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
+# I use vmware
+set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
 
 set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
@@ -28,10 +28,11 @@ set -x ACK_COLOR_MATCH "bold yellow"
 
 alias git /usr/local/bin/git
 alias nv nvim
-alias vundle 'nvim +PluginUpdate +qall'
+alias vundle 'vim +PluginUpdate +qall'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
 # Abbreviations
+abbr --add vmrun '/Applications/VMware Fusion.app//Contents/Library/vmrun'
 ## Mo Git Mo Problems
 abbr --add gad git add --all
 abbr --add gap git add --patch

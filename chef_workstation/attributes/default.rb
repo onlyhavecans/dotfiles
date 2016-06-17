@@ -78,5 +78,4 @@ default['workstation']['packages'] = %w(
 # Casked applications
 default['workstation']['caskapps'] = %w(
   vagrant
-  virtualbox
 )
