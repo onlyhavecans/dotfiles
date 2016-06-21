@@ -28,15 +28,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if Vagrant.has_plugin?("vagrant-cachier")
     # Configure cached packages to be shared between instances of the same base box.
     # scope needs to be machine if you are going to be using concurrency in kitchen
-     config.cache.synced_folder_opts = {
-      type: :nfs,
-      # The nolock option can be useful for an NFSv3 client that wants to avoid the
-      # NLM sideband protocol. Without this option, apt-get might hang if it tries
-      # to lock files needed for /var/cache/* operations. All of this can be avoided
-      # by using NFSv4 everywhere. Please note that the tcp option is not the default.
-      mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
-    }   #  ie on CI workers
     config.cache.scope = :box
     config.cache.auto_detect = true
+    # config.cache.synced_folder_opts = {
+    #   type: :nfs,
+    #   # The nolock option can be useful for an NFSv3 client that wants to avoid the
+    #   # NLM sideband protocol. Without this option, apt-get might hang if it tries
+    #   # to lock files needed for /var/cache/* operations. All of this can be avoided
+    #   # by using NFSv4 everywhere. Please note that the tcp option is not the default.
+    #   mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+    # }   #  ie on CI workers
   end
 end

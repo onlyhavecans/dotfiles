@@ -6,6 +6,9 @@ if status --is-interactive
   end
 
   /usr/local/bin/archey --color
+
+  fish_vi_key_bindings
+  set -g __fish_vi_mode 1
 end
 
 if test -z "$TMUX"
