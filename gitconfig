@@ -15,7 +15,7 @@
   st = status
 [diff]
   tool = Kaleidoscope
-	compactionHeuristic = true
+  compactionHeuristic = true
 [merge]
   tool = Kaleidoscope
 [difftool]
@@ -36,4 +36,4 @@
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [interactive]
-	diffFilter = diff-highlight
+  # diffFilter = diff-highlight

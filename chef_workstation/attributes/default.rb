@@ -33,6 +33,7 @@ default['workstation']['packages'] = %w(
   archey
   clamav
   dsh
+  elixir
   exiftool
   fish
   git
