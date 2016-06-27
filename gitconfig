@@ -1,6 +1,6 @@
 [user]
   name = David Aronsohn
-  email = WagThatTail@Me.com
+  email = david.aronsohn@dnsimple.com
 [core]
   excludesfile = ~/.gitignore_global
   editor = vim
