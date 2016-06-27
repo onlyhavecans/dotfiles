@@ -30,6 +30,7 @@ default['workstation']['links'] = {
 ##
 # Generic packages to install
 default['workstation']['packages'] = %w(
+  openssl
   archey
   clamav
   dsh
@@ -41,10 +42,11 @@ default['workstation']['packages'] = %w(
   hub
   keybase
   nmap
+  node
   polipo
+  postgresql
   python
   python3
-  tarsnap
   the_silver_searcher
   tmux
   tree
