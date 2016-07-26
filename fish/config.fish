@@ -31,6 +31,7 @@ set -x ACK_COLOR_MATCH "bold yellow"
 
 alias git /usr/local/bin/git
 alias nv nvim
+alias ce 'chef exec'
 alias vundle 'vim +PluginUpdate +qall'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
