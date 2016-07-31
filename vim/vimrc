@@ -162,6 +162,10 @@ noremap <Leader>o :Obsess<CR>
 inoremap <Leader>p :normal $p
 nnoremap <Leader>p $p
 
+" <Leader>P = paste at end of line
+inoremap <Leader>P :pu<CR>
+nnoremap <Leader>P :pu<CR>
+
 " <Leader>q = Auto rewrap
 vnoremap <Leader>q gq
 nnoremap <Leader>q gqap
