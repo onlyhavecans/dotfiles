@@ -21,7 +21,6 @@ default['workstation']['links'] = {
   'rubocop.yml' => '.rubocop.yml',
   'tmux.conf'   => '.tmux.conf',
   'Vagrantfile' => '.vagrant.d/Vagrantfile',
-  'vim'         => '.config/nvim/init.vim',
   'vim'         => '.vim',
   'vim/gvimrc'  => '.gvimrc',
   'vim/vimrc'   => '.vimrc',
@@ -52,6 +51,7 @@ default['workstation']['packages']['generic'] = %w(
 default['workstation']['packages']['freebsd'] = %w(
   gnupg
   tarsnap
+  feather
 )
 
 default['workstation']['packages']['mac_os_x'] = %w(
@@ -62,28 +62,6 @@ default['workstation']['packages']['mac_os_x'] = %w(
   watch
   youtube-dl
 )
-
-## old casked apps
-# a-better-finder-rename
-# adobe-creative-cloud
-# alfred
-# anki
-# atom
-# bartender
-# bittorrent-sync
-# busycontacts
-# coda
-# dropbox
-# evernote
-# google-chrome
-# iterm2
-# kaledoscope
-# keyboard-maestro
-# openemu
-# screenhero
-# steam
-# transmit
-# vitamin-r
 
 # Casked applications
 default['workstation']['caskapps'] = %w(
