@@ -29,30 +29,36 @@ default['workstation']['links'] = {
 
 ##
 # Generic packages to install
-default['workstation']['packages'] = %w(
+default['workstation']['packages']['generic'] = %w(
   openssl
-  archey
   clamav
-  dsh
+  curl
   elixir
-  exiftool
   fish
   git
   gnupg2
   hub
   keybase
   nmap
-  node
   polipo
-  postgresql
   python
   python3
   the_silver_searcher
   tmux
   tree
   vim
-  watch
   yara
+)
+
+default['workstation']['packages']['freebsd'] = %w(
+  tarsnap
+)
+
+default['workstation']['packages']['mac_os_x'] = %w(
+  archey
+  exiftool
+  postgresql
+  watch
   youtube-dl
 )
 

@@ -10,36 +10,30 @@ Chef::Recipe.send(:include, Workstation::Mixin)
 Chef::Log.info("Workstation user is #{workstation_user}")
 Chef::Log.info("Workstation user's home path is #{workstation_user_home}")
 
-##
-# All the following requires this, so lets only set this once
-%w( /usr/local/bin /usr/local/etc ).each do |local_dir|
-  directory local_dir do
-    user      workstation_user
-    group     'admin'
-    recursive true
-    action    :create
-    not_if { ::File.exist?(local_dir) }
-  end
+case node['platform']
+when 'mac_os_x'
+  include_recipe 'chef_workstation::mac'
+when 'freebsd'
+  include_recipe 'chef_workstation::freebsd'
 end
 
 ##
-# Set up askpass first for any upcoming sudos or questions
-include_recipe 'workstation::ssh_askpass'
-
-include_recipe 'homebrew'
-
-##
 # Install global packages
-node['workstation']['packages'].each do |pkg|
+node['workstation']['packages']['generic'].each do |pkg|
   package pkg do
     action :install
   end
 end
 
-node['workstation']['caskapps'].each do |pkg|
-  homebrew_cask pkg do
-    action :install
+os_pkgs = node['workstation']['packages'][node['platform']]
+if os_pkgs
+  os_pkgs.each do |pkg|
+    package pkg do
+      action :install
+    end
   end
+else
+  Chef::Log.error('OS packages do not exist for your OS!')
 end
 
 ##
