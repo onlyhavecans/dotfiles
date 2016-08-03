@@ -6,8 +6,9 @@ source_url       'https://github.com/tbunnyman/dotfiles'
 license          'BSD'
 description      'Installs/Configures workstation'
 long_description 'Installs/Configures workstation'
-version          '4.0.0'
+version          '5.0.0'
 
 supports 'mac_os_x'
+supports 'freebsd'
 
 depends 'homebrew'

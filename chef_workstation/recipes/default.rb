@@ -12,9 +12,9 @@ Chef::Log.info("Workstation user's home path is #{workstation_user_home}")
 
 case node['platform']
 when 'mac_os_x'
-  include_recipe 'chef_workstation::mac'
+  include_recipe 'workstation::mac'
 when 'freebsd'
-  include_recipe 'chef_workstation::freebsd'
+  include_recipe 'workstation::freebsd'
 end
 
 ##
@@ -38,6 +38,13 @@ end
 
 ##
 # My gnupg config requires a specific cert for my keyserver
+directory '/usr/local/etc/openssl' do
+  action :create
+end
+directory '/usr/local/etc/openssl/certs' do
+  action :create
+end
+
 remote_file '/usr/local/etc/openssl/certs/hkps.pool.sks-keyservers.net.pem' do
   source   'https://sks-keyservers.net/sks-keyservers.netCA.pem'
   checksum '0666ee848e03a48f3ea7bb008dbe9d63dfde280af82fb4412a04bf4e24cab36b'
@@ -79,7 +86,7 @@ workstation_checkout tpm_dir do
 end
 
 # Build Vundle
-bash 'build_vundle' do
-  code '/usr/local/bin/vim +VundleInstall +qall'
-  user workstation_user
-end
+#execute 'build_vundle' do
+#  command '/usr/local/bin/vim +VundleInstall +qall'
+#  user workstation_user
+# end

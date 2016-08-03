@@ -5,7 +5,11 @@ if status --is-interactive
     eval (/opt/chefdk/bin/chef shell-init fish)
   end
 
-  /usr/local/bin/archey --color
+  if test -x "/usr/local/bin/archey"
+      /usr/local/bin/archey --color
+  else if test -x "/usr/local/bin/bsdinfo"
+      /usr/local/bin/bsdinfo
+  end
 
   fish_vi_key_bindings
   set -g __fish_vi_mode 1

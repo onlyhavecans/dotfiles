@@ -36,7 +36,6 @@ default['workstation']['packages']['generic'] = %w(
   elixir
   fish
   git
-  gnupg2
   hub
   keybase
   nmap
@@ -51,12 +50,14 @@ default['workstation']['packages']['generic'] = %w(
 )
 
 default['workstation']['packages']['freebsd'] = %w(
+  gnupg
   tarsnap
 )
 
 default['workstation']['packages']['mac_os_x'] = %w(
   archey
   exiftool
+  gnupg2
   postgresql
   watch
   youtube-dl
