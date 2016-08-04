@@ -8,9 +8,6 @@ git pull origin master || exit 5
 if [[ ! -d /opt/chefdk ]]; then
   echo "You haven't instaled Chef-DK!!! I don't do this automatically anymore"
   echo 'curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk'
-  echo " "
-  echo "!! If it's not here it's gonna die. Enter to continue or ^C to quit"
-  read do_i_care
 fi
 
 ## Find berks or die

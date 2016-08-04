@@ -48,7 +48,7 @@ Plugin 'dougireton/vim-chef'            " Sets filetypes with chef and sets path
 Plugin 'dag/vim-fish'                   " Fish is my shell
 
 " My special plugins
-Plugin 'tbunnyman/mm.vim'
+Plugin 'onlyhavecans/mm.vim'
 
 " Color Scheme
 Plugin 'altercation/vim-colors-solarized'
