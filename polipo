@@ -1,5 +1,5 @@
-proxyAddress='0.0.0.0'
-disableIndexing='false'
-disableServersList='false'
-allowedClients='0.0.0.0/0'
-diskCacheRoot='~/.polipo-cache'
+proxyAddress = 0.0.0.0
+disableIndexing = false
+disableServersList = false
+allowedClients = 0.0.0.0/0
+diskCacheRoot = ~/.polipo-cache
