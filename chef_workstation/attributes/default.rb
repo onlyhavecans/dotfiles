@@ -17,6 +17,7 @@ default['workstation']['links'] = {
   'gitconfig'   => '.gitconfig',
   'gitignore'   => '.gitignore_global',
   'kitchen'     => '.kitchen',
+  'polipo'      => '.polipo',
   'pylintrc'    => '.pylintrc',
   'rubocop.yml' => '.rubocop.yml',
   'tmux.conf'   => '.tmux.conf',
