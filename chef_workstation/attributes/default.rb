@@ -40,6 +40,7 @@ default['workstation']['packages']['generic'] = %w(
   keybase
   nmap
   polipo
+  privoxy
   python
   python3
   the_silver_searcher
