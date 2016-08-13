@@ -50,6 +50,7 @@ default['workstation']['packages']['generic'] = %w(
 )
 
 default['workstation']['packages']['freebsd'] = %w(
+  bsdinfo
   feather
   gnupg
   keybase
