@@ -2,7 +2,7 @@
   name = David Aronsohn
   email = WagThatTail@Me.com
 [core]
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/dos/.gitignore_global
   editor = vim
 [push]
   default = current
@@ -37,3 +37,9 @@
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [interactive]
   # diffFilter = diff-highlight
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

@@ -21,11 +21,6 @@ end
 
 set -x EDITOR vim
 
-## I'm using hub
-if test -x /usr/local/bin/hub
-  eval (hub alias -s)
-end
-
 # I use vmware
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
 
@@ -34,13 +29,13 @@ set -x GREP_COLOR "1;33"
 set -x ACK_COLOR_MATCH "bold yellow"
 
 alias git /usr/local/bin/git
-alias nv nvim
+alias git hub
 alias ce 'chef exec'
 alias vundle 'vim +PluginUpdate +qall'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
 # Abbreviations
-abbr --add vmrun '/Applications/VMware Fusion.app//Contents/Library/vmrun'
+abbr --add vmrun '/Applications/VMware\ Fusion.app//Contents/Library/vmrun'
 ## Mo Git Mo Problems
 abbr --add gad git add --all
 abbr --add gap git add --patch

@@ -37,7 +37,6 @@ default['workstation']['packages']['generic'] = %w(
   fish
   git
   hub
-  keybase
   nmap
   polipo
   privoxy
@@ -51,9 +50,10 @@ default['workstation']['packages']['generic'] = %w(
 )
 
 default['workstation']['packages']['freebsd'] = %w(
-  gnupg
-  tarsnap
   feather
+  gnupg
+  keybase
+  tarsnap
 )
 
 default['workstation']['packages']['mac_os_x'] = %w(
