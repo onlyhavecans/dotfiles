@@ -58,3 +58,10 @@ include_recipe "workstation::secrets"
 ##
 # Proper dotfile links
 include_recipe "workstation::dotfiles"
+
+##
+# Set mah shell
+user workstation_user do
+  shell '/usr/local/bin/fish'
+  action :manage
+end
