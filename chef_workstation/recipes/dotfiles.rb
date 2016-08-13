@@ -20,7 +20,7 @@ node['workstation']['dot_dirs'].each do |dot_dirs|
 end
 
 node['workstation']['links'].each do |key, value|
-  original = ::File.join(dofiles_directory, key)
+  original = ::File.join(dotfiles_directory, key)
   dotted = ::File.join(workstation_user_home, value)
 
   workstation_dotfile dotted do

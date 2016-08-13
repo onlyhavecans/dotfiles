@@ -16,7 +16,7 @@ module Workstation
       @workstation_user_home ||= calculate_home
     end
 
-    def dofiles_directory
+    def dotfiles_directory
       @dofiles_directory ||= calculate_dotfiles_directory
     end
 
