@@ -34,6 +34,7 @@ Plugin 'itspriddle/vim-marked'          " Opens Marked 2 on current file
 Plugin 'blueyed/delimitMate'            " Autoadding closing braces
 Plugin 'SirVer/ultisnips'               " Switching to vim snips
 Plugin 'honza/vim-snippets'             " Default snips
+Plugin 'janko-m/vim-test'
 
 " Searching
 Plugin 'mileszs/ack.vim'                " Experimenting with ag, the silver searcher
@@ -43,7 +44,7 @@ endif
 
 " Language stuff
 Plugin 'plasticboy/vim-markdown'        " Markdown
-Plugin 'klen/python-mode'               " Python
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'dougireton/vim-chef'            " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plugin 'dag/vim-fish'                   " Fish is my shell
 
