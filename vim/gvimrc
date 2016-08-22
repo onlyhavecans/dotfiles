@@ -1,12 +1,13 @@
 cd ~
 set t_Co=256
 let g:solarized_termcolors=256
+set background=light
 colorscheme solarized
 
-set gfn=PragmataPro:h14
+set gfn=PragmataPro:h18
 
 set lines=55
-set columns=125
+set columns=100
 
 " Show tab number (useful for Cmd0, Cmd-2.. mapping)
 " For some reason this doesn't work as a regular set command,
