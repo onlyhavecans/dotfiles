@@ -335,3 +335,7 @@ endfor
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+if has("gui_vimr")
+  source ~/.gvimrc
+endif

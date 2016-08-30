@@ -4,8 +4,6 @@ let g:solarized_termcolors=256
 set background=light
 colorscheme solarized
 
-set gfn=PragmataPro:h18
-
 set lines=55
 set columns=100
 
@@ -19,6 +17,8 @@ set guioptions-=r
 set guioptions-=L
 
 if has("gui_macvim")
+  set gfn=PragmataPro:h18
+
   set guioptions=aAce
   set guioptions-=T
   set fuoptions=maxvert,maxhorz
