@@ -19,7 +19,7 @@ if test -z "$TMUX"
   set TERM screen-256color
 end
 
-set -x EDITOR vim
+set -x EDITOR nvim
 
 # I use vmware
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion

@@ -1,9 +1,10 @@
 [user]
   name = David Aronsohn
   email = WagThatTail@Me.com
+	signingkey = 01DC4C9EA162B659
 [core]
-	excludesfile = /Users/dos/.gitignore_global
-  editor = vim
+  excludesfile = ~/.gitignore_global
+  editor = nvim
 [push]
   default = current
 [alias]
@@ -38,8 +39,8 @@
 [interactive]
   # diffFilter = diff-highlight
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true

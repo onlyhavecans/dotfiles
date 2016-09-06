@@ -326,6 +326,11 @@ let g:dash_map = { 'ruby.chef' : 'chef' }
 " ======================== Clipboard ========================
 set clipboard=unnamed
 
+" =======bugfix in nvim
+if has('nvim')
+  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+endif
+
 " ================ Sourcing plugin specific setting ========================
 
 for f in split(glob('~/.vim/settings/*.vim'), '\n')
