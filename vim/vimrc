@@ -324,11 +324,16 @@ let delimitMate_expand_cr    = 2
 let g:dash_map = { 'ruby.chef' : 'chef' }
 
 " ======================== Clipboard ========================
-set clipboard=unnamed
+if !has('nvim')
+  set clipboard=unnamed
+else
+  set clipboard+=unnamedplus
+endif
 
 " =======bugfix in nvim
 if has('nvim')
   nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+  tnoremap <Esc> <C-\><C-n>
 endif
 
 " ================ Sourcing plugin specific setting ========================
