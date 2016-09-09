@@ -1,4 +1,6 @@
-set nocompatible
+if &compatible
+  set nocompatible
+endif
 if &shell =~# 'fish$'   "This is a compatibility fix for fish-shell and plugins
     set shell=sh
 endif
@@ -6,77 +8,86 @@ endif
 " ================ Vundle for packages ========================
 filetype off
 
-if empty(glob("~/.vim/bundle/Vundle.vim"))
-  call system('git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim')
+if empty(glob("~/.vim/bundle/repos/github.com/Shougo/dein.vim"))
+  call system( 'mkdir -p ~/.vim/bundle/repos/github.com/Shougo/dein.vim' )
+  call system( 'git clone https://github.com/Shougo/dein.vim ~/.vim/bundle/repos/github.com/Shougo/dein.vim' )
 endif
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
+call dein#begin('~/.vim/bundle')
 
 " General plugins
-Plugin 'VundleVim/Vundle.vim'           " Package Manager
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
-Plugin 'tpope/vim-surround'             " cs\" and cs' for surrounding
-Plugin 'tpope/vim-obsession'            " obsessivly save sessions
-Plugin 'godlygeek/tabular'              " Text Alignment plugin
-Plugin 'junegunn/vim-easy-align'        " Text Alignment plugin
-Plugin 'tomtom/tcomment_vim'            " Auto block commenting
-Plugin 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
+call dein#add('Shougo/dein.vim')           " Package Manager
+
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
+call dein#add('christoomey/vim-tmux-navigator') " Seamless vim & tmux nav with C-hjkl
+call dein#add('scrooloose/nerdtree')            " NEEEEEEEERD Tree
+call dein#add('Xuyuanp/nerdtree-git-plugin')    " git in my NERDTree
+call dein#add('tpope/vim-surround')             " cs\" and cs' for surrounding
+call dein#add('tpope/vim-obsession')            " obsessivly save sessions
+call dein#add('godlygeek/tabular')              " Text Alignment plugin
+call dein#add('junegunn/vim-easy-align')        " Text Alignment plugin
+call dein#add('tomtom/tcomment_vim')            " Auto block commenting
+
+"  Autocomplete?
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('Shougo/neco-vim')
+call dein#add('Shougo/neoinclude.vim')
+call dein#add('Shougo/neco-syntax')
+call dein#add('awetzel/elixir.nvim')
+call dein#add('Shougo/neopairs.vim')
 
 " Programming tools
-Plugin 'tpope/vim-fugitive'             " How you use git as a vim user
-Plugin 'airblade/vim-gitgutter'         " Shows edits from git in gutter
-Plugin 'rizzatti/dash.vim'              " Dash is amazing for lookups
-Plugin 'scrooloose/syntastic'           " Global Syntax test
-Plugin 'itspriddle/vim-marked'          " Opens Marked 2 on current file
-Plugin 'blueyed/delimitMate'            " Autoadding closing braces
-Plugin 'SirVer/ultisnips'               " Switching to vim snips
-Plugin 'honza/vim-snippets'             " Default snips
-Plugin 'janko-m/vim-test'
+call dein#add('tpope/vim-fugitive')             " How you use git as a vim user
+call dein#add('airblade/vim-gitgutter')         " Shows edits from git in gutter
+call dein#add('rizzatti/dash.vim')              " Dash is amazing for lookups
+call dein#add('scrooloose/syntastic')           " Global Syntax test
+call dein#add('blueyed/delimitMate')            " Autoadding closing braces
+call dein#add('janko-m/vim-test')
 
 " Searching
-Plugin 'mileszs/ack.vim'                " Experimenting with ag, the silver searcher
+call dein#add('mileszs/ack.vim')                " Experimenting with ag, the silver searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
 " Language stuff
-Plugin 'plasticboy/vim-markdown'        " Markdown
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'dougireton/vim-chef'            " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plugin 'dag/vim-fish'                   " Fish is my shell
+call dein#add('plasticboy/vim-markdown')        " Markdown
+call dein#add('itspriddle/vim-marked')          " Opens Marked 2 on current file
+call dein#add('elixir-lang/vim-elixir')
+call dein#add('keith/tmux.vim')
+call dein#add('dougireton/vim-chef')            " Sets filetypes with chef and sets path to make `gf` work with recipes
+call dein#add('dag/vim-fish')                   " Fish is my shell
 
 " My special plugins
-Plugin 'onlyhavecans/mm.vim'
+call dein#add('onlyhavecans/mm.vim')
 
 " Color Scheme
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'baskerville/bubblegum'
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('baskerville/bubblegum')
 
-call vundle#end()
+call dein#end()
+
+if dein#check_install()
+  call dein#install()
+endif
 
 " ================ File types ================================
-
 set encoding=utf-8
 filetype plugin indent on
 syntax enable
 
 " ================ Color =====================================
-
-if !empty(glob("~/.vim/bundle/vim-colors-solarized"))
-  set background=dark
-  colorscheme solarized
-endif
+set background=dark
+colorscheme solarized
 
 " ================ Mapleader comma! ========================
-
 let mapleader   = ","
 let g:mapleader = ","
 
 " ================ My Cool shortcuts ========================
-
 " <F1> = Disable help
 nnoremap <F1> <nop>
 
@@ -191,7 +202,6 @@ cmap w!! w !sudo tee % >/dev/null
 command! -nargs=0 Quit :qa!
 
 " ================ Lines and cursors  ========================
-
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set gcr=a:blinkon0              "Disable cursor blink
@@ -199,16 +209,13 @@ set gcr=a:blinkon0              "Disable cursor blink
 set list listchars=tab:→\ ,trail:∙,nbsp:+
 
 " ================ Search Settings  =================
-
 set incsearch        "Find the next match as we type the search
 set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 
 " ================ Numbers =================
-
 set nrformats=
 
 " ================ Turn Off Swap Files ==============
-
 set noswapfile
 set nobackup
 set nowritebackup
@@ -216,7 +223,6 @@ set nowritebackup
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
-
 let backupdir = expand('~/.vim/backups')
 if !isdirectory(backupdir)
   call mkdir(backupdir)
@@ -225,7 +231,6 @@ set undodir=~/.vim/backups
 set undofile
 
 " ================ Indentation ======================
-
 set autoindent
 set smartindent
 set smarttab
@@ -244,13 +249,11 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
 
 " ================ Folds ============================
-
 set nofoldenable        "fold by default
 set foldmethod=indent
 let g:vim_markdown_folding_disabled=1
 
 " ================ Completion =======================
-
 set wildmode=list:longest,full
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -265,7 +268,6 @@ set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
 " ================ Scrolling ========================
-
 set scrolloff     =8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff =15
 set sidescroll    =1
@@ -273,19 +275,16 @@ set sidescroll    =1
 au VimResized * exe "normal! \<c-w>="
 
 " ================ airline ==========================
-
 let g:airline_powerline_fonts = 1
 let g:airline_theme='badwolf'
 
 " ================ GitGutter ========================
-
 " Solarized needs this black
 highlight SignColumn ctermbg = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
 
 " ================ Syntastic ========================
-
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -293,15 +292,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_ignore_files=['\m^/opt/chefdk/']
 
-" ================ UltiSnips ========================
-
-let g:UltiSnipsEditSplit           = "horizontal"
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
 " ================ NERDTree ========================
-
 let NERDTreeMinimalUI           = 1
 let NERDTreeShowHidden          = 1
 let NERDTreeDirArrows           = 1
@@ -312,11 +303,9 @@ let NERDTreeIgnore              = ['tmp', '.yardoc', 'pkg', '\.pyc$']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ================ Powerline ========================
-
 set laststatus=2
 
 " ======================== delimitMate ========================
-
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr    = 2
 
@@ -330,18 +319,43 @@ else
   set clipboard+=unnamedplus
 endif
 
+" ================= Strip trailing whitespace
+" via: http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
+
+" =================== Super wrapping power
+" http://vimcasts.org/episodes/soft-wrapping-text/
+function! SetupWrapping()
+  set wrap linebreak nolist
+  set showbreak=…
+endfunction
+
+command! -nargs=* Wrap :call SetupWrapping()
+
 " =======bugfix in nvim
 if has('nvim')
   nmap <bs> :<c-u>TmuxNavigateLeft<cr>
-  tnoremap <Esc> <C-\><C-n>
+  tnoremap jk <C-\><C-n>
+  tnoremap kj <C-\><C-n>
+endif
+
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
 endif
 
 " ================ Sourcing plugin specific setting ========================
-
-for f in split(glob('~/.vim/settings/*.vim'), '\n')
-  exe 'source' f
-endfor
-
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
