@@ -17,10 +17,12 @@ set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
 call dein#begin('~/.vim/bundle')
 
 " General plugins
-call dein#add('Shougo/dein.vim')           " Package Manager
+call dein#add('Shougo/dein.vim')             " Package Manager
+call dein#add('haya14busa/dein-command.vim') " Dein Commands
 
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
+call dein#add('vim-airline/vim-airline')        " I like being on the airline
+call dein#add('vim-airline/vim-airline-themes') " my theme is here
+
 call dein#add('christoomey/vim-tmux-navigator') " Seamless vim & tmux nav with C-hjkl
 call dein#add('scrooloose/nerdtree')            " NEEEEEEEERD Tree
 call dein#add('Xuyuanp/nerdtree-git-plugin')    " git in my NERDTree
@@ -40,26 +42,26 @@ call dein#add('awetzel/elixir.nvim')
 call dein#add('Shougo/neopairs.vim')
 
 " Programming tools
-call dein#add('tpope/vim-fugitive')             " How you use git as a vim user
-call dein#add('airblade/vim-gitgutter')         " Shows edits from git in gutter
-call dein#add('rizzatti/dash.vim')              " Dash is amazing for lookups
-call dein#add('scrooloose/syntastic')           " Global Syntax test
-call dein#add('blueyed/delimitMate')            " Autoadding closing braces
+call dein#add('tpope/vim-fugitive')     " How you use git as a vim user
+call dein#add('airblade/vim-gitgutter') " Shows edits from git in gutter
+call dein#add('rizzatti/dash.vim')      " Dash is amazing for lookups
+call dein#add('scrooloose/syntastic')   " Global Syntax test
+call dein#add('blueyed/delimitMate')    " Autoadding closing braces
 call dein#add('janko-m/vim-test')
 
 " Searching
-call dein#add('mileszs/ack.vim')                " Experimenting with ag, the silver searcher
+call dein#add('mileszs/ack.vim') " Experimenting with ag, the silver searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
 " Language stuff
-call dein#add('plasticboy/vim-markdown')        " Markdown
-call dein#add('itspriddle/vim-marked')          " Opens Marked 2 on current file
+call dein#add('plasticboy/vim-markdown') " Markdown
+call dein#add('itspriddle/vim-marked')   " Opens Marked 2 on current file
 call dein#add('elixir-lang/vim-elixir')
 call dein#add('keith/tmux.vim')
-call dein#add('dougireton/vim-chef')            " Sets filetypes with chef and sets path to make `gf` work with recipes
-call dein#add('dag/vim-fish')                   " Fish is my shell
+call dein#add('dougireton/vim-chef')     " Sets filetypes with chef and sets path to make `gf` work with recipes
+call dein#add('dag/vim-fish')            " Fish is my shell
 
 " My special plugins
 call dein#add('onlyhavecans/mm.vim')
