@@ -2,7 +2,7 @@ if &compatible
   set nocompatible
 endif
 if &shell =~# 'fish$'   "This is a compatibility fix for fish-shell and plugins
-    set shell=sh
+  set shell=sh
 endif
 
 " ================ Vundle for packages ========================
@@ -38,7 +38,6 @@ call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/neco-vim')
 call dein#add('Shougo/neoinclude.vim')
 call dein#add('Shougo/neco-syntax')
-call dein#add('awetzel/elixir.nvim')
 call dein#add('Shougo/neopairs.vim')
 
 " Programming tools
@@ -59,6 +58,7 @@ endif
 call dein#add('plasticboy/vim-markdown') " Markdown
 call dein#add('itspriddle/vim-marked')   " Opens Marked 2 on current file
 call dein#add('elixir-lang/vim-elixir')
+call dein#add('awetzel/elixir.nvim')
 call dein#add('keith/tmux.vim')
 call dein#add('dougireton/vim-chef')     " Sets filetypes with chef and sets path to make `gf` work with recipes
 call dein#add('dag/vim-fish')            " Fish is my shell
@@ -99,8 +99,7 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 " <F3> = Toggle NERDTree
 nnoremap <F3> :NERDTreeToggle<CR>
 
-" <F4> = Highlight the 81st column (from colorcolumn.vim)
-nnoremap <F4> :ToggleColorColumn<cr>
+" <F4> = Empty
 
 " <F5> = Empty
 
@@ -245,10 +244,6 @@ set expandtab
 
 set nowrap
 set linebreak " Wrap lines at convenient points
-
-let g:indent_guides_auto_colors = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size  = 1
 
 " ================ Folds ============================
 set nofoldenable        "fold by default

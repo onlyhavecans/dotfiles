@@ -11,6 +11,10 @@ if status --is-interactive
       /usr/local/bin/bsdinfo
   end
 
+  if test -x "/usr/local/bin/thefuck"
+    eval (thefuck --alias | tr '\n' ';')
+  end
+
   fish_vi_key_bindings
   set -g __fish_vi_mode 1
 end
@@ -36,6 +40,7 @@ alias vundle 'vim +PluginUpdate +qall'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
 # Abbreviations
+abbr --add tp chef exec thor version:bump auto
 abbr --add vmrun '/Applications/VMware\ Fusion.app//Contents/Library/vmrun'
 ## Mo Git Mo Problems
 abbr --add gad git add --all
