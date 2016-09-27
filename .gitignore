@@ -2,6 +2,8 @@
 .netrwhist
 vim/backups
 vim/bundle
+vim/plugged
+vim/autoload
 
 # Chef
 cookbooks/

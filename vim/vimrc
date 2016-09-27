@@ -8,73 +8,64 @@ endif
 " ================ Vundle for packages ========================
 filetype off
 
-if empty(glob("~/.vim/bundle/repos/github.com/Shougo/dein.vim"))
-  call system( 'mkdir -p ~/.vim/bundle/repos/github.com/Shougo/dein.vim' )
-  call system( 'git clone https://github.com/Shougo/dein.vim ~/.vim/bundle/repos/github.com/Shougo/dein.vim' )
+if empty(glob("~/.vim/autoload/plug.vim"))
+  call system( 'curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' )
 endif
 
-set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
-call dein#begin('~/.vim/bundle')
+call plug#begin('~/.vim/plugged')
 
 " General plugins
-call dein#add('Shougo/dein.vim')             " Package Manager
-call dein#add('haya14busa/dein-command.vim') " Dein Commands
+Plug 'vim-airline/vim-airline'        " I like being on the airline
+Plug 'vim-airline/vim-airline-themes' " my theme is here
 
-call dein#add('vim-airline/vim-airline')        " I like being on the airline
-call dein#add('vim-airline/vim-airline-themes') " my theme is here
-
-call dein#add('christoomey/vim-tmux-navigator') " Seamless vim & tmux nav with C-hjkl
-call dein#add('scrooloose/nerdtree')            " NEEEEEEEERD Tree
-call dein#add('Xuyuanp/nerdtree-git-plugin')    " git in my NERDTree
-call dein#add('tpope/vim-surround')             " cs\" and cs' for surrounding
-call dein#add('tpope/vim-obsession')            " obsessivly save sessions
-call dein#add('godlygeek/tabular')              " Text Alignment plugin
-call dein#add('junegunn/vim-easy-align')        " Text Alignment plugin
-call dein#add('tomtom/tcomment_vim')            " Auto block commenting
+Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
+Plug 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
+Plug 'Xuyuanp/nerdtree-git-plugin'    " git in my NERDTree
+Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
+Plug 'tpope/vim-obsession'            " obsessivly save sessions
+Plug 'godlygeek/tabular'              " Text Alignment plugin
+Plug 'junegunn/vim-easy-align'        " Text Alignment plugin
+Plug 'tomtom/tcomment_vim'            " Auto block commenting
 
 "  Autocomplete?
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neco-vim')
-call dein#add('Shougo/neoinclude.vim')
-call dein#add('Shougo/neco-syntax')
-call dein#add('Shougo/neopairs.vim')
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neco-vim'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neopairs.vim'
 
 " Programming tools
-call dein#add('tpope/vim-fugitive')     " How you use git as a vim user
-call dein#add('airblade/vim-gitgutter') " Shows edits from git in gutter
-call dein#add('rizzatti/dash.vim')      " Dash is amazing for lookups
-call dein#add('scrooloose/syntastic')   " Global Syntax test
-call dein#add('blueyed/delimitMate')    " Autoadding closing braces
-call dein#add('janko-m/vim-test')
+Plug 'tpope/vim-fugitive'     " How you use git as a vim user
+Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
+Plug 'rizzatti/dash.vim'      " Dash is amazing for lookups
+Plug 'scrooloose/syntastic'   " Global Syntax test
+Plug 'blueyed/delimitMate'    " Autoadding closing braces
+Plug 'janko-m/vim-test'
 
 " Searching
-call dein#add('mileszs/ack.vim') " Experimenting with ag, the silver searcher
+Plug 'mileszs/ack.vim' " Experimenting with ag, the silver searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
 " Language stuff
-call dein#add('plasticboy/vim-markdown') " Markdown
-call dein#add('itspriddle/vim-marked')   " Opens Marked 2 on current file
-call dein#add('elixir-lang/vim-elixir')
-call dein#add('awetzel/elixir.nvim')
-call dein#add('keith/tmux.vim')
-call dein#add('dougireton/vim-chef')     " Sets filetypes with chef and sets path to make `gf` work with recipes
-call dein#add('dag/vim-fish')            " Fish is my shell
+Plug 'plasticboy/vim-markdown' " Markdown
+Plug 'itspriddle/vim-marked'   " Opens Marked 2 on current file
+Plug 'elixir-lang/vim-elixir'
+Plug 'awetzel/elixir.nvim'
+Plug 'keith/tmux.vim'
+Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
+Plug 'dag/vim-fish'            " Fish is my shell
 
 " My special plugins
-call dein#add('onlyhavecans/mm.vim')
+Plug 'onlyhavecans/mm.vim'
 
 " Color Scheme
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('baskerville/bubblegum')
+Plug 'altercation/vim-colors-solarized'
+Plug 'baskerville/bubblegum'
 
-call dein#end()
-
-if dein#check_install()
-  call dein#install()
-endif
+call plug#end()
 
 " ================ File types ================================
 set encoding=utf-8
