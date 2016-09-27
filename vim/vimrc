@@ -100,6 +100,7 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 nnoremap <F3> :NERDTreeToggle<CR>
 
 " <F4> = Empty
+call togglebg#map("<F4>")
 
 " <F5> = Empty
 
@@ -143,6 +144,9 @@ vnoremap <Leader>ad :Tabularize /\d<CR>
 nnoremap <Leader>ad :Tabularize /\d<CR>
 vnoremap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
 nnoremap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
+
+" <Leader>b = blagfix (strip curlies)
+nnoremap <Leader>b :StraightenQuotes<CR>
 
 " <Leader>c = comment out
 vnoremap <Leader>c :TComment<CR>
@@ -316,6 +320,22 @@ else
   set clipboard+=unnamedplus
 endif
 
+" ================= Srtraighten Quotes
+function! <SID>StraightenQuotes()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/[”“]/"/g
+    %s/[`’]/'/g
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+command! StraightenQuotes call <SID>StraightenQuotes()
+
 " ================= Strip trailing whitespace
 " via: http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -358,5 +378,6 @@ if filereadable(glob("~/.vimrc.local"))
 endif
 
 if has("gui_vimr")
+  set termguicolors
   source ~/.gvimrc
 endif
