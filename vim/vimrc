@@ -18,9 +18,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'vim-airline/vim-airline-themes' " my theme is here
 
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }         " NEEEEEEEERD Tree
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } " git in my NERDTree
+
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
-Plug 'scrooloose/nerdtree'            " NEEEEEEEERD Tree
-Plug 'Xuyuanp/nerdtree-git-plugin'    " git in my NERDTree
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
 Plug 'tpope/vim-obsession'            " obsessivly save sessions
 Plug 'godlygeek/tabular'              " Text Alignment plugin
@@ -29,7 +30,7 @@ Plug 'tomtom/tcomment_vim'            " Auto block commenting
 
 "  Autocomplete?
 Plug 'Shougo/unite.vim'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
@@ -50,10 +51,10 @@ if executable('ag')
 endif
 
 " Language stuff
-Plug 'plasticboy/vim-markdown' " Markdown
-Plug 'itspriddle/vim-marked'   " Opens Marked 2 on current file
-Plug 'elixir-lang/vim-elixir'
-Plug 'awetzel/elixir.nvim'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
+Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'awetzel/elixir.nvim', { 'for': 'elixir', 'do': ':UpdateRemotePlugins' }
 Plug 'keith/tmux.vim'
 Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'            " Fish is my shell
