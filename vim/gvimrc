@@ -4,8 +4,8 @@ let g:solarized_termcolors=256
 set background=light
 colorscheme bubblegum-256-light
 
-set lines=55
-set columns=80
+set lines=45
+set columns=90
 
 " Show tab number (useful for Cmd0, Cmd-2.. mapping)
 " For some reason this doesn't work as a regular set command,

@@ -6,10 +6,10 @@ if &shell =~# 'fish$'   "This is a compatibility fix for fish-shell and plugins
 endif
 
 " ================ Vundle for packages ========================
-filetype off
-
-if empty(glob("~/.vim/autoload/plug.vim"))
-  call system( 'curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' )
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -91,7 +91,7 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 " <F3> = Toggle NERDTree
 nnoremap <F3> :NERDTreeToggle<CR>
 
-" <F4> = Empty
+" <F4> = Toggle Solarized colorscheme
 call togglebg#map("<F4>")
 
 " <F5> = Empty
@@ -115,10 +115,6 @@ inoremap kj <Esc>
 " Y = copy from current character to end of line
 " (mimic y0's behavior but backwards)
 noremap Y y$
-
-" Ctrl+S = save
-nmap <C-s> :write!<CR>
-imap <C-s> <C-o>:write!<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -161,9 +157,6 @@ noremap <Leader>f zi
 " <Leader>h = Highlight changed lines using Git Gutter
 noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
 
-" <Leader>n = Toggle NERDTree
-noremap <Leader>n :NERDTreeToggle<CR>
-
 " <Leader>o = Start 0bsessing
 noremap <Leader>o :Obsess<CR>
 
@@ -184,13 +177,9 @@ noremap <Leader>r :so $MYVIMRC<CR>
 
 " <Leader>s = Search under word in my current search obsession
 noremap <Leader>s :Ack <C-r><C-w><CR>
-"nnoremap <Leader>s :CSearch <C-r><C-w><CR>
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>
-
-" <Leader>z = Pop a new tab with a copy of buffer (to emulate zoom)
-nnoremap <Leader>z :tabnew %<CR>
 
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -201,13 +190,11 @@ command! -nargs=0 Quit :qa!
 " ================ Lines and cursors  ========================
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
-set gcr=a:blinkon0              "Disable cursor blink
 " Display tabs and trailing spaces visually
 set list listchars=tab:→\ ,trail:∙,nbsp:+
 
 " ================ Search Settings  =================
 set incsearch        "Find the next match as we type the search
-set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 
 " ================ Numbers =================
 set nrformats=
