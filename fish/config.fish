@@ -49,6 +49,7 @@ abbr --add gc git commit -v
 abbr --add gp git push
 abbr --add gpu git pull
 abbr --add gst git status
+abbr --add gft git fetch --tags
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 test -e {$HOME}/.fish.local ; and source {$HOME}/.fish.local
