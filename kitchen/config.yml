@@ -36,7 +36,7 @@ ensure
 end
 %>
 ---
-<% raise 'proxy is not running' unless proxy_running? %>
+<% if proxy_running? %>
 driver:
   http_proxy: <%= http_proxy_url %>
   https_proxy: <%= http_proxy_url %>
@@ -49,3 +49,4 @@ provisioner:
   # installs from an http:// source to enable better caching through
   # http_proxy, and yes, this is a bit evil
   chef_omnibus_url: http://www.chef.io/chef/install.sh
+<% end %>
