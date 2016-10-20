@@ -70,6 +70,7 @@ call plug#end()
 
 " ================ File types ================================
 set encoding=utf-8
+set fileencoding=utf-8
 filetype plugin indent on
 syntax enable
 
@@ -104,6 +105,8 @@ set pastetoggle=<F7>
 
 " // = clears search highlight
 nnoremap <silent> // :noh<CR>
+
+nnoremap aa :qall!<CR>
 
 " K = Disable man key
 nnoremap K <nop>
@@ -140,13 +143,13 @@ nnoremap <Leader>b :StraightenQuotes<CR>
 vnoremap <Leader>c :TComment<CR>
 nnoremap <Leader>c :TComment<CR>
 
-" Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
+" <Leader>d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
-nnoremap <silent> <leader>D "_d
-xnoremap <silent> <leader>D "_d
+nnoremap <silent> <leader>d "_d
+xnoremap <silent> <leader>d "_d
 
-" <Leader>d = Dash Search for current word
-nmap <silent> <leader>d <Plug>DashSearch
+" <Leader>D = Dash Search for current word
+nmap <silent> <leader>D <Plug>DashSearch
 
 " <Leader>e = open vimrc in a split for quick editing
 nnoremap <leader>e :split $MYVIMRC<cr>
@@ -164,8 +167,8 @@ noremap <Leader>o :Obsess<CR>
 inoremap <Leader>p :normal $p
 nnoremap <Leader>p $p
 
-" <Leader>P = paste at end of line
-inoremap <Leader>P :pu<CR>
+" <Leader>P = paste in next line
+inoremap <Leader>P :normal pu<CR>
 nnoremap <Leader>P :pu<CR>
 
 " <Leader>q = Auto rewrap
@@ -185,7 +188,7 @@ nnoremap <Leader>w :StripTrailingWhitespaces<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " :Q = quit all fast
-command! -nargs=0 Quit :qa!
+command! -nargs=0 Quit :qall!
 
 " ================ Lines and cursors  ========================
 set number                      "Line numbers are good
