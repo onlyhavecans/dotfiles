@@ -184,6 +184,9 @@ noremap <Leader>s :Ack <C-r><C-w><CR>
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>
 
+" <Leader>z = quick write/save
+nnoremap <Leader>z :write<CR>
+
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
 
