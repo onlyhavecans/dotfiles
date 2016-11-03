@@ -348,7 +348,7 @@ command! -nargs=* Wrap :call SetupWrapping()
 
 " =======bugfix in nvim
 if has('nvim')
-  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+  " I fixed C-h in iterm https://github.com/neovim/neovim/issues/2048#issuecomment-98307896
   tnoremap jk <C-\><C-n>
   tnoremap kj <C-\><C-n>
 endif
