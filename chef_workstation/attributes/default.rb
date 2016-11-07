@@ -37,6 +37,7 @@ default['workstation']['packages']['generic'] = %w(
   fish
   git
   hub
+  mobile-shell
   nmap
   polipo
   privoxy
@@ -46,7 +47,6 @@ default['workstation']['packages']['generic'] = %w(
   tmux
   tree
   vim
-  yara
 )
 
 default['workstation']['packages']['freebsd'] = %w(
@@ -61,7 +61,6 @@ default['workstation']['packages']['mac_os_x'] = %w(
   archey
   exiftool
   gnupg2
-  postgresql
   watch
   youtube-dl
 )
