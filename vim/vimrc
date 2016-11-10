@@ -55,7 +55,7 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'awetzel/elixir.nvim', { 'for': 'elixir', 'do': ':UpdateRemotePlugins' }
-Plug 'keith/tmux.vim'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'            " Fish is my shell
 
@@ -349,7 +349,7 @@ command! -nargs=* Wrap :call SetupWrapping()
 
 " =======bugfix in nvim
 if has('nvim')
-  " I fixed C-h in iterm https://github.com/neovim/neovim/issues/2048#issuecomment-98307896
+  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
   tnoremap jk <C-\><C-n>
   tnoremap kj <C-\><C-n>
 endif
