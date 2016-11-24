@@ -25,6 +25,8 @@ end
 
 set -x EDITOR nvim
 
+set -x GOPATH ~/Code/gocode
+
 # I use vmware
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
 

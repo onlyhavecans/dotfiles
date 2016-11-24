@@ -58,6 +58,7 @@ Plug 'awetzel/elixir.nvim', { 'for': 'elixir', 'do': ':UpdateRemotePlugins' }
 Plug 'tmux-plugins/vim-tmux'
 Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'            " Fish is my shell
+Plug 'fatih/vim-go'
 
 " My special plugins
 Plug 'onlyhavecans/mm.vim'
@@ -346,6 +347,9 @@ function! SetupWrapping()
 endfunction
 
 command! -nargs=* Wrap :call SetupWrapping()
+
+" ========== Alias Txt to seach all txt files, don't open first
+command! -nargs=* Txt :Ack! -t <f-args>
 
 " =======bugfix in nvim
 if has('nvim')
