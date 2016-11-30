@@ -7,6 +7,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   ## This is because of chef-dk always making broken synlinks
   brew prune
   brew doctor
-  nvim +PlugUpgrade +qall
-  nvim +PlugUpdate
+  vim +PlugUpgrade +qall
+  vim +PlugUpdate
 end
