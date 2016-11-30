@@ -23,7 +23,7 @@ if test -z "$TMUX"
   set TERM screen-256color
 end
 
-set -x EDITOR nvim
+set -x EDITOR vim
 
 set -x GOPATH ~/Code/gocode
 
@@ -36,7 +36,7 @@ set -x ACK_COLOR_MATCH "bold yellow"
 
 alias git /usr/local/bin/git
 alias git hub
-alias vim nvim
+# alias vim nvim
 alias ce 'chef exec'
 alias vundle 'vim +PluginUpdate +qall'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'

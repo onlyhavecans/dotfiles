@@ -29,17 +29,16 @@ Plug 'junegunn/vim-easy-align'        " Text Alignment plugin
 Plug 'tomtom/tcomment_vim'            " Auto block commenting
 
 "  Autocomplete?
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neco-vim'
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/neopairs.vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/neco-vim'
+  Plug 'Shougo/neoinclude.vim'
+  Plug 'Shougo/neco-syntax'
+endif
 
 " Programming tools
 Plug 'tpope/vim-fugitive'     " How you use git as a vim user
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
-Plug 'rizzatti/dash.vim'      " Dash is amazing for lookups
 Plug 'scrooloose/syntastic'   " Global Syntax test
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'janko-m/vim-test'
@@ -53,8 +52,6 @@ endif
 " Language stuff
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-Plug 'awetzel/elixir.nvim', { 'for': 'elixir', 'do': ':UpdateRemotePlugins' }
 Plug 'tmux-plugins/vim-tmux'
 Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'            " Fish is my shell
@@ -300,10 +297,10 @@ let delimitMate_expand_cr    = 2
 let g:dash_map = { 'ruby.chef' : 'chef' }
 
 " ======================== Clipboard ========================
-if !has('nvim')
-  set clipboard=unnamed
-else
+if has('nvim')
   set clipboard+=unnamedplus
+else
+  set clipboard=unnamed
 endif
 
 " ================= Srtraighten Quotes
