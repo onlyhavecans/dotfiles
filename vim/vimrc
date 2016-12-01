@@ -299,8 +299,6 @@ let g:dash_map = { 'ruby.chef' : 'chef' }
 " ======================== Clipboard ========================
 if has('nvim')
   set clipboard+=unnamedplus
-else
-  set clipboard=unnamed
 endif
 
 " ================= Srtraighten Quotes
