@@ -32,6 +32,7 @@ default['workstation']['links'] = {
 default['workstation']['packages']['generic'] = %w(
   openssl
   clamav
+  ctags
   curl
   elixir
   fish

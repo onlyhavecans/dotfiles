@@ -5,6 +5,7 @@ vim/bundle
 vim/plugged
 vim/autoload
 vim/spell
+vim/ftplugin
 
 # Chef
 cookbooks/
