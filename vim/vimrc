@@ -43,8 +43,9 @@ Plug 'tpope/vim-fugitive'     " How you use git as a vim user
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'scrooloose/syntastic'   " Global Syntax test
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
-Plug 'janko-m/vim-test'
-Plug 'majutsushi/tagbar' " Tagbar to visualze your program
+Plug 'janko-m/vim-test'       " TDD better
+Plug 'benmills/vimux'
+Plug 'majutsushi/tagbar'      " Tagbar to visualze your program
 
 " Searching
 Plug 'mileszs/ack.vim' " Experimenting with ag, the silver searcher
@@ -174,6 +175,9 @@ nnoremap <Leader>p $p
 " <Leader>P = paste in next line
 inoremap <Leader>P :normal pu<CR>
 nnoremap <Leader>P :pu<CR>
+
+" <Leader>T = test
+nmap <silent> <leader>t :TestFile<CR>
 
 " <Leader>q = Auto rewrap
 vnoremap <Leader>q gq
@@ -306,6 +310,10 @@ let delimitMate_expand_cr    = 2
 
 " ======================== Dash =============================
 let g:dash_map = { 'ruby.chef' : 'chef' }
+
+" ======================== vim-test =============================
+"  make test commands execute using dispatch.vim
+let test#strategy = "vimux"
 
 " ================== tagbar =============================
 let g:tagbar_type_go = {

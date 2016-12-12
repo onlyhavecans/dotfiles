@@ -23,7 +23,7 @@ if test -z "$TMUX"
   set TERM screen-256color
 end
 
-set -x EDITOR vim
+set -x EDITOR nvim
 
 set -x GOPATH ~/Code/gocode
 
@@ -47,6 +47,7 @@ abbr --add vmrun '/Applications/VMware\ Fusion.app//Contents/Library/vmrun'
 ## Mo Git Mo Problems
 abbr --add gad git add --all
 abbr --add gap git add --patch
+abbr --add gca git commit --amend --date="(date)"
 abbr --add gc git commit -v
 abbr --add gp git push
 abbr --add gpu git pull

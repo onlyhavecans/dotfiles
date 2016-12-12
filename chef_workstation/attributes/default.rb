@@ -45,6 +45,7 @@ default['workstation']['packages']['generic'] = %w(
   privoxy
   python
   python3
+  sshuttle
   the_silver_searcher
   tmux
   tree
@@ -56,6 +57,7 @@ default['workstation']['packages']['freebsd'] = %w(
   feather
   gnupg
   keybase
+  neovim
   tarsnap
 )
 
