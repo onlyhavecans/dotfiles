@@ -26,6 +26,7 @@ end
 set -x EDITOR nvim
 
 set -x GOPATH ~/Code/gocode
+set PATH $GOPATH/bin $PATH
 
 # I use vmware
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
@@ -53,6 +54,7 @@ abbr --add gp git push
 abbr --add gpu git pull
 abbr --add gst git status
 abbr --add gft git fetch --tags
+abbr --add gpr git pull-request
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 test -e {$HOME}/.fish.local ; and source {$HOME}/.fish.local

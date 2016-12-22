@@ -19,3 +19,4 @@ generated_completions
 
 #Kitchen
 kitchen/logs
+kitchen/cache
