@@ -48,8 +48,8 @@ abbr --add vmrun '/Applications/VMware\ Fusion.app//Contents/Library/vmrun'
 ## Mo Git Mo Problems
 abbr --add gad git add --all
 abbr --add gap git add --patch
-abbr --add gca git commit --amend --date="(date)"
-abbr --add gc git commit -v
+abbr --add gca git commit --signoff --amend --date="(date)"
+abbr --add gc git commit --signoff --verbose
 abbr --add gp git push
 abbr --add gpu git pull
 abbr --add gst git status
