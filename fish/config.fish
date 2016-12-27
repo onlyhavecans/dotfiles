@@ -6,7 +6,7 @@ if status --is-interactive
   end
 
   if test -x "/usr/local/bin/archey"
-      /usr/local/bin/archey --color
+      /usr/local/bin/archey --color --offline
   else if test -x "/usr/local/bin/bsdinfo"
       /usr/local/bin/bsdinfo
   end
