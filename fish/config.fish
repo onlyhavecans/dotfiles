@@ -51,6 +51,7 @@ abbr --add gap git add --patch
 abbr --add gca git commit --signoff --amend --date="(date)"
 abbr --add gc git commit --signoff --verbose
 abbr --add gp git push
+abbr --add gpt "git push; and git push --tags"
 abbr --add gpu git pull
 abbr --add gst git status
 abbr --add gft git fetch --tags
