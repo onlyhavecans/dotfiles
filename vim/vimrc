@@ -63,8 +63,9 @@ Plug 'dag/vim-fish'            " Fish is my shell
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'thinca/vim-ref'
-Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
-Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+if has('nvim')
+  Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+endif
 
 " My special plugins
 Plug 'onlyhavecans/mm.vim'
