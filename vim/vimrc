@@ -399,7 +399,6 @@ command! -nargs=* Txt :Ack! -t <f-args>
 
 " =======bugfix in nvim
 if has('nvim')
-  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
   tnoremap jk <C-\><C-n>
   tnoremap kj <C-\><C-n>
 endif
