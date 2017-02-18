@@ -60,11 +60,11 @@ Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on curren
 Plug 'tmux-plugins/vim-tmux'
 Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'            " Fish is my shell
-Plug 'fatih/vim-go'
-Plug 'elixir-lang/vim-elixir'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'thinca/vim-ref'
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
-Plug 'wlangstroth/vim-racket'
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 
 " My special plugins
 Plug 'onlyhavecans/mm.vim'
