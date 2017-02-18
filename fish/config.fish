@@ -1,5 +1,4 @@
 if status --is-interactive
-  set PATH /usr/bin /bin /usr/sbin /sbin
   set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
   if test -x /opt/chefdk/bin/chef; or test -x (which chef)
     eval (/opt/chefdk/bin/chef shell-init fish)

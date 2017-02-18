@@ -52,6 +52,7 @@ Plug 'mileszs/ack.vim' " Experimenting with ag, the silver searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Language stuff
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
@@ -318,6 +319,9 @@ let g:dash_map = { 'ruby.chef' : 'chef' }
 " ======================== vim-test =============================
 "  make test commands execute using vim-test
 let test#strategy = "tslime"
+
+" ======================== vim-tmux-navigator =============================
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " ================== tagbar =============================
 let g:tagbar_type_go = {
