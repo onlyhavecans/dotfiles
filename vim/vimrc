@@ -25,8 +25,8 @@ Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
 Plug 'tpope/vim-obsession'            " obsessivly save sessions
 Plug 'godlygeek/tabular'              " Text Alignment plugin
-Plug 'junegunn/vim-easy-align'        " Text Alignment plugin
 Plug 'tomtom/tcomment_vim'            " Auto block commenting
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 
 "  Autocomplete?
 if has('nvim')
@@ -41,7 +41,6 @@ endif
 " Programming tools
 Plug 'tpope/vim-fugitive'     " How you use git as a vim user
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
-Plug 'scrooloose/syntastic'   " Global Syntax test
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'janko-m/vim-test'       " TDD better
 Plug 'jgdavey/tslime.vim'
@@ -55,8 +54,6 @@ endif
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Language stuff
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
-Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
 Plug 'tmux-plugins/vim-tmux'
 Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'            " Fish is my shell
@@ -67,12 +64,19 @@ if has('nvim')
   Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 endif
 
+" Writing in vim
+Plug 'junegunn/goyo.vim'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
+Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
+
 " My special plugins
 Plug 'onlyhavecans/mm.vim'
 
 " Color Scheme
 Plug 'altercation/vim-colors-solarized'
 Plug 'baskerville/bubblegum'
+
+Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
 
 call plug#end()
 
