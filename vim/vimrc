@@ -51,7 +51,6 @@ Plug 'mileszs/ack.vim' " Experimenting with ag, the silver searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Language stuff
 Plug 'tmux-plugins/vim-tmux'
@@ -76,7 +75,7 @@ Plug 'onlyhavecans/mm.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'baskerville/bubblegum'
 
-Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
+Plug 'scrooloose/syntastic'
 
 call plug#end()
 
@@ -104,10 +103,10 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 " <F3> = Toggle NERDTree
 nnoremap <F3> :NERDTreeToggle<CR>
 
-" <F4> = Toggle Solarized colorscheme
-call togglebg#map("<F4>")
+" <F4> = Empty
 
-" <F5> = Empty
+" <F5> = Toggle Solarized colorscheme
+call togglebg#map("<F5>")
 
 " <F6> = change directory to current file's pwd
 nnoremap <F6> :cd %:p:h<CR>:pwd<CR>
@@ -115,8 +114,10 @@ nnoremap <F6> :cd %:p:h<CR>:pwd<CR>
 " <F7> = Toggle paste mode
 set pastetoggle=<F7>
 
-" <F8> = TagBar Toggle
-nmap <F8> :TagbarToggle<CR>
+" <F8> = next buffer
+
+" <F9> = TagBar Toggle
+nmap <F9> :TagbarToggle<CR>
 
 " // = clears search highlight
 nnoremap <silent> // :noh<CR>
@@ -212,7 +213,6 @@ cmap w!! w !sudo tee % >/dev/null
 command! -nargs=0 Quit :qall!
 
 " ================ Lines and cursors  ========================
-set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 " Display tabs and trailing spaces visually
 set list listchars=tab:→\ ,trail:∙,nbsp:+
@@ -285,7 +285,9 @@ au VimResized * exe "normal! \<c-w>="
 
 " ================ airline ==========================
 let g:airline_powerline_fonts = 1
-let g:airline_theme='badwolf'
+let g:airline_theme='bubblegum'
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#whitespace#enabled = 1
 
 " ================ GitGutter ========================
 " Solarized needs this black
