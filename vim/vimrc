@@ -5,6 +5,9 @@ if &shell =~# 'fish$'   "This is a compatibility fix for fish-shell and plugins
   set shell=sh
 endif
 
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 " ================ Vundle for packages ========================
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -34,6 +37,7 @@ if has('nvim')
   Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'  } "req for deoplete-go
   Plug 'zchee/deoplete-go', { 'do': 'make'} " Go Completion
   Plug 'Shougo/neco-vim' " vim-script comletion
+  Plug 'fishbullet/deoplete-ruby'
   Plug 'Shougo/neoinclude.vim'
   Plug 'Shougo/neco-syntax'
 endif
@@ -168,7 +172,7 @@ xnoremap <silent> <leader>d "_d
 nmap <silent> <leader>D <Plug>DashSearch
 
 " <Leader>e = open vimrc in a split for quick editing
-nnoremap <leader>e :split $MYVIMRC<cr>
+nnoremap <leader>e :tabnew $MYVIMRC<cr>
 
 " <Leader>f = toggle all folding
 noremap <Leader>f zi
