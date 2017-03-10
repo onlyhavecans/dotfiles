@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline-themes' " my theme is here
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }         " NEEEEEEEERD Tree
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } " git in my NERDTree
+Plug 'Shougo/denite.nvim'
 
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
@@ -30,6 +31,8 @@ Plug 'tpope/vim-obsession'            " obsessivly save sessions
 Plug 'godlygeek/tabular'              " Text Alignment plugin
 Plug 'tomtom/tcomment_vim'            " Auto block commenting
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
+
+Plug 'rizzatti/dash.vim'
 
 "  Autocomplete?
 if has('nvim')
@@ -40,6 +43,7 @@ if has('nvim')
   Plug 'fishbullet/deoplete-ruby'
   Plug 'Shougo/neoinclude.vim'
   Plug 'Shougo/neco-syntax'
+  Plug 'wellle/tmux-complete.vim'
 endif
 
 " Programming tools
@@ -66,6 +70,7 @@ Plug 'thinca/vim-ref'
 if has('nvim')
   Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 endif
+Plug 'klen/python-mode'
 
 " Writing in vim
 Plug 'junegunn/goyo.vim'
@@ -286,6 +291,12 @@ set sidescrolloff =15
 set sidescroll    =1
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
+
+" ================ deoplete ==========================
+let g:tmuxcomplete#trigger = ''
+
+" ================ Plug ==========================
+let g:plug_window = 'tabnew'
 
 " ================ airline ==========================
 let g:airline_powerline_fonts = 1
