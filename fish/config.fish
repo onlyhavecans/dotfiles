@@ -2,10 +2,6 @@ set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
 set -x GOPATH ~/Code/gocode
 set PATH $GOPATH/bin $PATH
 
-if test -x /opt/chefdk/bin/chef -o -x (which chef)
-  eval (/opt/chefdk/bin/chef shell-init fish)
-end
-
 fish_vi_key_bindings
 set -g __fish_vi_mode 1
 
@@ -26,7 +22,6 @@ alias git /usr/local/bin/git
 alias git hub
 alias vim nvim
 alias ce 'chef exec'
-alias vundle 'vim +PluginUpdate +qall'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
 # Abbreviations
@@ -44,5 +39,6 @@ abbr --add gst git status
 abbr --add gft git fetch --tags
 abbr --add gpr git pull-request
 
+test -e {$HOME}/.chefdk.fish ; and source {$HOME}/.chefdk.fish
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 test -e {$HOME}/.fish.local ; and source {$HOME}/.fish.local
