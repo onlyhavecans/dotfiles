@@ -42,11 +42,13 @@ default['workstation']['packages']['generic'] = %w(
   mobile-shell
   nmap
   polipo
+  ponysay
   privoxy
   python
   python3
   sshuttle
   the_silver_searcher
+  thefuck
   tmux
   tree
   vim

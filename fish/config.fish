@@ -1,31 +1,19 @@
-if status --is-interactive
-  set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
-  if test -x /opt/chefdk/bin/chef; or test -x (which chef)
-    eval (/opt/chefdk/bin/chef shell-init fish)
-  end
+set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
+set -x GOPATH ~/Code/gocode
+set PATH $GOPATH/bin $PATH
 
-  if test -x "/usr/local/bin/archey"
-      /usr/local/bin/archey --color --offline
-  else if test -x "/usr/local/bin/bsdinfo"
-      /usr/local/bin/bsdinfo
-  end
-
-  if test -x "/usr/local/bin/thefuck"
-    eval (thefuck --alias | tr '\n' ';')
-  end
-
-  fish_vi_key_bindings
-  set -g __fish_vi_mode 1
+if test -x /opt/chefdk/bin/chef -o -x (which chef)
+  eval (/opt/chefdk/bin/chef shell-init fish)
 end
+
+fish_vi_key_bindings
+set -g __fish_vi_mode 1
 
 if test -z "$TMUX"
   set TERM screen-256color
 end
 
 set -x EDITOR nvim
-
-set -x GOPATH ~/Code/gocode
-set PATH $GOPATH/bin $PATH
 
 # I use vmware
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion

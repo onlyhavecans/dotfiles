@@ -8,5 +8,6 @@ function repour --description "recompile all of pour"
   end
   brew cleanup -s
   brew doctor
-  vim +PluginUpdate +qall
+  vim +PlugUpgrade +qall
+  vim +PlugUpdate
 end
