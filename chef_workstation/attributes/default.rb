@@ -38,6 +38,7 @@ default['workstation']['packages']['generic'] = %w(
   fish
   git
   go
+  gnupg
   hub
   mobile-shell
   nmap
@@ -51,13 +52,11 @@ default['workstation']['packages']['generic'] = %w(
   thefuck
   tmux
   tree
-  vim
 )
 
 default['workstation']['packages']['freebsd'] = %w(
   bsdinfo
   feather
-  gnupg
   keybase
   neovim
   tarsnap
@@ -65,8 +64,6 @@ default['workstation']['packages']['freebsd'] = %w(
 
 default['workstation']['packages']['mac_os_x'] = %w(
   archey
-  exiftool
-  gnupg2
   reattach-to-user-namespace
   watch
   youtube-dl

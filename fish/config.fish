@@ -1,6 +1,11 @@
-set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
+if status --is-interactive
+  set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
+end
+
 set -x GOPATH ~/Code/gocode
-set PATH $GOPATH/bin $PATH
+if test -d $GOPATH/bin
+  set PATH $GOPATH/bin $PATH
+end
 
 fish_vi_key_bindings
 set -g __fish_vi_mode 1
