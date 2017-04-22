@@ -32,6 +32,8 @@ Plug 'godlygeek/tabular'              " Text Alignment plugin
 Plug 'tomtom/tcomment_vim'            " Auto block commenting
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 Plug 'rizzatti/dash.vim'
 
 "  Autocomplete?

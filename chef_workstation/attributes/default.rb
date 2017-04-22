@@ -37,6 +37,7 @@ default['workstation']['packages']['generic'] = %w(
   elixir
   fish
   git
+  git-lfs
   go
   gnupg
   hub

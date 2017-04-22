@@ -26,11 +26,12 @@ set -x ACK_COLOR_MATCH "bold yellow"
 alias git /usr/local/bin/git
 alias git hub
 alias vim nvim
-alias ce 'chef exec'
+alias vif 'fzf | read -l result; and vim $result'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
 # Abbreviations
-abbr --add tp chef exec thor version:bump auto
+abbr --add cf fzf-cd-widget
+abbr --add ce chef exec
 abbr --add vmrun '/Applications/VMware\ Fusion.app//Contents/Library/vmrun'
 ## Mo Git Mo Problems
 abbr --add gad git add --all
