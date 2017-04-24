@@ -435,6 +435,13 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
 endif
 
+" =========== local .vimrc with .envrc using add_extra_vimrc
+if exists("$EXTRA_VIM")
+  for path in split($EXTRA_VIM, ':')
+    exec "source ".path
+  endfor
+endif
+
 " ================ Sourcing plugin specific setting ========================
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local

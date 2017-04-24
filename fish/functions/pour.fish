@@ -10,13 +10,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     thefuck --alias | source
     funcsave fuck
   end
-  status_message pregenerate chef-dk to save shell launch time
-  if test -x /opt/chefdk/bin/chef
-    /opt/chefdk/bin/chef shell-init fish > {$HOME}/.chefdk.fish
-    set -lx FIND '"/usr/local/bin" "/usr/local/sbin" "/bin" "/sbin" "/usr/bin" "/usr/sbin"'
-    set -lx REPLACE '$PATH'
-    ruby -p -i -e "gsub(ENV['FIND'], ENV['REPLACE'])" {$HOME}/.chefdk.fish
-  end
   status_message doctor brew
   brew doctor
   vim +PlugUpgrade +qall

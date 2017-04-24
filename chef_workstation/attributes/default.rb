@@ -13,6 +13,7 @@ default['workstation']['secrets_dir'] = 'secrets'
 # How to set up my dotfiles
 default['workstation']['dot_dirs'] = %w( .config .config/nvim .vagrant.d )
 default['workstation']['links'] = {
+  'direnvrc'    => '.direnvrc',
   'fish'        => '.config/fish',
   'gitconfig'   => '.gitconfig',
   'gitignore'   => '.gitignore_global',

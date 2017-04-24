@@ -60,5 +60,6 @@ dist/*
 # Logs
 *.log
 
-# Env files
+# Direnv stuff
+.direnv
 .envrc

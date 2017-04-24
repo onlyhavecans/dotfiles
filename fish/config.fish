@@ -26,6 +26,7 @@ set -x GREP_COLOR "1;33"
 set -x ACK_COLOR_MATCH "bold yellow"
 
 alias git /usr/local/bin/git
+alias tmux "direnv exec / tmux"
 alias git hub
 alias vim nvim
 alias vif 'fzf | read -l result; and vim $result'
@@ -47,7 +48,6 @@ abbr --add gst git status
 abbr --add gft git fetch --tags
 abbr --add gpr git pull-request
 
-test -e {$HOME}/.chefdk.fish ; and source {$HOME}/.chefdk.fish
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 test -e {$HOME}/.fish.local ; and source {$HOME}/.fish.local
 
