@@ -2,9 +2,11 @@ if status --is-interactive
   set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
 end
 
-set -x GOPATH ~/Code/gocode
-if test -d $GOPATH/bin
-  set PATH $GOPATH/bin $PATH
+if test -d ~/Code/gocode
+  set -x GOPATH ~/Code/gocode
+  if test -d $GOPATH/bin
+    set PATH $GOPATH/bin $PATH
+  end
 end
 
 fish_vi_key_bindings
