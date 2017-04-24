@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd $DIR
+cd "$DIR" || exit 10
 
 echo "Do a pull just to be sure we are up to date"
 git pull origin master || exit 5
@@ -11,9 +11,9 @@ if [[ ! -d /opt/chefdk ]]; then
 fi
 
 ## Find berks or die
-if [[ -z /opt/chefdk/bin/berks ]]; then
+if [[ -x /opt/chefdk/bin/berks ]]; then
   BERKS="/opt/chefdk/bin/berks"
-elif [[ -z /usr/local/bin/berks ]]; then
+elif [[ -x /usr/local/bin/berks ]]; then
   BERKS="/usr/local/bin/berks"
 elif [[ $(which berks) ]]; then
   BERKS=$(which berks)
@@ -23,12 +23,12 @@ else
 fi
 
 ## Vendor the cookbook to always have reqs
-cd $DIR/chef_workstation
+cd "$DIR/chef_workstation" || exit 10
 $BERKS install
 $BERKS update
-mkdir $DIR/cookbooks
-$BERKS vendor $DIR/cookbooks
-cd $DIR
+mkdir "$DIR/cookbooks"
+$BERKS vendor "$DIR/cookbooks"
+cd "$DIR" || exit 10
 
 CLIENT=$(which chef-client)
 if [[ ! -f $CLIENT && -f /opt/chefdk/bin/chef-client ]]; then
