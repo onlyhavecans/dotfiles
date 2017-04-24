@@ -10,21 +10,5 @@ add_extra_vimrc() {
 
 ## chef-dk summoner
 use_chefdk() {
-  # Change this when it all breaks
-  RUBY_VERSION=2.3.0
-  EXPANDED_HOME=`expand_path ~`
-
-  # Override the GEM environment
-  log_status "Overriding default Ruby environment to use ChefDK"
-
-  export GEM_ROOT="/opt/chefdk/embedded/lib/ruby/gems/${RUBY_VERSION}"
-  export GEM_HOME="$EXPANDED_HOME/.chefdk/gem/ruby/${RUBY_VERSION}"
-  export GEM_PATH="$EXPANDED_HOME/.chefdk/gem/ruby/${RUBY_VERSION}:/opt/chefdk/embedded/lib/ruby/gems/${RUBY_VERSION}"
-
-  # Ensure ChefDK and it's embedded tools are first in the PATH
-  log_status "Ensuring ChefDK and it's embedded tools are first in the PATH"
-
-  PATH_add /opt/chefdk/embedded/bin
-  PATH_add $EXPANDED_HOME/.chefdk/gem/ruby/${RUBY_VERSION}/bin/
-  PATH_add /opt/chefdk/bin
+  eval "$(chef shell-init bash)"
 }
