@@ -34,6 +34,7 @@ default['workstation']['packages']['generic'] = %w(
   clamav
   ctags
   curl
+  direnv
   elixir
   fish
   git

@@ -97,8 +97,12 @@ filetype plugin indent on
 syntax enable
 
 " ================ Color =====================================
-set background=dark
-colorscheme solarized
+if !empty($VIM_COLOR)
+  colorscheme $VIM_COLOR
+else
+  set background=dark
+  colorscheme solarized
+endif
 
 " ================ Mapleader comma! ========================
 let mapleader   = ","
