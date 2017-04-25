@@ -2,13 +2,6 @@ if status --is-interactive
   set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
 end
 
-if test -d ~/Code/gocode
-  set -x GOPATH ~/Code/gocode
-  if test -d $GOPATH/bin
-    set PATH $GOPATH/bin $PATH
-  end
-end
-
 fish_vi_key_bindings
 set -g __fish_vi_mode 1
 
@@ -25,7 +18,6 @@ set -e GREP_OPTIONS
 set -x GREP_COLOR "1;33"
 set -x ACK_COLOR_MATCH "bold yellow"
 
-alias git /usr/local/bin/git
 alias tmux "direnv exec / tmux"
 alias git hub
 alias vim nvim
@@ -49,6 +41,5 @@ abbr --add gft git fetch --tags
 abbr --add gpr git pull-request
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-test -e {$HOME}/.fish.local ; and source {$HOME}/.fish.local
 
 test -x /usr/local/bin/direnv; and eval (direnv hook fish)
