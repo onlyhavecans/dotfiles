@@ -1,7 +1,7 @@
 [user]
   name = David Aronsohn
   email = WagThatTail@Me.com
-	signingkey = 01DC4C9EA162B659
+  signingkey = 01DC4C9EA162B659
 [core]
   excludesfile = ~/.gitignore_global
   editor = nvim
@@ -29,9 +29,9 @@
   protocol = ssh
 [filter "lfs"]
   required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustexitcode = true
