@@ -28,17 +28,19 @@ alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | 
 abbr --add cf fzf-cd-widget
 abbr --add ce chef exec
 abbr --add vmrun '/Applications/VMware\ Fusion.app//Contents/Library/vmrun'
+abbr --add yt youtube-dl
+abbr --add j "cd ~/"
 ## Mo Git Mo Problems
 abbr --add gad git add --all
 abbr --add gap git add --patch
 abbr --add gca git commit --signoff --amend --date="(date)"
 abbr --add gc git commit --signoff --verbose
 abbr --add gp git push
-abbr --add gpt "git push; and git push --tags"
 abbr --add gpu git pull
 abbr --add gst git status
 abbr --add gft git fetch --tags
 abbr --add gpr git pull-request
+abbr --add gbr git browse
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
