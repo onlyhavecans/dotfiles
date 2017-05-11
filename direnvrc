@@ -7,6 +7,16 @@ add_extra_vimrc() {
   fi
 }
 
+## pyenv is awesome
+use_pyenv_venv() {
+  eval "$(pyenv init -)"
+  pyenv activate $1
+}
+
+# A shortcut for layout python with pyenv
+use_pyenv() {
+  layout_python $HOME/.pyenv/versions/$1/bin/python
+}
 
 ## chef-dk summoner
 use_chefdk() {

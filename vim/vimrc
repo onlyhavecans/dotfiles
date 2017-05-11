@@ -1,14 +1,16 @@
-if &compatible
-  set nocompatible
-endif
-if &shell =~# 'fish$'   "This is a compatibility fix for fish-shell and plugins
-  set shell=sh
+if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
+  if &shell =~# 'fish$'   "This is a compatibility fix for fish-shell and plugins
+    set shell=sh
+  endif
+
+  let g:python_host_prog = '/usr/local/bin/python'
+  let g:python3_host_prog = '/usr/local/bin/python3'
 endif
 
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
-" ================ Vundle for packages ========================
+" ==== vim plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -17,25 +19,17 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" General plugins
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'vim-airline/vim-airline-themes' " my theme is here
-
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }         " NEEEEEEEERD Tree
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } " git in my NERDTree
-Plug 'Shougo/denite.nvim'
-
+Plug 'Shougo/denite.nvim'             " autocomplete superpowers
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
-Plug 'tpope/vim-obsession'            " obsessivly save sessions
 Plug 'godlygeek/tabular'              " Text Alignment plugin
 Plug 'tomtom/tcomment_vim'            " Auto block commenting
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-Plug 'rizzatti/dash.vim'
-
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fastest finding
 "  Autocomplete?
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -47,68 +41,89 @@ if has('nvim')
   Plug 'Shougo/neco-syntax'
   Plug 'wellle/tmux-complete.vim'
 endif
-
-" Programming tools
 Plug 'tpope/vim-fugitive'     " How you use git as a vim user
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'janko-m/vim-test'       " TDD better
-Plug 'jgdavey/tslime.vim'
-Plug 'majutsushi/tagbar'      " Tagbar to visualze your program
-
-" Searching
-Plug 'mileszs/ack.vim' " Experimenting with ag, the silver searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" Language stuff
-Plug 'tmux-plugins/vim-tmux'
-Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plug 'dag/vim-fish'            " Fish is my shell
+Plug 'jgdavey/tslime.vim'     " Spawn test in a tmux pane
+Plug 'mileszs/ack.vim'        " Experimenting with ag, the silver searcher
+Plug 'tmux-plugins/vim-tmux'  " Tmux fletype
+Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
+Plug 'dag/vim-fish'           " Fish is my shell
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'thinca/vim-ref'
-if has('nvim')
-  Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
-endif
 Plug 'klen/python-mode'
-
-" Writing in vim
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'                              " Text writing view
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
+Plug 'altercation/vim-colors-solarized'               " main colors
+Plug 'baskerville/bubblegum'                          " light terminal color scheme
+Plug 'scrooloose/syntastic'
 
 " My special plugins
 Plug 'onlyhavecans/mm.vim'
 
-" Color Scheme
-Plug 'altercation/vim-colors-solarized'
-Plug 'baskerville/bubblegum'
-
-Plug 'scrooloose/syntastic'
-
 call plug#end()
 
-" ================ File types ================================
-set encoding=utf-8
-set fileencoding=utf-8
-filetype plugin indent on
-syntax enable
+" === Colorscheme
+set background=dark
+colorscheme solarized
 
-" ================ Color =====================================
-if !empty($VIM_COLOR)
-  colorscheme $VIM_COLOR
-else
-  set background=dark
-  colorscheme solarized
+" ==== make nvim less annoyting
+if has('nvim')
+  tnoremap jk <C-\><C-n>
+  tnoremap kj <C-\><C-n>
+  set clipboard+=unnamedplus
 endif
 
-" ================ Mapleader comma! ========================
+" ==== General sanity fixing
+set encoding=utf-8
+set fileencoding=utf-8
+syntax enable
+filetype plugin indent on
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set list listchars=tab:→\ ,trail:∙,nbsp:+ " Display tabs and trailing spaces visually
+set incsearch "Find the next match as we type the search
+set nrformats= " blank nrf to make ^a always binary
+set noswapfile
+set nobackup
+set nowritebackup
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+set nowrap
+set linebreak " Wrap lines at convenient points
+set nofoldenable "no fold by default ever
+set foldmethod=indent
+set wildmode=list:longest,full
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+
+" ==== Persistent Undo
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+let backupdir = expand('~/.vim/backups')
+if !isdirectory(backupdir)
+  call mkdir(backupdir)
+endif
+set undodir=~/.vim/backups
+set undofile
+
+" ==== Scrolling
+set scrolloff     =8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff =15
+set sidescroll    =1
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+
+" ================ My Cool shortcuts
 let mapleader   = ","
 let g:mapleader = ","
 
-" ================ My Cool shortcuts ========================
 " <F1> = Disable help
 nnoremap <F1> <nop>
 
@@ -227,96 +242,31 @@ cmap w!! w !sudo tee % >/dev/null
 " :Q = quit all fast
 command! -nargs=0 Quit :qall!
 
-" ================ Lines and cursors  ========================
-set backspace=indent,eol,start  "Allow backspace in insert mode
-" Display tabs and trailing spaces visually
-set list listchars=tab:→\ ,trail:∙,nbsp:+
-
-" ================ Search Settings  =================
-set incsearch        "Find the next match as we type the search
-
-" ================ Numbers =================
-set nrformats=
-
-" ================ Turn Off Swap Files ==============
-set noswapfile
-set nobackup
-set nowritebackup
-
-" ======================== Clipboard ========================
+" ==== deoplete
+let g:tmuxcomplete#trigger = ''
 if has('nvim')
-  set clipboard+=unnamedplus
+  let g:deoplete#enable_at_startup = 1
 endif
 
-" ================ Persistent Undo ==================
-" Keep undo history across sessions, by storing in file.
-" Only works all the time.
-let backupdir = expand('~/.vim/backups')
-if !isdirectory(backupdir)
-  call mkdir(backupdir)
-endif
-set undodir=~/.vim/backups
-set undofile
-
-" ================ Indentation ======================
-set autoindent
-set smartindent
-set smarttab
-
-"I'm a spaces guy
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-
-set nowrap
-set linebreak " Wrap lines at convenient points
-
-" ================ Folds ============================
-set nofoldenable        "fold by default
-set foldmethod=indent
+" ==== vim-markdown
 let g:vim_markdown_folding_disabled=1
 
-" ================ Completion =======================
-set wildmode=list:longest,full
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
-
-" ================ Scrolling ========================
-set scrolloff     =8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff =15
-set sidescroll    =1
-" Resize splits when the window is resized
-au VimResized * exe "normal! \<c-w>="
-
-" ================ deoplete ==========================
-let g:tmuxcomplete#trigger = ''
-
-" ================ Plug ==========================
+" ==== Plug
 let g:plug_window = 'tabnew'
 
-" ================ airline ==========================
+" ==== airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#whitespace#enabled = 1
 
-" ================ GitGutter ========================
+" ==== GitGutter
 " Solarized needs this black
 highlight SignColumn ctermbg = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
 
-" ================ Syntastic ========================
+" ==== Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -324,7 +274,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_ignore_files=['\m^/opt/chefdk/']
 
-" ================ NERDTree ========================
+" ==== NERDTree
 let NERDTreeMinimalUI           = 1
 let NERDTreeShowHidden          = 1
 let NERDTreeDirArrows           = 1
@@ -334,53 +284,29 @@ let NERDTreeIgnore              = ['tmp', '.yardoc', 'pkg', '\.pyc$']
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" ================ Powerline ========================
+" ==== Powerline
 set laststatus=2
 
-" ======================== delimitMate ========================
+" ==== delimitMate
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr    = 2
 
-" ======================== Dash =============================
+" ==== Dash
 let g:dash_map = { 'ruby.chef' : 'chef' }
 
-" ======================== vim-test =============================
+" ==== vim-test
 "  make test commands execute using vim-test
 let test#strategy = "tslime"
 
-" ======================== vim-tmux-navigator =============================
+" ==== vim-tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
 
-" ================== tagbar =============================
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+" ==== Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
-" ================= Srtraighten Quotes
+" ==== Srtraighten Quotes
 function! <SID>StraightenQuotes()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -397,8 +323,8 @@ endfunction
 
 command! StraightenQuotes call <SID>StraightenQuotes()
 
-" ================= Strip trailing whitespace
-" via: http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
+" ==== Strip trailing whitespace
+" http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -413,7 +339,7 @@ endfunction
 
 command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
 
-" =================== Super wrapping power
+" ==== Super wrapping power
 " http://vimcasts.org/episodes/soft-wrapping-text/
 function! SetupWrapping()
   set wrap linebreak nolist
@@ -422,29 +348,16 @@ endfunction
 
 command! -nargs=* Wrap :call SetupWrapping()
 
-" ========== Alias Txt to seach all txt files, don't open first
-command! -nargs=* Txt :Ack! -t <f-args>
-
-" =======bugfix in nvim
-if has('nvim')
-  tnoremap jk <C-\><C-n>
-  tnoremap kj <C-\><C-n>
+" ==== Sourcing plugin specific setting
+if filereadable(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
 endif
 
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-endif
-
-" =========== local .vimrc with .envrc using add_extra_vimrc
+" ==== local .vimrc with .envrc using add_extra_vimrc
 if exists("$EXTRA_VIM")
   for path in split($EXTRA_VIM, ':')
     exec "source ".path
   endfor
-endif
-
-" ================ Sourcing plugin specific setting ========================
-if filereadable(glob("~/.vimrc.local"))
-  source ~/.vimrc.local
 endif
 
 if has("gui_vimr")

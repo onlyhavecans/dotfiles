@@ -14,10 +14,13 @@ function checksite
     whois $argv
 
     _checksite_status_message "Dig Google"
-    dig @8.8.8.8 $argv +noall +answer +dnssec
+    dig @8.8.8.8 $argv +dnssec
 
     _checksite_status_message "Dig NS1"
-    dig @ns1.dnsimple.com $argv +noall +answer +dnssec
+    dig @ns1.dnsimple.com $argv +dnssec
+
+    _checksite_status_message "Dig trace"
+    dig $argv +trace
 
     _checksite_status_message "HTTP"
     curl -ILvsS --stderr - http://$argv/
