@@ -27,6 +27,9 @@ function checksite
     _checksite_status_message "HTTPS"
     curl -ILvsS --stderr - https://$argv/
 
+    _checksite_status_message "Certificate"
+    echo QUIT | openssl s_client -servername $argv -showcerts -connect $argv:443 | openssl x509 -text
+
     functions -e _checksite_status_message
   end | less
 end

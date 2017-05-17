@@ -21,8 +21,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'vim-airline/vim-airline-themes' " my theme is here
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }         " NEEEEEEEERD Tree
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } " git in my NERDTree
 Plug 'Shougo/denite.nvim'             " autocomplete superpowers
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
@@ -30,6 +28,7 @@ Plug 'godlygeek/tabular'              " Text Alignment plugin
 Plug 'tomtom/tcomment_vim'            " Auto block commenting
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fastest finding
+Plug 'junegunn/fzf.vim'
 "  Autocomplete?
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -273,16 +272,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs=1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_ignore_files=['\m^/opt/chefdk/']
-
-" ==== NERDTree
-let NERDTreeMinimalUI           = 1
-let NERDTreeShowHidden          = 1
-let NERDTreeDirArrows           = 1
-let g:NERDTreeWinSize           = 30
-let NERDTreeHighlightCursorline = 1
-let NERDTreeIgnore              = ['tmp', '.yardoc', 'pkg', '\.pyc$']
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ==== Powerline
 set laststatus=2
