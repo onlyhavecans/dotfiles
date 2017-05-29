@@ -129,8 +129,8 @@ nnoremap <F1> <nop>
 " <F2> = Toggle line numbers
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
-" <F3> = Toggle NERDTree
-nnoremap <F3> :NERDTreeToggle<CR>
+" <F3> = None
+" nnoremap <F3> <nop>
 
 " <F4> = Empty
 
@@ -145,8 +145,8 @@ set pastetoggle=<F7>
 
 " <F8> = next buffer
 
-" <F9> = TagBar Toggle
-nmap <F9> :TagbarToggle<CR>
+" <F9> = None
+" nmap <F9> <nop>
 
 " // = clears search highlight
 nnoremap <silent> // :noh<CR>

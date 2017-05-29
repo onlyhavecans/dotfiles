@@ -8,17 +8,26 @@ add_extra_vimrc() {
 }
 
 ## pyenv is awesome
-use_pyenv_venv() {
+use_pyenv() {
   eval "$(pyenv init -)"
   pyenv activate $1
 }
 
-# A shortcut for layout python with pyenv
-use_pyenv() {
-  layout_python $HOME/.pyenv/versions/$1/bin/python
+## A shortcut for layout python with pyenv
+use_python() {
+  local python_root=$HOME/.pyenv/versions/$1
+  load_prefix "$python_root"
+  layout python "$python_root/bin/python"
 }
 
 ## chef-dk summoner
 use_chefdk() {
   eval "$(chef shell-init bash)"
+}
+
+## When one does ruby
+use_ruby() {
+  local ruby_dir=$HOME/.rubies/ruby-$1
+  load_prefix $ruby_dir
+  layout ruby
 }
