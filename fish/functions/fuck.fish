@@ -1,3 +1,4 @@
+# Defined in - @ line 1
 function fuck --description 'Correct your previous console command'
 	set -l fucked_up_command $history[1]
   env TF_ALIAS=fuck PYTHONIOENCODING=utf-8 thefuck $fucked_up_command | read -l unfucked_command

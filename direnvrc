@@ -7,9 +7,10 @@ add_extra_vimrc() {
   fi
 }
 
-## pyenv is awesome
+## use a global pyenv (for pyenv-virenv)
 use_pyenv() {
   eval "$(pyenv init -)"
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
   pyenv activate $1
 }
 
