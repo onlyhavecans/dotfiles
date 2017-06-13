@@ -40,4 +40,5 @@ use_ruby() {
 ## Rusy
 use_rust() {
   PATH_add $HOME/.cargo/bin
+  export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 }

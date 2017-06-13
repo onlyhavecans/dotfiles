@@ -16,6 +16,8 @@ nodes/
 fish_history
 fishd.*
 generated_completions
+fzf_key_bindings.fish
+fuck.fish
 
 #Kitchen
 kitchen/logs

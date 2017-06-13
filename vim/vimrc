@@ -51,6 +51,8 @@ Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `
 Plug 'dag/vim-fish'           " Fish is my shell
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'timonv/vim-cargo', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'thinca/vim-ref'
 Plug 'klen/python-mode'
 Plug 'junegunn/goyo.vim'                              " Text writing view
