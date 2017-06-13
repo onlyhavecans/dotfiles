@@ -8,7 +8,7 @@ Chef::Resource.send(:include, Workstation::Mixin)
 Chef::Recipe.send(:include, Workstation::Mixin)
 
 unless ::File.directory?(dotfiles_directory)
-  Chef::Log.fatal("You do not have a dotfiles directory!")
+  Chef::Log.fatal('You do not have a dotfiles directory!')
   return
 end
 

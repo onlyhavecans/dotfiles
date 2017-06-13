@@ -53,11 +53,11 @@ end
 
 ##
 # Proper dotfile links
-include_recipe "workstation::secrets"
+include_recipe 'workstation::secrets'
 
 ##
 # Proper dotfile links
-include_recipe "workstation::dotfiles"
+include_recipe 'workstation::dotfiles'
 
 ##
 # Set mah shell

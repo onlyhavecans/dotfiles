@@ -19,11 +19,11 @@ describe 'workstation::default' do
       allow_any_instance_of(Chef::Resource).to receive(:workstation_user_home).and_return('/Users/vagrant')
       allow_any_instance_of(Chef::Recipe).to receive(:workstation_user_home).and_return('/Users/vagrant')
       allow(File).to receive(:exist?).and_return(false)
-      stub_command("which git").and_return(true)
+      stub_command('which git').and_return(true)
     end
 
     it 'converges successfully' do
-      expect { chef_run  }.to_not raise_error
+      expect { chef_run }.to_not raise_error
     end
   end
 end

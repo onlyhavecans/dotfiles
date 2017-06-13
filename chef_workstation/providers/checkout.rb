@@ -6,7 +6,7 @@ use_inline_resources
 
 action :clone do
   if @current_resource.exists
-    Chef::Log.info "#{ new_resource } already exists - nothing to do."
+    Chef::Log.info "#{new_resource} already exists - nothing to do."
   else
 
     Chef::Resource.send(:include, Workstation::Mixin)
@@ -28,8 +28,8 @@ action :clone do
 end
 
 action :remove do
-  if not @current_resource.exists
-    Chef::Log.info "#{ new_resource } already does not exist - nothing to do."
+  if !@current_resource.exists
+    Chef::Log.info "#{new_resource} already does not exist - nothing to do."
   else
     directory new_resource.directory do
       recursive true

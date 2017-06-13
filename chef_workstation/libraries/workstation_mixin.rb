@@ -51,7 +51,5 @@ module Workstation
     def calculate_secrets_directory
       File.join(workstation_user_home, node['workstation']['secrets_dir'])
     end
-
   end
 end
-

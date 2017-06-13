@@ -8,16 +8,16 @@ Chef::Resource.send(:include, Workstation::Mixin)
 Chef::Recipe.send(:include, Workstation::Mixin)
 
 unless ::File.directory?(secrets_directory)
-  Chef::Log.fatal("You do not have a secrets directory!")
+  Chef::Log.fatal('You do not have a secrets directory!')
   return
 end
 
-secrets_glob = ::File.join(secrets_directory, "*")
+secrets_glob = ::File.join(secrets_directory, '*')
 secrets = ::Dir.glob(secrets_glob)
 
 secrets.each do |secret|
   original = secret
-  dotted = ::File.join(workstation_user_home, "." + ::File.basename(secret))
+  dotted = ::File.join(workstation_user_home, '.' + ::File.basename(secret))
 
   workstation_dotfile dotted do
     source original

@@ -8,6 +8,8 @@ description      'Installs/Configures workstation'
 long_description 'Installs/Configures workstation'
 version          '6.1.0'
 
+chef_version '> 12'
+
 supports 'mac_os_x'
 supports 'freebsd'
 
