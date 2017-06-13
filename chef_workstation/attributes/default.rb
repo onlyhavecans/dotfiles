@@ -33,24 +33,28 @@ default['workstation']['links'] = {
 default['workstation']['packages']['generic'] = %w(
   openssl
   clamav
-  ctags
   curl
   direnv
   elixir
   fish
   git
   git-lfs
-  go
   gnupg
+  go
   hub
   mobile-shell
   nmap
   polipo
   ponysay
   privoxy
+  pyenv
+  pyenv-virtualenv
   python
   python3
-  sshuttle
+  ruby
+  ruby-install
+  rustup-init
+  shellcheck
   the_silver_searcher
   thefuck
   tmux
@@ -58,7 +62,6 @@ default['workstation']['packages']['generic'] = %w(
 )
 
 default['workstation']['packages']['freebsd'] = %w(
-  bsdinfo
   feather
   keybase
   neovim
@@ -66,7 +69,6 @@ default['workstation']['packages']['freebsd'] = %w(
 )
 
 default['workstation']['packages']['mac_os_x'] = %w(
-  archey
   reattach-to-user-namespace
   watch
   youtube-dl
