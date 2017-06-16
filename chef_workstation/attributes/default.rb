@@ -51,11 +51,11 @@ default['workstation']['packages']['generic'] = %w(
   pyenv-virtualenv
   python
   python3
+  ripgrep
   ruby
   ruby-install
   rustup-init
   shellcheck
-  the_silver_searcher
   thefuck
   tmux
   tree

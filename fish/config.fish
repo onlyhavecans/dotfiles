@@ -2,6 +2,15 @@ if status --is-interactive
   set PATH $HOME/Applications /usr/local/bin /usr/local/sbin $PATH
 end
 
+## Some rust
+set -l rustup_path $HOME/.cargo/bin
+if [ $CARGO_HOME ]
+  set rustup_path $CARGO_HOME/bin
+end
+contains -- $rustup_path $PATH
+  or set -gx PATH $rustup_path $PATH
+set RUST_SRC_PATH $HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+
 fish_vi_key_bindings
 set -g __fish_vi_mode 1
 

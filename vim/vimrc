@@ -45,7 +45,7 @@ Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'janko-m/vim-test'       " TDD better
 Plug 'jgdavey/tslime.vim'     " Spawn test in a tmux pane
-Plug 'mileszs/ack.vim'        " Experimenting with ag, the silver searcher
+Plug 'jremmen/vim-ripgrep'    " Ripgrep's time has come
 Plug 'tmux-plugins/vim-tmux'  " Tmux fletype
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'           " Fish is my shell
@@ -230,7 +230,7 @@ nnoremap <Leader>q gqap
 noremap <Leader>r :so $MYVIMRC<CR>
 
 " <Leader>s = Search under word in my current search obsession
-noremap <Leader>s :Ack <C-r><C-w><CR>
+noremap <Leader>s :Rg
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>
@@ -293,9 +293,10 @@ let test#strategy = "tslime"
 " ==== vim-tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
 
-" ==== Ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+" ==== Ripgrep
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
 " ==== Srtraighten Quotes
