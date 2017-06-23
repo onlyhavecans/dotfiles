@@ -34,8 +34,10 @@ alias vif 'fzf | read -l result; and vim $result'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
 # Abbreviations
+abbr --add ag rg
 abbr --add cf fzf-cd-widget
 abbr --add ce chef exec
+abbr --add cebu chef exec berks update
 abbr --add vmrun '/Applications/VMware\ Fusion.app//Contents/Library/vmrun'
 abbr --add yt youtube-dl
 abbr --add j "cd ~/"
@@ -48,9 +50,10 @@ abbr --add gp git push
 abbr --add gpu git pull
 abbr --add gst git status
 abbr --add gft git fetch --tags
-abbr --add gpr git pull-request
+abbr --add gpr git pull-request --browse
 abbr --add gbr git browse
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+test -e {$HOME}/.local.fish ; and source {$HOME}/.local.fish
 
 test -x /usr/local/bin/direnv; and eval (direnv hook fish)

@@ -58,7 +58,6 @@ Plug 'klen/python-mode'
 Plug 'junegunn/goyo.vim'                              " Text writing view
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
-Plug 'altercation/vim-colors-solarized'               " main colors
 Plug 'baskerville/bubblegum'                          " light terminal color scheme
 Plug 'scrooloose/syntastic'
 
@@ -69,7 +68,7 @@ call plug#end()
 
 " === Colorscheme
 set background=dark
-colorscheme solarized
+ colorscheme bubblegum-256-dark
 
 " ==== make nvim less annoyting
 if has('nvim')
@@ -137,8 +136,7 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 " <F4> = Empty
 
-" <F5> = Toggle Solarized colorscheme
-call togglebg#map("<F5>")
+" <F5> = Empty
 
 " <F6> = change directory to current file's pwd
 nnoremap <F6> :cd %:p:h<CR>:pwd<CR>
@@ -263,8 +261,6 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#whitespace#enabled = 1
 
 " ==== GitGutter
-" Solarized needs this black
-highlight SignColumn ctermbg = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
 
