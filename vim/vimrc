@@ -24,7 +24,7 @@ Plug 'vim-airline/vim-airline-themes' " my theme is here
 Plug 'Shougo/denite.nvim'             " autocomplete superpowers
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
-Plug 'godlygeek/tabular'              " Text Alignment plugin
+Plug 'godlygeek/tabular'              " Text Alignment plugin (needed for plasticboy/vim-markdown)
 Plug 'tomtom/tcomment_vim'            " Auto block commenting
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fastest finding
@@ -228,7 +228,7 @@ nnoremap <Leader>q gqap
 noremap <Leader>r :so $MYVIMRC<CR>
 
 " <Leader>s = Search under word in my current search obsession
-noremap <Leader>s :Rg
+noremap <Leader>s :Rg<CR>
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>

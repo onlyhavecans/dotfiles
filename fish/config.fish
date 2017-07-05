@@ -50,7 +50,7 @@ abbr --add gp git push
 abbr --add gpu git pull
 abbr --add gst git status
 abbr --add gft git fetch --tags
-abbr --add gpr git pull-request --browse
+abbr --add gpr "git push; and git pull-request --browse"
 abbr --add gbr git browse
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
