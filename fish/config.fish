@@ -11,8 +11,7 @@ contains -- $rustup_path $PATH
   or set -gx PATH $rustup_path $PATH
 set RUST_SRC_PATH $HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
-fish_vi_key_bindings
-set -g __fish_vi_mode 1
+set fish_key_bindings my_key_bindings
 
 if test -z "$TMUX"
   set TERM screen-256color
