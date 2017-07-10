@@ -1,48 +1,48 @@
 [user]
-  name = David Aronsohn
-  email = WagThatTail@Me.com
-  signingkey = 01DC4C9EA162B659
+	name = David Aronsohn
+	email = WagThatTail@Me.com
+	signingkey = 01DC4C9EA162B659
 [core]
-  excludesfile = ~/.gitignore_global
-  editor = nvim
+	excludesfile = ~/.gitignore_global
+	editor = nvim
 [push]
-  default = current
+	default = current
 [alias]
-  prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
-  prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
-  co = checkout
-  ci = commit
-  br = branch
-  st = status
+	prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
+	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
 	nuke = !git branch | egrep -v '( master$|\\*)' | xargs git branch -D
 [diff]
-  tool = Kaleidoscope
-  compactionHeuristic = true
+	tool = Kaleidoscope
+	compactionHeuristic = true
 [merge]
-  tool = Kaleidoscope
+	tool = Kaleidoscope
 [difftool]
-  prompt = false
+	prompt = false
 [mergetool]
-  prompt = false
+	prompt = false
 
 #Silly tools fight for config down here
 [hub]
-  protocol = ssh
+	protocol = ssh
 [filter "lfs"]
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 [mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustexitcode = true
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
 [difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [interactive]
-  # diffFilter = diff-highlight
+	# diffFilter = diff-highlight
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

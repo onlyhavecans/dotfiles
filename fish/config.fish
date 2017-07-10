@@ -37,6 +37,7 @@ abbr --add ag rg
 abbr --add cf fzf-cd-widget
 abbr --add ce chef exec
 abbr --add cebu chef exec berks update
+abbr --add camp 'thor dnsimple:campsite_cookbook'
 abbr --add vmrun '/Applications/VMware\ Fusion.app//Contents/Library/vmrun'
 abbr --add yt youtube-dl
 abbr --add j "cd ~/"

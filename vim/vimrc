@@ -41,6 +41,7 @@ if has('nvim')
   Plug 'wellle/tmux-complete.vim'
 endif
 Plug 'tpope/vim-fugitive'     " How you use git as a vim user
+Plug 'tpope/vim-git'          " gitfiles editing
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'janko-m/vim-test'       " TDD better
