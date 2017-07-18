@@ -57,6 +57,7 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'thinca/vim-ref'
 Plug 'klen/python-mode'
 Plug 'junegunn/goyo.vim'                              " Text writing view
+Plug 'junegunn/limelight.vim'                         " Text writing highlight
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
 Plug 'baskerville/bubblegum'                          " light terminal color scheme
@@ -251,6 +252,12 @@ endif
 
 " ==== vim-markdown
 let g:vim_markdown_folding_disabled=1
+function SetMarkdownOptions()
+  Limelight
+  Wrap
+endfunction
+autocmd! User GoyoEnter call SetMarkdownOptions()
+autocmd! User GoyoLeave Limelight!
 
 " ==== Plug
 let g:plug_window = 'tabnew'

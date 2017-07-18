@@ -14,7 +14,7 @@
 	ci = commit
 	br = branch
 	st = status
-	nuke = !git branch | egrep -v '( master$|\\*)' | xargs git branch -D
+	nuke = !git remote prune origin
 [diff]
 	tool = Kaleidoscope
 	compactionHeuristic = true
