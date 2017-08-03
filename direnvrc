@@ -1,4 +1,5 @@
-## Local .vimrc files by calling the following in a .envrc
+## Add in local .vimrc files into vim's execution
+# add_extra_vimrc
 add_extra_vimrc() {
   local extravim="$(find_up .vimrc)"
   if [ -n "$extravim" ]; then
@@ -7,14 +8,8 @@ add_extra_vimrc() {
   fi
 }
 
-## use a global pyenv (for pyenv-virenv)
-use_pyenv() {
-  eval "$(pyenv init -)"
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-  pyenv activate $1
-}
-
-## A shortcut for layout python with pyenv
+## A shortcut for a vanilla python & local layout
+# use python x.x.x
 use_python() {
   local python_root=$HOME/.pyenv/versions/$1
   load_prefix "$python_root"
@@ -25,19 +20,30 @@ use_python() {
   fi
 }
 
+## Shortcut for using a shared/global pyenv_venv (like my flask env)
+# use pyenv virtuanenv_name
+use_pyenv() {
+  eval "$(pyenv init -)"
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+  pyenv activate $1
+}
+
 ## chef-dk summoner
+# use chefdk
 use_chefdk() {
   eval "$(chef shell-init bash)"
 }
 
-## When one does ruby
+## When one does ruby have a shortcut for all ruby-install
+# use ruby X.X.X
 use_ruby() {
   local ruby_dir=$HOME/.rubies/ruby-$1
   load_prefix $ruby_dir
   layout ruby
 }
 
-## Rusy
+## No need to have rust env set everywhere
+# use rust
 use_rust() {
   PATH_add $HOME/.cargo/bin
   export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
