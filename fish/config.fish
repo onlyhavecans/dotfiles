@@ -29,6 +29,7 @@ set -x ACK_COLOR_MATCH "bold yellow"
 alias tmux "direnv exec / tmux"
 alias git hub
 alias vim nvim
+alias ls exa
 alias vif 'fzf | read -l result; and vim $result'
 alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 

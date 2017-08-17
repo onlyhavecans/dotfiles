@@ -32,16 +32,23 @@ default['workstation']['links'] = {
 # Generic packages to install
 default['workstation']['packages']['generic'] = %w(
   openssl
+  bind
   clamav
   curl
   direnv
   elixir
+  exa
+  exercism
   fish
   git
   git-lfs
+  git-standup
   gnupg
   go
+  heroku
+  httpie
   hub
+  jq
   mobile-shell
   nmap
   polipo
@@ -56,6 +63,7 @@ default['workstation']['packages']['generic'] = %w(
   ruby-install
   rustup-init
   shellcheck
+  sshuttle
   thefuck
   tmux
   tree
@@ -69,6 +77,7 @@ default['workstation']['packages']['freebsd'] = %w(
 )
 
 default['workstation']['packages']['mac_os_x'] = %w(
+  awscli
   reattach-to-user-namespace
   watch
   youtube-dl
