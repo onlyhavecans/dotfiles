@@ -10,12 +10,7 @@ Chef::Recipe.send(:include, Workstation::Mixin)
 Chef::Log.info("Workstation user is #{workstation_user}")
 Chef::Log.info("Workstation user's home path is #{workstation_user_home}")
 
-case node['platform']
-when 'mac_os_x'
-  include_recipe 'workstation::mac'
-when 'freebsd'
-  include_recipe 'workstation::freebsd'
-end
+include_recipe "workstation::#{node['platform']}"
 
 ##
 # Install global packages

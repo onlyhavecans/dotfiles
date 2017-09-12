@@ -84,6 +84,6 @@ default['workstation']['packages']['mac_os_x'] = %w(
 )
 
 # Casked applications
-default['workstation']['caskapps'] = %w(
+default['homebrew']['casks'] = %w(
   vagrant
 )

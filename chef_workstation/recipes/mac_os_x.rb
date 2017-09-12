@@ -20,13 +20,5 @@ end
 # Set up askpass first for any upcoming sudos or questions
 include_recipe 'workstation::ssh_askpass'
 
-include_recipe 'homebrew'
-
-##
-# Make installs
-
-node['workstation']['caskapps'].each do |pkg|
-  homebrew_cask pkg do
-    action :install
-  end
-end
+include_recipe 'homebrew::default'
+include_recipe 'homebrew::install_casks'

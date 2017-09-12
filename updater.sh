@@ -41,5 +41,4 @@ sudo $CLIENT -z --runlist 'recipe[workstation]'
 echo ""
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Awesome! don't forget to manually install your tmux plugins with ^aI"
-echo " and also /usr/local/bin/vim +VundleInstall +qall for vim"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"

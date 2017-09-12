@@ -11,7 +11,14 @@ contains -- $rustup_path $PATH
   or set -gx PATH $rustup_path $PATH
 set RUST_SRC_PATH $HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
-set fish_key_bindings my_key_bindings
+function my_key_bindings --description "My custom keybinds with jk"
+  fish_hybrid_key_bindings
+  # fzf_key_bindings
+
+  bind -M insert -m default jk backward-char force-repaint
+  bind -M insert -m default kj backward-char force-repaint
+end
+set -g fish_key_bindings my_key_bindings
 
 if test -z "$TMUX"
   set TERM screen-256color
