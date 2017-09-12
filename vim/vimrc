@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes' " my theme is here
 Plug 'Shougo/denite.nvim'             " autocomplete superpowers
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
+Plug 'tpope/vim-obsession'            " ,o to obsess
 Plug 'godlygeek/tabular'              " Text Alignment plugin (needed for plasticboy/vim-markdown)
 Plug 'tomtom/tcomment_vim'            " Auto block commenting
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
