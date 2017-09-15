@@ -7,13 +7,8 @@
 Chef::Resource.send(:include, Workstation::Mixin)
 Chef::Recipe.send(:include, Workstation::Mixin)
 
-##
-# ssh-askpass is a good thing
-cookbook_file '/usr/local/bin/ssh-askpass' do
-  source 'ssh-askpass'
-  user   workstation_user
-  mode   '0755'
-end
+homebrew_tap 'homebrew/dupes'
+homebrew_package 'ssh-askpass'
 
 ENV['SUDO_ASKPASS'] = '/usr/local/bin/ssh-askpass'
 ENV['SSH_ASKPASS'] = '/usr/local/bin/ssh-askpass'
