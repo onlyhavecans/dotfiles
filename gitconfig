@@ -5,6 +5,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
+	hooksPath = ~/dotfiles/githooks
 [push]
 	default = current
 [alias]
@@ -29,10 +30,10 @@
 [hub]
 	protocol = ssh
 [filter "lfs"]
+	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustexitcode = true
@@ -46,3 +47,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
+# vi: tabstop=2 noexpandtab

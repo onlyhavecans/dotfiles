@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [[ -e metadata.rb ]]; then
+  cookstyle
+  foodcritic .
+fi
