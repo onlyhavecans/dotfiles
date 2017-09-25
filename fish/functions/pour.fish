@@ -12,6 +12,8 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   end
   status_message doctor brew
   brew doctor
+  brew missing
+  mas outdated
   vim +PlugUpgrade +qall
   vim +PlugUpdate
 end

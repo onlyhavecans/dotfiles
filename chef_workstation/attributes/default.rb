@@ -78,6 +78,7 @@ default['workstation']['packages']['freebsd'] = %w(
 
 default['workstation']['packages']['mac_os_x'] = %w(
   awscli
+  mas
   pinentry-mac
   reattach-to-user-namespace
   watch
