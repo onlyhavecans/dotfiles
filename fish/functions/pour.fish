@@ -1,6 +1,6 @@
 function pour --description "Update all my homebrew stuff that isn't pinned"
   ## Don't look at all the chef-dk stuff
-  set -lx PATH /usr/local/bin /usr/local/sbin /bin /sbin /usr/bin /usr/sbin
+  set -lx PATH /usr/local/bin /usr/local/sbin /bin /sbin /usr/bin /usr/sbin $HOME/.cargo/bin
   brew update
   brew upgrade
   status_message brew prune since chef-dk always makes broken synlinks
