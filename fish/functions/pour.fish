@@ -1,5 +1,5 @@
 function pour --description "Update all my homebrew stuff that isn't pinned"
-  ## Don't look at all the cheef-dk stuff
+  ## Don't look at all the chef-dk stuff
   set -lx PATH /usr/local/bin /usr/local/sbin /bin /sbin /usr/bin /usr/sbin
   brew update
   brew upgrade
@@ -10,10 +10,14 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     thefuck --alias | source
     funcsave fuck
   end
+  status_message Rust it up
+  rustup update
   status_message doctor brew
   brew doctor
   brew missing
-  mas outdated
+  if test -x /usr/local/bin/mas
+    mas outdated
+  end
   vim +PlugUpgrade +qall
   vim +PlugUpdate
 end

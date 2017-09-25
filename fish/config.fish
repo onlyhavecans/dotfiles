@@ -11,6 +11,11 @@ contains -- $rustup_path $PATH
   or set -gx PATH $rustup_path $PATH
 set RUST_SRC_PATH $HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
+## go for golang
+set -l go_path $HOME/Code/gocode
+contains -- $go_path $PATH
+  or set -gx PATH $go_path $PATH
+
 function my_key_bindings --description "My custom keybinds with jk"
   fish_hybrid_key_bindings
   # fzf_key_bindings

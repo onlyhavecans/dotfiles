@@ -41,10 +41,3 @@ use_ruby() {
   load_prefix $ruby_dir
   layout ruby
 }
-
-## No need to have rust env set everywhere
-# use rust
-use_rust() {
-  PATH_add $HOME/.cargo/bin
-  export RUST_SRC_PATH=$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
-}
