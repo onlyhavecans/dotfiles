@@ -7,7 +7,11 @@
 Chef::Resource.send(:include, Workstation::Mixin)
 Chef::Recipe.send(:include, Workstation::Mixin)
 
-homebrew_tap 'homebrew/dupes'
+homebrew_tap 'homebrew/dupes' do
+  action :untap
+end
+
+homebrew_tap 'theseal/ssh-askpass'
 homebrew_package 'ssh-askpass'
 
 ENV['SUDO_ASKPASS'] = '/usr/local/bin/ssh-askpass'
