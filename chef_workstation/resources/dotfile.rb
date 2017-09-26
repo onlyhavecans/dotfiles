@@ -4,20 +4,20 @@ property :my_user, String, required: true
 
 action :create do
   # Chef can't overwrite folders with symlinks so destroy it if we find one.
-  directory destination do
+  directory new_resource.destination do
     recursive true
     action    :delete
-    only_if { !::File.symlink?(destination) && ::File.directory?(destination) }
+    only_if { !::File.symlink?(new_resource.destination) && ::File.directory?(new_resource.destination) }
   end
 
-  link destination do
-    to   source
-    user my_user
+  link new_resource.destination do
+    to   new_resource.source
+    user new_resource.my_user
   end
 end
 
 action :delete do
-  link destination do
+  link new_resource.destination do
     action :delete
   end
 end
