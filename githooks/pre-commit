@@ -1,6 +1,46 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# shellcheck disable=SC2059
 
 if [[ -e metadata.rb ]]; then
   cookstyle
-  foodcritic .
+  # shellcheck disable=SC2086
+  foodcritic ${suspects}
+fi
+
+if [[ -e Gemfile ]]; then
+  RED='\033[0;31m'
+  GREEN='\033[0;32m'
+  YELLOW='\033[0;33m'
+  NO_COLOR='\033[0m'
+  CLEAR_LINE='\r\033[K'
+
+  printf "🚔    Linting with Rubocop..."
+
+  if ! command -v rubocop > /dev/null; then
+    printf "${CLEAR_LINE}💀${RED}   Install Rubocop and be sure it is available on your PATH${NO_COLOR}\n"
+    printf "ℹ️   Try 'gem install rubocop'\n"
+    exit -1
+  fi
+
+  suspects="$(comm -12 <(git diff --cached --name-only --diff-filter=AMC | sort) <(rubocop --list-target-files 2> /dev/null | sort) | tr '\n' ' ')"
+
+  if [ -n "$suspects" ]; then
+    if [[ ! -f .rubocop.yml ]]; then
+      printf "${CLEAR_LINE}${YELLOW}⚠️   No .rubocop.yml config file.${NO_COLOR}\n"
+    fi
+
+    printf "${CLEAR_LINE}🚔   Linting files: ${suspects}\n"
+
+    # Run rubocop on the staged files
+    # shellcheck disable=SC2086
+    if ! rubocop --format simple ${suspects} #> /dev/null
+    then
+      printf "${CLEAR_LINE}${RED}💀   Rubocop found some issues. Fix, stage, and commit again${NO_COLOR}\n"
+      printf "ℹ️   Try 'rubocop --format simple --auto-correct && git add -p'\n"
+      exit -1
+    fi
+  fi
+
+  printf "${CLEAR_LINE}🎉${GREEN}   Rubocop is appeased.${NO_COLOR}\n"
+  exit 0
 fi
