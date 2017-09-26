@@ -39,7 +39,10 @@ directory tmuxplugins_dir do
 end
 
 tpm_dir = ::File.join(tmuxplugins_dir, 'tpm')
-workstation_checkout tpm_dir do
-  repo_url 'https://github.com/tmux-plugins/tpm'
-  owner    workstation_user
+git tpm_dir do
+  revision 'master'
+  checkout_branch 'master'
+  repository 'https://github.com/tmux-plugins/tpm'
+  user workstation_user
+  action :checkout
 end
