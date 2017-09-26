@@ -41,4 +41,5 @@ end
 tpm_dir = ::File.join(tmuxplugins_dir, 'tpm')
 workstation_checkout tpm_dir do
   repo_url 'https://github.com/tmux-plugins/tpm'
+  owner    workstation_user
 end

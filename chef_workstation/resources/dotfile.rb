@@ -2,8 +2,6 @@ property :destination, String, name_property: true, required: true
 property :source, String, required: true
 property :my_user, String, required: true
 
-default_action :create
-
 action :create do
   # Chef can't overwrite folders with symlinks so destroy it if we find one.
   directory destination do
