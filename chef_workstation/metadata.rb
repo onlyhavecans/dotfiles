@@ -1,12 +1,12 @@
 name             'workstation'
-maintainer       'tBunnyMan'
+maintainer       'D.O.S. Squirrel'
 maintainer_email 'WagThatTail@Me.com'
-issues_url       'https://github.com/tbunnyman/dotfiles/issues'
-source_url       'https://github.com/tbunnyman/dotfiles'
+issues_url       'https://github.com/onlyhavecans/dotfiles/issues'
+source_url       'https://github.com/onlyhavecans/dotfiles'
 license          'BSD'
 description      'Installs/Configures workstation'
 long_description 'Installs/Configures workstation'
-version          '6.1.0'
+version          '7.0.0'
 
 chef_version '>= 12.7'
 

@@ -1,11 +1,14 @@
 function dnpull --description "pull all my cookbooks up up"
-  set -l dnpath ~/Code/dnsimple-ops/cookbooks
-  for i in *
-    status_message gitpull $i
-    cd $dnpath/$i
-    git checkout master -q
-    git pull
-    status_message finished $i
+  set -l dnpaths ~/Code/dnsimple ~/Code/dnsimple/ops/cookbooks
+  for dir in $dnpaths
+    cd $dir
+    for i in *
+      status_message gitpull $i
+      cd $dir/$i
+      git checkout master -q
+      git pull
+      status_message finished $i
+    end
   end
-  cd $dnpath
+  cd $dnpaths[1]
 end

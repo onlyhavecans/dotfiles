@@ -5,7 +5,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
-	hooksPath = ~/dotfiles/githooks
 [push]
 	default = current
 [alias]
