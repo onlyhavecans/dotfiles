@@ -37,7 +37,7 @@ It also sets up several layers of caching since I work remote
 
 ### git ###
 * The global gitignore is mac/python/ruby/chef/go/ect oriented
-* I have some standard git-hooks setups for languages I use a lot. I set them with `setgithooks $lang` in the root of a git dir. I'd love to try and make this into a direnv setting
+* my githooks setup is stolen from https://github.com/pivotal-cf/git-hooks-core which is awesome and you should use it too
 
 ### tmux ###
 * live by tmux

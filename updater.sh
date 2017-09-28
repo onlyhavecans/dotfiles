@@ -27,7 +27,6 @@ fi
 cd "$DIR/chef_workstation" || exit 10
 $BERKS install
 $BERKS update
-mkdir "$DIR/cookbooks"
 $BERKS vendor "$DIR/cookbooks"
 cd "$DIR" || exit 10
 

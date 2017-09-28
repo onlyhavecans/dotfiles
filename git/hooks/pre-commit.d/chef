@@ -2,6 +2,11 @@
 # shellcheck disable=SC2059
 # shellcheck disable=SC2086
 
+if [[ ! -e metadata.rb ]]; then
+  # Not a chef
+  exit 0
+fi
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NO_COLOR='\033[0m'

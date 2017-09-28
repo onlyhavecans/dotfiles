@@ -2,6 +2,16 @@
 # shellcheck disable=SC2059
 # shellcheck disable=SC2086
 
+# Gifted to me by @olemchls & @jacegu
+
+set -eu
+
+if [[ -d recipes || ! -e Gemfile.lock ]]; then
+  ## Skip chef repos
+  ## Not a ruby repo
+  exit 0
+fi
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
