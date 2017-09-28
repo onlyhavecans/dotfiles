@@ -49,6 +49,7 @@ default['workstation']['packages']['generic'] = %w(
   httpie
   hub
   jq
+  libsodium
   mobile-shell
   nmap
   polipo
