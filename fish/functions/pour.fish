@@ -23,7 +23,7 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   vim +PlugUpdate +qall
 
   if test -x $HOME/.tmux/plugins/tpm/bin/update_plugins
-    status_message update & clean tmux plugins
+    status_message update and clean tmux plugins
     ~/.tmux/plugins/tpm/bin/install_plugins
     ~/.tmux/plugins/tpm/bin/update_plugins all
     ~/.tmux/plugins/tpm/bin/clean_plugins
