@@ -53,7 +53,6 @@ Plug 'dag/vim-fish'           " Fish is my shell
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'timonv/vim-cargo', { 'for': 'rust' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'klen/python-mode'
 Plug 'junegunn/goyo.vim'                              " Text writing view
 Plug 'junegunn/limelight.vim'                         " Text writing highlight

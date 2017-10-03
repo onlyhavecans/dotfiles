@@ -6,7 +6,7 @@
 
 set -eu
 
-if [[ -d recipes || ! -e Gemfile.lock ]]; then
+if [[ -d recipes || -d cookbooks || ! -e Gemfile.lock ]]; then
   ## Skip chef repos
   ## Not a ruby repo
   exit 0
