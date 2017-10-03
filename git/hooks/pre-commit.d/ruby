@@ -23,7 +23,7 @@ printf "🚔    Linting with Rubocop..."
 if ! command -v rubocop > /dev/null; then
   printf "${CLEAR_LINE}💀${RED}   Install Rubocop and be sure it is available on your PATH${NO_COLOR}\n"
   printf "ℹ️   Try 'gem install rubocop'\n"
-  exit -1
+  exit 0
 fi
 
 suspects="$(comm -12 <(git diff --cached --name-only --diff-filter=AMC | sort) <(rubocop --list-target-files 2> /dev/null | sort) | tr '\n' ' ')"
