@@ -22,3 +22,5 @@ include_recipe 'workstation::ssh_askpass'
 
 include_recipe 'homebrew::default'
 include_recipe 'homebrew::install_casks'
+
+include_recipe 'workstation::habicat'
