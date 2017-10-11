@@ -5,7 +5,6 @@
 #  These two plugins may seem reduntant but they give amazing coverage
 
 Vagrant.require_version ">= 1.8"
-VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # https://github.com/dotless-de/vagrant-vbguest
