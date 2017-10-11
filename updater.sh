@@ -36,6 +36,7 @@ if [[ ! -f $CLIENT && -f /opt/chefdk/bin/chef-client ]]; then
 fi
 
 echo "Run chef, NEEDS SUDO"
+sudo rm -rf local-mode-cache
 sudo $CLIENT -z --runlist 'recipe[workstation]'
 
 echo ""
