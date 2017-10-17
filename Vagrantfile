@@ -6,7 +6,7 @@
 
 Vagrant.require_version ">= 1.8"
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure("2") do |config|
   # https://github.com/dotless-de/vagrant-vbguest
   if Vagrant.has_plugin?("vagrant-vbguest")
     # Because freebsd I don't like autoupdating
