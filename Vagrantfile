@@ -22,21 +22,4 @@ Vagrant.configure("2") do |config|
     config.proxy.https    = "http://192.168.55.1:8123/"
     config.proxy.no_proxy = "localhost,127.0.0.1"
   end
-
-  # http://fgrehm.viewdocs.io/vagrant-cachier/usage
-  if Vagrant.has_plugin?("vagrant-cachier")
-    # Configure cached packages to be shared between instances of the same base box.
-    # scope needs to be machine if you are going to be using concurrency in kitchen
-    config.cache.scope = :box
-    config.cache.auto_detect = true
-    # config.cache.synced_folder_opts = {
-    #   type: :nfs,
-    #   # The nolock option can be useful for an NFSv3 client that wants to avoid the
-    #   # NLM sideband protocol. Without this option, apt-get might hang if it tries
-    #   # to lock files needed for /var/cache/* operations. All of this can be avoided
-    #   # by using NFSv4 everywhere. Please note that the tcp option is not the default.
-    #   mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
-    # }
-    # For more information please check http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
-  end
 end
