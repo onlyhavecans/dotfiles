@@ -39,8 +39,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'     " How you use git as a vim user
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
-Plug 'janko-m/vim-test'       " TDD better
-Plug 'jgdavey/tslime.vim'     " Spawn test in a tmux pane
 Plug 'jremmen/vim-ripgrep'    " Ripgrep's time has come
 Plug 'sheerun/vim-polyglot'   " most languages support plugin
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
@@ -48,7 +46,8 @@ Plug 'junegunn/goyo.vim'                              " Text writing view
 Plug 'junegunn/limelight.vim'                         " Text writing highlight
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
 Plug 'baskerville/bubblegum'                          " light terminal color scheme
-Plug 'w0rp/ale'               " The async syntastic
+Plug 'scrooloose/syntastic'
+Plug 'rizzatti/dash.vim'
 
 " My special plugins
 Plug 'onlyhavecans/mm.vim'
@@ -258,6 +257,18 @@ let g:airline#extensions#whitespace#enabled = 1
 " ==== GitGutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
+
+" ==== Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_enable_signs=1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_ignore_files=['\m^/opt/chefdk/']
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
 
 " ==== Powerline
 set laststatus=2
