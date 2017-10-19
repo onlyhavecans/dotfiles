@@ -30,33 +30,22 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " T
 "  Autocomplete?
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'  } "req for deoplete-go
-  Plug 'zchee/deoplete-go', { 'for': 'go', 'do': 'make'} " Go Completion
   Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Shougo/neco-vim' " vim-script comletion
-  Plug 'fishbullet/deoplete-ruby', { 'for': 'ruby' }
-  Plug 'Shougo/echodoc.vim'
   Plug 'wellle/tmux-complete.vim'
 endif
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fastest finding
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'     " How you use git as a vim user
-Plug 'tpope/vim-git'          " gitfiles editing
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'janko-m/vim-test'       " TDD better
 Plug 'jgdavey/tslime.vim'     " Spawn test in a tmux pane
 Plug 'jremmen/vim-ripgrep'    " Ripgrep's time has come
 Plug 'tmux-plugins/vim-tmux'  " Tmux fletype
+Plug 'sheerun/vim-polyglot'   " most languages support plugin
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plug 'dag/vim-fish'           " Fish is my shell
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'timonv/vim-cargo', { 'for': 'rust' }
-Plug 'klen/python-mode'
 Plug 'junegunn/goyo.vim'                              " Text writing view
 Plug 'junegunn/limelight.vim'                         " Text writing highlight
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " Markdown
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
 Plug 'baskerville/bubblegum'                          " light terminal color scheme
 Plug 'scrooloose/syntastic'
