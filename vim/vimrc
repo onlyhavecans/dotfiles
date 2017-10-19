@@ -23,9 +23,10 @@ Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'vim-airline/vim-airline-themes' " my theme is here
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
+Plug 'tpope/vim-repeat'               " Make surround repeatable with .
 Plug 'tpope/vim-obsession'            " ,o to obsess
+Plug 'tpope/vim-commentary'           " comment things with gc g<motion>c
 Plug 'godlygeek/tabular'              " Text Alignment plugin (needed for plasticboy/vim-markdown)
-Plug 'tomtom/tcomment_vim'            " Auto block commenting
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 "  Autocomplete?
 if has('nvim')
@@ -41,15 +42,13 @@ Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'janko-m/vim-test'       " TDD better
 Plug 'jgdavey/tslime.vim'     " Spawn test in a tmux pane
 Plug 'jremmen/vim-ripgrep'    " Ripgrep's time has come
-Plug 'tmux-plugins/vim-tmux'  " Tmux fletype
 Plug 'sheerun/vim-polyglot'   " most languages support plugin
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'junegunn/goyo.vim'                              " Text writing view
 Plug 'junegunn/limelight.vim'                         " Text writing highlight
 Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
 Plug 'baskerville/bubblegum'                          " light terminal color scheme
-Plug 'scrooloose/syntastic'
-Plug 'rizzatti/dash.vim'
+Plug 'w0rp/ale'               " The async syntastic
 
 " My special plugins
 Plug 'onlyhavecans/mm.vim'
@@ -176,8 +175,8 @@ nnoremap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
 nnoremap <Leader>b :StraightenQuotes<CR>
 
 " <Leader>c = comment out
-vnoremap <Leader>c :TComment<CR>
-nnoremap <Leader>c :TComment<CR>
+vnoremap <Leader>c :Commentary<CR>
+nnoremap <Leader>c :Commentary<CR>
 
 " <Leader>d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
@@ -259,18 +258,6 @@ let g:airline#extensions#whitespace#enabled = 1
 " ==== GitGutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
-
-" ==== Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_enable_signs=1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_ignore_files=['\m^/opt/chefdk/']
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': 'possibly useless use of a variable in void context'}
 
 " ==== Powerline
 set laststatus=2
