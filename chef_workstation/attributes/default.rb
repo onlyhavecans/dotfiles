@@ -34,12 +34,14 @@ default['workstation']['packages']['generic'] = %w(
   openssl
   bind
   clamav
+  cowsay
   curl
   direnv
   elixir
   exa
   exercism
   fish
+  fortune
   git
   git-lfs
   git-standup
@@ -53,7 +55,6 @@ default['workstation']['packages']['generic'] = %w(
   mobile-shell
   nmap
   polipo
-  ponysay
   privoxy
   pyenv
   pyenv-virtualenv
