@@ -48,6 +48,7 @@ default['workstation']['packages']['generic'] = %w(
   gnupg
   go
   heroku
+  hugo
   httpie
   hub
   jq
