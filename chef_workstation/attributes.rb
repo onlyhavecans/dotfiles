@@ -42,6 +42,7 @@ default['workstation']['packages']['generic'] = %w(
   exercism
   fish
   fortune
+  gist
   git
   git-lfs
   git-standup
