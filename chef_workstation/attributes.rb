@@ -86,6 +86,7 @@ default['workstation']['packages']['mac_os_x'] = %w(
   pinentry-mac
   reattach-to-user-namespace
   watch
+  whois
   youtube-dl
 )
 
