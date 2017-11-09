@@ -13,7 +13,7 @@ rustup default nightly
 rustup target add x86_64-unknown-freebsd
 rustup target add x86_64-unknown-linux-gnu
 
-rustup component add rls --toolchain nightly
+rustup component add rls-preview --toolchain nightly
 rustup component add rust-analysis --toolchain nightly
 rustup component add rust-src --toolchain nightly
 
