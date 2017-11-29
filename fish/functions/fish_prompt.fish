@@ -1,7 +1,7 @@
 set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_hide_untrackedfiles 1
 
-set -g __fish_git_prompt_color_branch -b magenta
+set -g __fish_git_prompt_color_branch --bold magenta
 set -g __fish_git_prompt_showupstream "informative"
 set -g __fish_git_prompt_char_upstream_ahead "↑"
 set -g __fish_git_prompt_char_upstream_behind "↓"
@@ -16,8 +16,8 @@ set -g __fish_git_prompt_char_cleanstate "✔"
 set -g __fish_git_prompt_color_dirtystate blue
 set -g __fish_git_prompt_color_stagedstate yellow
 set -g __fish_git_prompt_color_invalidstate red
-set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
-set -g __fish_git_prompt_color_cleanstate -b green
+set -g __fish_git_prompt_color_untrackedfiles --bold normal
+set -g __fish_git_prompt_color_cleanstate --bold green
 
 set -g fish_color_user cyan
 set -g fish_color_host 9C9C9C
@@ -48,7 +48,7 @@ function fish_prompt --description 'Write out the prompt'
   #user@hostname
   set_color $fish_color_user
   echo -n $USER
-  set_color $fish_color_host -o
+  set_color $fish_color_host
   printf '@%s ' $__fish_prompt_hostname
   set_color normal
 
