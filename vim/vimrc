@@ -41,6 +41,7 @@ Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'jremmen/vim-ripgrep'    " Ripgrep's time has come
 Plug 'sheerun/vim-polyglot'   " most languages support plugin
+Plug 'fatih/vim-go'
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'junegunn/goyo.vim'                              " Text writing view
 Plug 'junegunn/limelight.vim'                         " Text writing highlight
