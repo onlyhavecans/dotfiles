@@ -26,7 +26,6 @@ set -g fish_color_cwd yellow
 set -g fish_color_chef blue
 
 function fish_prompt --description 'Write out the prompt'
-
   set -l last_status $status
 
   if not test $last_status -eq 0
@@ -34,7 +33,6 @@ function fish_prompt --description 'Write out the prompt'
     printf 'fish: Prior command failed; [%s] \n' $last_status
     set_color normal
   end
-
 
   # Just calculate these once, to save a few cycles when displaying the prompt
   if not set -q __fish_prompt_hostname
@@ -60,7 +58,6 @@ function fish_prompt --description 'Write out the prompt'
     set_color normal
   end
 
-
   # PWD
   set_color $fish_color_cwd
   echo -n (prompt_pwd)
@@ -68,5 +65,4 @@ function fish_prompt --description 'Write out the prompt'
 
   #GIT
   printf '%s> ' (__fish_git_prompt)
-
 end
