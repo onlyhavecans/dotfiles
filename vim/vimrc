@@ -31,7 +31,10 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " T
 "  Autocomplete?
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
   Plug 'wellle/tmux-complete.vim'
 endif
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fastest finding
@@ -298,7 +301,7 @@ endif
 let g:rustfmt_autosave = 1
 
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['rustup', 'run', 'beta', 'rls'],
     \ }
 
 " Automatically start language servers.

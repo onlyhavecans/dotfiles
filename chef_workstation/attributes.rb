@@ -23,9 +23,7 @@ default['workstation']['links'] = {
   'rubocop.yml'   => '.rubocop.yml',
   'tmux.conf'     => '.tmux.conf',
   'Vagrantfile'   => '.vagrant.d/Vagrantfile',
-  'vim'           => '.vim',
-  'vim/gvimrc'    => '.gvimrc',
-  'vim/vimrc'     => '.vimrc',
+  'vim'           => '.config/nvim'
 }
 
 ##
@@ -55,6 +53,7 @@ default['workstation']['packages']['generic'] = %w(
   jq
   libsodium
   mobile-shell
+  neovim
   nmap
   polipo
   privoxy
@@ -76,7 +75,6 @@ default['workstation']['packages']['generic'] = %w(
 default['workstation']['packages']['freebsd'] = %w(
   feather
   keybase
-  neovim
   tarsnap
 )
 
