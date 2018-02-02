@@ -49,3 +49,5 @@
 	trustExitCode = true
 
 # vi: tabstop=2 noexpandtab
+[gpg]
+	program = /usr/local/bin/gpg
