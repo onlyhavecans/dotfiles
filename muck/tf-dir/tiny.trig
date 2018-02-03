@@ -1,2 +1,0 @@
-/def -p999 -t'### Type @email #help for information on getting rid of this message.' auto_accept_email=\
-	@email #verify %; @email #verify yes
