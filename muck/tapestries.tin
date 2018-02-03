@@ -1,0 +1,52 @@
+#action {Type @email #help for information on getting rid of this message.} 
+{
+  @email #verify;@email #verify yes
+}
+
+#action {> Type "mjoin %S" to go to them.}
+{
+  #class {joiner} {open};
+  #var {join player} {%1};
+  #alias {j}
+    {
+      mjoin ${join player};
+      #class {joiner} {kill};
+    };
+  #showme {<078>~~~${join player} wants you to [j]oin.~~~} {1};
+  #class {joiner} {close};
+}
+
+#high {%S {goes home|has left}.} <019>
+#high {%+ has disconnected.$} <019>
+#high {%S [asleep]} <019>
+#high {No one that you are watching for is online.} <019>
+#high {%S is currently %S %S idle and may not get back to you soon.} <019>
+
+#high {'Huh?  (Type "help" for help.)'} <091>
+#high {There doesn't appear to be an exit in that direction.} <091>
+
+#high {%+ has connected.$} <029>
+#high {%S has arrived.$} <029>
+#high {%S [awake]$} <029>
+
+#high {In a page-pose to you, %+} <049>
+#high {^%S pages, %+} <049>
+#high {You sense that %S is looking for you%*} <049>
+#high {From afar, %+} <049>
+#high {Long distance to %+} <049>
+#high {Room page: %+} <049>
+
+#high {^%S whispers, %+} <059>
+#high {You sense %+} <059>
+
+#high {^~~~~%+} <002> 
+#high {Your last morph%+} <002>
+#high {[ Obvious Exits: %+ ]$} <002>
+#high {^> %+$} <002>
+
+#nop this mess of a regep matches flack line endings
+#high {%+{:|_|-|>}$} <039>
+#high {^##%+} <039>
+#high {%+]$} <039>
+
+# vim:ft=tt

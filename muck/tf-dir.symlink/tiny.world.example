@@ -1,0 +1,11 @@
+;;;;
+; Obviously this shouldn't be shared so the original file is .gitignore!
+;;;
+/addworld -x world1 Char1 password server.com 20
+/addworld -x world2 Char2 password server.com 20
+/addworld -x world3 Char3 password server.com 20
+
+;; If the world name is the characters name then it makes my highlights happy
+/def key_f2 = /connect world1
+/def key_f3 = /connect world2
+/def key_f4 = /connect world3

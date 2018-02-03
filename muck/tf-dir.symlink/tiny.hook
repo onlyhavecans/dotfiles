@@ -1,0 +1,44 @@
+;;;
+; wft on Connect
+;;;
+/def -Fp1 -h'login' wft-on-connect = wft
+
+;;;
+; set up local hlilites
+;;;
+/def -Fp1 -h'connect' user_hilites = \
+	/eval /def -i -Fp2 -aCcyan -t'${world_character}*' %;\
+	/eval /partial ${world_character}
+
+;;;
+; Logging and rotation
+;;;
+/def LOGDIR=~/tf-logs/
+
+/def rotate_logs = \
+	/let _curworlds=$(/@listsockets -s) %;\
+	/eval /echo *** Rotating logs; current worlds: %{_curworlds} %;\
+	/while ( %{_curworlds} !~ "" ) \
+		/let _curworld=$(/car %{_curworlds}) %;\
+		/let _curworlds=$(/cdr %{_curworlds}) %;\
+		/log -w%{_curworld} off %;\
+		/log -w%{_curworld} ${LOGDIR}/%{_curworld}/$[ftime("%Y-%m-%d", time())].log %;\
+	/done %;\
+	/unset _rotation_scheduled %;\
+	/schedule_rotation
+
+/def -Fp50 schedule_rotation = \
+	/if (_rotation_scheduled) /return 0 %; /endif%;\
+	/set _rotation_scheduled=1 %;\
+	/at 04:00 /rotate_logs
+
+/def -Fp100 -h'connect' connect_log = \
+	/log -w ${LOGDIR}/${world_name}/$[ftime("%Y-%m-%d", time())].log %;\
+	/eval /echo -ag -w${world_name} *** ${world_name} log started $(/time %%c) *** %;\
+	/schedule_rotation
+
+/def -Fp100 -h'disconnect' disconnect_log = \
+	/eval /echo -ag -w${world_name} *** ${world_name} log ended $(/time %%c) %;\
+	/log -w${world_name} off
+
+/def -Fiq dc = /if /@dc %*%; /then trigger -hdisconnect %*%; /endif

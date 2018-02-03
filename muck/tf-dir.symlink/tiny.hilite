@@ -1,0 +1,52 @@
+;;; Red out
+/def -Fp10 -aCred -t'{*} goes home.' hl_disconnect1
+/def -Fp10 -aCred -t'{*} has left.' hl_disconnect2
+/def -Fp10 -aCred -t'Somewhere on the muck, {*} has disconnected.' hl_disconnect3
+/def -Fp10 -aCred -t'{*} has disconnected.' hl_disconnect4
+/def -Fp10 -aCred -t'{*} \[asleep\]' hl_disconnect5
+/def -p10 -aCred -t'No one that you are watching for is online.' hl_disconnect6
+/def -p10 -aCred -t'{*} is currently {*} {*} idle and may not get back to you soon.' hl_disconnect7
+
+;;; Bad Command
+/def -p10 -aGCbgred -t'Huh?  (Type "help" for help.)' hl_badcommand1
+/def -p10 -aGCbgred -t'There doesn\'t appear to be an exit in that direction.' hl_badcommand2
+/def -p10 -aCred -t'> Your email address of record is: {*}' hl_important
+
+;;; green in
+/def -Fp10 -aCgreen -t'Somewhere on the muck, {*} has connected.' hl_connect1
+/def -Fp10 -aCgreen -t'{*} has arrived.' hl_connect2
+/def -Fp10 -aCgreen -t'{*} \[awake\]' hl_connect3
+/def -Fp10 -aCgreen -t'{*} connected.' hl_connect4
+
+;;; blue pages
+/def -Fp6 -aCblue -t'{*} pages[,:] *' hl_page1
+/def -Fp8 -aCblue -t'You sense that {*} is looking for you in *' hl_page2
+/def -Fp8 -aCblue -t'From afar, *' hl_page3
+/def -Fp6 -aCblue -t'Long distance to *' hl_page4
+/def -Fp6 -aCblue -t'Room page: *' hl_page5
+/def -Fp6 -aCblue -t'In a page-pose to you, *' hl_page6
+;;; My Pages bold
+/def -p4 -aCbgblue -t'You paged *' hl_mypage1
+/def -p4 -aCbgblue -t'You page, *' hl_mypage2
+/def -Fp4 -aCbgblue -t'You page-pose, *' hl_mypage3
+
+;;; Magenta whispers
+/def -Fp8 -aCmagenta -t'{*} whispers[,:] *' hl_whisper1
+/def -Fp8 -aCmagenta -t'You sense *' hl_whisper2
+/def -Fp8 -aBCmagenta -t'You whisper, *' hl_mywhisper1
+
+;;; Background Green My invoked status
+/def -p2 -aGgCbggreen -t'Your last morph was: *' hl_mystatus1
+/def -p2 -aCbggreen -t'~~~~ *' hl_mystatus2
+
+
+;;; Yellow flack
+/def -p1 -aGCyellow -t'##*' hl_status1
+/def -p1 -aCyellow -t'\[*' hl_status2
+/def -p1 -aCyellow -t'[\>\<-\\\\]*' hl_status3
+/def -p1 -aGCyellow -t'There\'s no place like home...' hl_status4
+/def -p1 -aGgCyellow -t'You wake up back home, without your possessions.' hl_status5
+/def -p1 -aCyellow -t'Name____________*' hl_status6
+/def -p1 -aCyellow -t'-- Total: *' hl_status7
+
+;;;; light blue for the important
