@@ -21,6 +21,10 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   end
 
   status_message update all the vim stuff
+  ## Sometimes plugins have git conflicts, this prevents them
+  for plugin in ~/.config/nvim/plugged/*
+    git -C $plugin reset --hard HEAD
+  end
   vim +PlugUpgrade +qall
   vim +PlugUpdate +qall
 

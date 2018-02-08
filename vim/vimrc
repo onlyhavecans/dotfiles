@@ -55,6 +55,7 @@ Plug 'rizzatti/dash.vim'
 
 " My special plugins
 Plug 'onlyhavecans/mm.vim'
+Plug 'LokiChaos/vim-tintin'
 
 call plug#end()
 
