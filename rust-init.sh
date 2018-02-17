@@ -10,7 +10,6 @@ rustup update
 
 rustup install stable
 rustup install nightly
-rustup install beta
 
 rustup default $MY_TOOLCHAIN
 
