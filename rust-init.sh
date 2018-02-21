@@ -16,7 +16,10 @@ rustup default $MY_TOOLCHAIN
 rustup target add x86_64-unknown-freebsd
 rustup target add x86_64-unknown-linux-gnu
 
-rustup component add rls-preview rust-analysis rust-src --toolchain $MY_TOOLCHAIN
-rustup component add rustfmt-preview --toolchain $MY_TOOLCHAIN
+for component in rustfmt-preview rls-preview rust-analysis rust-src; do
+  rustup component add $component --toolchain $MY_TOOLCHAIN
+done
+
+
 
 rustup run $MY_TOOLCHAIN cargo install --force racer
