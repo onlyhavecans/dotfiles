@@ -1,23 +1,36 @@
+# shellcheck disable=SC2039
 ## Add in local .vimrc files into vim's execution
 # add_extra_vimrc
 add_extra_vimrc() {
   local extravim="$(find_up .vimrc)"
   if [ -n "$extravim" ]; then
     echo "Adding extra .vimrc: ${extravim}"
-    path_add EXTRA_VIM $extravim
+    path_add EXTRA_VIM "$extravim"
   fi
 }
 
-## A shortcut for a vanilla python & local layout
-# use python x.x.x
+# make more virtenvs! 
+# use python x.x.x env_name
+# OR use python x.x.x $(basename $PWD)
 use_python() {
-  local python_root=$HOME/.pyenv/versions/$1
-  load_prefix "$python_root"
-  if [[ -x "$python_root/bin/python3" ]]; then
-    layout python3 "$python_root/bin/python3"
+  local pyversion=$1
+  local pvenv=$2
+  local env_name=${pvenv}-${pyversion}
+
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+
+  pyenv local "${pyversion}"
+
+  if pyenv virtualenvs | grep --silent "$env_name"; then
+    echo "Using existing $env_name env"
   else
-    layout python "$python_root/bin/python"
+    echo "Making $env_name"
+    pyenv virtualenv --force "$pyversion" "$env_name"
   fi
+
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+  pyenv activate "$env_name"
 }
 
 ## Shortcut for using a shared/global pyenv_venv (like my flask env)
@@ -25,7 +38,7 @@ use_python() {
 use_pyenv() {
   eval "$(pyenv init -)"
   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-  pyenv activate $1
+  pyenv activate "$1"
 }
 
 ## chef-dk summoner
@@ -38,6 +51,8 @@ use_chefdk() {
 # use ruby X.X.X
 use_ruby() {
   local ruby_dir=$HOME/.rubies/ruby-$1
-  load_prefix $ruby_dir
+  load_prefix "$ruby_dir"
   layout ruby
 }
+
+# vim: filetype=sh

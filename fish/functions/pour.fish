@@ -14,21 +14,22 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   end
 
   if test -x $HOME/.cargo/bin/rustup
-    status_message Rust it up
+    status_message Rust update
     rustup update stable
     rustup update nightly
   end
 
-  status_message update all the vim stuff
-  ## Sometimes plugins have git conflicts, this prevents them
+  status_message Clean up vim-plug repos to prevent errors
   for plugin in ~/.config/nvim/plugged/*
-    git -C $plugin reset --hard HEAD
+    git -C $plugin reset --quiet --hard HEAD
   end
+  status_message Update vim-plug
   vim +PlugUpgrade +qall
+  status_message Update all the vim-plug plugins
   vim +PlugUpdate +qall
 
   if test -x $HOME/.tmux/plugins/tpm/bin/update_plugins
-    status_message update and clean tmux plugins
+    status_message Update and clean tmux plugins
     ~/.tmux/plugins/tpm/bin/install_plugins
     ~/.tmux/plugins/tpm/bin/update_plugins all
     ~/.tmux/plugins/tpm/bin/clean_plugins
