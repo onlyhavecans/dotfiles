@@ -60,7 +60,6 @@ default['workstation']['packages']['generic'] = %w(
   pyenv
   pyenv-virtualenv
   python
-  python3
   ripgrep
   ruby
   ruby-install
@@ -76,6 +75,7 @@ default['workstation']['packages']['freebsd'] = %w(
   feather
   keybase
   tarsnap
+  python3
 )
 
 default['workstation']['packages']['mac_os_x'] = %w(

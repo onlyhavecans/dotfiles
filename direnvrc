@@ -9,34 +9,24 @@ add_extra_vimrc() {
   fi
 }
 
-# make more virtenvs! 
-# use python x.x.x env_name
-# OR use python x.x.x $(basename $PWD)
 use_python() {
   local pyversion=$1
-  local pvenv=$2
-  local env_name=${pvenv}-${pyversion}
 
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
   pyenv local "${pyversion}"
 
-  if pyenv virtualenvs | grep --silent "$env_name"; then
-    echo "Using existing $env_name env"
-  else
-    echo "Making $env_name"
-    pyenv virtualenv --force "$pyversion" "$env_name"
-  fi
-
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-  pyenv activate "$env_name"
+  layout python3
+  ln -shfF ".direnv/$(basename "$VIRTUAL_ENV")" env
 }
 
 ## Shortcut for using a shared/global pyenv_venv (like my flask env)
 # use pyenv virtuanenv_name
-use_pyenv() {
+use_pyenv_virtualenv() {
   eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
   pyenv activate "$1"
 }
