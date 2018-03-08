@@ -24,9 +24,9 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     git -C $plugin reset --quiet --hard HEAD
   end
   status_message Update vim-plug
-  vim +PlugUpgrade +qall
+  nvim +PlugUpgrade +qall
   status_message Update all the vim-plug plugins
-  vim +PlugUpdate +qall
+  nvim +PlugUpdate +qall
 
   if test -x $HOME/.tmux/plugins/tpm/bin/update_plugins
     status_message Update and clean tmux plugins
