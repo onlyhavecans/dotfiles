@@ -1,4 +1,2 @@
-alias vim nvim
-alias vif 'fzf | read -l result; and nvim $result'
-
-set -x EDITOR nvim
+alias vim code
+set -x EDITOR code --wait

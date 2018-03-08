@@ -4,11 +4,12 @@
 	signingkey = 01DC4C9EA162B659
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = nvim
+	editor = code --wait
 	; hooksPath = ~/dotfiles/git/hooks
 [push]
 	default = current
 [alias]
+	commit = commit -S -s
 	prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
 	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
 	co = checkout
@@ -17,14 +18,10 @@
 	st = status
 	nuke = !git branch | egrep -v '( master$|^\\*)' | xargs git branch -D
 [diff]
-	tool = Kaleidoscope
+	tool = code
 	compactionHeuristic = true
-[merge]
-	tool = Kaleidoscope
-[difftool]
-	prompt = false
-[mergetool]
-	prompt = false
+[difftool "code"]
+	cmd = code --wait --diff $LOCAL $REMOTE
 
 #Silly tools fight for config down here
 [hub]
@@ -34,20 +31,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[interactive]
-	# diffFilter = diff-highlight
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
-# vi: tabstop=2 noexpandtab
 [gpg]
 	program = /usr/local/bin/gpg
+
+# vi: tabstop=2 noexpandtab
