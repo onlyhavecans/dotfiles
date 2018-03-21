@@ -9,26 +9,11 @@ add_extra_vimrc() {
   fi
 }
 
-use_python() {
-  local pyversion=$1
-
+# use venv
+use_venv() {
   eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-  pyenv local "${pyversion}"
-
-  layout python3
-  ln -shfF ".direnv/$(basename "$VIRTUAL_ENV")" env
-}
-
-## Shortcut for using a shared/global pyenv_venv (like my flask env)
-# use pyenv virtuanenv_name
-use_pyenv_virtualenv() {
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-  pyenv activate "$1"
+  test -e env || python3 -m venv env
+  source env/bin/activate
 }
 
 ## chef-dk summoner
@@ -44,5 +29,3 @@ use_ruby() {
   load_prefix "$ruby_dir"
   layout ruby
 }
-
-# vim: filetype=sh
