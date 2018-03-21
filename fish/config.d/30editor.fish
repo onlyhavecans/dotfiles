@@ -1,2 +1,2 @@
-alias vim code
-set -x EDITOR code --wait
+alias vim "code -n"
+set -x EDITOR "code --wait -n"

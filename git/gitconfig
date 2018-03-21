@@ -18,10 +18,13 @@
 	st = status
 	nuke = !git branch | egrep -v '( master$|^\\*)' | xargs git branch -D
 [diff]
-	tool = code
-	compactionHeuristic = true
-[difftool "code"]
-	cmd = code --wait --diff $LOCAL $REMOTE
+	tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
 
 #Silly tools fight for config down here
 [hub]
