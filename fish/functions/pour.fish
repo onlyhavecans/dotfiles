@@ -19,15 +19,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     rustup update nightly
   end
 
-  status_message Clean up vim-plug repos to prevent errors
-  for plugin in ~/.config/nvim/plugged/*
-    git -C $plugin reset --quiet --hard HEAD
-  end
-  status_message Update vim-plug
-  nvim +PlugUpgrade +qall
-  status_message Update all the vim-plug plugins
-  nvim +PlugUpdate +qall
-
   if test -x $HOME/.tmux/plugins/tpm/bin/update_plugins
     status_message Update and clean tmux plugins
     ~/.tmux/plugins/tpm/bin/install_plugins
