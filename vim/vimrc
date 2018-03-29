@@ -29,11 +29,11 @@ Plug 'godlygeek/tabular'              " Text Alignment plugin (needed for plasti
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 "  Autocomplete?
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
         \ }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'wellle/tmux-complete.vim'
 endif
 Plug 'tpope/vim-fugitive'     " How you use git as a vim user

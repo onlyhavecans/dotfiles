@@ -16,7 +16,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   if test -x $HOME/.cargo/bin/rustup
     status_message Rust update
     rustup update stable
-    rustup update nightly
   end
 
   status_message Clean up vim-plug repos to prevent errors

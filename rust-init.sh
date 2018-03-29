@@ -8,8 +8,7 @@ rustup-init --no-modify-path --default-toolchain $MY_TOOLCHAIN -y
 rustup self update
 rustup update
 
-rustup install stable
-rustup install nightly
+rustup install $MY_TOOLCHAIN
 
 rustup default $MY_TOOLCHAIN
 
