@@ -36,8 +36,6 @@ if has('nvim')
         \ }
   Plug 'wellle/tmux-complete.vim'
 endif
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fastest finding
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'     " How you use git as a vim user
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
@@ -53,7 +51,6 @@ Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 
 " My special plugins
-Plug 'onlyhavecans/mm.vim'
 Plug 'LokiChaos/vim-tintin'
 
 call plug#end()
