@@ -23,7 +23,6 @@ set -g fish_color_user cyan
 set -g fish_color_host 9C9C9C
 set -g fish_color_error red
 set -g fish_color_cwd yellow
-set -g fish_color_chef blue
 
 function fish_prompt --description 'Write out the prompt'
   set -l last_status $status
@@ -49,14 +48,6 @@ function fish_prompt --description 'Write out the prompt'
   set_color $fish_color_host
   printf '@%s ' $__fish_prompt_hostname
   set_color normal
-
-  #CHEF
-  if set -q chef
-    printf '🍴 '
-    set_color $fish_color_chef
-    printf '%s ' $chef
-    set_color normal
-  end
 
   # PWD
   set_color $fish_color_cwd
