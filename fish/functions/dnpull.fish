@@ -1,5 +1,5 @@
 function dnpull --description "pull all my cookbooks up up"
-  set -l dnpaths ~/Code/dnsimple ~/Code/dnsimple/ops/cookbooks
+  set -l dnpaths ~/Code/dnsimple ~/Code/dnsimple/ops/cookbooks ~/go/src/github.com/dnsimple
   for dir in $dnpaths
     cd $dir
     for i in *

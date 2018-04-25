@@ -9,12 +9,6 @@ add_extra_vimrc() {
   fi
 }
 
-# use venv
-use_venv() {
-  test -e env || python3 -m venv env
-  source env/bin/activate
-}
-
 ## chef-dk summoner
 # use chefdk
 use_chefdk() {

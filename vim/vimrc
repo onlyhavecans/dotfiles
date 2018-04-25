@@ -5,8 +5,6 @@ if has('vim_starting')
   if &shell =~# 'fish$'   "This is a compatibility fix for fish-shell and plugins
     set shell=sh
   endif
-
-  let g:loaded_python_provider = 1 " Disable python2 ad I don't maintain it
 endif
 
 " ==== vim plug
@@ -23,32 +21,14 @@ Plug 'vim-airline/vim-airline-themes' " my theme is here
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
 Plug 'tpope/vim-repeat'               " Make surround repeatable with .
-Plug 'tpope/vim-obsession'            " ,o to obsess
 Plug 'tpope/vim-commentary'           " comment things with gc g<motion>c
-Plug 'godlygeek/tabular'              " Text Alignment plugin (needed for plasticboy/vim-markdown)
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 "  Autocomplete?
-if has('nvim')
-  Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'wellle/tmux-complete.vim'
-endif
-Plug 'tpope/vim-fugitive'     " How you use git as a vim user
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'jremmen/vim-ripgrep'    " Ripgrep's time has come
-Plug 'sheerun/vim-polyglot'   " most languages support plugin
-Plug 'fatih/vim-go'
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plug 'junegunn/goyo.vim'                              " Text writing view
-Plug 'junegunn/limelight.vim'                         " Text writing highlight
-Plug 'itspriddle/vim-marked', { 'for': 'markdown' }   " Opens Marked 2 on current file
 Plug 'baskerville/bubblegum'                          " light terminal color scheme
-Plug 'scrooloose/syntastic'
-Plug 'rizzatti/dash.vim'
 
 " My special plugins
 Plug 'LokiChaos/vim-tintin'
@@ -159,18 +139,6 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
 nmap <Leader>a <Plug>(EasyAlign)
 
-" <Leader>a = Tab by following character
-nnoremap <Leader>a= :Tabularize /=<CR>
-vnoremap <Leader>a= :Tabularize /=<CR>
-nnoremap <Leader>a: :Tabularize /:\zs<CR>
-vnoremap <Leader>a: :Tabularize /:\zs<CR>
-nnoremap <Leader>a. :Tabularize /=><CR>
-vnoremap <Leader>a. :Tabularize /=><CR>
-vnoremap <Leader>ad :Tabularize /\d<CR>
-nnoremap <Leader>ad :Tabularize /\d<CR>
-vnoremap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
-nnoremap <Leader>as :Tabularize /^\s*\S\+\s\s\+\zs<CR>
-
 " <Leader>b = blagfix (strip curlies)
 nnoremap <Leader>b :StraightenQuotes<CR>
 
@@ -183,9 +151,6 @@ nnoremap <Leader>c :Commentary<CR>
 nnoremap <silent> <leader>d "_d
 xnoremap <silent> <leader>d "_d
 
-" <Leader>D = Dash Search for current word
-nmap <silent> <leader>D <Plug>DashSearch
-
 " <Leader>e = open vimrc in a split for quick editing
 nnoremap <leader>e :tabnew $MYVIMRC<cr>
 
@@ -195,9 +160,6 @@ noremap <Leader>f zi
 " <Leader>h = Highlight changed lines using Git Gutter
 noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
 
-" <Leader>o = Start 0bsessing
-noremap <Leader>o :Obsess<CR>
-
 " <Leader>p = paste at end of line
 inoremap <Leader>p :normal $p
 nnoremap <Leader>p $p
@@ -205,9 +167,6 @@ nnoremap <Leader>p $p
 " <Leader>P = paste in next line
 inoremap <Leader>P :normal pu<CR>
 nnoremap <Leader>P :pu<CR>
-
-" <Leader>t = test
-nmap <silent> <leader>t :TestSuite<CR>
 
 " <Leader>q = Auto rewrap
 vnoremap <Leader>q gq
@@ -237,17 +196,8 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
 endif
 
-" ==== vim-rust from polyglot
-let g:rustfmt_autosave = 0
-
-" ==== vim-markdown
-let g:vim_markdown_folding_disabled=1
-function! SetMarkdownOptions()
-  Limelight
-  Wrap
-endfunction
-autocmd! User GoyoEnter call SetMarkdownOptions()
-autocmd! User GoyoLeave Limelight!
+" ===== vadv/vim-chef
+autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 
 " ==== Plug
 let g:plug_window = 'tabnew'
@@ -262,31 +212,8 @@ let g:airline#extensions#whitespace#enabled = 1
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
 
-" ==== Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_enable_signs=1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_ignore_files=['\m^/opt/chefdk/']
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': 'possibly useless use of a variable in void context'}
-
 " ==== Powerline
 set laststatus=2
-
-" ==== delimitMate
-let delimitMate_expand_space = 1
-let delimitMate_expand_cr    = 2
-
-" ==== Dash
-let g:dash_map = { 'ruby.chef' : 'chef' }
-
-" ==== vim-test
-"  make test commands execute using vim-test
-let test#strategy = "tslime"
 
 " ==== vim-tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -296,20 +223,6 @@ if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-
-" ==== RLS
-let g:rustfmt_autosave = 1
-
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ }
-
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " ==== Srtraighten Quotes
 function! <SID>StraightenQuotes()
