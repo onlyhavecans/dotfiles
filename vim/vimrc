@@ -22,18 +22,29 @@ Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
 Plug 'tpope/vim-repeat'               " Make surround repeatable with .
 Plug 'tpope/vim-commentary'           " comment things with gc g<motion>c
+Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
+Plug 'baskerville/bubblegum'          " light terminal color scheme
+Plug 'wellle/tmux-complete.vim'
+Plug 'airblade/vim-gitgutter'         " Shows edits from git in gutter
+Plug 'blueyed/delimitMate'            " Autoadding closing braces
+Plug 'tpope/vim-fugitive'
+Plug 'dougireton/vim-chef'            " Sets filetypes with chef and sets path to make `gf` work with recipes
+Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
-"  Autocomplete?
-Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
-Plug 'blueyed/delimitMate'    " Autoadding closing braces
-Plug 'jremmen/vim-ripgrep'    " Ripgrep's time has come
-Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plug 'baskerville/bubblegum'                          " light terminal color scheme
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " My special plugins
 Plug 'LokiChaos/vim-tintin'
-
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 " === Colorscheme
 set background=dark

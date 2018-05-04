@@ -1,7 +1,7 @@
 [user]
 	name = David Aronsohn
 	email = WagThatTail@Me.com
-	signingkey = 01DC4C9EA162B659
+	signingkey = 70C320ABA95D38C1
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
