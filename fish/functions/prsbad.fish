@@ -1,5 +1,9 @@
-function gpr --description "Push (to my fork if present) and open PR"
+function prsbad --description "Push (to my fork if present) and open PR while reminding me PR'S BAD"
   set -l my_fork "onlyhavecans"
+  set -l audio_file (random choice (find ~/ResilioSync/Documents/PR-GNUS -iname \*mp3))
+
+  afplay $audio_file &
+
   if git remote | grep --silent $my_fork
     status_message "Personal fork present, pushing to $my_fork"
     git push $my_fork
@@ -8,5 +12,5 @@ function gpr --description "Push (to my fork if present) and open PR"
     git push origin
   end
 
-  git pull-request --browse
+  hub pull-request --browse
 end
