@@ -2,7 +2,7 @@ function prsbad --description "Push (to my fork if present) and open PR while re
   set -l my_github_user "onlyhavecans"
   set -l audio_file (random choice (find ~/ResilioSync/Documents/PR-GNUS -iname \*mp3))
 
-  afplay $audio_file &
+  afplay --volume 0.6 --rQuality 1 $audio_file &
 
   if git remote | grep --silent $my_github_user
     status_message "Personal fork present, pushing to $my_github_user"
