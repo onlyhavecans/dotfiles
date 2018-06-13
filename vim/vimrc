@@ -41,6 +41,7 @@ else
 endif
 
 " My special plugins
+Plug 'itspriddle/vim-marked'
 Plug 'LokiChaos/vim-tintin'
 call plug#end()
 
