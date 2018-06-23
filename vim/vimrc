@@ -34,10 +34,15 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " T
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
+
 endif
 
 " My special plugins
@@ -201,6 +206,11 @@ cmap w!! w !sudo tee % >/dev/null
 
 " :Q = quit all fast
 command! -nargs=0 Quit :qall!
+
+" ==== LanguageClient
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
 
 " ==== deoplete
 let g:tmuxcomplete#trigger = ''
