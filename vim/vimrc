@@ -7,6 +7,9 @@ if has('vim_starting')
   endif
 endif
 
+let g:python_host_prog = '/Users/dos/.pyenv/versions/neovim2/bin/python2'
+let g:python3_host_prog = '/Users/dos/.pyenv/versions/neovim3/bin/python3'
+
 " ==== vim plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -25,6 +28,7 @@ Plug 'tpope/vim-commentary'           " comment things with gc g<motion>c
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
 Plug 'baskerville/bubblegum'          " light terminal color scheme
 Plug 'wellle/tmux-complete.vim'
+Plug 'vim-syntastic/syntastic'        " syntax checking
 Plug 'airblade/vim-gitgutter'         " Shows edits from git in gutter
 Plug 'blueyed/delimitMate'            " Autoadding closing braces
 Plug 'tpope/vim-fugitive'
@@ -218,8 +222,15 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
 endif
 
-" ===== vadv/vim-chef
-autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
+" ===== Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " ==== Plug
 let g:plug_window = 'tabnew'

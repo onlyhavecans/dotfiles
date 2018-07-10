@@ -5,7 +5,7 @@ function gprsbad --description "Push (to my fork if present) and open PR while r
   if git rev-parse --abbrev-ref HEAD | grep --silent master
     status_message "!!! You are on master!"
     status_message "No pushing to master!"
-    exit 1
+    return 1
   end
 
   afplay --volume 0.6 --rQuality 1 $audio_file &
