@@ -233,6 +233,11 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 0 " don't lint when I open files
 let g:syntastic_check_on_wq = 0
 
+" Cop my ruby on save
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+" Override rubycop in chef directories locally with
+"let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/cookstyle'
+
 " ==== Plug
 let g:plug_window = 'tabnew'
 
