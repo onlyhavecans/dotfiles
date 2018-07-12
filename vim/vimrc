@@ -19,22 +19,31 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Core functionality
+Plug 'baskerville/bubblegum'          " light terminal color scheme
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'vim-airline/vim-airline-themes' " my theme is here
-Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
-Plug 'tpope/vim-surround'             " cs\" and cs' for surrounding
-Plug 'tpope/vim-repeat'               " Make surround repeatable with .
-Plug 'tpope/vim-commentary'           " comment things with gc g<motion>c
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
-Plug 'baskerville/bubblegum'          " light terminal color scheme
+
+" Play better w/ tmux
+Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'wellle/tmux-complete.vim'
-Plug 'vim-syntastic/syntastic'        " syntax checking
-Plug 'airblade/vim-gitgutter'         " Shows edits from git in gutter
-Plug 'blueyed/delimitMate'            " Autoadding closing braces
-Plug 'tpope/vim-fugitive'
-Plug 'dougireton/vim-chef'            " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plug 'sheerun/vim-polyglot'
+
+" The tpope section
+Plug 'tpope/vim-fugitive'   " make git commands a thing
+Plug 'tpope/vim-rhubarb'    " but use hub
+Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
+Plug 'tpope/vim-repeat'     " Make surround repeatable with .
+Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
+Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
+
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
+
+Plug 'sheerun/vim-polyglot'    " Most language support
+Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
+Plug 'blueyed/delimitMate'     " Autoadding closing braces
+Plug 'airblade/vim-gitgutter'  " Shows edits from git in gutter
+Plug 'vim-syntastic/syntastic' " syntax checking
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -46,7 +55,6 @@ else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
-
 endif
 
 " My special plugins
