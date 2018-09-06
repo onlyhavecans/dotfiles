@@ -1,5 +1,5 @@
 function fish_prompt --description 'Write out the prompt'
-	set -l last_status $status
+    set -l last_status $status
 
     if not set -q __fish_git_prompt_show_informative_status
         set -g __fish_git_prompt_show_informative_status 1
@@ -61,8 +61,6 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     set -l color_cwd
-    set -l prefix
-    set -l suffix
     switch "$USER"
         case root toor
             if set -q fish_color_cwd_root
@@ -70,12 +68,8 @@ function fish_prompt --description 'Write out the prompt'
             else
                 set color_cwd $fish_color_cwd
             end
-            set suffix '#'
         case '*'
             set color_cwd $fish_color_cwd
-            set suffix '$'
-            # set suffix (set_color 55cdfc)'❯'(set_color f7a8b8)'❯'(set_color ffffff)'❯'(set_color f7a8b8)'❯'(set_color 55cdfc)'❯'
-            set suffix (set_color 55cdfc)'❯'(set_color ffffff)'❯'(set_color f7a8b8)'❯'
     end
 
     # PWD
@@ -89,7 +83,25 @@ function fish_prompt --description 'Write out the prompt'
         set_color $fish_color_error
     end
 
-    echo -n "$suffix "
+    # Last Status
+    set_color red
+    printf '{Ex%s} ' $last_status
+
+    # Time
+    set_color yellow
+    printf '[%s] ' (date)
+
+    set -l flag_glyph \ue0b0
+    set -l last_color black
+    # Next Line Flag Prompt
+    echo ""
+    for c in 55cdfc f7a8b8 ffffff f7a8b8 55cdfc normal
+      set_color -b $c
+      set_color $last_color
+      echo -n $flag_glyph
+      set -l last_color $c
+    end
+    echo -n ' '
 
     set_color normal
 end

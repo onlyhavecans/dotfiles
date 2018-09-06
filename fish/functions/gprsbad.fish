@@ -18,5 +18,5 @@ function gprsbad --description "Push (to my fork if present) and open PR while r
     git push origin
   end
 
-  hub pull-request --assign=$my_github_user --push --browse
+  hub pull-request --assign=$my_github_user --push
 end
