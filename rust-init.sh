@@ -18,7 +18,3 @@ rustup target add x86_64-unknown-linux-gnu
 for component in rustfmt-preview rls-preview rust-analysis rust-src; do
   rustup component add $component --toolchain $MY_TOOLCHAIN
 done
-
-
-
-rustup run $MY_TOOLCHAIN cargo install --force racer
