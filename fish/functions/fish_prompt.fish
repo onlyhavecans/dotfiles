@@ -72,6 +72,10 @@ function fish_prompt --description 'Write out the prompt'
             set color_cwd $fish_color_cwd
     end
 
+    # Time
+    set_color yellow
+    printf '[%s] ' (date)
+
     # PWD
     set_color $color_cwd
     echo -n (prompt_pwd)
@@ -87,14 +91,11 @@ function fish_prompt --description 'Write out the prompt'
     set_color red
     printf '{Ex%s} ' $last_status
 
-    # Time
-    set_color yellow
-    printf '[%s] ' (date)
-
-    set -l flag_glyph \ue0b0
-    set -l last_color black
     # Next Line Flag Prompt
     echo ""
+    set -l flag_glyph \ue0b0
+    set -l last_color black
+    set_color normal
     for c in 55cdfc f7a8b8 ffffff f7a8b8 55cdfc normal
       set_color -b $c
       set_color $last_color
