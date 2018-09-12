@@ -1,24 +1,25 @@
 function dnpull --description "pull all my cookbooks up up"
-  set -l dnpaths ~/Code/dnsimple ~/Code/dnsimple/ops/cookbooks ~/go/src/github.com/dnsimple
-  for dir in $dnpaths
-    cd $dir
-    for i in *
-      if test -d "$dir/$i/.git"
-        status_message Jumping into $i
-        cd $dir/$i
+  set -l dnpaths ~/Code ~/go/src/github.com/dnsimple
+  for top_dir in $dnpaths
+    for dir in (find $top_dir -name .git -type d -print)
+      cd $dir/..
+      set -l local_dir (pwd)
 
-        git fetch
-        git diff-index --quiet HEAD --
-        if test $status != 0
-          status_message $i is dirty so skipping!!!
-          continue
-        end
-
-        git checkout master -q
-        git pull
-        status_message finished $i
+      if test -z "(git remote)"
+        status_message $local_dir does not have a remote so skipping
+        continue
       end
+
+      echo ""
+      status_message Updating $local_dir
+      git fetch --quiet
+
+      git checkout master --quiet
+      if test $status != 0
+        continue
+      end
+      git pull
     end
   end
-  cd $dnpaths[1]
+  cd ~
 end
