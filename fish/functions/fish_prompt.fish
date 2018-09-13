@@ -76,6 +76,10 @@ function fish_prompt --description 'Write out the prompt'
     set_color yellow
     printf '[%s] ' (date)
 
+    # Server
+    set_color brblue
+    printf '%s ' (hostname -s)
+
     # PWD
     set_color $color_cwd
     echo -n (prompt_pwd)
