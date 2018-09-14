@@ -134,10 +134,11 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 " <F4> = Empty
 
-" <F5> = Empty
+" <F5> = change directory to current file's pwd
+nnoremap <F5> :cd %:p:h<CR>:pwd<CR>
 
 " <F6> = change directory to current file's pwd
-nnoremap <F6> :cd %:p:h<CR>:pwd<CR>
+nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
 
 " <F7> = Toggle paste mode
 set pastetoggle=<F7>
@@ -221,8 +222,10 @@ command! -nargs=0 Quit :qall!
 
 " ==== LanguageClient
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
 " ==== deoplete
 let g:tmuxcomplete#trigger = ''
