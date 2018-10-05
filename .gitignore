@@ -1,11 +1,11 @@
 # Vim folder
 .netrwhist
+vim/autoload
 vim/backups
 vim/bundle
-vim/plugged
-vim/autoload
-vim/spell
 vim/ftplugin
+vim/plugged
+vim/spell
 
 # Chef
 cookbooks/
@@ -15,10 +15,6 @@ nodes/
 # fish
 fish_history
 fishd.*
-generated_completions
-fzf_key_bindings.fish
 fuck.fish
-
-#Kitchen
-kitchen/logs
-kitchen/cache
+fzf_key_bindings.fish
+generated_completions
