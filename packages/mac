@@ -1,0 +1,12 @@
+awscli
+kubernetes-cli
+mas
+pinentry-mac
+reattach-to-user-namespace
+watch
+whois
+youtube-dl
+cask "theseal/ssh-askpass"
+ssh-askpass
+cask 'habitat-sh/habitat'
+hab
