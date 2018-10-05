@@ -1,1 +1,1 @@
-vimrc
+../../.homesick/repos/dotfiles/home/.config/nvim/init.vim
