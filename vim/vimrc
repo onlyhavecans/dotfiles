@@ -40,6 +40,8 @@ Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 
 Plug 'sheerun/vim-polyglot'    " Most language support
+Plug 'rust-lang/rust.vim'      " Official Rust plugin
+Plug 'mattn/webapi-vim'        " For playpen support in rust plugin
 Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'blueyed/delimitMate'     " Autoadding closing braces
 Plug 'airblade/vim-gitgutter'  " Shows edits from git in gutter
@@ -219,6 +221,9 @@ cmap w!! w !sudo tee % >/dev/null
 
 " :Q = quit all fast
 command! -nargs=0 Quit :qall!
+
+" ==== Rust.vim
+let g:rustfmt_autosave = 1
 
 " ==== LanguageClient
 let g:LanguageClient_serverCommands = {
