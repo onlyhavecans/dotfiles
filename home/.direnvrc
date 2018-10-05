@@ -1,0 +1,24 @@
+# shellcheck disable=SC2039
+## Add in local .vimrc files into vim's execution
+# add_extra_vimrc
+add_extra_vimrc() {
+  local extravim="$(find_up .vimrc)"
+  if [ -n "$extravim" ]; then
+    echo "Adding extra .vimrc: ${extravim}"
+    path_add EXTRA_VIM "$extravim"
+  fi
+}
+
+## chef-dk summoner
+# use chefdk
+use_chefdk() {
+  eval "$(chef shell-init bash)"
+}
+
+## When one does ruby have a shortcut for all ruby-install
+# use ruby X.X.X
+use_ruby() {
+  local ruby_dir=$HOME/.rubies/ruby-$1
+  load_prefix "$ruby_dir"
+  layout ruby
+}

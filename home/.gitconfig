@@ -1,0 +1,33 @@
+[user]
+	name = Amy Aronsohn
+	email = WagThatTail@Me.com
+	signingkey = 70C320ABA95D38C1
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = nvim
+	; hooksPath = ~/dotfiles/git/hooks
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true
+[push]
+	default = current
+[alias]
+	commit = commit -s
+	prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
+	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
+	nuke = !git branch | egrep -v '( master$|^\\*)' | xargs git branch -D
+
+#Silly tools fight for config down here
+[hub]
+	protocol = ssh
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+# vi: tabstop=2 noexpandtab
