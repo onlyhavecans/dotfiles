@@ -98,7 +98,7 @@ set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 " ==== Persistent Undo
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
-let backupdir = expand('~/.vim/backups')
+let backupdir = expand('~/.local/share/nvim/backups')
 if !isdirectory(backupdir)
   call mkdir(backupdir)
 endif
