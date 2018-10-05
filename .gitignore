@@ -1,17 +1,3 @@
-# Vim folder
-.netrwhist
-vim/autoload
-vim/backups
-vim/bundle
-vim/ftplugin
-vim/plugged
-vim/spell
-
-# Chef
-cookbooks/
-local-mode-cache/
-nodes/
-
 # fish
 fish_history
 fishd.*
