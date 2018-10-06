@@ -20,12 +20,13 @@ I try to avoid universal variables and go for setting things in the config.fish 
 **Check out the immense amount of functions**
 I replace a lot of commands and scripts with functions
 
-### vim ###
+### neovim ###
 
-* Currently I use neovim
-* The configuration is a bit overdone but very powerful
+* I use neovim instead of vim
+* The configuration is stripped down to just what I like, but still far from vanilla
 * there is a LOT of language plugins since I write in far too many languages
-* I use vim-plug currently
+* I use vim-plug currently to manage plugins
+* There is a few functions at the end for cleaning things up
 
 ### tmux ###
 
