@@ -41,7 +41,6 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " T
 
 Plug 'sheerun/vim-polyglot'    " Most language support
 Plug 'rust-lang/rust.vim'      " Official Rust plugin
-Plug 'mattn/webapi-vim'        " For playpen support in rust plugin
 Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'blueyed/delimitMate'     " Autoadding closing braces
 Plug 'airblade/vim-gitgutter'  " Shows edits from git in gutter
@@ -62,7 +61,7 @@ let g:deoplete#enable_at_startup = 1
 
 " === Colorscheme
 set background=dark
- colorscheme bubblegum-256-dark
+colorscheme bubblegum-256-dark
 
 " ==== make nvim less annoyting
 tnoremap jk <C-\><C-n>
@@ -102,7 +101,7 @@ let backupdir = expand('~/.local/share/nvim/backups')
 if !isdirectory(backupdir)
   call mkdir(backupdir)
 endif
-set undodir=~/.vim/backups
+set undodir=~/.local/share/nvim/backups
 set undofile
 
 " ==== Scrolling
