@@ -1,26 +1,24 @@
 # D.O.S. dotfiles #
 
-Yet another dotfiles repo.
+Yet Another Dotfiles Repo.
 
 ## Notes ##
 
-It's time for some [homeshick](https://github.com/andsens/homeshick).
+I've switched to using [homeshick](https://github.com/andsens/homeshick).
 
 I use the shell version over the ruby version because less ruby reliance and also I like the way it links better.
 
 ## Apps ##
 
-### pour/four ###
-
-pour and four are "Update all my things" fish functions. pour for macOS and four for FreeBSD
-
-repour re-installs everything with homebrew after a major OS upgrade.
-
 ### fish ###
 
-I have a bit of a crazy fish setup. I break out everything into a config.d. Most of it is super personal to me but could be useful. I try to avoid universal variables and go for setting things in the config.fish since I want this to be portable amongst all my machines.
+I have a bit of a crazy fish setup.
+I break out everything into a config.d.
+Most of it is personal to me but could be useful.
+I try to avoid universal variables and go for setting things in the config.fish since I want this to be portable amongst all my machines.
 
-Also notice the immense amount of functions.
+**Check out the immense amount of functions**
+I replace a lot of commands and scripts with functions
 
 ### vim ###
 
@@ -47,10 +45,21 @@ Mine is a ported version of this, I use gpg in a lot of places so I need the age
 * The global gitignore is mac/python/ruby/chef/go/ect oriented
 * The main config is set up with lots of alias & uses gpg signing by default
 
+### ssh ###
+
+I included my ssh_config because I think it can be useful to others. I have ssh fairly locked down.
+
+The keys directory setup means for every host or set of hosts I log into I generate a different key!
+This means loosing a single key to a single system is not a hige swatch of revokes.
+However regenning all the keys for a yearly rotation or new machine is slightly annoying so I have a fish function called keygen which makes this easier.
+
 ### direnv ###
 
-I use direnv.net *everywhere*. I have a few standard functions I use to help me out. Most of it around chef and ruby-install
+I use direnv.net *everywhere*.
+I have a few standard functions I use to help me out.
+Most of it around chef and ruby-install
 
 ### rust ###
 
-Rust is one of the few things *not* set up by the cookbook. Instead I have a fish function called `init_rust` which installs & sets up rust
+Rust is one of the few things *not* set up by the cookbook.
+Instead I have a fish function called `init_rust` which installs & sets up rust
