@@ -31,3 +31,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 # vi: tabstop=2 noexpandtab
+[fetch]
+	prune = true
