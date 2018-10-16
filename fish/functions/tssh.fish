@@ -3,6 +3,6 @@ function tssh --description "Set term for tmux ssh sessions"
     status_message "That's not what this is for anymore"
   else
     set -lx TERM xterm-256color
-    ssh colo01.squirrels.wtf
+    ssh -t colo01.squirrels.wtf "tmux attach; or tmux new"
   end
 end
