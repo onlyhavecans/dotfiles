@@ -1,7 +1,7 @@
 function dnpull --description "pull all my cookbooks up up"
   set -l dnpaths ~/Code ~/go/src/github.com/dnsimple
   for top_dir in $dnpaths
-    for dir in (find $top_dir -name .git -type d -print)
+    for dir in (find $top_dir -name .git -type d -not -path "*.direnv*" -print)
       cd $dir/..
       set -l local_dir (pwd)
 
