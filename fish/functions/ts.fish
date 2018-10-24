@@ -1,4 +1,4 @@
-function tssh --description "Set term for tmux ssh sessions"
+function ts --description "Log into my shell & throw up tmux"
   if test 0 -ne (count $argv)
     status_message "That's not what this is for anymore"
   else
