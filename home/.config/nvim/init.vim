@@ -38,6 +38,7 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
+Plug '/usr/local/opt/fzf' " FZF navigation
 
 Plug 'sheerun/vim-polyglot'    " Most language support
 Plug 'rust-lang/rust.vim'      " Official Rust plugin
@@ -125,10 +126,11 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 " <F3> = None
 " nnoremap <F3> <nop>
 
-" <F4> = Empty
+" <F4> = change directory to current file's pwd
+nnoremap <F4> :cd %:p:h<CR>:pwd<CR>
 
 " <F5> = change directory to current file's pwd
-nnoremap <F5> :cd %:p:h<CR>:pwd<CR>
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
 " <F6> = change directory to current file's pwd
 nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
@@ -220,9 +222,8 @@ let g:rustfmt_autosave = 1
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'python': ['~/.pyenv/shims/pyls'],
+    \ 'go': ['~/go/bin/go-langserver'],
     \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
 " ==== deoplete
 let g:tmuxcomplete#trigger = ''
