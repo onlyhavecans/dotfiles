@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+PROFILE_DIR="$HOME/ResilioSync/Documents/machine_profiles"
+
+if [[ -d /Drobo/ResilioSync/Documents/machine_profiles ]]; then
+  PROFILE_DIR="/Drobo/ResilioSync/Documents/machine_profiles"
+fi
+
+if [[ ! -d "$PROFILE_DIR" ]]; then
+  echo "The directory is missing"
+  exit 1
+fi
+
+/usr/sbin/system_profiler -detailLevel full > "$PROFILE_DIR/$(hostname).txt" 2> /dev/null
