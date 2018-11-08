@@ -1,5 +1,4 @@
 bind
-clamav
 ctags
 cowsay
 curl
@@ -7,6 +6,7 @@ direnv
 elixir
 exa
 exercism
+fd
 fish
 fortune
 git
