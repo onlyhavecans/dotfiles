@@ -5,12 +5,11 @@ function dnpull --description "pull all my cookbooks up up"
       cd $dir/..
       set -l local_dir (pwd)
 
-      if test -z "(git remote)"
+      if test (git remote | wc -l) -eq 0
         status_message $local_dir does not have a remote so skipping
         continue
       end
 
-      echo ""
       status_message Updating $local_dir
       git fetch --quiet
 
