@@ -1,6 +1,6 @@
 bind
-ctags
 cowsay
+ctags
 curl
 direnv
 elixir
@@ -9,6 +9,8 @@ exercism
 fd
 fish
 fortune
+fzf
+gawk
 git
 git-lfs
 git-standup
@@ -18,9 +20,11 @@ heroku
 httpie
 hub
 hugo
+id3v2
 jq
 libsodium
 mobile-shell
+mosh
 ncdu
 neovim
 nmap
@@ -30,11 +34,13 @@ pipenv
 pyenv
 pyenv-virtualenv
 python
+redis
 ripgrep
 ruby
 ruby-install
 shellcheck
 sshuttle
+telnet
 thefuck
 tintin
 tmux

@@ -1,12 +1,13 @@
 kubernetes-cli
 mas
+packer
+pinentry
 pinentry-mac
 reattach-to-user-namespace
 watch
+wget
 whois
 youtube-dl
 
-cask "theseal/ssh-askpass"
-ssh-askpass
 cask 'habitat-sh/habitat'
 hab
