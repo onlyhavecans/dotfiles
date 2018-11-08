@@ -1,6 +1,6 @@
 function gprsbad --description "Push (to my fork if present) and open PR while reminding me PR'S BAD"
   set -l my_github_user "onlyhavecans"
-  set -l audio_file (random choice (find ~/ResilioSync/Documents/PR-GNUS -iname \*mp3))
+  set -l audio_file (random choice (fd -e mp3 ~/ResilioSync/Documents/PR-GNUS))
 
   if git rev-parse --abbrev-ref HEAD | grep --silent master
     status_message "!!! You are on master!"
