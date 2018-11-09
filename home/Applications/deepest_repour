@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+PACKAGES_DIR="$HOME/.dos_packages"
+
+if [[ ! -d "$PACKAGES_DIR" ]]; then
+  echo "packages directory is missing"
+  exit 1
+fi
+
 echo "This is going to uninstall EVERYTHING and install all my best packages"
 echo "Are you super sure?"
 read -r _
@@ -10,4 +17,8 @@ brew cleanup
 
 while read -r package; do
   brew install "$package"
-done < <(cat all mac)
+done < <(cat "$PACKAGES_DIR/standard/*")
+
+while read -r cask; do
+  brew cask install "$cask"
+done < <(cat "$PACKAGES_DIR/casks/*")

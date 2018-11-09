@@ -22,6 +22,7 @@ id3v2
 jq
 libsodium
 mosh
+mr
 ncdu
 neovim
 nmap
