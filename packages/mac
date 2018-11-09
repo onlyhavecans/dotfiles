@@ -1,13 +1,13 @@
+habitat-sh/habitat/hab
 kubernetes-cli
 mas
+neovim/neovim/neovim
 packer
 pinentry
 pinentry-mac
 reattach-to-user-namespace
+theseal/ssh-askpass/ssh-askpass
 watch
 wget
 whois
 youtube-dl
-
-cask 'habitat-sh/habitat'
-hab
