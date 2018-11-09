@@ -17,8 +17,8 @@ brew cleanup
 
 while read -r package; do
   brew install "$package"
-done < <(cat "$PACKAGES_DIR/standard/*")
+done < <(cat "$PACKAGES_DIR/standard"/*)
 
 while read -r cask; do
   brew cask install "$cask"
-done < <(cat "$PACKAGES_DIR/casks/*")
+done < <(cat "$PACKAGES_DIR/casks"/*)

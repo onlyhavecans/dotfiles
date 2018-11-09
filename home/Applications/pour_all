@@ -7,10 +7,12 @@ if [[ ! -d "$PACKAGES_DIR" ]]; then
   exit 1
 fi
 
-while read -r package; do
-  brew install "$package"
-done < <(cat "$PACKAGES_DIR/standard/*")
+##
+# Doing an upgrade first prevents errors
+brew upgrade
 
-while read -r cask; do
-  brew cask install "$cask"
-done < <(cat "$PACKAGES_DIR/casks/*")
+cat "$PACKAGES_DIR/standard"/* | xargs brew install
+
+##
+# cask is weird so re-install just in case
+cat "$PACKAGES_DIR/casks"/* | xargs brew cask reinstall
