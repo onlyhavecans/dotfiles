@@ -15,6 +15,9 @@ read -r _
 brew remove --force $(brew list) --ignore-dependencies
 brew cleanup
 
+##
+# Install packages one at a time to be safe.
+# Having to re-read backscroll to catch errors is lame but worse would be our shell not getting reinstalled
 while read -r package; do
   brew install "$package"
 done < <(cat "$PACKAGES_DIR/standard"/*)
