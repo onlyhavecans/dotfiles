@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "This is going to uninstall EVERYTHING and install all my best packages"
+echo "Are you super sure?"
+read -r _
+
+# shellcheck disable=SC2046
+brew remove --force $(brew list) --ignore-dependencies
+brew cleanup
+
+while read -r package; do
+  brew install "$package"
+done < <(cat all mac)
