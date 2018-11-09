@@ -2,7 +2,6 @@ habitat-sh/habitat/hab
 kubernetes-cli
 mas
 packer
-pinentry
 pinentry-mac
 reattach-to-user-namespace
 theseal/ssh-askpass/ssh-askpass
