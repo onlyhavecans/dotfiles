@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+PACKAGES_DIR="$HOME/.dos_packages"
+
+if [[ ! -d "$PACKAGES_DIR" ]]; then
+  echo "packages directory is missing"
+  exit 1
+fi
+
+while read -r package; do
+  brew install "$package"
+done < <(cat "$PACKAGES_DIR/standard/*")
+
+while read -r cask; do
+  brew cask install "$cask"
+done < <(cat "$PACKAGES_DIR/casks/*")
