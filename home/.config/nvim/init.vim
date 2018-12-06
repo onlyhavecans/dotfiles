@@ -20,7 +20,8 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Core functionality
-Plug 'baskerville/bubblegum'          " light terminal color scheme
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim'}
+Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'vim-airline/vim-airline-themes' " my theme is here
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
@@ -62,7 +63,7 @@ let g:deoplete#enable_at_startup = 1
 
 " === Colorscheme
 set background=dark
-colorscheme bubblegum-256-dark
+colorscheme Tomorrow-Night-Eighties
 
 " ==== make nvim less annoyting
 tnoremap jk <C-\><C-n>
