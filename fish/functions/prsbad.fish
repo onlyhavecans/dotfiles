@@ -1,4 +1,4 @@
-function gprsbad --description "Push (to my fork if present) and open PR while reminding me PR'S BAD"
+function prsbad --description "Push (to my fork if present) and open PR while reminding me PR'S BAD"
   set -l my_github_user "onlyhavecans"
   set -l audio_file (random choice (fd -e mp3 . ~/ResilioSync/Archive/PR-GNUS))
 

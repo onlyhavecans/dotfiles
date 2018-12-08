@@ -21,7 +21,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Core functionality
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim'}
-Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'vim-airline/vim-airline-themes' " my theme is here
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
@@ -39,20 +38,16 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
-Plug '/usr/local/opt/fzf' " FZF navigation
 
-Plug 'sheerun/vim-polyglot'    " Most language support
-Plug 'rust-lang/rust.vim'      " Official Rust plugin
-Plug 'dougireton/vim-chef'     " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plug 'blueyed/delimitMate'     " Autoadding closing braces
-Plug 'airblade/vim-gitgutter'  " Shows edits from git in gutter
-Plug 'vim-syntastic/syntastic' " syntax checking
+Plug '/usr/local/opt/fzf'     " FZF navigation
+Plug 'sheerun/vim-polyglot'   " Most language support
+Plug 'rust-lang/rust.vim'     " Official Rust plugin
+Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
+Plug 'blueyed/delimitMate'    " Autoadding closing braces
+Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
+Plug 'w0rp/ale'               " syntax checking and Language Server
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
 
 " My special plugins
 Plug 'itspriddle/vim-marked'
@@ -219,32 +214,12 @@ command! -nargs=0 Quit :qall!
 " ==== Rust.vim
 let g:rustfmt_autosave = 1
 
-" ==== LanguageClient
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['~/.pyenv/shims/pyls'],
-    \ 'go': ['~/go/bin/go-langserver'],
-    \ }
+" ==== ale
+let g:ale_completion_enabled = 1
 
 " ==== deoplete
 let g:tmuxcomplete#trigger = ''
 let g:deoplete#enable_at_startup = 1
-
-" ===== Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_check_on_open = 0 " don't lint when I open files
-let g:syntastic_check_on_wq = 0
-
-" Cop my ruby on save
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-" Override rubycop in chef directories locally with
-"let g:syntastic_ruby_rubocop_exec = '/usr/local/bin/cookstyle'
 
 " ==== Plug
 let g:plug_window = 'tabnew'
