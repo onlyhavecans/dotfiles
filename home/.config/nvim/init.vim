@@ -215,7 +215,8 @@ command! -nargs=0 Quit :qall!
 let g:rustfmt_autosave = 1
 
 " ==== ale
-let g:ale_completion_enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_open_list = 1
 
 " ==== deoplete
 let g:tmuxcomplete#trigger = ''
