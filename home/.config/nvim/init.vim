@@ -10,6 +10,10 @@ endif
 let g:python_host_prog = '/Users/dos/.pyenv/versions/neovim2/bin/python2'
 let g:python3_host_prog = '/Users/dos/.pyenv/versions/neovim3/bin/python3'
 
+" ==== Most ALE settings want to be loaded before plugins
+let g:ale_lint_on_enter = 1
+let g:ale_open_list = 1
+
 " ==== vim plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -216,7 +220,6 @@ let g:rustfmt_autosave = 1
 
 " ==== ale
 let g:airline#extensions#ale#enabled = 1
-let g:ale_open_list = 1
 
 " ==== deoplete
 let g:tmuxcomplete#trigger = ''
