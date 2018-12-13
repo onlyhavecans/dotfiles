@@ -26,7 +26,8 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
 
   set -lx PYENV_VERSION neovim2
   pip install --upgrade pip
-  pip install --upgrade neovim 'python-language-server[all]' autopep8 rope flake8 pylint pytest
+  pip install --upgrade 'python-language-server[all]' autopep8 rope flake8 pylint pytest
+  pip install --upgrade --force neovim
   set -le PYENV_VERSION
 
   status_message Set up python 3 neovim
@@ -35,7 +36,8 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   end
   set -lx PYENV_VERSION neovim3
   pip install --upgrade pip
-  pip install -U neovim 'python-language-server[all]' autopep8 rope flake8 pylint pytest
+  pip install -U 'python-language-server[all]' autopep8 rope flake8 pylint pytest
+  pip install --upgrade --force neovim
   set -le PYENV_VERSION
 
   status_message Clean up vim-plug repos to prevent errors
@@ -46,6 +48,7 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   nvim +PlugUpgrade +qall
   status_message Update all the vim-plug plugins
   nvim +PlugUpdate +qall
+  nvim +UpdateRemotePlugins +qall
 
   if test -x $HOME/.tmux/plugins/tpm/bin/update_plugins
     status_message Update and clean tmux plugins
