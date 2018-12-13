@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if tmux info &> /dev/null; then
+  exec tmux attach
+else
+  exec tmux new
+fi
