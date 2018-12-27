@@ -1,8 +1,5 @@
 cd ~
 set t_Co=256
-let g:solarized_termcolors=256
-set background=light
-colorscheme bubblegum-256-light
 
 set lines=45
 set columns=90
