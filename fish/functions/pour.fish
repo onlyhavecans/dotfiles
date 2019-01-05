@@ -25,9 +25,9 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   end
 
   set -lx PYENV_VERSION neovim2
-  pip install --upgrade pip
-  pip install --upgrade 'python-language-server[all]' autopep8 rope flake8 pylint pytest
-  pip install --upgrade --force neovim
+  pip install --quiet --quiet --upgrade pip
+  pip install --quiet --upgrade 'python-language-server[all]' autopep8 rope flake8 pylint pytest
+  pip install --quiet --quiet --upgrade --force neovim
   set -le PYENV_VERSION
 
   status_message Set up python 3 neovim
@@ -35,9 +35,9 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     pyenv virtualenv 3.7.1 neovim3
   end
   set -lx PYENV_VERSION neovim3
-  pip install --upgrade pip
-  pip install -U 'python-language-server[all]' autopep8 rope flake8 pylint pytest
-  pip install --upgrade --force neovim
+  pip install --quiet --quiet --upgrade pip
+  pip install --quiet --upgrade 'python-language-server[all]' autopep8 rope flake8 pylint pytest
+  pip install --quiet --quiet --upgrade --force neovim
   set -le PYENV_VERSION
 
   status_message Clean up vim-plug repos to prevent errors
@@ -57,8 +57,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     ~/.tmux/plugins/tpm/bin/clean_plugins
   end
 
-  status_message doctor brew
-  brew doctor
   status_message Check for missing packages
   brew missing
 
