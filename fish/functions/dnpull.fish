@@ -17,6 +17,7 @@ function dnpull --description "pull all my cookbooks up up"
       continue
     end
     git pull
+    git_cleanup
   end
   cd $my_directory
 end
