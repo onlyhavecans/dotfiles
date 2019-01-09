@@ -5,7 +5,7 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   brew upgrade
 
   status_message brew prune since chef-dk always makes broken synlinks
-  brew prune
+  brew cleanup
 
   if test -x /usr/local/bin/thefuck
     status_message Pregenerate fuck command to save shell launch time

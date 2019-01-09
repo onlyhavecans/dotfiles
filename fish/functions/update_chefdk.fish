@@ -9,7 +9,7 @@ function update_chefdk --description "Update chef-dk & refresh gems"
   cd ~/Code/dnsimple/ops
 
   eval (chef shell-init fish)
-  curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chefdk
+  curl https://www.chef.io/chef/install.sh | sudo bash -s -- -P chef-workstaton
 
   rm -rf ~/.chefdk
   chef exec bundle install
