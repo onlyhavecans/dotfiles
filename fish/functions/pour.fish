@@ -1,11 +1,14 @@
 function pour --description "Update all my homebrew stuff that isn't pinned"
   ## Don't look at all the chef-dk stuff
   set -lx PATH $HOME/.pyenv/shims $HOME/.cargo/bin /usr/local/bin /usr/local/sbin /bin /sbin /usr/bin /usr/sbin
+
+  status_message Update castles
+  homeshick pull
+  homeshick link
+
+  status_message Update my brew packages
   brew update
   brew upgrade
-
-  status_message brew prune since chef-dk always makes broken synlinks
-  brew cleanup
 
   if test -x /usr/local/bin/thefuck
     status_message Pregenerate fuck command to save shell launch time
@@ -19,6 +22,7 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   end
 
   status_message Set up and update neovim python
+  pyenv rehash
   status_message Set up python 2 neovim
   if not test -x $HOME/.pyenv/versions/neovim2
     pyenv virtualenv 2.7.15 neovim2
