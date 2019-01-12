@@ -1,5 +1,5 @@
 function dnpull --description "pull all my cookbooks up up"
-  set -l my_directory
+  set -l my_directory (pwd)
   for dir in (fd --hidden --no-ignore --fixed-strings .git --type d --exclude .direnv --exclude gocode --exclude .github $my_directory)
     cd $dir/..
     set -l local_dir (pwd)
