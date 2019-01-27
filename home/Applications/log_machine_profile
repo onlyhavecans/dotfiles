@@ -2,8 +2,9 @@
 
 PROFILE_DIR="$HOME/ResilioSync/Documents/machine_profiles"
 
-if [[ -d /Drobo/ResilioSync/Documents/machine_profiles ]]; then
-  PROFILE_DIR="/Drobo/ResilioSync/Documents/machine_profiles"
+DROBO_DIR=/Volumes/Drobo/ResilioSync/Documents/machine_profiles
+if [[ -d $DROBO_DIR ]]; then
+  PROFILE_DIR=$DROBO_DIR
 fi
 
 if [[ ! -d "$PROFILE_DIR" ]]; then
