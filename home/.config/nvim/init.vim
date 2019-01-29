@@ -252,7 +252,7 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-" ==== Srtraighten Quotes
+" ==== Straighten Quotes
 function! <SID>StraightenQuotes()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -268,6 +268,22 @@ function! <SID>StraightenQuotes()
 endfunction
 
 command! StraightenQuotes call <SID>StraightenQuotes()
+
+" ==== Clean Ops Notes
+function! <SID>CleanOpsNotes()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/ (.*)$//
+    %s/^*/###/
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+command! CleanOpsNotes call <SID>CleanOpsNotes()
 
 " ==== Strip trailing whitespace
 " http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
