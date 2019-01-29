@@ -1,1 +1,1 @@
-test -e {$HOME}/.local.fish ; and source {$HOME}/.local.fish
+test -e {$HOME}/.config/local/config.fish; and source {$HOME}/.config/local/config.fish

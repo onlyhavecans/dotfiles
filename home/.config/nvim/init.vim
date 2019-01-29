@@ -311,8 +311,8 @@ endfunction
 command! -nargs=* Wrap :call SetupWrapping()
 
 " ==== Sourcing plugin specific setting
-if filereadable(glob("~/.vimrc.local"))
-  source ~/.vimrc.local
+if filereadable(glob("~/.config/local/init.vim"))
+  source ~/.config/local/init.vim
 endif
 
 " ==== local .vimrc with .envrc using add_extra_vimrc
