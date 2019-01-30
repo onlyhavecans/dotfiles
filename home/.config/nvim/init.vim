@@ -259,7 +259,7 @@ function! <SID>StraightenQuotes()
     let c = col(".")
     " Do the business:
     %s/[”“„]/"/g
-    %s/[`’‘]/'/g
+    %s/[’‘]/'/g
     %s/[…]/.../g
     " Clean up: restore previous search history, and cursor position
     let @/=_s
