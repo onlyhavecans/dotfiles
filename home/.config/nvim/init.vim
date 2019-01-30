@@ -45,7 +45,6 @@ Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 
-Plug '/usr/local/opt/fzf'     " FZF navigation
 Plug 'sheerun/vim-polyglot'   " Most language support
 Plug 'rust-lang/rust.vim'     " Official Rust plugin
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
