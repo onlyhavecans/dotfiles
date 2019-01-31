@@ -3,6 +3,6 @@ function ts --description "Log into my shell & throw up tmux"
     status_message "That's not what this is for anymore"
   else
     set -lx TERM xterm-256color
-    mosh colo01.squirrels.wtf -- ~/Applications/tmux-attach-or-start
+    mosh colo01.squirrels.wtf
   end
 end
