@@ -21,19 +21,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     rustup update
   end
 
-  status_message Set up and update neovim python
-  pyenv rehash
-  status_message Set up python 2 neovim
-  if not test -x $HOME/.pyenv/versions/neovim2
-    pyenv virtualenv 2.7.15 neovim2
-  end
-
-  set -lx PYENV_VERSION neovim2
-  pip install --quiet --quiet --upgrade pip
-  pip install --quiet --upgrade 'python-language-server[all]' autopep8 rope flake8 pytest
-  pip install --quiet --quiet --upgrade --force neovim
-  set -le PYENV_VERSION
-
   status_message Set up python 3 neovim
   if not test -x $HOME/.pyenv/versions/neovim3
     pyenv virtualenv 3.7.2 neovim3
