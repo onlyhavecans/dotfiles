@@ -17,7 +17,7 @@ let g:ale_open_list = 1
 let g:alt_completion_enabled =1
 let g:ale_fix_on_save = 1
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
-let g:ale_linters = {'rust': ['rls']}
+let g:ale_linters = {'rust': ['rls', 'cargo']}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'rust': ['rustfmt'],
