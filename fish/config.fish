@@ -128,6 +128,7 @@ end
 set -x MOSH_SERVER_SIGNAL_TMOUT 60
 # Clean up any session that has not been connected to in 30 days
 set -x MOSH_SERVER_NETWORK_TMOUT 2592000
+abbr --add cleanmosh killall -USR1 mosh-server
 
 #config.d/99local.fish
 test -e {$HOME}/.config/local/config.fish; and source {$HOME}/.config/local/config.fish
