@@ -1,6 +1,6 @@
 # fish
-fish.variables
 fish_history
+fish_variables
 fishd.*
 fuck.fish
 generated_completions
