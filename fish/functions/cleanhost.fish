@@ -5,5 +5,5 @@ function cleanhost
   end
 
   ssh-keygen -R $argv
-  ssh-keygen -R (dig +short $argv)
+  ssh-keygen -R (dig +short $argv | tail -n 1)
 end
