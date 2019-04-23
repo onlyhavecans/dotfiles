@@ -99,7 +99,6 @@ alias ls exa
 #config.d/40git.fish
 ## Mo Git Mo Problems
 alias git hub
-alias gitclean 'git branch --merged master | grep -v " master" | grep -v "\*" | xargs -n 1 git branch -d'
 
 abbr --add gad git add --all
 abbr --add gap git add --patch
