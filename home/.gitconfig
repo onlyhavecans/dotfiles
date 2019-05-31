@@ -1,11 +1,10 @@
 [user]
 	name = Amelia Aronsohn
-	email = WagThatTail@Me.com
+	email = squirrel@wearing.black
 	signingkey = 98E879BC3B6E1BF8
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = nvim
-	; hooksPath = ~/dotfiles/git/hooks
+	editor = code --wait
 [gpg]
 	program = /usr/local/bin/gpg
 [commit]
@@ -21,6 +20,10 @@
 	br = branch
 	st = status
 	nuke = !git branch | egrep -v '( master$|^\\*)' | xargs git branch -D
+[diff]
+	tool = default-difftool
+[difftool "default-difftool"]
+	cmd = code --wait --diff $LOCAL $REMOTE
 
 #Silly tools fight for config down here
 [hub]
@@ -30,6 +33,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-# vi: tabstop=2 noexpandtab
 [fetch]
 	prune = true
+
+# vi: tabstop=2 noexpandtab

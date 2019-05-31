@@ -14,6 +14,15 @@ tramp
 .\#*
 .org-id-locations
 
+# Project files for PyCharm/PHPStorm
+*.idea
+.ropeproject
+.project
+
+# vscode project files
+*.code-workspace
+.vscode
+
 # tags
 tags
 
@@ -26,12 +35,6 @@ desktop.ini
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Project files for PyCharm/PHPStorm
-*.idea
-.ropeproject
-.project
-.vscode
 
 # Compiled files
 *.pyc

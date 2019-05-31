@@ -72,8 +72,7 @@ set -l go_bin $go_path/bin
 append_path $go_bin
 
 #config.d/30editor.fish
-alias vim nvim
-set -x EDITOR nvim
+set -x EDITOR vim
 
 #config.d/30term.fish
 if test -z "$TMUX"
