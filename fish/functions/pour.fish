@@ -21,6 +21,17 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     rustup update
   end
 
+  pyenv rehash
+  status_message Set up python 3 neovim
+  if not test -x $HOME/.pyenv/versions/neovim3
+    pyenv virtualenv 3.7.2 neovim3
+  end
+  set -lx PYENV_VERSION neovim3
+  pip install --quiet --quiet --upgrade pip
+  pip install --quiet --upgrade 'python-language-server[all]' autopep8 rope flake8 pytest
+  pip install --quiet --quiet --upgrade --force neovim
+  set -le PYENV_VERSION
+
   status_message Clean up vim-plug repos to prevent errors
   for plugin in ~/.config/nvim/plugged/*
     git -C $plugin reset --quiet --hard HEAD
