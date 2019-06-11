@@ -327,9 +327,3 @@ if exists("$EXTRA_VIM")
     exec "source ".path
   endfor
 endif
-
-if has("gui_vimr")
-  set background=light
-  set termguicolors
-  source ~/.gvimrc
-endif
