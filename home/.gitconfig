@@ -4,7 +4,7 @@
 	signingkey = 98E879BC3B6E1BF8
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = code --wait
+	editor = nvim
 [gpg]
 	program = /usr/local/bin/gpg
 [commit]
@@ -20,10 +20,6 @@
 	br = branch
 	st = status
 	nuke = !git branch | egrep -v '( master$|^\\*)' | xargs git branch -D
-[diff]
-	tool = default-difftool
-[difftool "default-difftool"]
-	cmd = code --wait --diff $LOCAL $REMOTE
 
 #Silly tools fight for config down here
 [hub]
