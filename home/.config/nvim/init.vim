@@ -55,6 +55,7 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " T
 Plug 'sheerun/vim-polyglot'   " Most language support
 Plug 'rust-lang/rust.vim'     " Official Rust plugin
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
+Plug 'dag/vim-fish'           " Fish shell
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'w0rp/ale'               " syntax checking and Language Server
