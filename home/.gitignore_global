@@ -23,6 +23,10 @@ tramp
 *.code-workspace
 .vscode
 
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
 # tags
 tags
 
