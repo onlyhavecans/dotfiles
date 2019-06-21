@@ -3,6 +3,7 @@
 	email = squirrel@wearing.black
 	signingkey = 98E879BC3B6E1BF8
 [core]
+	excludesfile = ~/.gitignore
 	editor = nvim
 [gpg]
 	program = /usr/local/bin/gpg
