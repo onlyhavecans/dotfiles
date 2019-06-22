@@ -32,6 +32,16 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   pip install --quiet --quiet --upgrade --force neovim
   set -le PYENV_VERSION
 
+  pyenv rehash
+  status_message Set up python 3 subl
+  if not test -x $HOME/.pyenv/versions/subl
+    pyenv virtualenv 3.7.3 subl
+  end
+  set -lx PYENV_VERSION subl
+  pip install --quiet --quiet --upgrade pip
+  pip install --quiet --upgrade flake8 pylint pycodestyle
+  set -le PYENV_VERSION
+
   status_message Clean up vim-plug repos to prevent errors
   for plugin in ~/.config/nvim/plugged/*
     git -C $plugin reset --quiet --hard HEAD
