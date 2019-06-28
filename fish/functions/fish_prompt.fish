@@ -72,12 +72,8 @@ function fish_prompt --description 'Write out the prompt'
             set color_cwd $fish_color_cwd
     end
 
-    # Time
-    set_color yellow
-    printf '[%s] ' (date)
-
     # Server
-    set_color brblue
+    set_color yellow
     printf '%s ' (hostname -s)
 
     # PWD
@@ -95,8 +91,10 @@ function fish_prompt --description 'Write out the prompt'
     set_color red
     printf '{Ex%s} ' $last_status
 
-    # Next Line Flag Prompt
+    # Next Line
     echo ""
+
+    # Flag Prompt
     set -l flag_glyph \ue0b0
     set -l last_color black
     set_color normal
