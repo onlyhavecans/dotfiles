@@ -60,7 +60,10 @@ However regenning all the keys for a yearly rotation or new machine is slightly 
 
 I use direnv.net *everywhere*.
 I have a few standard functions I use to help me out.
-Most of it around chef and ruby-install
+
+### asdf-vm
+
+I've moved to using asdf-vm to manage most of my languge versions since I am quite polyglot and it's nice to have a single manager for that.
 
 ### rust
 

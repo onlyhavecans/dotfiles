@@ -50,7 +50,6 @@ if test -d $pg_app
   append_path $pg_app
 end
 
-#config.d/20rust.fish
 ## Some rust
 set -l rustup_path $HOME/.cargo/bin
 if test -n $CARGO_HOME

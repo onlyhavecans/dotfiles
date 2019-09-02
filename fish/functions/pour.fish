@@ -1,6 +1,6 @@
 function pour --description "Update all my homebrew stuff that isn't pinned"
   ## Don't look at all the chef-dk stuff
-  set -lx PATH $HOME/.pyenv/shims $HOME/.cargo/bin /usr/local/bin /usr/local/sbin /bin /sbin /usr/bin /usr/sbin
+  set -lx PATH $HOME/.cargo/bin /usr/local/bin /usr/local/sbin /bin /sbin /usr/bin /usr/sbin
 
   status_message Update castles
   homeshick pull
@@ -20,27 +20,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
     status_message Rust update
     rustup update
   end
-
-  pyenv rehash
-  status_message Set up python 3 neovim
-  if not test -x $HOME/.pyenv/versions/neovim3
-    pyenv virtualenv 3.7.2 neovim3
-  end
-  set -lx PYENV_VERSION neovim3
-  pip install --quiet --quiet --upgrade pip
-  pip install --quiet --upgrade 'python-language-server[all]' autopep8 rope flake8 pytest
-  pip install --quiet --quiet --upgrade --force neovim
-  set -le PYENV_VERSION
-
-  pyenv rehash
-  status_message Set up python 3 subl
-  if not test -x $HOME/.pyenv/versions/subl
-    pyenv virtualenv 3.7.3 subl
-  end
-  set -lx PYENV_VERSION subl
-  pip install --quiet --quiet --upgrade pip
-  pip install --quiet --upgrade flake8 pylint pycodestyle
-  set -le PYENV_VERSION
 
   status_message Clean up vim-plug repos to prevent errors
   for plugin in ~/.config/nvim/plugged/*

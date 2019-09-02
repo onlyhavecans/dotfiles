@@ -8,8 +8,6 @@ if has('vim_starting')
 endif
 
 let g:loaded_python_provider = 1
-let g:python_host_prog = glob('~/.pyenv/versions/neovim2/bin/python2')
-let g:python3_host_prog = glob('~/.pyenv/versions/neovim3/bin/python3')
 
 " ==== Most ALE settings want to be loaded before plugins
 let g:ale_lint_on_enter = 1
