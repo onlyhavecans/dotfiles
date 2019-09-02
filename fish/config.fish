@@ -130,5 +130,8 @@ set -x MOSH_SERVER_SIGNAL_TMOUT 60
 set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 abbr --add cleanmosh killall -USR1 mosh-server
 
+## ASDF manager
+test -e /usr/local/opt/asdf/asdf.fish; and source /usr/local/opt/asdf/asdf.fish
+
 #config.d/99local.fish
 test -e {$HOME}/.config/local/config.fish; and source {$HOME}/.config/local/config.fish
