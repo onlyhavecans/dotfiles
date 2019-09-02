@@ -1,3 +1,4 @@
+asdf
 bind
 cowsay
 ctags
@@ -29,13 +30,8 @@ nmap
 node
 openssl
 pipenv
-pyenv
-pyenv-virtualenv
-python
 redis
 ripgrep
-ruby
-ruby-install
 shellcheck
 sshuttle
 telnet
