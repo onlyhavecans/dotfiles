@@ -14,11 +14,3 @@ add_extra_vimrc() {
 use_chefdk() {
   eval "$(chef shell-init bash)"
 }
-
-## When one does ruby have a shortcut for all ruby-install
-# use ruby X.X.X
-use_ruby() {
-  local ruby_dir=$HOME/.rubies/ruby-$1
-  load_prefix "$ruby_dir"
-  layout ruby
-}
