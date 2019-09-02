@@ -50,10 +50,6 @@ if test -d $pg_app
   append_path $pg_app
 end
 
-#config.d/20python.fish
-status --is-interactive; and source (pyenv init -|psub)
-set -x PYENV_ROOT (pyenv root)
-
 #config.d/20rust.fish
 ## Some rust
 set -l rustup_path $HOME/.cargo/bin
