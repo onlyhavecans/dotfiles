@@ -54,10 +54,18 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " T
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
+" Big Lang
 Plug 'sheerun/vim-polyglot'   " Most language support
 Plug 'rust-lang/rust.vim'     " Official Rust plugin
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'           " Fish shell
+
+" Erlang Support
+Plug 'vim-erlang/vim-erlang-tags'
+Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'vim-erlang/vim-erlang-omnicomplete'
+Plug 'vim-erlang/vim-erlang-compiler'
+
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 Plug 'dense-analysis/ale'     " syntax checking and Language Server
