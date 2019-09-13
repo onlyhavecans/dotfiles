@@ -74,6 +74,7 @@ Plug 'dense-analysis/ale'     " syntax checking and Language Server
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " My special plugins
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'itspriddle/vim-marked'
 Plug 'LokiChaos/vim-tintin'
 call plug#end()
