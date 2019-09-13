@@ -227,11 +227,17 @@ noremap <Leader>r :so $MYVIMRC<CR>
 " <Leader>s = Search under word in my current search obsession
 noremap <Leader>s :Rg<CR>
 
+" <Leader>t = TabNext
+nnoremap <Leader>t :tabNext<CR>
+
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>
 
 " <Leader>z = quick write/save
 nnoremap <Leader>z :write<CR>
+
+" <C-p> the fast file Ctrl-p from Subl
+nnoremap <C-p> :FZF<CR>
 
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -286,6 +292,10 @@ if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+
+" ==== FZF fixes
+let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
+let g:fzf_layout = { 'up': '~40%' }
 
 " ==== Straighten Quotes
 function! <SID>StraightenQuotes()
