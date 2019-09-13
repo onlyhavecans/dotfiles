@@ -10,6 +10,9 @@ function checksite
   end
 
   begin
+    _checksite_status_message "Any SSL error messsages at the top!"
+    # This is works because of the ^&1 AFTER the end
+
     _checksite_status_message "who is it?"
     whois $argv
 
@@ -27,9 +30,9 @@ function checksite
     _checksite_status_message "HTTPS"
     curl -ILvsS --stderr - https://$argv/
 
-    _checksite_status_message "Certificate"
+    _checksite_status_message "Certificate Check"
     echo QUIT | openssl s_client -servername $argv -showcerts -connect $argv:443 | openssl x509 -text
 
     functions -e _checksite_status_message
-  end | less
+  end ^&1 | less
 end
