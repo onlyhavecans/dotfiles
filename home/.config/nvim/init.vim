@@ -49,6 +49,8 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'sheerun/vim-polyglot'   " Most language support
 Plug 'rust-lang/rust.vim'     " Official Rust plugin
@@ -56,7 +58,7 @@ Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `
 Plug 'dag/vim-fish'           " Fish shell
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
-Plug 'w0rp/ale'               " syntax checking and Language Server
+Plug 'dense-analysis/ale'     " syntax checking and Language Server
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
