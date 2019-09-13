@@ -35,6 +35,8 @@ Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim'}
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'vim-airline/vim-airline-themes' " my theme is here
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Play better w/ tmux
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
@@ -132,8 +134,8 @@ nnoremap <F1> <nop>
 " <F2> = Toggle line numbers
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
-" <F3> = None
-" nnoremap <F3> <nop>
+" <F3> = Toggle NerdTree
+nnoremap <F3> :NERDTreeToggle<CR>
 
 " <F4> = change directory to current file's pwd
 nnoremap <F4> :cd %:p:h<CR>:pwd<CR>
@@ -252,6 +254,14 @@ set laststatus=2
 
 " ==== vim-tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
+
+" ==== Nerdtree
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"  open NERDTree automatically when vim starts up on opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 " ==== Ripgrep
 if executable("rg")
