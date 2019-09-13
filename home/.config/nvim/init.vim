@@ -85,26 +85,27 @@ set encoding=utf-8
 set fileencoding=utf-8
 syntax enable
 filetype plugin indent on
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set list listchars=tab:→\ ,trail:∙,nbsp:+ " Display tabs and trailing spaces visually
-set incsearch "Find the next match as we type the search
-set nrformats= " blank nrf to make ^a always binary
-set noswapfile
-set nobackup
-set nowritebackup
 set autoindent
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set expandtab
+set foldmethod=indent
+set incsearch "Find the next match as we type the search
+set linebreak "Wrap lines at convenient points
+set list listchars=tab:→\ ,trail:∙,nbsp:+ "Display tabs and trailing spaces visually
+set nobackup
+set nofoldenable "no fold by default ever
+set noswapfile
+set nowrap
+set nowritebackup
+set nrformats= "blank nrf to make ^a always binary
+set number
+set shiftwidth=2
 set smartindent
 set smarttab
-set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set expandtab
-set nowrap
-set linebreak " Wrap lines at convenient points
-set nofoldenable "no fold by default ever
-set foldmethod=indent
+set wildmenu "enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=list:longest,full
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 
 " ==== Persistent Undo
 " Keep undo history across sessions, by storing in file.
@@ -132,7 +133,7 @@ let g:mapleader = ","
 nnoremap <F1> <nop>
 
 " <F2> = Toggle line numbers
-nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+nnoremap <F2> :set invnumber<CR>
 
 " <F3> = Toggle NerdTree
 nnoremap <F3> :NERDTreeToggle<CR>
