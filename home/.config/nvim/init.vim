@@ -15,8 +15,6 @@ let g:ale_lint_on_enter = 1
 let g:ale_open_list = 1
 let g:alt_completion_enabled =1
 let g:ale_fix_on_save = 1
-let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
-let g:ale_linters = {'rust': ['rls', 'cargo']}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'rust': ['rustfmt'],
@@ -116,6 +114,8 @@ set softtabstop=2
 set tabstop=2
 set wildmenu "enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=list:longest,full
+
+set mouse=a
 
 " ==== Persistent Undo
 " Keep undo history across sessions, by storing in file.
@@ -280,6 +280,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 1
+let g:NERDTreeWinSize=20
 
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
