@@ -88,6 +88,9 @@ end
 abbr --add ce chef exec
 abbr --add cebu chef exec berks update
 
+# fzf in fish
+set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
+
 #config.d/40exa.fish
 alias ls exa
 
