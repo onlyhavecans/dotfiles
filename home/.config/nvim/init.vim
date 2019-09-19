@@ -53,7 +53,7 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Big Lang
@@ -241,7 +241,7 @@ nnoremap <Leader>w :StripTrailingWhitespaces<CR>
 nnoremap <Leader>z :write<CR>
 
 " <C-p> the fast file Ctrl-p from Subl
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :Files<CR>
 
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
