@@ -1,1 +1,4 @@
 .git
+*.bak
+.DS_Store
+Library
