@@ -19,6 +19,7 @@
 	ci = commit
 	br = branch
 	st = status
+	sm = !git switch master && git pull origin master
 	nuke = !git branch | egrep -v '( master$|^\\*)' | xargs git branch -D
 
 #Silly tools fight for config down here

@@ -97,12 +97,12 @@ alias ls exa
 #config.d/40git.fish
 ## Mo Git Mo Problems
 alias git hub
+alias g hub
 
 abbr --add gad git add --all
 abbr --add gap git add --patch
 abbr --add gca git commit --signoff --amend --date="(date)"
 abbr --add gc git commit --signoff --verbose
-abbr --add gcm git checkout master
 abbr --add gp git push
 abbr --add gpu git pull
 abbr --add gst git status
