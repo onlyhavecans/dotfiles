@@ -33,9 +33,8 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Core functionality
-Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim'}
+Plug 'patstockwell/vim-monokai-tasty'
 Plug 'vim-airline/vim-airline'        " I like being on the airline
-Plug 'vim-airline/vim-airline-themes' " my theme is here
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -84,7 +83,8 @@ let g:deoplete#enable_at_startup = 1
 
 " === Colorscheme
 set background=dark
-colorscheme Tomorrow-Night-Eighties
+colorscheme vim-monokai-tasty
+let g:airline_theme='monokai_tasty'
 
 " ==== make nvim less annoyting
 tnoremap jk <C-\><C-n>
@@ -264,7 +264,6 @@ let g:plug_window = 'tabnew'
 
 " ==== airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='tomorrow'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#whitespace#enabled = 1
 
