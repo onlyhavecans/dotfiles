@@ -87,8 +87,7 @@ colorscheme vim-monokai-tasty
 let g:airline_theme='monokai_tasty'
 
 " ==== make nvim less annoyting
-tnoremap jk <C-\><C-n>
-tnoremap kj <C-\><C-n>
+inoremap jk <ESC>
 set clipboard+=unnamedplus
 
 " ==== General sanity fixing
