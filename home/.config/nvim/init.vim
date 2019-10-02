@@ -137,7 +137,7 @@ au VimResized * exe "normal! \<c-w>="
 
 
 " ================ My Cool shortcuts
-let mapleader   = " "
+let mapleader   = ","
 
 " <F1> = Disable help
 nnoremap <F1> <nop>
