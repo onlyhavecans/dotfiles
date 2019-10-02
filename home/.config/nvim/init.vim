@@ -87,7 +87,6 @@ colorscheme vim-monokai-tasty
 let g:airline_theme='monokai_tasty'
 
 " ==== make nvim less annoyting
-inoremap jk <ESC>
 set clipboard+=unnamedplus
 
 " ==== General sanity fixing
@@ -152,10 +151,10 @@ nnoremap <F3> :NERDTreeToggle<CR>
 " <F4> = change directory to current file's pwd
 nnoremap <F4> :cd %:p:h<CR>:pwd<CR>
 
-" <F5> = change directory to current file's pwd
+" <F5> = Language Server menu
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
-" <F6> = change directory to current file's pwd
+" <F6> = Refactor
 nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
 
 " <F7> = Toggle paste mode
@@ -176,7 +175,6 @@ nnoremap K <nop>
 
 " jk smash = esc! Seriously, esc on the homerow
 inoremap jk <Esc>
-inoremap kj <Esc>
 
 " Y = copy from current character to end of line
 " (mimic y0's behavior but backwards)
@@ -211,13 +209,13 @@ noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
 " <Leader>n = NERDTree
 nnoremap <Leader>n :NERDTreeToggle<Enter>
 
-" <Leader>p = paste at end of line
-inoremap <Leader>p :normal $p
-nnoremap <Leader>p $p
+" <Leader>P = paste at end of line
+inoremap <Leader>P :normal $p
+nnoremap <Leader>P $p
 
-" <Leader>P = paste in next line
-inoremap <Leader>P :normal pu<CR>
-nnoremap <Leader>P :pu<CR>
+" <Leader>p = paste in next line
+inoremap <Leader>p :normal pu<CR>
+nnoremap <Leader>p :pu<CR>
 
 " <Leader>q = Auto rewrap
 vnoremap <Leader>q gq
