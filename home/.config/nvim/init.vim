@@ -217,6 +217,10 @@ nnoremap <Leader>P $p
 inoremap <Leader>p :normal pu<CR>
 nnoremap <Leader>p :pu<CR>
 
+" <Leader>P = paste in previous line
+inoremap <Leader>P :normal pu!<CR>
+nnoremap <Leader>P :pu!<CR>
+
 " <Leader>q = Auto rewrap
 vnoremap <Leader>q gq
 nnoremap <Leader>q gqap
