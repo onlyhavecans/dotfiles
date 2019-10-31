@@ -18,5 +18,5 @@ function prsbad --description "Push (to my fork if present) and open PR while re
     git push origin
   end
 
-  hub pull-request --assign=$my_github_user --push
+  hub pull-request --assign=$my_github_user --push --browse
 end
