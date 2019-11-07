@@ -60,6 +60,7 @@ if status --is-interactive
 
   # fzf in fish
   alias c "cd (fd . --full-path ~ --type d --no-ignore-vcs| fzf)"
+  alias d "cd (fd . --type d --no-ignore-vcs| fzf)"
   alias v "nvim (fzf)"
 
   # I prefer Exa
