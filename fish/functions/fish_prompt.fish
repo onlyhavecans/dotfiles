@@ -1,5 +1,5 @@
 function fish_prompt --description 'Write out the prompt'
-    set -l last_status $status
+	set -l last_status $status
 
     if not set -q __fish_git_prompt_show_informative_status
         set -g __fish_git_prompt_show_informative_status 1
@@ -33,8 +33,8 @@ function fish_prompt --description 'Write out the prompt'
     if not set -q __fish_git_prompt_char_untrackedfiles
         set -g __fish_git_prompt_char_untrackedfiles "…"
     end
-    if not set -q __fish_git_prompt_char_conflictedstate
-        set -g __fish_git_prompt_char_conflictedstate "✖"
+    if not set -q __fish_git_prompt_char_invalidstate
+        set -g __fish_git_prompt_char_invalidstate "✖"
     end
     if not set -q __fish_git_prompt_char_cleanstate
         set -g __fish_git_prompt_char_cleanstate "✔"
@@ -61,6 +61,8 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     set -l color_cwd
+    set -l prefix
+    set -l suffix
     switch "$USER"
         case root toor
             if set -q fish_color_cwd_root
@@ -68,13 +70,11 @@ function fish_prompt --description 'Write out the prompt'
             else
                 set color_cwd $fish_color_cwd
             end
+            set suffix '#'
         case '*'
             set color_cwd $fish_color_cwd
+            set suffix '$'
     end
-
-    # Server
-    set_color yellow
-    printf '%s ' (hostname -s)
 
     # PWD
     set_color $color_cwd
@@ -85,26 +85,9 @@ function fish_prompt --description 'Write out the prompt'
 
     if not test $last_status -eq 0
         set_color $fish_color_error
+        echo -n "[$last_status] "
+        set_color normal
     end
 
-    # Last Status
-    set_color red
-    printf '{Ex%s} ' $last_status
-
-    # Next Line
-    echo ""
-
-    # Flag Prompt
-    set -l flag_glyph \ue0b0
-    set -l last_color black
-    set_color normal
-    for c in 55cdfc f7a8b8 ffffff f7a8b8 55cdfc normal
-      set_color -b $c
-      set_color $last_color
-      echo -n $flag_glyph
-      set -l last_color $c
-    end
-    echo -n ' '
-
-    set_color normal
+    echo -n "$suffix "
 end
