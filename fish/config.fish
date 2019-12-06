@@ -78,6 +78,7 @@ if status --is-interactive
   abbr --add --global gst git status
   abbr --add --global gft git fetch --tags
   abbr --add --global gbr git browse
+  abbr --add --global cleandir git clean -ffdx -e .envrc
 
   # Make iTerm Happy
   test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
