@@ -1,0 +1,5 @@
+set surround
+set commentary
+
+inoremap jk <Esc>
+inoremap kj <Esc>
