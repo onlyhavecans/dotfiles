@@ -41,8 +41,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   status_message Check for missing packages
   brew missing
 
-  if test -x /usr/local/bin/mas
-    status_message do I have any outdated App Store apps
-    mas outdated
-  end
+  status_message do I have any outdated App Store apps
+  mas outdated
 end
