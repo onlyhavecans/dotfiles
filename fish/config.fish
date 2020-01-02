@@ -122,6 +122,9 @@ end
 # This hotfix makes GPG less annoying
 set -x GPG_TTY (tty)
 
+# No java in my erlang
+set -x KERL_CONFIGURE_OPTIONS --without-javac
+
 # Global FZF setting
 set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --no-ignore-vcs'
 
