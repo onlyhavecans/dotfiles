@@ -47,6 +47,8 @@ brew "jq"
 brew "overmind"
 brew "shellcheck"
 
+cask "java" unless system "/usr/libexec/java_home --failfast"
+
 tap "heroku/brew"
 brew "heroku/brew/heroku"
 
