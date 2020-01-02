@@ -45,8 +45,6 @@ brew "hub"
 brew "hugo"
 brew "jq"
 brew "overmind"
-brew "pipenv"
-brew "python"
 brew "shellcheck"
 
 tap "heroku/brew"
@@ -74,12 +72,10 @@ brew "habitat-sh/habitat/hab"
 ## MAS time
 brew "mas"
 mas "1Password 7", id: 1333542190
-mas "Cardhop", id: 1290358394
 mas "Clocks", id: 414554506
 mas "Day One", id: 1055511498
 mas "Deliveries", id: 924726344
 mas "Double Shot", id: 1076145960
-mas "Due", id: 524373870
 mas "FreeSpace", id: 457520846
 mas "Image2icon", id: 992115977
 mas "Keynote", id: 409183694
@@ -91,7 +87,6 @@ mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Patterns", id: 429449079
 mas "Postico", id: 1031280567
-mas "Push Mic Control", id: 1155850258
 mas "Reeder", id: 1449412482
 mas "Screenium 3", id: 921553264
 mas "Screens", id: 1224268771
