@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+cd ~ || exit
 if [[ -n $(pgrep tmux) ]]; then
   exec tmux attach
 else
