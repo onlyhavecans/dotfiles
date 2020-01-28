@@ -1,5 +1,5 @@
 function work --description "Set up my standard workspace"
-  if not test -z "$TMUX"
+  if not test -z "$TMUX_PANE"
     echo "Oh no! You are already in TMUX"
   else
     if not tmux has-session -t work

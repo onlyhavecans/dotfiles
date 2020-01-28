@@ -50,7 +50,7 @@ if status --is-interactive
   set -x EDITOR nvim
 
   # Fix tmux term
-  if test -z "$TMUX"
+  if test -z "$TMUX_PANE"
     set TERM screen-256color
   end
 
