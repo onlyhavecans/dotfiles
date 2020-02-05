@@ -43,7 +43,6 @@ if status --is-interactive
   # Homeshick is important
   source "$HOME/.homesick/repos/homeshick/homeshick.fish"
   source "$HOME/.homesick/repos/homeshick/completions/homeshick.fish"
-  homeshick refresh --quiet --batch
 
   # I am lazy with neovim
   alias vim nvim

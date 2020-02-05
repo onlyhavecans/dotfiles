@@ -10,12 +10,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   brew update
   brew upgrade
 
-  if test -x /usr/local/bin/thefuck
-    status_message Pregenerate fuck command to save shell launch time
-    thefuck --alias | source
-    funcsave fuck
-  end
-
   if test -x $HOME/.cargo/bin/rustup
     status_message Rust update
     rustup update
