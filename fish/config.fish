@@ -70,13 +70,10 @@ if status --is-interactive
   alias g hub
   abbr --add --global gad git add --all
   abbr --add --global gap git add --patch
-  abbr --add --global gca git commit --signoff --amend --date="(date)"
   abbr --add --global gc git commit --signoff --verbose
   abbr --add --global gp git push
   abbr --add --global gpu git pull
   abbr --add --global gst git status
-  abbr --add --global gft git fetch --tags
-  abbr --add --global gbr git browse
   abbr --add --global cleandir git clean -ffdx -e .envrc
 
   # Make iTerm Happy
