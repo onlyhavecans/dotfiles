@@ -2,7 +2,7 @@
 
 cd ~ || exit
 if [[ -n $(pgrep tmux) ]]; then
-  exec tmux attach
+  exec tmux attach -c ~
 else
   exec tmux new
 fi
