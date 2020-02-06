@@ -109,7 +109,7 @@ append_path $go_bin
 
 
 # I sometimes use vmware
-if test -x '/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
+if test -x '/Applications/VMware Fusion.app/Contents/Library/vmrun'
   set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
 else
   set -x VAGRANT_DEFAULT_PROVIDER virtualbox
