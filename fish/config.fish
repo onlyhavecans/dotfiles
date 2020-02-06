@@ -55,7 +55,6 @@ if status --is-interactive
 
   # Chef is important
   abbr --add --global ce chef exec
-  abbr --add --global cebu chef exec berks update
 
   # fzf in fish
   alias c "cd (fd . --full-path ~ --type d --no-ignore-vcs| fzf)"
@@ -73,6 +72,7 @@ if status --is-interactive
   abbr --add --global gc git commit --signoff --verbose
   abbr --add --global gp git push
   abbr --add --global gpu git pull
+  abbr --add --global gm git switch master
   abbr --add --global gst git status
   abbr --add --global cleandir git clean -ffdx -e .envrc
 
