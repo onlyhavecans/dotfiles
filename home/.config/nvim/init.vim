@@ -58,6 +58,7 @@ Plug 'junegunn/fzf.vim'
 " Big Lang
 Plug 'sheerun/vim-polyglot'   " Most language support
 Plug 'rust-lang/rust.vim'     " Official Rust plugin
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
 Plug 'dag/vim-fish'           " Fish shell
 
