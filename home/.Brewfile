@@ -31,8 +31,8 @@ brew "wget"
 brew "whois"
 brew "youtube-dl"
 
-brew "theseal/ssh-askpass/ssh-askpass"
 tap "theseal/ssh-askpass"
+brew "theseal/ssh-askpass/ssh-askpass"
 
 ## Dev Tooling
 brew "asdf"
@@ -46,6 +46,9 @@ brew "hugo"
 brew "jq"
 brew "overmind"
 brew "shellcheck"
+
+tap "github/gh"
+brew "github/gh/gh"
 
 tap "heroku/brew"
 brew "heroku/brew/heroku"
