@@ -36,7 +36,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Play better w/ tmux
@@ -52,7 +52,7 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Big Lang
