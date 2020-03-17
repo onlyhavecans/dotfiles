@@ -14,13 +14,15 @@ let g:python3_host_prog = glob('~/.asdf/shims/python3')
 
 let g:ale_close_preview_on_insert = 1
 let g:ale_fix_on_save = 1
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_enter = 0
 let g:ale_list_window_size = 4
-let g:ale_open_list = 1
-let g:alt_completion_enabled =1
+let g:alt_completion_enabled = 1
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'rust': ['rustfmt'],
+      \}
+let g:ale_linters = {
+      \ 'chef': ['cookstyle'],
       \}
 
 " ==== vim plug

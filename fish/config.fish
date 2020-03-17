@@ -139,6 +139,9 @@ set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 # ASDF Makes polyglots happy
 test -e /usr/local/opt/asdf/asdf.fish; and source /usr/local/opt/asdf/asdf.fish
 
+# iTerm2
+test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
+
 ###
 ## Sauce Local
 ###
