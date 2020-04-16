@@ -1,5 +1,5 @@
-erlang 22.2.4
-golang 1.14
+erlang 22.3.1
+golang 1.14.1
 python 3.8.2
 rebar 3.13.0
-ruby 2.7.0
+ruby 2.7.1
