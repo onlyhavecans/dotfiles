@@ -10,11 +10,6 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   brew update
   brew upgrade
 
-  if test -x $HOME/.cargo/bin/rustup
-    status_message Rust update
-    rustup update
-  end
-
   status_message Clean up vim-plug repos to prevent errors
   for plugin in ~/.config/nvim/plugged/*
     git -C $plugin reset --quiet --hard HEAD
