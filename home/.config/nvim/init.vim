@@ -48,6 +48,7 @@ Plug 'wellle/tmux-complete.vim'
 " The tpope section
 Plug 'tpope/vim-fugitive'   " make git commands a thing
 Plug 'tpope/vim-rhubarb'    " but use hub
+Plug 'borissov/fugitive-gitea' " But also gitea
 Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
 Plug 'tpope/vim-repeat'     " Make surround repeatable with .
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
@@ -250,6 +251,9 @@ cmap w!! w !sudo tee % >/dev/null
 
 " :Q = quit all fast
 command! -nargs=0 Quit :qall!
+
+" ==== fugitive-gitea
+let g:fugitive_gitea_domains = ['https://onlyhavecans.works']
 
 " ==== Rust.vim
 let g:rustfmt_autosave = 1
