@@ -1,7 +1,12 @@
 set surround
 set commentary
+set ideajoin
 
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-set ideajoin
+let mapleader = ","
+
+" <Leader>c = comment out
+vnoremap <Leader>c :Commentary<CR>
+nnoremap <Leader>c :Commentary<CR>
