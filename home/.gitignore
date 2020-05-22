@@ -71,12 +71,7 @@ Thumbs.db
 # Compiled files
 *.pyc
 *.pyo
-*.com
-*.class
-*.dll
-*.exe
 *.o
-*.so
 
 #Python build dirs
 *.egg-info

@@ -176,8 +176,7 @@ nnoremap XX :qall!<CR>
 nnoremap K <nop>
 
 " jk smash = esc! Seriously, esc on the homerow
-inoremap jk <Esc>
-inoremap kj <Esc>
+inoremap kk <Esc>
 
 " Y = copy from current character to end of line
 " (mimic y0's behavior but backwards)

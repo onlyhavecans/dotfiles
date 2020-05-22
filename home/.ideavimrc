@@ -1,12 +1,15 @@
+" Plugin time
 set surround
 set commentary
 set ideajoin
 
-inoremap jk <Esc>
-inoremap kj <Esc>
+" General Settings
+set clipboard+=ideaput
 
+" Keyboard shortcuts
 let mapleader = ","
 
-" <Leader>c = comment out
-vnoremap <Leader>c :Commentary<CR>
-nnoremap <Leader>c :Commentary<CR>
+" My sloppy escape
+inoremap kk <Esc>
+
+noremap Y y$

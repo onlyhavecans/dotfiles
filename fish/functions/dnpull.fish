@@ -11,10 +11,10 @@ function dnpull --description "pull all my cookbooks up up"
     status_message Updating $local_dir
     $my_git fetch --quiet
 
-    $my_git checkout master --quiet
-    if test $status != 0
-      continue
-    end
+    # $my_git checkout master --quiet
+    # if test $status != 0
+    #   continue
+    # end
     $my_git pull
   end
 end
