@@ -9,12 +9,8 @@ function dnpull --description "pull all my cookbooks up up"
     end
 
     status_message Updating $local_dir
-    $my_git fetch --quiet
+    $my_git fetch --prune --prune-tags --quiet
 
-    # $my_git checkout master --quiet
-    # if test $status != 0
-    #   continue
-    # end
-    $my_git pull
+    $my_git checkout master
   end
 end
