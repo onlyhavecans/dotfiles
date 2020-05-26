@@ -4,7 +4,7 @@ set commentary
 set ideajoin
 
 " General Settings
-set clipboard+=ideaput
+set clipboard+=unnamedplus
 
 " Keyboard shortcuts
 let mapleader = ","
