@@ -10,6 +10,14 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   brew update
   brew upgrade
 
+  status_message Update my asdf globals
+  asdf plugin update --all
+  for plugin in (asdf plugin list)
+    asdf install $plugin latest
+    asdf global $plugin (asdf latest $plugin)
+    asdf reshim $plugin
+  end
+
   status_message Clean up vim-plug repos to prevent errors
   for plugin in ~/.config/nvim/plugged/*
     git -C $plugin reset --quiet --hard HEAD
