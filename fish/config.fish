@@ -44,6 +44,9 @@ if status --is-interactive
   source "$HOME/.homesick/repos/homeshick/homeshick.fish"
   source "$HOME/.homesick/repos/homeshick/completions/homeshick.fish"
 
+  # I use asdf a lot
+  source (brew --prefix asdf)/asdf.fish
+
   # I am lazy with neovim
   alias vim nvim
   set -x EDITOR nvim
