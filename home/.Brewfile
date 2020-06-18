@@ -29,6 +29,7 @@ brew "tree"
 brew "watch"
 brew "wget"
 brew "whois"
+brew "wireguard-tools"
 brew "youtube-dl"
 
 tap "theseal/ssh-askpass"
