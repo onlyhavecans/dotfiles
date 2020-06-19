@@ -4,20 +4,11 @@
 *.swo
 Session.vim
 
-# EMACS Editor files
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
-auto-save-list
-tramp
-.\#*
-.org-id-locations
-
-# Project files for PyCharm/PHPStorm
+# Project files for JetBrains IDEs
 *.idea
 .ropeproject
 .project
+.rakeTasks
 
 # vscode project files
 *.code-workspace

@@ -66,6 +66,7 @@ brew "terraform"
 brew "vault"
 
 cask "vagrant"
+cask "docker"
 
 tap "chef/chef"
 cask "chef-workstation"
@@ -74,6 +75,15 @@ tap "habitat-sh/habitat"
 brew "habitat-sh/habitat/hab"
 
 ## Casks
+# Arq 5
+# FireFox
+# GoogleChrome
+# iTerm
+# JetBrains Toolbox
+# Slack
 
 ## MAS time
 brew "mas"
+
+# 1Password
+# Be Focused Pro
