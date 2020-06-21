@@ -4,9 +4,7 @@ Yet Another Dotfiles Repo.
 
 ## Notes
 
-I've switched to using [homeshick](https://github.com/andsens/homeshick).
-
-I use the shell version over the ruby version because less ruby reliance and also I like the way it links better.
+This uses [homeshick](https://github.com/andsens/homeshick).
 
 I mostly work on macOS but I try to keep this workable on my FreeBSD machines, so there may be some splits
 
@@ -15,8 +13,6 @@ I mostly work on macOS but I try to keep this workable on my FreeBSD machines, s
 ### fish
 
 Even thought fish is great out of box I set up a lot of various path and environment changes.
-I break out everything into a config.d which isn't necessarily efficent but makes my config feel less monolithic
-
 I try to avoid universal variables and go for setting things in the config.fish since I want this to be portable amongst all my machines.
 
 **Check out the immense amount of functions**
@@ -26,15 +22,13 @@ I replace a lot of commands and scripts with functions. I use this instead of ma
 ### neovim
 
 * I use neovim instead of vim
-* The configuration is stripped down to just what I like, but still far from vanilla
+* My setup is fairly bespoke
 * there is a LOT of language plugins since I write in far too many languages
 * I use vim-plug currently to manage plugins
 * There is a few functions at the end for cleaning things up
 
 ### tmux
 
-* live by tmux
-* die by tmux
 * I have it set up so that you can navigate through tmux and vim seamlessly using C-hjlk
 * Instead of a powerline I use tmux plugins use ^a-I to install
 
@@ -53,12 +47,12 @@ I replace a lot of commands and scripts with functions. I use this instead of ma
 I included my ssh_config because I think it can be useful to others. I have ssh fairly locked down.
 
 The keys directory setup means for every host or set of hosts I log into I generate a different key!
-This means loosing a single key to a single system is not a hige swatch of revokes.
+This means loosing a single key to a single system is not a large swath of revokes.
 However regenning all the keys for a yearly rotation or new machine is slightly annoying so I have a fish function called keygen which makes this easier.
 
 ### direnv
 
-I use direnv.net *everywhere*.
+I use direnv frequently
 I have a few standard functions I use to help me out.
 
 ### asdf-vm
@@ -67,5 +61,4 @@ I've moved to using asdf-vm to manage most of my languge versions since I am qui
 
 ### rust
 
-Rust is one of the few things *not* set up by the cookbook.
-Instead I have a fish function called `init_rust` which installs & sets up rust
+I have a fish function called `init_rust` which installs & sets up rust
