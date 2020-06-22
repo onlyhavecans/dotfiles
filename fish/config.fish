@@ -75,7 +75,6 @@ if status --is-interactive
   abbr --add --global gc git commit --signoff --verbose
   abbr --add --global gp git push
   abbr --add --global gpu git pull
-  abbr --add --global gm git switch master
   abbr --add --global gst git status
   abbr --add --global cleandir git clean -ffdx -e .envrc
 

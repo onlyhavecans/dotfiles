@@ -1,9 +1,15 @@
 function prsbad --description "Push (to my fork if present) and open PR while reminding me PR'S BAD"
   set -l my_github_user "onlyhavecans"
 
+  if git rev-parse --abbrev-ref HEAD | grep --silent main
+    status_message "!!! You are on main!"
+    status_message "No pushing to main!"
+    return 1
+  end
+
   if git rev-parse --abbrev-ref HEAD | grep --silent master
     status_message "!!! You are on master!"
-    status_message "No pushing to master!"
+    status_message "You should change that to main!"
     return 1
   end
 
