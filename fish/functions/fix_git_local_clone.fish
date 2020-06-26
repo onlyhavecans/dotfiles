@@ -1,4 +1,4 @@
-function fix_git_branches --description "Fix master usage in git"
+function fix_git_local_clone --description "Fix master usage in git"
   git checkout master
   git branch -m master main
   git fetch -p
