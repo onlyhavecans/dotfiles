@@ -12,5 +12,6 @@ function dnpull --description "pull all my cookbooks up up"
     $my_git fetch --prune --prune-tags --quiet
 
     $my_git checkout master
+    $my_git pull
   end
 end
