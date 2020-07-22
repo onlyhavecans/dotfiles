@@ -12,6 +12,13 @@
 	gpgsign = true
 [push]
 	default = current
+[fetch]
+	prune = true
+[pull]
+	ff = only
+#This is for git.mod that points to private repos
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [alias]
 	commit = commit -s
 	prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
@@ -33,9 +40,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[fetch]
-	prune = true
 
 # vi: tabstop=2 noexpandtab
-[pull]
-	ff = only

@@ -74,6 +74,9 @@ cask "chef-workstation"
 tap "habitat-sh/habitat"
 brew "habitat-sh/habitat/hab"
 
+tap "gitea/tap" "https://gitea.com/gitea/homebrew-gitea"
+brew "tea"
+
 ## Casks
 # Arq 5
 # FireFox
