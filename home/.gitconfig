@@ -42,3 +42,5 @@
 	smudge = git-lfs smudge -- %f
 
 # vi: tabstop=2 noexpandtab
+[init]
+	defaultBranch = main
