@@ -10,21 +10,6 @@ endif
 let g:loaded_python_provider = 1
 let g:python3_host_prog = glob('~/.asdf/shims/python3')
 
-" ==== Most ALE settings want to be loaded before plugins
-
-let g:ale_close_preview_on_insert = 1
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_enter = 0
-let g:ale_list_window_size = 4
-let g:alt_completion_enabled = 1
-let g:ale_fixers = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'rust': ['rustfmt'],
-      \}
-let g:ale_linters = {
-      \ 'chef': ['cookstyle'],
-      \}
-
 " ==== vim plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -46,9 +31,6 @@ Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'wellle/tmux-complete.vim'
 
 " The tpope section
-Plug 'tpope/vim-fugitive'   " make git commands a thing
-Plug 'tpope/vim-rhubarb'    " but use hub
-Plug 'borissov/fugitive-gitea' " But also gitea
 Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
 Plug 'tpope/vim-repeat'     " Make surround repeatable with .
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
@@ -60,20 +42,10 @@ Plug 'junegunn/fzf.vim'
 
 " Big Lang
 Plug 'sheerun/vim-polyglot'   " Most language support
-Plug 'rust-lang/rust.vim'     " Official Rust plugin
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plug 'dag/vim-fish'           " Fish shell
-
-" Erlang Support
-Plug 'vim-erlang/vim-erlang-tags'
-Plug 'vim-erlang/vim-erlang-runtime'
-Plug 'vim-erlang/vim-erlang-omnicomplete'
-Plug 'vim-erlang/vim-erlang-compiler'
 
 Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
-Plug 'dense-analysis/ale'     " syntax checking and Language Server
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -251,15 +223,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " :Q = quit all fast
 command! -nargs=0 Quit :qall!
-
-" ==== fugitive-gitea
-let g:fugitive_gitea_domains = ['https://onlyhavecans.works']
-
-" ==== Rust.vim
-let g:rustfmt_autosave = 1
-
-" ==== ale
-let g:airline#extensions#ale#enabled = 1
 
 " ==== deoplete
 let g:tmuxcomplete#trigger = ''
