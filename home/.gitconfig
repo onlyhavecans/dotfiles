@@ -14,6 +14,8 @@
 	default = current
 [fetch]
 	prune = true
+[init]
+	defaultBranch = main
 [pull]
 	ff = only
 #This is for git.mod that points to private repos
@@ -42,5 +44,3 @@
 	smudge = git-lfs smudge -- %f
 
 # vi: tabstop=2 noexpandtab
-[init]
-	defaultBranch = main
