@@ -71,15 +71,14 @@ cask "docker"
 tap "chef/chef"
 cask "chef-workstation"
 
-tap "habitat-sh/habitat"
-brew "habitat-sh/habitat/hab"
-
 ## Casks
 # Arq 5
 # FireFox
 # GoogleChrome
 # iTerm
 # JetBrains Toolbox
+# SublimeText
+# SublimeMerge
 # Slack
 
 ## MAS time
