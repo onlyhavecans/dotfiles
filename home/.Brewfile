@@ -38,6 +38,7 @@ brew "theseal/ssh-askpass/ssh-askpass"
 ## Dev Tooling
 brew "asdf"
 brew "exercism"
+brew "gh"
 brew "git"
 brew "git-lfs"
 brew "git-standup"
@@ -47,9 +48,6 @@ brew "hugo"
 brew "jq"
 brew "overmind"
 brew "shellcheck"
-
-tap "github/gh"
-brew "github/gh/gh"
 
 tap "heroku/brew"
 brew "heroku/brew/heroku"
@@ -80,9 +78,9 @@ cask "chef-workstation"
 # SublimeText
 # SublimeMerge
 # Slack
+# Vitamin-R
 
 ## MAS time
 brew "mas"
 
 # 1Password
-# Be Focused Pro
