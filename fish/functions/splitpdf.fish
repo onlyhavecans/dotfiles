@@ -7,7 +7,7 @@ function splitpdf --description "Split PDF(s) in monocrome w/ cleanup"
     	if test $name[2] != "pdf"
     		status_message "not a pdf file, skipping: $p"
     	else
-    		magick convert -density 200 $name[1].pdf -quality 100 -monochrome -statistic median 3 $name[1]-%02d.png
+    		magick convert -density 200 $name[1].pdf -monochrome -statistic median 3 $name[1]-%02d.png
     	end 
     end
   end
