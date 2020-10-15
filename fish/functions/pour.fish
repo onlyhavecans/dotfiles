@@ -9,6 +9,7 @@ function pour --description "Update all my homebrew stuff that isn't pinned"
   status_message Update my brew packages
   brew update
   brew upgrade
+  brew bundle install --global
 
   status_message Update my asdf globals
   asdf plugin update --all
