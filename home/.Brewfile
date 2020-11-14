@@ -7,6 +7,7 @@ tap "homebrew/services"
 ## Packages
 brew "curl"
 brew "direnv"
+brew "dog"
 brew "exa"
 brew "ffmpeg"
 brew "fd"
@@ -79,7 +80,6 @@ cask "chef-workstation"
 # SublimeText
 # SublimeMerge
 # Slack
-# Vitamin-R
 
 ## MAS time
 brew "mas"
