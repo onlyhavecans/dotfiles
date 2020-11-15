@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-PROFILE_DIR="$HOME/ResilioSync/Documents/machine_profiles"
+DRIVE_DIR="/Volumes/Drobo"
+SYNC_DIR="ResilioSync/4. Archive/machine_profiles"
 
-DROBO_DIR=/Volumes/Drobo/ResilioSync/Documents/machine_profiles
+PROFILE_DIR="$HOME/$SYNC_DIR"
+DROBO_DIR="$DRIVE_DIR/$SYNC_DIR"
+
 if [[ -d $DROBO_DIR ]]; then
   PROFILE_DIR=$DROBO_DIR
 fi
