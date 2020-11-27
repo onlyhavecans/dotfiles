@@ -14,7 +14,7 @@ fi
 
 ## Install homeshick
 git clone git://github.com/andsens/homeshick.git "$HOME/.homesick/repos/homeshick"
-source" $HOME/.homesick/repos/homeshick/homeshick.sh"
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 ## clone home, then set it to ssh afterwards
 ## This means we need our keys before we can make further actions
