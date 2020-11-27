@@ -66,12 +66,6 @@ brew "packer"
 brew "terraform"
 brew "vault"
 
-cask "vagrant"
-# cask "docker"
-
-tap "chef/chef"
-cask "chef-workstation"
-
 ## Casks
 # Arq 5
 # FireFox
