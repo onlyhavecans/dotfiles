@@ -2,11 +2,16 @@
 
 Yet Another Dotfiles Repo.
 
-## Notes
-
 This uses [homeshick](https://github.com/andsens/homeshick).
 
 I mostly work on macOS but I try to keep this workable on my FreeBSD machines, so there may be some splits
+
+## Setup
+
+### Mac
+
+Start by installing [homebrew](https://brew.sh/)
+then curlbash the inti-macos.sh script!
 
 ## Apps
 
@@ -19,6 +24,11 @@ I try to avoid universal variables and go for setting things in the config.fish 
 
 I replace a lot of commands and scripts with functions. I use this instead of making little shell apps for all my various helper scripts.
 
+### homebrew
+
+I use a Brewfile to manage my packages and keep it consistent on macOS
+Instead of running brew upgrade manually I run my `pour` function which does a lot of dep work.
+
 ### neovim
 
 * I use neovim instead of vim
@@ -30,7 +40,7 @@ I replace a lot of commands and scripts with functions. I use this instead of ma
 ### tmux
 
 * I have it set up so that you can navigate through tmux and vim seamlessly using C-hjlk
-* Instead of a powerline I use tmux plugins use ^a-I to install
+* I use tmux plug-ins use ^a-I to install
 
 ### gnupg
 
@@ -44,11 +54,11 @@ I replace a lot of commands and scripts with functions. I use this instead of ma
 
 ### ssh
 
-I included my ssh_config because I think it can be useful to others. I have ssh fairly locked down.
+I included my ssh_config because I think it can be useful to others.
 
 The keys directory setup means for every host or set of hosts I log into I generate a different key!
 This means loosing a single key to a single system is not a large swath of revokes.
-However regenning all the keys for a yearly rotation or new machine is slightly annoying so I have a fish function called keygen which makes this easier.
+However regenerating all the keys for a yearly rotation or new machine is slightly annoying so I have a fish function called keygen which makes this easier.
 
 ### direnv
 
@@ -57,7 +67,9 @@ I have a few standard functions I use to help me out.
 
 ### asdf-vm
 
-I've moved to using asdf-vm to manage most of my languge versions since I am quite polyglot and it's nice to have a single manager for that.
+Uses asdf-vm to manage most of my language versions since I am quite polyglot.
+I have a global .tool-versions but generally don't store that in dotfiles as `pour` manages it.
+There is also a lot of .default packages to keep support open
 
 ### rust
 
