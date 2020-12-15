@@ -41,7 +41,6 @@ brew "theseal/ssh-askpass/ssh-askpass"
 
 ## Dev Tooling
 brew "asdf"
-brew "exercism"
 brew "gh"
 brew "git"
 brew "git-lfs"
@@ -59,12 +58,7 @@ brew "heroku/brew/heroku"
 ## Ops Tooling
 brew "awscli"
 brew "bind"
-brew "consul"
 brew "dive"
-brew "minikube"
-brew "packer"
-brew "terraform"
-brew "vault"
 
 ## Casks
 # Arq 5
