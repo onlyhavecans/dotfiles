@@ -30,7 +30,7 @@ if [[ ! -f ~/.homesick/repos/git-prompt.zsh/git-prompt.zsh ]]; then
   homeshick clone https://github.com/woefe/git-prompt.zsh
 fi
 source "$HOME/.homesick/repos/git-prompt.zsh/git-prompt.zsh"
-export PROMPT='%m:%2~ $(gitprompt)[%(?.%F{green}.%F{red})%?%f] '
+export PROMPT='%m:%F{green}%2~%f $(gitprompt)%(?.%F{green}.%F{red})%?%f %# '
 
 
 # asdf-vm
