@@ -18,6 +18,8 @@ export EDITOR=vim
 ## Make do cvs prompt
 if [[ ! -f ~/.zsh/git-prompt.zsh/git-prompt.zsh ]]; then
   >&2 echo "git-prompt is missing https://github.com/woefe/git-prompt.zsh"
+  mkdir -p ~/.zsh
+  git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.zsh/git-prompt.zsh
 fi
 ZSH_GIT_PROMPT_SHOW_STASH=1
 source ~/.zsh/git-prompt.zsh/git-prompt.zsh
