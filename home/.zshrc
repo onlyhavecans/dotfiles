@@ -23,7 +23,7 @@ if [[ ! -f ~/.zsh/git-prompt.zsh/git-prompt.zsh ]]; then
 fi
 ZSH_GIT_PROMPT_SHOW_STASH=1
 source ~/.zsh/git-prompt.zsh/git-prompt.zsh
-export PROMPT='%2~ $(gitprompt)[%(?.%F{green}.%F{red})%?%f] '
+export PROMPT='%m:%2~ $(gitprompt)[%(?.%F{green}.%F{red})%?%f] '
 
 # Homeshick does the goods
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
