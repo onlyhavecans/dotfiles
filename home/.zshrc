@@ -2,31 +2,19 @@
 #shellcheck disable=SC1090,SC1091
 
 # Path Stuff
-function append_path() {
-  if [[ -d "$*" ]]; then
-    path+=("$*")
-  fi
-}
-
-append_path "$HOME/bin"
-append_path "$HOME/Applications"
-append_path "$HOME/go/bin"
+[ -d "$HOME/bin" ]          && path+=("$HOME/bin")
+[ -d "$HOME/Applications" ] && path+=("$HOME/Applications")
+[ -d "$HOME/go/bin" ]       && path+=("$HOME/go/bin")
 export PATH
 
 
-# homebrew completions
-if builtin whence -p brew &>/dev/null; then
-  fpath=(/usr/local/share/zsh/site-functions $fpath)
-fi
-
-
-# Homeshick does the goods
+# Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=("$HOME/.homesick/repos/homeshick/completions" $fpath)
 
 
-## Make do cvs prompt
-if [[ ! -f ~/.homesick/repos/git-prompt.zsh/git-prompt.zsh ]]; then
+## Git Prompt speeds up my workflow
+if [ ! -f ~/.homesick/repos/git-prompt.zsh/git-prompt.zsh ]; then
   homeshick clone https://github.com/woefe/git-prompt.zsh
 fi
 source "$HOME/.homesick/repos/git-prompt.zsh/git-prompt.zsh"
@@ -34,7 +22,7 @@ export PROMPT='%m:%F{green}%2~%f $(gitprompt)%(?.%F{green}.%F{red})%?%f %# '
 
 
 # asdf-vm
-if builtin whence -p asdf &> /dev/null; then
+if [ -f /usr/local/opt/asdf/asdf.sh ]; then
   source "/usr/local/opt/asdf/asdf.sh"
   # For asdf-erlang
   export KERL_CONFIGURE_OPTIONS=--without-javac
@@ -59,7 +47,21 @@ if builtin whence vagrant &> /dev/null; then
 fi
 
 
-## Replace commands
+# FZF to get around & use fd for performance
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+  export FZF_DEFAULT_COMMAND='fd --follow --type f'
+  export FZF_CTRL_T_COMMAND='fd --follow'
+  _fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+  }
+  _fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+  }
+fi
+
+
+## Replace a few commands
 export EDITOR=vim
 
 if builtin whence exa &> /dev/null; then
@@ -85,18 +87,18 @@ alias gpl="git pull"
 alias gps="git push"
 alias gst="git status"
 
-alias subp="subl *.sublime-project"
+alias sp="subl *.sublime-project"
 
 alias tm="tmux attach -c ~ || tmux"
 alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
 
 
-## Locals
-if [[ -d "$HOME/.config/local/zshrc.d" ]]; then
+## Per Machine Configurations
+if [ -d "$HOME/.config/local/zshrc.d" ]; then
   source "$HOME/.config/local/zshrc.d/*"
 fi
 
-if [[ -f "$HOME/.iterm2_shell_integration.zsh" ]]; then
+if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
   source "$HOME/.iterm2_shell_integration.zsh"
 fi
 

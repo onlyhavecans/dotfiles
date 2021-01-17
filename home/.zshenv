@@ -1,6 +1,7 @@
+# Mosh is stored here and needed before interactive
 path+=(/usr/local/bin)
 
-## Mosh
+# Mosh Server settings are needed at init
 if builtin whence mosh-server &> /dev/null; then
   # make `killall -USR1 mosh-server` only kill sessions disconected for X seconds
   export MOSH_SERVER_SIGNAL_TMOUT=60
