@@ -1,4 +1,5 @@
 #shellcheck shell=zsh
+#shellcheck disable=SC1090,SC1091
 
 # Path Stuff
 function append_path() {
@@ -15,19 +16,22 @@ export PATH
 
 export EDITOR=vim
 
-## Make do cvs prompt
-if [[ ! -f ~/.zsh/git-prompt.zsh/git-prompt.zsh ]]; then
-  >&2 echo "git-prompt is missing https://github.com/woefe/git-prompt.zsh"
-  mkdir -p ~/.zsh
-  git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.zsh/git-prompt.zsh
+# homebrew completions
+if builtin whence -p brew &>/dev/null; then
+  fpath=(/usr/local/share/zsh/site-functions $fpath)
 fi
-ZSH_GIT_PROMPT_SHOW_STASH=1
-source ~/.zsh/git-prompt.zsh/git-prompt.zsh
-export PROMPT='%m:%2~ $(gitprompt)[%(?.%F{green}.%F{red})%?%f] '
 
 # Homeshick does the goods
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+fpath=("$HOME/.homesick/repos/homeshick/completions" $fpath)
+
+## Make do cvs prompt
+if [[ ! -f ~/.homesick/repos/git-prompt.zsh/git-prompt.zsh ]]; then
+  homeshick clone https://github.com/woefe/git-prompt.zsh
+fi
+source "$HOME/.homesick/repos/git-prompt.zsh/git-prompt.zsh"
+export PROMPT='%m:%2~ $(gitprompt)[%(?.%F{green}.%F{red})%?%f] '
+
 
 # asdf-vm
 if builtin whence -p asdf &> /dev/null; then
