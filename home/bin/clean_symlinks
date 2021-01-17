@@ -6,5 +6,5 @@ fd --hidden --follow --type l  \
 --exclude .virtualenvs \
 --exclude Library \
 --exclude .local \
---exec rm {} \
--- . ~
+. ~ \
+--exec rm {}
