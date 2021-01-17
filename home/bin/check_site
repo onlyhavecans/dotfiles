@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+if (( $# != 1 )); then
+  >&2 echo "Only pass one domain name"
+  exit 1
+fi
+
+function status_message() {
+  echo " "
+  echo "~~ $*"
+}
+
+{
+  status_message "Any SSL error messsages at the top!"
+  # This is works because of the 2>&1 AFTER the end
+
+  status_message "who is it?"
+  whois "$*"
+
+  status_message "Dig Google"
+  dig @8.8.8.8 "$*" +dnssec
+
+  status_message "Dig NS1"
+  dig @ns1.dnsimple.com "$*" +dnssec
+
+  status_message "Dig trace"
+  dig "$*" +trace
+
+  status_message "HTTP"
+  curl -ILvsS --stderr - http://"$*"/
+  status_message "HTTPS"
+  curl -ILvsS --stderr - https://"$*"/
+
+  status_message "Certificate Check"
+  echo QUIT | openssl s_client -servername "$*" -showcerts -connect "$*":443 | openssl x509 -text
+
+} 2>&1 | less

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .direnv --exclude gocode --exclude .github); do
+  LOCAL_DIR=$(realpath "$dir/..")
+  MY_GIT="git -C $LOCAL_DIR"
+
+  if (( $($MY_GIT remote | wc -l) == 0 )); then
+    status_message "$LOCAL_DIR does not have a remote so skipping"
+    continue
+  fi
+
+  status_message "Updating $LOCAL_DIR"
+  $MY_GIT fetch --prune --prune-tags --quiet
+
+  $MY_GIT checkout master
+  $MY_GIT pull
+done

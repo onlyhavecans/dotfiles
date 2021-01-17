@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+my_github_user=onlyhavecans
+
+if git rev-parse --abbrev-ref HEAD | grep --silent main; then
+  status_message "!!! You are on main!"
+  status_message "No pushing to main!"
+  exit 1
+fi
+
+if git rev-parse --abbrev-ref HEAD | grep --silent master; then
+  status_message "!!! You are on master!"
+  status_message "You should change that to main!"
+  exit 1
+fi
+
+if git remote | grep --silent "$my_github_user"; then
+  status_message "Personal fork present, pushing to $my_github_user"
+  git push $my_github_user
+else
+  status_message "no fork present, pushing to origin"
+  git push origin
+fi
+
+hub pull-request --assign=$my_github_user --push --browse

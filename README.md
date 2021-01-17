@@ -15,14 +15,10 @@ then curlbash the inti-macos.sh script!
 
 ## Apps
 
-### fish
+### zsh
 
-Even thought fish is great out of box I set up a lot of various path and environment changes.
-I try to avoid universal variables and go for setting things in the config.fish since I want this to be portable amongst all my machines.
-
-**Check out the immense amount of functions**
-
-I replace a lot of commands and scripts with functions. I use this instead of making little shell apps for all my various helper scripts.
+I try to keep my shell config sparse and rely on a lot of small commands installed in ~/bin
+This is slightly less efficient but more extensible
 
 ### homebrew
 
@@ -32,8 +28,6 @@ Instead of running brew upgrade manually I run my `pour` function which does a l
 ### neovim
 
 * I use neovim instead of vim
-* My setup is fairly bespoke
-* there is a LOT of language plugins since I write in far too many languages
 * I use vim-plug currently to manage plugins
 * There is a few functions at the end for cleaning things up
 

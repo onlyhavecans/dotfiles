@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+fd --hidden --follow --type l \
+--exclude Code \
+--exclude .virtualenvs \
+--exclude Library \
+--exclude .local \
+--exec-batch rm {}
+~

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if (( $# != 1 )); then
+  >&2 echo "Only pass one domain name"
+  exit 1
+fi
+
+ssh-keygen -R "$*"
+ssh-keygen -R "$(dig +short "$*" | tail -n 1)"

@@ -2,13 +2,11 @@ if has('vim_starting')
   if &compatible
     set nocompatible
   endif
-  if &shell =~# 'fish$'   "This is a compatibility fix for fish-shell and plugins
-    set shell=sh
-  endif
 endif
 
 let g:loaded_python_provider = 1
 let g:python3_host_prog = glob('~/.asdf/shims/python3')
+
 
 " ==== vim plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -23,8 +21,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'vim-airline/vim-airline'        " I like being on the airline
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Play better w/ tmux
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
@@ -48,50 +44,20 @@ Plug 'blueyed/delimitMate'    " Autoadding closing braces
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" My special plugins
-Plug 'itspriddle/vim-marked'
-Plug 'LokiChaos/vim-tintin'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
+
 
 " === Colorscheme
 set background=dark
 colorscheme vim-monokai-tasty
 let g:airline_theme='monokai_tasty'
 
+
 " ==== make nvim less annoyting
 set clipboard+=unnamedplus
 
-" ==== General sanity fixing
-set encoding=utf-8
-set fileencoding=utf-8
-syntax enable
-filetype plugin indent on
-set autoindent
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set expandtab
-set foldmethod=indent
-set incsearch "Find the next match as we type the search
-set linebreak "Wrap lines at convenient points
-set list listchars=tab:→\ ,trail:∙,nbsp:+ "Display tabs and trailing spaces visually
-set nobackup
-set nofoldenable "no fold by default ever
-set noswapfile
-set nowrap
-set nowritebackup
-set nrformats= "blank nrf to make ^a always binary
-set number
-set shiftwidth=2
-set smartindent
-set smarttab
-set softtabstop=2
-set tabstop=2
-set wildmenu "enable ctrl-n and ctrl-p to scroll thru matches
-set wildmode=list:longest,full
-
-set mouse=a
 
 " ==== Persistent Undo
 " Keep undo history across sessions, by storing in file.
@@ -102,6 +68,7 @@ if !isdirectory(backupdir)
 endif
 set undodir=~/.local/share/nvim/backups
 set undofile
+
 
 " ==== Scrolling
 set scrolloff     =8         "Start scrolling when we're 8 lines away from margins
@@ -120,8 +87,7 @@ nnoremap <F1> <nop>
 " <F2> = Toggle line numbers
 nnoremap <F2> :set invnumber<CR>
 
-" <F3> = Toggle NerdTree
-nnoremap <F3> :NERDTreeToggle<CR>
+" <F3> =
 
 " <F4> = change directory to current file's pwd
 nnoremap <F4> :cd %:p:h<CR>:pwd<CR>
@@ -147,9 +113,6 @@ nnoremap XX :qall!<CR>
 
 " K = Disable man key
 nnoremap K <nop>
-
-" jk smash = esc! Seriously, esc on the homerow
-inoremap kk <Esc>
 
 " Y = copy from current character to end of line
 " (mimic y0's behavior but backwards)
@@ -180,9 +143,6 @@ noremap <Leader>f zi
 
 " <Leader>h = Highlight changed lines using Git Gutter
 noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
-
-" <Leader>n = NERDTree
-nnoremap <Leader>n :NERDTreeToggle<Enter>
 
 " <Leader>P = paste at end of line
 inoremap <Leader>P :normal $p
@@ -245,16 +205,6 @@ set laststatus=2
 
 " ==== vim-tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
-
-" ==== Nerdtree
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeShowHidden = 1
-let NERDTreeQuitOnOpen = 1
-let g:NERDTreeWinSize=20
-
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ==== Ripgrep
 if executable("rg")

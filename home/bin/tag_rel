@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if (( $# != 1 )); then
+  >&2 echo "Only pass the git tag name"
+  exit 1
+fi
+
+ver=$*
+
+git tag --annotate "$ver" --sign --message="Release $ver"
+git push origin "$ver"

@@ -26,4 +26,3 @@ homeshick link --force
 
 # fin
 brew bundle install --global
-chsh --shell /usr/local/bin/fish $(whoami)

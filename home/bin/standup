@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+old_dir=$(pwd)
+cd ~/Code/dnsimple/ops || exit 1
+git standup -f -m 5 -d 8
+cd "$old_dir" || exit 1

@@ -9,7 +9,4 @@ set clipboard+=unnamedplus
 " Keyboard shortcuts
 let mapleader = ","
 
-" My sloppy escape
-inoremap kk <Esc>
-
 noremap Y y$
