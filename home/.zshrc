@@ -66,6 +66,8 @@ if builtin whence exa &> /dev/null; then
   alias lla="exa -la"
 fi
 
+alias cl=clear
+
 if builtin whence hub &> /dev/null; then
   alias git=hub
   alias g=hub

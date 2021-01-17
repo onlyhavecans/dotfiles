@@ -4,7 +4,7 @@
 	signingkey = 98E879BC3B6E1BF8
 [core]
 	excludesfile = ~/.gitignore
-	editor = nvim
+	editor = vim
 	autocrlf = input
 [gpg]
 	program = /usr/local/bin/gpg
