@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 fd --hidden --follow --type l  \
---max-depth 7 \
---exclude Code \
---exclude .virtualenvs \
---exclude Library \
 --exclude .local \
+--exclude .virtualenvs \
+--exclude Code \
+--exclude Library \
 . ~ \
 --exec rm {}
