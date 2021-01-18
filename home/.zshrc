@@ -13,14 +13,6 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=("$HOME/.homesick/repos/homeshick/completions" $fpath)
 
 
-## Git Prompt speeds up my workflow
-if [ ! -f ~/.homesick/repos/git-prompt.zsh/git-prompt.zsh ]; then
-  homeshick clone https://github.com/woefe/git-prompt.zsh
-fi
-source "$HOME/.homesick/repos/git-prompt.zsh/git-prompt.zsh"
-export PROMPT='%m:%F{green}%2~%f $(gitprompt)%(?.%F{green}.%F{red})%?%f %# '
-
-
 # asdf-vm
 if [ -f /usr/local/opt/asdf/asdf.sh ]; then
   source "/usr/local/opt/asdf/asdf.sh"
@@ -44,20 +36,6 @@ if builtin whence vagrant &> /dev/null; then
     VAGRANT_DEFAULT_PROVIDER=virtualbox
   fi
   export VAGRANT_DEFAULT_PROVIDER
-fi
-
-
-# FZF to get around & use fd for performance
-if [ -f ~/.fzf.zsh ]; then
-  source ~/.fzf.zsh
-  export FZF_DEFAULT_COMMAND='fd --follow --type f'
-  export FZF_CTRL_T_COMMAND='fd --follow'
-  _fzf_compgen_path() {
-    fd --hidden --follow --exclude ".git" . "$1"
-  }
-  _fzf_compgen_dir() {
-    fd --type d --hidden --follow --exclude ".git" . "$1"
-  }
 fi
 
 
@@ -93,6 +71,41 @@ alias tm="tmux attach -c ~ || tmux"
 alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
 
 
+## Git Prompt speeds up my workflow
+if [ ! -f ~/.homesick/repos/git-prompt.zsh/git-prompt.zsh ]; then
+  homeshick clone https://github.com/woefe/git-prompt.zsh
+fi
+source "$HOME/.homesick/repos/git-prompt.zsh/git-prompt.zsh"
+export PROMPT='%m:%F{green}%2~%f $(gitprompt)%(?.%F{green}.%F{red})%?%f %# '
+
+
+## Emacs keys
+bindkey -e
+
+
+## Fish-Shell's History search
+zsh_substring=/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+if [ -f "$zsh_substring" ]; then
+  source "$zsh_substring"
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
+
+
+# FZF to get around & use fd for performance
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+  export FZF_DEFAULT_COMMAND='fd --follow --type f'
+  export FZF_CTRL_T_COMMAND='fd --follow'
+  _fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+  }
+  _fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+  }
+fi
+
+
 ## Per Machine Configurations
 if [ -d "$HOME/.config/local/zshrc.d" ]; then
   source "$HOME/.config/local/zshrc.d/*"
@@ -103,5 +116,5 @@ if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
 fi
 
 
-## Turn on features
+## Completions
 autoload -Uz compinit && compinit
