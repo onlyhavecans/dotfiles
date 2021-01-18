@@ -83,15 +83,6 @@ export PROMPT='%m:%F{green}%2~%f $(gitprompt)%(?.%F{green}.%F{red})%?%f %# '
 bindkey -e
 
 
-## Fish-Shell's History search
-zsh_substring=/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-if [ -f "$zsh_substring" ]; then
-  source "$zsh_substring"
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-fi
-
-
 # FZF to get around & use fd for performance
 if [ -f ~/.fzf.zsh ]; then
   source ~/.fzf.zsh
@@ -103,6 +94,8 @@ if [ -f ~/.fzf.zsh ]; then
   _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
   }
+else
+  echo "WARN /usr/local/opt/fzf/install has not been run"
 fi
 
 
