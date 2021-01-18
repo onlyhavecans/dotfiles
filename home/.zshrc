@@ -81,21 +81,23 @@ export PROMPT='%m:%F{green}%2~%f $(gitprompt)%(?.%F{green}.%F{red})%?%f %# '
 
 ## Emacs keys
 bindkey -e
+setopt autocd
 
 
-# FZF to get around & use fd for performance
-if [ -f ~/.fzf.zsh ]; then
-  source ~/.fzf.zsh
+## FZF to get around & use fd for performance
+if builtin whence fzf &> /dev/null; then
+  source "/usr/local/opt/fzf/shell/completion.zsh"
+  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
   export FZF_DEFAULT_COMMAND='fd --follow --type f'
   export FZF_CTRL_T_COMMAND='fd --follow'
+
   _fzf_compgen_path() {
     fd --hidden --follow --exclude ".git" . "$1"
   }
   _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
   }
-else
-  echo "WARN /usr/local/opt/fzf/install has not been run"
 fi
 
 
