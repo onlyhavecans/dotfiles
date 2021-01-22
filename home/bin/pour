@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 status_message Update castles
+# Needed for commands to work
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 homeshick pull
 homeshick link
@@ -9,6 +10,7 @@ status_message Update my brew packages
 brew update
 brew upgrade
 brew bundle install --global
+brew completions link # https://docs.brew.sh/Shell-Completion
 
 status_message Update my asdf globals
 asdf plugin update --all
