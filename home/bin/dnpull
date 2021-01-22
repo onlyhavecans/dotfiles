@@ -9,12 +9,12 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
   status_message "Updating $LOCAL_DIR"
 
   if (( $($MY_GIT remote | wc -l) == 0 )); then
-    errors+=("$LOCAL_DIR does not have a remote so skipping")
+    errors+=("! $LOCAL_DIR does not have a remote so skipping.")
     continue
   fi
 
   if ! $MY_GIT fetch --prune --prune-tags --quiet --force &>/dev/null; then
-    errors+=("~Unable to fetch $LOCAL_DIR. Is the remote valid?")
+    errors+=("! $LOCAL_DIR Unable to fetch remote.")
     continue
   fi
 
@@ -26,15 +26,16 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
   $MY_GIT diff-index --quiet HEAD -- || $MY_GIT stash
 
   if ! $MY_GIT checkout $DEFAULT_BRANCH &>/dev/null; then
-    errors+=("~Could not check out $DEFAULT_BRANCH in $LOCAL_DIR")
+    errors+=("! $LOCAL_DIR Could not check out $DEFAULT_BRANCH.")
     continue
   fi
 
   if ! $MY_GIT pull; then
-    errors+=("~Could not pull $DEFAULT_BRANCH in $LOCAL_DIR")
+    errors+=("! $LOCAL_DIR Could not pull $DEFAULT_BRANCH.")
   fi
 done
 
+echo ""
 echo ""
 status_message "The following repos had errors, please check"
 for i in "${errors[@]}"; do
