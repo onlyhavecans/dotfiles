@@ -1,17 +1,42 @@
 #!/usr/bin/env bash
 
+errors=()
+
 for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .direnv --exclude gocode --exclude .github); do
   LOCAL_DIR=$(realpath "$dir/..")
   MY_GIT="git -C $LOCAL_DIR"
 
+  status_message "Updating $LOCAL_DIR"
+
   if (( $($MY_GIT remote | wc -l) == 0 )); then
-    status_message "$LOCAL_DIR does not have a remote so skipping"
+    errors+=("$LOCAL_DIR does not have a remote so skipping")
     continue
   fi
 
-  status_message "Updating $LOCAL_DIR"
-  $MY_GIT fetch --prune --prune-tags --quiet
+  if ! $MY_GIT fetch --prune --prune-tags --quiet --force &>/dev/null; then
+    errors+=("~Unable to fetch $LOCAL_DIR. Is the remote valid?")
+    continue
+  fi
 
-  $MY_GIT checkout master
-  $MY_GIT pull
+  DEFAULT_BRANCH=master
+  if $MY_GIT show-ref --verify --quiet "refs/heads/main"; then
+    DEFAULT_BRANCH=main
+  fi
+
+  $MY_GIT diff-index --quiet HEAD -- || $MY_GIT stash
+
+  if ! $MY_GIT checkout $DEFAULT_BRANCH &>/dev/null; then
+    errors+=("~Could not check out $DEFAULT_BRANCH in $LOCAL_DIR")
+    continue
+  fi
+
+  if ! $MY_GIT pull; then
+    errors+=("~Could not pull $DEFAULT_BRANCH in $LOCAL_DIR")
+  fi
+done
+
+echo ""
+status_message "The following repos had errors, please check"
+for i in "${errors[@]}"; do
+  echo "$i"
 done
