@@ -4,33 +4,33 @@ errors=()
 
 for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .direnv --exclude gocode --exclude .github); do
   LOCAL_DIR=$(realpath "$dir/..")
-  MY_GIT="git -C $LOCAL_DIR"
+  GIT_LOCAL="git -C $LOCAL_DIR"
 
   status_message "Updating $LOCAL_DIR"
 
-  if (( $($MY_GIT remote | wc -l) == 0 )); then
+  if (( $($GIT_LOCAL remote | wc -l) == 0 )); then
     errors+=("! $LOCAL_DIR does not have a remote so skipping.")
     continue
   fi
 
-  if ! $MY_GIT fetch --prune --prune-tags --quiet --force &>/dev/null; then
+  if ! $GIT_LOCAL fetch --prune --prune-tags --quiet --force &>/dev/null; then
     errors+=("! $LOCAL_DIR Unable to fetch remote.")
     continue
   fi
 
   DEFAULT_BRANCH=master
-  if $MY_GIT show-ref --verify --quiet "refs/heads/main"; then
+  if $GIT_LOCAL show-ref --verify --quiet "refs/heads/main"; then
     DEFAULT_BRANCH=main
   fi
 
-  $MY_GIT diff-index --quiet HEAD -- || $MY_GIT stash
+  $GIT_LOCAL diff-index --quiet HEAD -- || $GIT_LOCAL stash
 
-  if ! $MY_GIT checkout $DEFAULT_BRANCH &>/dev/null; then
+  if ! $GIT_LOCAL checkout $DEFAULT_BRANCH &>/dev/null; then
     errors+=("! $LOCAL_DIR Could not check out $DEFAULT_BRANCH.")
     continue
   fi
 
-  if ! $MY_GIT pull; then
+  if ! $GIT_LOCAL pull; then
     errors+=("! $LOCAL_DIR Could not pull $DEFAULT_BRANCH.")
   fi
 done
