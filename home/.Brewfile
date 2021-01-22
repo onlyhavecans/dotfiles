@@ -35,7 +35,6 @@ brew "wget"
 brew "whois"
 brew "wireguard-tools"
 brew "youtube-dl"
-brew "zsh-history-substring-search"
 
 tap "theseal/ssh-askpass"
 brew "theseal/ssh-askpass/ssh-askpass"
