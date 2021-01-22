@@ -10,7 +10,7 @@ export PATH
 
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath=("$HOME/.homesick/repos/homeshick/completions" $fpath)
+fpath+=("$HOME/.homesick/repos/homeshick/completions")
 
 
 # asdf-vm
@@ -72,11 +72,12 @@ alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
 
 
 ## Git Prompt speeds up my workflow
-if [ ! -f ~/.homesick/repos/git-prompt.zsh/git-prompt.zsh ]; then
-  homeshick clone https://github.com/woefe/git-prompt.zsh
+if [ ! -d "$HOME/.homesick/repos/typewritten" ]; then
+  homeshick clone https://github.com/reobin/typewritten.git
 fi
-source "$HOME/.homesick/repos/git-prompt.zsh/git-prompt.zsh"
-export PROMPT='%m:%F{green}%2~%f $(gitprompt)%(?.%F{green}.%F{red})%?%f %# '
+fpath+=("$HOME/.homesick/repos/typewritten")
+autoload -U promptinit; promptinit
+prompt typewritten
 
 
 ## Emacs keys
