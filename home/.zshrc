@@ -40,8 +40,6 @@ fi
 
 
 ## Replace a few commands
-export EDITOR=vim
-
 if builtin whence exa &> /dev/null; then
   alias ls=exa
   alias la="exa -a"
@@ -56,11 +54,13 @@ fi
 
 
 ## Aliases
+alias ce="chef exec"
+
 alias cl=clear
 
+alias gc="git commit --signoff --verbose"
 alias gad="git add --all"
 alias gap="git add --patch"
-alias gc="git commit --signoff --verbose"
 alias gpl="git pull"
 alias gps="git push"
 alias gst="git status"
@@ -103,12 +103,12 @@ fi
 
 
 ## Per Machine Configurations
-if [ -d "$HOME/.config/local/zshrc.d" ]; then
-  source "$HOME/.config/local/zshrc.d/*"
-fi
-
 if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
   source "$HOME/.iterm2_shell_integration.zsh"
+fi
+
+if [ -d "$HOME/.config/local/zshrc.d" ]; then
+  source "$HOME/.config/local/zshrc.d"/*
 fi
 
 
