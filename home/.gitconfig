@@ -29,7 +29,7 @@
 	ci = commit
 	br = branch
 	st = status
-	sm = !git switch master && git pull origin master --prune
+	sm = !git switch main && git pull origin main --prune
 	nuke = !git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D
 	rmb = "!f() { git fetch -p && git branch -vv | awk '/: gone]/ {print $1}' | xargs git branch -D; }; f"
 
