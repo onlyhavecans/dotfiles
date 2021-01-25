@@ -71,7 +71,7 @@ alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
 
 
 ## Simplify Prompt
-export PROMPT='%F{green}%2~%f%(?.%F{blue}.%F{red}%?) ❯%f '
+export PROMPT='%F{green}%2~%f %(?.%F{blue}.%F{red}%?)❯%f '
 ## Put git repo & branch in right
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
