@@ -57,12 +57,12 @@ alias ce="chef exec"
 
 alias cl=clear
 
+alias s="git status"
 alias gc="git commit --signoff --verbose"
 alias gad="git add --all"
 alias gap="git add --patch"
 alias gpl="git pull"
 alias gps="git push"
-alias gst="git status"
 
 alias sp="subl *.sublime-project"
 
@@ -70,13 +70,16 @@ alias tm="tmux attach -c ~ || tmux"
 alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
 
 
-## Git Prompt speeds up my workflow
-if [ ! -d "$HOME/.homesick/repos/typewritten" ]; then
-  homeshick clone https://github.com/reobin/typewritten.git
-fi
-fpath+=("$HOME/.homesick/repos/typewritten")
-autoload -U promptinit; promptinit
-prompt typewritten
+## Simplify Prompt
+export PROMPT='%F{green}%2~%f%(?.%F{blue}.%F{red}%?) ❯%f '
+## Put git repo & branch in right
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats '%r/%b %F{magenta}%m%u%c%f'
+precmd() { vcs_info }
+setopt prompt_subst
+RPROMPT=\$vcs_info_msg_0_
 
 
 ## Emacs keys
