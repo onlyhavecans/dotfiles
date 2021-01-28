@@ -5,6 +5,7 @@ status_message Update castles
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 homeshick pull
 homeshick link
+homeshick check
 
 status_message Update my brew packages
 brew update

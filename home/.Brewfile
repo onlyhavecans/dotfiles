@@ -1,7 +1,6 @@
 ## Base Taps
-tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/core"
+tap "homebrew/bundle"
 tap "homebrew/services"
 
 ## Packages
@@ -20,7 +19,6 @@ brew "libdvdcss"
 brew "markdownlint-cli"
 brew "mosh"
 brew "nmap"
-brew "pandoc"
 brew "pinentry-mac"
 brew "ponysay"
 brew "qpdf"
