@@ -2,7 +2,8 @@
 
 status_message Update castles
 # Needed for commands to work
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+# shellcheck source=/dev/null
+source "${HOME}/.homesick/repos/homeshick/homeshick.sh"
 homeshick pull
 homeshick link
 homeshick check
@@ -16,7 +17,7 @@ brew completions link # https://docs.brew.sh/Shell-Completion
 status_message Update my asdf globals
 asdf plugin update --all
 
-if [[ -x $HOME/.tmux/plugins/tpm/bin/update_plugins ]]; then
+if [[ -x "${HOME}/.tmux/plugins/tpm/bin/update_plugins" ]]; then
   status_message Update and clean tmux plugins
   ~/.tmux/plugins/tpm/bin/install_plugins
   ~/.tmux/plugins/tpm/bin/update_plugins all
