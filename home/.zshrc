@@ -63,6 +63,7 @@ alias gad="git add --all"
 alias gap="git add --patch"
 alias gpl="git pull"
 alias gps="git push"
+alias gsm="git switch main && git pull origin main --prune"
 
 alias sp="subl *.sublime-project"
 

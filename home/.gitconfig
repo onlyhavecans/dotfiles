@@ -26,7 +26,6 @@
 	prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
 	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
 	co = checkout
-	ci = commit
 	br = branch
 	st = status
 	sm = !git switch main && git pull origin main --prune
