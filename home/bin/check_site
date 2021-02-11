@@ -27,9 +27,9 @@ function status_message() {
   dig "$*" +trace
 
   status_message "HTTP"
-  curl -ILvsS --stderr - http://"$*"/
+  curl --head --location --silent --show-error --verbose --stderr - http://"$*"/
   status_message "HTTPS"
-  curl -ILvsS --stderr - https://"$*"/
+  curl --head --location --silent --show-error --verbose --stderr - https://"$*"/
 
   status_message "Certificate Check"
   echo QUIT | openssl s_client -servername "$*" -showcerts -connect "$*":443 | openssl x509 -text
