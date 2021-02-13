@@ -18,9 +18,17 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
     continue
   fi
 
-  DEFAULT_BRANCH=master
-  if $GIT_LOCAL show-ref --verify --quiet "refs/heads/main"; then
-    DEFAULT_BRANCH=main
+  # Deal with different default branch names
+  DEFAULT_BRANCH=main
+  if $GIT_LOCAL show-ref --verify --quiet "refs/heads/master"; then
+    ## If master is renamed upstream rename us here
+    if $GIT_LOCAL show-ref --verify --quiet "refs/remotes/origin/main"; then
+      $GIT_LOCAL branch -m master main
+      $GIT_LOCAL fetch origin
+      $GIT_LOCAL branch -u origin/main main
+    else
+      DEFAULT_BRANCH=master
+    fi
   fi
 
   $GIT_LOCAL diff-index --quiet HEAD -- || $GIT_LOCAL stash
