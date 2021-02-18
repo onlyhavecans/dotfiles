@@ -2,15 +2,21 @@
 
 my_github_user=onlyhavecans
 
-if git rev-parse --abbrev-ref HEAD | grep --silent main; then
-  status_message "!!! You are on main!"
-  status_message "No pushing to main!"
-  exit 1
-fi
+function status_message() {
+  GREEN='\033[0;32m'
+  NOCOLOR='\033[0m'
+  echo -e "${GREEN}~ $*${NOCOLOR}"
+}
 
-if git rev-parse --abbrev-ref HEAD | grep --silent master; then
-  status_message "!!! You are on master!"
-  status_message "You should change that to main!"
+function error_message() {
+  RED='\033[0;31m'
+  NOCOLOR='\033[0m'
+  echo -e "${RED}! $*${NOCOLOR}"
+}
+
+if git rev-parse --abbrev-ref HEAD | grep --silent main; then
+  error_message "!!! You are on main!"
+  error_message "No pushing to main!"
   exit 1
 fi
 

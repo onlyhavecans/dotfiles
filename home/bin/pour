@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+function status_message() {
+  GREEN='\033[0;32m'
+  NOCOLOR='\033[0m'
+  echo -e "${GREEN}~ $*${NOCOLOR}"
+}
+
 status_message Update castles
 # Needed for commands to work
 # shellcheck source=/dev/null

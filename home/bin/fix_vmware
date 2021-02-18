@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+function status_message() {
+  GREEN='\033[0;32m'
+  NOCOLOR='\033[0m'
+  echo -e "${GREEN}~ $*${NOCOLOR}"
+}
+
 # From https://github.com/hashicorp/vagrant/issues/9624
 
 status_message "Clean up bad add_nat_portfwd's from networking config"
