@@ -4,14 +4,14 @@ errors=()
 
 function status_message() {
   GREEN='\033[0;32m'
-  NC='\033[0m' # No Color
-  echo -e "${GREEN}~ $*${NC}"
+  NOCOLOR='\033[0m'
+  echo -e "${GREEN}~ $*${NOCOLOR}"
 }
 
 function error_message() {
   RED='\033[0;31m'
-  NC='\033[0m' # No Color
-  echo -e "${RED}!!! $*${NC}"
+  NOCOLOR='\033[0m'
+  echo -e "${RED}! $*${NOCOLOR}"
 }
 
 if ! command -v fd &> /dev/null; then
