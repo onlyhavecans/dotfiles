@@ -2,6 +2,23 @@
 
 errors=()
 
+function status_message() {
+  GREEN='\033[0;32m'
+  NC='\033[0m' # No Color
+  echo -e "${GREEN}~ $*${NC}"
+}
+
+function error_message() {
+  RED='\033[0;31m'
+  NC='\033[0m' # No Color
+  echo -e "${RED}!!! $*${NC}"
+}
+
+if ! command -v fd &> /dev/null; then
+  error_message "You need fd command"
+  exit 2
+fi
+
 for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .direnv --exclude gocode --exclude .github); do
   LOCAL_DIR=$(realpath "$dir/..")
   GIT_LOCAL="git -C $LOCAL_DIR"
@@ -48,12 +65,12 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
   if ! $GIT_LOCAL fsck --full --no-progress; then
     $GIT_LOCAL remote set-head origin --auto
   fi
-  $GIT_LOCAL gc --aggressive --prune=now
+  $GIT_LOCAL gc --aggressive --auto --prune=now
 done
 
 echo ""
 echo ""
-status_message "The following repos had errors, please check"
+error_message "The following repos had errors, please check"
 for i in "${errors[@]}"; do
   echo "$i"
 done
