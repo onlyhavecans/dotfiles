@@ -41,6 +41,14 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
   if ! $GIT_LOCAL pull; then
     errors+=("! $LOCAL_DIR Could not pull $DEFAULT_BRANCH.")
   fi
+
+  ## Do some repo cleanup since we got this far
+  # looking for
+  # error: refs/remotes/origin/HEAD: invalid sha1 pointer 0000000000000000000000000000000000000000
+  if ! $GIT_LOCAL fsck --full --no-progress; then
+    $GIT_LOCAL remote set-head origin --auto
+  fi
+  $GIT_LOCAL gc --aggressive --prune=now
 done
 
 echo ""
