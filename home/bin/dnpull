@@ -21,51 +21,50 @@ fi
 
 for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .direnv --exclude gocode --exclude .github); do
   LOCAL_DIR=$(realpath "$dir/..")
-  GIT_LOCAL="git -C $LOCAL_DIR"
 
   status_message "Updating $LOCAL_DIR"
 
-  if (( $($GIT_LOCAL remote | wc -l) == 0 )); then
+  if (( $(git -C "$LOCAL_DIR" remote | wc -l) == 0 )); then
     errors+=("! $LOCAL_DIR does not have a remote so skipping.")
     continue
   fi
 
-  if ! $GIT_LOCAL fetch --prune --prune-tags --quiet --force &>/dev/null; then
+  if ! git -C "$LOCAL_DIR" fetch --prune --prune-tags --quiet --force &>/dev/null; then
     errors+=("! $LOCAL_DIR Unable to fetch remote.")
     continue
   fi
 
   # Deal with different default branch names
   DEFAULT_BRANCH=main
-  if $GIT_LOCAL show-ref --verify --quiet "refs/heads/master"; then
+  if git -C "$LOCAL_DIR" show-ref --verify --quiet "refs/heads/master"; then
     ## If master is renamed upstream rename us here
-    if $GIT_LOCAL show-ref --verify --quiet "refs/remotes/origin/main"; then
-      $GIT_LOCAL branch -m master main
-      $GIT_LOCAL fetch origin
-      $GIT_LOCAL branch -u origin/main main
+    if git -C "$LOCAL_DIR" show-ref --verify --quiet "refs/remotes/origin/main"; then
+      git -C "$LOCAL_DIR" branch -m master main
+      git -C "$LOCAL_DIR" fetch origin
+      git -C "$LOCAL_DIR" branch -u origin/main main
     else
       DEFAULT_BRANCH=master
     fi
   fi
 
-  $GIT_LOCAL diff-index --quiet HEAD -- || $GIT_LOCAL stash
+  git -C "$LOCAL_DIR" diff-index --quiet HEAD -- || git -C "$LOCAL_DIR" stash
 
-  if ! $GIT_LOCAL checkout $DEFAULT_BRANCH &>/dev/null; then
+  if ! git -C "$LOCAL_DIR" checkout $DEFAULT_BRANCH &>/dev/null; then
     errors+=("! $LOCAL_DIR Could not check out $DEFAULT_BRANCH.")
     continue
   fi
 
-  if ! $GIT_LOCAL pull; then
+  if ! git -C "$LOCAL_DIR" pull; then
     errors+=("! $LOCAL_DIR Could not pull $DEFAULT_BRANCH.")
   fi
 
   ## Do some repo cleanup since we got this far
   # looking for
   # error: refs/remotes/origin/HEAD: invalid sha1 pointer 0000000000000000000000000000000000000000
-  if ! $GIT_LOCAL fsck --full --no-progress; then
-    $GIT_LOCAL remote set-head origin --auto
+  if ! git -C "$LOCAL_DIR" fsck --full --no-progress; then
+    git -C "$LOCAL_DIR" remote set-head origin --auto
   fi
-  $GIT_LOCAL gc --aggressive --auto --prune=now
+  git -C "$LOCAL_DIR" gc --aggressive --prune=now
 done
 
 echo ""
