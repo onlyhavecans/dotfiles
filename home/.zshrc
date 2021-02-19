@@ -54,6 +54,8 @@ fi
 
 ## Aliases
 alias ce="chef exec"
+alias cet="chef exec thor"
+alias cek="chef exec knife"
 
 alias cl=clear
 
@@ -77,7 +79,7 @@ export PROMPT='%F{green}%2~%f %(?.%F{blue}.%F{red}%?)❯%f '
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats '%r/%b %F{magenta}%m%u%c%f'
+zstyle ':vcs_info:git:*' formats '%b %F{magenta}%m%u%c%f'
 precmd() { vcs_info }
 setopt prompt_subst
 RPROMPT=\$vcs_info_msg_0_
