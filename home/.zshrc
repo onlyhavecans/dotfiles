@@ -48,7 +48,6 @@ fi
 
 if builtin whence hub &> /dev/null; then
   alias git=hub
-  alias g=hub
 fi
 
 
@@ -75,7 +74,7 @@ alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
 
 ## Simplify Prompt
 export PROMPT='%F{green}%2~%f %(?.%F{blue}.%F{red}%?)❯%f '
-## Put git repo & branch in right
+## Put branch in right
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' check-for-changes true
