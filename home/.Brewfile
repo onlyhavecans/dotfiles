@@ -1,5 +1,4 @@
 ## Base Taps
-tap "homebrew/core"
 tap "homebrew/bundle"
 tap "homebrew/services"
 
@@ -23,7 +22,6 @@ brew "pinentry-mac"
 brew "ponysay"
 brew "qpdf"
 brew "qrencode"
-brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "tintin"
 brew "tmux"
@@ -61,7 +59,6 @@ brew "dive"
 ## Casks
 # Arq 5
 # FireFox
-# GoogleChrome
 # iTerm
 # JetBrains Toolbox
 # SublimeText

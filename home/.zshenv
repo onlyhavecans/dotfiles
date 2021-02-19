@@ -1,3 +1,6 @@
+# Prevent duplicate path because they annoy me
+typeset -U path
+
 # Mosh is stored here and needed before interactive
 path+=(/usr/local/bin)
 
