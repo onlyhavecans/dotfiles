@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 
-## Don't look at all the chef-dk stuff
-PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
-
 xcode-select --install
 brew update
 brew bundle install --global
 brew upgrade
-for _ in 1 2; do
-  brew list --formula | xargs brew reinstall
-done
+brew list --formula | xargs brew reinstall
 brew cleanup -s
