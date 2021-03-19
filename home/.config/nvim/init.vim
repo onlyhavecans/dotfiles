@@ -7,6 +7,7 @@ endif
 let g:loaded_python_provider = 1
 let g:python3_host_prog = glob('~/.asdf/shims/python3')
 
+
 " ==== Most ALE settings want to be loaded before plugins
 let g:ale_close_preview_on_insert = 1
 let g:ale_fix_on_save = 1
@@ -20,6 +21,7 @@ let g:ale_fixers = {
 let g:ale_linters = {
       \ 'chef': ['cookstyle'],
       \}
+
 
 " ==== vim plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -73,7 +75,8 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 
 
-" === Colorscheme
+" ==== Colorscheme
+set termguicolors
 set background=dark
 colorscheme vim-monokai-tasty
 let g:airline_theme='monokai_tasty'
@@ -102,7 +105,7 @@ set sidescroll    =1
 au VimResized * exe "normal! \<c-w>="
 
 
-" ================ My Cool shortcuts
+" ==== My Cool shortcuts
 let mapleader   = ","
 
 " <F1> = Help
@@ -204,26 +207,33 @@ cmap w!! w !sudo tee % >/dev/null
 " :Q = quit all fast
 command! -nargs=0 Quit :qall!
 
+
 " ==== Plug
 let g:plug_window = 'tabnew'
+
 
 " ==== airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
+
 " ==== deoplete
 let g:tmuxcomplete#trigger = ''
 let g:deoplete#enable_at_startup = 1
+
 
 " ==== GitGutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
 
+
 " ==== Powerline
 set laststatus=2
 
+
 " ==== vim-tmux-navigator
 let g:tmux_navigator_disable_when_zoomed = 1
+
 
 " ==== Nerdtree
 let NERDTreeMinimalUI = 1
@@ -234,15 +244,19 @@ let g:NERDTreeWinSize=20
 " close vim if the only window left open is a NERDTree
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
 " ==== Ripgrep
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+
 " ==== FZF fixes
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
 let g:fzf_layout = { 'up': '~30%' }
+
 
 " ==== Straighten Quotes
 function! <SID>StraightenQuotes()
@@ -261,6 +275,7 @@ endfunction
 
 command! StraightenQuotes call <SID>StraightenQuotes()
 
+
 " ==== Strip trailing whitespace
 " http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -277,6 +292,7 @@ endfunction
 
 command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
 
+
 " ==== Super wrapping power
 " http://vimcasts.org/episodes/soft-wrapping-text/
 function! SetupWrapping()
@@ -285,6 +301,7 @@ function! SetupWrapping()
 endfunction
 
 command! -nargs=* Wrap :call SetupWrapping()
+
 
 " ==== Sourcing plugin specific setting
 if filereadable(glob("~/.config/local/init.vim"))
