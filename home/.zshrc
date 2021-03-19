@@ -39,6 +39,11 @@ fi
 
 
 ## Replace a few commands
+if builtin whence nvim &> /dev/null; then
+  alias vim=nvim
+  export EDITOR=nvim
+fi
+
 if builtin whence exa &> /dev/null; then
   alias ls=exa
   alias la="exa -a"

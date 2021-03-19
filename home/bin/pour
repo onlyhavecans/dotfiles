@@ -6,7 +6,7 @@ function status_message() {
   echo -e "${GREEN}~ $*${NOCOLOR}"
 }
 
-status_message Update castles
+status_message "Update castles"
 # Needed for commands to work
 # shellcheck source=/dev/null
 source "${HOME}/.homesick/repos/homeshick/homeshick.sh"
@@ -14,14 +14,24 @@ homeshick pull
 homeshick link
 homeshick check
 
-status_message Update my brew packages
+status_message "Update my brew packages"
 brew update
 brew upgrade
 brew bundle install --global
 brew completions link # https://docs.brew.sh/Shell-Completion
 
-status_message Update my asdf globals
+status_message "Update my asdf globals"
 asdf plugin update --all
+
+status_message "Clean up vim-plug repos to prevent errors"
+for plugin in ~/.config/nvim/plugged/*; do
+  git -C "$plugin" reset --quiet --hard HEAD
+done
+status_message "Update vim-plug"
+nvim +PlugUpgrade +qall
+status_message "Update all the vim-plug plugins"
+nvim +PlugUpdate +qall
+nvim +UpdateRemotePlugins +qall
 
 if [[ -x "${HOME}/.tmux/plugins/tpm/bin/update_plugins" ]]; then
   status_message Update and clean tmux plugins
@@ -30,8 +40,8 @@ if [[ -x "${HOME}/.tmux/plugins/tpm/bin/update_plugins" ]]; then
   ~/.tmux/plugins/tpm/bin/clean_plugins
 fi
 
-status_message Check for missing packages
+status_message "Check for missing packages"
 brew missing
 
-status_message Do I have any outdated App Store apps
+status_message "Do I have any outdated App Store apps"
 mas outdated

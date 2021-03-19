@@ -67,3 +67,4 @@ dist/*
 # Direnv stuff
 .direnv
 .envrc
+.vimrc.local

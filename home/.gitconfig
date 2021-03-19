@@ -4,7 +4,7 @@
 	signingkey = 98E879BC3B6E1BF8
 [core]
 	excludesfile = ~/.gitignore
-	editor = vim
+	editor = nvim
 	autocrlf = input
 [gpg]
 	program = /usr/local/bin/gpg
@@ -31,7 +31,6 @@
 	sm = !git switch main && git pull origin main --prune
 	nuke = !git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D
 	rmb = "!f() { git fetch -p && git branch -vv | awk '/: gone]/ {print $1}' | xargs git branch -D; }; f"
-
 
 #Silly tools fight for config down here
 [hub]
