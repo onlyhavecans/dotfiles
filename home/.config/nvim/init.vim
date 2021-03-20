@@ -8,19 +8,14 @@ let g:loaded_python_provider = 1
 let g:python3_host_prog = glob('~/.asdf/shims/python3')
 
 
-" ==== Most ALE settings want to be loaded before plugins
+" ==== Most ALE settings need to be loaded before plugins
 let g:ale_close_preview_on_insert = 1
+let g:ale_floating_preview = 1
+let g:ale_hover_cursor = 1
+let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
-let g:ale_lint_on_enter = 0
 let g:ale_list_window_size = 4
-let g:alt_completion_enabled = 1
-let g:ale_fixers = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'rust': ['rustfmt'],
-      \}
-let g:ale_linters = {
-      \ 'chef': ['cookstyle'],
-      \}
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 
 
 " ==== vim plug
@@ -74,6 +69,9 @@ call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 
+
+" ==== Please do mouse
+set mouse=a
 
 " ==== Colorscheme
 set background=dark
@@ -241,7 +239,6 @@ let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeWinSize=20
 " close vim if the only window left open is a NERDTree
-
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
