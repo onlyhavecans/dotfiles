@@ -25,13 +25,15 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+let g:plug_window = 'tabnew'
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Core functionality
+" Start with the look
 Plug 'phanviet/vim-monokai-pro'
-Plug 'vim-airline/vim-airline'        " I like being on the airline
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
+
+" File browsing
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
@@ -39,103 +41,60 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 Plug 'wellle/tmux-complete.vim'
 
+" General behaviors
+Plug 'jremmen/vim-ripgrep'    " Use ripgrep everywhere
+Plug 'blueyed/delimitMate'    " Auto add closing braces
+Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
+Plug 'direnv/direnv.vim'      " load and respect direnv
+Plug 'itspriddle/vim-marked'  " Marked 2 preview
+Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'} " GhostText Browser support
+
 " The tpope section
-Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
-Plug 'tpope/vim-repeat'     " Make surround repeatable with .
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-fugitive'   " Do git in vim
-Plug 'tpope/vim-rhubarb'    " Make fugitive do github
 Plug 'tpope/vim-markdown'   " Good markdown highlighting
+Plug 'tpope/vim-repeat'     " Make surround repeatable with .
+Plug 'tpope/vim-rhubarb'    " Make fugitive do github
+Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
 
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 
 " Big Lang
 Plug 'sheerun/vim-polyglot'   " Most language support
-Plug 'dougireton/vim-chef'    " Sets filetypes with chef and sets path to make `gf` work with recipes
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Better go
+Plug 'dougireton/vim-chef'    " Sets filetypes chef and makes `gf` work with recipes
+Plug 'LokiChaos/vim-tintin'   " tintin is rare to support
 Plug 'dense-analysis/ale'     " Laguage Server
 
-Plug 'blueyed/delimitMate'    " Autoadding closing braces
-Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" My special plugins
-Plug 'direnv/direnv.vim'
-Plug 'itspriddle/vim-marked'
-Plug 'LokiChaos/vim-tintin'
 call plug#end()
-
-let g:deoplete#enable_at_startup = 1
-
-
-" ==== Please do mouse
-set mouse=a
-
-
-" ==== Colorscheme
-set termguicolors
-colorscheme monokai_pro
-let g:airline_theme='base16_monokai'
-
-
-" ==== make nvim less annoyting
-set clipboard+=unnamedplus
-
-
-" ==== Persistent Undo
-" Keep undo history across sessions, by storing in file.
-" Only works all the time.
-let backupdir = expand('~/.local/share/nvim/backups')
-if !isdirectory(backupdir)
-  call mkdir(backupdir)
-endif
-set undodir=~/.local/share/nvim/backups
-set undofile
-
-
-" ==== Scrolling
-set scrolloff     =8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff =15
-set sidescroll    =1
-" Resize splits when the window is resized
-au VimResized * exe "normal! \<c-w>="
 
 
 " ==== My Cool shortcuts
 let mapleader   = ","
 
 " <F1> = Help
-
 " <F2> = Toggle line numbers
 nnoremap <F2> :set invnumber<CR>
-
 " <F3> = Toggle NerdTree
 nnoremap <F3> :NERDTreeToggle<CR>
-
 " <F4> = change directory to current file's pwd
 nnoremap <F4> :cd %:p:h<CR>:pwd<CR>
-
-" <F5> = Language Server menu
-" nnoremap <F5> <nop>
-
+" <F5> = None
 " <F6> = Refactor
-" nnoremap <silent> <F6> <nop>
-
 " <F7> = Toggle paste mode
 set pastetoggle=<F7>
-
-" <F8> = next buffer
-
+" <F8> = Next buffer
 " <F9> = None
 " nonmap <F9> <nop>
 
 " // = clears search highlight
-nnoremap <silent> // :noh<CR>
+nnoremap <silent> // :nohlsearch<CR>
 
+" XX = The oppisite of ZZ, quit all NO SAVE
 nnoremap XX :qall!<CR>
 
 " Y = copy from current character to end of line
@@ -208,8 +167,51 @@ cmap w!! w !sudo tee % >/dev/null
 command! -nargs=0 Quit :qall!
 
 
-" ==== Plug
-let g:plug_window = 'tabnew'
+" ==== My special NeoVim behaviors
+set clipboard+=unnamedplus " macOS clipboard
+set linebreak " Wrap lines at convenient points
+set list listchars=tab:→\ ,trail:∙,nbsp:+ " Display tabs and trailing spaces
+set mouse=a " Mouse Correctly in macOS
+set nowrap " Default to not wrapping
+set wildmenu " ctrl-n and ctrl-p in completion
+
+
+" ==== How do you like your whitespace?
+set shiftwidth=2
+set smartindent
+set smarttab
+set softtabstop=2
+set tabstop=2
+
+
+" ==== Colorscheme
+set termguicolors
+colorscheme monokai_pro
+let g:airline_theme='base16_monokai'
+
+
+" ==== Needed for Powerline, Airline, Lightline, etc
+set laststatus=2
+set noshowmode " Disable native mode display
+
+
+" ==== Persistent Undo
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+let backupdir = expand('~/.local/share/nvim/backups')
+if !isdirectory(backupdir)
+  call mkdir(backupdir)
+endif
+set undodir=~/.local/share/nvim/backups
+set undofile
+
+
+" ==== Scrolling
+set scrolloff     =5 "Start scrolling at 8 lines from margins
+set sidescrolloff =15
+set sidescroll    =1
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
 
 
 " ==== airline
@@ -225,10 +227,10 @@ let g:deoplete#enable_at_startup = 1
 " ==== GitGutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
-
-
-" ==== Neede for Powerline, Airline, Lightline, etc
-set laststatus=2
+" Signs almost obnoxiously bright
+highlight GitGutterAdd    guifg=#74e800 ctermfg=2
+highlight GitGutterChange guifg=#e8e800 ctermfg=3
+highlight GitGutterDelete guifg=#fc007e ctermfg=1
 
 
 " ==== vim-tmux-navigator
@@ -239,10 +241,14 @@ let g:tmux_navigator_disable_when_zoomed = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden = 1
+let NERDTreeShowBookmarks = 1
 let NERDTreeQuitOnOpen = 1
-let g:NERDTreeWinSize=20
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeWinSize = 30
+" Start NERDTree when Vim (NOT VimR) is started without file arguments
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if !has("gui_vimr") && argc() == 0 && !exists('s:std_in') | NERDTree | wincmd p | endif
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if !has("gui_vimr") && tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 
 " ==== Ripgrep
@@ -255,6 +261,13 @@ endif
 " ==== FZF fixes
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
 let g:fzf_layout = { 'up': '~30%' }
+
+
+" ==== GhostText
+augroup nvim_ghost_user_autocommands
+  au User www.reddit.com,www.stackoverflow.com set filetype=markdown
+  au User *github.com set filetype=markdown
+augroup END
 
 
 " ==== Straighten Quotes
