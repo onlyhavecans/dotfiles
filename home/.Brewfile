@@ -37,6 +37,8 @@ tap "theseal/ssh-askpass"
 brew "theseal/ssh-askpass/ssh-askpass"
 
 ## Dev Tooling
+brew "ansible"
+brew "ansible-lint"
 brew "asdf"
 brew "gh"
 brew "git"
