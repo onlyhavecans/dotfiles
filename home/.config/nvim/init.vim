@@ -28,8 +28,9 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Core functionality
-Plug 'patstockwell/vim-monokai-tasty'
+Plug 'phanviet/vim-monokai-pro'
 Plug 'vim-airline/vim-airline'        " I like being on the airline
+Plug 'vim-airline/vim-airline-themes'
 Plug 'jremmen/vim-ripgrep'            " Ripgrep's time has come
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -73,10 +74,10 @@ let g:deoplete#enable_at_startup = 1
 " ==== Please do mouse
 set mouse=a
 
+
 " ==== Colorscheme
-set background=dark
-colorscheme vim-monokai-tasty
-let g:airline_theme='monokai_tasty'
+colorscheme monokai_pro
+let g:airline_theme='base16_monokai'
 
 
 " ==== make nvim less annoyting
@@ -224,7 +225,7 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
 
 
-" ==== Powerline
+" ==== Neede for Powerline, Airline, Lightline, etc
 set laststatus=2
 
 
