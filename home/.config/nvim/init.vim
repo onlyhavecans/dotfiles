@@ -9,13 +9,13 @@ let g:python3_host_prog = glob('~/.asdf/shims/python3')
 
 
 " ==== Most ALE settings need to be loaded before plugins
-let g:ale_close_preview_on_insert = 1
-let g:ale_floating_preview = 1
-let g:ale_hover_cursor = 1
-let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
-let g:ale_list_window_size = 4
+let g:ale_floating_preview = 1
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+
+
+" ==== I use some alt plugins, again preload
+let g:polyglot_disabled = ['markdown', 'go']
 
 
 " ==== vim plug
@@ -46,6 +46,7 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-fugitive'   " Do git in vim
 Plug 'tpope/vim-rhubarb'    " Make fugitive do github
+Plug 'tpope/vim-markdown'   " Good markdown highlighting
 
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

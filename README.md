@@ -46,7 +46,7 @@ Instead of running brew upgrade manually I run my `pour` function which does a l
 
 ### ssh
 
-I included my ssh_config because I think it can be useful to others.
+I included my ssh config because I think it can be useful to others.
 
 The keys directory setup means for every host or set of hosts I log into I generate a different key!
 This means loosing a single key to a single system is not a large swath of revokes.
