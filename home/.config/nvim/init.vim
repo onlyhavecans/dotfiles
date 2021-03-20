@@ -76,7 +76,6 @@ let g:deoplete#enable_at_startup = 1
 
 
 " ==== Colorscheme
-set termguicolors
 set background=dark
 colorscheme vim-monokai-tasty
 let g:airline_theme='monokai_tasty'
