@@ -163,17 +163,16 @@ command! -nargs=0 Quit :qall!
 
 
 " ==== My special NeoVim behaviors
-set guifont=Jetbrains\ Mono:h15
 set clipboard+=unnamedplus " macOS clipboard
+set laststatus=2           " Needed for *line plugins
 set linebreak              " Wrap lines at convenient points
 set list listchars=tab:→\ ,trail:∙,nbsp:+ " Display tabs and trailing spaces
 set mouse=a         " Mouse Correctly in macOS
+set noshowmode      " mode is in the *line
 set nowrap          " Default to not wrapping
 set scrolloff=5     " Start scrolling vertically before margin
 set sidescrolloff=5 " Start scrolling horizontally before margin
 set wildmenu        " ctrl-n and ctrl-p in completion
-set laststatus=2    " Needed for *line plugins
-set noshowmode      " mode is in the *line
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
