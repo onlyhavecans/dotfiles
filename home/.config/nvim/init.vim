@@ -97,10 +97,6 @@ nnoremap <silent> // :nohlsearch<CR>
 " XX = The oppisite of ZZ, quit all NO SAVE
 nnoremap XX :qall!<CR>
 
-" Y = copy from current character to end of line
-" (mimic y0's behavior but backwards)
-noremap Y y$
-
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
@@ -153,9 +149,6 @@ nnoremap <Leader>t :tabNext<CR>
 
 " <Leader>w = Strip all whitespace (from yadr-whitespace-killer.vim)
 nnoremap <Leader>w :StripTrailingWhitespaces<CR>
-
-" <Leader>z = quick write/save
-nnoremap <Leader>z :write<CR>
 
 " <C-p> the fast file Ctrl-p from Subl
 nnoremap <C-p> :Files<CR>
