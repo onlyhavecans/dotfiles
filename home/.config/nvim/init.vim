@@ -39,7 +39,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 
 " Play better w/ tmux
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
-Plug 'wellle/tmux-complete.vim'
+Plug 'wellle/tmux-complete.vim'       " Add all of tmux to deoplete completion
 
 " General behaviors
 Plug 'jremmen/vim-ripgrep'    " Use ripgrep everywhere
@@ -60,9 +60,9 @@ Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-autocmd! User goyo.vim echom 'Goyo is now loaded!'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' } " Minimal text writing
+Plug 'junegunn/limelight.vim' " typewriter writers mode
 
 " Big Lang
 Plug 'sheerun/vim-polyglot'   " Most language support
@@ -141,7 +141,7 @@ vnoremap <Leader>q gq
 nnoremap <Leader>q gqap
 
 " <Leader>r = Reload vim config
-noremap <Leader>r :so $MYVIMRC<CR>
+noremap <Leader>r :source $MYVIMRC<CR>
 
 " <Leader>s = Search under word in my current search obsession
 noremap <Leader>s :Rg<CR>
@@ -163,15 +163,23 @@ command! -nargs=0 Quit :qall!
 
 
 " ==== My special NeoVim behaviors
+set guifont=Jetbrains\ Mono:h15
 set clipboard+=unnamedplus " macOS clipboard
-set linebreak " Wrap lines at convenient points
+set linebreak              " Wrap lines at convenient points
 set list listchars=tab:→\ ,trail:∙,nbsp:+ " Display tabs and trailing spaces
-set mouse=a " Mouse Correctly in macOS
-set nowrap " Default to not wrapping
-set wildmenu " ctrl-n and ctrl-p in completion
+set mouse=a         " Mouse Correctly in macOS
+set nowrap          " Default to not wrapping
+set scrolloff=5     " Start scrolling vertically before margin
+set sidescrolloff=5 " Start scrolling horizontally before margin
+set wildmenu        " ctrl-n and ctrl-p in completion
+set laststatus=2    " Needed for *line plugins
+set noshowmode      " mode is in the *line
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
 
 
-" ==== How do you like your whitespace?
+" How do you like your whitespace?
 set shiftwidth=2
 set smartindent
 set smarttab
@@ -179,20 +187,7 @@ set softtabstop=2
 set tabstop=2
 
 
-" ==== Colorscheme
-set termguicolors
-colorscheme monokai_pro
-let g:airline_theme='base16_monokai'
-
-
-" ==== Needed for Powerline, Airline, Lightline, etc
-set laststatus=2
-set noshowmode " Disable native mode display
-
-
-" ==== Persistent Undo
-" Keep undo history across sessions, by storing in file.
-" Only works all the time.
+" Persistent Undo, stored globally
 let backupdir = expand('~/.local/share/nvim/backups')
 if !isdirectory(backupdir)
   call mkdir(backupdir)
@@ -201,12 +196,10 @@ set undodir=~/.local/share/nvim/backups
 set undofile
 
 
-" ==== Scrolling
-set scrolloff     =5 "Start scrolling at 8 lines from margins
-set sidescrolloff =15
-set sidescroll    =1
-" Resize splits when the window is resized
-au VimResized * exe "normal! \<c-w>="
+" ==== Colorscheme
+set termguicolors
+colorscheme monokai_pro
+let g:airline_theme='base16_monokai'
 
 
 " ==== airline
@@ -219,6 +212,18 @@ let g:tmuxcomplete#trigger = ''
 let g:deoplete#enable_at_startup = 1
 
 
+" ==== FZF fixes
+let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
+let g:fzf_layout = { 'up': '~30%' }
+
+
+" ==== GhostText
+augroup nvim_ghost_user_autocommands
+  au User www.reddit.com,www.stackoverflow.com set filetype=markdown
+  au User *github.com set filetype=markdown
+augroup END
+
+
 " ==== GitGutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager    = 0
@@ -228,8 +233,10 @@ highlight GitGutterChange guifg=#e8e800 ctermfg=3
 highlight GitGutterDelete guifg=#fc007e ctermfg=1
 
 
-" ==== vim-tmux-navigator
-let g:tmux_navigator_disable_when_zoomed = 1
+" ==== GOYO & Limelight
+autocmd! User goyo.vim echom 'Goyo is now loaded!'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 
 " ==== Nerdtree
@@ -253,16 +260,8 @@ if executable("rg")
 endif
 
 
-" ==== FZF fixes
-let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
-let g:fzf_layout = { 'up': '~30%' }
-
-
-" ==== GhostText
-augroup nvim_ghost_user_autocommands
-  au User www.reddit.com,www.stackoverflow.com set filetype=markdown
-  au User *github.com set filetype=markdown
-augroup END
+" ==== vim-tmux-navigator
+let g:tmux_navigator_disable_when_zoomed = 1
 
 
 " ==== Straighten Quotes
