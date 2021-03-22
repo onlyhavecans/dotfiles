@@ -34,8 +34,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " File browsing
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 
 " Play better w/ tmux
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
@@ -53,7 +53,7 @@ Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'} " 
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-fugitive'   " Do git in vim
-Plug 'tpope/vim-markdown'   " Good markdown highlighting
+Plug 'tpope/vim-markdown', {'for': 'markdown'} " Good markdown highlighting
 Plug 'tpope/vim-repeat'     " Make surround repeatable with .
 Plug 'tpope/vim-rhubarb'    " Make fugitive do github
 Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
@@ -61,10 +61,12 @@ Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Text Alignment plugin
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+autocmd! User goyo.vim echom 'Goyo is now loaded!'
 
 " Big Lang
 Plug 'sheerun/vim-polyglot'   " Most language support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Better go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'golang', 'tag': '*'} " Better go
 Plug 'dougireton/vim-chef'    " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'   " tintin is rare to support
 Plug 'dense-analysis/ale'     " Laguage Server
