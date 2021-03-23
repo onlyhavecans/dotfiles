@@ -23,10 +23,6 @@ brew completions link # https://docs.brew.sh/Shell-Completion
 status_message "Update my asdf globals"
 asdf plugin update --all
 
-status_message "Clean up vim-plug repos to prevent errors"
-for plugin in ~/.local/share/nvim/plugged/*; do
-  git -C "$plugin" reset --quiet --hard HEAD
-done
 status_message "Update vim-plug"
 nvim +PlugUpgrade +qall
 status_message "Update all the vim-plug plugins"

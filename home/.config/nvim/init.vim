@@ -31,13 +31,8 @@ Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
   let NERDTreeShowBookmarks = 1
   let NERDTreeQuitOnOpen = 1
   let NERDTreeWinSize = 30
-    if !has("gui_vimr") " Don't force nerdtree in gui
-      " Start NERDTree. If a file is specified, move the cursor to its window.
-      autocmd StdinReadPre * let s:std_in=1
-      autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-    endif
-    " Exit Vim if NERDTree is the only window left.
-    autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+  " Exit Vim if NERDTree is the only window left.
+  autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
