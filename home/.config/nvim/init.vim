@@ -18,6 +18,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Start with the look
 Plug 'phanviet/vim-monokai-pro'
 
+" Put a status on it
 Plug 'vim-airline/vim-airline'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#ale#enabled = 1
@@ -35,13 +36,18 @@ Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
   " Exit Vim if NERDTree is the only window left.
   autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" File navigation
+Plug 'jremmen/vim-ripgrep'
+  " Search word under cursor
+  noremap <Leader>s :Rg<CR>
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   nnoremap <C-p> :Files<CR>
   let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
   let g:fzf_layout = { 'up': '~30%' }
 
-" Play better w/ tmux
+" Environment & intigrations
+Plug 'direnv/direnv.vim'   " load and respect direnv
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
   let g:tmux_navigator_disable_when_zoomed = 1
 Plug 'wellle/tmux-complete.vim'       " Add all of tmux to deoplete completion
@@ -50,6 +56,7 @@ Plug 'wellle/tmux-complete.vim'       " Add all of tmux to deoplete completion
 " Git
 Plug 'tpope/vim-fugitive'     " git commands
 Plug 'tpope/vim-rhubarb'      " Make fugitive do github
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
   noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
   let g:gitgutter_realtime = 0
@@ -58,33 +65,38 @@ Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
   highlight GitGutterAdd    guifg=#74e800 ctermfg=2
   highlight GitGutterChange guifg=#e8e800 ctermfg=3
   highlight GitGutterDelete guifg=#fc007e ctermfg=1
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 
-" Non Code editing
-Plug 'tpope/vim-markdown', {'for': 'markdown'} " Good markdown highlighting
-Plug 'itspriddle/vim-marked'  " Marked 2 preview
-Plug 'junegunn/goyo.vim' " Minimal text writing
+" Editing tools
+Plug 'mg979/vim-visual-multi' " Sublime's multi coursor w/ ^N
+Plug 'tpope/vim-eunuch'       " Unix commands as first class
+Plug 'tpope/vim-surround'     " cs\" and cs' for surrounding
+Plug 'tpope/vim-repeat'       " Make surround repeatable with .
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+  vmap <Enter> <Plug>(EasyAlign)
+  nmap <Leader>a <Plug>(EasyAlign)
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
+
+" Prose Writing
+Plug 'tpope/vim-markdown'    " Good markdown highlighting
+Plug 'itspriddle/vim-marked' " Marked 2 preview
+Plug 'junegunn/goyo.vim'     " Minimal text writing
   autocmd BufNewFile,BufRead *.md Goyo
   autocmd BufNewFile,BufRead *.txt Goyo
 Plug 'junegunn/limelight.vim' " typewriter writers mode
   autocmd! User GoyoEnter Limelight
   autocmd! User GoyoLeave Limelight!
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-  vmap <Enter> <Plug>(EasyAlign)
-  nmap <Leader>a <Plug>(EasyAlign)
-Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'} " GhostText Browser support
+
+" GhostText Browser support
+Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}
   augroup nvim_ghost_user_autocommands
     au User www.reddit.com,www.stackoverflow.com set filetype=markdown
     au User *github.com set filetype=markdown
   augroup END
 
-" Environment & intigrations
-Plug 'jremmen/vim-ripgrep' " Use ripgrep everywhere
-Plug 'direnv/direnv.vim'   " load and respect direnv
-
 " Generic code handling
-Plug 'tpope/vim-repeat'     " Make surround repeatable with .
-Plug 'tpope/vim-surround'   " cs\" and cs' for surrounding
+Plug 'rizzatti/dash.vim'    " Spawn :Dash
+  nmap <silent> <leader>d <Plug>DashSearch
 Plug 'blueyed/delimitMate'  " Auto add closing braces
 Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
@@ -97,16 +109,13 @@ Plug 'dense-analysis/ale' " Laguage Server
   let g:ale_floating_preview = 1
   let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
-
 Plug 'sheerun/vim-polyglot' " Most language support
   let g:polyglot_disabled = ['markdown', 'go']
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'golang', 'tag': '*'}
 Plug 'danihodovic/vim-ansible-vault' " Ansible Vault
-Plug 'dougireton/vim-chef'    " Sets filetypes chef and makes `gf` work with recipes
-Plug 'LokiChaos/vim-tintin'   " tintin is rare to support
+Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
+Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
 call plug#end()
 
 
@@ -137,11 +146,6 @@ nnoremap XX :qall!<CR>
 " <Leader>b = blagfix (strip curlies)
 nnoremap <Leader>b :StraightenQuotes<CR>
 
-" <Leader>d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
-" yanked stack (also, in visual mode)
-nnoremap <silent> <leader>d "_d
-xnoremap <silent> <leader>d "_d
-
 " <Leader>e = open vimrc in a split for quick editing
 nnoremap <leader>e :tabnew $MYVIMRC<cr>
 
@@ -163,14 +167,8 @@ nnoremap <Leader>q gqap
 " <Leader>r = Reload vim config
 noremap <Leader>r :source $MYVIMRC<CR>
 
-" <Leader>s = Search under word in my current search obsession
-noremap <Leader>s :Rg<CR>
-
 " <Leader>t = TabNext
 nnoremap <Leader>t :tabNext<CR>
-
-" <Leader>w = Strip all whitespace
-nnoremap <Leader>w :StripTrailingWhitespaces<CR>
 
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -246,21 +244,6 @@ function! <SID>StraightenQuotes()
     call cursor(l, c)
 endfunction
 command! StraightenQuotes call <SID>StraightenQuotes()
-
-" ==== Strip trailing whitespace
-" http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
-function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
 
 " ==== Super wrapping power
 " http://vimcasts.org/episodes/soft-wrapping-text/
