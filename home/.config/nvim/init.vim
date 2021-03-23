@@ -67,6 +67,7 @@ Plug 'junegunn/limelight.vim' " typewriter writers mode
 " Big Lang
 Plug 'sheerun/vim-polyglot'   " Most language support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'golang', 'tag': '*'} " Better go
+Plug 'danihodovic/vim-ansible-vault' " Ansible Vault
 Plug 'dougireton/vim-chef'    " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'   " tintin is rare to support
 Plug 'dense-analysis/ale'     " Laguage Server
