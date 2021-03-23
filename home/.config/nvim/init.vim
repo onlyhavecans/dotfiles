@@ -63,7 +63,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 " Non Code editing
 Plug 'tpope/vim-markdown', {'for': 'markdown'} " Good markdown highlighting
 Plug 'itspriddle/vim-marked'  " Marked 2 preview
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' } " Minimal text writing
+Plug 'junegunn/goyo.vim' " Minimal text writing
   autocmd BufNewFile,BufRead *.md Goyo
   autocmd BufNewFile,BufRead *.txt Goyo
 Plug 'junegunn/limelight.vim' " typewriter writers mode
