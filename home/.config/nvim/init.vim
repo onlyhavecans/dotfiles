@@ -38,6 +38,7 @@ Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
     endif
     " Exit Vim if NERDTree is the only window left.
     autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   nnoremap <C-p> :Files<CR>
