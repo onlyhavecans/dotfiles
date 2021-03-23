@@ -17,6 +17,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Start with the look
 Plug 'phanviet/vim-monokai-pro'
+
 Plug 'vim-airline/vim-airline'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#ale#enabled = 1
@@ -89,16 +90,19 @@ Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   vnoremap <Leader>c :Commentary<CR>
   nnoremap <Leader>c :Commentary<CR>
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
 
 " Big Lang
 Plug 'dense-analysis/ale' " Laguage Server
   let g:ale_fix_on_save = 1
   let g:ale_floating_preview = 1
   let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
+
 Plug 'sheerun/vim-polyglot' " Most language support
   let g:polyglot_disabled = ['markdown', 'go']
+
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'golang', 'tag': '*'}
 Plug 'danihodovic/vim-ansible-vault' " Ansible Vault
 Plug 'dougireton/vim-chef'    " Sets filetypes chef and makes `gf` work with recipes
@@ -257,7 +261,6 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
-
 
 " ==== Super wrapping power
 " http://vimcasts.org/episodes/soft-wrapping-text/
