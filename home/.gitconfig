@@ -26,12 +26,14 @@
 	ap = add --patch
 	br = branch
 	c = commit --signoff --verbose
+	cm = commit --signoff --message
 	commit = commit --signoff
 	pl = pull
 	ps = push
 	s = status
 	st = status
 	sw = switch
+	swc = switch -C
 	pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git switch pr-$1; }; f"
 	sm = "!f() { git switch main && git pull origin main --prune; }; f"
 	wipe = "!f() { git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D; }; f"
