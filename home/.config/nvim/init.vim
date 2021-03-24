@@ -31,7 +31,6 @@ Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
   let NERDTreeShowBookmarks = 1
-  let NERDTreeQuitOnOpen = 1
   let NERDTreeWinSize = 30
   " Exit Vim if NERDTree is the only window left.
   autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -103,18 +102,18 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   nnoremap <Leader>c :Commentary<CR>
 
 " Big Lang
+Plug 'fatih/vim-go'                  " Big Go
+Plug 'danihodovic/vim-ansible-vault' " Ansible Vault
+Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
+Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
+Plug 'sheerun/vim-polyglot'          " Most language support
+  let g:polyglot_disabled = ['markdown', 'go']
+
 Plug 'dense-analysis/ale' " Laguage Server
   let g:ale_fix_on_save = 1
   let g:ale_floating_preview = 1
   let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 
-Plug 'sheerun/vim-polyglot' " Most language support
-  let g:polyglot_disabled = ['markdown', 'go']
-
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*'}
-Plug 'danihodovic/vim-ansible-vault' " Ansible Vault
-Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
-Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
 call plug#end()
 
 
