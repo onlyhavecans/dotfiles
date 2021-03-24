@@ -82,7 +82,6 @@ Plug 'tpope/vim-markdown'    " Good markdown highlighting
 Plug 'itspriddle/vim-marked' " Marked 2 preview
 Plug 'junegunn/goyo.vim'     " Minimal text writing
   autocmd BufNewFile,BufRead *.md Goyo
-  autocmd BufNewFile,BufRead *.txt Goyo
 Plug 'junegunn/limelight.vim' " typewriter writers mode
   autocmd! User GoyoEnter Limelight
   autocmd! User GoyoLeave Limelight!
@@ -112,7 +111,7 @@ Plug 'dense-analysis/ale' " Laguage Server
 Plug 'sheerun/vim-polyglot' " Most language support
   let g:polyglot_disabled = ['markdown', 'go']
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'golang', 'tag': '*'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*'}
 Plug 'danihodovic/vim-ansible-vault' " Ansible Vault
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
