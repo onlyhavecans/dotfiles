@@ -63,13 +63,7 @@ alias cek="chef exec knife"
 
 alias cl=clear
 
-alias s="git status"
-alias gc="git commit --signoff --verbose"
-alias gad="git add --all"
-alias gap="git add --patch"
-alias gpl="git pull"
-alias gps="git push"
-alias gsm="git switch main && git pull origin main --prune"
+alias g=git
 
 alias sp="subl *.sublime-project"
 

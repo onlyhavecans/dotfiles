@@ -22,15 +22,19 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [alias]
-	commit = commit -s
-	prgithub = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
-	prstash = "!f() { git fetch $1 refs/pull-requests/$2/from:$3;  } ; f"
-	co = checkout
+	ad = add --all
+	ap = add --patch
 	br = branch
+	c = commit --signoff --verbose
+	commit = commit --signoff
+	pl = pull
+	ps = push
+	s = status
 	st = status
-	sm = !git switch main && git pull origin main --prune
-	nuke = !git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D
-	rmb = "!f() { git fetch -p && git branch -vv | awk '/: gone]/ {print $1}' | xargs git branch -D; }; f"
+	sw = switch
+	pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git switch pr-$1; }; f"
+	sm = "!f() { git switch main && git pull origin main --prune; }; f"
+	wipe = "!f() { git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D; }; f"
 
 #Silly tools fight for config down here
 [hub]
