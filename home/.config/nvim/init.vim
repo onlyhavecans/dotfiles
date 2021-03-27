@@ -77,10 +77,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
 
 " Prose Writing
-Plug 'tpope/vim-markdown'    " Good markdown highlighting
-Plug 'itspriddle/vim-marked' " Marked 2 preview
-Plug 'junegunn/goyo.vim'     " Minimal text writing
-  autocmd BufNewFile,BufRead *.md Goyo
+Plug 'tpope/vim-markdown'     " Good markdown highlighting
+Plug 'itspriddle/vim-marked'  " Marked 2 preview
+Plug 'junegunn/goyo.vim'      " Minimal text writing
+  nmap <Leader>m :Goyo<CR>
 Plug 'junegunn/limelight.vim' " typewriter writers mode
   autocmd! User GoyoEnter Limelight
   autocmd! User GoyoLeave Limelight!
@@ -102,8 +102,8 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   nnoremap <Leader>c :Commentary<CR>
 
 " Big Lang
-Plug 'fatih/vim-go'                  " Big Go
-Plug 'danihodovic/vim-ansible-vault' " Ansible Vault
+Plug 'fatih/vim-go'                  " I write too much go
+Plug 'danihodovic/vim-ansible-vault' " Vault decryopt support
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
 Plug 'sheerun/vim-polyglot'          " Most language support
