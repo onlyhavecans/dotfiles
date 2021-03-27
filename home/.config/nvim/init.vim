@@ -33,7 +33,7 @@ Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
   let NERDTreeShowBookmarks = 1
   let NERDTreeWinSize = 30
   " Exit Vim if NERDTree is the only window left.
-  autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+  autocmd BufEnter * if !has("gui_vimr") && tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " File navigation
 Plug 'jremmen/vim-ripgrep'
