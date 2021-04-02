@@ -115,6 +115,7 @@ Plug 'dense-analysis/ale' " Laguage Server
   let g:ale_floating_preview = 1
   let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 
+Plug 'andrewstuart/vim-kubernetes' " gives KubeApply and KubeDelete
 call plug#end()
 
 

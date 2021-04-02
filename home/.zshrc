@@ -63,7 +63,7 @@ alias cek="chef exec knife"
 
 alias cl=clear
 
-alias g=git
+alias G=git
 
 alias sp="subl *.sublime-project"
 
