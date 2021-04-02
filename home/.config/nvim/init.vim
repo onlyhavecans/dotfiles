@@ -46,6 +46,7 @@ Plug 'junegunn/fzf.vim'
   let g:fzf_layout = { 'up': '~30%' }
 
 " Environment & intigrations
+Plug 'tpope/vim-obsession'
 Plug 'direnv/direnv.vim'   " load and respect direnv
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
   let g:tmux_navigator_disable_when_zoomed = 1
