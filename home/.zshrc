@@ -2,8 +2,9 @@
 #shellcheck disable=SC1090,SC1091
 
 # Path Stuff
-[ -d "$HOME/bin" ]    && path+=("$HOME/bin")
-[ -d "$HOME/go/bin" ] && path+=("$HOME/go/bin")
+[ -d "$HOME/bin" ]        && path+=("$HOME/bin")
+[ -d "$HOME/go/bin" ]     && path+=("$HOME/go/bin")
+[ -d "$HOME/.cargo/bin" ] && path+=("$HOME/.cargo/bin")
 export PATH
 
 
