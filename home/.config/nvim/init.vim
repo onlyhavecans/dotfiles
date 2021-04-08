@@ -86,13 +86,6 @@ Plug 'junegunn/limelight.vim' " typewriter writers mode
   autocmd! User GoyoEnter Limelight
   autocmd! User GoyoLeave Limelight!
 
-" GhostText Browser support
-Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}
-  augroup nvim_ghost_user_autocommands
-    au User www.reddit.com,www.stackoverflow.com set filetype=markdown
-    au User *github.com set filetype=markdown
-  augroup END
-
 " Generic code handling
 Plug 'rizzatti/dash.vim'    " Spawn :Dash
   nmap <silent> <leader>d <Plug>DashSearch
