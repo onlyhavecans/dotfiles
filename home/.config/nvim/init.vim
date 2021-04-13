@@ -97,7 +97,7 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 
 " Big Lang
 Plug 'fatih/vim-go'                  " I write too much go
-Plug 'danihodovic/vim-ansible-vault' " Vault decryopt support
+Plug 'danihodovic/vim-ansible-vault' " Vault decrypt support
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
 Plug 'sheerun/vim-polyglot'          " Most language support
