@@ -206,11 +206,6 @@ endif
 " AutoCommands
 " =====================================
 
-" Save on focus lost as well
-augroup AutoWrite
-    autocmd! BufLeave * :update
-augroup END
-
 " Auto-resize splits when Vim gets resized.
 autocmd VimResized * wincmd =
 
