@@ -67,10 +67,12 @@ Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
   highlight GitGutterDelete guifg=#fc007e ctermfg=1
 
 " Editing tools
-Plug 'mg979/vim-visual-multi' " Sublime's multi coursor w/ ^N
-Plug 'tpope/vim-eunuch'       " Unix commands as first class
-Plug 'tpope/vim-surround'     " cs\" and cs' for surrounding
-Plug 'tpope/vim-repeat'       " Make surround repeatable with .
+Plug 'kana/vim-textobj-user'   " needed for below
+Plug 'kana/vim-textobj-entire' " ae and ie for entire file movement
+Plug 'mg979/vim-visual-multi'  " Sublime's multi coursor w/ ^N
+Plug 'tpope/vim-eunuch'        " Unix commands as first class
+Plug 'tpope/vim-surround'      " cs\" and cs' for surrounding
+Plug 'tpope/vim-repeat'        " Make surround repeatable with .
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
   vmap <Enter> <Plug>(EasyAlign)
   nmap <Leader>a <Plug>(EasyAlign)
