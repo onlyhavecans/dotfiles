@@ -25,9 +25,6 @@ asdf plugin update --all
 
 status_message "Update vim-plug"
 nvim +PlugUpgrade +qall
-status_message "Update all the vim-plug plugins"
-nvim +PlugUpdate +qall
-nvim +UpdateRemotePlugins +qall
 
 if [[ -x "${HOME}/.tmux/plugins/tpm/bin/update_plugins" ]]; then
   status_message Update and clean tmux plugins
