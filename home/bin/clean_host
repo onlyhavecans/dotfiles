@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
 
+# Allow for clean_host !!
+if [[ $1 == "ssh" ]]; then
+  shift
+fi
+
 if (( $# != 1 )); then
   >&2 echo "Only pass one domain name"
   exit 1
 fi
 
 ssh-keygen -R "$*"
-ssh-keygen -R "$(dig +short "$*" | tail -n 1)"
+
+A_RECORDS=$(dig +short A  -q "$*" | tail -n 1)
+AAAA_RECORDS=$(dig +short AAAA -q "$*" | tail -n 1)
+
+for i in $A_RECORDS $AAAA_RECORDS; do
+  ssh-keygen -R "$i"
+done
