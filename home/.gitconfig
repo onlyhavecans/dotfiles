@@ -30,6 +30,7 @@
 	commit = commit --signoff
 	pl = pull
 	ps = push
+	review = log --oneline
 	s = status
 	st = status
 	sw = switch
