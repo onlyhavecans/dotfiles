@@ -14,10 +14,11 @@ fpath+=("$HOME/.homesick/repos/homeshick/completions")
 
 
 # asdf-vm
-if [ -f /usr/local/opt/asdf/asdf.sh ]; then
-  source "/usr/local/opt/asdf/asdf.sh"
-  # For asdf-erlang
+if [ -f $HOME/.asdf/asdf.sh ]; then
+  source "$HOME/.asdf/asdf.sh"
+  fpath+=("${ASDF_DIR}/completions")
   export KERL_CONFIGURE_OPTIONS=--without-javac
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 fi
 
 

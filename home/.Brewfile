@@ -39,7 +39,7 @@ brew "theseal/ssh-askpass/ssh-askpass"
 ## Dev Tooling
 brew "ansible"
 brew "ansible-lint"
-brew "asdf"
+brew "erlang"
 brew "gh"
 brew "git"
 brew "git-lfs"
@@ -49,6 +49,7 @@ brew "hub"
 brew "hugo"
 brew "jq"
 brew "overmind"
+brew "rebar3"
 brew "shellcheck"
 
 tap "heroku/brew"
@@ -64,7 +65,6 @@ brew "dive"
 # FireFox
 # iTerm
 # JetBrains Toolbox
-# SublimeText
 # SublimeMerge
 # Slack
 
