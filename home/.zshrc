@@ -2,11 +2,10 @@
 #shellcheck disable=SC1090,SC1091
 
 # Path Stuff
-[ -d "$HOME/bin" ]        && path+=("$HOME/bin")
-[ -d "$HOME/go/bin" ]     && path+=("$HOME/go/bin")
-[ -d "$HOME/.cargo/bin" ] && path+=("$HOME/.cargo/bin")
-export PATH
-
+path=(/usr/local/bin /usr/local/sbin $path)
+[ -d "$HOME/.cargo/bin" ] && path=("$HOME/.cargo/bin" $path)
+[ -d "$HOME/go/bin" ]     && path=("$HOME/go/bin" $path)
+[ -d "$HOME/bin" ]        && path=("$HOME/bin" $path)
 
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -18,7 +17,7 @@ if [ -f $HOME/.asdf/asdf.sh ]; then
   source "$HOME/.asdf/asdf.sh"
   fpath+=("${ASDF_DIR}/completions")
   export KERL_CONFIGURE_OPTIONS=--without-javac
-  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 fi
 
 

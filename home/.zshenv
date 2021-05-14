@@ -2,7 +2,7 @@
 typeset -U path
 
 # Mosh is stored here and needed before interactive
-path+=(/usr/local/bin /usr/local/sbin)
+path=(/usr/local/bin /usr/local/sbin $path)
 
 # Mosh Server settings are needed at init
 if builtin whence mosh-server &> /dev/null; then
