@@ -117,7 +117,7 @@ Plug 'sheerun/vim-polyglot'          " Most language support
 Plug 'dense-analysis/ale' " Laguage Server
   let g:ale_fix_on_save = 1
   let g:ale_floating_preview = 1
-  let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+  let g:ale_fixers = {'*': ['remove_trailing_lines']}
 
 Plug 'andrewstuart/vim-kubernetes' " gives KubeApply and KubeDelete
 call plug#end()
@@ -223,6 +223,8 @@ autocmd VimResized * wincmd =
 " Update a buffer's contents on focus if it changed outside of Vim.
 au FocusGained,BufEnter * :checktime
 
+" Strip Whitespace on write
+autocmd BufWritePre * %s/\s\+$//e
 
 " =====================================
 " My Functions
