@@ -1,4 +1,8 @@
+let g:loaded_python_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
 let g:python3_host_prog = '/usr/local/bin/python3'
+let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 
 let mapleader   = ","
 
@@ -46,7 +50,7 @@ Plug 'junegunn/fzf.vim'
 
 " Environment & intigrations
 Plug 'tpope/vim-obsession'
-Plug 'direnv/direnv.vim'   " load and respect direnv
+Plug 'direnv/direnv.vim'              " load and respect direnv
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
   let g:tmux_navigator_disable_when_zoomed = 1
 Plug 'wellle/tmux-complete.vim'       " Add all of tmux to deoplete completion
@@ -98,6 +102,12 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 
 " Big Lang
 Plug 'fatih/vim-go'                  " I write too much go
+  " don't jump to errors after metalinter is invoked
+  let g:go_jump_to_error = 0
+  " run go imports on file save
+  let g:go_fmt_command = "goimports"
+  " automatically highlight variable your cursor is on
+  let g:go_auto_sameids = 0
 Plug 'danihodovic/vim-ansible-vault' " Vault decrypt support
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
