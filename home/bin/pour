@@ -21,6 +21,7 @@ brew bundle install --global
 brew completions link # https://docs.brew.sh/Shell-Completion
 
 status_message "Update my asdf globals"
+asdf update
 asdf plugin update --all
 
 status_message "Update vim-plug"
