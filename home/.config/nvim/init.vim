@@ -83,7 +83,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
 
 " Prose Writing
-Plug 'tpope/vim-markdown'     " Good markdown highlighting
 Plug 'itspriddle/vim-marked'  " Marked 2 preview
 Plug 'junegunn/goyo.vim'      " Minimal text writing
   nmap <Leader>m :Goyo<CR>
@@ -208,10 +207,9 @@ set softtabstop=2
 set tabstop=2
 
 if executable("rg")
-    set grepprg=rg\ --vimgrep\ --no-heading
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-
 
 " =====================================
 " AutoCommands
