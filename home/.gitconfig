@@ -23,6 +23,7 @@
 	insteadOf = https://github.com/
 [alias]
 	ad = add --all
+	al = config --get-regexp alias
 	ap = add --patch
 	br = branch
 	c = commit --signoff --verbose
