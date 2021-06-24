@@ -173,6 +173,9 @@ noremap <Leader>r :source $MYVIMRC<CR>
 " <Leader>t = TabNext
 nnoremap <Leader>t :tabNext<CR>
 
+" <Leader>w = Strip all whitespace
+nnoremap <Leader>w :StripTrailingWhitespaces<CR>
+
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
 
@@ -243,6 +246,22 @@ function! <SID>StraightenQuotes()
     call cursor(l, c)
 endfunction
 command! StraightenQuotes call <SID>StraightenQuotes()
+
+" ==== Strip trailing whitespace
+" http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
 
 " ==== Super wrapping power
 " http://vimcasts.org/episodes/soft-wrapping-text/
