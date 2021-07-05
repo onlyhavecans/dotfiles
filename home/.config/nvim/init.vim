@@ -260,17 +260,20 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-
 command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
 
 " ==== Super wrapping power
 " http://vimcasts.org/episodes/soft-wrapping-text/
-function! SetupWrapping()
+function! <SID>SetupWrapping()
   set wrap linebreak nolist
   set showbreak=…
 endfunction
-command! -nargs=* Wrap :call SetupWrapping()
+command! Wrap call <SID>SetupWrapping()
 
+function! <SID>TitleCase()
+  '<,'>s#\v(\w)(\S*)#\u\1\L\2#g
+endfunction
+command! -range TitleCase call <SID>TitleCase()
 
 " =====================================
 " Source plugin specific setting
