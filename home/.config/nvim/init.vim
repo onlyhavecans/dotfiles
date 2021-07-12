@@ -53,8 +53,6 @@ Plug 'tpope/vim-obsession'
 Plug 'direnv/direnv.vim'              " load and respect direnv
 Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
   let g:tmux_navigator_disable_when_zoomed = 1
-Plug 'wellle/tmux-complete.vim'       " Add all of tmux to deoplete completion
-  let g:tmuxcomplete#trigger = ''     " Use deoplete
 
 " Git
 Plug 'tpope/vim-fugitive'     " git commands
@@ -79,8 +77,6 @@ Plug 'tpope/vim-repeat'        " Make surround repeatable with .
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
   vmap <Enter> <Plug>(EasyAlign)
   nmap <Leader>a <Plug>(EasyAlign)
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
 
 " Prose Writing
 Plug 'itspriddle/vim-marked'  " Marked 2 preview
@@ -110,6 +106,7 @@ Plug 'fatih/vim-go'                  " I write too much go
 Plug 'danihodovic/vim-ansible-vault' " Vault decrypt support
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
+Plug 'andrewstuart/vim-kubernetes'   " gives KubeApply and KubeDelete
 Plug 'sheerun/vim-polyglot'          " Most language support
   let g:polyglot_disabled = ['markdown', 'go']
 
@@ -118,9 +115,59 @@ Plug 'dense-analysis/ale' " Laguage Server
   let g:ale_floating_preview = 1
   let g:ale_fixers = {'*': ['remove_trailing_lines']}
 
-Plug 'andrewstuart/vim-kubernetes' " gives KubeApply and KubeDelete
-call plug#end()
+" The complete popup
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'andreypopp/asyncomplete-ale.vim'
+  au User asyncomplete_setup call asyncomplete#ale#register_source({
+      \ 'name': 'reason',
+      \ 'linter': 'flow',
+      \ })
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+  au User asyncomplete_setup call asyncomplete#register_source({
+      \ 'name': 'buffer',
+      \ 'allowlist': ['*'],
+      \ 'blocklist': ['go'],
+      \ 'completor': function('asyncomplete#sources#buffer#completor'),
+      \ })
+Plug 'htlsne/asyncomplete-look'
+  au User asyncomplete_setup call asyncomplete#register_source({
+      \ 'name': 'look',
+      \ 'allowlist': ['text', 'markdown'],
+      \ 'completor': function('asyncomplete#sources#look#completor'),
+      \ })
+Plug 'prabirshrestha/asyncomplete-file.vim'
+  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+      \ 'name': 'file',
+      \ 'allowlist': ['*'],
+      \ 'priority': 10,
+      \ 'completor': function('asyncomplete#sources#file#completor')
+      \ }))
+Plug 'wellle/tmux-complete.vim'
+  let g:tmuxcomplete#asyncomplete_source_options = {
+      \ 'name':      'tmuxcomplete',
+      \ 'whitelist': ['*'],
+      \ 'config': {
+      \     'splitmode':      'words',
+      \     'filter_prefix':   1,
+      \     'show_incomplete': 1,
+      \     'sort_candidates': 0,
+      \     'scrollback':      0,
+      \     'truncate':        0
+      \     }
+      \ }
+Plug 'yami-beta/asyncomplete-omni.vim'
+  autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+      \ 'name': 'omni',
+      \ 'allowlist': ['*'],
+      \ 'blocklist': ['c', 'cpp', 'html'],
+      \ 'completor': function('asyncomplete#sources#omni#completor'),
+      \ 'config': {
+      \   'show_source_kind': 1,
+      \ },
+      \ }))
 
+call plug#end()
 
 " =====================================
 " Cool shortcuts
