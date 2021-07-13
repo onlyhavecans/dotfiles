@@ -29,13 +29,8 @@ fi
 
 
 # Vagrant
-if builtin whence vagrant &> /dev/null; then
-  if builtin whence vmrun &> /dev/null; then
-    VAGRANT_DEFAULT_PROVIDER=vmware_fusion
-  else
-    VAGRANT_DEFAULT_PROVIDER=virtualbox
-  fi
-  export VAGRANT_DEFAULT_PROVIDER
+if builtin whence vmrun &> /dev/null; then
+  export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 fi
 
 
@@ -65,8 +60,6 @@ alias cek="chef exec knife"
 alias cl=clear
 
 alias G=git
-
-alias sp="subl *.sublime-project"
 
 alias tm="tmux attach -c ~ || tmux"
 alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"

@@ -123,13 +123,6 @@ Plug 'andreypopp/asyncomplete-ale.vim'
       \ 'name': 'reason',
       \ 'linter': 'flow',
       \ })
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-  au User asyncomplete_setup call asyncomplete#register_source({
-      \ 'name': 'buffer',
-      \ 'allowlist': ['*'],
-      \ 'blocklist': ['go'],
-      \ 'completor': function('asyncomplete#sources#buffer#completor'),
-      \ })
 Plug 'htlsne/asyncomplete-look'
   au User asyncomplete_setup call asyncomplete#register_source({
       \ 'name': 'look',
