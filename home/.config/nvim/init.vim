@@ -219,9 +219,6 @@ nnoremap <Leader>w :StripTrailingWhitespaces<CR>
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
 
-" :Q = quit all fast
-command! -nargs=0 Quit :qall!
-
 
 " =====================================
 " My special NeoVim behaviors
