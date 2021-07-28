@@ -115,51 +115,6 @@ Plug 'dense-analysis/ale' " Laguage Server
   let g:ale_floating_preview = 1
   let g:ale_fixers = {'*': ['remove_trailing_lines']}
 
-" The complete popup
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'andreypopp/asyncomplete-ale.vim'
-  au User asyncomplete_setup call asyncomplete#ale#register_source({
-      \ 'name': 'reason',
-      \ 'linter': 'flow',
-      \ })
-Plug 'htlsne/asyncomplete-look'
-  au User asyncomplete_setup call asyncomplete#register_source({
-      \ 'name': 'look',
-      \ 'allowlist': ['text', 'markdown'],
-      \ 'completor': function('asyncomplete#sources#look#completor'),
-      \ })
-Plug 'prabirshrestha/asyncomplete-file.vim'
-  au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-      \ 'name': 'file',
-      \ 'allowlist': ['*'],
-      \ 'priority': 10,
-      \ 'completor': function('asyncomplete#sources#file#completor')
-      \ }))
-Plug 'wellle/tmux-complete.vim'
-  let g:tmuxcomplete#asyncomplete_source_options = {
-      \ 'name':      'tmuxcomplete',
-      \ 'whitelist': ['*'],
-      \ 'config': {
-      \     'splitmode':      'words',
-      \     'filter_prefix':   1,
-      \     'show_incomplete': 1,
-      \     'sort_candidates': 0,
-      \     'scrollback':      0,
-      \     'truncate':        0
-      \     }
-      \ }
-Plug 'yami-beta/asyncomplete-omni.vim'
-  autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-      \ 'name': 'omni',
-      \ 'allowlist': ['*'],
-      \ 'blocklist': ['c', 'cpp', 'html'],
-      \ 'completor': function('asyncomplete#sources#omni#completor'),
-      \ 'config': {
-      \   'show_source_kind': 1,
-      \ },
-      \ }))
-
 call plug#end()
 
 " =====================================
