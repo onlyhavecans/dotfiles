@@ -1,15 +1,17 @@
 ---
 extends: default
-rules:
-  document-start: false
-  line-length:
-    max: 256
-    level: warning
+
 yaml-files:
   - '*.yaml'
   - '*.yaml.erb'
   - '*.yml'
   - '*.yml.erb'
   - '.yamllint'
+
+rules:
+  document-start: false
+  line-length:
+    max: 256
+    level: warning
 
 # vim: ft=yaml
