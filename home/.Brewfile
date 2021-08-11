@@ -51,6 +51,7 @@ brew "jq"
 brew "overmind"
 brew "rebar3"
 brew "shellcheck"
+brew "yamllint"
 
 tap "heroku/brew"
 brew "heroku/brew/heroku"
