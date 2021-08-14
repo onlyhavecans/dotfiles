@@ -6,4 +6,4 @@ fd --hidden --follow --type l  \
 --exclude Code \
 --exclude Library \
 . ~ \
---exec rm {}
+--exec rm -v {}
