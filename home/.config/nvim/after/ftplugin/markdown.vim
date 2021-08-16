@@ -1,1 +1,2 @@
+set expandtab
 Wrap
