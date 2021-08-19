@@ -28,12 +28,6 @@ if builtin whence direnv &> /dev/null; then
 fi
 
 
-# Vagrant
-if builtin whence vmrun &> /dev/null; then
-  export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
-fi
-
-
 ## Replace a few commands
 if builtin whence nvim &> /dev/null; then
   alias vim=nvim
