@@ -178,7 +178,7 @@ cmap w!! w !sudo tee % >/dev/null
 " =====================================
 " My special NeoVim behaviors
 " =====================================
-set termguicolors
+" set termguicolors
 colorscheme monokai_pro
 
 set list listchars=tab:→\ ,trail:∙,nbsp:+ " Display tabs and trailing spaces
