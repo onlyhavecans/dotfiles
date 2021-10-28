@@ -200,6 +200,7 @@ set smartindent
 set smarttab
 set softtabstop=2
 set tabstop=2
+set expandtab
 
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading
