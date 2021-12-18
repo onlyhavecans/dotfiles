@@ -28,16 +28,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
   let g:airline_theme='base16_monokai'
 
-" File browsing
-Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
-  nnoremap <Leader>n :NERDTreeToggle<Enter>
-  let NERDTreeMinimalUI = 1
-  let NERDTreeDirArrows = 1
-  let NERDTreeShowBookmarks = 1
-  let NERDTreeWinSize = 30
-  " Exit Vim if NERDTree is the only window left.
-  autocmd BufEnter * if !has("gui_vimr") && tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
 " File navigation
 Plug 'jremmen/vim-ripgrep'
   " Search word under cursor
@@ -57,7 +47,6 @@ Plug 'christoomey/vim-tmux-navigator' " Seamless vim & tmux nav with C-hjkl
 " Git
 Plug 'tpope/vim-fugitive'     " git commands
 Plug 'tpope/vim-rhubarb'      " Make fugitive do github
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
   noremap <Leader>h :GitGutterLineHighlightsToggle<CR>
   let g:gitgutter_realtime = 0
@@ -80,11 +69,6 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " Prose Writing
 Plug 'itspriddle/vim-marked'  " Marked 2 preview
-Plug 'junegunn/goyo.vim'      " Minimal text writing
-  nmap <Leader>m :Goyo<CR>
-Plug 'junegunn/limelight.vim' " typewriter writers mode
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
 
 " Generic code handling
 Plug 'rizzatti/dash.vim'    " Spawn :Dash
@@ -96,24 +80,10 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   nnoremap <Leader>c :Commentary<CR>
 
 " Big Lang
-Plug 'fatih/vim-go'                  " I write too much go
-  " don't jump to errors after metalinter is invoked
-  let g:go_jump_to_error = 0
-  " run go imports on file save
-  let g:go_fmt_command = "goimports"
-  " automatically highlight variable your cursor is on
-  let g:go_auto_sameids = 0
 Plug 'danihodovic/vim-ansible-vault' " Vault decrypt support
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
-Plug 'andrewstuart/vim-kubernetes'   " gives KubeApply and KubeDelete
 Plug 'sheerun/vim-polyglot'          " Most language support
-  let g:polyglot_disabled = ['markdown', 'go']
-
-Plug 'dense-analysis/ale' " Laguage Server
-  let g:ale_fix_on_save = 1
-  let g:ale_floating_preview = 1
-  let g:ale_fixers = {'*': ['remove_trailing_lines']}
 
 call plug#end()
 
@@ -124,7 +94,6 @@ call plug#end()
 " <F2> = Toggle line numbers
 nnoremap <F2> :set invnumber<CR>
 " <F3> = Toggle NerdTree
-nnoremap <F3> :NERDTreeToggle<CR>
 " <F4> = change directory to current file's pwd
 nnoremap <F4> :cd %:p:h<CR>:pwd<CR>
 " <F5> = None

@@ -7,6 +7,9 @@ path=(/usr/local/bin /usr/local/sbin $path)
 [ -d "$HOME/go/bin" ]     && path=("$HOME/go/bin" $path)
 [ -d "$HOME/bin" ]        && path=("$HOME/bin" $path)
 
+[ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ] && \
+  path=($path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin")
+
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath+=("$HOME/.homesick/repos/homeshick/completions")
