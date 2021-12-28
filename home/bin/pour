@@ -24,6 +24,11 @@ status_message "Update my asdf globals"
 asdf update
 asdf plugin update --all
 
+if [[ -x "${HOME}/.cargo/bin/rustup" ]]; then
+  status_message "Update rust"
+  "${HOME}/.cargo/bin/rustup" update
+fi
+
 status_message "Update vim-plug"
 nvim +PlugUpgrade +qall
 
