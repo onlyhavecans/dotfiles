@@ -2,11 +2,6 @@
 #shellcheck disable=SC1090,SC1091
 
 # Path Stuff
-path=(/usr/local/bin /usr/local/sbin $path)
-[ -d "$HOME/.cargo/bin" ] && path=("$HOME/.cargo/bin" $path)
-[ -d "$HOME/go/bin" ]     && path=("$HOME/go/bin" $path)
-[ -d "$HOME/bin" ]        && path=("$HOME/bin" $path)
-
 [ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ] && \
   path=($path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin")
 
