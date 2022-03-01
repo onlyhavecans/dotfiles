@@ -3,5 +3,5 @@
   "first-line-h1": false,
   "line-length": false,
   "no-emphasis-as-header": false,
-  "no-inline-html": false,
+  "no-inline-html": false
 }

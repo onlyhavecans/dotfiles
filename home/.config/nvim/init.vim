@@ -72,6 +72,10 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " Prose Writing
 Plug 'itspriddle/vim-marked'  " Marked 2 preview
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+  let g:vim_markdown_frontmatter = 1
+  let g:vim_markdown_new_list_item_indent = 2
 
 " Generic code handling
 Plug 'rizzatti/dash.vim'    " Spawn :Dash
@@ -82,6 +86,13 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   vnoremap <Leader>c :Commentary<CR>
   nnoremap <Leader>c :Commentary<CR>
 Plug 'vim-syntastic/syntastic' " The everything syntax checker
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  " Use markdownlint-cli
+  let g:syntastic_markdown_mdl_exec = "markdownlint"
+  let g:syntastic_markdown_mdl_args = ""
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
   " c-space to trigger completion
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -114,7 +125,6 @@ Plug 'danihodovic/vim-ansible-vault' " Vault decrypt support
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
 Plug 'sheerun/vim-polyglot'          " Most language support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Force go
 Plug 'rust-lang/rust.vim'            " Force rust
   let g:rustfmt_autosave = 1
 
@@ -191,7 +201,6 @@ set mouse=a                " Mouse Correctly in macOS
 set noshowmode             " mode is in the *line
 set nowrap                 " Default to not wrapping
 set scrolloff=5            " Start scrolling vertically before margin
-set sidescrolloff=5        " Start scrolling horizontally before margin
 set wildmenu               " ctrl-n and ctrl-p in completion
 set undofile               " Persistent Undo, stored globally
 set autowrite              " Save on buffer switch
@@ -226,8 +235,8 @@ au FocusGained,BufEnter * :checktime
 " Strip Whitespace on write
 autocmd BufWritePre * %s/\s\+$//e
 
-" Highlight what I yank for 150 seconds
-au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}
+" Highlight what I yank for 3 seconds
+au TextYankPost * silent! lua vim.highlight.on_yank {timeout=3000}
 
 " =====================================
 " My Functions
