@@ -57,12 +57,15 @@ Plug 'airblade/vim-gitgutter' " Shows edits from git in gutter
   highlight GitGutterDelete guifg=#fc007e ctermfg=1
 
 " Editing tools
-Plug 'kana/vim-textobj-user'   " needed for below
-Plug 'kana/vim-textobj-entire' " ae and ie for entire file movement
-Plug 'mg979/vim-visual-multi'  " Sublime's multi coursor w/ ^N
-Plug 'tpope/vim-eunuch'        " Unix commands as first class
-Plug 'tpope/vim-surround'      " cs\" and cs' for surrounding
-Plug 'tpope/vim-repeat'        " Make surround repeatable with .
+Plug 'kana/vim-textobj-user'           " needed for below
+Plug 'kana/vim-textobj-entire'         " ae & ie for entire file text obj
+Plug 'mg979/vim-visual-multi'          " Sublime's multi coursor w/ ^N
+Plug 'wellle/targets.vim'              " i in, a an, I inside for quotes and braces
+Plug 'michaeljsmith/vim-indent-object' " ai, ii, aI, & iI for indent based text obj
+Plug 'tpope/vim-abolish'               " Super powered Substitition with Subvert
+Plug 'tpope/vim-eunuch'                " Unix commands as first class
+Plug 'tpope/vim-surround'              " cs\" and cs' for surrounding
+Plug 'tpope/vim-repeat'                " Make surround repeatable with .
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
   vmap <Enter> <Plug>(EasyAlign)
   nmap <Leader>a <Plug>(EasyAlign)
@@ -147,7 +150,7 @@ cmap w!! w !sudo tee % >/dev/null
 " =====================================
 " My special NeoVim behaviors
 " =====================================
-" set termguicolors
+set termguicolors
 colorscheme monokai_pro
 
 set list listchars=tab:→\ ,trail:∙,nbsp:+ " Display tabs and trailing spaces
@@ -188,6 +191,9 @@ au FocusGained,BufEnter * :checktime
 
 " Strip Whitespace on write
 autocmd BufWritePre * %s/\s\+$//e
+
+" Highlight what I yank for 150 seconds
+au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}
 
 " =====================================
 " My Functions
