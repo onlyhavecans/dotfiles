@@ -25,6 +25,9 @@ Plug 'phanviet/vim-monokai-pro'
 Plug 'vim-airline/vim-airline'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#ale#enabled = 1
+  let g:airline#extensions#coc#enabled = 1
+  let g:airline#extensions#coc#show_coc_status = 1
+  let g:airline#extensions#fzf#enabled = 1
 Plug 'vim-airline/vim-airline-themes'
   let g:airline_theme='base16_monokai'
 
@@ -72,8 +75,8 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " Prose Writing
 Plug 'itspriddle/vim-marked'  " Marked 2 preview
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
+Plug 'godlygeek/tabular'      " format tables
+Plug 'preservim/vim-markdown' " Get hype with markdown
   let g:vim_markdown_frontmatter = 1
   let g:vim_markdown_new_list_item_indent = 2
 
@@ -85,14 +88,8 @@ Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   vnoremap <Leader>c :Commentary<CR>
   nnoremap <Leader>c :Commentary<CR>
-Plug 'vim-syntastic/syntastic' " The everything syntax checker
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  " Use markdownlint-cli
-  let g:syntastic_markdown_mdl_exec = "markdownlint"
-  let g:syntastic_markdown_mdl_args = ""
+Plug 'dense-analysis/ale'
+  let g:ale_disable_lsp = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
   " c-space to trigger completion
   inoremap <silent><expr> <c-space> coc#refresh()
