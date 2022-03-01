@@ -81,12 +81,42 @@ Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   vnoremap <Leader>c :Commentary<CR>
   nnoremap <Leader>c :Commentary<CR>
+Plug 'vim-syntastic/syntastic' " The everything syntax checker
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
+  " c-space to trigger completion
+  inoremap <silent><expr> <c-space> coc#refresh()
+  " Navigate diagnostics
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
+  " GoTo code navigation.
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+  " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  " Symbol renaming.
+  nmap <leader>rn <Plug>(coc-rename)
+  " Formatting selected code.
+  xmap <leader>f  <Plug>(coc-format-selected)
+  nmap <leader>f  <Plug>(coc-format-selected)
+  " Remap keys for applying codeAction to the current buffer.
+  nmap <leader>ac  <Plug>(coc-codeaction)
+  " Apply AutoFix to problem on the current line.
+  nmap <leader>qf  <Plug>(coc-fix-current)
+  " Run the Code Lens action on the current line.
+  nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Big Lang
 Plug 'danihodovic/vim-ansible-vault' " Vault decrypt support
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
 Plug 'sheerun/vim-polyglot'          " Most language support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Force go
+Plug 'rust-lang/rust.vim'            " Force rust
+  let g:rustfmt_autosave = 1
 
 call plug#end()
 
@@ -173,6 +203,10 @@ set smarttab
 set softtabstop=2
 set tabstop=2
 set expandtab
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading
