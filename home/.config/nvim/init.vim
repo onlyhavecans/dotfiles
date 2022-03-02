@@ -32,8 +32,6 @@ Plug 'vim-airline/vim-airline-themes'
   let g:airline_theme='base16_monokai'
 
 " File navigation
-Plug 'tpope/vim-vinegar'
-  let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 Plug 'jremmen/vim-ripgrep'
   " Search word under cursor
   noremap <Leader>s :Rg<CR>
@@ -223,6 +221,10 @@ if executable("rg")
 endif
 
 set guifont=JetBrains\ Mono:h15
+
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
 
 " =====================================
 " AutoCommands
