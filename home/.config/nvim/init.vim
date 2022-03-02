@@ -91,6 +91,7 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'dense-analysis/ale'
   let g:ale_disable_lsp = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
+  let g:coc_global_extensions = ['coc-marketplace', 'coc-json', 'coc-rust-analyzer']
   " c-space to trigger completion
   inoremap <silent><expr> <c-space> coc#refresh()
   " Navigate diagnostics
@@ -218,6 +219,8 @@ if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+
+set guifont=JetBrains\ Mono:h15
 
 " =====================================
 " AutoCommands
