@@ -40,6 +40,9 @@ Plug 'junegunn/fzf.vim'
   nnoremap <C-p> :Files<CR>
   let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
   let g:fzf_layout = { 'up': '~30%' }
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+  let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " Environment & intigrations
 Plug 'tpope/vim-obsession'
@@ -135,11 +138,12 @@ call plug#end()
 " <F2> = Toggle line numbers
 nnoremap <F2> :set invnumber<CR>
 " <F3> = Toggle NerdTree
-nnoremap <F3> :vsplit .<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
 " <F4> = change directory to current file's pwd
 nnoremap <F4> :cd %:p:h<CR>:pwd<CR>
 " <F5> = None
 " <F6> = Refactor
+nnoremap <F6> <Plug>(coc-refactor)
 " <F7> = Toggle paste mode
 set pastetoggle=<F7>
 " <F8> = Next buffer
