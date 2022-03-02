@@ -135,6 +135,7 @@ call plug#end()
 " <F2> = Toggle line numbers
 nnoremap <F2> :set invnumber<CR>
 " <F3> = Toggle NerdTree
+nnoremap <F3> :vsplit .<CR>
 " <F4> = change directory to current file's pwd
 nnoremap <F4> :cd %:p:h<CR>:pwd<CR>
 " <F5> = None
