@@ -225,7 +225,7 @@ if executable("rg")
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-set guifont=JetBrainsMono\ Nerd\ Font\ Mono,JetBrains\ Mono,PragmataPro,Monaco:h15
+set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h15
 
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_liststyle = 3
