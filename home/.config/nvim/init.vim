@@ -107,6 +107,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
   nmap <silent> gr <Plug>(coc-references)
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<CR>
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+      call CocActionAsync('doHover')
+    else
+      execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+  endfunction
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent call CocActionAsync('highlight')
   " Symbol renaming.
@@ -115,7 +124,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
   xmap <leader>f  <Plug>(coc-format-selected)
   nmap <leader>f  <Plug>(coc-format-selected)
   " Remap keys for applying codeAction to the current buffer.
-  nmap <leader>ac  <Plug>(coc-codeaction)
+  nmap <leader>ac  <Plug>(coc-codeaction-cursor)
   " Apply AutoFix to problem on the current line.
   nmap <leader>qf  <Plug>(coc-fix-current)
   " Run the Code Lens action on the current line.
