@@ -262,7 +262,7 @@ au TextYankPost * silent! lua vim.highlight.on_yank {timeout=3000}
 
 " ==== Straighten Quotes
 function! <SID>StraightenQuotes()
-    " Preparation: save last search, and cursor position.
+    " Preparation save last search, and cursor position.
     let _s=@/
     let l = line(".")
     let c = col(".")
@@ -279,7 +279,7 @@ command! StraightenQuotes call <SID>StraightenQuotes()
 " ==== Strip trailing whitespace
 " http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
 function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
+    " Preparation save last search, and cursor position.
     let _s=@/
     let l = line(".")
     let c = col(".")
