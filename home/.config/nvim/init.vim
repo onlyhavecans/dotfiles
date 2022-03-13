@@ -82,6 +82,7 @@ Plug 'godlygeek/tabular'      " format tables
 Plug 'preservim/vim-markdown' " Get hype with markdown
   let g:vim_markdown_frontmatter = 1
   let g:vim_markdown_new_list_item_indent = 2
+  let g:vim_markdown_folding_disabled = 1
 
 " Generic code handling
 Plug 'rizzatti/dash.vim'    " Spawn :Dash
