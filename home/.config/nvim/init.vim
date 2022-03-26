@@ -95,7 +95,15 @@ Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
 Plug 'dense-analysis/ale'
   let g:ale_disable_lsp = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
-  let g:coc_global_extensions = ['coc-marketplace', 'coc-json', 'coc-rust-analyzer']
+  let g:coc_global_extensions = [
+        \'coc-css',
+        \'coc-go',
+        \'coc-json',
+        \'coc-pyright',
+        \'coc-rust-analyzer',
+        \'coc-sh',
+        \'coc-yaml',
+        \]
   " c-space to trigger completion
   inoremap <silent><expr> <c-space> coc#refresh()
   " Navigate diagnostics
