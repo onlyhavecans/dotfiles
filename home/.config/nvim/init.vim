@@ -92,6 +92,7 @@ Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   vnoremap <Leader>c :Commentary<CR>
   nnoremap <Leader>c :Commentary<CR>
+Plug 'github/copilot.vim'
 Plug 'dense-analysis/ale'
   let g:ale_disable_lsp = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
