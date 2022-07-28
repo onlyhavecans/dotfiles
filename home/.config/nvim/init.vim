@@ -97,7 +97,6 @@ Plug 'ntpeters/vim-better-whitespace' "I am picky with whitespace
   let g:strip_whitespace_on_save = 1
   let g:strip_whitelines_at_eof=1
   let g:show_spaces_that_precede_tabs=1
-Plug 'github/copilot.vim'
 Plug 'dense-analysis/ale'
   let g:ale_disable_lsp = 1
   let g:ale_fix_on_save = 1
@@ -150,6 +149,7 @@ Plug 'danihodovic/vim-ansible-vault' " Vault decrypt support
 Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work with recipes
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
 Plug 'sheerun/vim-polyglot'          " Most language support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Force go
 Plug 'rust-lang/rust.vim'            " Force rust
 
 call plug#end()
