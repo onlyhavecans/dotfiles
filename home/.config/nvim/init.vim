@@ -92,9 +92,15 @@ Plug 'tpope/vim-endwise'    " Close my definitions like I close my braces
 Plug 'tpope/vim-commentary' " comment things with gc g<motion>c
   vnoremap <Leader>c :Commentary<CR>
   nnoremap <Leader>c :Commentary<CR>
+Plug 'ntpeters/vim-better-whitespace' "I am picky with whitespace
+  let g:better_whitespace_enabled = 1
+  let g:strip_whitespace_on_save = 1
+  let g:strip_whitelines_at_eof=1
+  let g:show_spaces_that_precede_tabs=1
 Plug 'github/copilot.vim'
 Plug 'dense-analysis/ale'
   let g:ale_disable_lsp = 1
+  let g:ale_fix_on_save = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
   let g:coc_global_extensions = [
         \'coc-css',
@@ -102,7 +108,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} "Lang server
         \'coc-json',
         \'coc-pyright',
         \'coc-rust-analyzer',
-        \'coc-sh',
         \'coc-yaml',
         \]
   " c-space to trigger completion
@@ -146,7 +151,6 @@ Plug 'dougireton/vim-chef'           " Sets filetypes chef and makes `gf` work w
 Plug 'LokiChaos/vim-tintin'          " tintin is rare to support
 Plug 'sheerun/vim-polyglot'          " Most language support
 Plug 'rust-lang/rust.vim'            " Force rust
-  let g:rustfmt_autosave = 1
 
 call plug#end()
 
@@ -202,9 +206,6 @@ noremap <Leader>r :source $MYVIMRC<CR>
 " <Leader>t = TabNext
 nnoremap <Leader>t :tabNext<CR>
 
-" <Leader>w = Strip all whitespace
-nnoremap <Leader>w :StripTrailingWhitespaces<CR>
-
 " :w!! = write a file as sudo
 cmap w!! w !sudo tee % >/dev/null
 
@@ -215,7 +216,6 @@ cmap w!! w !sudo tee % >/dev/null
 set termguicolors
 colorscheme monokai_pro
 
-set list listchars=tab:→\ ,trail:∙,nbsp:+ " Display tabs and trailing spaces
 set clipboard+=unnamedplus " macOS clipboard
 set laststatus=2           " Needed for *line plugins
 set linebreak              " Wrap lines at convenient points
@@ -245,10 +245,6 @@ if executable("rg")
 endif
 
 set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h15
-
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
 
 " =====================================
 " AutoCommands
@@ -285,21 +281,6 @@ function! <SID>StraightenQuotes()
     call cursor(l, c)
 endfunction
 command! StraightenQuotes call <SID>StraightenQuotes()
-
-" ==== Strip trailing whitespace
-" http://rails-bestpractices.com/posts/60-remove-trailing-whitespace
-function! <SID>StripTrailingWhitespaces()
-    " Preparation save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
 
 " ==== Super wrapping power
 " http://vimcasts.org/episodes/soft-wrapping-text/
