@@ -21,6 +21,7 @@ Session.vim
 *.stTheme.cache
 
 ## Workspace files are user-specific
+*.sublime-project
 *.sublime-workspace
 
 ## SFTP configuration file
