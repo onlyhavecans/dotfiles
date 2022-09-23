@@ -33,7 +33,6 @@ brew "whois"
 brew "wireguard-tools"
 brew "youtube-dl"
 
-tap "theseal/ssh-askpass"
 brew "theseal/ssh-askpass/ssh-askpass"
 
 ## Dev Tooling
@@ -54,7 +53,6 @@ brew "rebar3"
 brew "shellcheck"
 brew "yamllint"
 
-tap "heroku/brew"
 brew "heroku/brew/heroku"
 
 ## Ops Tooling
@@ -62,15 +60,9 @@ brew "awscli"
 brew "bind"
 brew "dive"
 
-## Casks
-# Arq 5
-# FireFox
-# iTerm
-# JetBrains Toolbox
-# SublimeMerge
-# Slack
-
 ## MAS time
 brew "mas"
 
 # 1Password
+
+cask "1password/tap/1password-cli"
