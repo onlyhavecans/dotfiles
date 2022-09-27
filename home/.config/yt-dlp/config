@@ -1,0 +1,13 @@
+## Don't fail on an error, skip
+--no-abort-on-error
+
+## Restart afrer error
+--continue
+
+## Write part file
+--part
+
+## Write a subtitle file
+--write-subs
+--sub-format srt/ass/best
+--sub-langs "en.*,ja"
