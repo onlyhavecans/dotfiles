@@ -62,7 +62,3 @@ brew "dive"
 
 ## MAS time
 brew "mas"
-
-# 1Password
-
-cask "1password/tap/1password-cli"
