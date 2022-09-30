@@ -1,13 +1,13 @@
 [user]
 	name = Amelia Aronsohn
 	email = squirrel@wearing.black
-	signingkey = 98E879BC3B6E1BF8
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKB1455gJY9YjpfT61kAUjtEkLilH/ejeb2tLwgEAqLA 2022-09-30
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
 	autocrlf = input
 [gpg]
-	program = /usr/local/bin/gpg
+	format = ssh
 [commit]
 	gpgsign = true
 [push]
