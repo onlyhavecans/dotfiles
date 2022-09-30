@@ -5,6 +5,10 @@
 [ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ] && \
   path=($path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin")
 
+# Better openssh if installed
+[ -d "$(brew --prefix openssh)/bin" ] && \
+  path=("$(brew --prefix openssh)/bin" $path)
+
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath+=("$HOME/.homesick/repos/homeshick/completions")
