@@ -1,1 +1,3 @@
-gem: --no-document
+---
+gem: --document --suggestions
+update_sources: true
