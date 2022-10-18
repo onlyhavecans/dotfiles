@@ -1,14 +1,6 @@
 #shellcheck shell=zsh
 #shellcheck disable=SC1090,SC1091
 
-# Path Stuff
-[ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ] && \
-  path=($path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin")
-
-# Better openssh if installed
-[ -d "$(brew --prefix openssh)/bin" ] && \
-  path=("$(brew --prefix openssh)/bin" $path)
-
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath+=("$HOME/.homesick/repos/homeshick/completions")
@@ -30,6 +22,14 @@ if builtin whence direnv &> /dev/null; then
 fi
 
 
+# Brew overlays
+apps=(openssh whois curl)
+for app in $apps; do
+  [ -d "$(brew --prefix $app)/bin" ] && \
+    path=("$(brew --prefix $app)/bin" $path)
+done
+
+
 ## Replace a few commands
 if builtin whence nvim &> /dev/null; then
   alias vim=nvim
@@ -43,8 +43,12 @@ if builtin whence exa &> /dev/null; then
   alias lla="exa -la"
 fi
 
-if builtin whence hub &> /dev/null; then
-  alias git=hub
+
+# VSCode over NVIM where available
+if [ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]; then
+  path=($path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin")
+  alias vim="code --new-window"
+  export EDITOR="code --new-window --wait"
 fi
 
 
