@@ -1,1 +1,3 @@
 pipenv
+pylance
+autopep8

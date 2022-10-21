@@ -1,43 +1,41 @@
+# Yay
+
 ## Base Taps
+
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 
-## Packages
+## Upgrades & Overlays
+
 brew 'curl'
-brew 'direnv'
 brew 'dog'
 brew 'exa'
-brew 'ffmpeg'
 brew 'fd'
-brew 'fzf'
 brew 'gawk'
-brew 'gnupg'
 brew 'httpie'
-brew 'imagemagick'
-brew 'libdvdcss'
-brew 'markdownlint-cli'
 brew 'mosh'
 brew 'neovim'
-brew 'nmap'
 brew 'pinentry-mac'
-brew 'ponysay'
-brew 'qpdf'
-brew 'qrencode'
 brew 'ripgrep'
-brew 'tintin'
 brew 'tmux'
 brew 'tree'
 brew 'watch'
 brew 'wget'
 brew 'whois'
-brew 'wireguard-tools'
+
+## Fun stuff
+
+brew 'ffmpeg'
+brew 'fzf'
+brew 'imagemagick'
+brew 'libdvdcss'
+brew 'ponysay'
+brew 'tintin'
 brew 'youtube-dl'
 
-brew 'theseal/ssh-askpass/ssh-askpass'
-
 ## Dev Tooling
-brew 'ansible'
-brew 'ansible-lint'
+
+brew 'direnv'
 brew 'erlang'
 brew 'gh'
 brew 'git'
@@ -47,6 +45,7 @@ brew 'go'
 brew 'golangci-lint'
 brew 'hugo'
 brew 'jq'
+brew 'markdownlint-cli'
 brew 'overmind'
 brew 'rebar3'
 brew 'shellcheck'
@@ -55,9 +54,17 @@ brew 'yamllint'
 brew 'heroku/brew/heroku'
 
 ## Ops Tooling
+
+brew 'ansible'
+brew 'ansible-lint'
 brew 'awscli'
 brew 'bind'
 brew 'dive'
+brew 'gnupg'
+brew 'nmap'
+brew 'qrencode'
+brew 'wireguard-tools'
 
 ## MAS time
+
 brew 'mas'

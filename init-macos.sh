@@ -19,6 +19,7 @@ fi
 
 ## Install homeshick
 git clone git://github.com/andsens/homeshick.git "$HOME/.homesick/repos/homeshick"
+# shellcheck source=/dev/null
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 ## clone home, then set it to ssh afterwards
