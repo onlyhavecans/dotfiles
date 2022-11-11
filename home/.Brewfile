@@ -4,6 +4,7 @@
 
 tap 'homebrew/bundle'
 tap 'homebrew/services'
+tap 'homebrew/cask'
 
 ## Upgrades & Overlays
 
@@ -51,7 +52,10 @@ brew 'rebar3'
 brew 'shellcheck'
 brew 'yamllint'
 
+tap 'heroku/brew'
 brew 'heroku/brew/heroku'
+
+cask 'phantomjs'
 
 ## Ops Tooling
 
@@ -61,9 +65,13 @@ brew 'awscli'
 brew 'bind'
 brew 'dive'
 brew 'gnupg'
+brew 'helm'
 brew 'nmap'
 brew 'qrencode'
 brew 'wireguard-tools'
+
+tap 'chef/chef'
+cask 'chef-workstation'
 
 ## MAS time
 
