@@ -11,7 +11,7 @@ if [ -f $HOME/.asdf/asdf.sh ]; then
   source "$HOME/.asdf/asdf.sh"
   fpath+=("${ASDF_DIR}/completions")
   export KERL_CONFIGURE_OPTIONS=--without-javac
-  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 fi
 
 
@@ -84,8 +84,8 @@ setopt autocd
 
 ## FZF to get around & use fd for performance
 if builtin whence fzf &> /dev/null; then
-  source "/usr/local/opt/fzf/shell/completion.zsh"
-  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+  source "$(brew --prefix fzf)/shell/completion.zsh"
+  source "$(brew --prefix fzf)/shell/key-bindings.zsh"
 
   export FZF_DEFAULT_COMMAND='fd --follow --type f'
   export FZF_CTRL_T_COMMAND='fd --follow'
