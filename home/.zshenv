@@ -2,7 +2,17 @@
 typeset -U path
 
 # Give everything path, even without interactive
-path=(/usr/local/bin /usr/local/sbin $path)
+if [ -x /opt/homebrew/bin/brew ]; then
+    export HOMEBREW_PREFIX="/opt/homebrew";
+    export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+    export HOMEBREW_REPOSITORY="/opt/homebrew";
+    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+    export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+    export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+else
+    path=(/usr/local/bin /usr/local/sbin $path)
+fi
+
 [ -d "$HOME/.cargo/bin" ] && path=("$HOME/.cargo/bin" $path)
 [ -d "$HOME/go/bin" ]     && path=("$HOME/go/bin" $path)
 [ -d "$HOME/bin" ]        && path=("$HOME/bin" $path)
