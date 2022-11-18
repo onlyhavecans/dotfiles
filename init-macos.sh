@@ -14,7 +14,7 @@ fi
 
 if [[ ! -d $HOME/.asdf ]]; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  git -C ~/.asdf checkout "$(git describe --abbrev=0 --tags)"
+  git -C ~/.asdf checkout "$(git -C ~/.asdf describe --abbrev=0 --tags)"
 fi
 
 ## Install homeshick
