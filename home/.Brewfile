@@ -37,25 +37,20 @@ brew 'youtube-dl'
 ## Dev Tooling
 
 brew 'direnv'
-brew 'erlang'
 brew 'gh'
 brew 'git'
 brew 'git-lfs'
-brew 'git-standup'
 brew 'go'
 brew 'golangci-lint'
 brew 'hugo'
 brew 'jq'
 brew 'markdownlint-cli'
 brew 'overmind'
-brew 'rebar3'
 brew 'shellcheck'
 brew 'yamllint'
 
 tap 'heroku/brew'
 brew 'heroku/brew/heroku'
-
-cask 'phantomjs'
 
 ## Ops Tooling
 
