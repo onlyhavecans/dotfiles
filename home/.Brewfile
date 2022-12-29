@@ -27,10 +27,7 @@ brew 'whois'
 ## Fun stuff
 
 brew 'ffmpeg'
-brew 'fzf'
 brew 'imagemagick'
-brew 'libdvdcss'
-brew 'ponysay'
 brew 'tintin'
 brew 'youtube-dl'
 
