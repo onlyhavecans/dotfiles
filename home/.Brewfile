@@ -27,9 +27,10 @@ brew 'whois'
 ## Fun stuff
 
 brew 'ffmpeg'
+brew 'handbrake'
 brew 'imagemagick'
 brew 'tintin'
-brew 'youtube-dl'
+brew 'yt-dlp'
 
 ## Dev Tooling
 
