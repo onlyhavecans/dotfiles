@@ -44,11 +44,10 @@ if builtin whence exa &> /dev/null; then
 fi
 
 
-# VSCode over NVIM where available
-if [ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]; then
-  path=($path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin")
-  alias vim="code --new-window"
-  export EDITOR="code --new-window --wait"
+# Sublime over NeoVim where available
+if [ -d "/Applications/Sublime Text.app" ]; then
+  alias vim="subl --new-window"
+  export EDITOR="subl --new-window --wait"
 fi
 
 
@@ -72,6 +71,7 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats '%b %F{magenta}%m%u%c%f'
+# shellcheck disable=SC1009,SC1073,SC1083,SC1056,SC1072
 precmd() { vcs_info }
 setopt prompt_subst
 RPROMPT=\$vcs_info_msg_0_
