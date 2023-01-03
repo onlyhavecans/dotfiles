@@ -23,7 +23,7 @@ fi
 
 
 # Brew overlays
-apps=(openssh whois curl)
+apps=(openssh whois curl libpq)
 for app in $apps; do
   [ -d "$(brew --prefix $app)/bin" ] && \
     path=("$(brew --prefix $app)/bin" $path)
