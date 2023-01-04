@@ -38,14 +38,6 @@ if builtin whence exa &> /dev/null; then
   alias lla="exa -la"
 fi
 
-
-# Sublime over Vim where available
-if [ -d "/Applications/Sublime Text.app" ]; then
-  alias vim="subl --new-window"
-  export EDITOR="subl --new-window --wait"
-fi
-
-
 ## Aliases
 alias ce="chef exec"
 alias cet="chef exec thor"

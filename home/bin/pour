@@ -29,9 +29,6 @@ if [[ -x "${HOME}/.cargo/bin/rustup" ]]; then
   "${HOME}/.cargo/bin/rustup" update
 fi
 
-status_message "Update vim-plug"
-nvim +PlugUpgrade +qall
-
 if [[ -x "${HOME}/.tmux/plugins/tpm/bin/update_plugins" ]]; then
   status_message Update and clean tmux plugins
   ~/.tmux/plugins/tpm/bin/install_plugins

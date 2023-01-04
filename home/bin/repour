@@ -1,8 +1,21 @@
 #!/bin/bash
 
-xcode-select --install
+set -e
+
+xcode-select --install || true
+
+while true; do
+    read -r -p "Is XCode done installing (y/cancel)?" choice
+    case "$choice" in
+      y ) break;;
+      cancel ) exit;;
+      * ) echo "Only 'y' and 'cancel' is valid";;
+    esac
+done
+
 brew update
 brew bundle install --global
+brew bundle cleanup --global force
 brew upgrade
 brew list --formula | xargs brew reinstall
 brew cleanup -s

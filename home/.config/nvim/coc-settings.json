@@ -1,6 +1,0 @@
-{
- "coc.preferences.extensionUpdateCheck": "weekly",
-  "go.goplsOptions": {
-    "gofumpt": true
-  }
-}

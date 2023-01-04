@@ -1,4 +1,4 @@
-# shellcheck disable=SC2039
+# shellcheck shell=bash disable=SC2039
 ## chef-dk summoner
 # use chefdk
 use_chefdk() {
