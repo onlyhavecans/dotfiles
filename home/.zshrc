@@ -38,6 +38,10 @@ if builtin whence exa &> /dev/null; then
   alias lla="exa -la"
 fi
 
+if builtin whence hub &> /dev/null; then
+  alias git=hub
+fi
+
 ## Aliases
 alias ce="chef exec"
 alias cet="chef exec thor"
