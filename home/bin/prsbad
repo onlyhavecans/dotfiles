@@ -34,4 +34,4 @@ else
   git push origin
 fi
 
-gh pr create --assignee @me --web
+git open pr
