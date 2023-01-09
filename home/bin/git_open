@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+##
+# Copied directly from https://forum.sublimetext.com/t/github-gitlab-bitbucket-integration-commands-menu-items/53893 with minor changes
+#
+# Usage:
+#
+# open the repo: git open repo
+# open the current branch: git open branch
+# open the current commit: git open commit
+# create a pr on the current branch: git open pr
+#
+# Each command supports an extra argument for specification:
+
+# open a specific branch: git open branch $specific_branch
+# open a specific commit: git open commit $specific_commit
+# create a pr on a specific branch: git open pr $specific_branch
+# open a specific tag: git open tag $specific_tag
+##
+
+type="${1:-branch}"
+target="${2:-HEAD}"
+remote="origin"
+
+if [ "$type" = "branch" ] || [ "$type" = "pr" ]; then
+    # get full name (i.e. refs/heads/*; refs/remotes/*/*); src: https://stackoverflow.com/a/9753364
+    target="$(git rev-parse --symbolic-full-name "$target")"
+
+    if [ "$target" != "${target#"refs/remotes/"}" ]; then
+        # extract from remote branch reference
+        target="${target#"refs/remotes/"}"
+    else
+        # extract from local branch reference; src: https://stackoverflow.com/a/9753364
+        target="$(git for-each-ref --format="%(upstream:short)" "$target")"
+    fi
+    # split remote/branch
+    remote="${target%%/*}"
+    target="${target#"$remote/"}"
+
+    if [ -z "$remote" ]; then
+        echo "Branch ($2) does not point to a remote repository." >&2
+        return 2
+    fi
+fi
+
+repo_url="$(git remote get-url "$remote" | sed -E -e "s/(\.(com|org|io))\:/\1\//" -e "s/git@/https:\/\//" -e "s/\.git$//")"
+if [ -z "$repo_url" ]; then
+    echo "Cannot open: no remote repository configured under (origin)" >&2
+    return 1
+fi
+
+case "$(tr "[:upper:]" "[:lower:]" <<< "$repo_url")" in
+    *github*)
+        [ "$type" = "commit" ] && repo_url="$repo_url/commit/$(git rev-parse "$target")"
+        [ "$type" = "pr"     ] && repo_url="$repo_url/compare/$target?expand=1"
+        [ "$type" = "tag"    ] && repo_url="$repo_url/releases/tag/$target"
+        [ "$type" = "branch" ] && repo_url="$repo_url/tree/$target"
+        ;;
+    *bitbucket*)
+        [ "$type" = "commit" ] && repo_url="$repo_url/commits/$(git rev-parse "$target")"
+        [ "$type" = "pr"     ] && repo_url="$repo_url/pull-requests/new?source=$target"
+        [ "$type" = "tag"    ] && repo_url="$repo_url/src/$target"
+        [ "$type" = "branch" ] && repo_url="$repo_url/src/$target"
+        ;;
+    *gitlab*)
+        [ "$type" = "commit" ] && repo_url="$repo_url/-/commit/$(git rev-parse "$target")"
+        [ "$type" = "pr"     ] && repo_url="$repo_url/-/merge_requests/new?merge_request[source_branch]=$target"
+        [ "$type" = "tag"    ] && repo_url="$repo_url/-/tags/$target"
+        [ "$type" = "branch" ] && repo_url="$repo_url/-/tree/$target"
+        ;;
+    *)
+        echo "Cannot open: not a GitHub, GitLab, or Bitbucket repository" >&2
+        return 1
+        ;;
+esac
+
+open "$repo_url"
