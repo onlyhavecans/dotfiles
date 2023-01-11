@@ -2,17 +2,17 @@
 
 errors=()
 
-function header_status_message() {
+function header_status_message {
   GREEN='\033[0;32m'
   NOCOLOR='\033[0m'
   echo -e "${GREEN}~ $*${NOCOLOR}"
 }
 
-function status_message() {
+function status_message {
   echo -e "~~ $*"
 }
 
-function error_message() {
+function error_message {
   RED='\033[0;31m'
   NOCOLOR='\033[0m'
   echo -e "${RED}! $*${NOCOLOR}"

@@ -1,11 +1,7 @@
 {
 	"folders":
 	[
-		{
-			"path": "."
-		},
-		{
-			"path": "/Users/dos/.homesick/repos/secrets"
-		}
-	]
+		{ "path": "." },
+		{ "path": "/Users/dos/.homesick/repos/secrets" }
+	],
 }

@@ -2,13 +2,13 @@
 
 my_github_user=onlyhavecans
 
-function status_message() {
+function status_message {
   GREEN='\033[0;32m'
   NOCOLOR='\033[0m'
   echo -e "${GREEN}~ $*${NOCOLOR}"
 }
 
-function error_message() {
+function error_message {
   RED='\033[0;31m'
   NOCOLOR='\033[0m'
   echo -e "${RED}! $*${NOCOLOR}"

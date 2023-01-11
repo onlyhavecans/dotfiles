@@ -1,6 +1,7 @@
 #!/bin/bash
+## Using system /bin/bash is intentional. The script crashes when brew upgrades bash
 
-function status_message() {
+function status_message {
   GREEN='\033[0;32m'
   NOCOLOR='\033[0m'
   echo -e "${GREEN}~ $*${NOCOLOR}"

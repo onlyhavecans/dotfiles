@@ -5,7 +5,7 @@ if (( $# != 1 )); then
   exit 1
 fi
 
-function status_message() {
+function status_message {
   echo " "
   echo "~~ $*"
 }

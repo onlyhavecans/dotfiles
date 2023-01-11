@@ -1,3 +1,4 @@
+black
 pipenv
 pylance
 autopep8
