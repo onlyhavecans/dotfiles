@@ -42,6 +42,7 @@
 	sm = "!f() { git switch main && git pull origin main --prune; }; f"
 	wipe = "!f() { git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D; }; f"
 	open = "!git_open"
+	prs = "!prsbad"
 
 #Silly tools fight for config down here
 [hub]

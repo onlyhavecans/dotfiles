@@ -14,24 +14,35 @@ function error_message {
   echo -e "${RED}! $*${NOCOLOR}"
 }
 
-if git rev-parse --abbrev-ref HEAD | grep --silent main; then
-  error_message "!!! You are on main!"
-  error_message "No pushing to main!"
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [[ "$BRANCH" == "" ]]; then
+  error_message "!!! You are not on a branch or in a git repo!"
   exit 1
 fi
 
-if git rev-parse --abbrev-ref HEAD | grep --silent master; then
+if [[ "$BRANCH" == "main" ]]; then
+  error_message "!!! You are on main!"
+  error_message "No pushing to main!"
+  exit 2
+fi
+
+if [[ "$BRANCH" == "master" ]]; then
   error_message "!!! You are on master!"
   error_message "You should change that to main! (if you can)"
-  return 1
+  return 2
 fi
+
+REMOTE=origin
 
 if git remote | grep --silent "$my_github_user"; then
   status_message "Personal fork present, pushing to $my_github_user"
-  git push $my_github_user
+  REMOTE="$my_github_user"
 else
-  status_message "no fork present, pushing to origin"
-  git push origin
+  status_message "No fork present, pushing to origin"
 fi
 
-git open pr
+git push "${REMOTE}" "${BRANCH}"
+
+status_message "Opening a PR!"
+git open pr "${REMOTE}/${BRANCH}"
