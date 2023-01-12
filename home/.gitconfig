@@ -6,10 +6,12 @@
 	excludesfile = ~/.gitignore
 	editor = vim
 	autocrlf = input
-[gpg]
-	format = ssh
+[format]
+	signOff = true
 [commit]
 	gpgsign = true
+[gpg]
+	format = ssh
 [push]
 	default = current
 [fetch]

@@ -36,7 +36,6 @@ brew 'yt-dlp'
 ## Dev Tooling
 
 brew 'direnv'
-brew 'flake8'
 brew 'gh'
 brew 'git'
 brew 'git-lfs'
@@ -66,9 +65,6 @@ brew 'helm'
 brew 'nmap'
 brew 'qrencode'
 brew 'wireguard-tools'
-
-tap 'chef/chef'
-cask 'chef-workstation'
 
 ## MAS time
 
