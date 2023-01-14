@@ -7,9 +7,3 @@ yaml-files:
   - "*.yml"
   - "*.yml.erb"
   - ".yamllint"
-
-rules:
-  document-start: false
-  line-length:
-    max: 256
-    level: warning
