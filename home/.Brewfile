@@ -48,6 +48,7 @@ brew 'libpq'
 brew 'markdownlint-cli'
 brew 'overmind'
 brew 'shellcheck'
+brew 'git-standup'
 brew 'yamllint'
 
 tap 'heroku/brew'
