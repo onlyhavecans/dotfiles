@@ -1,5 +1,7 @@
 bundler
-pry
-solargraph
 debug
+pry
 rubocop
+rubocop-performance
+rubocop-rspec
+solargraph
