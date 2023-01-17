@@ -36,6 +36,7 @@ brew 'yt-dlp'
 ## Dev Tooling
 
 brew 'direnv'
+brew 'flake8'
 brew 'gh'
 brew 'git'
 brew 'git-lfs'

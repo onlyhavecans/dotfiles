@@ -39,7 +39,7 @@
 	sw = switch
 	swc = switch -C
 	pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git switch pr-$1; }; f"
-	sm = "!f() { git switch main && git pull origin main --prune; }; f"
+	sm = "!f() { git switch main && git fetch --prune && git pull; }; f"
 	wipe = "!f() { git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D; }; f"
 	open = "!git_open"
 	prs = "!prsbad"
