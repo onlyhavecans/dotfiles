@@ -34,23 +34,15 @@ Instead of running brew upgrade manually I run my `pour` function which does a l
 * I have it set up so that you can navigate through tmux and vim seamlessly using C-hjlk
 * I use tmux plug-ins use ^a-I to install
 
-### gnupg
-
-* I recommend using the riseup.net setup, but last I checked it's a bit out of date.
-* Mine is a ported version of this, I use gpg in a lot of places so I need the agent to work in CLI & gui
-
 ### git
 
 * The global gitignore is mac/python/ruby/chef/go/ect oriented
 * The main config is set up with lots of alias & uses gpg signing by default
+* instead of gh or hub I now use a custom git_open script I found on the sublime merge forum and modified
 
 ### ssh
 
 I included my ssh config because I think it can be useful to others.
-
-The keys directory setup means for every host or set of hosts I log into I generate a different key!
-This means loosing a single key to a single system is not a large swath of revokes.
-However regenerating all the keys for a yearly rotation or new machine is slightly annoying so I have a fish function called keygen which makes this easier.
 
 ### direnv
 
