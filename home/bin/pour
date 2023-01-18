@@ -25,6 +25,21 @@ status_message "Update my asdf globals"
 asdf update
 asdf plugin update --all
 
+status_message "Update default python packages"
+python3 -m pip install --upgrade pip
+while read -r package; do
+  python3 -m pip install --upgrade --quiet "$package"
+done < ~/.default-python-packages
+
+status_message "Update default ruby packages"
+while read -r package; do
+  gem install --user --quiet "$package"
+done < ~/.default-gems
+
+status_message "Listing asdf installed versions"
+asdf reshim
+asdf list
+
 if [[ -x "${HOME}/.cargo/bin/rustup" ]]; then
   status_message "Update rust"
   "${HOME}/.cargo/bin/rustup" update
