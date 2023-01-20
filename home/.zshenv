@@ -33,3 +33,6 @@ fi
 export MOSH_SERVER_SIGNAL_TMOUT=60
 # Clean up any session that has not been connected to in 30 days
 export MOSH_SERVER_NETWORK_TMOUT=2592000
+
+# This is for git and ssh apps
+[ -S "$HOME/.1password/agent.sock" ] && export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
