@@ -34,5 +34,6 @@ export MOSH_SERVER_SIGNAL_TMOUT=60
 # Clean up any session that has not been connected to in 30 days
 export MOSH_SERVER_NETWORK_TMOUT=2592000
 
-# This is for git and ssh apps
+# Putting this in non-interactive makes Apps use 1Password
+# The setting is exported instead of in ssh/config so I can have the test and fallback if this isn't set up
 [ -S "$HOME/.1password/agent.sock" ] && export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
