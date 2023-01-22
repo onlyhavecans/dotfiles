@@ -55,9 +55,9 @@ alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
 export PROMPT='%F{green}%2~%f %(?.%F{blue}.%F{red}%?)❯%f '
 ## Put branch in right
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats '%b %F{magenta}%m%u%c%f'
+zstyle ':vcs_info:git:*' formats '%F{cyan}%b %F{magenta}%m%u%c%f'
 # shellcheck disable=SC1009,SC1073,SC1083,SC1056,SC1072
 precmd() { vcs_info }
 setopt prompt_subst
