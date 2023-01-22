@@ -21,15 +21,10 @@ Session.vim
 *.stTheme.cache
 
 ## Workspace files are user-specific
-*.sublime-project
 *.sublime-workspace
 
 ## SFTP configuration file
 sftp-config.json
-
-## Sublime-github package stores a github token in this file
-# https://packagecontrol.io/packages/sublime-github
-GitHub.sublime-settings
 
 # tags
 tags
