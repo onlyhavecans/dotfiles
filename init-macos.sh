@@ -12,13 +12,8 @@ then
   echo 1
 fi
 
-if [[ ! -d $HOME/.asdf ]]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  git -C ~/.asdf checkout "$(git -C ~/.asdf describe --abbrev=0 --tags)"
-fi
-
 ## Install homeshick
-git clone git://github.com/andsens/homeshick.git "$HOME/.homesick/repos/homeshick"
+git clone https://github.com/andsens/homeshick.git "$HOME/.homesick/repos/homeshick"
 # shellcheck source=/dev/null
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
@@ -30,5 +25,31 @@ git -C "$HOME/.homesick/repos/dotfiles" remote set-url origin git@github.com:onl
 ## Link everything
 homeshick link --force
 
-# fin
+## Install packages
 brew bundle install --global
+
+## TMP install
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+## Rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+
+## All my asdf
+if [[ ! -d $HOME/.asdf ]]; then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  git -C ~/.asdf checkout "$(git -C ~/.asdf describe --abbrev=0 --tags)"
+
+  # shellcheck source=/dev/null
+  source "$HOME/.asdf/asdf.sh"
+
+  asdf plugin-add python
+  asdf install python latest
+  asdf global python latest
+
+  asdf plugin-add ruby
+  asdf install ruby latest
+  asdf global ruby latest
+fi
+
+## Link 1Password agent
+mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
