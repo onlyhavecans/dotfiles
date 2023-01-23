@@ -7,3 +7,8 @@ yaml-files:
   - "*.yml"
   - "*.yml.erb"
   - ".yamllint"
+
+rules:
+  line-length:
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true

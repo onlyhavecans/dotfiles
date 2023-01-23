@@ -1,17 +1,15 @@
 {
-	"folders":
-	[
-		{ "path": "." },
-		{ "path": "/Users/dos/.homesick/repos/secrets" }
-	],
-	"syntax_override": {
-		"Brewfile$": ["Ruby", "Ruby"],
-		"aws/config$": ["INI", "INI"],
-		"cargo/config$": ["TOML", "TOML"],
-		"yamllint/config$": ["YAML", "YAML"],
-		"direnvrc$": ["ShellScript", "Bash"],
-		"ignore$": ["Git Formats", "Git Ignore"],
-		"home/bin": ["ShellScript", "Bash"],
-		"markdownlintrc$": ["JSON", "JSON"],
-	}
+  "folders": [
+    { "path": "." },
+    { "path": "/Users/dos/.homesick/repos/secrets" }
+  ],
+  "syntax_override": {
+    "Brewfile$": ["Ruby", "Ruby"],
+    "cargo/config$": ["TOML", "TOML"],
+    "yamllint/config$": ["YAML", "YAML"],
+    "direnvrc$": ["ShellScript", "Bash"],
+    "ignore$": ["Git Formats", "Git Ignore"],
+    "home/bin": ["ShellScript", "Bash"],
+    "markdownlintrc$": ["JSON", "JSON"]
+  }
 }
