@@ -45,7 +45,7 @@ alias cek="chef exec knife"
 
 alias cl=clear
 
-alias G=git
+alias g=git
 
 alias tm="tmux attach -c ~ || tmux"
 alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
