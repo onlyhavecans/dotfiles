@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
+##
+# Clean up after removing things from homeshick castles
+##
+
 fd --hidden --follow --type l  \
 --exclude .local \
---exclude .virtualenvs \
 --exclude Code \
+--exclude Desktop \
+--exclude Documents \
 --exclude Library \
+--exclude Photos \
 . ~ \
 --exec rm -v {}
