@@ -88,10 +88,6 @@ fi
 
 
 ## Per Machine Configurations
-if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
-  source "$HOME/.iterm2_shell_integration.zsh"
-fi
-
 if [ -d "$HOME/.config/local/zshrc.d" ]; then
   source "$HOME/.config/local/zshrc.d"/*
 fi

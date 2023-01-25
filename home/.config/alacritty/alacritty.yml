@@ -1,0 +1,136 @@
+---
+font:
+  normal:
+    family: "PragmataPro Mono Liga"
+  bold:
+    family: "PragmataPro Mono Liga"
+  italic:
+    family: "PragmataPro Mono Liga"
+  bold_italic:
+    family: "PragmataPro Mono Liga"
+  size: 16.0
+  offset:
+    x: 0
+    y: 1
+  builtin_box_drawing: false
+
+schemes:
+  # Colors (Solarized Light)
+  solarized_light: &light
+    primary:
+      background: "#fdf6e3" # base3
+      foreground: "#657b83" # base00
+
+    # Cursor colors
+    cursor:
+      text: "#fdf6e3" # base3
+      cursor: "#657b83" # base00
+
+    # Normal colors
+    normal:
+      black: "#073642" # base02
+      red: "#dc322f" # red
+      green: "#859900" # green
+      yellow: "#b58900" # yellow
+      blue: "#268bd2" # blue
+      magenta: "#d33682" # magenta
+      cyan: "#2aa198" # cyan
+      white: "#eee8d5" # base2
+
+    # Bright colors
+    bright:
+      black: "#002b36" # base03
+      red: "#cb4b16" # orange
+      green: "#586e75" # base01
+      yellow: "#657b83" # base00
+      blue: "#839496" # base0
+      magenta: "#6c71c4" # violet
+      cyan: "#93a1a1" # base1
+      white: "#fdf6e3" # base3
+
+  # Colors (Solarized Dark)
+  solarized_dark: &dark
+    primary:
+      background: "#002b36" # base03
+      foreground: "#839496" # base0
+
+    # Cursor colors
+    cursor:
+      text: "#002b36" # base03
+      cursor: "#839496" # base0
+
+    # Normal colors
+    normal:
+      black: "#073642" # base02
+      red: "#dc322f" # red
+      green: "#859900" # green
+      yellow: "#b58900" # yellow
+      blue: "#268bd2" # blue
+      magenta: "#d33682" # magenta
+      cyan: "#2aa198" # cyan
+      white: "#eee8d5" # base2
+
+    # Bright colors
+    bright:
+      black: "#002b36" # base03
+      red: "#cb4b16" # orange
+      green: "#586e75" # base01
+      yellow: "#657b83" # base00
+      blue: "#839496" # base0
+      magenta: "#6c71c4" # violet
+      cyan: "#93a1a1" # base1
+      white: "#fdf6e3" # base3
+
+  # Colors (Monokai Pro)
+  monokai_pro: &monokai # Default colors
+    primary:
+      background: "#2D2A2E"
+      foreground: "#FCFCFA"
+
+    # Normal colors
+    normal:
+      black: "#403E41"
+      red: "#FF6188"
+      green: "#A9DC76"
+      yellow: "#FFD866"
+      blue: "#FC9867"
+      magenta: "#AB9DF2"
+      cyan: "#78DCE8"
+      white: "#FCFCFA"
+
+    # Bright colors
+    bright:
+      black: "#727072"
+      red: "#FF6188"
+      green: "#A9DC76"
+      yellow: "#FFD866"
+      blue: "#FC9867"
+      magenta: "#AB9DF2"
+      cyan: "#78DCE8"
+      white: "#FCFCFA"
+
+  # Colors (Terminal.app)
+  terminal_app: &termapp # Default colors
+    primary:
+      background: "#FFFFFF"
+      foreground: "#000000"
+    normal:
+      black: "#000000"
+      red: "#990000"
+      green: "#00A600"
+      yellow: "#999900"
+      blue: "#0000B2"
+      magenta: "#B200B2"
+      cyan: "#00A6B2"
+      white: "#BFBFBF"
+    bright:
+      black: "#666666"
+      red: "#E50000"
+      green: "#00D900"
+      yellow: "#E5E500"
+      blue: "#0000FF"
+      magenta: "#E500E5"
+      cyan: "#00E5E5"
+      white: "#E5E5E5"
+
+colors: *monokai
