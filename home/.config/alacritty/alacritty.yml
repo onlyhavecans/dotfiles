@@ -15,43 +15,33 @@ font:
   builtin_box_drawing: false
 
 colors:
+  # Default colors
   primary:
-    background: "0x191724"
-    foreground: "0xe0def4"
+    background: "0x171d23"
+    foreground: "0xffffff"
+
+  # Cursor colors
   cursor:
-    text: "0xe0def4"
-    cursor: "0x524f67"
-  vi_mode_cursor:
-    text: "0xe0def4"
-    cursor: "0x524f67"
-  line_indicator:
-    foreground: None
-    background: None
-  selection:
-    text: "0xe0def4"
-    background: "0x403d52"
+    text: "0xfafafa"
+    cursor: "0x008b94"
+
+  # Normal colors
   normal:
-    black: "0x26233a"
-    red: "0xeb6f92"
-    green: "0x31748f"
-    yellow: "0xf6c177"
-    blue: "0x9ccfd8"
-    magenta: "0xc4a7e7"
-    cyan: "0xebbcba"
-    white: "0xe0def4"
+    black: "0x333f4a"
+    red: "0xd95468"
+    green: "0x8bd49c"
+    blue: "0x539afc"
+    magenta: "0xb62d65"
+    cyan: "0x70e1e8"
+    white: "0xb7c5d3"
+
+  # Bright colors
   bright:
-    black: "0x6e6a86"
-    red: "0xeb6f92"
-    green: "0x31748f"
-    yellow: "0xf6c177"
-    blue: "0x9ccfd8"
-    magenta: "0xc4a7e7"
-    cyan: "0xebbcba"
-    white: "0xe0def4"
-  hints:
-    start:
-      foreground: "#908caa"
-      background: "#1f1d2e"
-    end:
-      foreground: "#6e6a86"
-      background: "#1f1d2e"
+    black: "0x41505e"
+    red: "0xd95468"
+    green: "0x8bd49c"
+    yellow: "0xebbf83"
+    blue: "0x5ec4ff"
+    magenta: "0xe27e8d"
+    cyan: "0x70e1e8"
+    white: "0xffffff"
