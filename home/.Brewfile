@@ -24,6 +24,7 @@ brew 'tree'
 brew 'watch'
 brew 'wget'
 brew 'whois'
+brew 'zoxide'
 
 ## Fun stuff
 
