@@ -79,8 +79,8 @@ if builtin whence fzf &> /dev/null; then
   source "$(brew --prefix fzf)/shell/completion.zsh"
   source "$(brew --prefix fzf)/shell/key-bindings.zsh"
 
-  export FZF_DEFAULT_COMMAND='fd --follow --type f'
-  export FZF_CTRL_T_COMMAND='fd --follow'
+  export FZF_DEFAULT_COMMAND='fd --follow --hidden --type f'
+  export FZF_CTRL_T_COMMAND='fd --follow --hidden'
 
   _fzf_compgen_path() {
     fd --hidden --follow --exclude ".git" . "$1"

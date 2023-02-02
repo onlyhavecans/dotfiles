@@ -8,6 +8,7 @@ tap 'homebrew/cask'
 
 ## Upgrades & Overlays
 
+brew 'bat'
 brew 'curl'
 brew 'dog'
 brew 'exa'
@@ -49,6 +50,7 @@ brew 'libpq'
 brew 'markdownlint-cli'
 brew 'overmind'
 brew 'prettier'
+brew 'quick-lint-js'
 brew 'shellcheck'
 brew 'git-standup'
 brew 'yamllint'
