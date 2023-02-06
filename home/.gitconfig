@@ -14,6 +14,7 @@
 	format = ssh
 [push]
 	default = current
+	autoSetupRemote = true
 [fetch]
 	prune = true
 [init]
