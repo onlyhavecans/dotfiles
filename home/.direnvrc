@@ -4,3 +4,8 @@
 use_chefdk() {
   eval "$(chef shell-init bash)"
 }
+
+use_venv() {
+  # shellcheck disable=SC1091
+  source venv/bin/activate
+}

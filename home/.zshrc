@@ -55,6 +55,7 @@ alias G=git
 alias tm="tmux attach -c ~ || tmux"
 alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
 
+alias venv="python3 -m venv"
 
 ## Simplify Prompt
 export PROMPT='%F{green}%2~%f %(?.%F{blue}.%F{red}%?)❯%f '
