@@ -52,8 +52,8 @@ alias cl=clear
 alias g=git
 alias G=git
 
-alias tm="tmux attach -c ~ || tmux"
-alias ts="mosh colo01.squirrels.wtf -- tmux attach -c ~"
+alias tm="tmux new-session -A -c ~"
+alias ts="mosh colo01.squirrels.wtf -- tmux new-session -A -c ~"
 
 alias venv="python3 -m venv"
 
