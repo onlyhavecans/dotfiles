@@ -11,8 +11,11 @@ font:
   size: 16.0
   offset:
     x: 0
-    y: 1
+    y: 0
   builtin_box_drawing: false
+
+mouse:
+  hide_when_typing: true
 
 colors:
   # Default colors
