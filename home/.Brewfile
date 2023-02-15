@@ -38,6 +38,7 @@ brew 'yt-dlp'
 ## Dev Tooling
 
 brew 'direnv'
+brew 'dotenv-linter'
 brew 'flake8'
 brew 'git'
 brew 'git-lfs'
@@ -53,6 +54,7 @@ brew 'prettier'
 brew 'quick-lint-js'
 brew 'ruff'
 brew 'shellcheck'
+brew 'sqlfluff'
 brew 'git-standup'
 brew 'yamllint'
 
