@@ -20,12 +20,12 @@ brew 'mosh'
 brew 'neovim'
 brew 'pinentry-mac'
 brew 'ripgrep'
+brew 'rsync'
 brew 'tmux'
 brew 'tree'
 brew 'watch'
 brew 'wget'
 brew 'whois'
-brew 'zoxide'
 
 ## Fun stuff
 

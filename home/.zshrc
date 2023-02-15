@@ -38,10 +38,6 @@ if builtin whence exa &> /dev/null; then
   alias lla="exa -la"
 fi
 
-if builtin whence zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
-fi
-
 ## Aliases
 alias ce="chef exec"
 alias cet="chef exec thor"
