@@ -93,6 +93,8 @@ if [ -d "$HOME/.config/local/zshrc.d" ]; then
   source "$HOME/.config/local/zshrc.d"/*
 fi
 
+## Make sure system paths are last
+eval $(brew shellenv)
 
 ## Completions
 autoload -Uz compinit && compinit
