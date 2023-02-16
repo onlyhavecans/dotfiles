@@ -14,9 +14,6 @@ font:
     y: 0
   builtin_box_drawing: false
 
-mouse:
-  hide_when_typing: true
-
 colors:
   # Default colors
   primary:
