@@ -1,6 +1,15 @@
 #shellcheck shell=zsh
 #shellcheck disable=SC1090,SC1091
 
+## Make sure system paths are last
+eval $(brew shellenv)
+
+## brew --prefix is way too slow in 4.0 so hardcode
+function brew_prefix {
+  HOMEBREW_PREFIX_OPT="${HOMEBREW_PREFIX}/opt"
+  echo "${HOMEBREW_PREFIX_OPT}/$1"
+}
+
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath+=("$HOME/.homesick/repos/homeshick/completions")
@@ -11,7 +20,7 @@ if [ -f $HOME/.asdf/asdf.sh ]; then
   source "$HOME/.asdf/asdf.sh"
   fpath+=("${ASDF_DIR}/completions")
   export KERL_CONFIGURE_OPTIONS=--without-javac
-  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew_prefix openssl@1.1)"
 fi
 
 
@@ -25,8 +34,8 @@ fi
 # Brew overlays
 apps=(openssh whois curl libpq)
 for app in $apps; do
-  [ -d "$(brew --prefix $app)/bin" ] && \
-    path=("$(brew --prefix $app)/bin" $path)
+  [ -d "$(brew_prefix $app)/bin" ] && \
+    path=("$(brew_prefix $app)/bin" $path)
 done
 
 
@@ -73,8 +82,8 @@ setopt autocd
 
 ## FZF to get around & use fd for performance
 if builtin whence fzf &> /dev/null; then
-  source "$(brew --prefix fzf)/shell/completion.zsh"
-  source "$(brew --prefix fzf)/shell/key-bindings.zsh"
+  source "$(brew_prefix fzf)/shell/completion.zsh"
+  source "$(brew_prefix fzf)/shell/key-bindings.zsh"
 
   export FZF_DEFAULT_COMMAND='fd --follow --hidden --type f'
   export FZF_CTRL_T_COMMAND='fd --follow --hidden'
@@ -92,9 +101,6 @@ fi
 if [ -d "$HOME/.config/local/zshrc.d" ]; then
   source "$HOME/.config/local/zshrc.d"/*
 fi
-
-## Make sure system paths are last
-eval $(brew shellenv)
 
 ## Completions
 autoload -Uz compinit && compinit

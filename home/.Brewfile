@@ -1,11 +1,5 @@
 # Yay
 
-## Base Taps
-
-tap 'homebrew/bundle'
-tap 'homebrew/services'
-tap 'homebrew/cask'
-
 ## Upgrades & Overlays
 
 brew 'bat'

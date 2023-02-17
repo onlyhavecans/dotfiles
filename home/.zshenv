@@ -1,13 +1,13 @@
 # Prevent duplicate path because they annoy me
-typeset -U path
+typeset -U path PATH
 
 ## Putting paths even in non-interactive shells makes Apps Happy™
-[ -x /opt/homebrew/bin/brew ] && eval $(/opt/homebrew/bin/brew shellenv)
-[ -x /usr/local/bin/brew ]    && eval $(/usr/local/bin/brew shellenv)
-[ -d "$HOME/.cargo/bin" ]     && path=("$HOME/.cargo/bin" $path)
-[ -d "$HOME/go/bin" ]         && path=("$HOME/go/bin" $path)
-[ -d "$HOME/bin" ]            && path=("$HOME/bin" $path)
-[ -d "$HOME/go" ]             && export GOPATH=$HOME/go
+[ -d "$HOME/go" ]         && export GOPATH=$HOME/go
+[ -d "$HOME/bin" ]        && path=("$HOME/bin" $path)
+[ -d "$HOME/go/bin" ]     && path=("$HOME/go/bin" $path)
+[ -d "$HOME/.cargo/bin" ] && path=("$HOME/.cargo/bin" $path)
+[ -d /usr/local/bin ]     && path=(/usr/local/bin $path)
+[ -d /opt/homebrew/bin ]  && path=(/opt/homebrew/bin $path)
 
 # Mosh Server settings are needed at init
 # make `killall -USR1 mosh-server` only kill sessions disconected for X seconds
