@@ -31,6 +31,7 @@ brew 'yt-dlp'
 
 ## Dev Tooling
 
+brew 'bash-language-server'
 brew 'direnv'
 brew 'dotenv-linter'
 brew 'flake8'
