@@ -64,16 +64,6 @@ alias venv="python3 -m venv"
 
 ## Simplify Prompt
 export PROMPT='%F{green}%2~%f %(?.%F{blue}.%F{red}%?)❯%f '
-## Put branch in right
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats '%F{cyan}%b %F{magenta}%m%u%c%f'
-# shellcheck disable=SC1009,SC1073,SC1083,SC1056,SC1072
-precmd() { vcs_info }
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-
 
 ## Emacs keys
 bindkey -e
