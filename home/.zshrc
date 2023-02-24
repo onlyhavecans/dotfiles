@@ -10,6 +10,7 @@ function brew_prefix {
   echo "${HOMEBREW_PREFIX_OPT}/$1"
 }
 
+
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath+=("$HOME/.homesick/repos/homeshick/completions")
@@ -47,6 +48,7 @@ if builtin whence exa &> /dev/null; then
   alias lla="exa -la"
 fi
 
+
 ## Aliases
 alias ce="chef exec"
 alias cet="chef exec thor"
@@ -62,8 +64,10 @@ alias ts="mosh colo01.squirrels.wtf -- tmux new-session -A -c ~"
 
 alias venv="python3 -m venv"
 
+
 ## Simplify Prompt
 export PROMPT='%F{green}%2~%f %(?.%F{blue}.%F{red}%?)❯%f '
+
 
 ## Emacs keys
 bindkey -e
@@ -91,6 +95,7 @@ fi
 if [ -d "$HOME/.config/local/zshrc.d" ]; then
   source "$HOME/.config/local/zshrc.d"/*
 fi
+
 
 ## Completions
 autoload -Uz compinit && compinit
