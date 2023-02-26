@@ -54,7 +54,10 @@ brew 'sqlfluff'
 brew 'stylua'
 brew 'yamllint'
 
+tap 'heroku/brew'
 brew 'heroku/brew/heroku'
+
+tap 'jesseduffield/lazygit'
 brew 'jesseduffield/lazygit/lazygit'
 
 ## Ops Tooling
