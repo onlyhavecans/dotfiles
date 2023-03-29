@@ -1,0 +1,6 @@
+---
+git:
+  autoFetch: false
+  commit:
+    signOff: true
+notARepository: 'quit'
