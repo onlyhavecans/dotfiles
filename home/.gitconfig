@@ -21,9 +21,6 @@
 	defaultBranch = main
 [pull]
 	ff = only
-#This is for git.mod that points to private repos
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [alias]
 	ad = add --all
 	al = config --get-regexp alias
