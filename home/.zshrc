@@ -63,6 +63,7 @@ alias lg="XDG_CONFIG_HOME="$HOME/.config" lazygit"
 
 alias tm="tmux new-session -A -c ~"
 alias ts="mosh colo01.squirrels.wtf -- tmux new-session -A -c ~"
+alias tp="mosh piper.local -- tmux new-session -A -c ~"
 
 alias venv="python3 -m venv"
 
