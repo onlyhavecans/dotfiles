@@ -71,6 +71,7 @@ brew 'gnupg'
 brew 'helm'
 brew 'nmap'
 brew 'qrencode'
+brew 'terraform'
 brew 'wireguard-tools'
 
 ## MAS time
