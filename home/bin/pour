@@ -48,14 +48,6 @@ else
   asdf update
   asdf plugin update --all
 
-  status_message "[asdf] Update default python packages"
-  python3 -m pip install --upgrade pip
-  xargs python3 -m pip install --upgrade --quiet < ~/.default-python-packages
-
-  status_message "[asdf] Update default ruby packages"
-  gem update --system --quiet
-  xargs gem update --user-install --quiet < ~/.default-gems
-
   status_message "[asdf] Listing installed versions"
   asdf reshim
   asdf list
