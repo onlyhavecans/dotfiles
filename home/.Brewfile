@@ -1,5 +1,7 @@
 # Yay
 
+tap 'homebrew/services'
+
 ## Upgrades & Overlays
 
 brew 'bat'
@@ -12,7 +14,6 @@ brew 'gawk'
 brew 'httpie'
 brew 'mosh'
 brew 'neovim'
-brew 'pinentry-mac'
 brew 'ripgrep'
 brew 'rsync'
 brew 'tmux'
@@ -24,35 +25,24 @@ brew 'whois'
 ## Fun stuff
 
 brew 'ffmpeg'
+brew 'fontforge' # Building my own NerdFonts
 brew 'handbrake'
 brew 'imagemagick'
+brew 'marp-cli' # slides
 brew 'tintin'
 brew 'yt-dlp'
 
 ## Dev Tooling
 
-brew 'bash-language-server'
 brew 'direnv'
-brew 'dotenv-linter'
-brew 'flake8'
 brew 'git'
 brew 'git-lfs'
 brew 'git-standup'
 brew 'go'
-brew 'gofumpt'
-brew 'golangci-lint'
 brew 'hugo'
 brew 'jq'
 brew 'libpq'
-brew 'markdownlint-cli'
 brew 'overmind'
-brew 'prettier'
-brew 'quick-lint-js'
-brew 'ruff'
-brew 'shellcheck'
-brew 'sqlfluff'
-brew 'stylua'
-brew 'yamllint'
 
 tap 'heroku/brew'
 brew 'heroku/brew/heroku'
@@ -63,12 +53,10 @@ brew 'jesseduffield/lazygit/lazygit'
 ## Ops Tooling
 
 brew 'ansible'
-brew 'ansible-lint'
 brew 'awscli'
 brew 'bind'
 brew 'dive'
 brew 'gnupg'
-brew 'helm'
 brew 'nmap'
 brew 'qrencode'
 brew 'terraform'
