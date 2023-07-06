@@ -62,6 +62,9 @@ brew 'qrencode'
 brew 'terraform'
 brew 'wireguard-tools'
 
+tap '1password/tap'
+cask '1password/tap/1password-cli'
+
 ## MAS time
 
 brew 'mas'
