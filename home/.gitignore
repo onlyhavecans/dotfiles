@@ -50,6 +50,10 @@ Thumbs.db
 build/*
 dist/*
 
+#Python virtual envs
+venv/*
+.venv/*
+
 # Packages
 *.7z
 *.dmg
