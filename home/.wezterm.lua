@@ -15,4 +15,7 @@ config.color_scheme = "Gruvbox Dark (Gogh)"
 
 config.hide_tab_bar_if_only_one_tab = true
 
+config.initial_cols = 155
+config.initial_rows = 72
+
 return config
