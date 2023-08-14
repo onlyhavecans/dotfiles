@@ -51,6 +51,9 @@ brew 'heroku/brew/heroku'
 tap 'jesseduffield/lazygit'
 brew 'jesseduffield/lazygit/lazygit'
 
+tap 'jesseduffield/lazydocker'
+brew'jesseduffield/lazydocker/lazydocker'
+
 ## Ops Tooling
 
 brew 'ansible'
