@@ -11,6 +11,7 @@ brew 'exa'
 brew 'fd'
 brew 'fzf'
 brew 'gawk'
+brew 'gnu-sed' # Spectre needs this
 brew 'httpie'
 brew 'mosh'
 brew 'neovim'
