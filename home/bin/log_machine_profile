@@ -15,4 +15,4 @@ if [[ ! -d "$PROFILE_DIR" ]]; then
   exit 1
 fi
 
-/usr/sbin/system_profiler -detailLevel full > "$PROFILE_DIR/$(hostname).txt" 2> /dev/null
+/usr/sbin/system_profiler -detailLevel full >"$PROFILE_DIR/$(hostname).txt" 2>/dev/null

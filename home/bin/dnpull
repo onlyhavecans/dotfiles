@@ -18,7 +18,7 @@ function error_message {
   echo -e "${RED}! $*${NOCOLOR}"
 }
 
-if ! command -v fd &> /dev/null; then
+if ! command -v fd &>/dev/null; then
   error_message "You need fd command"
   exit 2
 fi
@@ -28,7 +28,7 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
 
   header_status_message "Updating $LOCAL_DIR"
 
-  if (( $(git -C "$LOCAL_DIR" remote | wc -l) == 0 )); then
+  if (($(git -C "$LOCAL_DIR" remote | wc -l) == 0)); then
     errors+=("! $LOCAL_DIR does not have a remote so skipping.")
     continue
   fi

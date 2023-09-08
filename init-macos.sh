@@ -5,8 +5,7 @@ set -ex
 # curl -sL https://raw.githubusercontent.com/onlyhavecans/dotfiles/main/init-macos.sh | bash
 
 ## Make sure we have brew
-if ! command -v brew &> /dev/null
-then
+if ! command -v brew &>/dev/null; then
   echo "Please install homebrew first"
   echo "https://brew.sh/"
   echo 1

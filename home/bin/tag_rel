@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if (( $# != 1 )); then
-  >&2 echo "Only pass the git tag name"
+if (($# != 1)); then
+  echo >&2 "Only pass the git tag name"
   exit 1
 fi
 

@@ -5,14 +5,14 @@ if [[ $1 == "ssh" ]]; then
   shift
 fi
 
-if (( $# != 1 )); then
-  >&2 echo "Only pass one domain name"
+if (($# != 1)); then
+  echo >&2 "Only pass one domain name"
   exit 1
 fi
 
 ssh-keygen -R "$*"
 
-A_RECORDS=$(dig +short A  -q "$*" | tail -n 1)
+A_RECORDS=$(dig +short A -q "$*" | tail -n 1)
 AAAA_RECORDS=$(dig +short AAAA -q "$*" | tail -n 1)
 
 for i in $A_RECORDS $AAAA_RECORDS; do

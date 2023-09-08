@@ -14,7 +14,7 @@ function error_message {
   echo -e "${RED}! $*${NOCOLOR}"
 }
 
-if ! command -v brew &> /dev/null; then
+if ! command -v brew &>/dev/null; then
   error_message "pour requires brew"
   exit 1
 fi
@@ -41,7 +41,7 @@ status_message "[homebrew] Link completions"
 brew completions link # https://docs.brew.sh/Shell-Completion
 
 # Ocassionally I will not have asdf
-if ! command -v asdf &> /dev/null; then
+if ! command -v asdf &>/dev/null; then
   error_message "[asdf] asdf not installed"
 else
   status_message "[asdf] Update asdf and plguins"
