@@ -41,11 +41,11 @@ done
 
 
 ## Replace a few commands
-if builtin whence exa &> /dev/null; then
-  alias ls=exa
-  alias la="exa -a"
-  alias ll="exa -l"
-  alias lla="exa -la"
+if builtin whence eza &> /dev/null; then
+  alias ls=eza
+  alias la="eza -a"
+  alias ll="eza -l"
+  alias lla="eza -la"
 fi
 
 
