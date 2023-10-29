@@ -15,7 +15,7 @@ done
 
 brew update
 brew bundle install --global
-brew bundle cleanup --global force
+brew cleanup -s --prune=all
 brew upgrade
 brew list --formula | xargs brew reinstall
-brew cleanup -s
+brew cleanup -s --prune=all
