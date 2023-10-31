@@ -20,6 +20,7 @@ fpath+=("$HOME/.homesick/repos/homeshick/completions")
 if [ -f $HOME/.asdf/asdf.sh ]; then
   source "$HOME/.asdf/asdf.sh"
   fpath+=("${ASDF_DIR}/completions")
+  export ASDF_GOLANG_MOD_VERSION_ENABLED=true
   export KERL_CONFIGURE_OPTIONS=--without-javac
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew_prefix openssl@1.1)"
 fi
