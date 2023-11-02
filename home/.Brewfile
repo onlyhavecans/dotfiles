@@ -6,7 +6,6 @@ tap 'homebrew/services'
 
 brew 'bat'
 brew 'curl'
-brew 'dog'
 brew 'eza'
 brew 'fd'
 brew 'fzf'
