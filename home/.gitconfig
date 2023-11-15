@@ -41,6 +41,7 @@
 	wipe = "!f() { git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D; }; f"
 	open = "!git_open"
 	prs = "!prsbad"
+	lg = log --pretty=reference
 
 #Silly tools fight for config down here
 [hub]
