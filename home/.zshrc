@@ -22,7 +22,7 @@ if [ -f $HOME/.asdf/asdf.sh ]; then
   fpath+=("${ASDF_DIR}/completions")
   export ASDF_GOLANG_MOD_VERSION_ENABLED=false
   export KERL_CONFIGURE_OPTIONS=--without-javac
-  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew_prefix openssl@1.1)"
+  unset RUBY_CONFIGURE_OPTS
 fi
 
 
