@@ -64,11 +64,13 @@ brew 'dive'
 brew 'gnupg'
 brew 'nmap'
 brew 'qrencode'
-brew 'terraform'
 brew 'wireguard-tools'
 
 tap '1password/tap'
 cask '1password/tap/1password-cli'
+
+tap 'hashicorp/tap'
+brew 'hashicorp/tap/terraform'
 
 ## MAS time
 
