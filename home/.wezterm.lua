@@ -6,7 +6,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.font = wezterm.font("PragmataProMonoLiga Nerd Font")
+config.font = wezterm.font("PragmataPro Mono Liga")
 config.font_size = 16.0
 config.freetype_load_target = "Light"
 
