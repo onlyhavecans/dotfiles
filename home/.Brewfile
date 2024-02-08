@@ -25,7 +25,6 @@ brew 'whois'
 ## Fun stuff
 
 brew 'ffmpeg'
-brew 'fontforge' # Building my own NerdFonts
 brew 'handbrake'
 brew 'imagemagick'
 brew 'marp-cli' # slides
@@ -59,7 +58,6 @@ brew'jesseduffield/lazydocker/lazydocker'
 brew 'ansible'
 brew 'ansible-lint'
 brew 'awscli'
-brew 'bind'
 brew 'dive'
 brew 'gnupg'
 brew 'nmap'
