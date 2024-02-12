@@ -61,11 +61,11 @@ alias g=git
 alias G=git
 
 alias lg="XDG_CONFIG_HOME="$HOME/.config" lazygit"
-alias lzd="lazydocker"
+alias lzd="XDG_CONFIG_HOME="$HOME/.config" lazydocker"
 
 alias tm="tmux new-session -A -c ~"
-alias ts="mosh colo01.squirrels.wtf -- tmux new-session -A -c ~"
 alias tp="mosh piper.local -- tmux new-session -A -c ~"
+alias tc="mosh catra.local -- tmux new-session -A -c ~"
 
 alias venv="python3 -m venv"
 alias activate="source venv/bin/activate"
