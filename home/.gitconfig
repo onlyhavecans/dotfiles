@@ -35,7 +35,7 @@
 	s = status
 	st = status
 	sw = switch
-	swc = switch -C
+	swc = switch --force-create
 	pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git switch pr-$1; }; f"
 	sm = "!f() { git switch main && git fetch --prune && git pull; }; f"
 	wipe = "!f() { git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D; }; f"
@@ -44,8 +44,6 @@
 	lg = log --pretty=reference
 
 #Silly tools fight for config down here
-[hub]
-	protocol = ssh
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
