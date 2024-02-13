@@ -29,6 +29,7 @@ fi
 
 if [[ "$BRANCH" == "master" ]]; then
   error_message "!!! You are on master!"
+  error_message "No pushing to master!"
   error_message "You should change that to main! (if you can)"
   return 2
 fi
@@ -42,7 +43,7 @@ else
   status_message "No fork present, pushing to origin"
 fi
 
-git push "${REMOTE}" "${BRANCH}"
+git push -u "${REMOTE}" "${BRANCH}"
 
 status_message "Opening a PR!"
 git open pr "${REMOTE}/${BRANCH}"
