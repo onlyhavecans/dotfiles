@@ -97,6 +97,12 @@ if builtin whence fzf &> /dev/null; then
 fi
 
 
+## Wezterm for terminal
+if [ -n "$WEZTERM_EXECUTABLE_DIR" ]; then
+    path=("$WEZTERM_EXECUTABLE_DIR" $path)
+fi
+
+
 ## Per Machine Configurations
 zsh_local="$HOME/.config/local/zshrc.d"
 if [ -d "$zsh_local" ]; then
