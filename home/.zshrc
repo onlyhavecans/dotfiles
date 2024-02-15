@@ -114,7 +114,7 @@ fi
 
 
 ## Per Machine Configurations
-zsh_local="$HOME/.config/local/zshrc.d"
+zsh_local="$HOME/.config/zsh.d"
 if [ -d "$zsh_local" ]; then
   for f in "$zsh_local"/*; do
     source "$f"
