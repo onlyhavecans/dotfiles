@@ -3,4 +3,4 @@ git:
   autoFetch: false
   commit:
     signOff: true
-notARepository: 'quit'
+notARepository: "quit"
