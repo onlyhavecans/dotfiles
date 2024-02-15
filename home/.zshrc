@@ -80,8 +80,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '?'
 zstyle ':vcs_info:*' stagedstr '+'
 # Set the format of the Git information for vcs_info
-zstyle ':vcs_info:git:*' formats       '(%b %c%u)'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a%c%u)'
+zstyle ':vcs_info:git:*' formats       '(%b %c%u%m)'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a %c%u%m)'
 export PROMPT='%F{green}%2~%f %F{magenta}${vcs_info_msg_0_}%f%(?.%F{blue}.%F{red}%?)❯%f '
 
 
