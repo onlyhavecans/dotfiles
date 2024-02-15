@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ~/ResilioSync/Obsidian/Vault || exit
+nvim "journal/$(date '+%Y-W%W.md')"
