@@ -31,14 +31,14 @@ Instead of running brew upgrade manually I run my `pour` function which does a l
 
 ### tmux
 
-* I have it set up so that you can navigate through tmux and vim seamlessly using C-hjlk
-* I use tmux plug-ins use ^a-I to install
+- I have it set up so that you can navigate through tmux and vim seamlessly using C-hjlk
+- I use tmux plug-ins use ^a-I to install
 
 ### git
 
-* The global gitignore is mac/python/ruby/chef/go/ect oriented
-* The main config is set up with lots of alias & uses gpg signing by default
-* instead of gh or hub I now use a custom git_open script I found on the sublime merge forum and modified
+- The global gitignore is mac/python/ruby/chef/go/ect oriented
+- The main config is set up with lots of alias & uses gpg signing by default
+- instead of gh or hub I now use a custom git_open script I found on the sublime merge forum and modified
 
 ### ssh
 
