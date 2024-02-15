@@ -71,8 +71,18 @@ alias venv="python3 -m venv"
 alias activate="source venv/bin/activate"
 
 
-## Simplify Prompt
-export PROMPT='%F{green}%2~%f %(?.%F{blue}.%F{red}%?)❯%f '
+## Mostly Simplify Prompt. Add Git Info
+autoload -Uz add-zsh-hook vcs_info
+setopt prompt_subst
+add-zsh-hook precmd vcs_info
+# Enable checking for (un)staged changes, enabling use of %u and %c
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '?'
+zstyle ':vcs_info:*' stagedstr '+'
+# Set the format of the Git information for vcs_info
+zstyle ':vcs_info:git:*' formats       '(%b %c%u)'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%c%u)'
+export PROMPT='%F{green}%2~%f %F{magenta}${vcs_info_msg_0_}%f%(?.%F{blue}.%F{red}%?)❯%f '
 
 
 ## Emacs keys
