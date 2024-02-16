@@ -15,12 +15,25 @@
 [push]
 	default = current
 	autoSetupRemote = true
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	algorithm = histogram
+[rebase]
+	autostash = true
+[rerere]
+	enabled = true
+[transfer]
+	fsckobjects = true
+[receive]
+	fsckObjects = true
 [fetch]
 	prune = true
+	fsckobjects = true
 [init]
 	defaultBranch = main
 [pull]
-	ff = only
+	rebase = true
 [alias]
 	ad = add --all
 	al = config --get-regexp alias
