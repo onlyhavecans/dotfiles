@@ -26,6 +26,7 @@ brew 'whois'
 
 brew 'ffmpeg'
 brew 'handbrake'
+brew 'hugo'
 brew 'imagemagick'
 brew 'marp-cli' # slides
 brew 'tintin'
@@ -39,7 +40,6 @@ brew 'git-lfs'
 brew 'git-standup'
 brew 'go'
 brew 'golangci-lint'
-brew 'hugo'
 brew 'jq'
 brew 'libpq'
 brew 'overmind'
@@ -49,9 +49,6 @@ brew 'heroku/brew/heroku'
 
 tap 'jesseduffield/lazygit'
 brew 'jesseduffield/lazygit/lazygit'
-
-tap 'jesseduffield/lazydocker'
-brew'jesseduffield/lazydocker/lazydocker'
 
 ## Ops Tooling
 
@@ -69,6 +66,9 @@ cask '1password/tap/1password-cli'
 
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform'
+
+tap 'jesseduffield/lazydocker'
+brew'jesseduffield/lazydocker/lazydocker'
 
 ## MAS time
 
