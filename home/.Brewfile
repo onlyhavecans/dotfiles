@@ -44,6 +44,9 @@ brew 'jq'
 brew 'libpq'
 brew 'overmind'
 
+tap 'goreleaser/tap'
+brew 'goreleaser/tap/goreleaser'
+
 tap 'heroku/brew'
 brew 'heroku/brew/heroku'
 
