@@ -10,11 +10,9 @@ function brew_prefix {
   echo "${HOMEBREW_PREFIX_OPT}/$1"
 }
 
-
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath+=("$HOME/.homesick/repos/homeshick/completions")
-
 
 # asdf-vm
 if [ -f $HOME/.asdf/asdf.sh ]; then
@@ -25,30 +23,26 @@ if [ -f $HOME/.asdf/asdf.sh ]; then
   unset RUBY_CONFIGURE_OPTS
 fi
 
-
 # direnv
-if builtin whence direnv &> /dev/null; then
+if builtin whence direnv &>/dev/null; then
   eval "$(direnv hook zsh)"
   alias tmux="direnv exec / tmux"
 fi
 
-
 # Brew overlays
 apps=(openssh whois curl libpq)
 for app in $apps; do
-  [ -d "$(brew_prefix $app)/bin" ] && \
+  [ -d "$(brew_prefix $app)/bin" ] &&
     path=("$(brew_prefix $app)/bin" $path)
 done
 
-
 ## Replace a few commands
-if builtin whence eza &> /dev/null; then
+if builtin whence eza &>/dev/null; then
   alias ls=eza
   alias la="eza -a"
   alias ll="eza -l"
   alias lla="eza -la"
 fi
-
 
 ## Aliases
 alias ce="chef exec"
@@ -70,23 +64,22 @@ alias tc="mosh catra.local -- tmux new-session -A -c ~"
 alias venv="python3 -m venv"
 alias activate="source venv/bin/activate"
 
-
 ## My own Git Prompt
 function _git_symbols {
-	# Symbols
-	local ahead='↑'
-	local behind='↓'
-	local diverged='↕'
-	local stashed='$'
-	local staged='+'
-	local modified='!'
-	local untracked='?'
+  # Symbols
+  local ahead='↑'
+  local behind='↓'
+  local diverged='↕'
+  local stashed='$'
+  local staged='+'
+  local modified='!'
+  local untracked='?'
 
   typeset -Ua output
 
   # Only run a single git command
-	local git_status
-	git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
+  local git_status
+  git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
 
   # Safety check
   if [[ $? -ne 0 ]]; then
@@ -94,42 +87,42 @@ function _git_symbols {
     return
   fi
 
-	# Ahead, Behind, Diverged
-	local ahead_count behind_count is_ahead is_behind
-  read ahead_count behind_count <<< $(echo "$git_status" | awk '/^# branch.ab/ {print $3,$4}' | tr -d '+-')
-  [[ $ahead_count != 0 ]]  && is_ahead=true
+  # Ahead, Behind, Diverged
+  local ahead_count behind_count is_ahead is_behind
+  read ahead_count behind_count <<<$(echo "$git_status" | awk '/^# branch.ab/ {print $3,$4}' | tr -d '+-')
+  [[ $ahead_count != 0 ]] && is_ahead=true
   [[ $behind_count != 0 ]] && is_behind=true
   if [[ $is_ahead && $is_behind ]]; then
     output+="$diverged"
   else
-    [[ $is_ahead ]]  && output+="$ahead"
+    [[ $is_ahead ]] && output+="$ahead"
     [[ $is_behind ]] && output+="$behind"
   fi
 
   # Stashed, Untracked, Staged, Modified
-	while IFS= read -r symbol; do
-		case $symbol in
-      "# stash"*) output+="$stashed";;
-			"? "*)      output+="$untracked";;
-			??.?*)      output+="$staged";;
-      ???.*)      output+="$modified";;
-		esac
-	done <<< "$git_status"
+  while IFS= read -r symbol; do
+    case $symbol in
+      "# stash"*) output+="$stashed" ;;
+      "? "*) output+="$untracked" ;;
+      ??.?*) output+="$staged" ;;
+      ???.*) output+="$modified" ;;
+    esac
+  done <<<"$git_status"
 
   echo -n "${output// /}"
 }
 
 function _git_info {
-	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     local -a git_info
-
-		git_info+="$(git symbolic-ref --short HEAD 2>/dev/null)"
+    git_info+="$(git symbolic-ref --short HEAD 2>/dev/null)"
 
     ## These can be empty
     symbols=$(_git_symbols)
     [[ -n $symbols ]] && git_info+="$symbols"
-		echo "($git_info) "
-	fi
+
+    echo "($git_info) "
+  fi
 }
 
 setopt prompt_subst
@@ -139,14 +132,12 @@ PROMPT+='%F{magenta}$(_git_info)%f'  # Magenta Git info
 PROMPT+='%(?.%F{blue}.%F{red}%?)❯%f' # Blue chevron, Red with error num if last command failed
 PROMPT+=' '
 
-
 ## Emacs keys
 bindkey -e
 setopt autocd
 
-
 ## FZF to get around & use fd for performance
-if builtin whence fzf &> /dev/null; then
+if builtin whence fzf &>/dev/null; then
   source "$(brew_prefix fzf)/shell/completion.zsh"
   source "$(brew_prefix fzf)/shell/key-bindings.zsh"
 
@@ -161,12 +152,10 @@ if builtin whence fzf &> /dev/null; then
   }
 fi
 
-
 ## Wezterm for terminal
 if [ -n "$WEZTERM_EXECUTABLE_DIR" ]; then
-    path=("$WEZTERM_EXECUTABLE_DIR" $path)
+  path=("$WEZTERM_EXECUTABLE_DIR" $path)
 fi
-
 
 ## Per Machine Configurations
 zsh_local="$HOME/.config/zsh.d"
@@ -175,7 +164,6 @@ if [ -d "$zsh_local" ]; then
     source "$f"
   done
 fi
-
 
 ## Completions
 autoload -Uz compinit && compinit
