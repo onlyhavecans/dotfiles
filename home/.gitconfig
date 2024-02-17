@@ -46,8 +46,7 @@
 	pl = pull
 	ps = push
 	review = log --oneline
-	s = status
-	st = status
+	st = status --short
 	sw = switch
 	swc = switch --force-create
 	pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git switch pr-$1; }; f"
