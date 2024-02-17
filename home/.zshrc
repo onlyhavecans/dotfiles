@@ -67,8 +67,7 @@ alias activate="source venv/bin/activate"
 ## My own Git Prompt
 function _git_info {
   # Only run a single git command
-  local git_status
-  git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
+  local git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
   if [[ -z "$git_status" ]]; then
     ## Not a git repo
     return
@@ -98,8 +97,8 @@ function _git_info {
   fi
 
   # Stashed, Untracked, Staged, Modified
-  while IFS= read -r symbol; do
-    case $symbol in
+  while IFS= read -r line; do
+    case $line in
       "# stash"*) symbols+="$stashed" ;;
       "? "*) symbols+="$untracked" ;;
       ??.?*) symbols+="$staged" ;;
@@ -108,12 +107,10 @@ function _git_info {
   done <<<"$git_status"
 
   # Branch
-  local branch
-  branch=$(echo "$git_status" | awk '/^# branch.head/ {print $3}')
+  local branch=$(echo "$git_status" | awk '/^# branch.head/ {print $3}')
 
   # Compile prompt
-  local git_info
-  git_info+="$branch"
+  local git_info="$branch"
   [[ ${#symbols[@]} != 0 ]] && git_info+=" $symbols"
   echo "($git_info) "
 }
