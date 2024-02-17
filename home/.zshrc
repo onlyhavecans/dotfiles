@@ -71,18 +71,73 @@ alias venv="python3 -m venv"
 alias activate="source venv/bin/activate"
 
 
-## Mostly Simplify Prompt. Add Git Info
-autoload -Uz add-zsh-hook vcs_info
+## My own Git Prompt
+function _git_symbols {
+	# Symbols
+	local ahead='↑'
+	local behind='↓'
+	local diverged='↕'
+	local stashed='$'
+	local staged='+'
+	local modified='!'
+	local untracked='?'
+
+  typeset -Ua output
+
+  # Only run a single git command
+	local git_status
+	git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
+
+  # Safety check
+  if [[ $? -ne 0 ]]; then
+    echo "git_err"
+    return
+  fi
+
+	# Ahead, Behind, Diverged
+	local ahead_count behind_count is_ahead is_behind
+  read ahead_count behind_count <<< $(echo "$git_status" | awk '/^# branch.ab/ {print $3,$4}' | tr -d '+-')
+  [[ $ahead_count != 0 ]]  && is_ahead=true
+  [[ $behind_count != 0 ]] && is_behind=true
+  if [[ $is_ahead && $is_behind ]]; then
+    output+="$diverged"
+  else
+    [[ $is_ahead ]]  && output+="$ahead"
+    [[ $is_behind ]] && output+="$behind"
+  fi
+
+  # Stashed, Untracked, Staged, Modified
+	while IFS= read -r symbol; do
+		case $symbol in
+      "# stash"*) output+="$stashed";;
+			"? "*)      output+="$untracked";;
+			??.?*)      output+="$staged";;
+      ???.*)      output+="$modified";;
+		esac
+	done <<< "$git_status"
+
+  echo -n "${output// /}"
+}
+
+function _git_info {
+	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local -a git_info
+
+		git_info+="$(git symbolic-ref --short HEAD 2>/dev/null)"
+
+    ## These can be empty
+    symbols=$(_git_symbols)
+    [[ -n $symbols ]] && git_info+="$symbols"
+		echo "($git_info) "
+	fi
+}
+
 setopt prompt_subst
-add-zsh-hook precmd vcs_info
-# Enable checking for (un)staged changes, enabling use of %u and %c
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '?'
-zstyle ':vcs_info:*' stagedstr '+'
-# Set the format of the Git information for vcs_info
-zstyle ':vcs_info:git:*' formats       '(%b %c%u%m)'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a %c%u%m)'
-export PROMPT='%F{green}%2~%f %F{magenta}${vcs_info_msg_0_}%f%(?.%F{blue}.%F{red}%?)❯%f '
+PROMPT=''
+PROMPT+='%F{green}%2~%f '            # Green Current directory
+PROMPT+='%F{magenta}$(_git_info)%f'  # Magenta Git info
+PROMPT+='%(?.%F{blue}.%F{red}%?)❯%f' # Blue chevron, Red with error num if last command failed
+PROMPT+=' '
 
 
 ## Emacs keys
