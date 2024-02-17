@@ -76,29 +76,17 @@ function _git_info {
   # Symbols
   local ahead='↑'
   local behind='↓'
-  local diverged='↕'
   local stashed='$'
   local staged='+'
   local modified='!'
   local untracked='?'
 
   local -Ua symbols
+  local branch
 
-  # Ahead, Behind, Diverged
-  local ahead_count behind_count is_ahead is_behind
-  read ahead_count behind_count <<<$(echo "$git_status" | awk '/^# branch.ab/ {print $3,$4}' | tr -d '+-')
-  [[ $ahead_count != 0 ]] && is_ahead=true
-  [[ $behind_count != 0 ]] && is_behind=true
-  if [[ $is_ahead && $is_behind ]]; then
-    symbols+="$diverged"
-  else
-    [[ $is_ahead ]] && symbols+="$ahead"
-    [[ $is_behind ]] && symbols+="$behind"
-  fi
-
-  # Stashed, Untracked, Staged, Modified
   while IFS= read -r line; do
     case $line in
+      "# branch.head"*) branch=$(echo $line | awk '{print $3}') ;;
       "# stash"*) symbols+="$stashed" ;;
       "? "*) symbols+="$untracked" ;;
       ??.?*) symbols+="$staged" ;;
@@ -106,12 +94,15 @@ function _git_info {
     esac
   done <<<"$git_status"
 
-  # Branch
-  local branch=$(echo "$git_status" | awk '/^# branch.head/ {print $3}')
+  # Ahead & Behind seperately to minimize awk calls
+  local ahead_count behind_count
+  read branch ahead_count behind_count <<<$(echo "$git_status" | awk '$2 == "branch.ab" {print $3,$4}' | tr -d '+-')
+  [[ $ahead_count != 0 ]] && symbols+="$ahead"
+  [[ $behind_count != 0 ]] && aymbols+="$behind"
 
   # Compile prompt
   local git_info="$branch"
-  [[ ${#symbols[@]} != 0 ]] && git_info+=" $symbols"
+  [[ ${#symbols[@]} != 0 ]] && git_info+=" ${symbols// /}"
   echo "($git_info) "
 }
 
