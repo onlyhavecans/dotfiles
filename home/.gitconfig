@@ -39,6 +39,7 @@
 	al = config --get-regexp alias
 	ap = add --patch
 	br = branch
+	bb = "!git-better-branch"
 	c = commit --signoff --verbose
 	cm = commit --signoff --message
 	commit = commit --signoff
