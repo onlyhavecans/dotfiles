@@ -113,16 +113,17 @@ function _git_symbols {
 }
 
 function _git_info {
-  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    local -a git_info
-    git_info+="$(git symbolic-ref --short HEAD 2>/dev/null)"
-
-    ## These can be empty
-    symbols=$(_git_symbols)
-    [[ -n $symbols ]] && git_info+="$symbols"
-
-    echo "($git_info) "
+  local -a git_info
+  git_info+="$(git symbolic-ref --short HEAD 2>/dev/null)"
+  if [[ -z $git_info ]]; then
+    return
   fi
+
+  ## These can be empty
+  symbols=$(_git_symbols)
+  [[ -n $symbols ]] && git_info+="$symbols"
+
+  echo "($git_info) "
 }
 
 setopt prompt_subst
