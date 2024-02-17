@@ -29,11 +29,19 @@ if builtin whence direnv &>/dev/null; then
   alias tmux="direnv exec / tmux"
 fi
 
+## Wezterm
+if [ -n "$WEZTERM_EXECUTABLE_DIR" ]; then
+  path=("$WEZTERM_EXECUTABLE_DIR" $path)
+fi
+
 # Brew overlays
 apps=(openssh whois curl libpq)
 for app in $apps; do
   [ -d "$(brew_prefix $app)/bin" ] &&
     path=("$(brew_prefix $app)/bin" $path)
+
+  [ -d "$(brew_prefix $app)/share/zsh/site-functions" ] &&
+    fpath+=("$(brew_prefix $app)/share/zsh/site-functions")
 done
 
 ## Replace a few commands
@@ -130,11 +138,6 @@ if builtin whence fzf &>/dev/null; then
   _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
   }
-fi
-
-## Wezterm for terminal
-if [ -n "$WEZTERM_EXECUTABLE_DIR" ]; then
-  path=("$WEZTERM_EXECUTABLE_DIR" $path)
 fi
 
 ## Per Machine Configurations
