@@ -74,11 +74,11 @@ alias activate="source venv/bin/activate"
 
 ## My own Git Prompt
 
-function _git_info_cmd {
+function _zsh_git_info_cmd {
   command git --no-optional-locks status --porcelain=v2 --branch --show-stash 2>&1
 }
 
-function _git_info_parse {
+function _zsh_git_info_parse {
   local git_status="$1"
 
   local ahead='↑'
@@ -111,7 +111,7 @@ function _git_info_parse {
   echo -n "$branch" "${symbols// /}"
 }
 
-function _git_info_compile_prompt {
+function _zsh_git_info_prompt {
   local branch=$1
   local symbols=$2
 
@@ -121,15 +121,15 @@ function _git_info_compile_prompt {
 
 function _git_info {
   # Only run a single git command
-  local git_status=$(_git_info_cmd)
+  local git_status=$(_zsh_git_info_cmd)
   if [[ "$git_status" == fatal:* ]]; then
     return
   fi
 
   local branch symbols
-  read -r branch symbols <<<"$(_git_info_parse \"$git_status\")"
+  read -r branch symbols <<<"$(_zsh_git_info_parse \"$git_status\")"
 
-  _git_info_compile_prompt "$branch" "$symbols"
+  _zsh_git_info_prompt "$branch" "$symbols"
 }
 
 setopt prompt_subst
