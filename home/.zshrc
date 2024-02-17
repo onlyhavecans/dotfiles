@@ -73,12 +73,13 @@ alias venv="python3 -m venv"
 alias activate="source venv/bin/activate"
 
 ## My own Git Prompt
-function _git_info {
-  # Only run a single git command
-  local git_status="$(git --no-optional-locks status --porcelain=v2 --branch --show-stash 2>/dev/null)"
-  if [[ -z "$git_status" ]]; then
-    return
-  fi
+
+function _git_info_cmd {
+  command git --no-optional-locks status --porcelain=v2 --branch --show-stash 2>&1
+}
+
+function _git_info_parse {
+  local git_status="$1"
 
   local ahead='↑'
   local behind='↓'
@@ -107,10 +108,28 @@ function _git_info {
     esac
   done <<<"$git_status"
 
-  # Compile prompt
-  local git_info="$branch"
-  [[ ${#symbols[@]} != 0 ]] && git_info+=" ${symbols// /}"
-  echo "($git_info) "
+  echo -n "$branch" "${symbols// /}"
+}
+
+function _git_info_compile_prompt {
+  local branch=$1
+  local symbols=$2
+
+  [[ -n $symbols ]] && branch+=" $symbols"
+  echo "($branch) "
+}
+
+function _git_info {
+  # Only run a single git command
+  local git_status=$(_git_info_cmd)
+  if [[ "$git_status" == fatal:* ]]; then
+    return
+  fi
+
+  local branch symbols
+  read -r branch symbols <<<"$(_git_info_parse \"$git_status\")"
+
+  _git_info_compile_prompt "$branch" "$symbols"
 }
 
 setopt prompt_subst
