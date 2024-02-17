@@ -4,7 +4,6 @@ tap 'homebrew/services'
 
 ## Upgrades & Overlays
 
-brew 'bat'
 brew 'curl'
 brew 'eza'
 brew 'fd'
@@ -14,6 +13,7 @@ brew 'gnu-sed' # Spectre needs this
 brew 'httpie'
 brew 'mosh'
 brew 'neovim'
+brew 'openssh'
 brew 'ripgrep'
 brew 'rsync'
 brew 'tmux'
