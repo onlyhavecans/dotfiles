@@ -81,11 +81,17 @@ function _git_symbols {
   local git_status
   git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
 
+  # Safety check
+  if [[ $? -ne 0 ]]; then
+    echo "git_err"
+    return
+  fi
+
   # Ahead, Behind, Diverged
   local ahead_count behind_count is_ahead is_behind
   read ahead_count behind_count <<<$(echo "$git_status" | awk '/^# branch.ab/ {print $3,$4}' | tr -d '+-')
-  [[ -n $ahead_count && $ahead_count != 0 ]] && is_ahead=true
-  [[ -n $behind_count && $behind_count != 0 ]] && is_behind=true
+  [[ $ahead_count != 0 ]] && is_ahead=true
+  [[ $behind_count != 0 ]] && is_behind=true
   if [[ $is_ahead && $is_behind ]]; then
     output+="$diverged"
   else
