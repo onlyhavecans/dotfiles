@@ -5,9 +5,8 @@
 eval $(brew shellenv)
 
 ## brew --prefix is way too slow in 4.0 so hardcode
-function brew_prefix {
-  HOMEBREW_PREFIX_OPT="${HOMEBREW_PREFIX}/opt"
-  echo "${HOMEBREW_PREFIX_OPT}/$1"
+function _brew_prefix {
+  printf "${HOMEBREW_PREFIX}/opt/$1"
 }
 
 # Homeshick for configs
@@ -37,14 +36,13 @@ fi
 # Brew overlays
 apps=(openssh whois curl libpq)
 for app in $apps; do
-  [ -d "$(brew_prefix $app)/bin" ] &&
-    path=("$(brew_prefix $app)/bin" $path)
+  [ -d "$(_brew_prefix $app)/bin" ] &&
+    path=("$(_brew_prefix $app)/bin" $path)
 
-  [ -d "$(brew_prefix $app)/share/zsh/site-functions" ] &&
-    fpath+=("$(brew_prefix $app)/share/zsh/site-functions")
+  [ -d "$(_brew_prefix $app)/share/zsh/site-functions" ] &&
+    fpath+=("$(_brew_prefix $app)/share/zsh/site-functions")
 done
 
-## Replace a few commands
 if builtin whence eza &>/dev/null; then
   alias ls=eza
   alias la="eza -a"
@@ -72,13 +70,12 @@ alias tc="mosh catra.local -- tmux new-session -A -c ~"
 alias venv="python3 -m venv"
 alias activate="source venv/bin/activate"
 
-## My own Git Prompt
-
-function _zsh_git_info_cmd {
+## Prompt with Git info
+function _git_info_cmd {
   command git --no-optional-locks status --porcelain=v2 --branch --show-stash 2>&1
 }
 
-function _zsh_git_info_parse {
+function _git_info_parse {
   local git_status="$1"
 
   local ahead='↑'
@@ -111,7 +108,7 @@ function _zsh_git_info_parse {
   echo -n "$branch" "${symbols// /}"
 }
 
-function _zsh_git_info_prompt {
+function _git_info_prompt {
   local branch=$1
   local symbols=$2
 
@@ -120,16 +117,15 @@ function _zsh_git_info_prompt {
 }
 
 function _git_info {
-  # Only run a single git command
-  local git_status=$(_zsh_git_info_cmd)
+  local git_status=$(_git_info_cmd)
   if [[ "$git_status" == fatal:* ]]; then
     return
   fi
 
   local branch symbols
-  read -r branch symbols <<<"$(_zsh_git_info_parse \"$git_status\")"
+  read -r branch symbols <<<"$(_git_info_parse \"$git_status\")"
 
-  _zsh_git_info_prompt "$branch" "$symbols"
+  _git_info_prompt "$branch" "$symbols"
 }
 
 setopt prompt_subst
@@ -145,8 +141,8 @@ setopt autocd
 
 ## FZF to get around & use fd for performance
 if builtin whence fzf &>/dev/null; then
-  source "$(brew_prefix fzf)/shell/completion.zsh"
-  source "$(brew_prefix fzf)/shell/key-bindings.zsh"
+  source "$(_brew_prefix fzf)/shell/completion.zsh"
+  source "$(_brew_prefix fzf)/shell/key-bindings.zsh"
 
   export FZF_DEFAULT_COMMAND='fd --follow --hidden --type f'
   export FZF_CTRL_T_COMMAND='fd --follow --hidden'
