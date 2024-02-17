@@ -69,36 +69,35 @@ function _git_info {
   # Only run a single git command
   local git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
   if [[ -z "$git_status" ]]; then
-    ## Not a git repo
     return
   fi
 
-  # Symbols
   local ahead='↑'
   local behind='↓'
   local stash='$'
   local staged='+'
   local modified='!'
   local untracked='?'
-
-  local -Ua symbols
   local branch
+  local -Ua symbols
 
   while IFS= read -r line; do
     case $line in
-      "# branch.head"*) branch=$(echo $line | cut -wf 3) ;;
+      "# branch.head"*)
+        branch=$(echo $line | cut -wf 3)
+        ;;
+      "# branch.ab"*)
+        local ahead_count behind_count
+        read ahead_count behind_count <<<$(echo "$line" | cut -wf 3,4 | tr -d '+-')
+        [[ $ahead_count > 0 ]] && symbols+="$ahead"
+        [[ $behind_count > 0 ]] && aymbols+="$behind"
+        ;;
       "# stash"*) symbols+="$stash" ;;
-      "? "*) symbols+="$untracked" ;;
       ??.?*) symbols+="$staged" ;;
       ???.*) symbols+="$modified" ;;
+      "? "*) symbols+="$untracked" ;;
     esac
   done <<<"$git_status"
-
-  # Ahead & Behind seperately to minimize awk calls
-  local ahead_count behind_count
-  read ahead_count behind_count <<<$(echo "$git_status" | awk '$2 == "branch.ab" {print $3,$4}' | tr -d '+-')
-  [[ $ahead_count != 0 ]] && symbols+="$ahead"
-  [[ $behind_count != 0 ]] && aymbols+="$behind"
 
   # Compile prompt
   local git_info="$branch"
