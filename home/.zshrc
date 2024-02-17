@@ -65,7 +65,15 @@ alias venv="python3 -m venv"
 alias activate="source venv/bin/activate"
 
 ## My own Git Prompt
-function _git_symbols {
+function _git_info {
+  # Only run a single git command
+  local git_status
+  git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
+  if [[ -z "$git_status" ]]; then
+    ## Not a git repo
+    return
+  fi
+
   # Symbols
   local ahead='↑'
   local behind='↓'
@@ -75,17 +83,7 @@ function _git_symbols {
   local modified='!'
   local untracked='?'
 
-  typeset -Ua output
-
-  # Only run a single git command
-  local git_status
-  git_status="$(git status --porcelain=v2 --branch --show-stash 2>/dev/null)"
-
-  # Safety check
-  if [[ $? -ne 0 ]]; then
-    echo "git_err"
-    return
-  fi
+  local -Ua symbols
 
   # Ahead, Behind, Diverged
   local ahead_count behind_count is_ahead is_behind
@@ -93,36 +91,30 @@ function _git_symbols {
   [[ $ahead_count != 0 ]] && is_ahead=true
   [[ $behind_count != 0 ]] && is_behind=true
   if [[ $is_ahead && $is_behind ]]; then
-    output+="$diverged"
+    symbols+="$diverged"
   else
-    [[ $is_ahead ]] && output+="$ahead"
-    [[ $is_behind ]] && output+="$behind"
+    [[ $is_ahead ]] && symbols+="$ahead"
+    [[ $is_behind ]] && symbols+="$behind"
   fi
 
   # Stashed, Untracked, Staged, Modified
   while IFS= read -r symbol; do
     case $symbol in
-      "# stash"*) output+="$stashed" ;;
-      "? "*) output+="$untracked" ;;
-      ??.?*) output+="$staged" ;;
-      ???.*) output+="$modified" ;;
+      "# stash"*) symbols+="$stashed" ;;
+      "? "*) symbols+="$untracked" ;;
+      ??.?*) symbols+="$staged" ;;
+      ???.*) symbols+="$modified" ;;
     esac
   done <<<"$git_status"
 
-  echo -n "${output// /}"
-}
+  # Branch
+  local branch
+  branch=$(echo "$git_status" | awk '/^# branch.head/ {print $3}')
 
-function _git_info {
-  local -a git_info
-  git_info+="$(git symbolic-ref --short HEAD 2>/dev/null)"
-  if [[ -z $git_info ]]; then
-    return
-  fi
-
-  ## These can be empty
-  symbols=$(_git_symbols)
-  [[ -n $symbols ]] && git_info+="$symbols"
-
+  # Compile prompt
+  local git_info
+  git_info+="$branch"
+  [[ ${#symbols[@]} != 0 ]] && git_info+=" $symbols"
   echo "($git_info) "
 }
 
