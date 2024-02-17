@@ -76,7 +76,7 @@ function _git_info {
   # Symbols
   local ahead='↑'
   local behind='↓'
-  local stashed='$'
+  local stash='$'
   local staged='+'
   local modified='!'
   local untracked='?'
@@ -86,8 +86,8 @@ function _git_info {
 
   while IFS= read -r line; do
     case $line in
-      "# branch.head"*) branch=$(echo $line | awk '{print $3}') ;;
-      "# stash"*) symbols+="$stashed" ;;
+      "# branch.head"*) branch=$(echo $line | cut -wf 3) ;;
+      "# stash"*) symbols+="$stash" ;;
       "? "*) symbols+="$untracked" ;;
       ??.?*) symbols+="$staged" ;;
       ???.*) symbols+="$modified" ;;
@@ -96,7 +96,7 @@ function _git_info {
 
   # Ahead & Behind seperately to minimize awk calls
   local ahead_count behind_count
-  read branch ahead_count behind_count <<<$(echo "$git_status" | awk '$2 == "branch.ab" {print $3,$4}' | tr -d '+-')
+  read ahead_count behind_count <<<$(echo "$git_status" | awk '$2 == "branch.ab" {print $3,$4}' | tr -d '+-')
   [[ $ahead_count != 0 ]] && symbols+="$ahead"
   [[ $behind_count != 0 ]] && aymbols+="$behind"
 
