@@ -96,7 +96,7 @@ function _git_info_parse {
         local ahead_count behind_count
         read ahead_count behind_count <<<$(echo "$line" | cut -wf 3,4 | tr -d '+-')
         [[ $ahead_count > 0 ]] && symbols+="$ahead"
-        [[ $behind_count > 0 ]] && aymbols+="$behind"
+        [[ $behind_count > 0 ]] && symbols+="$behind"
         ;;
       "# stash"*) symbols+="$stash" ;;
       ??.?*) symbols+="$staged" ;;
