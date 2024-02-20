@@ -94,7 +94,7 @@ function _git_info_parse {
         ;;
       "# branch.ab"*)
         local ahead_count behind_count
-        read ahead_count behind_count <<<$(echo "$line" | cut -d' ' -f 3,4 | tr -d '+-')
+        read ahead_count behind_count <<<$(echo "$line" | cut -w -f 3,4 | tr -d '+-')
         [[ $ahead_count > 0 ]] && symbols+="$ahead"
         [[ $behind_count > 0 ]] && symbols+="$behind"
         ;;
