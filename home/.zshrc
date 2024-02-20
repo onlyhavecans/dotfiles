@@ -101,7 +101,10 @@ function _git_info_parse {
       "# stash"*) symbols+="$stash" ;;
       ??.?*) symbols+="$staged" ;;
       ???.*) symbols+="$modified" ;;
-      ??MM*) symbols+="$modified$staged" ;;
+      ??MM*)
+        symbols+="$modified"
+        symbols+="$staged"
+        ;;
       "? "*) symbols+="$untracked" ;;
     esac
   done <<<"$git_status"
