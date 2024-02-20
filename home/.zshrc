@@ -90,11 +90,11 @@ function _git_info_parse {
   while IFS= read -r line; do
     case $line in
       "# branch.head"*)
-        branch=$(echo $line | cut -wf 3)
+        branch=$(echo $line | cut -d' ' -f 3)
         ;;
       "# branch.ab"*)
         local ahead_count behind_count
-        read ahead_count behind_count <<<$(echo "$line" | cut -wf 3,4 | tr -d '+-')
+        read ahead_count behind_count <<<$(echo "$line" | cut -d' ' -f 3,4 | tr -d '+-')
         [[ $ahead_count > 0 ]] && symbols+="$ahead"
         [[ $behind_count > 0 ]] && symbols+="$behind"
         ;;
@@ -130,7 +130,7 @@ function _git_info {
 
 setopt prompt_subst
 PROMPT=''
-PROMPT+='%F{green}%2~%f '            # Green Current directory
+PROMPT+='%F{green}%m:%2~%f '         # Green Current directory
 PROMPT+='%F{magenta}$(_git_info)%f'  # Magenta Git info
 PROMPT+='%(?.%F{blue}.%F{red}%?)❯%f' # Blue chevron, Red with error num if last command failed
 PROMPT+=' '
