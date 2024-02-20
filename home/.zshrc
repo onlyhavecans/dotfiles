@@ -89,12 +89,14 @@ function _git_info_parse {
 
   while IFS= read -r line; do
     case $line in
+      "# branch.oid"*) ;;
+      "# branch.upstream"*) ;;
       "# branch.head"*)
         branch=$(echo $line | cut -d' ' -f 3)
         ;;
       "# branch.ab"*)
         local ahead_count behind_count
-        read ahead_count behind_count <<<$(echo "$line" | cut -d' ' -f 3,4 | tr -d '+-"')
+        read ahead_count behind_count <<<$(echo "$line" | cut -d' ' -f 3,4 | tr -d '+-')
         [[ $ahead_count > 0 ]] && symbols+="$ahead"
         [[ $behind_count > 0 ]] && symbols+="$behind"
         ;;
@@ -106,8 +108,9 @@ function _git_info_parse {
         symbols+="$staged"
         ;;
       "? "*) symbols+="$untracked" ;;
+      *) symbols+=$line ;;
     esac
-  done <<<"$git_status"
+  done <<<$git_status
 
   echo -n "$branch" "${symbols// /}"
 }
@@ -127,7 +130,7 @@ function _git_info {
   fi
 
   local branch symbols
-  read -r branch symbols <<<"$(_git_info_parse \"$git_status\")"
+  read -r branch symbols <<<"$(_git_info_parse $git_status)"
 
   _git_info_prompt "$branch" "$symbols"
 }
