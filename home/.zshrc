@@ -90,7 +90,7 @@ function _git_info_parse {
   while IFS= read -r line; do
     case $line in
       "# branch.head"*)
-        branch=$(echo $line | cut -wf 3)
+        branch=$(echo $line | cut -d' ' -f 3)
         ;;
       "# branch.ab"*)
         local ahead_count behind_count
@@ -101,6 +101,7 @@ function _git_info_parse {
       "# stash"*) symbols+="$stash" ;;
       ??.?*) symbols+="$staged" ;;
       ???.*) symbols+="$modified" ;;
+      ??MM*) symbols+="$modified$staged" ;;
       "? "*) symbols+="$untracked" ;;
     esac
   done <<<"$git_status"
