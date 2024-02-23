@@ -48,6 +48,7 @@ if builtin whence eza &>/dev/null; then
   alias la="eza -a"
   alias ll="eza -l"
   alias lla="eza -la"
+  alias tree="eza --tree"
 fi
 
 ## Aliases
