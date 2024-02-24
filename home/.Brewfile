@@ -4,6 +4,7 @@ tap 'homebrew/services'
 
 ## Upgrades & Overlays
 
+brew 'bat'
 brew 'curl'
 brew 'eza'
 brew 'fd'
@@ -20,6 +21,7 @@ brew 'tmux'
 brew 'watch'
 brew 'wget'
 brew 'whois'
+brew 'zoxide'
 
 ## Fun stuff
 
