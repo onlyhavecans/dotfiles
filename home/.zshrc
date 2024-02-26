@@ -120,7 +120,7 @@ function _git_info_prompt {
   local branch=$1
   local symbols=$2
 
-  [[ -n $symbols ]] && branch+=" $symbols"
+  [[ -n $symbols ]] && branch+="$symbols"
   echo "($branch) "
 }
 
