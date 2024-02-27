@@ -121,7 +121,7 @@ function _git_info_prompt {
   local symbols=$2
 
   [[ -n $symbols ]] && branch+="$symbols"
-  echo "($branch) "
+  echo " $branch"
 }
 
 function _git_info {
@@ -137,11 +137,12 @@ function _git_info {
 }
 
 setopt prompt_subst
-PROMPT=''
-PROMPT+='%F{green}%m:%2~%f '         # Green Current directory
-PROMPT+='%F{magenta}$(_git_info)%f'  # Magenta Git info
-PROMPT+='%(?.%F{blue}.%F{red}%?)❯%f' # Blue chevron, Red with error num if last command failed
-PROMPT+=' '
+TOP_PROMPT=''
+TOP_PROMPT+='%F{green}%m '               # Green Machine name
+TOP_PROMPT+=' %2~%f '                  # Green Current directory
+TOP_PROMPT+='%F{magenta}$(_git_info)%f' # Magenta Git info
+precmd() { print -rP -- $TOP_PROMPT }
+PROMPT='%(?.%F{blue}.%F{red}%?)❯%f ' # Blue chevron, Red with error num if last command failed
 
 ## Emacs keys
 bindkey -e
