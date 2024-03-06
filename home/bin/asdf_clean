@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for plugin in $(asdf list | grep -v '^ '); do
+  asdf plugin remove "$plugin"
+  asdf plugin add "$plugin"
+  asdf install "$plugin" latest
+  asdf global "$plugin" latest
+done
