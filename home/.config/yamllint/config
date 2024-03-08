@@ -10,5 +10,8 @@ yaml-files:
 
 rules:
   line-length: disable
+  comments:
+    require-starting-space: true
+    ignore-shebangs: true
 
 # vi: ft=yaml

@@ -1,0 +1,5 @@
+---
+formatter:
+  include_document_start: true
+  pad_line_comments: 2  # This matches yamllint
+  retain_line_breaks_single: true  # Don't squash whitespace
