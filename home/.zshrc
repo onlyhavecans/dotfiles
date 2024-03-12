@@ -43,6 +43,11 @@ for app in $apps; do
     fpath+=("$(_brew_prefix $app)/share/zsh/site-functions")
 done
 
+if builtin whence bat &>/dev/null; then
+  export BAT_THEME="gruvbox-dark"
+  alias cat=bat
+fi
+
 if builtin whence eza &>/dev/null; then
   alias ls=eza
   alias la="eza -a"
@@ -141,7 +146,9 @@ TOP_PROMPT=''
 TOP_PROMPT+='%F{green}%m'               # Green Machine name
 TOP_PROMPT+='  %2~%f'                  # Green Current directory
 TOP_PROMPT+='%F{magenta}$(_git_info)%f' # Magenta Git info
-precmd() { print -rP -- $TOP_PROMPT }
+precmd() {
+  print -rP -- $TOP_PROMPT
+}
 PROMPT='%(?.%F{blue}.%F{red}%?)❯%f ' # Blue chevron, Red with error num if last command failed
 
 ## Emacs keys
