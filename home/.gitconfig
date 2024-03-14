@@ -6,10 +6,9 @@
 	excludesfile = ~/.gitignore
 	editor = nvim
 	autocrlf = input
-[format]
-	signOff = true
 [commit]
 	gpgsign = true
+	verbose = true
 [gpg]
 	format = ssh
 [push]
@@ -40,9 +39,7 @@
 	ap = add --patch
 	br = branch
 	bb = "!git-better-branch"
-	c = commit --signoff --verbose
-	cm = commit --signoff --message
-	commit = commit --signoff
+	cm = commit --message
 	pl = pull
 	ps = push
 	review = log --oneline
