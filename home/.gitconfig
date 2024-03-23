@@ -6,14 +6,18 @@
 	excludesfile = ~/.gitignore
 	editor = nvim
 	autocrlf = input
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
 [commit]
 	gpgsign = true
 	verbose = true
-[gpg]
-	format = ssh
 [push]
 	default = current
 	autoSetupRemote = true
+[pull]
+	rebase = true
 [merge]
 	conflictstyle = zdiff3
 [diff]
@@ -29,10 +33,6 @@
 [fetch]
 	prune = true
 	fsckobjects = true
-[init]
-	defaultBranch = main
-[pull]
-	rebase = true
 [alias]
 	ad = add --all
 	al = config --get-regexp alias
