@@ -45,6 +45,7 @@ done
 
 if builtin whence bat &>/dev/null; then
   export BAT_THEME="gruvbox-dark"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   alias cat=bat
 fi
 
