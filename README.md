@@ -13,7 +13,7 @@ Overall I am trying not to have too bespoke of a setup but there is a lot of ini
 ### Mac
 
 Start by installing [homebrew](https://brew.sh/)
-then curlbash the inti-macos.sh script!
+then curlbash the init-macos.sh script!
 
 ## Apps
 
