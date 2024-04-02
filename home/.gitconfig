@@ -55,6 +55,10 @@
 	sm = "!f() { git switch main && git fetch --prune && git pull; }; f"
 	wipe = "!f() { git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D; }; f"
 
+# include for work
+[includeIf "gitdir:~/Code/dnsimple/"]
+	path = ~/Code/dnsimple/.gitconfig
+
 #Silly tools fight for config down here
 [filter "lfs"]
 	process = git-lfs filter-process
