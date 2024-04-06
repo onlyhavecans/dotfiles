@@ -158,8 +158,7 @@ setopt autocd
 
 ## FZF to get around & use fd for performance
 if builtin whence fzf &>/dev/null; then
-  source "$(_brew_prefix fzf)/shell/completion.zsh"
-  source "$(_brew_prefix fzf)/shell/key-bindings.zsh"
+  eval "$(fzf --zsh)"
 
   export FZF_DEFAULT_COMMAND='fd --follow --hidden --type f'
   export FZF_CTRL_T_COMMAND='fd --follow --hidden'
