@@ -47,6 +47,7 @@ brew 'golangci-lint'
 brew 'jq'
 brew 'libpq'
 brew 'overmind'
+brew 'pipx'
 
 tap 'goreleaser/tap'
 brew 'goreleaser/tap/goreleaser'
