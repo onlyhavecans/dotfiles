@@ -37,10 +37,11 @@ brew 'yt-dlp'
 ## Dev Tooling
 
 brew 'direnv'
+brew 'entr'
+brew 'gh'
 brew 'git'
 brew 'git-lfs'
 brew 'git-standup'
-brew 'gh'
 brew 'go'
 brew 'golangci-lint'
 brew 'jq'
