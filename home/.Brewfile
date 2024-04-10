@@ -59,8 +59,6 @@ brew 'jesseduffield/lazygit/lazygit'
 
 ## Ops Tooling
 
-brew 'ansible'
-brew 'ansible-lint'
 brew 'dive'
 brew 'gnupg'
 brew 'nmap'
