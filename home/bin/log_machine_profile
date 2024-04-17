@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 
-DRIVE_DIR="/Volumes/Drobo"
 SYNC_DIR="ResilioSync/Action/machine_profiles"
 
 PROFILE_DIR="$HOME/$SYNC_DIR"
-DROBO_DIR="$DRIVE_DIR/$SYNC_DIR"
-
-if [[ -d $DROBO_DIR ]]; then
-  PROFILE_DIR=$DROBO_DIR
-fi
 
 if [[ ! -d "$PROFILE_DIR" ]]; then
   echo "The directory is missing"
