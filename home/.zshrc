@@ -2,12 +2,24 @@
 #shellcheck disable=SC1090,SC1091
 
 ## Make sure system paths are last
-eval $(brew shellenv)
+if builtin whence brew &>/dev/null; then
+  eval $(brew shellenv)
 
-## brew --prefix is way too slow in 4.0 so hardcode
-function _brew_prefix {
-  printf "${HOMEBREW_PREFIX}/opt/$1"
-}
+  ## brew --prefix is way too slow in 4.0 so hardcode
+  function _brew_prefix {
+    printf "${HOMEBREW_PREFIX}/opt/$1"
+  }
+
+  # Brew overlays
+  apps=(openssh whois curl libpq)
+  for app in $apps; do
+    [ -d "$(_brew_prefix $app)/bin" ] &&
+      path=("$(_brew_prefix $app)/bin" $path)
+
+    [ -d "$(_brew_prefix $app)/share/zsh/site-functions" ] &&
+      fpath+=("$(_brew_prefix $app)/share/zsh/site-functions")
+  done
+fi
 
 # Homeshick for configs
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -32,16 +44,6 @@ fi
 if [ -n "$WEZTERM_EXECUTABLE_DIR" ]; then
   path=("$WEZTERM_EXECUTABLE_DIR" $path)
 fi
-
-# Brew overlays
-apps=(openssh whois curl libpq)
-for app in $apps; do
-  [ -d "$(_brew_prefix $app)/bin" ] &&
-    path=("$(_brew_prefix $app)/bin" $path)
-
-  [ -d "$(_brew_prefix $app)/share/zsh/site-functions" ] &&
-    fpath+=("$(_brew_prefix $app)/share/zsh/site-functions")
-done
 
 if builtin whence bat &>/dev/null; then
   export BAT_THEME="gruvbox-dark"
