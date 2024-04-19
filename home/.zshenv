@@ -8,6 +8,7 @@ typeset -U path PATH
 [ -d "$HOME/.cargo/bin" ] && path=("$HOME/.cargo/bin" $path)
 [ -d /usr/local/bin ] && path=(/usr/local/bin $path)
 [ -d /opt/homebrew/bin ] && path=(/opt/homebrew/bin $path)
+[ -d /home/linuxbrew/.linuxbrew/bin ] && path=(/home/linuxbrew/.linuxbrew/bin $path)
 
 # Mosh Server settings are needed at init
 # make `killall -USR1 mosh-server` only kill sessions disconected for X seconds

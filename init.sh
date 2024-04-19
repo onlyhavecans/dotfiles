@@ -4,7 +4,7 @@ set -ex
 # Do a curlbash to allow me to take over your system
 # curl -sL https://raw.githubusercontent.com/onlyhavecans/dotfiles/main/init.sh | bash
 
-## Make sure we have brew
+## Make sure we have git
 if ! command -v git &>/dev/null; then
   echo "Please install git first"
   echo 1
