@@ -2,12 +2,11 @@
 set -ex
 
 # Do a curlbash to allow me to take over your system
-# curl -sL https://raw.githubusercontent.com/onlyhavecans/dotfiles/main/init-macos.sh | bash
+# curl -sL https://raw.githubusercontent.com/onlyhavecans/dotfiles/main/init.sh | bash
 
 ## Make sure we have brew
-if ! command -v brew &>/dev/null; then
-  echo "Please install homebrew first"
-  echo "https://brew.sh/"
+if ! command -v git &>/dev/null; then
+  echo "Please install git first"
   echo 1
 fi
 
@@ -25,7 +24,12 @@ git -C "$HOME/.homesick/repos/dotfiles" remote set-url origin git@github.com:onl
 homeshick link --force
 
 ## Install packages
-brew bundle install --global
+if command -v brew &>/dev/null; then
+  brew bundle install --global
+else
+  echo "Install Brew if you want brew packages!"
+  echo "https://brew.sh/"
+fi
 
 ## TMP install
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -50,5 +54,7 @@ if [[ ! -d $HOME/.asdf ]]; then
   asdf global ruby latest
 fi
 
-## Link 1Password agent
-mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
+## Link 1Password agent if we have the mac
+if [[ "$(uname)" == "Darwin" ]]; then
+  mkdir -p ~/.1password && ln -s ~/library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
+fi
