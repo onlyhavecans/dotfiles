@@ -7,7 +7,7 @@ set -ex
 ## Make sure we have git
 if ! command -v git &>/dev/null; then
   echo "Please install git first"
-  echo 1
+  exit 1
 fi
 
 ## Install homeshick
