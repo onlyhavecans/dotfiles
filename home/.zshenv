@@ -6,6 +6,7 @@ typeset -U path PATH
 [ -d "$HOME/bin" ] && path=("$HOME/bin" $path)
 [ -d "$HOME/go/bin" ] && path=("$HOME/go/bin" $path)
 [ -d "$HOME/.cargo/bin" ] && path=("$HOME/.cargo/bin" $path)
+[ -d "$HOME/Applications" ] && path=("$HOME/Applications" $path)
 [ -d /usr/local/bin ] && path=(/usr/local/bin $path)
 [ -d /opt/homebrew/bin ] && path=(/opt/homebrew/bin $path)
 [ -d /home/linuxbrew/.linuxbrew/bin ] && path=(/home/linuxbrew/.linuxbrew/bin $path)
