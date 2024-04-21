@@ -1,6 +1,9 @@
 #shellcheck shell=zsh
 #shellcheck disable=SC1090,SC1091
 
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+
 ## Make sure system paths are last
 if builtin whence brew &>/dev/null; then
   eval $(brew shellenv)
@@ -47,7 +50,6 @@ fi
 
 if builtin whence bat &>/dev/null; then
   export BAT_THEME="gruvbox-dark"
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   alias cat=bat
 fi
 
