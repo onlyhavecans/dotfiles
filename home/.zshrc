@@ -50,7 +50,6 @@ fi
 
 if builtin whence bat &>/dev/null; then
   export BAT_THEME="gruvbox-dark"
-  alias cat=bat
 fi
 
 if builtin whence eza &>/dev/null; then
@@ -63,6 +62,17 @@ fi
 
 if builtin whence zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
+fi
+
+if builtin whence yazi &>/dev/null; then
+  function yy() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+  }
 fi
 
 ## Aliases
