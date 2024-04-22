@@ -5,17 +5,15 @@ tap 'homebrew/services'
 ## Upgrades & Overlays
 
 brew 'bat'
+brew 'btop'
 brew 'curl'
 brew 'eza'
 brew 'fd'
-brew 'fzf'
 brew 'gawk'
 brew 'gnu-sed' # Spectre needs this
 brew 'httpie'
 brew 'mosh'
-brew 'neovim'
 brew 'openssh'
-brew 'qpdf'
 brew 'ripgrep'
 brew 'rsync'
 brew 'tmux'
@@ -27,15 +25,27 @@ brew 'zoxide'
 ## Fun stuff
 
 brew 'ffmpeg'
+brew 'ffmpegthumbnailer'
+brew 'fzf'
 brew 'handbrake'
 brew 'hugo'
 brew 'imagemagick'
 brew 'marp-cli' # slides
+brew 'neofetch'
+brew 'poppler'
+brew 'qpdf'
+brew 'ranger' #pick one
+brew 'thefuck'
 brew 'tintin'
+brew 'tlrc'
+brew 'trash-cli'
+brew 'unar'
+brew 'yazi'
 brew 'yt-dlp'
 
 ## Dev Tooling
 
+brew 'neovim'
 brew 'direnv'
 brew 'entr'
 brew 'gh'
