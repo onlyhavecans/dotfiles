@@ -78,7 +78,7 @@ fi
 status_message "[homebrew] Check for missing packages"
 brew missing
 
-if command -v asdf &>/dev/null; then
+if command -v mas &>/dev/null; then
   status_message "[mas] Do I have any outdated App Store apps"
   mas outdated
 fi
