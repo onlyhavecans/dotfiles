@@ -1,0 +1,4 @@
+ignore-empty-password
+show-failed-attempts
+daemonize
+image=~/Desktops/monokay.png
