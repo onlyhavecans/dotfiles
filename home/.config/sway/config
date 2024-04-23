@@ -64,7 +64,9 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     #Lock it
     bindsym $mod+Shift+l exec swaylock
     # clipboard manager
-    bindsym $mod+Shift+v exec cliphist list | wofi --dmenu | cliphist decode | wl-copy
+    bindsym $mod+Shift+v exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
+    # 1Password
+    bindsym $mod+backslash exec /usr/bin/1password --quick-access
 
     # Kill focused window
     bindsym $mod+q kill
@@ -197,5 +199,10 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
+
+#
+## Rename Some windows
+#
+for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 include /etc/sway/config.d/*
