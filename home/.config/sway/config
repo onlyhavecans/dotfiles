@@ -98,11 +98,11 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     bindsym $mod+T layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+Shift+F fullscreen
+    bindsym $mod+F fullscreen
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+F floating toggle
+    bindsym $mod+Shift+F floating toggle
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+$alt+F focus mode_toggle
+    bindsym $mod+Tab focus mode_toggle
     # Move focus to the parent container
     bindsym $mod+A focus parent
 #
