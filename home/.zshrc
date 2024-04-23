@@ -1,6 +1,7 @@
 #shellcheck shell=zsh
 #shellcheck disable=SC1090,SC1091
 
+setopt share_history
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
@@ -73,6 +74,10 @@ if builtin whence yazi &>/dev/null; then
     fi
     rm -f -- "$tmp"
   }
+fi
+
+if builtin whence thefuck &>/dev/null; then
+  eval $(thefuck --alias)
 fi
 
 ## Aliases
