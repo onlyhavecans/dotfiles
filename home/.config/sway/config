@@ -3,6 +3,7 @@
 ### Variables
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 # Home row direction keys, like vim
 set $left H
 set $down J
@@ -11,7 +12,7 @@ set $right L
 # My apps
 set $term kitty
 set $fileManager thunar
-set $menu wofi --show drun | xargs swaymsg exec --
+set $menu rofi -show drun | xargs swaymsg exec --
 
 ### Output configuration
 # man 5 sway-output
@@ -36,17 +37,16 @@ exec swayidle -w \
 
 ### configurations
 default_orientation auto
-default_border pixel 6
 default_floating_border normal
-gaps inner 4
+default_border pixel 2
+gaps inner 8
+gaps outer 3
 
 ### Apps
 # Color Control
 exec gammastep
 # Notifier
 exec mako
-# Menubar
-exec waybar
 # cliphost store
 exec wl-paste --type text --watch cliphist store #Stores only text data
 exec wl-paste --type image --watch cliphist store #Stores only image data
@@ -64,7 +64,7 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     #Lock it
     bindsym $mod+Shift+L exec swaylock
     # clipboard manager
-    bindsym $mod+Shift+V exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
+    bindsym $mod+Shift+V exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
     # 1Password
     bindsym $mod+Shift+Space exec /usr/bin/1password --quick-access
 
@@ -102,7 +102,7 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+F floating toggle
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+Alt+F focus mode_toggle
+    bindsym $mod+$alt+F focus mode_toggle
     # Move focus to the parent container
     bindsym $mod+A focus parent
 #
@@ -184,21 +184,10 @@ bindsym $mod+r mode "resize"
 
 #
 # Status Bar:
-#
 # Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-#
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-#
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
+bar {
+  swaybar_command waybar
+}
 
 #
 ## Rename Some windows
