@@ -11,6 +11,7 @@ set $up K
 set $right L
 # My apps
 set $term kitty
+set $browser firefox
 set $fileManager thunar
 set $menu rofi -show drun | xargs swaymsg exec --
 
@@ -31,9 +32,9 @@ input "type:pointer" natural_scroll enabled
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock' \
+         timeout 300 'swaylock -f' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock'
+         before-sleep 'swaylock -f'
 
 ### configurations
 default_orientation auto
@@ -61,8 +62,10 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     bindsym $mod+Space exec $menu
     # Start my fileManager
     bindsym $mod+E exec $fileManager
+    # Start my browser
+    bindsym $mod+Shift+B exec $browser
     #Lock it
-    bindsym $mod+Escape exec swaylock
+    bindsym $mod+Escape exec ~/.config/sway/lock_screen.sh
     # clipboard manager
     bindsym $mod+Shift+V exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
     # 1Password
@@ -193,6 +196,14 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+#
+# Hardwar keys
+#
+
+# Audio
+bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+8 waybar"
+bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pkill -RTMIN+8 waybar"
+bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+8 waybar"
 
 #
 # Status Bar:

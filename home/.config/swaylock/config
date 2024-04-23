@@ -1,6 +1,5 @@
 ignore-empty-password
 show-failed-attempts
-daemonize
 image=~/Desktops/monokay.png
 image=HDMI-A-1:~/Desktops/WebbyRelax.png
 image=HDMI-A-2:~/Desktops/WebbyMoon.png
