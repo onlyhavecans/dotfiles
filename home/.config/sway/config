@@ -32,9 +32,9 @@ input "type:pointer" natural_scroll enabled
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock -f' \
+         timeout 300 'swaylock --daemonize' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f'
+         before-sleep 'swaylock --daemonize'
 
 ### configurations
 default_orientation auto
