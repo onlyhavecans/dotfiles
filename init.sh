@@ -5,10 +5,12 @@ set -ex
 # curl -sL https://raw.githubusercontent.com/onlyhavecans/dotfiles/main/init.sh | bash
 
 ## Make sure we have git
-if ! command -v git &>/dev/null; then
-  echo "Please install git first"
-  exit 1
-fi
+for app in git curl; do
+  if ! command -v "$app" &>/dev/null; then
+    echo "Please install $app first"
+    exit 1
+  fi
+done
 
 ## Install homeshick
 git clone https://github.com/andsens/homeshick.git "$HOME/.homesick/repos/homeshick"
@@ -24,11 +26,13 @@ git -C "$HOME/.homesick/repos/dotfiles" remote set-url origin git@github.com:onl
 homeshick link --force
 
 ## Install packages
-if command -v brew &>/dev/null; then
+if ! command -v brew &>/dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  [ -d /usr/local/bin ] && PATH="/usr/local/bin:$PATH"
+  [ -d /opt/homebrew/bin ] && PATH="/opt/homebrew/bin:$PATH"
+  [ -d /home/linuxbrew/.linuxbrew/bin ] && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+  eval $(brew shellenv)
   brew bundle install --global
-else
-  echo "Install Brew if you want brew packages!"
-  echo "https://brew.sh/"
 fi
 
 ## TMP install
