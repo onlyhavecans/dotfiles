@@ -4,10 +4,10 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+set $left H
+set $down J
+set $up K
+set $right L
 # My apps
 set $term kitty
 set $fileManager thunar
@@ -36,9 +36,9 @@ exec swayidle -w \
 
 ### configurations
 default_orientation auto
-default_border pixel 5
+default_border pixel 6
 default_floating_border normal
-gaps inner 3
+gaps inner 4
 
 ### Apps
 # Color Control
@@ -58,24 +58,24 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     # Start a terminal
     bindsym $mod+Return exec $term
     # Start your launcher
-    bindsym $mod+space exec $menu
+    bindsym $mod+Space exec $menu
     # Start my fileManager
-    bindsym $mod+e exec $fileManager
+    bindsym $mod+E exec $fileManager
     #Lock it
-    bindsym $mod+Shift+l exec swaylock
+    bindsym $mod+Shift+L exec swaylock
     # clipboard manager
-    bindsym $mod+Shift+v exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
+    bindsym $mod+Shift+V exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
     # 1Password
-    bindsym $mod+backslash exec /usr/bin/1password --quick-access
+    bindsym $mod+Backslash exec /usr/bin/1password --quick-access
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym $mod+Q kill
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+M exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     # Reload the configuration file
-    bindsym $mod+Shift+r reload
+    bindsym $mod+Shift+R reload
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -89,22 +89,22 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+B splith
+    bindsym $mod+V splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+t layout toggle split
+    bindsym $mod+S layout stacking
+    bindsym $mod+W layout tabbed
+    bindsym $mod+T layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+Shift+f fullscreen
+    bindsym $mod+Shift+F fullscreen
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+f floating toggle
+    bindsym $mod+F floating toggle
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+Shift+space focus mode_toggle
+    bindsym $mod+Shift+Space focus mode_toggle
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    bindsym $mod+A focus parent
 #
 # Moving around:
 #
@@ -152,11 +152,11 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+Minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    bindsym $mod+Minus scratchpad show
 #
 # Resizing containers:
 #
