@@ -66,7 +66,7 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     # clipboard manager
     bindsym $mod+Shift+V exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
     # 1Password
-    bindsym $mod+Backslash exec /usr/bin/1password --quick-access
+    bindsym $mod+Shift+Space exec /usr/bin/1password --quick-access
 
     # Kill focused window
     bindsym $mod+Q kill
@@ -102,7 +102,7 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+F floating toggle
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+Shift+Space focus mode_toggle
+    bindsym $mod+Alt+F focus mode_toggle
     # Move focus to the parent container
     bindsym $mod+A focus parent
 #
