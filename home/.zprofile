@@ -6,3 +6,6 @@ if [ $(uname) = "Linux" ]; then
 
   export ELECTRON_OZONE_PLATFORM_HINT=wayland
 fi
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
