@@ -1,11 +1,23 @@
 #shellcheck shell=zsh
 #shellcheck disable=SC1090,SC1091
 
+#
+## ZSH Settings
+#
+# History
 setopt share_history
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
-## Make sure system paths are last
+# Emacs keys
+bindkey -e
+setopt autocd
+
+#
+## Paths
+#
+# Make sure system paths are last
 if builtin whence brew &>/dev/null; then
   eval $(brew shellenv)
 
@@ -44,11 +56,12 @@ if builtin whence direnv &>/dev/null; then
   alias tmux="direnv exec / tmux"
 fi
 
-## Wezterm
+# Wezterm
 if [ -n "$WEZTERM_EXECUTABLE_DIR" ]; then
   path=("$WEZTERM_EXECUTABLE_DIR" $path)
 fi
 
+# Geneic overlays
 if builtin whence bat &>/dev/null; then
   export BAT_THEME="gruvbox-dark"
 fi
@@ -61,8 +74,18 @@ if builtin whence eza &>/dev/null; then
   alias tree="eza --tree"
 fi
 
-if builtin whence zoxide &>/dev/null; then
-  eval "$(zoxide init zsh)"
+if builtin whence fzf &>/dev/null; then
+  eval "$(fzf --zsh)"
+
+  export FZF_DEFAULT_COMMAND='fd --follow --hidden --type f'
+  export FZF_CTRL_T_COMMAND='fd --follow --hidden'
+
+  _fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+  }
+  _fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+  }
 fi
 
 if builtin whence yazi &>/dev/null; then
@@ -76,11 +99,13 @@ if builtin whence yazi &>/dev/null; then
   }
 fi
 
-if builtin whence thefuck &>/dev/null; then
-  eval $(thefuck --alias)
+if builtin whence zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
 fi
 
+#
 ## Aliases
+#
 alias ce="chef exec"
 alias cet="chef exec thor"
 alias cek="chef exec knife"
@@ -96,11 +121,14 @@ alias lzd="XDG_CONFIG_HOME="$HOME/.config" lazydocker"
 alias tm="tmux new-session -A -c ~"
 alias tp="mosh piper.local -- tmux new-session -A -c ~"
 alias tc="mosh catra.local -- tmux new-session -A -c ~"
+alias tw="mosh webby.local -- tmux new-session -A -c ~"
 
 alias venv="python3 -m venv"
 alias activate="source venv/bin/activate"
 
+#
 ## Prompt with Git info
+#
 function _git_info_cmd {
   command git --no-optional-locks status --porcelain=v2 --branch --show-stash 2>&1
 }
@@ -171,26 +199,9 @@ precmd() {
 }
 PROMPT='%(?.%F{blue}.%F{red}%?)❯%f ' # Blue chevron, Red with error num if last command failed
 
-## Emacs keys
-bindkey -e
-setopt autocd
-
-## FZF to get around & use fd for performance
-if builtin whence fzf &>/dev/null; then
-  eval "$(fzf --zsh)"
-
-  export FZF_DEFAULT_COMMAND='fd --follow --hidden --type f'
-  export FZF_CTRL_T_COMMAND='fd --follow --hidden'
-
-  _fzf_compgen_path() {
-    fd --hidden --follow --exclude ".git" . "$1"
-  }
-  _fzf_compgen_dir() {
-    fd --type d --hidden --follow --exclude ".git" . "$1"
-  }
-fi
-
+#
 ## Per Machine Configurations
+#
 zsh_local="$HOME/.config/zsh.d"
 if [ -d "$zsh_local" ]; then
   for f in "$zsh_local"/*; do
@@ -198,5 +209,7 @@ if [ -d "$zsh_local" ]; then
   done
 fi
 
-## Completions
+#
+## Completions always last
+#
 autoload -Uz compinit && compinit

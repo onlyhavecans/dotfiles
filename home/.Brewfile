@@ -34,7 +34,6 @@ brew 'marp-cli' # slides
 brew 'neofetch'
 brew 'poppler'
 brew 'qpdf'
-brew 'thefuck'
 brew 'tintin'
 brew 'tlrc'
 brew 'trash-cli'
