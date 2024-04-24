@@ -13,7 +13,7 @@ set $right L
 set $term kitty
 set $browser firefox
 set $fileManager thunar
-set $menu rofi -show drun | xargs swaymsg exec --
+set $menu fuzzel | xargs swaymsg exec --
 
 ### Output configuration
 # man 5 sway-output
@@ -67,7 +67,7 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     #Lock it
     bindsym $mod+Escape exec ~/.config/sway/lock_screen.sh
     # clipboard manager
-    bindsym $mod+Shift+V exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+    bindsym $mod+Shift+V exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
     # 1Password
     bindsym $mod+Shift+Space exec /usr/bin/1password --quick-access
 
