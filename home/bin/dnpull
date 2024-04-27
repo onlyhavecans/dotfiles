@@ -76,8 +76,8 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
     git -C "$LOCAL_DIR" remote set-head origin --auto
   fi
 
-  status_message "Running Garbage Collection"
-  git -C "$LOCAL_DIR" gc --aggressive --prune=now
+  status_message "Running Maintenance Tasks"
+  git -C "$LOCAL_DIR" maintenance run --task gc --task loose-objects --task pack-refs --task incremental-repack
 done
 
 echo ""
