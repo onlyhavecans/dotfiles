@@ -124,6 +124,7 @@ alias tc="mosh catra.local -- tmux new-session -A -c ~"
 alias tw="mosh webby.local -- tmux new-session -A -c ~"
 
 alias venv="python3 -m venv"
+alias mkvenv="python3 -m venv venv"
 alias activate="source venv/bin/activate"
 
 #
