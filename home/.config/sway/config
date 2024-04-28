@@ -51,6 +51,8 @@ gaps outer 3
 exec gammastep
 # Notifier
 exec mako
+# 1p
+exec 1password --quiet
 # cliphost store
 exec wl-paste --type text --watch cliphist store #Stores only text data
 exec wl-paste --type image --watch cliphist store #Stores only image data
