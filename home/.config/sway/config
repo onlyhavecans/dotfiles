@@ -28,13 +28,16 @@ exec swaymsg focus output HDMI-A-1
 ### Input configuration
 # man 5 sway-input
 # You can get the names of your inputs by running: swaymsg -t get_inputs
-input "type:pointer" natural_scroll enabled
+input * {
+  natural_scroll enabled
+  pointer_accel 0.6
+}
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock --daemonize' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock --daemonize'
+       timeout 300 'swaylock --daemonize' \
+       timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+       before-sleep 'swaylock --daemonize'
 
 ### configurations
 default_orientation auto
