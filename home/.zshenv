@@ -22,4 +22,4 @@ export LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
 
 # Putting this in non-interactive makes Apps use 1Password
 # The setting is exported instead of in ssh/config so I can have the test and fallback if this isn't set up
-[ -S "$HOME/.1password/agent.sock" ] && export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
+[[ -z "$SSH_TTY" ]] && [[ -S "$HOME/.1password/agent.sock" ]] && export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
