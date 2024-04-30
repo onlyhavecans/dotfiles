@@ -40,6 +40,10 @@ brew bundle install --global
 status_message "[homebrew] Link completions"
 brew completions link # https://docs.brew.sh/Shell-Completion
 
+if command -v tldr &>/dev/null; then
+  tldr --update
+fi
+
 # Ocassionally I will not have asdf
 if ! command -v asdf &>/dev/null; then
   error_message "[asdf] asdf not installed"
