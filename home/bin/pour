@@ -40,6 +40,10 @@ brew bundle install --global
 status_message "[homebrew] Link completions"
 brew completions link # https://docs.brew.sh/Shell-Completion
 
+if command -v flatpak &>/dev/null; then
+  flatpak update --assumeyes
+fi
+
 if command -v tldr &>/dev/null; then
   tldr --update
 fi
