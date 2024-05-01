@@ -26,6 +26,7 @@ brew 'zoxide'
 
 brew 'ffmpeg'
 brew 'ffmpegthumbnailer'
+brew 'fish'
 brew 'fzf'
 brew 'handbrake'
 brew 'hugo'
