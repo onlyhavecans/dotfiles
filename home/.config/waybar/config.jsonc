@@ -18,7 +18,7 @@
   "modules-right": [
     "mpd",
     "idle_inhibitor",
-    "pulseaudio",
+    "wireplumber",
     "network",
     "cpu",
     "memory",
@@ -45,12 +45,7 @@
   //     }
   // },
   "sway/window": {
-    "format": "{title}",
-    "rewrite": {
-      "(.*) - Mozilla Firefox": "🌎 $1",
-      "(.*) - vim": " $1",
-      "(.*) - zsh": " [$1]"
-    }
+    "format": "{shell} | {app_id} | {title}"
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -135,28 +130,15 @@
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": " {volume}% ",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "on-click": "pavucontrol"
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
   },
   "custom/media": {
     "format": "{icon} {}",
