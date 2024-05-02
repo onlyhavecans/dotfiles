@@ -29,6 +29,7 @@ set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 # Always utf-8
 set -x LANG en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
+set -x XDG_CONFIG_HOME ~/.config
 
 # Putting this in non-interactive makes Apps use 1Password
 # The setting is exported instead of in ssh/config so I can have the test and fallback if this isn't set up
@@ -43,6 +44,7 @@ if status is-interactive
     # Brewpaths
     if command_exists brew
         brew shellenv | source
+        set -x HOMEBREW_NO_ENV_HINTS 1
 
         ## brew --prefix is way too slow in 4.0 so hardcode
         function _brew_prefix
@@ -57,10 +59,12 @@ if status is-interactive
     end
 
     # Homeshick
-    source ~/.homesick/repos/homeshick/homeshick.fish
-    source ~/.homesick/repos/homeshick/completions/homeshick.fish
-    abbr --add hcd homeshick cd
-    abbr --add htrack homeshick track
+    if test -f ~/.homesick/repos/homeshick/homeshick.fish
+        source ~/.homesick/repos/homeshick/homeshick.fish
+        source ~/.homesick/repos/homeshick/completions/homeshick.fish
+        abbr --add hcd homeshick cd
+        abbr --add htrack homeshick track
+    end
 
     # asdf-vm
     if test -d ~/.asdf/asdf.fish
@@ -80,6 +84,12 @@ if status is-interactive
     add_path_if_exists "$WEZTERM_EXECUTABLE_DIR"
 
     # Generic overlays
+    if command_exists nvim
+        set -x EDITOR nvim
+    else
+        set -x EDITOR vi
+    end
+
     if command_exists bat
         set -x BAT_THEME gruvbox-dark
     end
@@ -99,17 +109,6 @@ if status is-interactive
         set -x FZF_ALT_C_COMMAND 'fd --follow --hidden --type d'
     end
 
-    if command_exists yazi
-        function yy --wraps yazi --description "Quick Yazi with cd"
-            set tmp (mktemp -t "yazi-cwd.XXXXXX")
-            yazi $argv --cwd-file="$tmp"
-            if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-                cd -- "$cwd"
-            end
-            rm -f -- "$tmp"
-        end
-    end
-
     if command_exists zoxide
         zoxide init fish | source
     end
@@ -125,14 +124,6 @@ if status is-interactive
 
     abbr --add g git
     abbr --add G git
-
-    function lg --wraps lazygit
-        XDG_CONFIG_HOME=~/.config lazygit
-    end
-
-    function lzd --wraps lazydocker
-        XDG_CONFIG_HOME=~/.config lazydocker
-    end
 
     abbr --add tm tmux new-session -A -c ~
     abbr --add tp mosh piper.local -- tmux new-session -A -c ~
