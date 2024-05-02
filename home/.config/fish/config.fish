@@ -130,6 +130,9 @@ if status is-interactive
     abbr --add g git
     abbr --add G git
 
+    abbr --add lg lazygit
+    abbr --add ld lazydocker
+
     abbr --add tm tmux new-session -A -c ~
     abbr --add tp mosh piper.local -- tmux new-session -A -c ~
     abbr --add tc mosh catra.local -- tmux new-session -A -c ~
@@ -150,4 +153,9 @@ if status is-interactive
     set __fish_git_prompt_use_informative_chars yes
     set __fish_git_prompt_showuntrackedfiles yes
     set __fish_git_prompt_showdirtystate yes
+
+    #
+    ## Fish
+    #
+    set -g fish_greeting
 end
