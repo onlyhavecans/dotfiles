@@ -9,6 +9,7 @@ brew 'btop'
 brew 'curl'
 brew 'eza'
 brew 'fd'
+brew 'fish'
 brew 'gawk'
 brew 'gnu-sed' # Spectre needs this
 brew 'httpie'
@@ -24,15 +25,14 @@ brew 'zoxide'
 
 ## Fun stuff
 
+brew 'fastfetch'
 brew 'ffmpeg'
 brew 'ffmpegthumbnailer'
-brew 'fish'
 brew 'fzf'
 brew 'handbrake'
 brew 'hugo'
 brew 'imagemagick'
 brew 'marp-cli' # slides
-brew 'neofetch'
 brew 'poppler'
 brew 'qpdf'
 brew 'tintin'
