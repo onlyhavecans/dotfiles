@@ -67,7 +67,7 @@ if status is-interactive
     end
 
     # asdf-vm
-    if test -d ~/.asdf/asdf.fish
+    if test -f ~/.asdf/asdf.fish
         source ~/.asdf/asdf.fish
         mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
         set -x ASDF_GOLANG_MOD_VERSION_ENABLED false
