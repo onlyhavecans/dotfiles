@@ -33,8 +33,8 @@ brew 'handbrake'
 brew 'hugo'
 brew 'imagemagick'
 brew 'marp-cli' # slides
-brew 'poppler'
-brew 'qpdf'
+brew 'poppler' # pdf tools
+brew 'qpdf' # moar pdf
 brew 'tintin'
 brew 'tlrc'
 brew 'trash-cli'
@@ -44,7 +44,7 @@ brew 'yt-dlp'
 
 ## Dev Tooling
 
-brew 'neovim'
+brew 'cmake' # neovim build needs
 brew 'direnv'
 brew 'entr'
 brew 'gh'
@@ -55,6 +55,7 @@ brew 'go'
 brew 'golangci-lint'
 brew 'jq'
 brew 'libpq'
+brew 'neovim'
 brew 'overmind'
 brew 'pipx'
 
