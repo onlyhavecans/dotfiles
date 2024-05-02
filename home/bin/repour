@@ -15,6 +15,6 @@ done
 
 brew list --formula | xargs brew uninstall
 brew update
-brew bundle install --global
+brew bundle install --file=~/.config/Brewfile
 brew cleanup -s --prune=all
 brew doctor

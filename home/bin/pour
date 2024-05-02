@@ -36,7 +36,7 @@ status_message "[homebrew] Update packages"
 brew update
 brew upgrade
 status_message "[homebrew] Ensure base install set"
-brew bundle install --global
+brew bundle install --file=~/.config/Brewfile
 status_message "[homebrew] Link completions"
 brew completions link # https://docs.brew.sh/Shell-Completion
 

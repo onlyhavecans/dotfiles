@@ -32,7 +32,7 @@ if ! command -v brew &>/dev/null; then
   [ -d /opt/homebrew/bin ] && PATH="/opt/homebrew/bin:$PATH"
   [ -d /home/linuxbrew/.linuxbrew/bin ] && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
   eval $(brew shellenv)
-  brew bundle install --global
+  brew bundle install --file=~/.config/Brewfile
 fi
 
 ## TMP install
