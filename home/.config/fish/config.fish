@@ -22,17 +22,17 @@ add_path_if_exists /home/linuxbrew/.linuxbrew/bin
 
 # Mosh Server settings are needed at init
 # make `killall -USR1 mosh-server` only kill sessions disconected for X seconds
-set -gx MOSH_SERVER_SIGNAL_TMOUT 60
+set -x MOSH_SERVER_SIGNAL_TMOUT 60
 # Clean up any session that has not been connected to in 30 days
-set -gx MOSH_SERVER_NETWORK_TMOUT 2592000
+set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 
 # Always utf-8
-set -gx LANG en_US.UTF-8
-set -gx LC_CTYPE en_US.UTF-8
+set -x LANG en_US.UTF-8
+set -x LC_CTYPE en_US.UTF-8
 
 # Putting this in non-interactive makes Apps use 1Password
 # The setting is exported instead of in ssh/config so I can have the test and fallback if this isn't set up
-test -S ~/.1password/agent.sock; and set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
+test -S ~/.1password/agent.sock; and set -x SSH_AUTH_SOCK ~/.1password/agent.sock
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -59,13 +59,15 @@ if status is-interactive
     # Homeshick
     source ~/.homesick/repos/homeshick/homeshick.fish
     source ~/.homesick/repos/homeshick/completions/homeshick.fish
+    abbr --add hcd homeshick cd
+    abbr --add htrack homeshick track
 
     # asdf-vm
     if test -d ~/.asdf/asdf.fish
         source ~/.asdf/asdf.fish
         mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-        set -gx ASDF_GOLANG_MOD_VERSION_ENABLED false
-        set -gex RUBY_CONFIGURE_OPTS
+        set -x ASDF_GOLANG_MOD_VERSION_ENABLED false
+        set -ex RUBY_CONFIGURE_OPTS
     end
 
     # DirEN
@@ -79,7 +81,7 @@ if status is-interactive
 
     # Generic overlays
     if command_exists bat
-        set -gx BAT_THEME gruvbox-dark
+        set -x BAT_THEME gruvbox-dark
     end
 
     if command_exists eza
@@ -92,9 +94,9 @@ if status is-interactive
 
     if command_exists fzf
         fzf --fish | source
-        set -gx FZF_DEFAULT_COMMAND 'fd --follow --hidden --type f'
-        set -gx FZF_CTRL_T_COMMAND 'fd --follow --hidden'
-        set -gx FZF_ALT_C_COMMAND 'fd --follow --hidden --type d'
+        set -x FZF_DEFAULT_COMMAND 'fd --follow --hidden --type f'
+        set -x FZF_CTRL_T_COMMAND 'fd --follow --hidden'
+        set -x FZF_ALT_C_COMMAND 'fd --follow --hidden --type d'
     end
 
     if command_exists yazi
@@ -148,5 +150,4 @@ if status is-interactive
     set -g fish_color_host green
     set -g fish_color_cwd green
     set -g __fish_git_prompt_color magenta
-
 end
