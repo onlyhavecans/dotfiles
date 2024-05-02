@@ -69,9 +69,14 @@ if status is-interactive
     # asdf-vm
     if test -f ~/.asdf/asdf.fish
         source ~/.asdf/asdf.fish
-        mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+
+        if test ! -f ~/.config/fish/completions/asdf.fish
+            mkdir -p ~/.config/fish/completions
+            ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+        end
+
         set -x ASDF_GOLANG_MOD_VERSION_ENABLED false
-        set -ex RUBY_CONFIGURE_OPTS
+        set -e RUBY_CONFIGURE_OPTS
     end
 
     # DirEN
@@ -137,8 +142,12 @@ if status is-interactive
     #
     ## Prompt
     #
-    set -g fish_color_user green
-    set -g fish_color_host green
-    set -g fish_color_cwd green
-    set -g __fish_git_prompt_color magenta
+    set fish_color_user green
+    set fish_color_host green
+    set fish_color_cwd green
+    set __fish_git_prompt_color magenta
+    set __fish_git_prompt_show_informative_status yes
+    set __fish_git_prompt_use_informative_chars yes
+    set __fish_git_prompt_showuntrackedfiles yes
+    set __fish_git_prompt_showdirtystate yes
 end
