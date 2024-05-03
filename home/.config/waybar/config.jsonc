@@ -40,6 +40,13 @@
     "tooltip": true,
     "tooltip-format": "{app}: {title}"
   },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
   "tray": {
     // "icon-size": 21,
     "spacing": 10
