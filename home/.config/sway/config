@@ -10,7 +10,7 @@ set $down J
 set $up K
 set $right L
 # My apps
-set $term kitty
+set $term foot
 set $browser firefox
 set $fileManager nemo
 set $menu fuzzel | xargs swaymsg exec --
