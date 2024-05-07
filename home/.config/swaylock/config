@@ -1,5 +1,5 @@
 ignore-empty-password
 show-failed-attempts
-image=~/ResilioSync/Action/Desktops/arch-monokay.png
-image=HDMI-A-1:~/ResilioSync/Action/Desktops/WebbyRelax.png
-image=HDMI-A-2:~/ResilioSync/Action/Desktops/WebbyMoon.png
+image=~/ResilioSync/Images/Desktops/arch-monokay.png
+image=HDMI-A-1:~/ResilioSync/Images/Desktops/WebbyRelax.png
+image=HDMI-A-2:~/ResilioSync/Images/Desktops/WebbyMoon.png
