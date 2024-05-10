@@ -79,7 +79,12 @@ if status is-interactive
         set -e RUBY_CONFIGURE_OPTS
     end
 
-    # DirEN
+    ## Nix Trial (Lix actually but w/e)
+    if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+        source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    end
+
+    # DirENV
     if command_exists direnv
         direnv hook fish | source
         alias tmux "direnv exec / tmux"
