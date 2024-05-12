@@ -49,8 +49,6 @@ gaps outer 3
 ### Apps
 # Color Control
 exec gammastep
-# Notifier
-# exec mako
 # 1p
 exec 1password --quiet
 # cliphost store

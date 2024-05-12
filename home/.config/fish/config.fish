@@ -42,11 +42,6 @@ if status is-interactive
     ## Paths
     #
 
-    # Home-Manager
-    if command_exists home-manager
-        babelfish <~/.nix-profile/etc/profile.d/hm-session-vars.sh | source
-    end
-
     # Brewpaths
     if command_exists brew
         brew shellenv | source
@@ -72,6 +67,16 @@ if status is-interactive
         abbr --add htrack homeshick track
     end
 
+    ## Nix Trial (Lix actually but w/e)
+    if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+        source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    end
+
+    # Home-Manager
+    if command_exists home-manager
+        babelfish <~/.nix-profile/etc/profile.d/hm-session-vars.sh | source
+    end
+
     # asdf-vm
     if test -f ~/.asdf/asdf.fish
         source ~/.asdf/asdf.fish
@@ -83,11 +88,6 @@ if status is-interactive
 
         set -x ASDF_GOLANG_MOD_VERSION_ENABLED false
         set -e RUBY_CONFIGURE_OPTS
-    end
-
-    ## Nix Trial (Lix actually but w/e)
-    if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
-        source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
     end
 
     # DirENV
