@@ -12,7 +12,7 @@ set $right L
 # My apps
 set $term foot
 set $browser firefox
-set $fileManager nemo
+set $fileManager thunar
 set $menu fuzzel | xargs swaymsg exec --
 
 ### Output configuration
@@ -48,9 +48,9 @@ gaps outer 3
 
 ### Apps
 # Color Control
-# exec gammastep # TODO: Guess this is broken now
+exec gammastep
 # Notifier
-exec mako
+# exec mako
 # 1p
 exec 1password --quiet
 # cliphost store
@@ -204,6 +204,15 @@ bindsym $mod+r mode "resize"
 #
 # Hardwar keys
 #
+
+# Brightness
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 10
+
+# # Volume
+# bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+# bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+# bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 
 # Audio
 bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+8 waybar"
