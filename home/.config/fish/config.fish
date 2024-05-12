@@ -41,6 +41,12 @@ if status is-interactive
     #
     ## Paths
     #
+
+    # Home-Manager
+    if command_exists home-manager
+        babelfish <~/.nix-profile/etc/profile.d/hm-session-vars.sh | source
+    end
+
     # Brewpaths
     if command_exists brew
         brew shellenv | source

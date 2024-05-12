@@ -14,11 +14,6 @@ function error_message {
   echo -e "${RED}! $*${NOCOLOR}"
 }
 
-if ! command -v brew &>/dev/null; then
-  error_message "pour requires brew"
-  exit 1
-fi
-
 if [[ ! -f "${HOME}/.homesick/repos/homeshick/homeshick.sh" ]]; then
   error_message "[homeshick] homeshick not installed"
 else
@@ -32,13 +27,35 @@ else
   homeshick check
 fi
 
-status_message "[homebrew] Update packages"
-brew update
-brew upgrade
-status_message "[homebrew] Ensure base install set"
-brew bundle install --file=~/.config/Brewfile
-status_message "[homebrew] Link completions"
-brew completions link # https://docs.brew.sh/Shell-Completion
+if command -v nixos-rebuild &>/dev/null; then
+  sudo nixos-rebuild boot --upgrade
+fi
+
+if ! command -v home-manager &>/dev/null; then
+  error_message "[home-manager] not installed"
+else
+  pushd ~/.config/home-manager || return
+  nix flake update
+  home-manager switch
+  popd || return
+fi
+
+if ! command -v brew &>/dev/null; then
+  error_message "[asdf] asdf not installed"
+else
+  status_message "[homebrew] Update packages"
+  brew update
+  brew upgrade
+
+  status_message "[homebrew] Ensure base install set"
+  brew bundle install --file=~/.config/Brewfile
+
+  status_message "[homebrew] Link completions"
+  brew completions link # https://docs.brew.sh/Shell-Completion
+
+  status_message "[homebrew] Check for missing packages"
+  brew missing
+fi
 
 if command -v flatpak &>/dev/null; then
   flatpak update --assumeyes
@@ -82,9 +99,6 @@ else
   ~/.tmux/plugins/tpm/bin/update_plugins all
   ~/.tmux/plugins/tpm/bin/clean_plugins
 fi
-
-status_message "[homebrew] Check for missing packages"
-brew missing
 
 if command -v mas &>/dev/null; then
   status_message "[mas] Do I have any outdated App Store apps"
