@@ -83,7 +83,7 @@ tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform'
 
 tap 'jesseduffield/lazydocker'
-brew'jesseduffield/lazydocker/lazydocker'
+brew 'jesseduffield/lazydocker/lazydocker'
 
 ## MAS time
 
