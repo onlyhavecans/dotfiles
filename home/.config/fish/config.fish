@@ -5,6 +5,10 @@ function add_path_if_exists
     end
 end
 
+function remove_path_if_exists
+    set -x PATH (string match -rv "$argv[1]" $PATH)
+end
+
 function command_exists
     command --query "$argv"
 end
@@ -16,9 +20,15 @@ add_path_if_exists ~/bin
 add_path_if_exists ~/go/bin
 add_path_if_exists ~/.cargo/bin
 add_path_if_exists ~/Applications/
-add_path_if_exists /usr/local/bin
-add_path_if_exists /opt/homebrew/bin
-add_path_if_exists /home/linuxbrew/.linuxbrew/bin
+# add_path_if_exists /usr/local/bin
+# add_path_if_exists /opt/homebrew/bin
+# add_path_if_exists /home/linuxbrew/.linuxbrew/bin
+remove_path_if_exists /usr/local/bin
+remove_path_if_exists /usr/local/sbin
+remove_path_if_exists /opt/homebrew/bin
+remove_path_if_exists /opt/homebrew/sbin
+remove_path_if_exists /home/linuxbrew/.linuxbrew/bin
+remove_path_if_exists /home/linuxbrew/.linuxbrew/sbin
 
 # Mosh Server settings are needed at init
 # make `killall -USR1 mosh-server` only kill sessions disconected for X seconds
@@ -67,7 +77,7 @@ if status is-interactive
         abbr --add htrack homeshick track
     end
 
-    ## Nix Trial (Lix actually but w/e)
+    ## Nix (Lix actually but w/e)
     if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
         source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
     end

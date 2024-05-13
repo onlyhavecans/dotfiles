@@ -28,20 +28,22 @@ else
 fi
 
 if command -v nixos-rebuild &>/dev/null; then
-  sudo nixos-rebuild boot --upgrade
+  nh home switch --update --ask /etc/nixos/
+  # sudo nixos-rebuild boot --upgrade
 fi
 
 if ! command -v home-manager &>/dev/null; then
   error_message "[home-manager] not installed"
 else
-  pushd ~/.config/home-manager || return
-  nix flake update
-  home-manager switch
-  popd || return
+  nh home switch --update --ask ~/.config/home-manager/
+  # pushd ~/.config/home-manager || return
+  # nix flake update
+  # home-manager switch
+  # popd || return
 fi
 
 if ! command -v brew &>/dev/null; then
-  error_message "[asdf] asdf not installed"
+  error_message "[homebrew] not installed"
 else
   status_message "[homebrew] Update packages"
   brew update
@@ -67,7 +69,7 @@ fi
 
 # Ocassionally I will not have asdf
 if ! command -v asdf &>/dev/null; then
-  error_message "[asdf] asdf not installed"
+  error_message "[asdf] not installed"
 else
   status_message "[asdf] Update asdf and plguins"
   asdf update
@@ -85,14 +87,14 @@ else
 fi
 
 if [[ ! -x "${HOME}/.cargo/bin/rustup" ]]; then
-  error_message "[rustup] rustup not installed"
+  error_message "[rustup] not installed"
 else
   status_message "[rustup] Update rust"
   "${HOME}/.cargo/bin/rustup" update
 fi
 
 if [[ ! -x "${HOME}/.tmux/plugins/tpm/bin/update_plugins" ]]; then
-  error_message "[tmux] tmux plugin manager not installed"
+  error_message "[tmux] plugin manager not installed"
 else
   status_message "[tmux] Update and clean plugins"
   ~/.tmux/plugins/tpm/bin/install_plugins
