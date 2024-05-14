@@ -20,15 +20,15 @@ add_path_if_exists ~/bin
 add_path_if_exists ~/go/bin
 add_path_if_exists ~/.cargo/bin
 add_path_if_exists ~/Applications/
-# add_path_if_exists /usr/local/bin
-# add_path_if_exists /opt/homebrew/bin
-# add_path_if_exists /home/linuxbrew/.linuxbrew/bin
-remove_path_if_exists /usr/local/bin
-remove_path_if_exists /usr/local/sbin
-remove_path_if_exists /opt/homebrew/bin
-remove_path_if_exists /opt/homebrew/sbin
-remove_path_if_exists /home/linuxbrew/.linuxbrew/bin
-remove_path_if_exists /home/linuxbrew/.linuxbrew/sbin
+add_path_if_exists /usr/local/bin
+add_path_if_exists /opt/homebrew/bin
+add_path_if_exists /home/linuxbrew/.linuxbrew/bin
+# remove_path_if_exists /usr/local/bin
+# remove_path_if_exists /usr/local/sbin
+# remove_path_if_exists /opt/homebrew/bin
+# remove_path_if_exists /opt/homebrew/sbin
+# remove_path_if_exists /home/linuxbrew/.linuxbrew/bin
+# remove_path_if_exists /home/linuxbrew/.linuxbrew/sbin
 
 # Mosh Server settings are needed at init
 # make `killall -USR1 mosh-server` only kill sessions disconected for X seconds
@@ -133,6 +133,10 @@ if status is-interactive
         set -x FZF_DEFAULT_COMMAND 'fd --follow --hidden --type f'
         set -x FZF_CTRL_T_COMMAND 'fd --follow --hidden'
         set -x FZF_ALT_C_COMMAND 'fd --follow --hidden --type d'
+
+        if test -n "$TMUX"
+            set -x FZF_TMUX_OPTS '-p80%,60%'
+        end
     end
 
     if command_exists zoxide
