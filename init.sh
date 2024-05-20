@@ -17,12 +17,12 @@ git clone https://github.com/andsens/homeshick.git "$HOME/.homesick/repos/homesh
 # shellcheck source=/dev/null
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
-## clone home, then set it to ssh afterwards
-## This means we need our keys before we can make further actions
+# clone home, then set it to ssh afterwards
+# This means we need our keys before we can make further actions
 homeshick --batch clone https://github.com/onlyhavecans/dotfiles.git
 git -C "$HOME/.homesick/repos/dotfiles" remote set-url origin git@github.com:onlyhavecans/dotfiles
 
-## Link everything
+# Link everything
 homeshick link --force
 
 ## Install packages
@@ -37,9 +37,6 @@ fi
 
 ## TMP install
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-## Rustup
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
 
 ## All my asdf
 if [[ ! -d $HOME/.asdf ]]; then
@@ -60,5 +57,5 @@ fi
 
 ## Link 1Password agent if we have the mac
 if [[ "$(uname)" == "Darwin" ]]; then
-  mkdir -p ~/.1password && ln -s ~/library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
+  mkdir -p ~/.1password && ln -sf ~/library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
 fi
