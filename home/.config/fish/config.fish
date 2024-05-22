@@ -118,10 +118,6 @@ if status is-interactive
         set -x EDITOR vi
     end
 
-    if command_exists bat
-        set -x BAT_THEME gruvbox-dark
-    end
-
     if command_exists eza
         alias ls=eza
         alias la="eza -a"
