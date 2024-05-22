@@ -20,8 +20,16 @@ add_path_if_exists ~/bin
 add_path_if_exists ~/go/bin
 add_path_if_exists ~/.cargo/bin
 add_path_if_exists ~/Applications/
+
+add_path_if_exists /run/wrappers/bin
 add_path_if_exists /run/current-system/sw/bin
+add_path_if_exists /home/$USER/.nix-profile/bin
+add_path_if_exists /nix/profile/bin
+add_path_if_exists /home/$USER/.local/state/nix/profile/bin
 add_path_if_exists /etc/profiles/per-user/$USER/bin
+add_path_if_exists /nix/var/nix/profiles/default/bin
+
+
 add_path_if_exists /usr/local/bin
 add_path_if_exists /opt/homebrew/bin
 add_path_if_exists /home/linuxbrew/.linuxbrew/bin
