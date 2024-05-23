@@ -39,17 +39,35 @@ exec swayidle -w \
        timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
        before-sleep 'swaylock --daemonize'
 
-### configurations
-default_orientation auto
-default_floating_border normal
+###  Theme
+gaps inner 5
+smart_gaps on
+
 default_border pixel 2
-gaps inner 8
-gaps outer 3
+default_floating_border normal
+
+set $color_normal_bg     #282828
+set $color_normal_red    #cc241d
+set $color_normal_green  #98971a
+set $color_normal_yellow #d79921
+set $color_bright_yellow #fabd2f
+set $color_normal_blue   #458588
+set $color_normal_purple #b16286
+set $color_normal_aqua   #689d6a
+set $color_normal_gray   #a89984
+set $color_bright_fg     #ebdbb2
+
+# Colors                  border                 background             text                indicator              child_border
+client.focused            $color_normal_bg       $color_normal_gray     $color_bright_fg    $color_normal_purple   $color_normal_bg
+client.focused_inactive   $color_normal_bg       $color_normal_gray     $color_bright_fg    $color_normal_purple   $color_normal_bg
+client.unfocused          $color_normal_bg       $color_normal_gray     $color_bright_fg    $color_normal_purple   $color_normal_bg
+client.urgent             $color_normal_yellow   $color_bright_yellow   $color_bright_fg    $color_normal_red      $color_normal_red
+client.placeholder        $color_normal_red      $color_normal_red      $color_normal_red   $color_normal_red      $color_normal_red
 
 ### Apps
 # Color Control
 exec gammastep
-# 1p
+# 1Password
 exec ELECTRON_OZONE_PLATFORM_HINT="" 1password --silent
 # cliphost store
 exec wl-paste --type text --watch cliphist store #Stores only text data

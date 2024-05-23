@@ -1,0 +1,7 @@
+background-color=#282828CC
+text-color=#ebdbb2CC
+border-color=#a89984CC
+progress-color=#689d6aCC
+
+default-timeout=120000
+group-by=desktop-entry
