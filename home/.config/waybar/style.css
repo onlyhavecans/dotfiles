@@ -12,7 +12,6 @@ tooltip {
 }
 
 window#waybar {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrainsMono Nerd Font, monospace;
     background-color: transparent;
     border-bottom: 0px;
@@ -62,8 +61,43 @@ button:hover {
     box-shadow: inset 0 -3px #ebdbb2;
 } */
 
-#workspaces {
+#mode,
+#scratchpad,
+#window,
+#idle_inhibitor,
+#wireplumber,
+#network,
+#cpu,
+#memory,
+#temperature,
+#clock,
+#tray,
+#load {
+    padding: 0 10px;
     background-color: #282828;
+    color: #ebdbb2;
+}
+
+#mode {
+    background-color: #689d6a;
+    color: #282828;
+    /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#workspaces {
+    padding: 0 0px;
+    background-color: #282828;
+    color: #ebdbb2;
 }
 
 #workspaces button {
@@ -92,40 +126,6 @@ button:hover {
 
 #workspaces button.urgent {
     background-color: #b16286;
-}
-
-#idle_inhibitor,
-#cava,
-#scratchpad,
-#mode,
-#window,
-#clock,
-#battery,
-#backlight,
-#custom-weather,
-#wireplumber,
-#tray,
-#mpris,
-#load {
-    padding: 0 10px;
-    background-color: #282828;
-    color: #ebdbb2;
-}
-
-#mode {
-    background-color: #689d6a;
-    color: #282828;
-    /* box-shadow: inset 0 -3px #ffffff; */
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
 }
 
 #cava {

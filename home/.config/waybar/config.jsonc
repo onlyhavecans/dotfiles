@@ -9,11 +9,10 @@
   "modules-left": [
     "sway/workspaces",
     "sway/mode",
-    "sway/scratchpad"
-  ],
-  "modules-center": [
+    "sway/scratchpad",
     "sway/window"
   ],
+  "modules-center": [],
   "modules-right": [
     "idle_inhibitor",
     "wireplumber",
@@ -31,7 +30,7 @@
     "disable-scroll-wraparound": true
   },
   "sway/window": {
-    "format": "{shell} | {app_id} | {title}"
+    "format": "{shell} | {app_id}"
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -49,16 +48,16 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "activated": " ",
+      "deactivated": " "
     }
   },
   "tray": {
-    // "icon-size": 21,
+    "icon-size": 20,
     "spacing": 10
   },
   "clock": {
-    // "timezone": "America/New_York",
+    "format": "{:%a, %b %d | %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
   },
