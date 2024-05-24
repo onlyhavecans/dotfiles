@@ -3,5 +3,9 @@ text-color=#ebdbb2CC
 border-color=#a89984CC
 progress-color=#689d6aCC
 
-default-timeout=120000
+default-timeout=60000
 group-by=desktop-entry
+
+[desktop-entry=com.plexamp.Plexamp]
+default-timeout=10000
+ignore-timeout=1
