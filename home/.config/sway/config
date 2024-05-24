@@ -67,7 +67,6 @@ client.placeholder        $color_normal_red      $color_normal_red      $color_n
 ### Apps
 # Color Control
 exec gammastep
-exec gammastep-indicator
 # 1Password
 exec ELECTRON_OZONE_PLATFORM_HINT="" 1password --silent
 # cliphost store

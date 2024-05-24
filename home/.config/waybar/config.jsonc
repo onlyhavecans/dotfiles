@@ -20,6 +20,8 @@
     "cpu",
     "memory",
     "temperature",
+    "systemd-failed-units",
+    "disk",
     "clock",
     "tray"
   ],
@@ -57,8 +59,8 @@
     "spacing": 10
   },
   "clock": {
-    "format": "{:%a, %b %d | %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%a, %b %d %H:%M}  ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
   },
   "cpu": {
@@ -80,6 +82,11 @@
       ""
     ]
   },
+  "disk": {
+    "interval": 30,
+    "format": "{percentage_used}% ",
+    "path": "/"
+  },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} ({signalStrength}%)  ",
@@ -98,5 +105,13 @@
       " ",
       " "
     ]
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": false, // Do not hide if there is zero failed units.
+    "format": "✗ {nr_failed}  ",
+    "format-ok": "✓  ",
+    "system": true,
+    "user": true,
+    "format-alt": "system: {nr_failed_system}\nuser: {nr_failed_user}"
   }
 }

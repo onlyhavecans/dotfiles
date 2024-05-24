@@ -11,7 +11,6 @@ brew 'eza'
 brew 'fd'
 brew 'fish'
 brew 'gawk'
-brew 'gnu-sed' # Spectre needs this
 brew 'httpie'
 brew 'mosh'
 brew 'openssh'
@@ -21,7 +20,7 @@ brew 'tmux'
 brew 'watch'
 brew 'yazi'
 brew 'wget'
-brew 'whois'
+brew 'fzf'
 brew 'zoxide'
 
 ## Fun stuff
@@ -29,7 +28,6 @@ brew 'zoxide'
 brew 'fastfetch'
 brew 'ffmpeg'
 brew 'ffmpegthumbnailer'
-brew 'fzf'
 brew 'handbrake'
 brew 'hugo'
 brew 'imagemagick'
@@ -45,6 +43,7 @@ brew 'yt-dlp'
 
 ## Dev Tooling
 
+brew 'gnu-sed' # neovim Spectre needs this
 brew 'cmake' # neovim build needs
 brew 'direnv'
 brew 'entr'
@@ -55,6 +54,7 @@ brew 'git-standup'
 brew 'go'
 brew 'golangci-lint'
 brew 'jq'
+brew 'just'
 brew 'libpq'
 brew 'neovim'
 brew 'overmind'
@@ -70,8 +70,10 @@ brew 'jesseduffield/lazygit/lazygit'
 
 brew 'dive'
 brew 'gnupg'
+brew 'gping'
 brew 'nmap'
 brew 'qrencode'
+brew 'whois'
 brew 'wireguard-tools'
 
 tap '1password/tap'
