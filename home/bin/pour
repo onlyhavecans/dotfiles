@@ -33,23 +33,6 @@ if [[ -f "${HOME}/.homesick/repos/homeshick/homeshick.sh" ]]; then
   homeshick check
 fi
 
-if command_exists pacman; then
-  pacman -Syu
-fi
-
-if command_exists nixos-rebuild; then
-  nh home switch --update --ask /etc/nixos/
-  # sudo nixos-rebuild boot --upgrade
-fi
-
-if command_exists home-manager; then
-  nh home switch --update --ask ~/.config/home-manager/
-  # pushd ~/.config/home-manager || return
-  # nix flake update
-  # home-manager switch
-  # popd || return
-fi
-
 if command_exists brew; then
   status_message "[homebrew] Update packages"
   brew update

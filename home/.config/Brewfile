@@ -19,6 +19,7 @@ brew 'ripgrep'
 brew 'rsync'
 brew 'tmux'
 brew 'watch'
+brew 'yazi'
 brew 'wget'
 brew 'whois'
 brew 'zoxide'
@@ -35,11 +36,11 @@ brew 'imagemagick'
 brew 'marp-cli' # slides
 brew 'poppler' # pdf tools
 brew 'qpdf' # moar pdf
+brew 'streamlink'
 brew 'tintin'
 brew 'tlrc'
 brew 'trash-cli'
 brew 'unar'
-brew 'yazi'
 brew 'yt-dlp'
 
 ## Dev Tooling
@@ -61,9 +62,6 @@ brew 'pipx'
 
 tap 'goreleaser/tap'
 brew 'goreleaser/tap/goreleaser'
-
-tap 'heroku/brew'
-brew 'heroku/brew/heroku'
 
 tap 'jesseduffield/lazygit'
 brew 'jesseduffield/lazygit/lazygit'

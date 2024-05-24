@@ -13,14 +13,18 @@ for app in git curl gcc make; do
 done
 
 ## Install homeshick
-git clone https://github.com/andsens/homeshick.git "$HOME/.homesick/repos/homeshick"
+if [[ ! -d $HOME/.homesick/repos/homeshick ]]; then
+  git clone https://github.com/andsens/homeshick.git "$HOME/.homesick/repos/homeshick"
+fi
 # shellcheck source=/dev/null
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # clone home, then set it to ssh afterwards
 # This means we need our keys before we can make further actions
-homeshick --batch clone https://github.com/onlyhavecans/dotfiles.git
-git -C "$HOME/.homesick/repos/dotfiles" remote set-url origin git@github.com:onlyhavecans/dotfiles
+if [[ ! -d $HOME/.homesick/repos/dotfiles ]]; then
+  homeshick --batch clone https://github.com/onlyhavecans/dotfiles.git
+  git -C "$HOME/.homesick/repos/dotfiles" remote set-url origin git@github.com:onlyhavecans/dotfiles
+fi
 
 # Link everything
 homeshick link --force
@@ -36,7 +40,9 @@ if ! command -v brew &>/dev/null; then
 fi
 
 ## TMP install
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [[ ! -d $HOME/.config/tmux/plugins/tpm ]]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+fi
 
 ## All my asdf
 if [[ ! -d $HOME/.asdf ]]; then

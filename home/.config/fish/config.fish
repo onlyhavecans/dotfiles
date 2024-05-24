@@ -41,6 +41,11 @@ set -x MOSH_SERVER_SIGNAL_TMOUT 60
 # Clean up any session that has not been connected to in 30 days
 set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 
+# wayland
+if test uname = Linux
+    set -x ELECTRON_OZONE_PLATFORM_HINT=auto
+end
+
 # Always utf-8
 set -x LANG en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
@@ -80,16 +85,6 @@ if status is-interactive
         source ~/.homesick/repos/homeshick/completions/homeshick.fish
         abbr --add hcd homeshick cd
         abbr --add htrack homeshick track
-    end
-
-    ## Nix (Lix actually but w/e)
-    if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
-        source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
-    end
-
-    # Home-Manager
-    if command_exists home-manager
-        babelfish <~/.nix-profile/etc/profile.d/hm-session-vars.sh | source
     end
 
     # asdf-vm
@@ -147,6 +142,10 @@ if status is-interactive
     #
     ## Aliases
     #
+    abbr --add yeet sudo paru -Rcs
+    abbr --add yoink sudo paru -S --needed
+    abbr --add squish paru -Qqe
+
     abbr --add ce chef exec
     abbr --add cet chef exec thor
     abbr --add cek chef exec knife

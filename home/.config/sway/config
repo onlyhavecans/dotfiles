@@ -41,7 +41,7 @@ exec swayidle -w \
 
 ###  Theme
 gaps inner 5
-smart_gaps on
+smart_gaps off
 
 default_border pixel 2
 default_floating_border none
@@ -67,6 +67,7 @@ client.placeholder        $color_normal_red      $color_normal_red      $color_n
 ### Apps
 # Color Control
 exec gammastep
+exec gammastep-indicator
 # 1Password
 exec ELECTRON_OZONE_PLATFORM_HINT="" 1password --silent
 # cliphost store
