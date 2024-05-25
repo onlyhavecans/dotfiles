@@ -15,6 +15,7 @@
   "modules-center": [],
   "modules-right": [
     "idle_inhibitor",
+    "custom/recording",
     "wireplumber",
     "network",
     "cpu",
@@ -113,5 +114,14 @@
     "system": true,
     "user": true,
     "format-alt": "system: {nr_failed_system}\nuser: {nr_failed_user}"
+  },
+  "custom/recording": {
+    "exec": "$XDG_CONFIG_HOME/waybar/scripts/recording.sh status",
+    "format": "{}",
+    "on-click": "$XDG_CONFIG_HOME/waybar/scripts/recording.sh toggle fullscreen",
+    "on-click-right": "$XDG_CONFIG_HOME/waybar/scripts/recording.sh toggle region",
+    "restart-interval": 1,
+    "return-type": "json",
+    "tooltip": true
   }
 }
