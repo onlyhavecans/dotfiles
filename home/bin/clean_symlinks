@@ -12,6 +12,5 @@ fd --hidden --follow --type l \
   --exclude Library \
   --exclude Photos \
   --exclude Orbstack \
-  --exclude ".nix-*" \
   . ~ \
-  --exec trash-rm -v {}
+  --exec rm -v {}
