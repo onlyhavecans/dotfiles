@@ -80,11 +80,11 @@ else
   error_message "[rustup] not installed"
 fi
 
-if [[ -x "${HOME}/.tmux/plugins/tpm/bin/update_plugins" ]]; then
+if [[ -x "${HOME}/.config/tmux/plugins/tpm/bin/update_plugins" ]]; then
   status_message "[tmux] Update and clean plugins"
-  ~/.tmux/plugins/tpm/bin/install_plugins
-  ~/.tmux/plugins/tpm/bin/update_plugins all
-  ~/.tmux/plugins/tpm/bin/clean_plugins
+  ~/.config/tmux/plugins/tpm/bin/install_plugins
+  ~/.config/tmux/plugins/tpm/bin/update_plugins all
+  ~/.config/tmux/plugins/tpm/bin/clean_plugins
 else
   error_message "[tmux] plugin manager not installed"
 fi
