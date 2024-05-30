@@ -3,5 +3,7 @@ configuration {
   combi-modi: "drun,window";
   show-icons: true;
   icon-theme: "Mint-Y-Yari";
+  sorting-method: "fzf";
 }
+
 @theme "gruvbox-dark-soft"
