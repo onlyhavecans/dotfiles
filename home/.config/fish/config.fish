@@ -151,7 +151,7 @@ if status is-interactive
     abbr --add lg lazygit
     abbr --add ld lazydocker
 
-    abbr --add gv lazygit --path="$HOME/ResilioSync/Obsidian/Vault/"
+    abbr --add gv lazygit --path="$HOME/Documents/Obsidian/Vault/"
 
     abbr --add tm tmux new-session -A -c ~
     abbr --add tp mosh piper.local -- tmux new-session -A -c ~
