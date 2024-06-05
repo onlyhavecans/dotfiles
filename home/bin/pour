@@ -1,6 +1,9 @@
 #!/bin/bash
 ## Using system /bin/bash is intentional. The script crashes when brew upgrades bash
 
+##
+# Helpers
+##
 function status_message {
   GREEN='\033[0;32m'
   NOCOLOR='\033[0m'
@@ -22,7 +25,19 @@ function command_exists {
   return 127
 }
 
-if [[ -f "${HOME}/.homesick/repos/homeshick/homeshick.sh" ]]; then
+function path_exists {
+  if [[ -f "$1" ]]; then
+    return 0
+  fi
+  error_message "path [${1}] for app [${2}] does not exist"
+  return 127
+}
+
+##
+# Dotfiles!
+##
+
+if path_exists "${HOME}/.homesick/repos/homeshick/homeshick.sh" homeshick; then
   status_message "[homeshick] Update castles"
   # Needed for commands to work
   # shellcheck source=/dev/null
@@ -31,6 +46,26 @@ if [[ -f "${HOME}/.homesick/repos/homeshick/homeshick.sh" ]]; then
   homeshick link
   status_message "[homeshick] Checking for local changes"
   homeshick check
+fi
+
+##
+# The upgrades
+##
+
+if command_exists apt; then
+  status_message "[apt] Update packages"
+  sudo apt -qq update
+  sudo apt upgrade
+fi
+
+if command_exists paru; then
+  status_message "[paru] Update packages"
+  paru
+fi
+
+if command_exists flatpak; then
+  status_message "[flatpak] Update packages"
+  flatpak update --assumeyes
 fi
 
 if command_exists brew; then
@@ -48,15 +83,10 @@ if command_exists brew; then
   brew missing
 fi
 
-if command_exists flatpak; then
-  flatpak update --assumeyes
-fi
-
 if command_exists tldr; then
   tldr --update
 fi
 
-# Ocassionally I will not have asdf
 if command_exists asdf; then
   status_message "[asdf] Update asdf and plguins"
   asdf update
@@ -73,20 +103,16 @@ if command_exists asdf; then
   done
 fi
 
-if [[ -x "${HOME}/.cargo/bin/rustup" ]]; then
+if path_exists "${HOME}/.cargo/bin/rustup" rust; then
   status_message "[rustup] Update rust"
   "${HOME}/.cargo/bin/rustup" update
-else
-  error_message "[rustup] not installed"
 fi
 
-if [[ -x "${HOME}/.config/tmux/plugins/tpm/bin/update_plugins" ]]; then
+if path_exists "${HOME}/.config/tmux/plugins/tpm/bin/update_plugins" tpm; then
   status_message "[tmux] Update and clean plugins"
   ~/.config/tmux/plugins/tpm/bin/install_plugins
   ~/.config/tmux/plugins/tpm/bin/update_plugins all
   ~/.config/tmux/plugins/tpm/bin/clean_plugins
-else
-  error_message "[tmux] plugin manager not installed"
 fi
 
 if command_exists mas; then
