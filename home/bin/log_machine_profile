@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SYNC_DIR="ResilioSync/Action/machine_profiles"
+SYNC_DIR="Sync/Action/machine_profiles"
 
 PROFILE_DIR="$HOME/$SYNC_DIR"
 
