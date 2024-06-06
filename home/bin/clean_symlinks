@@ -5,7 +5,6 @@
 ##
 
 fd --hidden --follow --type l \
-  --exclude .local \
   --exclude Code \
   --exclude Desktop \
   --exclude Documents \
