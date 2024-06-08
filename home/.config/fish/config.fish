@@ -13,6 +13,10 @@ function command_exists
     command --query "$argv"
 end
 
+function running_linux
+    test (uname) = Linux
+end
+
 
 ## Putting paths even in non-interactive shells makes Apps Happy™
 # Reverse Order is very important
@@ -35,7 +39,7 @@ set -x MOSH_SERVER_SIGNAL_TMOUT 60
 set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 
 # wayland
-if test (uname) = Linux
+if running_linux
     set -x ELECTRON_OZONE_PLATFORM_HINT=auto
 end
 
@@ -135,9 +139,11 @@ if status is-interactive
     #
     ## Aliases
     #
-    abbr --add yeet sudo paru -Rcs
-    abbr --add yoink sudo paru -S --needed
-    abbr --add squish paru -Qqe
+    if running_linux
+        abbr --add yeet sudo paru -Rcs
+        abbr --add yoink sudo paru -S --needed
+        abbr --add squish paru -Qqe
+    end
 
     abbr --add ce chef exec
     abbr --add cet chef exec thor
@@ -150,7 +156,6 @@ if status is-interactive
 
     abbr --add lg lazygit
     abbr --add ld lazydocker
-
     abbr --add gv lazygit --path="$HOME/Documents/Obsidian/Vault/"
 
     abbr --add tm tmux new-session -A -c ~
