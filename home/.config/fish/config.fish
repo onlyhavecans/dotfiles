@@ -35,7 +35,7 @@ set -x MOSH_SERVER_SIGNAL_TMOUT 60
 set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 
 # wayland
-if test uname = Linux
+if test (uname) = Linux
     set -x ELECTRON_OZONE_PLATFORM_HINT=auto
 end
 
