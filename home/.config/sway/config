@@ -30,7 +30,7 @@ exec swaymsg focus output HDMI-A-1
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 input * {
   natural_scroll enabled
-  pointer_accel 0.6
+  pointer_accel -0.4
 }
 
 ### Idle configuration
