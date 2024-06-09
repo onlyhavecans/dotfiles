@@ -40,7 +40,7 @@ set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 
 # wayland
 if running_linux
-    set -x ELECTRON_OZONE_PLATFORM_HINT=auto
+    set -x ELECTRON_OZONE_PLATFORM_HINT auto
 end
 
 # Always utf-8
