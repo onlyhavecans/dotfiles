@@ -26,10 +26,6 @@ brew 'zoxide'
 ## Fun stuff
 
 brew 'fastfetch'
-brew 'ffmpeg'
-brew 'handbrake'
-brew 'hugo'
-brew 'imagemagick'
 brew 'marp-cli' # slides
 brew 'poppler' # pdf tools
 brew 'qpdf' # moar pdf
@@ -67,9 +63,11 @@ brew 'jesseduffield/lazygit/lazygit'
 
 ## Ops Tooling
 
+brew 'csvlens'
 brew 'dive'
 brew 'gnupg'
 brew 'gping'
+brew 'miller'
 brew 'nmap'
 brew 'qrencode'
 brew 'whois'
