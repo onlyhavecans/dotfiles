@@ -38,11 +38,6 @@ set -x MOSH_SERVER_SIGNAL_TMOUT 60
 # Clean up any session that has not been connected to in 30 days
 set -x MOSH_SERVER_NETWORK_TMOUT 2592000
 
-# wayland
-if running_linux
-    set -x ELECTRON_OZONE_PLATFORM_HINT auto
-end
-
 # Always utf-8
 set -x LANG en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
@@ -50,7 +45,9 @@ set -x XDG_CONFIG_HOME ~/.config
 
 # Putting this in non-interactive makes Apps use 1Password
 # The setting is exported instead of in ssh/config so I can have the test and fallback if this isn't set up
-test -S ~/.1password/agent.sock; and set -x SSH_AUTH_SOCK ~/.1password/agent.sock
+if test -z "$SSH_TTY" -a -S ~/.1password/agent.sock
+    set -x SSH_AUTH_SOCK ~/.1password/agent.sock
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
