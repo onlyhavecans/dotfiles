@@ -1,4 +1,6 @@
 1password
+adobe-source-han-sans-otc-fonts
+adobe-source-han-serif-otc-fonts
 archlinux-contrib
 base
 base-devel
@@ -29,6 +31,7 @@ grub-btrfs
 gvfs
 helvum
 imv
+inetutils
 inotify-tools
 intel-ucode
 iwd
@@ -40,10 +43,13 @@ mako
 man-db
 man-pages
 mpv
+msmtp
 neovim
 networkmanager
 noto-fonts
+noto-fonts-cjk
 noto-fonts-emoji
+noto-fonts-extra
 nss-mdns
 obs-studio
 obsidian
@@ -73,6 +79,7 @@ thunar
 thunar-archive-plugin
 thunar-volman
 timeshift
+timeshift-autosnap
 tmux
 tumbler
 unzip
@@ -83,4 +90,5 @@ wireplumber
 wl-clipboard
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
+xorg-xhost
 xorg-xwayland
