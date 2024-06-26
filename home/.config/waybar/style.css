@@ -1,20 +1,19 @@
 * {
-    font-size: 14px;
-    border-radius: 5px;
+    font-family: JetBrainsMono Nerd Font, monospace;
+    font-size: 14;
+    border-radius: 10px;
 }
 
 tooltip {
-    font-family: JetBrainsMono Nerd Font, monospace;
     background-color: rgba(40, 40, 40, 0.8);
     color: #ebdbb2;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #665c54;
 }
 
 window#waybar {
-    font-family: JetBrainsMono Nerd Font, monospace;
-    background-color: transparent;
-    border-bottom: 0px;
+    background-color: rgba(40,40,40, 0.5);
+    border-bottom: 1px;
     color: #ebdbb2;
     transition-property: background-color;
     transition-duration: .5s;
@@ -29,14 +28,12 @@ window#waybar.empty #window {
     padding: 0;
 }
 
-/*
 window#waybar.empty {
     background-color: transparent;
 }
 window#waybar.solo {
-    background-color: #FFFFFF;,
+    background-color: #FFFFFF;
 }
-*/
 
 .modules-right {
     margin: 10px 10px 0 0;
@@ -54,31 +51,20 @@ button {
     border: none;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-/*
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ebdbb2;
-} */
-
-#clock,
-#cpu,
-#custom-recording,
-#disk,
-#idle_inhibitor,
-#load,
-#memory,
-#mode,
-#network,
-#scratchpad,
-#systemd-failed-units,
-#temperature,
-#tray,
-#window,
-#wireplumber {
+#workspaces button {
     padding: 0 10px;
     background-color: #282828;
     color: #ebdbb2;
+}
+
+#custom-power,
+#custom-reboot,
+#custom-shutdown,
+#custom-quit,
+#custom-lock {
+    font-size: 18px;
+    padding: 0 15px 0 8px;
+    color: #cc241d;
 }
 
 #mode {

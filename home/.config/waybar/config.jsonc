@@ -1,13 +1,10 @@
 // -*- mode: jsonc -*-
 {
-  "layer": "top", // Waybar at top layer
+  "layer": "top",
   "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 34, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
-  // Choose the order of the modules
   "modules-left": [
-    "sway/workspaces",
+    // "sway/workspaces",
     "sway/mode",
     "sway/scratchpad",
     "sway/window"
@@ -15,17 +12,73 @@
   "modules-center": [],
   "modules-right": [
     "idle_inhibitor",
-    "custom/recording",
-    "wireplumber",
-    "network",
-    "cpu",
-    "memory",
-    "temperature",
-    "systemd-failed-units",
-    "disk",
+    "privacy",
+    "group/audio",
+    "group/hardware",
     "clock",
-    "tray"
+    "tray",
+    "group/power"
   ],
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "mpris",
+      "custom/recording",
+      "wireplumber"
+    ]
+  },
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "network",
+      "cpu",
+      "memory",
+      "temperature",
+      "disk",
+      "systemd-failed-units"
+    ]
+  },
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/power", // First element is the "group leader" and won't ever be hidden
+      "custom/quit",
+      "custom/lock",
+      "custom/reboot"
+    ]
+  },
+  "custom/quit": {
+    "format": "󰗼",
+    "tooltip": false,
+    "on-click": "swaymsg exit"
+  },
+  "custom/lock": {
+    "format": "󰍁",
+    "tooltip": false,
+    "on-click": "~/.config/sway/lock_screen.sh"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "systemctl reboot"
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "systemctl shutdown"
+  },
   "sway/workspaces": {
     "all-outputs": false,
     "warp-on-scroll": false,
@@ -33,7 +86,9 @@
     "disable-scroll-wraparound": true
   },
   "sway/window": {
-    "format": "{shell} | {app_id}"
+    "icon": true,
+    "icon-size": 22,
+    "format": "{app_id} | {shell} | {title}"
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -51,18 +106,41 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": " ",
-      "deactivated": " "
+      "activated": "",
+      "deactivated": ""
     }
+  },
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
   },
   "tray": {
     "icon-size": 20,
     "spacing": 10
   },
   "clock": {
-    "format": "{:%a, %b %d %H:%M}  ",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "interval": 60,
+    "format": "{:%H:%M}  ",
+    "format-alt": "{:%a, %b %d}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>"
   },
   "cpu": {
     "format": "{usage}% ",
@@ -123,5 +201,21 @@
     "restart-interval": 1,
     "return-type": "json",
     "tooltip": true
+  },
+  "mpris": {
+    "format": "{player_icon} {player}",
+    "format-paused": "{status_icon} {player}",
+    "format-alt": "{dynamic}",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵",
+      "Plexamp": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "ignored-players": [
+      "firefox"
+    ]
   }
 }
