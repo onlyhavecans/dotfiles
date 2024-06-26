@@ -29,6 +29,7 @@ grim
 grub
 grub-btrfs
 gvfs
+gvfs-smb
 helvum
 imv
 inetutils
@@ -66,6 +67,7 @@ rofi-wayland
 signal-desktop
 slack-desktop
 slurp
+smbclient
 streamlink
 streamlink-twitch-gui-bin
 sudo
