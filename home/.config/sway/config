@@ -117,8 +117,8 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+Comma splith
-    bindsym $mod+Period splitv
+    bindsym $mod+Comma splitv
+    bindsym $mod+Period splith
 
     # Switch the current container between different layout styles
     bindsym $mod+S layout stacking
