@@ -1,189 +1,135 @@
 // -*- mode: jsonc -*-
 {
   "layer": "top",
-  "position": "top", // Waybar position (top|bottom|left|right)
-  "spacing": 4, // Gaps between modules (4px)
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 50,
+  // "spacing": 4,
   "modules-left": [
-    // "sway/workspaces",
-    "sway/mode",
-    "sway/scratchpad",
-    "sway/window"
-  ],
-  "modules-center": [],
-  "modules-right": [
-    "idle_inhibitor",
-    "privacy",
-    "group/audio",
-    "group/hardware",
     "clock",
     "tray",
-    "group/power"
+    "sway/workspaces"
   ],
-  "group/audio": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "mpris",
-      "custom/recording",
-      "wireplumber"
-    ]
-  },
-  "group/hardware": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "network",
-      "cpu",
-      "memory",
-      "temperature",
-      "disk",
-      "systemd-failed-units"
-    ]
-  },
-  "group/power": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "custom/power", // First element is the "group leader" and won't ever be hidden
-      "custom/quit",
-      "custom/lock",
-      "custom/reboot"
-    ]
-  },
-  "custom/quit": {
-    "format": "󰗼",
-    "tooltip": false,
-    "on-click": "swaymsg exit"
-  },
-  "custom/lock": {
-    "format": "󰍁",
-    "tooltip": false,
-    "on-click": "~/.config/sway/lock_screen.sh"
-  },
-  "custom/reboot": {
-    "format": "󰜉",
-    "tooltip": false,
-    "on-click": "systemctl reboot"
-  },
-  "custom/power": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "systemctl shutdown"
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "network",
+    "temperature",
+    "memory",
+    "wireplumber"
+  ],
+  "sway/window": {
+    "format": "{}",
+    "max-length": 40
   },
   "sway/workspaces": {
-    "all-outputs": false,
-    "warp-on-scroll": false,
-    "enable-bar-scroll": true,
-    "disable-scroll-wraparound": true
-  },
-  "sway/window": {
-    "icon": true,
-    "icon-size": 22,
-    "format": "{app_id} | {shell} | {title}"
-  },
-  "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
-  "sway/scratchpad": {
-    "format": "{icon} {count}",
-    "show-empty": false,
-    "format-icons": [
-      "",
-      ""
-    ],
-    "tooltip": true,
-    "tooltip-format": "{app}: {title}"
-  },
-  "idle_inhibitor": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "1": "いち",
+      "2": "に",
+      "3": "さん",
+      "4": "よん",
+      "5": "ご",
+      "6": "ろく",
+      "7": "なな",
+      "8": "はち",
+      "9": "きゅう",
+      "10": "じゅう"
     }
   },
-  "privacy": {
-    "icon-spacing": 4,
-    "icon-size": 18,
-    "transition-duration": 250,
-    "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-out",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-in",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      }
-    ]
-  },
   "tray": {
-    "icon-size": 20,
+    "icon-size": 18,
     "spacing": 10
   },
   "clock": {
-    "interval": 60,
-    "format": "{:%H:%M}  ",
-    "format-alt": "{:%a, %b %d}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    "format": " {:%R  %m/%d/}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    // "format": "{: %I:%M %p   %a, %b %e}",
+    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
-  "cpu": {
-    "format": "{usage}% ",
-    "tooltip": false
+  "wireplumber": {
+    "format": "{icon}  {volume}",
+    "tooltip": false,
+    "format-muted": " ミュート",
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-down": "pamixer -d 5",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    }
   },
-  "memory": {
-    "format": "{}% "
+  "wireplumber#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " Muted",
+    "on-click": "pamixer --default-source -t",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "scroll-step": 5
   },
   "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "thermal-zone": 1,
+    "format": "TEMP {temperatureC}°C",
     "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
+    "format-critical": "{temperatureC}°C "
   },
-  "disk": {
+  "memory": {
     "interval": 30,
-    "format": "{percentage_used}% ",
-    "path": "/"
+    "format": "RAM {}%",
+    "max-length": 10,
+    "tooltip": true,
+    "tooltip-format": "Memory - {used:0.1f}GB used",
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%)  ",
-    "format-ethernet": "{ipaddr}/{cidr}  ",
-    "tooltip-format": "{ifname} via {gwaddr}  ",
-    "format-linked": "{ifname} (No IP)  ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "NONE ⚠",
+    "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
+    "on-click-right": "~/.config/rofi/bin/network"
   },
-  "wireplumber": {
-    "format": "{volume}% {icon}",
-    "format-muted": "",
-    "on-click": "helvum",
-    "format-icons": [
-      " ",
-      " ",
-      " "
-    ]
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{device_alias}",
+    "tooltip-format-connected": " {device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click-right": "blueman-manager"
+  },
+  "custom/media": {
+    "format": "{icon} {}",
+    "return-type": "json",
+    "max-length": 45,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "escape": true,
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
   },
   "systemd-failed-units": {
     "hide-on-ok": false, // Do not hide if there is zero failed units.
@@ -192,15 +138,6 @@
     "system": true,
     "user": true,
     "format-alt": "system: {nr_failed_system}\nuser: {nr_failed_user}"
-  },
-  "custom/recording": {
-    "exec": "$XDG_CONFIG_HOME/waybar/scripts/recording.sh status",
-    "format": "{} ",
-    "on-click": "$XDG_CONFIG_HOME/waybar/scripts/recording.sh toggle fullscreen",
-    "on-click-right": "$XDG_CONFIG_HOME/waybar/scripts/recording.sh toggle region",
-    "restart-interval": 1,
-    "return-type": "json",
-    "tooltip": true
   },
   "mpris": {
     "format": "{player_icon} {player}",
@@ -213,9 +150,6 @@
     },
     "status-icons": {
       "paused": "⏸"
-    },
-    "ignored-players": [
-      "firefox"
-    ]
+    }
   }
 }
