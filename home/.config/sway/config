@@ -97,6 +97,8 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     bindsym $mod+Shift+V exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
     # 1Password
     bindsym $mod+Shift+Space exec 1password --quick-access
+    # emoji picker
+    bindsym $mod+semicolon exec rofi -modi emoji -show emoji
 
     # Kill focused window
     bindsym $mod+Q kill

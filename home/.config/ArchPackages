@@ -16,6 +16,7 @@ docker-compose
 efibootmgr
 ffmpegthumbnailer
 file-roller
+filebot
 firefox
 fish
 flatpak
@@ -35,9 +36,12 @@ imv
 inetutils
 inotify-tools
 intel-ucode
+ironbar-git
 iwd
 jq
+libmediainfo
 libnotify
+libzen
 linux
 linux-firmware
 mako
@@ -63,6 +67,7 @@ pipewire-jack
 pipewire-pulse
 plymouth
 reflector
+rofi-emoji-git
 rofi-wayland
 signal-desktop
 slack-desktop
@@ -84,6 +89,7 @@ timeshift
 timeshift-autosnap
 tmux
 tumbler
+unarchiver
 unzip
 vulkan-intel
 waybar
