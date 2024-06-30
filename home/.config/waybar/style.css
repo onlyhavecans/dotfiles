@@ -61,6 +61,7 @@ tooltip {
 #workspaces,
 #tray,
 #memory,
+#cpu,
 #backlight {
   background: @base;
   opacity: 0.9;
@@ -72,6 +73,12 @@ tooltip {
 
 #memory {
   color: #3e8fb0;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#cpu {
+  color: @foam;
   border-left: 0px;
   border-right: 0px;
 }

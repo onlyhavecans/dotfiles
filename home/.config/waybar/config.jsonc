@@ -19,6 +19,7 @@
   "modules-right": [
     "network",
     "temperature",
+    "cpu",
     "memory",
     "wireplumber"
   ],
@@ -91,6 +92,9 @@
     "format": "TEMP {temperatureC}°C",
     "critical-threshold": 80,
     "format-critical": "{temperatureC}°C "
+  },
+  "cpu": {
+    "format": "CPU {usage}%"
   },
   "memory": {
     "interval": 30,
