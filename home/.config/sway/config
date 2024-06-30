@@ -87,6 +87,8 @@ exec wl-paste --type image --watch cliphist store #Stores only image data
     bindsym $mod+B exec $browser
     # Lock it
     bindsym $mod+Escape exec ~/.config/sway/lock_screen.sh
+    # Power menu
+    bindsym $mod+Backspace exec rofi -show p -modi p:~/bin/rofi-power-menu
     # Screenshot
     bindsym $mod+P exec ~/.config/sway/screenshot-select.sh
     bindsym $mod+Shift+P exec ~/.config/sway/screenshot-full.sh

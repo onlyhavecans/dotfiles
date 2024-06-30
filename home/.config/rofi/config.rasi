@@ -1,6 +1,7 @@
 configuration {
-  modi: "window,drun,ssh,combi";
-  combi-modi: "drun,window";
+  show: "combi";
+  modi: "p:~/bin/rofi-power-menu";
+  combi-modi: "window,drun,p";
   show-icons: true;
   icon-theme: "Mint-Y-Yari";
   sorting-method: "fzf";
