@@ -50,7 +50,7 @@
     "spacing": 10
   },
   "clock": {
-    "format": "  {:%R  %m/%d}",
+    "format": "  {:%R %a, %b %d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     // "format": "{: %I:%M %p   %a, %b %e}",
     // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
