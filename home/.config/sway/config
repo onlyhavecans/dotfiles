@@ -213,12 +213,22 @@ mode "resize" {
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
+    # also with the mod
+    bindsym $mod+$left resize shrink width 10px
+    bindsym $mod+$down resize grow height 10px
+    bindsym $mod+$up resize shrink height 10px
+    bindsym $mod+$right resize grow width 10px
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
     bindsym Right resize grow width 10px
+    # also with the mod
+    bindsym $mod+Left resize shrink width 10px
+    bindsym $mod+Down resize grow height 10px
+    bindsym $mod+Up resize shrink height 10px
+    bindsym $mod+Right resize grow width 10px
 
     # Return to default mode
     bindsym Return mode "default"
