@@ -58,9 +58,9 @@ if command_exists apt-get; then
   sudo apt upgrade
 fi
 
-if command_exists paru; then
-  status_message "[paru] Update packages"
-  paru
+if command_exists pacman; then
+  status_message "[pacman] Update packages"
+  sudo pacman -Syu
 fi
 
 if command_exists flatpak; then
