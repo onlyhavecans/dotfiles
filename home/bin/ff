@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+export PATH=/usr/bin:/Applications/Firefox.app/Contents/MacOS
+firefox "$*"
