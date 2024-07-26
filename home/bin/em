@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-SUBJECT="$*"
+SUBJECT="[emailme] $(date +%FT%T)"
 BODY="$*"
 
-printf "Subject: [emailme] %s\n%s" "$SUBJECT" "$BODY" | msmtp -- default
+printf "Subject: %s\n%s" "$SUBJECT" "$BODY" | msmtp -- default
