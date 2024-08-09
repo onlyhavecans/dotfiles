@@ -37,6 +37,7 @@ brew 'yt-dlp'
 
 ## Dev Tooling
 
+brew 'ast-grep'
 brew 'gnu-sed' # neovim Spectre needs this
 brew 'cmake' # neovim build needs
 brew 'direnv'
