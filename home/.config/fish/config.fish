@@ -66,6 +66,9 @@ if status is-interactive
             printf "$HOMEBREW_PREFIX/opt/$1"
         end
 
+        # Brew doctor requested
+        set -x XDG_DATA_DIRS "$HOMEBREW_PREFIX/share:$XDG_DATA_DIRS"
+
         ## Brew overlays
         set -l apps openssh whois curl libpq
         for app in $apps
