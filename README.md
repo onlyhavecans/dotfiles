@@ -4,7 +4,7 @@ Yet Another Dotfiles Repo.
 
 This uses [homeshick](https://github.com/andsens/homeshick).
 
-I mostly work on macOS but I try to keep this workable on my FreeBSD machines, so there may be some splits
+These are designed to work on macOS, Mint, Arch, and NixOS... all at the same time currently.
 
 Overall I am trying not to have too bespoke of a setup but there is a lot of initialization and configuration for access to dev tooling
 
@@ -13,13 +13,13 @@ Overall I am trying not to have too bespoke of a setup but there is a lot of ini
 ### Mac
 
 Start by installing [homebrew](https://brew.sh/)
-then curlbash the init-macos.sh script!
+then curlbash the init.sh script!
 
 ## Apps
 
 ### homebrew
 
-I use a Brewfile to manage my packages and keep it consistent on macOS
+I use a Brewfile to manage my packages and keep it consistent on everything but Arch
 Instead of running brew upgrade manually I run my `pour` function which does a lot of dep work.
 
 ### tmux
