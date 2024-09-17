@@ -26,7 +26,9 @@ brew 'zoxide'
 ## Fun stuff
 
 brew 'fastfetch'
+brew 'ffmpeg'
 brew 'marp-cli' # slides
+brew 'media-info'
 brew 'poppler' # pdf tools
 brew 'qpdf' # moar pdf
 brew 'streamlink'

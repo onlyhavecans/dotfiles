@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+##
+# Save myself a lot of space and time avoiding errors with a converter
+#
+# Both the Tracker+ and Sp404Mk2 take their samples at 16bit depth
+# The Tracker+ takes a sample rate of 44.1 kHz and the Sp404Mk2 is 48 kHz
+#
+# Set the lowest common denominator for now.
+#
+# TODO: Maybe make it support both 48 and 44.1kHz
+# TODO: Maybe add a convert to mono funtion with `-ac 1`
+##
+
+check_command() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "$1 command is required" >&2
+    exit 1
+  fi
+}
+
+for i in mediainfo ffmpeg; do
+  check_command "$i"
+done
+
+file="$1"
+outfile="${file%.*}-16-44100.wav"
+info="$(mediainfo "$file")"
+rate="$(echo "$info" | awk '/Sampling rate/ { print $(NF-1) }')"
+bit_depth="$(echo "$info" | awk '/Bit depth/ { print $(NF-1) }')"
+
+parameters=""
+
+if [ "$rate" != "44.1" ]; then
+  parameters+=" -ar 44100"
+fi
+
+if [ "$bit_depth" != "16" ]; then
+  parameters+=" -sample_fmt s16"
+fi
+
+if [ "$parameters" == "" ]; then
+  echo "File does not need converting: $file"
+  exit 5
+fi
+
+ffmpeg -i "$file" $parameters "$outfile"
