@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+SAMPLES_FOLDER=/cool
+OUT_FOLDER=~/Downloads/tracker+out
+
+cp -a "$SAMPLES_FOLDER" "$OUT_FOLDER"
+
+pushd "$OUT_FOLDER" || exit 1
+
+fd --exclude "*.wav" --exclude "*.aif" --type file --exec rm
+fd --type empty --exec rm
+fd --type file --exec sample_convert
+
+popd || exit
