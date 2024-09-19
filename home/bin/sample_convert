@@ -44,3 +44,4 @@ if [ "$parameters" == "" ]; then
 fi
 
 ffmpeg -i "$file" $parameters "$outfile"
+mv "$outfile" "$file"
