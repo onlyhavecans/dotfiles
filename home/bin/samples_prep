@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-SAMPLES_FOLDER=/cool
-OUT_FOLDER=~/Downloads/tracker+out
+SAMPLES_FOLDER=/Volumes/SKWRL_REKORD/Ableton/User/Samples
+OUT_FOLDER=~/Downloads/trackerp_out
 
 cp -a "$SAMPLES_FOLDER" "$OUT_FOLDER"
 
@@ -10,5 +10,7 @@ pushd "$OUT_FOLDER" || exit 1
 fd --exclude "*.wav" --exclude "*.aif" --type file --exec rm
 fd --type empty --exec rm
 fd --type file --exec sample_convert
+
+echo "!! Enjoy that fresh sample feeling!"
 
 popd || exit
