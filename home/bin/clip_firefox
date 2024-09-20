@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+app=Firefox
+timeout=""
+
+if [[ "$1" != "" ]]; then
+  timeout="$1"
+fi
+
+exec clip_app "$app" "$timeout"

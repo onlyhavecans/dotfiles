@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "" ]]; then
+  echo "$0 requires an app to record from" >&2
+  exit 1
+fi
+
+app="$1"
+file="$HOME/Downloads/${app}_$(date +%F-%T).wav"
+timeout=30s
+
+if [[ "$2" != "" ]]; then
+  timeout="$2"
+fi
+
+exec timeout "$timeout" \
+  pw-cat \
+  --record \
+  --target "$app" \
+  --format f32 \
+  "$file" &
