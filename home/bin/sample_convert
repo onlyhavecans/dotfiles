@@ -43,5 +43,5 @@ if [ "$parameters" == "" ]; then
   exit 5
 fi
 
-ffmpeg -i "$file" $parameters "$outfile"
+ffmpeg -hide_banner -loglevel info -i "$file" $parameters "$outfile"
 mv "$outfile" "$file"
