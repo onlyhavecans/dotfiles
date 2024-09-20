@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
 
-SAMPLES_FOLDER=/Volumes/SKWRL_REKORD/Ableton/User/Samples
-OUT_FOLDER=~/Downloads/trackerp_out
+function status_message {
+  GREEN='\033[0;32m'
+  NOCOLOR='\033[0m'
+  echo ""
+  echo -e "${GREEN}~ $*${NOCOLOR}"
+}
 
-cp -a "$SAMPLES_FOLDER" "$OUT_FOLDER"
+SAMPLES_FOLDER="/Volumes/SKWRLREKORD/Ableton/User Library/Samples/"
+OUT_FOLDER=~/Downloads/trackerp_out/
+
+status_message "Making a copy of samples"
+rsync -auh --progress "$SAMPLES_FOLDER" "$OUT_FOLDER"
 
 pushd "$OUT_FOLDER" || exit 1
 
-fd --exclude "*.wav" --exclude "*.aif" --type file --exec rm
-fd --type empty --exec rm
+status_message "Removing non-audio files"
+fd --exclude "*.wav" --exclude "*.aif" --type file --exec rm -v
+fd --type empty --exec rm -v
+
+status_message "Converting samples"
 fd --type file --exec sample_convert
 
-echo "!! Enjoy that fresh sample feeling!"
-
-popd || exit
+status_message "Enjoy that fresh sample feeling!"
