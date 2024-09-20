@@ -11,8 +11,15 @@ config.freetype_load_target = "Light"
 
 config.color_scheme = "Gruvbox Dark (Gogh)"
 
+config.use_resize_increments = true
 config.hide_tab_bar_if_only_one_tab = true
 config.enable_scroll_bar = false
+config.window_padding = {
+	left = "2px",
+	right = "2px",
+	top = "1px",
+	bottom = "1px",
+}
 
 config.initial_cols = is_linux() and 80 or 155
 config.initial_rows = is_linux() and 40 or 72
