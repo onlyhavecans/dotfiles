@@ -21,7 +21,7 @@ config.window_padding = {
 	bottom = "1px",
 }
 
-config.initial_cols = is_linux() and 80 or 155
-config.initial_rows = is_linux() and 40 or 72
+config.initial_cols = 150
+config.initial_rows = 60
 
 return config
