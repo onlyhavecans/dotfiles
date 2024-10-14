@@ -27,11 +27,15 @@ brew 'zoxide'
 
 brew 'fastfetch'
 brew 'ffmpeg'
+brew 'imagemagick'
 brew 'marp-cli' # slides
 brew 'media-info'
+brew 'msmtp'
+brew 'ncdu'
 brew 'poppler' # pdf tools
 brew 'qpdf' # moar pdf
 brew 'streamlink'
+brew 'syncthing'
 brew 'tintin'
 brew 'tlrc'
 brew 'trash-cli'
