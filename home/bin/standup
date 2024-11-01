@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-old_dir=$(pwd)
-cd ~/Code/ || exit 1
+pushd ~/Code/ || exit 1
 git standup -F -s -m 4 -d 8
-cd "$old_dir" || exit 1
