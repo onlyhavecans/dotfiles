@@ -54,8 +54,8 @@ fi
 
 if command_exists apt-get; then
   status_message "[apt] Update packages"
-  sudo apt -qq update
-  sudo apt upgrade
+  sudo nala update
+  sudo nala upgrade
 fi
 
 if command_exists pacman; then
