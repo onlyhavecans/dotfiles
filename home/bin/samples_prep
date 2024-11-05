@@ -7,7 +7,7 @@ function status_message {
   echo -e "${GREEN}~ $*${NOCOLOR}"
 }
 
-SAMPLES_FOLDER="/Volumes/SKWRLREKORD/Ableton/User Library/Samples/"
+SAMPLES_FOLDER="/Volumes/SKWRLREKORD/Samples/"
 OUT_FOLDER=~/Downloads/trackerp_out/
 
 status_message "Making a copy of samples"
