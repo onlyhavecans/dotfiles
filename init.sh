@@ -41,6 +41,7 @@ fi
 
 ## TMP install
 if [[ ! -d $HOME/.config/tmux/plugins/tpm ]]; then
+  mkdir -p ~/.config/tmux/plugins
   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 fi
 
