@@ -17,6 +17,13 @@ then curlbash the init.sh script!
 
 ## Apps
 
+### zsh
+
+I try to keep my shell config sparse and rely on a lot of small commands installed in ~/bin
+This is slightly less efficient but more extensible
+
+I also use FZF to get around a lot since I miss fish's completion
+
 ### homebrew
 
 I use a Brewfile to manage my packages and keep it consistent on everything but Arch
