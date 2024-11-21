@@ -21,7 +21,7 @@ function running_linux {
 setopt share_history
 HISTSIZE=100000
 SAVEHIST=100000
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.local/state/zsh/.zsh_history
 
 # Emacs keys
 bindkey -e
@@ -87,6 +87,7 @@ add_path_if_exists "$WEZTERM_EXECUTABLE_DIR"
 if command_exists nvim; then
   EDITOR=nvim
   VISUAL=nvim
+  export MANPAGER="nvim +Man!"
 else
   EDITOR=vi
   VISUAL=vi
