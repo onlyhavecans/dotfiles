@@ -16,6 +16,10 @@ function running_linux {
 #
 ## ZSH Settings
 #
+
+# Turn on slow query logging
+REPORTTIME=1
+
 # History
 setopt share_history
 HISTSIZE=100000
