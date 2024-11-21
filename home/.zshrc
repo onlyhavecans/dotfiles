@@ -1,5 +1,4 @@
 #shellcheck shell=zsh
-#shellcheck disable=SC1090,SC1091
 
 ## Convenience Functions
 function add_path_if_exists {
@@ -201,7 +200,7 @@ function _git_info_prompt {
   local branch=$1
   local symbols=$2
 
-  [[ -n $symbols ]] && branch+="$symbols"
+  [[ -n $symbols ]] && branch+=" $symbols"
   echo "  $branch"
 }
 
