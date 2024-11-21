@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Update SSH_AUTH_SOCK in tmux from parent window to fix SSH keys
+SSH_AUTH_SOCK=$(tmux showenv | grep "SSH_AUTH_SOCK" | sed -e "s@SSH_AUTH_SOCK=@@")
+export SSH_AUTH_SOCK
