@@ -1,6 +1,19 @@
 #shellcheck shell=zsh
 #shellcheck disable=SC1090,SC1091
 
+## Convenience Functions
+function add_path_if_exists {
+  [ -d "$1" ] && path=("$1" $path)
+}
+
+function command_exists {
+  builtin whence "$1" &>/dev/null
+}
+
+function running_linux {
+  [[ $(uname) == Linux ]]
+}
+
 #
 ## ZSH Settings
 #
@@ -14,12 +27,19 @@ HISTFILE=~/.zsh_history
 bindkey -e
 setopt autocd
 
+# Completion hacking
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zsh
+zstyle ':completion:*' completer _expand_alias _complete _ignored # tab complete aliases
+
 #
 ## Paths
 #
 # Make sure system paths are last
-if builtin whence brew &>/dev/null; then
+if command_exists brew; then
   eval $(brew shellenv)
+  export HOMEBREW_NO_ENV_HINTS=1
 
   ## brew --prefix is way too slow in 4.0 so hardcode
   function _brew_prefix {
@@ -38,35 +58,42 @@ if builtin whence brew &>/dev/null; then
 fi
 
 # Homeshick for configs
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath+=("$HOME/.homesick/repos/homeshick/completions")
+if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
+  source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+  fpath+=("$HOME/.homesick/repos/homeshick/completions")
+  alias hcd="homeshick cd"
+  alias htrack "homeshick track"
+fi
 
 # asdf-vm
 if [ -f $HOME/.asdf/asdf.sh ]; then
   source "$HOME/.asdf/asdf.sh"
   fpath+=("${ASDF_DIR}/completions")
+
   export ASDF_GOLANG_MOD_VERSION_ENABLED=false
-  export KERL_CONFIGURE_OPTIONS=--without-javac
   unset RUBY_CONFIGURE_OPTS
 fi
 
 # direnv
-if builtin whence direnv &>/dev/null; then
+if command_exists direnv; then
   eval "$(direnv hook zsh)"
   alias tmux="direnv exec / tmux"
 fi
 
 # Wezterm
-if [ -n "$WEZTERM_EXECUTABLE_DIR" ]; then
-  path=("$WEZTERM_EXECUTABLE_DIR" $path)
-fi
+add_path_if_exists "$WEZTERM_EXECUTABLE_DIR"
 
-# Geneic overlays
-if builtin whence bat &>/dev/null; then
-  export BAT_THEME="gruvbox-dark"
+# Generic overlays
+if command_exists nvim; then
+  EDITOR=nvim
+  VISUAL=nvim
+else
+  EDITOR=vi
+  VISUAL=vi
 fi
+export EDITOR VISUAL
 
-if builtin whence eza &>/dev/null; then
+if command_exists eza; then
   alias ls=eza
   alias la="eza -a"
   alias ll="eza -l"
@@ -74,32 +101,30 @@ if builtin whence eza &>/dev/null; then
   alias tree="eza --tree"
 fi
 
-if builtin whence fzf &>/dev/null; then
+if command_exists fzf; then
   eval "$(fzf --zsh)"
 
   export FZF_DEFAULT_COMMAND='fd --follow --hidden --type f'
   export FZF_CTRL_T_COMMAND='fd --follow --hidden'
+  export FZF_ALT_C_COMMAND='fd --follow --hidden --type d'
 
-  _fzf_compgen_path() {
-    fd --hidden --follow --exclude ".git" . "$1"
-  }
-  _fzf_compgen_dir() {
-    fd --type d --hidden --follow --exclude ".git" . "$1"
-  }
+  if [[ -n "$TMUX" ]]; then
+    export FZF_TMUX_OPTS='-p80%,60%'
+  fi
 fi
 
-if builtin whence yazi &>/dev/null; then
+if command_exists yazi; then
   function yy() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-      cd -- "$cwd"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd"
     fi
     rm -f -- "$tmp"
   }
 fi
 
-if builtin whence zoxide &>/dev/null; then
+if command_exists zoxide; then
   eval "$(zoxide init zsh)"
 fi
 
@@ -115,8 +140,9 @@ alias cl=clear
 alias g=git
 alias G=git
 
-alias lg="XDG_CONFIG_HOME="$HOME/.config" lazygit"
-alias lzd="XDG_CONFIG_HOME="$HOME/.config" lazydocker"
+alias lg=lazygit
+alias lzd=lazydocker
+alias gv="lazygit --path=$HOME/Documents/Obsidian/Vault/"
 
 alias tm="tmux new-session -A -c ~"
 alias tp="mosh piper.local -- tmux new-session -A -c ~"
@@ -214,3 +240,4 @@ fi
 ## Completions always last
 #
 autoload -Uz compinit && compinit
+export PATH
