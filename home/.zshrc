@@ -218,9 +218,10 @@ function _git_info {
 
 setopt prompt_subst
 TOP_PROMPT=''
-TOP_PROMPT+='%F{green}%m'               # Green Machine name
-TOP_PROMPT+='  %2~%f'                  # Green Current directory
-TOP_PROMPT+='%F{magenta}$(_git_info)%f' # Magenta Git info
+TOP_PROMPT+='%F{yellow}[%D{%H:%M:%S}]%f ' # Yellow time
+TOP_PROMPT+='%F{green}%m'                 # Green Machine name
+TOP_PROMPT+='  %2~%f'                    # Green Current directory
+TOP_PROMPT+='%F{magenta}$(_git_info)%f'   # Magenta Git info
 precmd() {
   print -rP -- $TOP_PROMPT
 }
