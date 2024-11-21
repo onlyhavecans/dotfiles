@@ -9,10 +9,6 @@ function command_exists {
   builtin whence "$1" &>/dev/null
 }
 
-function running_linux {
-  [[ $(uname) == Linux ]]
-}
-
 #
 ## ZSH Settings
 #
@@ -118,7 +114,7 @@ if command_exists fzf; then
 fi
 
 if command_exists yazi; then
-  function yy() {
+  function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     yazi "$@" --cwd-file="$tmp"
     if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
