@@ -27,6 +27,7 @@ brew 'zoxide'
 
 brew 'fastfetch'
 brew 'ffmpeg'
+brew 'hugo'
 brew 'imagemagick'
 brew 'marp-cli' # slides
 brew 'media-info'
