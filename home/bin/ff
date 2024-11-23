@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 export PATH=/usr/bin:/Applications/Firefox.app/Contents/MacOS
 exec firefox "$*"
