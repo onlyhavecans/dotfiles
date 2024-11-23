@@ -1,6 +1,0 @@
----
-AllCops:
-  NewCops: enable
-
-Layout/LineLength:
-  Enabled: false

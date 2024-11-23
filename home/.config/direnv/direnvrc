@@ -1,6 +1,5 @@
 # shellcheck shell=bash disable=SC2039
 ## chef-dk summoner
-# use chefdk
 use_chefdk() {
   eval "$(chef shell-init bash)"
 }

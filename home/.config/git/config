@@ -3,7 +3,7 @@
 	email = squirrel@wearing.black
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDbf3akk3YGBxen4nREECgDKyGOZTb+1Mqak7HxNYvt5
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.config/git/ignore
 	editor = nvim
 	autocrlf = input
 	pager = bat
