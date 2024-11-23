@@ -37,7 +37,7 @@ zstyle ':completion:*' completer _expand_alias _complete _ignored # tab complete
 #
 # Make sure system paths are last
 if command_exists brew; then
-  eval $(brew shellenv)
+  source <(brew shellenv zsh)
   export HOMEBREW_NO_ENV_HINTS=1
 
   ## brew --prefix is way too slow in 4.0 so hardcode
@@ -75,7 +75,7 @@ fi
 
 # direnv
 if command_exists direnv; then
-  eval "$(direnv hook zsh)"
+  source <(direnv hook zsh)
   alias tmux="direnv exec / tmux"
 fi
 
@@ -102,7 +102,7 @@ if command_exists eza; then
 fi
 
 if command_exists fzf; then
-  eval "$(fzf --zsh)"
+  source <(fzf --zsh)
 
   export FZF_DEFAULT_COMMAND='fd --follow --hidden --type f'
   export FZF_CTRL_T_COMMAND='fd --follow --hidden'
@@ -125,7 +125,7 @@ if command_exists yazi; then
 fi
 
 if command_exists zoxide; then
-  eval "$(zoxide init zsh)"
+  source <(zoxide init zsh)
 fi
 
 #
