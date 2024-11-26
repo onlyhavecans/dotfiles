@@ -10,6 +10,6 @@ fd --hidden --follow --type l \
   --exclude Documents \
   --exclude Library \
   --exclude Photos \
-  --exclude Orbstack \
+  --exclude OrbStack \
   . ~ \
   --exec rm -v {}
