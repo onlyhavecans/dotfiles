@@ -35,7 +35,7 @@ if ! command -v brew &>/dev/null; then
   [ -d /usr/local/bin ] && PATH="/usr/local/bin:$PATH"
   [ -d /opt/homebrew/bin ] && PATH="/opt/homebrew/bin:$PATH"
   [ -d /home/linuxbrew/.linuxbrew/bin ] && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-  eval $(brew shellenv)
+  eval $(brew shellenv bash)
   brew bundle install --file=~/.config/Brewfile
 fi
 
