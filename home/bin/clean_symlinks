@@ -5,6 +5,7 @@
 ##
 
 fd --hidden --follow --type l \
+  --exclude .nix-defexpr \
   --exclude Code \
   --exclude Desktop \
   --exclude Documents \
