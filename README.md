@@ -48,9 +48,3 @@ I included my ssh config because I think it can be useful to others.
 
 I use direnv frequently
 I have a few standard functions I use to help me out.
-
-### asdf-vm
-
-Uses asdf-vm to manage most of my language versions since I am quite polyglot.
-I have a global .tool-versions but generally don't store that in dotfiles as `pour` manages it.
-There is also a lot of .default packages to keep support open

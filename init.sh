@@ -45,23 +45,6 @@ if [[ ! -d $HOME/.config/tmux/plugins/tpm ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 fi
 
-## All my asdf
-if [[ ! -d $HOME/.asdf ]]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  git -C ~/.asdf checkout "$(git -C ~/.asdf describe --abbrev=0 --tags)"
-
-  # shellcheck source=/dev/null
-  source "$HOME/.asdf/asdf.sh"
-
-  asdf plugin-add python
-  asdf install python latest
-  asdf global python latest
-
-  asdf plugin-add ruby
-  asdf install ruby latest
-  asdf global ruby latest
-fi
-
 ## Link 1Password agent if we have the mac
 if [[ "$(uname)" == "Darwin" ]]; then
   mkdir -p ~/.1password && ln -sf ~/library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock

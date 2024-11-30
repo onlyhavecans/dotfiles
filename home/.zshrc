@@ -51,6 +51,7 @@ if command_exists brew; then
     [ -d "$(_brew_prefix $app)/bin" ] &&
       path=("$(_brew_prefix $app)/bin" $path)
 
+    # completions
     [ -d "$(_brew_prefix $app)/share/zsh/site-functions" ] &&
       fpath+=("$(_brew_prefix $app)/share/zsh/site-functions")
   done
