@@ -7,10 +7,10 @@
 ## Write part file
 --part
 
-# Write metadata to save lookups
---write-info-json
-
 ## Write a subtitle file
 --write-subs
 --sub-format srt/ass/best
 --sub-langs "en.*"
+
+## Defualt to wav audio
+--audio-format wav
