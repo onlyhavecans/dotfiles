@@ -80,6 +80,9 @@ if command_exists direnv; then
   alias tmux="direnv exec / tmux"
 fi
 
+# uv and local apps
+add_path_if_exists "$HOME/.local/bin"
+
 # Wezterm
 add_path_if_exists "$WEZTERM_EXECUTABLE_DIR"
 
