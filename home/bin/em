@@ -2,7 +2,8 @@
 
 BODY=$*
 SUBJECT=$(printf "[EmailMe] %(%F%T)T %.50s" -1 "$BODY")
+EMAIL=$(printf "Subject: %s\n\n%s\n" "$SUBJECT" "$BODY")
 
-echo "$SUBJECT"
+echo "$EMAIL"
 
-printf "Subject: %s\n\n%s\n" "$SUBJECT" "$BODY" | msmtp -- default
+echo -e "$EMAIL" | msmtp -- default
