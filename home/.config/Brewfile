@@ -17,6 +17,7 @@ brew 'mosh'
 brew 'openssh'
 brew 'ripgrep'
 brew 'rsync'
+brew 'sevenzip' #yazi
 brew 'tmux'
 brew 'watch'
 brew 'wget'
