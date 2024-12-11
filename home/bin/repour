@@ -13,8 +13,9 @@ while true; do
   esac
 done
 
-brew list --formula | xargs brew uninstall
 brew update
+brew cleanup -s --prune=all
+brew list --formula | xargs brew reinstall
 brew bundle install --file=~/.config/Brewfile
 brew cleanup -s --prune=all
 brew doctor
