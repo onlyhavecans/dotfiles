@@ -23,6 +23,8 @@ brew 'watch'
 brew 'wget'
 brew 'yazi'
 brew 'zoxide'
+brew 'viu' # neovim fzf
+brew 'chafa' # neovim fzf
 
 ## Fun stuff
 
