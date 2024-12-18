@@ -14,17 +14,25 @@ brew 'fzf'
 brew 'gawk'
 brew 'httpie'
 brew 'mosh'
+brew 'ncdu'
 brew 'openssh'
 brew 'ripgrep'
 brew 'rsync'
-brew 'sevenzip' #yazi
 brew 'tmux'
 brew 'watch'
 brew 'wget'
 brew 'yazi'
 brew 'zoxide'
-brew 'viu' # neovim fzf
+
+## Deps for other apps
+
+brew 'ast-grep' # neovim
 brew 'chafa' # neovim fzf
+brew 'cmake' # neovim
+brew 'gnu-sed' # neovim Spectre
+brew 'poppler' # yazi
+brew 'sevenzip' #yazi
+brew 'viu' # neovim fzf
 
 ## Fun stuff
 
@@ -35,8 +43,6 @@ brew 'imagemagick'
 brew 'marp-cli' # slides
 brew 'media-info'
 brew 'msmtp'
-brew 'ncdu'
-brew 'poppler' # pdf tools
 brew 'qpdf' # moar pdf
 brew 'streamlink'
 brew 'syncthing'
@@ -47,9 +53,6 @@ brew 'yt-dlp'
 
 ## Dev Tooling
 
-brew 'ast-grep'
-brew 'gnu-sed' # neovim Spectre needs this
-brew 'cmake' # neovim build needs
 brew 'direnv'
 brew 'entr'
 brew 'gh'
@@ -59,10 +62,10 @@ brew 'git-standup'
 brew 'git-xargs'
 brew 'go'
 brew 'golangci-lint'
-brew 'luarocks'
 brew 'jq'
 brew 'just'
 brew 'libpq'
+brew 'luarocks'
 brew 'neovim'
 brew 'overmind'
 brew 'pipx'
