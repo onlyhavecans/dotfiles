@@ -88,7 +88,6 @@ fi
 
 if command_exists asdf; then
   status_message "[asdf] Update asdf and plguins"
-  asdf update
   asdf plugin update --all
 
   status_message "[asdf] Listing installed versions"

@@ -78,6 +78,7 @@ brew 'jesseduffield/lazygit/lazygit'
 
 ## Ops Tooling
 
+brew 'asdf'
 brew 'csvlens'
 brew 'dive'
 brew 'gnupg'

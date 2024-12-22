@@ -66,10 +66,8 @@ if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
 fi
 
 # asdf-vm
-if [ -f $HOME/.asdf/asdf.sh ]; then
-  source "$HOME/.asdf/asdf.sh"
-  fpath+=("${ASDF_DIR}/completions")
-
+if command_exists asdf; then
+  source ${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh
   export ASDF_GOLANG_MOD_VERSION_ENABLED=false
   unset RUBY_CONFIGURE_OPTS
 fi
