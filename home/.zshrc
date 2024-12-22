@@ -20,7 +20,7 @@ REPORTTIME=1
 setopt share_history
 HISTSIZE=100000
 SAVEHIST=100000
-HISTFILE=$HOME/.local/state/zsh/.zsh_history
+# HISTFILE=$HOME/.local/state/zsh/.zsh_history
 
 # Emacs keys
 bindkey -e
