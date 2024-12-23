@@ -10,8 +10,15 @@ yaml-files:
 
 rules:
   line-length: disable
+  comments-indentation: disable
   comments:
     require-starting-space: true
     ignore-shebangs: true
+    min-spaces-from-content: 1
+  braces:
+    max-spaces-inside: 1
+  octal-values:
+    forbid-implicit-octal: true
+    forbid-explicit-octal: true
 
 # vi: ft=yaml
