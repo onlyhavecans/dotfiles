@@ -20,7 +20,12 @@ REPORTTIME=1
 setopt share_history
 HISTSIZE=100000
 SAVEHIST=100000
-# HISTFILE=$HOME/.local/state/zsh/.zsh_history
+HISTFILE=$HOME/.zsh_history
+
+# TODO: Make this an autoload someday
+function zsh_stats {
+  fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
+}
 
 # Emacs keys
 bindkey -e
@@ -86,6 +91,7 @@ add_path_if_exists "$WEZTERM_EXECUTABLE_DIR"
 
 # Generic overlays
 if command_exists nvim; then
+  alias nv=nvim
   EDITOR=nvim
   VISUAL=nvim
   export MANPAGER="nvim +Man!"
