@@ -1,0 +1,5 @@
+function add_path_if_exists {
+  [ -d "$1" ] && path=("$1" $path)
+}
+
+# vi: ft=zsh

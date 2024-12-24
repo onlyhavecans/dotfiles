@@ -1,0 +1,5 @@
+function command_exists {
+  builtin whence "$1" &>/dev/null
+}
+
+# vi: ft=zsh

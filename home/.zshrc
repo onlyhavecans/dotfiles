@@ -1,14 +1,5 @@
 #shellcheck shell=zsh
 
-## Convenience Functions
-function add_path_if_exists {
-  [ -d "$1" ] && path=("$1" $path)
-}
-
-function command_exists {
-  builtin whence "$1" &>/dev/null
-}
-
 #
 ## ZSH Settings
 #
@@ -22,16 +13,18 @@ HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=$HOME/.zsh_history
 
-# TODO: Make this an autoload someday
-function zsh_stats {
-  fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
-}
+# My Convience Functions
+typeset -U fpath
+local my_functions=~/.config/zsh/functions
+fpath=($my_functions $fpath)
+autoload -Uz ${my_functions}/*(:t)
 
 # Emacs keys
 bindkey -e
 setopt autocd
 
 # Completion hacking
+mkdir -p ~/.cache/zsh
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh
@@ -60,6 +53,8 @@ if command_exists brew; then
     [ -d "$(_brew_prefix $app)/share/zsh/site-functions" ] &&
       fpath+=("$(_brew_prefix $app)/share/zsh/site-functions")
   done
+
+  unfunction _brew_prefix
 fi
 
 # Homeshick for configs
@@ -67,7 +62,7 @@ if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
   fpath+=("$HOME/.homesick/repos/homeshick/completions")
   alias hcd="homeshick cd"
-  alias htrack "homeshick track"
+  alias htrack="homeshick track"
 fi
 
 # asdf-vm
@@ -121,17 +116,6 @@ if command_exists fzf; then
   fi
 fi
 
-if command_exists yazi; then
-  function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-      builtin cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-  }
-fi
-
 if command_exists zoxide; then
   source <(zoxide init zsh)
 fi
@@ -146,7 +130,6 @@ alias cek="chef exec knife"
 alias cl=clear
 
 alias g=git
-alias G=git
 
 alias lg=lazygit
 alias lzd=lazydocker
@@ -155,85 +138,11 @@ alias gv="lazygit --path=$HOME/Documents/Obsidian/Vault/"
 alias tm="tmux new-session -A -c ~"
 alias tp="mosh piper.local -- tmux new-session -A -c ~"
 alias tc="mosh catra.local -- tmux new-session -A -c ~"
-alias tw="mosh webby.local -- tmux new-session -A -c ~"
-
-alias venv="python3 -m venv"
-alias mkvenv="python3 -m venv venv"
-alias activate="source venv/bin/activate"
 
 #
-## Prompt with Git info
+## Prompt (it's all in an autoloaded function!)
 #
-function _git_info_cmd {
-  command git --no-optional-locks status --porcelain=v2 --branch --show-stash 2>&1
-}
-
-function _git_info_parse {
-  local git_status="$1"
-
-  local ahead='↑'
-  local behind='↓'
-  local stash='$'
-  local staged='+'
-  local modified='!'
-  local untracked='?'
-  local branch
-  local -Ua symbols
-
-  while IFS= read -r line; do
-    case $line in
-      "# branch.oid"*) ;;
-      "# branch.upstream"*) ;;
-      "# branch.head"*)
-        branch=$(echo $line | cut -d' ' -f 3)
-        ;;
-      "# branch.ab"*)
-        local ahead_count behind_count
-        read ahead_count behind_count <<<$(echo "$line" | cut -d' ' -f 3,4 | tr -d '+-')
-        [[ $ahead_count > 0 ]] && symbols+="$ahead"
-        [[ $behind_count > 0 ]] && symbols+="$behind"
-        ;;
-      "# stash"*) symbols+="$stash" ;;
-      [12]\ ?[MTADRC]*) symbols+="$modified" ;;
-      [12]\ [MTADRC]?*) symbols+="$staged" ;;
-      ?\ *) symbols+="$untracked" ;;
-      *) symbols+=$line ;;
-    esac
-  done <<<$git_status
-
-  echo -n "$branch" "${symbols// /}"
-}
-
-function _git_info_prompt {
-  local branch=$1
-  local symbols=$2
-
-  [[ -n $symbols ]] && branch+=" $symbols"
-  echo "  $branch"
-}
-
-function _git_info {
-  local git_status=$(_git_info_cmd)
-  if [[ "$git_status" == fatal:* ]]; then
-    return
-  fi
-
-  local branch symbols
-  read -r branch symbols <<<"$(_git_info_parse $git_status)"
-
-  _git_info_prompt "$branch" "$symbols"
-}
-
-setopt prompt_subst
-TOP_PROMPT=''
-TOP_PROMPT+='%F{yellow}[%D{%H:%M:%S}]%f ' # Yellow time
-TOP_PROMPT+='%F{green}%m'                 # Green Machine name
-TOP_PROMPT+='  %2~%f'                    # Green Current directory
-TOP_PROMPT+='%F{magenta}$(_git_info)%f'   # Magenta Git info
-precmd() {
-  print -rP -- $TOP_PROMPT
-}
-PROMPT='%(?.%F{blue}.%F{red}%?)❯%f ' # Blue chevron, Red with error num if last command failed
+skwrl_prompt
 
 #
 ## Per Machine Configurations
