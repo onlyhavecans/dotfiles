@@ -5,8 +5,10 @@
 ##
 
 fd --hidden --follow --type l \
-  --exclude .nix-defexpr \
+  --exclude lock \
   --exclude .local/share/flatpak \
+  --exclude .nix-defexpr \
+  --exclude .var/app \
   --exclude Code \
   --exclude Desktop \
   --exclude Documents \
