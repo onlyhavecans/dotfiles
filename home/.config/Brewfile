@@ -9,12 +9,12 @@ brew 'btop'
 brew 'curl'
 brew 'eza'
 brew 'fd'
-brew 'fish'
 brew 'fzf'
 brew 'gawk'
 brew 'httpie'
 brew 'mosh'
 brew 'ncdu'
+brew 'neovim'
 brew 'openssh'
 brew 'ripgrep'
 brew 'rsync'
@@ -33,6 +33,7 @@ brew 'gnu-sed' # neovim Spectre
 brew 'poppler' # yazi
 brew 'sevenzip' #yazi
 brew 'viu' # neovim fzf
+brew 'luarocks' #neovim
 
 ## Fun stuff
 
@@ -51,24 +52,31 @@ brew 'tlrc'
 brew 'trash-cli'
 brew 'yt-dlp'
 
-## Dev Tooling
+## Dev & Ops Tooling
 
+brew 'csvlens'
 brew 'direnv'
+brew 'dive'
 brew 'entr'
 brew 'gh'
 brew 'git'
 brew 'git-lfs'
 brew 'git-standup'
 brew 'git-xargs'
+brew 'gnupg'
 brew 'go'
 brew 'golangci-lint'
 brew 'jq'
 brew 'just'
 brew 'libpq'
-brew 'luarocks'
-brew 'neovim'
+brew 'miller'
+brew 'nmap'
 brew 'overmind'
 brew 'pipx'
+brew 'qrencode'
+brew 'tflint'
+brew 'whois'
+brew 'wireguard-tools'
 
 tap 'goreleaser/tap'
 brew 'goreleaser/tap/goreleaser'
@@ -76,26 +84,14 @@ brew 'goreleaser/tap/goreleaser'
 tap 'jesseduffield/lazygit'
 brew 'jesseduffield/lazygit/lazygit'
 
-## Ops Tooling
-
-brew 'csvlens'
-brew 'dive'
-brew 'gnupg'
-brew 'gping'
-brew 'miller'
-brew 'nmap'
-brew 'qrencode'
-brew 'whois'
-brew 'wireguard-tools'
-
-tap '1password/tap'
-cask '1password/tap/1password-cli'
+tap 'jesseduffield/lazydocker'
+brew 'jesseduffield/lazydocker/lazydocker'
 
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform'
 
-tap 'jesseduffield/lazydocker'
-brew 'jesseduffield/lazydocker/lazydocker'
+tap '1password/tap'
+cask '1password/tap/1password-cli'
 
 ## MAS time
 
