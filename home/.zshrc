@@ -98,12 +98,21 @@ if command_exists nvim; then
   alias nv=nvim
   EDITOR=nvim
   VISUAL=nvim
-  export MANPAGER="nvim +Man!"
 else
   EDITOR=vi
   VISUAL=vi
 fi
 export EDITOR VISUAL
+
+if command_exists bat; then
+  export BAT_THEME=gruvbox-dark
+  source <(batman --export-env)
+  alias pretty=prettybat
+
+  # Customize all usage of --help
+  # alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+  alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+fi
 
 if command_exists eza; then
   alias ls=eza
