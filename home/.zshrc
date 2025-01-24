@@ -107,7 +107,10 @@ export EDITOR VISUAL
 if command_exists bat; then
   export BAT_THEME=gruvbox-dark
   source <(batman --export-env)
+
   alias pretty=prettybat
+  alias cat=bat
+  alias jbat="bat -l json"
 
   # Customize all usage of --help
   # alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
