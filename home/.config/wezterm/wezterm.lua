@@ -24,4 +24,12 @@ config.window_padding = {
 config.initial_cols = 150
 config.initial_rows = 60
 
+local act = wezterm.action
+config.keys = {
+	-- paste from the clipboard
+	{ key = "Insert", mods = "SHIFT", action = act.PasteFrom("Clipboard") },
+	-- copy from the clipboard
+	{ key = "Insert", mods = "CTRL", action = act.CopyTo("Clipboard") },
+}
+
 return config
