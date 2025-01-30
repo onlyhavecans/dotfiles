@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+TMPDIR=$(mktemp -d /tmp/goscript.XXXXXX)
+SUBDIR="$TMPDIR/goscript_inner"
+mkdir -p "$SUBDIR"
+trap 'rm -rf $TMPDIR' EXIT
+
+TMPFILE="$SUBDIR/script.go"
+
+# Write boilerplate to tmpfile
+cat >"$TMPFILE" <<EOF
+package main
+
+import (
+    "github.com/bitfield/script"
+)
+
+func main() {
+EOF
+
+# Check for -c flag
+if [ "$1" == "-c" ]; then
+  # Add the literal string from argument
+  echo "$2" >>"$TMPFILE"
+else
+  # Add user's code from file
+  sed '/^#!/d' "$1" >>"$TMPFILE"
+fi
+
+# Close main function
+echo "}" >>"$TMPFILE"
+
+# Initialize a new module in subdir, fetch dependencies, and run
+pushd "$SUBDIR" >/dev/null 2>&1 || exit 1
+go mod init tmp >/dev/null 2>&1
+go get github.com/bitfield/script >/dev/null 2>&1
+go run script.go
