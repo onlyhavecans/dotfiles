@@ -30,8 +30,12 @@ fi
 # Close main function
 echo "}" >>"$TMPFILE"
 
-# Initialize a new module in subdir, fetch dependencies, and run
+# Initialize a new module in subdir, fetch dependencies, and build
 pushd "$SUBDIR" >/dev/null 2>&1 || exit 1
 go mod init tmp >/dev/null 2>&1
 go get github.com/bitfield/script >/dev/null 2>&1
-go run script.go
+go build -o script script.go
+
+# Return to the working directory and run
+popd >/dev/null 2>&1 || exit 1
+"$SUBDIR/script"
