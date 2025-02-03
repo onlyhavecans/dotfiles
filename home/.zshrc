@@ -55,8 +55,7 @@ if command_exists brew; then
   # Brew overlays
   apps=(openssh whois curl libpq)
   for app in $apps; do
-    [ -d "$(_brew_prefix $app)/bin" ] &&
-      path=("$(_brew_prefix $app)/bin" $path)
+    add_path_if_exists "$(_brew_prefix $app)/bin"
 
     # completions
     [ -d "$(_brew_prefix $app)/share/zsh/site-functions" ] &&
@@ -76,7 +75,10 @@ fi
 
 # asdf-vm
 if command_exists asdf; then
-  source ${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh
+  # >=0.16.0
+  export ASDF_DATA_DIR="$HOME/.asdf"
+  add_path_if_exists "$ASDF_DATA_DIR/shims"
+
   export ASDF_GOLANG_MOD_VERSION_ENABLED=false
   unset RUBY_CONFIGURE_OPTS
 fi
