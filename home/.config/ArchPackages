@@ -47,7 +47,7 @@ grub-btrfs
 gvfs
 gvfs-smb
 helvum
-httpie
+curlie
 imv
 inetutils
 inotify-tools
