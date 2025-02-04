@@ -87,7 +87,7 @@ if command_exists tldr; then
 fi
 
 if command_exists asdf; then
-  status_message "[asdf] Update asdf and plguins"
+  status_message "[asdf] Update asdf plugins"
   asdf plugin update --all
 
   status_message "[asdf] Listing installed versions"
@@ -96,7 +96,7 @@ if command_exists asdf; then
 
   status_message "[asdf] Listing latest versions"
   for plugin in $(asdf plugin list); do
-    echo -n "$plugin "
+    echo -n "$plugin: "
     asdf latest "$plugin"
   done
 fi
