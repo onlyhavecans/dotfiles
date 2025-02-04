@@ -64,7 +64,7 @@ fi
 
 if command_exists flatpak; then
   status_message "[flatpak] Update packages"
-  flatpak update --assumeyes
+  flatpak update --user --assumeyes
 fi
 
 if command_exists brew; then
