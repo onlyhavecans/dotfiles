@@ -53,7 +53,7 @@ if command_exists brew; then
   }
 
   # Brew overlays
-  apps=(openssh whois curl libpq)
+  apps=(whois curl libpq)
   for app in $apps; do
     add_path_if_exists "$(_brew_prefix $app)/bin"
 
