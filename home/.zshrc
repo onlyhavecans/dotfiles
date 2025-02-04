@@ -151,8 +151,8 @@ alias cet="chef exec thor"
 alias cek="chef exec knife"
 
 alias tf=terraform
-alias plan="terraform plan | tee plan | bat"
-alias gen='terraform plan -generate-config-out="generated_resources.tf" | tee plan | bat'
+alias plan="terraform plan -out=tfplan | bat"
+alias gen='terraform plan -out-tfplan -generate-config-out="generated_resources.tf" | bat'
 
 alias cl=clear
 
