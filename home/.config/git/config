@@ -53,7 +53,7 @@
 	pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git switch pr-$1; }; f"
 	prs = "!prsbad"
 	sm = "!f() { git switch main && git fetch --prune && git pull; }; f"
-	wipe = "!f() { git branch | egrep -v '( main$|master$|^\\*)' | xargs git branch -D; }; f"
+	wipe = "!f() { git branch | grep -vE '( main$|master$|^\\*)' | xargs git branch -D; }; f"
 
 # include for work
 [includeIf "gitdir:~/Code/dnsimple/"]
