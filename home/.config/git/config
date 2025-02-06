@@ -49,11 +49,12 @@
 	swc = switch --force-create
 	# Shell commands
 	bb = "!git-better-branch"
+	maint = "!git_maint"
 	open = "!git_open"
-	upbranch = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs basename; }; f"
 	pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git switch pr-$1; }; f"
 	prs = "!prsbad"
-	sm = "!f() { git switch $(git upbranch) && git fetch --prune && git pull; }; f"
+	sm = "!f() { git headbranch | xargs git switch && git fetch --prune && git pull; }; f"
+	headbranch = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs basename; }; f"
 	wipe = "!f() { git branch | grep -vE '( main$|master$|^\\*)' | xargs git branch -D; }; f"
 
 # include for work
