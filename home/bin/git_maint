@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 function status_message {
-  echo -e "~~ $*"
+  BLUE='\033[34m'
+  NOCOLOR='\033[0m'
+  echo -e "${BLUE}~~ $*${NOCOLOR}"
 }
 
 function error_message {

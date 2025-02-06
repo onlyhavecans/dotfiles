@@ -9,7 +9,9 @@ function header_status_message {
 }
 
 function status_message {
-  echo -e "~~ $*"
+  BLUE='\033[34m'
+  NOCOLOR='\033[0m'
+  echo -e "${BLUE}~~ $*${NOCOLOR}"
 }
 
 function error_message {
@@ -24,61 +26,24 @@ if ! command -v fd &>/dev/null; then
 fi
 
 for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .direnv --exclude gocode --exclude .github); do
-  LOCAL_DIR=$(realpath "$dir/..")
-
-  header_status_message "Updating $LOCAL_DIR"
-
-  if (($(git -C "$LOCAL_DIR" remote | wc -l) == 0)); then
-    errors+=("! $LOCAL_DIR does not have a remote so skipping.")
+  LOCAL_DIR=$(realpath "$dir..")
+  if ! pushd "$LOCAL_DIR" >/dev/null; then
+    errors+=("Unable to cd to $LOCAL_DIR")
     continue
   fi
 
-  if ! git -C "$LOCAL_DIR" fetch --prune --prune-tags --quiet --force &>/dev/null; then
-    errors+=("! $LOCAL_DIR Unable to fetch remote.")
-    continue
+  header_status_message "Updating $PWD"
+
+  status_message "git sm to switch & pull"
+  if ! git sm; then
+    errors+=("git sm errored $PWD")
   fi
 
-  # Deal with different default branch names
-  DEFAULT_BRANCH=main
-  if git -C "$LOCAL_DIR" show-ref --verify --quiet "refs/heads/master"; then
-    ## If master is renamed upstream rename us here
-    if git -C "$LOCAL_DIR" show-ref --verify --quiet "refs/remotes/origin/main"; then
-      status_message "Swapping default branch to main"
-      git -C "$LOCAL_DIR" branch -m master main
-      git -C "$LOCAL_DIR" fetch origin
-      git -C "$LOCAL_DIR" branch -u origin/main main
-    else
-      DEFAULT_BRANCH=master
-    fi
-  fi
+  status_message "running maint"
+  git_maint
 
-  if ! git -C "$LOCAL_DIR" diff-index --quiet HEAD --; then
-    status_message "Found changes in working directory, stashing"
-    git -C "$LOCAL_DIR" stash
-  fi
-
-  status_message "git checkout"
-  if ! git -C "$LOCAL_DIR" checkout $DEFAULT_BRANCH &>/dev/null; then
-    errors+=("! $LOCAL_DIR Could not check out $DEFAULT_BRANCH.")
-    continue
-  fi
-
-  status_message "git pull"
-  if ! git -C "$LOCAL_DIR" pull; then
-    errors+=("! $LOCAL_DIR Could not pull $DEFAULT_BRANCH.")
-  fi
-
-  ## Do some repo cleanup since we got this far
-  # looking for
-  # error: refs/remotes/origin/HEAD: invalid sha1 pointer 0000000000000000000000000000000000000000
-  status_message "Running FSCK"
-  if ! git -C "$LOCAL_DIR" fsck --full --no-progress; then
-    git -C "$LOCAL_DIR" remote set-head origin --auto
-  fi
-
-  status_message "Running Maintenance Tasks"
-  git -C "$LOCAL_DIR" maintenance run --task gc --task loose-objects --task pack-refs --task incremental-repack
-  git -C "$LOCAL_DIR" gc --aggressive --prune=now
+  echo ""
+  popd >/dev/null || continue
 done
 
 echo ""
