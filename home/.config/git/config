@@ -38,6 +38,7 @@
 	ad = add --all
 	al = config --get-regexp alias
 	ap = add --patch
+	dp = diff --patch
 	br = branch
 	cm = commit --message
 	lg = log --graph --pretty='format:%C(auto)%h %s, %C(magenta)%ad' --date=relative
