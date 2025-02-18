@@ -6,7 +6,7 @@
 	excludesfile = ~/.config/git/ignore
 	editor = nvim
 	autocrlf = input
-	pager = bat
+	pager = delta
 [init]
 	defaultBranch = main
 [gpg]
@@ -20,7 +20,9 @@
 [pull]
 	rebase = true
 [merge]
-	conflictstyle = zdiff3
+	conflictStyle = zdiff3
+[interactive]
+	diffFilter = delta --color-only
 [diff]
 	algorithm = histogram
 [rebase]
@@ -39,6 +41,7 @@
 	al = config --get-regexp alias
 	ap = add --patch
 	dp = diff --patch
+	dpr = diff --merge-base main
 	br = branch
 	cm = commit --message
 	lg = log --graph --pretty='format:%C(auto)%h %s, %C(magenta)%ad' --date=relative
@@ -57,6 +60,10 @@
 	sm = "!f() { git headbranch | xargs git switch && git fetch --prune && git pull; }; f"
 	headbranch = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs basename; }; f"
 	wipe = "!f() { git branch | grep -vE '( main$|master$|^\\*)' | xargs git branch -D; }; f"
+[delta]
+	navigate = true
+	line-numbers = true
+	theme = gruvbox-dark
 
 # include for work
 [includeIf "gitdir:~/Code/dnsimple/"]
