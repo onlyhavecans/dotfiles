@@ -82,6 +82,7 @@ brew 'nmap'
 brew 'overmind'
 brew 'tf-summarize'
 brew 'tflint'
+brew 'uv'
 brew 'wireguard-tools'
 
 tap 'goreleaser/tap'
