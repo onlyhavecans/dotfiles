@@ -86,6 +86,11 @@ if command_exists tldr; then
   tldr --update
 fi
 
+if command_exists yazi; then
+  ya pack --install
+  ya pack --upgrade
+fi
+
 if command_exists asdf; then
   status_message "[asdf] Update asdf plugins"
   asdf plugin update --all
