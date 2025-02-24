@@ -1,12 +1,12 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "8945e54"
+rev = "5186af7"
 hash = "771f18427fb75fb19990ce602bb322f4"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "8945e54"
-hash = "f3ade4dba8fb56b85e8363b66f677f9"
+rev = "5186af7"
+hash = "5c4d8080367dd2561a18c1cf5a1dd295"
 
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"
