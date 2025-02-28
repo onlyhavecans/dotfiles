@@ -51,6 +51,7 @@
 	stash = stash --all
 	sw = switch
 	swc = switch --force-create
+	fix-head = remote set-head origin -a
 	# Shell commands
 	bb = "!git-better-branch"
 	maint = "!git_maint"

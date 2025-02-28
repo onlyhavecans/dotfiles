@@ -36,7 +36,11 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
 
   status_message "git sm to switch & pull"
   if ! git sm; then
-    errors+=("git sm errored $PWD")
+    if git remote set-head origin -a; then
+      git sm
+    else
+      errors+=("git sm errored $PWD")
+    fi
   fi
 
   status_message "running maint"
