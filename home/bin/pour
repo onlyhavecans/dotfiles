@@ -87,7 +87,6 @@ if command_exists tldr; then
 fi
 
 if command_exists yazi; then
-  ya pack --install
   ya pack --upgrade
 fi
 
