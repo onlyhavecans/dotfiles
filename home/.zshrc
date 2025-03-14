@@ -4,6 +4,9 @@
 ## ZSH Settings
 #
 
+## Disable flow control for C-s & C-q
+stty -ixon
+
 # Turn on slow query logging
 REPORTTIME=1
 
