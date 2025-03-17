@@ -49,12 +49,17 @@ if path_exists "${HOME}/.homesick/repos/homeshick/homeshick.sh" homeshick; then
 fi
 
 ##
-# The upgrades
+# The package manager upgrades
 ##
 
 if command_exists apt-get; then
   status_message "[apt] Update packages"
-  sudo nala upgrade
+  if command_exists nala; then
+    sudo nala upgrade
+  else
+    sudo apt update
+    sudo apt upgrade
+  fi
 fi
 
 if command_exists pacman; then
@@ -82,11 +87,17 @@ if command_exists brew; then
   brew missing
 fi
 
+##
+# App & plugin updates
+##
+
 if command_exists tldr; then
+  status_message "[tldr] Updating tldr library"
   tldr --update
 fi
 
 if command_exists yazi; then
+  status_message "[yazi] Updating yazi plugins"
   ya pack --upgrade
 fi
 
@@ -115,9 +126,4 @@ if path_exists "${HOME}/.config/tmux/plugins/tpm/bin/update_plugins" tpm; then
   ~/.config/tmux/plugins/tpm/bin/install_plugins
   ~/.config/tmux/plugins/tpm/bin/update_plugins all
   ~/.config/tmux/plugins/tpm/bin/clean_plugins
-fi
-
-if command_exists mas; then
-  status_message "[mas] Do I have any outdated App Store apps"
-  mas outdated
 fi
