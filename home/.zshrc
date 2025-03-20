@@ -79,8 +79,8 @@ fi
 # asdf-vm
 if command_exists asdf; then
   # >=0.16.0
-  export ASDF_DATA_DIR="$HOME/.asdf"
-  add_path_if_exists "$ASDF_DATA_DIR/shims"
+  shims_path="${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
+  add_path_if_exists "$shims_path"
 
   export ASDF_GOLANG_MOD_VERSION_ENABLED=false
   unset RUBY_CONFIGURE_OPTS
