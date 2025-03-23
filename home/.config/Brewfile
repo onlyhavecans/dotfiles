@@ -1,7 +1,5 @@
 # Yay
 
-tap 'homebrew/services'
-
 ## Upgrades & Overlays
 
 brew 'bat'
@@ -86,6 +84,8 @@ brew 'tflint'
 brew 'uv'
 brew 'wireguard-tools'
 
+cask '1password-cli'
+
 tap 'goreleaser/tap'
 brew 'goreleaser/tap/goreleaser'
 
@@ -97,9 +97,6 @@ brew 'jesseduffield/lazydocker/lazydocker'
 
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform'
-
-tap '1password/tap'
-cask '1password/tap/1password-cli'
 
 ## MAS time
 
