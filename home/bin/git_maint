@@ -18,7 +18,4 @@ if ! git fsck --full --no-progress; then
 fi
 
 status_message "git maintenance"
-git maintenance run --task gc --task loose-objects --task pack-refs --task incremental-repack
-
-status_message "git gc"
-git gc --aggressive --prune=now
+git maintenance run
