@@ -18,4 +18,4 @@ if ! git fsck --full --no-progress; then
 fi
 
 status_message "git maintenance"
-git maintenance run
+git maintenance run --auto
