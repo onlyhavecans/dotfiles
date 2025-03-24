@@ -34,13 +34,18 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
 
   header_status_message "Updating $PWD"
 
+  status_message "Verifying and setting remote HEAD branch"
+  if [[ -z "$(git rev-parse --abbrev-ref origin/HEAD)" ]]; then
+    if ! git remote set-head origin -a; then
+      errors+=("git remote set-head errored $PWD")
+      continue
+    fi
+  fi
+
   status_message "git sm to switch & pull"
   if ! git sm; then
-    if git remote set-head origin -a; then
-      git sm
-    else
-      errors+=("git sm errored $PWD")
-    fi
+    errors+=("git sm errored $PWD")
+    continue
   fi
 
   status_message "running maint"
