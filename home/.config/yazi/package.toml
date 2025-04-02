@@ -8,6 +8,16 @@ use = "yazi-rs/plugins:mount"
 rev = "2730199"
 hash = "dd97eede8e20e59cd2604e8006e470e2"
 
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "8103065"
+hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "2730199"
+hash = "a670c03eb3760812e044a24f94cedc55"
+
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"
 rev = "b4cc9f2"
