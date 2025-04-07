@@ -1,2 +1,0 @@
--- Git
-require("git"):setup()
