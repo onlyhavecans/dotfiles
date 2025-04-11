@@ -25,17 +25,19 @@ if ! command -v fd &>/dev/null; then
   exit 2
 fi
 
+SEARCH_BASEDIR=$PWD
 for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .direnv --exclude gocode --exclude .github); do
-  LOCAL_DIR=$(realpath "$dir..")
-  if ! pushd "$LOCAL_DIR" >/dev/null; then
+  LOCAL_DIR=$(realpath "$SEARCH_BASEDIR/$dir..")
+  if ! cd "$LOCAL_DIR"; then
     errors+=("Unable to cd to $LOCAL_DIR")
     continue
   fi
 
   header_status_message "Updating $PWD"
 
-  status_message "Verifying and setting remote HEAD branch"
+  status_message "Verifying remote HEAD branch exists"
   if [[ -z "$(git rev-parse --abbrev-ref origin/HEAD)" ]]; then
+    status_message "Trying to set head from origin"
     if ! git remote set-head origin -a; then
       errors+=("git remote set-head errored $PWD")
       continue
@@ -52,7 +54,6 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
   git_maint
 
   echo ""
-  popd >/dev/null || continue
 done
 
 echo ""
