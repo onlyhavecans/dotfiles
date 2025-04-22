@@ -1,5 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 URL="$*"
-export PATH=/usr/bin:/Applications/Firefox.app/Contents/MacOS
-xdg-open "$URL" || sensible-browser "$URL" || x-www-browser "$URL" || exec firefox "$URL"
+
+if [[ ! $URL =~ \. ]]; then
+  exec s "$URL"
+fi
+
+if [[ "$URL" != http* ]]; then
+  URL=https://$URL
+fi
+
+open "$URL"

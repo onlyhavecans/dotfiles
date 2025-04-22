@@ -1,5 +1,5 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 URL="https://kagi.com/search?q=$*"
 export PATH=/usr/bin:/Applications/Firefox.app/Contents/MacOS
-xdg-open "$URL" || sensible-browser "$URL" || x-www-browser "$URL" || exec firefox --search "$URL"
+open "$URL" || sensible-browser "$URL" || x-www-browser "$URL" || exec firefox --search "$*"
