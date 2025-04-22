@@ -40,9 +40,9 @@ icons[shutdown]="\Uf0425"
 icons[cancel]="\Uf0156"
 
 declare -A actions
-actions[lockscreen]="$HOME/.config/sway/lock_screen.sh"
+actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
 #actions[switchuser]="???"
-actions[logout]="swaymsg exit"
+actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
@@ -205,7 +205,9 @@ for entry in "${all[@]}"; do
   messages[$entry]=$(write_message "${icons[$entry]}" "${texts[$entry]^}")
 done
 for entry in "${all[@]}"; do
-  confirmationMessages[$entry]=$(write_message "${icons[$entry]}" "Yes, ${texts[$entry]}")
+  # Add zero-width space character (\u200b) to icon to ensure confirmation-
+  # and regular messages never collide.
+  confirmationMessages[$entry]=$(write_message "${icons[$entry]}\u200b" "Yes, ${texts[$entry]}")
 done
 confirmationMessages[cancel]=$(write_message "${icons[cancel]}" "No, cancel")
 
