@@ -127,8 +127,3 @@ if path_exists "${HOME}/.config/tmux/plugins/tpm/bin/update_plugins" tpm; then
   ~/.config/tmux/plugins/tpm/bin/update_plugins all
   ~/.config/tmux/plugins/tpm/bin/clean_plugins
 fi
-
-if command_exists fastfetch; then
-  status_message "[fastfetch] Showing Stats"
-  fastfetch
-fi

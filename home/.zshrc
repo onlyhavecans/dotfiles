@@ -191,3 +191,10 @@ fi
 #
 autoload -Uz compinit && compinit
 export PATH
+
+#
+## Drop a fastfetch unless in tmux
+#
+if [[ -z "$TMUX" ]]; then
+  fastfetch
+fi
