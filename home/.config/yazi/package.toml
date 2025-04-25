@@ -10,5 +10,5 @@ hash = "a670c03eb3760812e044a24f94cedc55"
 
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"
-rev = "b4cc9f2"
-hash = "f44c42bcbed3c8564100e45e2fe3649a"
+rev = "91fdfa7"
+hash = "f48f510e5505f5d01e79c4f8257ec5cb"
