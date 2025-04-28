@@ -1,0 +1,6 @@
+function twice {
+  $@
+  $@
+}
+
+# vi: ft=zsh
