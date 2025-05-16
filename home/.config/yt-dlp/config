@@ -12,5 +12,8 @@
 --sub-format srt/ass/best
 --sub-langs "en.*"
 
+## Write data for me
+--write-info-json
+
 ## Defualt to wav audio
---audio-format wav
+--audio-format flac
