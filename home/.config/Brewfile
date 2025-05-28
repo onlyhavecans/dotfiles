@@ -52,11 +52,11 @@ brew 'yt-dlp'
 ## File Manglers
 
 brew 'csvlens'
-brew 'fx'
+brew 'fx' # json browser
 brew 'jq'
-brew 'miller'
+brew 'miller' # mill positional data
 brew 'qrencode'
-brew 'yq'
+brew 'yq' # yaml query
 
 ## Dev & Ops Tooling
 
