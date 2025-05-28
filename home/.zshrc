@@ -49,6 +49,7 @@ zstyle ':completion:*' completer _expand_alias _complete _ignored # tab complete
 if command_exists brew; then
   source <(brew shellenv zsh)
   export HOMEBREW_NO_ENV_HINTS=1
+  export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
 
   ## brew --prefix is way too slow in 4.0 so hardcode
   function _brew_prefix {
