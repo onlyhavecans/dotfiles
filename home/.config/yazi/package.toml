@@ -5,8 +5,8 @@ hash = "23915860e59348bf4166778bb0e606f7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "d642bfb"
-hash = "cd8419089a88103744a2df2294c58fdc"
+rev = "a54b96a"
+hash = "30fc0b37f03a597b92d387268319450f"
 
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"

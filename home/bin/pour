@@ -98,7 +98,7 @@ fi
 
 if command_exists yazi; then
   status_message "[yazi] Updating yazi plugins"
-  ya pack --upgrade
+  ya pkg upgrade
 fi
 
 if command_exists asdf; then
