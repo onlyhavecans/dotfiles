@@ -142,6 +142,11 @@ if command_exists fzf; then
   fi
 fi
 
+if command_exists xh; then
+  alias http=xh
+  alias https=xhs
+fi
+
 if command_exists zoxide; then
   source <(zoxide init zsh)
 fi

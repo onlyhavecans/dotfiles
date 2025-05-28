@@ -61,7 +61,6 @@ brew 'yq'
 ## Dev & Ops Tooling
 
 brew 'asdf'
-brew 'curlie'
 brew 'direnv'
 brew 'dive'
 brew 'entr'
@@ -83,6 +82,7 @@ brew 'tf-summarize'
 brew 'tflint'
 brew 'uv'
 brew 'wireguard-tools'
+brew 'xh' # httpie replacement
 
 cask '1password-cli'
 
