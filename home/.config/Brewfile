@@ -87,7 +87,7 @@ brew 'xh' # httpie replacement
 cask '1password-cli'
 
 tap 'goreleaser/tap'
-brew 'goreleaser/tap/goreleaser'
+cask 'goreleaser/tap/goreleaser'
 
 tap 'jesseduffield/lazygit'
 brew 'jesseduffield/lazygit/lazygit'
