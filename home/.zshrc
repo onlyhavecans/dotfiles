@@ -11,7 +11,8 @@ stty -ixon
 REPORTTIME=1
 
 # History
-setopt share_history
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=$HOME/.zsh_history
