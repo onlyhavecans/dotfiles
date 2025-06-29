@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "dedukun/relative-motions"
-rev = "2e3b617"
-hash = "b67ee12053113983273e9118a7d1272b"
+rev = "9d26460"
+hash = "6c0568cfa966a5d4ac496c926975a613"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "86d28e4"
+rev = "2ad42fa"
 hash = "d2f04875bbd4ed3dd5696e8c4b094fde"
 
 [[flavor.deps]]
