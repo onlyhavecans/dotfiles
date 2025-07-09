@@ -7,13 +7,11 @@
 ## Write part file
 --part
 
-## Write a subtitle file
---write-subs
---sub-format srt/ass/best
---sub-langs "en.*"
+## embed-subs
+--embed-subs
 
 ## Write data for me
 --write-info-json
 
-## Defualt to wav audio
+## Default to wav audio
 --audio-format flac
