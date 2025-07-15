@@ -35,6 +35,12 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
 
   header_status_message "Updating $PWD"
 
+  status_message "Verifying we have an origin remote"
+  if ! git config --get remote.origin.url; then
+    errors+=("git remote origin does not exist $PWD")
+    continue
+  fi
+
   status_message "Verifying remote HEAD branch exists"
   if [[ -z "$(git rev-parse --abbrev-ref origin/HEAD)" ]]; then
     status_message "Trying to set head from origin"
