@@ -17,5 +17,5 @@ if ! git fsck --full --no-progress; then
   error_message "Repo failed FSCK: $PWD"
 fi
 
-status_message "git maintenance"
-git maintenance run --auto
+status_message "git gc"
+git gc --auto --prune=now

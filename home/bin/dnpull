@@ -67,4 +67,4 @@ echo ""
 error_message "The following repos had errors, please check"
 for i in "${errors[@]}"; do
   echo "$i"
-done
+done | sort
