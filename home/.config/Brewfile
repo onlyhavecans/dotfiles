@@ -84,8 +84,6 @@ brew 'uv'
 brew 'wireguard-tools'
 brew 'xh' # httpie replacement
 
-cask '1password-cli'
-
 tap 'goreleaser/tap'
 cask 'goreleaser/tap/goreleaser'
 

@@ -144,6 +144,11 @@ if command_exists fzf; then
   fi
 fi
 
+if command_exists op; then
+  alias o="op run -- "
+  source "$HOME/.config/op/plugins.sh"
+fi
+
 if command_exists xh; then
   alias http=xh
   alias https=xhs
