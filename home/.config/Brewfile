@@ -84,8 +84,7 @@ brew 'uv'
 brew 'wireguard-tools'
 brew 'xh' # httpie replacement
 
-tap 'goreleaser/tap'
-cask 'goreleaser/tap/goreleaser'
+brew 'goreleaser'
 
 tap 'jesseduffield/lazygit'
 brew 'jesseduffield/lazygit/lazygit'
