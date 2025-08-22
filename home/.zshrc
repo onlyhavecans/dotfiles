@@ -146,7 +146,7 @@ fi
 
 if command_exists op; then
   alias o="op run -- "
-  source "$HOME/.config/op/plugins.sh"
+  [ -f "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
 fi
 
 if command_exists xh; then
