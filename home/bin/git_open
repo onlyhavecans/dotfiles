@@ -45,7 +45,7 @@ run() {
   fi
 
   local repo_url
-  repo_url="$(git remote get-url "$remote" | sed -E -e "s/(\.(com|org|io))\:/\1\//" -e "s/git@/https:\/\//" -e "s/\.git$//")"
+  repo_url="$(git remote get-url "$remote" | sed -E -e "s/(\.[a-z]+)\:([0-9]+)?\/?/\1\//" -e "s/git@/https:\/\//" -e "s/\.git$//" -e "s/^ssh:\/\///")"
   if [ -z "$repo_url" ]; then
     echo "Cannot open: no remote repository configured under (origin)" >&2
     return 1
@@ -71,8 +71,14 @@ run() {
       [ "$type" = "branch" ] && repo_url="$repo_url/-/tree/$target"
       ;;
     *)
-      echo "Cannot open: not a GitHub, GitLab, or Bitbucket repository" >&2
-      return 1
+      echo "Assuming Forgego: $repo_url not a GitHub, GitLab, or Bitbucket repository" >&2
+
+      [ "$type" = "commit" ] && repo_url="$repo_url/commit/$(git rev-parse "$target")"
+      [ "$type" = "pr" ] && repo_url="$repo_url/compare/main...$target"
+      [ "$type" = "tag" ] && repo_url="$repo_url/src/tag/$target"
+      [ "$type" = "branch" ] && repo_url="$repo_url/src/branch/$target"
+      # echo "Cannot open: not a GitHub, GitLab, or Bitbucket repository" >&2
+      # return 1
       ;;
   esac
 
