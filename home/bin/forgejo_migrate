@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+function get_remote {
+  command git remote get-url origin --all
+}
+
+##
+# main
+##
+
+repo=$(get_remote)
+IFS=':' read -r repo_service repo_path <<<"$repo"
+
+echo "service $repo_service"
+echo "path $repo_path"
+
+if [[ "$repo_service" != "git@github.com" ]]; then
+  echo "Not github" >&2
+  exit 1
+fi
+
+new=ssh://git@onlyhavecans.works/${repo_path}.git
+
+git pull
+git remote remove origin
+git remote add origin "$new"
