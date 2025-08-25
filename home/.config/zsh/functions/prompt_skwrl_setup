@@ -5,6 +5,17 @@ function _git_info_cmd {
   command git --no-optional-locks status --porcelain=v2 --branch --show-stash 2>&1
 }
 
+function _git_remote_cmd {
+  command git remote get-url origin --all 2>&1
+}
+
+function _git_github_check {
+  local origin=$(_git_remote_cmd)
+  if [[ "$origin" == git@github.com:onlyhavecans/* ]]; then
+    echo "WARNING: origin $origin needs migration" 1>&2
+  fi
+}
+
 function _git_info_parse {
   local git_status="$1"
 
@@ -59,6 +70,7 @@ function _git_info {
   read -r branch symbols <<<"$(_git_info_parse $git_status)"
 
   _git_info_prompt "$branch" "$symbols"
+  _git_github_check
 }
 
 #
