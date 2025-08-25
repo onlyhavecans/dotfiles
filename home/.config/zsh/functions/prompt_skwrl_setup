@@ -12,7 +12,9 @@ function _git_remote_cmd {
 function _git_github_check {
   local origin=$(_git_remote_cmd)
   if [[ "$origin" == git@github.com:onlyhavecans/* ]]; then
-    echo "WARNING: origin $origin needs migration" 1>&2
+    local RED='\033[0;31m'
+    local NOCOLOR='\033[0m'
+    echo -e "${RED}WARNING${NOCOLOR}: origin $origin needs migration" >&2
   fi
 }
 
