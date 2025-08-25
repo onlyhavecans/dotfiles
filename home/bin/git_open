@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##
-# Copied directly from https://forum.sublimetext.com/t/github-gitlab-bitbucket-integration-commands-menu-items/53893 with minor changes
+# Original version from https://forum.sublimetext.com/t/github-gitlab-bitbucket-integration-commands-menu-items/53895
 #
 # Usage:
 #
