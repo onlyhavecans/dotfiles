@@ -20,7 +20,15 @@ if [[ "$repo_service" != "git@github.com" ]]; then
 fi
 
 new=ssh://git@onlyhavecans.works/${repo_path}.git
+new=$(echo "$new" | sed --expression="s/\.git\.git$/.git/")
 
+git sm
 git pull
 git remote remove origin
+
 git remote add origin "$new"
+
+git pull
+git branch --set-upstream-to=origin/main main
+git remote set-head origin --auto
+git sm
