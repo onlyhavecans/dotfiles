@@ -172,6 +172,7 @@ alias gen='terraform plan -out=tfplan -generate-config-out="generated_resources.
 alias cl=clear
 
 alias g=git
+alias grs="git remote set-url origin"
 
 alias lg=lazygit
 alias lzd=lazydocker
