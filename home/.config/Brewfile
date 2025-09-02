@@ -25,13 +25,13 @@ brew 'zoxide'
 ## Deps for other apps
 
 brew 'ast-grep' # neovim
-brew 'chafa' # neovim fzf
-brew 'cmake' # neovim
-brew 'gnu-sed' # neovim Spectre
-brew 'poppler' # yazi
-brew 'sevenzip' #yazi
-brew 'viu' # neovim fzf
-brew 'luarocks' #neovim
+brew 'chafa'    # neovim fzf
+brew 'cmake'    # neovim
+brew 'gnu-sed'  # neovim Spectre
+brew 'poppler'  # yazi
+brew 'sevenzip' # yazi
+brew 'viu'      # neovim fzf
+brew 'luarocks' # neovim
 
 ## Fun stuff
 
@@ -43,7 +43,7 @@ brew 'marp-cli' # slides
 brew 'media-info'
 brew 'msmtp'
 brew 'qpdf' # moar pdf
-brew 'syncthing'
+brew 'syncthing', restart_service: true
 brew 'tintin'
 brew 'tlrc'
 brew 'yazi'
@@ -52,11 +52,11 @@ brew 'yt-dlp'
 ## File Manglers
 
 brew 'csvlens'
-brew 'fx' # json browser
+brew 'fx'     # json browser
 brew 'jq'
 brew 'miller' # mill positional data
 brew 'qrencode'
-brew 'yq' # yaml query
+brew 'yq'     # yaml query
 
 ## Dev & Ops Tooling
 
@@ -83,18 +83,16 @@ brew 'tflint'
 brew 'uv'
 brew 'wireguard-tools'
 brew 'xh' # httpie replacement
-
+brew 'lazygit'
 brew 'goreleaser'
-
-tap 'jesseduffield/lazygit'
-brew 'jesseduffield/lazygit/lazygit'
 
 tap 'jesseduffield/lazydocker'
 brew 'jesseduffield/lazydocker/lazydocker'
 
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform'
+brew 'hashicorp/tap/nomad'
 
 ## MAS time
 
-brew 'mas'
+brew 'mas' if OS.mac?

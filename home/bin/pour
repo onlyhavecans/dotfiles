@@ -77,8 +77,10 @@ if command_exists brew; then
   brew update
   brew upgrade
 
+  export HOMEBREW_BUNDLE_FILE=~/.config/Brewfile
   status_message "[homebrew] Ensure base install set"
-  brew bundle install --file=~/.config/Brewfile
+  brew bundle check || brew bundle install
+  brew bundle cleanup
 
   status_message "[homebrew] Link completions"
   brew completions link # https://docs.brew.sh/Shell-Completion
