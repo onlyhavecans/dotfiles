@@ -20,5 +20,8 @@ rules:
   octal-values:
     forbid-implicit-octal: true
     forbid-explicit-octal: true
+  truthy:
+    allowed-values:
+      - on
 
 # vi: ft=yaml
