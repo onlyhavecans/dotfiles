@@ -46,7 +46,6 @@ Thumbs.db
 
 #Python build dirs
 *.egg-info
-.python-version
 build/*
 dist/*
 
