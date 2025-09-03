@@ -86,12 +86,13 @@ brew 'xh' # httpie replacement
 brew 'lazygit'
 brew 'goreleaser'
 
+cask "1password-cli" if OS.mac?
+
 tap 'jesseduffield/lazydocker'
 brew 'jesseduffield/lazydocker/lazydocker'
 
 tap 'hashicorp/tap'
 brew 'hashicorp/tap/terraform'
-brew 'hashicorp/tap/nomad'
 
 ## MAS time
 
