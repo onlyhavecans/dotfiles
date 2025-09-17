@@ -24,14 +24,15 @@ brew 'zoxide'
 
 ## Deps for other apps
 
-brew 'ast-grep' # neovim
-brew 'chafa'    # neovim fzf
-brew 'cmake'    # neovim
-brew 'gnu-sed'  # neovim Spectre
-brew 'poppler'  # yazi
-brew 'sevenzip' # yazi
-brew 'viu'      # neovim fzf
-brew 'luarocks' # neovim
+brew 'ast-grep'        # neovim
+brew 'chafa'           # neovim fzf
+brew 'cmake'           # neovim
+brew 'gnu-sed'         # neovim Spectre
+brew 'poppler'         # yazi
+brew 'sevenzip'        # yazi
+brew 'viu'             # neovim fzf
+brew 'luarocks'        # neovim
+brew 'tree-sitter-cli' # neovim
 
 ## Fun stuff
 
