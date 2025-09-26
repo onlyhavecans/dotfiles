@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+error_message() {
+  echo "$@" >&2
+}
+
+if [ $# -eq 0 ]; then
+  error_message "Usage: $0 <pdf_file1> [pdf_file2] ..."
+  exit 1
+fi
+
+if ! command -v qpdf >/dev/null 2>&1; then
+  error_message "Error: qpdf is not installed or not in PATH"
+  exit 1
+fi
+
+for file in "$@"; do
+  if [ ! -f "$file" ]; then
+    echo "Error: File '$file' not found" >&2
+    continue
+  fi
+
+  echo "Decrypting: $file"
+  read -srp "Password for $file: " password
+  echo
+
+  base="${file%.pdf}"
+  output_file="${base}_decrypted.pdf"
+
+  if qpdf --password="$password" --decrypt "$file" "$output_file"; then
+    echo "Successfully decrypted: $output_file"
+  else
+    error_message "Failed to decrypt: $file (wrong password or corrupted file)"
+  fi
+
+  unset password
+done
