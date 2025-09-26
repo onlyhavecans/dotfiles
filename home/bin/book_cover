@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
 
-if [ $# != 1 ]; then
-  echo "Use: $0 <file to resize>"
+error_message() {
+  echo "$@" >&2
+}
+
+if [ $# -lt 1 ]; then
+  error_message "Use: $0 <file1> [file2] [file3] ..."
   exit 1
 fi
 
-filename=$1
+for filename in "$@"; do
+  if [ ! -f "$filename" ]; then
+    error_message "Warning: File '$filename' does not exist, skipping..."
+    continue
+  fi
 
-magick "$filename" -resize "500x500>" "${filename%.*}.jpg"
+  echo "Processing: $filename"
+  magick "$filename" -resize "500x500>" "${filename%.*}.jpg"
+done
