@@ -66,3 +66,5 @@ venv/*
 # Direnv stuff
 .direnv
 .envrc
+
+**/.claude/settings.local.json
