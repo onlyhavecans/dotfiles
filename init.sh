@@ -5,7 +5,7 @@ set -ex
 # curl -sL https://onlyhavecans.works/dots/castle-dotfiles/raw/branch/main/init.sh | bash
 
 ## Make sure we have git
-for app in git curl gcc make; do
+for app in git curl; do
   if ! command -v "$app" &>/dev/null; then
     echo "Please install $app first"
     exit 1
