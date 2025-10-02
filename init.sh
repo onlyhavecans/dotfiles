@@ -30,7 +30,7 @@ fi
 homeshick link --force
 
 ## Install packages
-if ! command -v brew &>/dev/null; then
+if ! command -v brew &>/dev/null && ! command -v nixos-version &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   [ -d /usr/local/bin ] && PATH="/usr/local/bin:$PATH"
   [ -d /opt/homebrew/bin ] && PATH="/opt/homebrew/bin:$PATH"
