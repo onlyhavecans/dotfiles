@@ -161,9 +161,16 @@ fi
 #
 ## Aliases
 #
-alias ce="chef exec"
-alias cet="chef exec thor"
-alias cek="chef exec knife"
+
+if command_exists cinc; then
+  alias c="cinc exec"
+  alias ct="cinc exec thor"
+  alias ck="cinc exec knife"
+elif command_exists chef; then
+  alias ce="chef exec"
+  alias cet="chef exec thor"
+  alias cek="chef exec knife"
+fi
 
 alias tf=terraform
 alias plan="terraform plan -out=tfplan | bat"
