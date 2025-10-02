@@ -22,7 +22,7 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 # clone home, then set it to ssh afterwards
 # This means we need our keys before we can make further actions
 if [[ ! -d $HOME/.homesick/repos/dotfiles ]]; then
-  homeshick --batch clone https://onlyhavecans.works/dots/castle-dotfiles.git
+  git clone https://onlyhavecans.works/dots/castle-dotfiles.git "$HOME/.homesick/repos/dotfiles"
   git -C "$HOME/.homesick/repos/dotfiles" remote set-url origin ssh://git@onlyhavecans.works:222/dots/castle-dotfiles.git
 fi
 
