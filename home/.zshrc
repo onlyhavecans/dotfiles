@@ -212,6 +212,15 @@ fi
 autoload -Uz compinit && compinit
 export PATH
 
+# tune fastfetch
+fastfetch() {
+  if [[ -f /etc/os-release ]] && grep -q "^ID=nixos" /etc/os-release; then
+    command fastfetch --config lix "$@"
+  else
+    command fastfetch "$@"
+  fi
+}
+
 #
 ## Drop a fastfetch unless in tmux
 #
