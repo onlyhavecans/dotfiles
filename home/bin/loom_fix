@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ffmpeg -i "$1" -filter_complex "[0:v]setpts=PTS/1.7[v];[0:a]atempo=1.7,loudnorm=I=-14:TP=-1.5:LRA=11[a]" -map "[v]" -map "[a]" -c:v libx264 -crf 23 -c:a aac "${1%.*}_fast_loud.mp4"
