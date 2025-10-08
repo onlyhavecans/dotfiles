@@ -186,8 +186,9 @@ alias lzd=lazydocker
 alias gv="lazygit --path=$HOME/Documents/Obsidian/Vault/"
 
 alias tm="tmux new-session -A -c ~"
-alias tp="mosh piper.local -- tmux new-session -A -c ~"
 alias tc="mosh catra.local -- tmux new-session -A -c ~"
+alias tp="mosh piper.local -- tmux new-session -A -c ~"
+alias tw="mosh webby.bunni.biz -- tmux new-session -A -c ~"
 
 #
 ## Prompt
