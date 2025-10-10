@@ -9,19 +9,20 @@
   "height": 50,
   // "spacing": 4,
   "modules-left": [
-    "clock",
-    "tray",
+    "network",
+    "temperature",
+    "cpu",
+    "memory",
+    "wireplumber",
     "niri/workspaces"
   ],
   "modules-center": [
     "niri/window"
   ],
   "modules-right": [
-    "network",
-    "temperature",
-    "cpu",
-    "memory",
-    "wireplumber"
+    "mpris",
+    "tray",
+    "clock"
   ],
   "niri/window": {
     "format": "{}",
@@ -50,7 +51,7 @@
     "spacing": 10
   },
   "clock": {
-    "format": "  {:%R %a, %b %d}",
+    "format": "{%a, %b %d:%R}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     // "format": "{: %I:%M %p   %a, %b %e}",
     // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -107,9 +108,9 @@
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "  {signalStrength}%",
-    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "tooltip-format": "{essid} - {ifname} via {gwaddr} 󰊗",
-    "format-linked": "{ifname} (No IP) 󰊗",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "NONE ⚠",
     "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
     "on-click-right": "~/.config/rofi/bin/network"
@@ -122,18 +123,6 @@
     "tooltip-format-connected": " {device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "on-click-right": "blueman-manager"
-  },
-  "custom/media": {
-    "format": "{icon} {}",
-    "return-type": "json",
-    "max-length": 45,
-    "format-icons": {
-      "spotify": "",
-      "default": "🎜"
-    },
-    "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
   },
   "systemd-failed-units": {
     "hide-on-ok": false, // Do not hide if there is zero failed units.
