@@ -82,7 +82,7 @@ run() {
       ;;
   esac
 
-  open "$repo_url"
+  open "$repo_url" || xdg-open "$repo_url"
 }
 
 run "$@"

@@ -2,4 +2,4 @@
 
 URL="https://kagi.com/search?q=$*"
 export PATH=/usr/bin:/Applications/Firefox.app/Contents/MacOS
-open "$URL" || sensible-browser "$URL" || x-www-browser "$URL" || exec firefox --search "$*"
+open "$URL" || xdg-open "$URL" || exec firefox --search "$*"
