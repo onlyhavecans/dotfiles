@@ -79,7 +79,7 @@ tooltip {
 
 #cpu {
   color: @foam;
-  border-left: 0px;
+  border-radius: 8px 0px 0px 8px;
   border-right: 0px;
 }
 

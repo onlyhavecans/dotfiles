@@ -6,18 +6,18 @@
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  "height": 50,
+  "margin-left": 17,
+  "margin-right": 17,
   "reload_style_on_change": true,
   "modules-left": [
     "temperature",
     "cpu",
     "memory",
     "wireplumber",
-    "systemd-failed-units",
     "niri/workspaces"
   ],
   "temperature": {
-    "thermal-zone": 1,
+    // "thermal-zone": 1,
     "format": "TEMP {temperatureC}°C",
     "critical-threshold": 80,
     "format-critical": "{temperatureC}°C "
@@ -33,7 +33,7 @@
     "tooltip-format": "Memory - {used:0.1f}GB used"
   },
   "wireplumber": {
-    "format": "{icon}  {volume}",
+    "format": "{icon} {volume}",
     "tooltip": false,
     "format-muted": " ミュート",
     "on-click": "pamixer -t",
@@ -55,7 +55,7 @@
       ]
     }
   },
-  "wireplumber#microphone": {
+  "wireplumber#source": {
     "format": "{format_source}",
     "format-source": "󰍬 {volume}%",
     "format-source-muted": "󰍭 Muted",
@@ -69,25 +69,17 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "1": "いち",
-      "2": "に",
-      "3": "さん",
-      "4": "よん",
-      "5": "ご",
-      "6": "ろく",
-      "7": "なな",
-      "8": "はち",
-      "9": "きゅう",
-      "10": "じゅう"
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "八",
+      "10": "十"
     }
-  },
-  "systemd-failed-units": {
-    "hide-on-ok": false, // Do not hide if there is zero failed units.
-    "format": "✗ {nr_failed}  ",
-    "format-ok": "✓  ",
-    "system": true,
-    "user": true,
-    "format-alt": "system: {nr_failed_system}\nuser: {nr_failed_user}"
   },
   "modules-center": [
     "niri/window"
@@ -98,25 +90,11 @@
   },
   "modules-right": [
     "tray",
-    "mpris",
     "clock"
   ],
   "tray": {
     "icon-size": 18,
     "spacing": 10
-  },
-  "mpris": {
-    "format": "{player_icon} {player}",
-    "format-paused": "{status_icon} {player}",
-    "format-alt": "{dynamic}",
-    "player-icons": {
-      "default": "▶",
-      "mpv": "🎵",
-      "Plexamp": "🎵"
-    },
-    "status-icons": {
-      "paused": "⏸"
-    }
   },
   "clock": {
     "format": "{:%a, %b %d %H:%M} ",
