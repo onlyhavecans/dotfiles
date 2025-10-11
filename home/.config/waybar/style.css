@@ -1,31 +1,89 @@
 @import "./rose-pine.css";
+/* @import "./rose-pine-moon.css"; */
+/* @import "./rose-pine-dawn.css"; */
 
+/* ========================================
+   Global Styles
+   ======================================== */
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "JetBrainsMono NFM ExtraBold";
+  font-family: JetBrainsMono Nerd Font, FontAwesome, Noto;
   font-weight: bold;
   font-size: 16px;
-  min-height: 0;
 }
 
 window#waybar {
-  background: rgba(21, 18, 27, 0);
+  color: @text;
+  background-color: transparent;
   color: @text;
 }
 
 tooltip {
-  background: @base;
+  color: @text;
+  background: @surface;
+  border-color: @pine;
   border-radius: 4px;
   border-width: 2px;
   border-style: solid;
-  border-color: @overlay;
+}
+
+/* ========================================
+   Base Module Styles (all modules)
+   ======================================== */
+
+.module {
+  background: @base;
+  border: 3px solid @pine;
+  border-radius: 8px;
+  opacity: 0.9;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  margin-top: 15px;
+}
+
+/* ========================================
+   Left Side Modules
+   ======================================== */
+
+/* System info group: CPU -> Memory -> Temperature -> Wireplumber */
+#cpu {
+  color: @rose;
+  border-radius: 8px 0px 0px 8px;  /* Left rounded */
+  border-right: 0px;
+}
+
+#memory {
+  color: @love;
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#temperature {
+  color: @gold;
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#temperature.critical {
+  color: @love;
+}
+
+#wireplumber {
+  color: @iris;
+  border-radius: 0 8px 8px 0;  /* Right rounded */
+  border-left: 0px;
+  margin-right: 10px;
+}
+#workspaces {
+  margin-left: 10px;
+  padding-left: 10px;
 }
 
 #workspaces button {
+  color: @muted;
   padding: 5px;
-  color: @highlightMed;
-  margin-right: 5px;
+  border-radius: 8px;
 }
 
 #workspaces button.active {
@@ -33,135 +91,31 @@ tooltip {
 }
 
 #workspaces button.focused {
-  color: @subtle;
-  background: @love;
-  border-radius: 8px;
+  color: @base;
+  background: @pine;
 }
 
 #workspaces button.urgent {
   color: @base;
-  background: @pine;
-  border-radius: 8px;
+  background: @love;
 }
 
 #workspaces button:hover {
-  background: @highlightLow;
   color: @text;
-  border-radius: 8px;
+  background: @highlightMed;
 }
 
-#custom-power_profile,
-#window,
-#clock,
-#battery,
-#wireplumber,
-#network,
-#bluetooth,
-#temperature,
-#workspaces,
-#tray,
-#memory,
-#cpu,
-#backlight {
-  background: @base;
-  opacity: 0.9;
-  padding: 0px 10px;
-  margin: 3px 0px;
-  margin-top: 15px;
-  border: 2px solid @pine;
-}
 
-#memory {
-  color: #3e8fb0;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#cpu {
-  color: @foam;
-  border-radius: 8px 0px 0px 8px;
-  border-right: 0px;
-}
-
-#temperature {
-  color: @gold;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#temperature.critical {
-  border-left: 0px;
-  border-right: 0px;
-  color: @love;
-}
-
-#backlight {
-  color: @text;
-  border-radius: 0px 8px 8px 0px;
-  margin-right: 20px;
-}
-
+/* ========================================
+   Right Side Modules (standalone)
+   ======================================== */
 #tray {
-  border-radius: 8px;
   margin-left: 10px;
-  margin-right: 0px;
-}
-
-#workspaces {
-  background: @base;
-  border-radius: 8px;
-  margin-left: 10px;
-  padding-right: 0px;
-  padding-left: 5px;
-}
-
-#custom-power_profile {
-  color: @foam;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#window {
-  border-radius: 8px;
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-window#waybar.empty {
-  background-color: transparent;
-}
-
-window#waybar.empty #window {
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
-  /*  background-color: rgba(66,66,66,0.5); */ /* transparent */
-  background-color: transparent;
+  margin-right: 10px;
 }
 
 #clock {
-  color: @text;
-  background: @pine;
-  border-radius: 8px;
-  margin-left: 20px;
-}
-
-#network {
-  color: @love;
-  border-radius: 8px 0px 0px 8px;
-  border-right: 0px;
-}
-
-#wireplumber {
-  color: @iris;
-  border-radius: 0 8px 8px 0;
-  margin-right: 10px;
-  border-left: 0px;
-}
-
-#battery {
-  color: @foam;
-  border-radius: 0 8px 8px 0;
-  margin-right: 10px;
-  border-left: 0px;
+  color: @base;
+  background: @text;
+  margin-left: 10px;
 }

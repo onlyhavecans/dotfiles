@@ -1,53 +1,33 @@
 // -*- mode: jsonc -*-
 {
-  "layer": "top",
-  "position": "top",
-  "mode": "dock",
-  "exclusive": true,
-  "passthrough": false,
-  "gtk-layer-shell": true,
   "margin-left": 17,
   "margin-right": 17,
-  "reload_style_on_change": true,
   "modules-left": [
-    "temperature",
     "cpu",
     "memory",
     "wireplumber",
+    "temperature",
     "niri/workspaces"
   ],
-  "temperature": {
-    // "thermal-zone": 1,
-    "format": "TEMP {temperatureC}°C",
-    "critical-threshold": 80,
-    "format-critical": "{temperatureC}°C "
-  },
   "cpu": {
     "format": "CPU {usage}%"
   },
   "memory": {
-    "interval": 30,
-    "format": "RAM {}%",
-    "max-length": 10,
-    "tooltip": true,
-    "tooltip-format": "Memory - {used:0.1f}GB used"
+    "format": "RAM {percentage}% SWAP {swapPercentage}%"
+  },
+  "temperature": {
+    // "thermal-zone": 1,
+    "format": "TEMP {temperatureC}°C"
   },
   "wireplumber": {
-    "format": "{icon} {volume}",
-    "tooltip": false,
+    "format": "{icon}  {volume}",
     "format-muted": " ミュート",
-    "on-click": "pamixer -t",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -i 5",
-    "on-scroll-down": "pamixer -d 5",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
     "scroll-step": 5,
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": [
         "",
         "",
@@ -84,11 +64,11 @@
     "clock"
   ],
   "tray": {
-    "icon-size": 18,
+    "icon-size": 21,
     "spacing": 10
   },
   "clock": {
     "format": "{:%a, %b %d %H:%M} ",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
   }
 }
