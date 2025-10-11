@@ -9,18 +9,10 @@
 input {
     keyboard {
         xkb {
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
-            // For example:
-            // layout "us,ru"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
+            layout "us"
+            options "ctrl:nocaps"
             // localectl set-x11-keymap.
         }
-
         // Enable numlock on startup, omitting this setting disables it.
         numlock
     }
@@ -50,17 +42,6 @@ input {
         // scroll-method "no-scroll"
     }
 
-    trackpoint {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "on-button-down"
-        // scroll-button 273
-        // scroll-button-lock
-        // middle-emulation
-    }
-
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     // warp-mouse-to-focus
 
@@ -76,8 +57,8 @@ input {
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "HDMI-A-1" {
-	scale 1.5
-
+  scale 1.6
+  // mode "1920x1080@60.000"
 }
 
 /-output "eDP-1" {
@@ -112,6 +93,8 @@ output "HDMI-A-1" {
 }
 
 cursor {
+    xcursor-theme "BreezeX-RosePine-Linux"
+    xcursor-size 32
     hide-when-typing
 }
 
@@ -176,7 +159,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "#9ccfd8"
 
         // Color of the ring on inactive monitors.
         //
@@ -277,15 +260,15 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-// spawn-at-startup "waybar"
-spawn-at-startup "swayidle -w timeout 600 swaylock timeout 900 'niri msg output * off' resume 'niri msg output * on before-sleep swaylock"
+spawn-at-startup "waybar"
 spawn-at-startup "mako"
-spawn-at-startup "1password --silent"
+spawn-at-startup "1password" "--silent"
+spawn-at-startup "streamcontroller" "-b"
 spawn-at-startup "gammastep-indicator"
-spawn-at-startup "streamcontroller -b"
 spawn-at-startup "netbird-ui"
-spawn-at-startup "feishin"
-spawn-at-startup "obsidian"
+
+// spawn-at-startup "feishin"
+// spawn-at-startup "obsidian"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -361,72 +344,73 @@ window-rule {
 
 window-rule {
   match app-id=r"^obsidian$"
+  open-on-output "DP-3"
   default-column-width { proportion 0.3333; }
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
+// example: enable rounded corners for all windows.
+// (this example rule is commented out with a "/-" in front.)
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
 
 binds {
-    // Keys consist of modifiers separated by + signs, followed by an XKB key name
-    // in the end. To find an XKB name for a particular key, you may use a program
+    // keys consist of modifiers separated by + signs, followed by an xkb key name
+    // in the end. to find an xkb name for a particular key, you may use a program
     // like wev.
     //
-    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
+    // "mod" is a special modifier equal to super when running on a tty, and to alt
     // when running as a winit window.
     //
-    // Most actions that you can bind here can also be invoked programmatically with
+    // most actions that you can bind here can also be invoked programmatically with
     // `niri msg action do-something`.
 
-    // Mod-Shift-/, which is usually the same as Mod-?,
+    // mod-shift-/, which is usually the same as mod-?,
     // shows a list of important hotkeys.
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    mod+shift+slash { show-hotkey-overlay; }
 
-    // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+T hotkey-overlay-title="Run an Application: wezterm" { spawn "wezterm-gui"; }
-    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+B hotkey-overlay-title="Run an Application: Firefox" { spawn "firefox"; }
-    Mod+backslash hotkey-overlay-title="1password quick" { spawn "1password --quick-access"; }
+    // suggested binds for running programs: terminal, app launcher, screen locker.
+    mod+return hotkey-overlay-title="open a terminal: ghostty" { spawn "ghostty"; }
+    mod+t hotkey-overlay-title="run an application: wezterm" { spawn "wezterm-gui"; }
+    mod+space hotkey-overlay-title="run an application: fuzzel" { spawn "fuzzel"; }
+    mod+b hotkey-overlay-title="run an application: firefox" { spawn "firefox"; }
+    mod+backslash hotkey-overlay-title="1password quick" { spawn "1password" "--quick-access"; }
 
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    super+alt+l hotkey-overlay-title="lock the screen: swaylock" { spawn "swaylock"; }
 
-    // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
-    // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
-    // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // use spawn-sh to run a shell command. do this if you need pipes, multiple commands, etc.
+    // note: the entire command goes as a single argument. it's passed verbatim to `sh -c`.
+    // for example, this is a standard bind to toggle the screen reader (orca).
+    super+alt+s allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    // The allow-when-locked=true property makes them work even when the session is locked.
-    // Using spawn-sh allows to pass multiple arguments together with the command.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    // example volume keys mappings for pipewire & wireplumber.
+    // the allow-when-locked=true property makes them work even when the session is locked.
+    // using spawn-sh allows to pass multiple arguments together with the command.
+    xf86audioraisevolume allow-when-locked=true { spawn-sh "wpctl set-volume @default_audio_sink@ 0.1+"; }
+    xf86audiolowervolume allow-when-locked=true { spawn-sh "wpctl set-volume @default_audio_sink@ 0.1-"; }
+    xf86audiomute        allow-when-locked=true { spawn-sh "wpctl set-mute @default_audio_sink@ toggle"; }
+    xf86audiomicmute     allow-when-locked=true { spawn-sh "wpctl set-mute @default_audio_source@ toggle"; }
 
-    // Example brightness key mappings for brightnessctl.
-    // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
+    // example brightness key mappings for brightnessctl.
+    // you can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    xf86monbrightnessup allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    xf86monbrightnessdown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
-    // Open/close the Overview: a zoomed-out view of workspaces and windows.
-    // You can also move the mouse into the top-left hot corner,
+    // open/close the overview: a zoomed-out view of workspaces and windows.
+    // you can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    mod+o repeat=false { toggle-overview; }
 
-    Mod+Q repeat=false { close-window; }
+    mod+q repeat=false { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    // Mod+J     { focus-window-down; }
+    mod+left  { focus-column-left; }
+    mod+down  { focus-window-down; }
+    mod+up    { focus-window-up; }
+    mod+right { focus-column-right; }
+    mod+h     { focus-column-left; }
+    // mod+j     { focus-window-down; }
     // Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
