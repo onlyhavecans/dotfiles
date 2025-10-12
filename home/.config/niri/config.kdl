@@ -206,27 +206,8 @@ layout {
 
     // You can enable drop shadows for windows.
     shadow {
-        // Uncomment the next line to enable shadows.
-        // on
-
-        // By default, the shadow draws only around its window, and not behind it.
-        // Uncomment this setting to make the shadow draw behind its window.
-        //
-        // Note that niri has no way of knowing about the CSD window corner
-        // radius. It has to assume that windows have square corners, leading to
-        // shadow artifacts inside the CSD rounded corners. This setting fixes
-        // those artifacts.
-        //
-        // However, instead you may want to set prefer-no-csd and/or
-        // geometry-corner-radius. Then, niri will know the corner radius and
-        // draw the shadow correctly, without having to draw it behind the
-        // window. These will also remove client-side shadows if the window
-        // draws any.
-        //
-        // draw-behind-window true
-
-        // You can change how shadows look. The values below are in logical
-        // pixels and match the CSS box-shadow properties.
+        on
+        draw-behind-window true
 
         // Softness controls the shadow blur radius.
         softness 30
@@ -264,6 +245,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-at-startup "1password" "--silent"
 spawn-at-startup "streamcontroller" "-b"
+spawn-at-startup "espanso" "start" "--unmanaged"
 spawn-at-startup "gammastep-indicator"
 spawn-at-startup "netbird-ui"
 
@@ -290,9 +272,6 @@ hotkey-overlay {
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
-
 // Animation settings.
 // The wiki explains how to configure individual animations:
 // https://yalter.github.io/niri/Configuration:-Animations
@@ -307,6 +286,8 @@ animations {
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
+
+// Use `niri msg windows` to get window details
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -337,15 +318,37 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r"^feishin$"
+  match app-id=r#"^feishin$"#
   open-on-output "HDMI-A-1"
   open-maximized true
 }
 
 window-rule {
+  match app-id=r#"^veadotube-mini$"#
+  open-fullscreen true
+}
+
+window-rule {
+  match app-id=r#"^thunderbird$"# title=r#"^\d+ Reminder$"#
+  open-floating true
+  default-floating-position x=10 y=10 relative-to="top-right"
+}
+
+// Keep less specific rules last
+window-rule {
+  match app-id=r#"^thunderbird$"#
+  default-column-width { proportion 0.66667; }
+}
+
+window-rule {
   match app-id=r"^obsidian$"
   open-on-output "DP-3"
-  default-column-width { proportion 0.3333; }
+  default-column-width { proportion 0.33333; }
+}
+
+window-rule {
+  match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+  default-floating-position x=10 y=10 relative-to="top-right"
 }
 
 // example: enable rounded corners for all windows.
