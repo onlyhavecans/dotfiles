@@ -75,9 +75,10 @@ tooltip {
   border-left: 0px;
   margin-right: 10px;
 }
+
 #workspaces {
   margin-left: 10px;
-  padding-left: 10px;
+  margin-right: 10px;
 }
 
 #workspaces button {
@@ -105,6 +106,30 @@ tooltip {
   background: @highlightMed;
 }
 
+#taskbar {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#taskbar button {
+  border-radius: 8px;
+}
+
+#taskbar button.active {
+  background-color: @pine;
+}
+
+#taskbar button.minimized {
+  background-color: @highlightMed;
+}
+
+#taskbar button.maximized {
+  background-color: @foam;
+}
+
+#taskbar button.fullscreen {
+  background-color: @subtle;
+}
 
 /* ========================================
    Right Side Modules (standalone)

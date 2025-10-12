@@ -53,19 +53,45 @@
     }
   },
   "modules-center": [
-    "niri/window"
+    "wlr/taskbar"
   ],
   "niri/window": {
     "format": "{}",
     "max-length": 69
   },
+  "wlr/taskbar": {
+    "icon-theme": "rose-pine",
+    "format": "{icon}",
+    "icon-size": 24
+  },
   "modules-right": [
+    "mpris",
     "tray",
     "clock"
   ],
   "tray": {
-    "icon-size": 21,
-    "spacing": 10
+    "icon-size": 18,
+    "spacing": 8
+  },
+  "mpris": {
+    "format": "{player_icon} {status_icon} {dynamic}",
+    "dynamic-order": [
+      "title",
+      "artist",
+      "album",
+      "length"
+    ],
+    "dynamic-len": 42,
+    "player-icons": {
+      "default": "󰽰",
+      "firefox": "󰈹",
+      "Feishin": ""
+    },
+    "status-icons": {
+      "playing": "",
+      "paused": ""
+    }
+    // "ignored-players": ["firefox"]
   },
   "clock": {
     "format": "{:%a, %b %d %H:%M} ",
