@@ -90,8 +90,10 @@
     "status-icons": {
       "playing": "",
       "paused": ""
-    }
-    // "ignored-players": ["firefox"]
+    },
+    "ignored-players": [
+      "firefox"
+    ]
   },
   "clock": {
     "format": "{:%a, %b %d %H:%M} ",
