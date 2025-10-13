@@ -245,6 +245,7 @@ spawn-at-startup "streamcontroller" "-b"
 spawn-at-startup "espanso" "start" "--unmanaged"
 spawn-at-startup "gammastep-indicator"
 spawn-at-startup "netbird-ui"
+spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/dos/Pictures/Chillhop 2025 Fall/Chillhop Music - Chillhop Essentials Fall 2025 - Fall Essentials_Puddle Day_Desktop.jpg"
 
 // spawn-at-startup "feishin"
 // spawn-at-startup "obsidian"
@@ -321,12 +322,22 @@ window-rule {
 }
 
 window-rule {
+  match app-id=r#"^com\.obsproject\.Studio"# is-floating=true
+  open-on-output "HDMI-A-1"
+}
+
+window-rule {
+  match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
+  open-maximized true
+}
+
+window-rule {
   match app-id=r#"^veadotube-mini$"#
   open-fullscreen true
 }
 
 window-rule {
-  match app-id=r#"^thunderbird$"# title=r#"^\d+ Reminder$"#
+  match title=r#"^\d+ Reminder$"#
   open-floating true
   default-floating-position x=10 y=10 relative-to="top-right"
 }
