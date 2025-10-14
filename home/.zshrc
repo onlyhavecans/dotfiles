@@ -163,13 +163,17 @@ fi
 #
 
 if command_exists cinc; then
-  alias c="cinc exec"
-  alias ct="cinc exec thor"
-  alias ck="cinc exec knife"
+  alias ce="cinc exec"
+  alias cet="cinc exec thor"
+  alias cek="cinc exec knife"
 elif command_exists chef; then
   alias ce="chef exec"
   alias cet="chef exec thor"
   alias cek="chef exec knife"
+else
+  alias ce="echo You forgot to install cinc"
+  alias cet="echo You forgot to install cinc"
+  alias cek="echo You forgot to install cinc"
 fi
 
 alias tf=terraform

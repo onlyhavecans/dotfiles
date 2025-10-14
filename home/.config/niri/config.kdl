@@ -386,7 +386,8 @@ binds {
     mod+t hotkey-overlay-title="open file manager" {spawn "nautilus";}
     mod+space hotkey-overlay-title="run an application: fuzzel" { spawn "fuzzel"; }
     mod+b hotkey-overlay-title="run an application: firefox" { spawn "firefox"; }
-    mod+backslash hotkey-overlay-title="1password quick" { spawn "1password" "--quick-access"; }
+
+    mod+backslash { spawn "1password" "--quick-access"; }
 
     super+alt+l hotkey-overlay-title="lock the screen: swaylock" { spawn "swaylock"; }
 
@@ -459,10 +460,10 @@ binds {
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+H     hotkey-overlay-title="Move column to left monitor" { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+L     hotkey-overlay-title="Move column to right monitor" { move-column-to-monitor-right; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
