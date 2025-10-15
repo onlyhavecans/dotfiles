@@ -337,15 +337,15 @@ window-rule {
 }
 
 window-rule {
-  match title=r#"^\d+ Reminder$"#
-  open-floating true
-  default-floating-position x=10 y=10 relative-to="top-right"
-}
-
-// Keep less specific rules last
-window-rule {
   match app-id=r#"^thunderbird$"#
   default-column-width { proportion 0.66667; }
+}
+
+// Keep more specific rules last
+window-rule {
+  match app-id="thunderbird" title="Reminder"
+  open-floating true
+  default-floating-position x=10 y=10 relative-to="top-right"
 }
 
 window-rule {
