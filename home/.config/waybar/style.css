@@ -35,9 +35,9 @@ tooltip {
   border: 3px solid @pine;
   border-radius: 8px;
   opacity: 0.9;
-  padding: 0px 10px;
+  padding: 0px 8px;
   margin: 3px 0px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 /* ========================================
@@ -71,6 +71,12 @@ tooltip {
 
 #wireplumber {
   color: @iris;
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#mpris {
   border-radius: 0 8px 8px 0;  /* Right rounded */
   border-left: 0px;
   margin-right: 10px;

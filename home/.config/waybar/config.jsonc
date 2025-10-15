@@ -6,8 +6,9 @@
     "cpu",
     "memory",
     "wireplumber",
+    "wireplumber#source",
     "temperature",
-    "niri/workspaces"
+    "mpris"
   ],
   "cpu": {
     "format": "CPU {usage}%"
@@ -20,21 +21,49 @@
     "format": "TEMP {temperatureC}°C"
   },
   "wireplumber": {
-    "format": "{icon}  {volume}",
+    "format": " {volume}%",
     "format-muted": " ミュート",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-    "scroll-step": 5,
-    "format-icons": {
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    }
+    "scroll-step": 5
   },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "{volume}%",
+    "format-muted": " ミュート",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "scroll-step": 5
+  },
+  "mpris": {
+    "format": "{player_icon} {status_icon} {dynamic}",
+    "dynamic-order": [
+      "title",
+      "artist",
+      "album"
+    ],
+    "dynamic-len": 42,
+    "player-icons": {
+      "default": "󰽰",
+      "firefox": "󰈹",
+      "Feishin": ""
+    },
+    "status-icons": {
+      "playing": "",
+      "paused": ""
+    },
+    "ignored-players": [
+      "firefox"
+    ]
+  },
+  "modules-center": [
+    "niri/workspaces",
+    "wlr/taskbar"
+  ],
   "niri/workspaces": {
     "disable-scroll": true,
     "on-click": "activate",
@@ -52,9 +81,6 @@
       "10": "十"
     }
   },
-  "modules-center": [
-    "wlr/taskbar"
-  ],
   "niri/window": {
     "format": "{}",
     "max-length": 69
@@ -65,35 +91,12 @@
     "icon-size": 24
   },
   "modules-right": [
-    "mpris",
     "tray",
     "clock"
   ],
   "tray": {
     "icon-size": 18,
     "spacing": 8
-  },
-  "mpris": {
-    "format": "{player_icon} {status_icon} {dynamic}",
-    "dynamic-order": [
-      "title",
-      "artist",
-      "album",
-      "length"
-    ],
-    "dynamic-len": 42,
-    "player-icons": {
-      "default": "󰽰",
-      "firefox": "󰈹",
-      "Feishin": ""
-    },
-    "status-icons": {
-      "playing": "",
-      "paused": ""
-    },
-    "ignored-players": [
-      "firefox"
-    ]
   },
   "clock": {
     "format": "{:%a, %b %d %H:%M} ",
