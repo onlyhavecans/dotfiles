@@ -11,14 +11,14 @@
     "mpris"
   ],
   "cpu": {
-    "format": "CPU {usage}%"
+    "format": " {usage}%"
   },
   "memory": {
-    "format": "RAM {percentage}% SWAP {swapPercentage}%"
+    "format": "󰗈 {percentage}% 󰗈󰋊 {swapPercentage}%"
   },
   "temperature": {
     // "thermal-zone": 1,
-    "format": "TEMP {temperatureC}°C"
+    "format": " {temperatureC}°C"
   },
   "wireplumber": {
     "format": " {volume}%",
