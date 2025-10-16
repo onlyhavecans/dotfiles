@@ -58,6 +58,13 @@ tooltip {
   border-right: 0px;
 }
 
+#disk {
+  color: @gold;
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
 #temperature {
   color: @gold;
   border-radius: 0px;

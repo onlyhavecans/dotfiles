@@ -5,6 +5,7 @@
   "modules-left": [
     "cpu",
     "memory",
+    "disk",
     "wireplumber",
     "wireplumber#source",
     "temperature",
@@ -15,6 +16,11 @@
   },
   "memory": {
     "format": "󰗈 {percentage}% 󰗈󰋊 {swapPercentage}%"
+  },
+  "disk": {
+    "interval": 60,
+    "format": "󰋊 {percentage_used}%",
+    "path": "/"
   },
   "temperature": {
     // "thermal-zone": 1,
