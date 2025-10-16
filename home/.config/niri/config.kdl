@@ -246,6 +246,7 @@ spawn-at-startup "espanso" "start" "--unmanaged"
 spawn-at-startup "gammastep-indicator"
 spawn-at-startup "netbird-ui"
 spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/dos/Pictures/Chillhop 2025 Fall/Chillhop Music - Chillhop Essentials Fall 2025 - Fall Essentials_Puddle Day_Desktop.jpg"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 // spawn-at-startup "feishin"
 // spawn-at-startup "obsidian"
@@ -389,6 +390,7 @@ binds {
 
     mod+backslash { spawn "1password" "--quick-access"; }
 
+    super+shift+v hotkey-overlay-title="show clipboard" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
     super+alt+l hotkey-overlay-title="lock the screen: swaylock" { spawn "swaylock"; }
 
     // use spawn-sh to run a shell command. do this if you need pipes, multiple commands, etc.
