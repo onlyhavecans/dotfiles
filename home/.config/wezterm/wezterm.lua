@@ -6,7 +6,7 @@ local is_linux = function()
 end
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = is_linux() and 13.0 or 16.0
+config.font_size = is_linux() and 13.0 or 15.0
 config.freetype_load_target = "Light"
 
 config.color_scheme = "Gruvbox Dark (Gogh)"
@@ -21,7 +21,8 @@ config.window_padding = {
 	bottom = "1px",
 }
 
-config.initial_cols = 124
+config.initial_cols = 102
+config.initial_rows = 42
 
 local act = wezterm.action
 config.keys = {
@@ -29,10 +30,9 @@ config.keys = {
 	{ key = "Insert", mods = "SHIFT", action = act.PasteFrom("Clipboard") },
 	-- copy from the clipboard
 	{ key = "Insert", mods = "CTRL", action = act.CopyTo("Clipboard") },
-  -- claude annoyed me for this
-  -- https://github.com/wezterm/wezterm/discussions/5856
-  {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
-
+	-- claude annoyed me for this
+	-- https://github.com/wezterm/wezterm/discussions/5856
+	{ key = "Enter", mods = "SHIFT", action = wezterm.action({ SendString = "\x1b\r" }) },
 }
 
 -- For Neovim Zen Mode
