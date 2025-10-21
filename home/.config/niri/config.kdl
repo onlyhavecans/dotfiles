@@ -56,7 +56,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "HDMI-A-1" {
+output "BOE Display 0x00000144" {
   scale 1.6
   // mode "1920x1080@60.000"
 }
