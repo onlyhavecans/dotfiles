@@ -176,6 +176,11 @@ else
   alias cek="echo You forgot to install cinc"
 fi
 
+if ! command_exists xdg-open; then
+  # hack around mac/linux
+  alias xdg-open=open
+fi
+
 alias tf=terraform
 alias plan="terraform plan -out=tfplan | bat"
 alias gen='terraform plan -out=tfplan -generate-config-out="generated_resources.tf" | bat'
