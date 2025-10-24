@@ -57,8 +57,8 @@ input {
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "BOE Display 0x00000144" {
-  scale 1.6
-  // mode "1920x1080@60.000"
+  // lil work addon display
+  mode "1920x1080@59.940"
 }
 
 /-output "eDP-1" {
@@ -335,6 +335,21 @@ window-rule {
 window-rule {
   match app-id=r#"^veadotube-mini$"#
   open-fullscreen true
+}
+
+window-rule {
+  match app-id=r#"^chrome-pomofocus"#
+  default-column-width { proportion 0.33333; }
+}
+
+window-rule {
+  match app-id=r#"^Slack$"#
+  default-column-width { proportion 0.66667; }
+}
+
+window-rule {
+  match app-id=r#"^chrome-twitch"#
+  default-column-width { proportion 0.66667; }
 }
 
 window-rule {
