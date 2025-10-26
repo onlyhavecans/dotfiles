@@ -397,7 +397,7 @@ binds {
     mod+shift+slash { show-hotkey-overlay; }
 
     // suggested binds for running programs: terminal, app launcher, screen locker.
-    mod+return hotkey-overlay-title="open a terminal: ghostty" { spawn "ghostty"; }
+    mod+return hotkey-overlay-title="open a terminal: ghostty" { spawn "foot"; }
     mod+t hotkey-overlay-title="open file manager" {spawn "nautilus";}
     mod+space hotkey-overlay-title="run an application: fuzzel" { spawn "fuzzel"; }
     mod+b hotkey-overlay-title="run an application: firefox" { spawn "firefox"; }
