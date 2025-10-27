@@ -52,21 +52,6 @@ fi
 # The package manager upgrades
 ##
 
-if command_exists apt-get; then
-  status_message "[apt] Update packages"
-  if command_exists nala; then
-    sudo nala upgrade
-  else
-    sudo apt update
-    sudo apt upgrade
-  fi
-fi
-
-if command_exists pacman; then
-  status_message "[pacman] Update packages"
-  sudo pacman -Syu
-fi
-
 if command_exists flatpak; then
   status_message "[flatpak] Update packages"
   flatpak update --assumeyes
@@ -76,11 +61,6 @@ if command_exists brew; then
   status_message "[homebrew] Update packages"
   brew update
   brew upgrade
-
-  export HOMEBREW_BUNDLE_FILE=~/.config/Brewfile
-  status_message "[homebrew] Ensure base install set"
-  brew bundle check || brew bundle install
-  brew bundle cleanup
 
   status_message "[homebrew] Link completions"
   brew completions link # https://docs.brew.sh/Shell-Completion

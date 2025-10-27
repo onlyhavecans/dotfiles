@@ -50,24 +50,6 @@ zstyle ':completion:*' completer _expand_alias _complete _ignored # tab complete
 if command_exists brew; then
   source <(brew shellenv zsh)
   export HOMEBREW_NO_ENV_HINTS=1
-  export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
-
-  ## brew --prefix is way too slow in 4.0 so hardcode
-  function _brew_prefix {
-    printf "${HOMEBREW_PREFIX}/opt/$1"
-  }
-
-  # Brew overlays
-  apps=(whois curl libpq)
-  for app in $apps; do
-    add_path_if_exists "$(_brew_prefix $app)/bin"
-
-    # completions
-    [ -d "$(_brew_prefix $app)/share/zsh/site-functions" ] &&
-      fpath+=("$(_brew_prefix $app)/share/zsh/site-functions")
-  done
-
-  unfunction _brew_prefix
 fi
 
 # Homeshick for configs
@@ -90,7 +72,7 @@ fi
 
 # direnv
 if command_exists direnv; then
-  source <(direnv hook zsh)
+  # source <(direnv hook zsh)
   alias tmux="direnv exec / tmux"
 fi
 
@@ -162,19 +144,9 @@ fi
 ## Aliases
 #
 
-if command_exists cinc; then
-  alias ce="cinc exec"
-  alias cet="cinc exec thor"
-  alias cek="cinc exec knife"
-elif command_exists chef; then
-  alias ce="chef exec"
-  alias cet="chef exec thor"
-  alias cek="chef exec knife"
-else
-  alias ce="echo You forgot to install cinc"
-  alias cet="echo You forgot to install cinc"
-  alias cek="echo You forgot to install cinc"
-fi
+alias ce="chef exec"
+alias cet="chef exec thor"
+alias cek="chef exec knife"
 
 if ! command_exists xdg-open; then
   # hack around mac/linux
