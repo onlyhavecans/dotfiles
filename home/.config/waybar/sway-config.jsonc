@@ -67,10 +67,11 @@
     ]
   },
   "modules-center": [
-    "niri/workspaces",
-    "wlr/taskbar"
+    "sway/workspaces",
+    "sway/mode",
+    "sway/window"
   ],
-  "niri/workspaces": {
+  "sway/workspaces": {
     "disable-scroll": true,
     "on-click": "activate",
     "format": "{icon}",
@@ -87,7 +88,11 @@
       "10": "十"
     }
   },
-  "niri/window": {
+  "sway/mode": {
+    "format": "{}",
+    "max-length": 50
+  },
+  "sway/window": {
     "format": "{}",
     "max-length": 69
   },
@@ -98,19 +103,11 @@
   },
   "modules-right": [
     "tray",
-    "custom/recording",
     "clock"
   ],
   "tray": {
     "icon-size": 18,
     "spacing": 8
-  },
-  "custom/recording": {
-    "interval": 2,
-    "exec-if": "pgrep wf-recorder",
-    "exec": "echo ' '",
-    "on-click": "kill $(pgrep wf-recorder)",
-    "tooltip": false
   },
   "clock": {
     "format": "{:%a, %b %d %H:%M} ",

@@ -635,6 +635,7 @@ binds {
     // Print { screenshot; }
     // TODO: maybe these tools should be somewhere betta
     Print { spawn "~/bin/screenshot.sh"; }
+    Shift+Print { spawn "~/bin/record-screen.sh"; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
