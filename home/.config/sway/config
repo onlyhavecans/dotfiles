@@ -1,0 +1,268 @@
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $alt Mod1
+# Home row direction keys, like vim
+set $left H
+set $down J
+set $up K
+set $right L
+# My apps
+set $term foot
+set $browser firefox
+set $fileManager thunar
+set $menu rofi -show combi | xargs swaymsg exec --
+
+### Output configuration
+# man 5 sway-output
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output HDMI-A-1 bg ~/Sync/Images/Desktops/WebbyRelax.png fill
+output HDMI-A-2 bg ~/Sync/Images/Desktops/WebbyMoon.png fill
+output HDMI-A-2 transform 90
+exec swaymsg focus output HDMI-A-1
+
+### Input configuration
+# man 5 sway-input
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+input * {
+  natural_scroll enabled
+  pointer_accel -0.4
+}
+
+### Idle configuration
+exec swayidle -w \
+       timeout 300 'swaylock --daemonize' \
+       timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+       before-sleep 'swaylock --daemonize'
+
+###  Theme
+gaps inner 5
+smart_gaps off
+
+default_border pixel 2
+default_floating_border none
+
+set $color_normal_bg     #282828
+set $color_normal_red    #cc241d
+set $color_normal_green  #98971a
+set $color_normal_yellow #d79921
+set $color_bright_yellow #fabd2f
+set $color_normal_blue   #458588
+set $color_normal_purple #b16286
+set $color_normal_aqua   #689d6a
+set $color_normal_gray   #a89984
+set $color_bright_fg     #ebdbb2
+
+# Colors                  border                 background             text                indicator              child_border
+client.focused            $color_normal_bg       $color_normal_gray     $color_bright_fg    $color_normal_purple   $color_normal_bg
+client.focused_inactive   $color_normal_bg       $color_normal_gray     $color_bright_fg    $color_normal_purple   $color_normal_bg
+client.unfocused          $color_normal_bg       $color_normal_gray     $color_bright_fg    $color_normal_purple   $color_normal_bg
+client.urgent             $color_normal_yellow   $color_bright_yellow   $color_bright_fg    $color_normal_red      $color_normal_red
+client.placeholder        $color_normal_red      $color_normal_red      $color_normal_red   $color_normal_red      $color_normal_red
+
+### Apps
+# Color Control
+exec gammastep
+# 1Password
+exec ELECTRON_OZONE_PLATFORM_HINT="" 1password --silent
+# cliphost store
+exec wl-paste --type text --watch cliphist store #Stores only text data
+exec wl-paste --type image --watch cliphist store #Stores only image data
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+    # Start your launcher
+    bindsym $mod+Space exec $menu
+    # Start my fileManager
+    bindsym $mod+E exec $fileManager
+    # Start my browser
+    bindsym $mod+B exec $browser
+    # Lock it
+    bindsym $mod+Escape exec ~/.config/sway/lock_screen.sh
+    # Power menu
+    bindsym $mod+Backspace exec rofi -show p -modi p:~/bin/rofi-power-menu
+    # Screenshot
+    bindsym $mod+P exec ~/.config/sway/screenshot-select.sh
+    bindsym $mod+Shift+P exec ~/.config/sway/screenshot-full.sh
+
+    # clipboard manager
+    bindsym $mod+Shift+V exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+    # 1Password
+    bindsym $mod+Shift+Space exec 1password --quick-access
+    # emoji picker
+    bindsym $mod+semicolon exec rofi -modi emoji -show emoji
+
+    # Kill focused window
+    bindsym $mod+Q kill
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+M exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # Reload the configuration file
+    bindsym $mod+Shift+R reload
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+Comma splitv
+    bindsym $mod+Period splith
+
+    # Switch the current container between different layout styles
+    bindsym $mod+S layout stacking
+    bindsym $mod+W layout tabbed
+    bindsym $mod+T layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+F fullscreen
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+F floating toggle
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+Tab focus mode_toggle
+    # Move focus to the parent container
+    bindsym $mod+A focus parent
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the window
+    bindsym $mod+Shift+h move left
+    bindsym $mod+Shift+j move down
+    bindsym $mod+Shift+k move up
+    bindsym $mod+Shift+l move right
+    # Or use $mod+Shift[up|down|left|right]
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+Minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+Minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+    # also with the mod
+    bindsym $mod+$left resize shrink width 10px
+    bindsym $mod+$down resize grow height 10px
+    bindsym $mod+$up resize shrink height 10px
+    bindsym $mod+$right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    # also with the mod
+    bindsym $mod+Left resize shrink width 10px
+    bindsym $mod+Down resize grow height 10px
+    bindsym $mod+Up resize shrink height 10px
+    bindsym $mod+Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+#
+# Hardwar keys
+#
+
+# Brightness
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 10
+
+# # Volume
+# bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+# bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+# bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+
+# Audio
+bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+8 waybar"
+bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pkill -RTMIN+8 waybar"
+bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+8 waybar"
+
+#
+# Status Bar:
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+  swaybar_command waybar
+}
+
+#
+## Rename Some windows
+#
+for_window [shell="xwayland"] title_format "[XWayland] %title"
+
+include /etc/sway/config.d/*
