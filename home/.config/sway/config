@@ -21,10 +21,14 @@ set $menu fuzzel | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-# lil work addon display
-output "BOE Display 0x00000144" pos -1920 -250 mode 1920x1080@59.940Hz
+
 # main work display
 output "Dell Inc. DELL G2725D 4H65S34" pos 0 0
+# lil work addon display
+output "BOE Display 0x00000144" pos -1920 -250 mode 1920x1080@59.940Hz
+
+focus output "Dell Inc. DELL G2725D 4H65S34"
+
 
 ### Input configuration
 # man 5 sway-input
@@ -32,8 +36,8 @@ output "Dell Inc. DELL G2725D 4H65S34" pos 0 0
 input * {
   natural_scroll enabled
   pointer_accel -0.4
-  xkb_layout "us"
-  xkb_options "ctrl:nocaps"
+  xkb_layout us
+  xkb_options ctrl:nocaps
   xkb_numlock enabled
 }
 
@@ -53,8 +57,13 @@ seat * {
 exec mako
 exec gammastep-indicator
 exec 1password --silent
+exec netbird-ui
 exec wl-paste --watch cliphist store
-exec feishin
+exec streamcontroller -b
+
+exec swaymsg "workspace 1; exec feishin"
+exec swaymsg "workspace 2; exec obsidian"
+exec swaymsg "workspace 3; exec $term"
 
 ### Key bindings
 #
@@ -250,7 +259,10 @@ for_window [shell="xwayland"] title_format "[XWayland] %title"
 #
 
 font "Noto" 12
-smart_borders on
+
+gaps inner 8
+gaps outer 5
+default_border pixel 3
 
 ## set primary Rosé Pine Moon colorscheme colors
 set $base           #232136
