@@ -6,7 +6,7 @@
    Global Styles
    ======================================== */
 * {
-  font-family: JetBrainsMono Nerd Font, FontAwesome, Noto;
+  font-family: JetBrainsMono Nerd Font, Noto;
   font-weight: bold;
   font-size: 16px;
 }
@@ -35,7 +35,7 @@ tooltip {
   border: 3px solid @pine;
   border-radius: 8px;
   opacity: 0.9;
-  padding: 0px 8px;
+  padding: 0px 6px;
   margin: 3px 0px;
   margin-top: 10px;
 }
@@ -44,11 +44,12 @@ tooltip {
    Left Side Modules
    ======================================== */
 
-/* System info group: CPU -> Memory -> Temperature -> Wireplumber */
+/* System info group: CPU -> Memory -> Disk -> Wireplumber -> Source -> Temperature -> MPRIS */
 #cpu {
   color: @rose;
   border-radius: 8px 0px 0px 8px;  /* Left rounded */
   border-right: 0px;
+  margin-left: 0px;
 }
 
 #memory {
@@ -78,6 +79,13 @@ tooltip {
 
 #wireplumber {
   color: @iris;
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#wireplumber.source {
+  color: @foam;
   border-radius: 0px;
   border-left: 0px;
   border-right: 0px;
