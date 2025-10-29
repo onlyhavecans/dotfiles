@@ -258,7 +258,7 @@ for_window [shell="xwayland"] title_format "[XWayland] %title"
 # Theme
 #
 
-font "Noto" 12
+font "SF Pro" 12
 
 gaps inner 8
 gaps outer 5
