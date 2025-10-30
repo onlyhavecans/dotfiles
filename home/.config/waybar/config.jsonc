@@ -17,7 +17,7 @@
     "format": " {usage}%"
   },
   "memory": {
-    "format": "󰗈 {percentage}% 󰗈󰋊 {swapPercentage}%"
+    "format": "󰗈 {percentage}%"
   },
   "disk": {
     "interval": 60,
