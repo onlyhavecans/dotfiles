@@ -35,7 +35,7 @@ tooltip {
   border: 3px solid @pine;
   border-radius: 8px;
   opacity: 0.9;
-  padding: 0 8px;
+  padding: 0 5px;
   margin: 3px 0;
   margin-top: 10px;
 }

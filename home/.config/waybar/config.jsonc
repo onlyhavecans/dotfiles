@@ -3,12 +3,14 @@
   "margin-left": 17,
   "margin-right": 17,
   "modules-left": [
+    "battery",
     "cpu",
     "memory",
     "disk",
     "wireplumber",
     "wireplumber#source",
-    "temperature",
+    "power-profiles-daemon",
+    "backlight",
     "mpris"
   ],
   "cpu": {
@@ -22,9 +24,52 @@
     "format": "󰋊 {percentage_used}%",
     "path": "/"
   },
-  "temperature": {
-    // "thermal-zone": 1,
-    "format": " {temperatureC}°C"
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   "wireplumber": {
     "format": " {volume}%",
