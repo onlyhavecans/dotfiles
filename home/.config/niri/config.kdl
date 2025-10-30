@@ -55,12 +55,17 @@ input {
 // The built-in laptop monitor is usually called "eDP-1".
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
-// Remember to uncomment the node by removing "/-"!
+
+output "Dell Inc. DELL G2725D 4H65S34" {
+  // Center the Center
+  focus-at-startup
+}
 output "BOE Display 0x00000144" {
   // lil work addon display
   mode "1920x1080@59.940"
 }
 
+// Remember to uncomment the node by removing "/-"!
 /-output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
