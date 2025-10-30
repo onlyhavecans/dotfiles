@@ -6,7 +6,7 @@
    Global Styles
    ======================================== */
 * {
-  font-family: JetBrainsMono Nerd Font, Noto;
+  font-family: SFProText Nerd Font, JetBrainsMono Nerd Font, Noto;
   font-weight: bold;
   font-size: 16px;
 }
@@ -14,7 +14,6 @@
 window#waybar {
   color: @text;
   background-color: transparent;
-  color: @text;
 }
 
 tooltip {
@@ -27,141 +26,106 @@ tooltip {
 }
 
 /* ========================================
-   Base Module Styles (all modules)
+   Base Module Styles
    ======================================== */
 
-.module {
+/* Shared module base */
+#cpu, #memory, #disk, #temperature, #wireplumber, #wireplumber.source, #mpris, #custom-recording, #clock {
   background: @base;
   border: 3px solid @pine;
   border-radius: 8px;
   opacity: 0.9;
-  padding: 0px 6px;
-  margin: 3px 0px;
+  padding: 0 8px;
+  margin: 3px 0;
   margin-top: 10px;
 }
 
 /* ========================================
-   Left Side Modules
+   Left Side: System Info Group
    ======================================== */
 
-/* System info group: CPU -> Memory -> Disk -> Wireplumber -> Source -> Temperature -> MPRIS */
+/* First in group */
 #cpu {
   color: @rose;
-  border-radius: 8px 0px 0px 8px;  /* Left rounded */
-  border-right: 0px;
-  margin-left: 0px;
+  border-radius: 8px 0 0 8px;
+  border-right: 0;
+  margin-left: 0;
 }
 
-#memory {
-  color: @love;
-  border-radius: 0px;
-  border-left: 0px;
-  border-right: 0px;
+/* Middle items share common styles */
+#memory, #disk, #temperature, #wireplumber, #wireplumber.source {
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
 }
 
-#disk {
-  color: @gold;
-  border-radius: 0px;
-  border-left: 0px;
-  border-right: 0px;
-}
+#memory { color: @love; }
+#disk, #temperature { color: @gold; }
+#temperature.critical { color: @love; }
+#wireplumber { color: @iris; }
+#wireplumber.source { color: @foam; }
 
-#temperature {
-  color: @gold;
-  border-radius: 0px;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#temperature.critical {
-  color: @love;
-}
-
-#wireplumber {
-  color: @iris;
-  border-radius: 0px;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#wireplumber.source {
-  color: @foam;
-  border-radius: 0px;
-  border-left: 0px;
-  border-right: 0px;
-}
-
+/* Last in group */
 #mpris {
-  border-radius: 0 8px 8px 0;  /* Right rounded */
-  border-left: 0px;
-  margin-right: 10px;
+  color: @text;
+  border-radius: 0 8px 8px 0;
+  border-left: 0;
 }
 
-#workspaces {
-  margin-left: 10px;
-  margin-right: 10px;
+/* ========================================
+   Workspaces & Taskbar
+   ======================================== */
+
+#workspaces, #taskbar {
+  background: @base;
+  border: 3px solid @pine;
+  border-radius: 8px;
+  opacity: 0.9;
+  padding: 0 8px;
+  margin: 3px 5px;
+  margin-top: 10px;
 }
 
-#workspaces button {
-  color: @muted;
+#workspaces button, #taskbar button {
   padding: 5px;
   border-radius: 8px;
 }
 
-#workspaces button.active {
-  color: @text;
+#workspaces button {
+  color: @muted;
 }
 
-#workspaces button.focused {
-  color: @base;
-  background: @pine;
-}
+#workspaces button.active { color: @text; }
+#workspaces button.focused { color: @base; background: @pine; }
+#workspaces button.urgent { color: @base; background: @love; }
+#workspaces button:hover { color: @text; background: @highlightMed; }
 
-#workspaces button.urgent {
-  color: @base;
-  background: @love;
-}
-
-#workspaces button:hover {
-  color: @text;
-  background: @highlightMed;
-}
-
-#taskbar {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#taskbar button {
-  border-radius: 8px;
-}
-
-#taskbar button.active {
-  background-color: @pine;
-}
-
-#taskbar button.minimized {
-  background-color: @highlightMed;
-}
-
-#taskbar button.maximized {
-  background-color: @foam;
-}
-
-#taskbar button.fullscreen {
-  background-color: @subtle;
-}
+#taskbar button.active { background: @pine; }
+#taskbar button.minimized { background: @highlightMed; }
+#taskbar button.maximized { background: @foam; }
+#taskbar button.fullscreen { background: @subtle; }
 
 /* ========================================
-   Right Side Modules (standalone)
+   Right Side: Standalone Modules
    ======================================== */
+
 #tray {
-  margin-left: 10px;
-  margin-right: 10px;
+  background: @base;
+  border: 3px solid @pine;
+  border-radius: 8px;
+  opacity: 0.9;
+  padding: 0 8px;
+  margin: 3px 5px;
+  margin-top: 10px;
+}
+
+#custom-recording {
+  color: @love;
+  margin: 0 5px;
 }
 
 #clock {
   color: @base;
   background: @text;
-  margin-left: 10px;
+  margin-left: 5px;
 }
