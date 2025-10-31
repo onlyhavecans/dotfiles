@@ -6,7 +6,7 @@
    Global Styles
    ======================================== */
 * {
-  font-family: SFProText Nerd Font, JetBrainsMono Nerd Font, Noto;
+  font-family: SFProText Nerd Font;
   font-weight: bold;
   font-size: 16px;
 }
@@ -18,9 +18,10 @@ window#waybar {
 
 tooltip {
   color: @text;
-  background: @surface;
-  border-color: @pine;
-  border-radius: 4px;
+  background: @overlay;
+  border-color: @highlightHigh;
+  font-size: 14px;
+  border-radius: 9px;
   border-width: 2px;
   border-style: solid;
 }
@@ -39,12 +40,12 @@ tooltip {
 
   /* Appearance */
   background: @surface;
-  border: 3px solid @pine;
+  border: 3px solid @highlightHigh;
   border-radius: 0;
   opacity: 0.9;
 
   /* Connected bar effect */
-  border-left: 1px solid @pine; /* Thin divider */
+  border-left: 1px solid @highlightHigh; /* Thin divider */
   border-right: 0;
 }
 
@@ -53,7 +54,7 @@ tooltip {
 .modules-center > widget:first-child > *,
 .modules-right > widget:first-child > * {
   border-radius: 8px 0 0 8px;
-  border-left: 3px solid @pine; /* Thick border on edge */
+  border-left: 3px solid @highlightHigh; /* Thick border on edge */
 }
 
 /* Last module in ANY section */
@@ -61,7 +62,7 @@ tooltip {
 .modules-center > widget:last-child > *,
 .modules-right > widget:last-child > * {
   border-radius: 0 8px 8px 0;
-  border-right: 3px solid @pine; /* Thick border on edge */
+  border-right: 3px solid @highlightHigh; /* Thick border on edge */
 }
 
 /* ========================================
@@ -92,12 +93,13 @@ tooltip {
 /* Workspaces button states */
 #workspaces button { color: @muted; }
 #workspaces button.active { color: @text; }
-#workspaces button.focused { color: @base; background: @pine; }
+#workspaces button.focused { color: @base; background: @iris; }
 #workspaces button.urgent { color: @base; background: @love; }
 #workspaces button:hover { color: @text; background: @highlightMed; }
 
 /* Taskbar button states */
-#taskbar button.active { background: @pine; }
+#taskbar button { color: @subtle; }  /* Default unfocused state */
+#taskbar button.active { background: @iris; }
 #taskbar button.minimized { background: @highlightMed; }
 #taskbar button.maximized { background: @foam; }
 #taskbar button.fullscreen { background: @subtle; }
@@ -108,3 +110,15 @@ tooltip {
 
 /* Recording indicator styling */
 #custom-recording { color: @love; }
+
+/* Power menu button colors */
+#custom-lock { color: @iris; }
+#custom-logout { color: @gold; }
+#custom-reboot { color: @foam; }
+#custom-shutdown { color: @love; }
+
+/* Power menu hover effects */
+#custom-lock:hover { color: @base; background: @iris; }
+#custom-logout:hover { color: @base; background: @gold; }
+#custom-reboot:hover { color: @base; background: @foam; }
+#custom-shutdown:hover { color: @base; background: @love; }

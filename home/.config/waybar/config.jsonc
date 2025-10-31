@@ -91,24 +91,15 @@
     "scroll-step": 5
   },
   "mpris": {
-    "format": "{player_icon} {status_icon} {dynamic}",
-    "dynamic-order": [
-      "title",
-      "artist",
-      "album"
-    ],
+    "format": "{status_icon} {dynamic}",
     "dynamic-len": 42,
-    "player-icons": {
-      "default": "󰽰",
-      "firefox": "󰈹",
-      "Feishin": ""
-    },
     "status-icons": {
       "playing": "",
       "paused": ""
     },
     "ignored-players": [
-      "firefox"
+      "firefox",
+      "chromium"
     ]
   },
   "modules-center": [
@@ -144,7 +135,10 @@
   "modules-right": [
     "tray",
     "custom/recording",
-    "clock"
+    "gamemode",
+    "systemd-failed-units",
+    "clock",
+    "group/power"
   ],
   "tray": {
     "icon-size": 18,
@@ -153,12 +147,59 @@
   "custom/recording": {
     "interval": 2,
     "exec-if": "pgrep wf-recorder",
-    "exec": "echo ' '",
+    "exec": "echo ",
     "on-click": "kill $(pgrep wf-recorder)",
     "tooltip": false
+  },
+  "gamemode": {
+    "format": "{glyph}",
+    "format-alt": "{glyph} {count}",
+    "glyph": "󰊖",
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": false, // Do not hide if there is zero failed units.
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "system": true,
+    "user": true
   },
   "clock": {
     "format": "{:%a, %b %d %H:%M} ",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+  },
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/lock",
+      "custom/shutdown",
+      "custom/reboot",
+      "custom/logout"
+    ]
+  },
+  "custom/lock": {
+    "format": "󰌾",
+    "on-click": "swaylock",
+    "tooltip": false
+  },
+  "custom/logout": {
+    "format": "󰍃",
+    "on-click": "niri msg action quit",
+    "tooltip": false
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "on-click": "systemctl reboot",
+    "tooltip": false
+  },
+  "custom/shutdown": {
+    "format": "󰐥",
+    "on-click": "systemctl poweroff",
+    "tooltip": false
   }
 }
