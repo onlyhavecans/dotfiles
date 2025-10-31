@@ -161,16 +161,16 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#9ccfd8"
+        active-color "#907aa9"
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#6e6a86"
+        inactive-color "#cecacd"
 
         // Color of the border around windows that request your attention.
-        urgent-color "#eb6f92"
+        urgent-color "#b4637a"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
