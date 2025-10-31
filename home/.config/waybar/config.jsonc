@@ -138,7 +138,10 @@
     "gamemode",
     "systemd-failed-units",
     "clock",
-    "group/power"
+    "custom/lock",
+    "custom/logout",
+    "custom/reboot",
+    "custom/shutdown"
   ],
   "tray": {
     "icon-size": 18,
@@ -166,21 +169,22 @@
     "user": true
   },
   "clock": {
-    "format": "{:%a, %b %d %H:%M} ",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
-  },
-  "group/power": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 300,
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "custom/lock",
-      "custom/shutdown",
-      "custom/reboot",
-      "custom/logout"
-    ]
+    "format": "{:%a %H:%M}",
+    "format-alt": "{:%a, %b %d %H:%M}",
+    "tooltip-format": "<big>{:%a, %B %d %Y}</big>\n<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#000000'><b>{}</b></span>",
+        "days": "{}",
+        "weeks": "<i>w{}</i>",
+        "weekdays": "{}",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
   },
   "custom/lock": {
     "format": "󰌾",
