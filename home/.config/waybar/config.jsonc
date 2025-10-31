@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
-  "margin-left": 17,
-  "margin-right": 17,
+  "margin-left": 10,
+  "margin-right": 10,
   "modules-left": [
     "battery",
     "cpu",

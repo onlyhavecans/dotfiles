@@ -1,6 +1,6 @@
-@import "./rose-pine.css";
+/* @import "./rose-pine.css"; */
 /* @import "./rose-pine-moon.css"; */
-/* @import "./rose-pine-dawn.css"; */
+@import "./rose-pine-dawn.css";
 
 /* ========================================
    Global Styles
@@ -12,8 +12,8 @@
 }
 
 window#waybar {
-  color: @text;
   background-color: transparent;
+  color: @text;
 }
 
 tooltip {
@@ -26,106 +26,85 @@ tooltip {
 }
 
 /* ========================================
-   Base Module Styles
+   Base Module Styles (All Sections)
    ======================================== */
 
-/* Shared module base */
-#cpu, #memory, #disk, #temperature, #wireplumber, #wireplumber.source, #mpris, #custom-recording, #clock {
-  background: @base;
-  border: 3px solid @pine;
-  border-radius: 8px;
-  opacity: 0.9;
+/* Universal base styling for ALL modules */
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+  /* Spacing */
+  margin: 5px 0 1px 0;
   padding: 0 5px;
-  margin: 3px 0;
-  margin-top: 10px;
+
+  /* Appearance */
+  background: @surface;
+  border: 3px solid @pine;
+  border-radius: 0;
+  opacity: 0.9;
+
+  /* Connected bar effect */
+  border-left: 1px solid @pine; /* Thin divider */
+  border-right: 0;
+}
+
+/* First module in ANY section */
+.modules-left > widget:first-child > *,
+.modules-center > widget:first-child > *,
+.modules-right > widget:first-child > * {
+  border-radius: 8px 0 0 8px;
+  border-left: 3px solid @pine; /* Thick border on edge */
+}
+
+/* Last module in ANY section */
+.modules-left > widget:last-child > *,
+.modules-center > widget:last-child > *,
+.modules-right > widget:last-child > * {
+  border-radius: 0 8px 8px 0;
+  border-right: 3px solid @pine; /* Thick border on edge */
 }
 
 /* ========================================
-   Left Side: System Info Group
+   Left Side: Module Colors
    ======================================== */
 
-/* First in group */
-#cpu {
-  color: @rose;
-  border-radius: 8px 0 0 8px;
-  border-right: 0;
-  margin-left: 0;
-}
-
-/* Middle items share common styles */
-#memory, #disk, #temperature, #wireplumber, #wireplumber.source {
-  border-radius: 0;
-  border-left: 0;
-  border-right: 0;
-}
-
+#battery { color: @rose; }
+#cpu { color: @rose; }
 #memory { color: @love; }
-#disk, #temperature { color: @gold; }
+#disk { color: @gold; }
+#temperature { color: @gold; }
 #temperature.critical { color: @love; }
 #wireplumber { color: @iris; }
 #wireplumber.source { color: @foam; }
-
-/* Last in group */
-#mpris {
-  color: @text;
-  border-radius: 0 8px 8px 0;
-  border-left: 0;
-}
+#power-profiles-daemon { color: @gold; }
+#backlight { color: @foam; }
+#mpris { color: @text; }
 
 /* ========================================
-   Workspaces & Taskbar
+   Center: Workspaces & Taskbar
    ======================================== */
 
-#workspaces, #taskbar {
-  background: @base;
-  border: 3px solid @pine;
-  border-radius: 8px;
-  opacity: 0.9;
-  padding: 0 8px;
-  margin: 3px 5px;
-  margin-top: 10px;
+/* All buttons in center modules */
+.modules-center > widget > * button {
+  border-radius: 7px;
 }
 
-#workspaces button, #taskbar button {
-  padding: 5px;
-  border-radius: 8px;
-}
-
-#workspaces button {
-  color: @muted;
-}
-
+/* Workspaces button states */
+#workspaces button { color: @muted; }
 #workspaces button.active { color: @text; }
 #workspaces button.focused { color: @base; background: @pine; }
 #workspaces button.urgent { color: @base; background: @love; }
 #workspaces button:hover { color: @text; background: @highlightMed; }
 
+/* Taskbar button states */
 #taskbar button.active { background: @pine; }
 #taskbar button.minimized { background: @highlightMed; }
 #taskbar button.maximized { background: @foam; }
 #taskbar button.fullscreen { background: @subtle; }
 
 /* ========================================
-   Right Side: Standalone Modules
+   Right Side: Module-Specific Overrides
    ======================================== */
 
-#tray {
-  background: @base;
-  border: 3px solid @pine;
-  border-radius: 8px;
-  opacity: 0.9;
-  padding: 0 8px;
-  margin: 3px 5px;
-  margin-top: 10px;
-}
-
-#custom-recording {
-  color: @love;
-  margin: 0 5px;
-}
-
-#clock {
-  color: @base;
-  background: @text;
-  margin-left: 5px;
-}
+/* Recording indicator styling */
+#custom-recording { color: @love; }
