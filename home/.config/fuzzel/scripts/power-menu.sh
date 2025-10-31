@@ -13,7 +13,7 @@ options=(
 )
 
 # Show menu and get selection
-selected=$(printf '%s\n' "${options[@]}" | fuzzel --dmenu --prompt="Power: ")
+selected=$(printf '%s\n' "${options[@]}" | fuzzel --dmenu --width=7 --lines=5 --prompt="Power: ")
 
 # Execute based on selection
 case "$selected" in
