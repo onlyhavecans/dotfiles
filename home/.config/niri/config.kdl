@@ -235,10 +235,6 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-at-startup "1password" "--silent"
-spawn-at-startup "streamcontroller" "-b"
-spawn-at-startup "espanso" "start" "--unmanaged"
-spawn-at-startup "gammastep-indicator"
-spawn-at-startup "netbird-ui"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 // spawn-at-startup "feishin"
