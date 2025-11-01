@@ -65,6 +65,11 @@ output "BOE Display 0x00000144" {
   mode "1920x1080@59.940"
 }
 
+output "PNP(BNQ) BenQ PJ 0x00000001" {
+  // projector
+  mode "1920x1080@60.000"
+}
+
 // Remember to uncomment the node by removing "/-"!
 /-output "eDP-1" {
     // Uncomment this line to disable this output.
