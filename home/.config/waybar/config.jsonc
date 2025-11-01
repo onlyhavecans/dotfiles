@@ -17,7 +17,7 @@
     "format": " {usage}%"
   },
   "memory": {
-    "format": "󰗈 {percentage}%"
+    "format": " {percentage}%"
   },
   "disk": {
     "interval": 60,
@@ -97,6 +97,12 @@
       "playing": "",
       "paused": ""
     },
+    "dynamic-order": [
+      "title",
+      "artist",
+      "album",
+      "length"
+    ],
     "ignored-players": [
       "firefox",
       "chromium"
@@ -130,7 +136,8 @@
   "wlr/taskbar": {
     "icon-theme": "rose-pine",
     "format": "{icon}",
-    "icon-size": 24
+    "icon-size": 24,
+    "on-click": "activate"
   },
   "modules-right": [
     "tray",
@@ -162,7 +169,7 @@
     "tooltip-format": "Games running: {count}"
   },
   "systemd-failed-units": {
-    "hide-on-ok": false, // Do not hide if there is zero failed units.
+    "hide-on-ok": true,
     "format": "✗ {nr_failed}",
     "format-ok": "✓",
     "system": true,
