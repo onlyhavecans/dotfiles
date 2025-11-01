@@ -144,6 +144,7 @@
     "custom/recording",
     "gamemode",
     "systemd-failed-units",
+    "custom/weather",
     "clock",
     "custom/lock",
     "custom/logout",
@@ -174,6 +175,11 @@
     "format-ok": "✓",
     "system": true,
     "user": true
+  },
+  "custom/weather": {
+    "format": "{}",
+    "interval": 1800,
+    "exec": "curl -s 'wttr.in?m&format=1'"
   },
   "clock": {
     "format": "{:%a %H:%M}",
