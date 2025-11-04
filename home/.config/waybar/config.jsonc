@@ -4,9 +4,9 @@
   "margin-right": 10,
   "modules-left": [
     "battery",
-    "tempature",
     "cpu",
     "memory",
+    "temperature",
     "disk",
     "wireplumber",
     "wireplumber#source",
@@ -15,8 +15,9 @@
     "mpris"
   ],
   "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    // for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+    // "thermal-zone": 1,
+    "hwmon-path": "/sys/class/hwmon/hwmon0/temp2_input",
     "critical-threshold": 85,
     "format-critical": "{temperatureC}°C",
     "format": "{temperatureC}°C"
@@ -190,8 +191,7 @@
     "exec": "curl -s 'wttr.in?m&format=1'"
   },
   "clock": {
-    "format": "{:%a %H:%M}",
-    "format-alt": "{:%a, %b %d %H:%M}",
+    "format": "{:%a, %b %d%H:%M}",
     "tooltip-format": "<big>{:%a, %B %d %Y}</big>\n<tt>{calendar}</tt>",
     "calendar": {
       "mode": "year",
