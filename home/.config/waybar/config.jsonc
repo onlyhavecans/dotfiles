@@ -4,6 +4,7 @@
   "margin-right": 10,
   "modules-left": [
     "battery",
+    "tempature",
     "cpu",
     "memory",
     "disk",
@@ -13,6 +14,13 @@
     "backlight",
     "mpris"
   ],
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 85,
+    "format-critical": "{temperatureC}°C",
+    "format": "{temperatureC}°C"
+  },
   "cpu": {
     "format": " {usage}%"
   },
