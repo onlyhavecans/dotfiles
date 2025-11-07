@@ -6,7 +6,6 @@
     "battery",
     "cpu",
     "memory",
-    "temperature",
     "disk",
     "wireplumber",
     "wireplumber#source",
@@ -14,14 +13,6 @@
     "backlight",
     "mpris"
   ],
-  "temperature": {
-    // for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-    // "thermal-zone": 1,
-    "hwmon-path": "/sys/class/hwmon/hwmon0/temp2_input",
-    "critical-threshold": 85,
-    "format-critical": "{temperatureC}°C",
-    "format": "{temperatureC}°C"
-  },
   "cpu": {
     "format": " {usage}%"
   },
