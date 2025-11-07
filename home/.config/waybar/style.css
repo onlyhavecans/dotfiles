@@ -122,3 +122,8 @@ tooltip {
 #custom-logout:hover { color: @base; background: @gold; }
 #custom-reboot:hover { color: @base; background: @foam; }
 #custom-shutdown:hover { color: @base; background: @love; }
+
+/* tomat custom colors */
+#custom-tomat.work-paused { color: @muted; }
+#custom-tomat.break-paused { color: @muted; }
+#custom-tomat.long-break-paused { color: @muted; }
