@@ -6,5 +6,5 @@
 # Additionally, each config option is also explained in detail
 # on Ghostty's website, at https://ghostty.org/docs/config.
 
-window-decoration = none
-theme = GruvboxDark
+font-size = 14
+theme = Gruvbox Dark
