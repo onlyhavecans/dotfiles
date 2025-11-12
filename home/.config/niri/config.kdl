@@ -32,6 +32,7 @@ input {
         // accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
+        tap-button-map "left-right-middle"
     }
 
     mouse {
@@ -408,19 +409,17 @@ binds {
     // for example, this is a standard bind to toggle the screen reader (orca).
     super+alt+s allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
-    // example volume keys mappings for pipewire & wireplumber.
     // the allow-when-locked=true property makes them work even when the session is locked.
-    // using spawn-sh allows to pass multiple arguments together with the command.
-    xf86audioraisevolume allow-when-locked=true { spawn-sh "wpctl set-volume @default_audio_sink@ 0.1+"; }
-    xf86audiolowervolume allow-when-locked=true { spawn-sh "wpctl set-volume @default_audio_sink@ 0.1-"; }
-    xf86audiomute        allow-when-locked=true { spawn-sh "wpctl set-mute @default_audio_sink@ toggle"; }
-    xf86audiomicmute     allow-when-locked=true { spawn-sh "wpctl set-mute @default_audio_source@ toggle"; }
+    xf86audiomute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    xf86audiolowervolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+    xf86audioraisevolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
 
-    // example brightness key mappings for brightnessctl.
-    // you can use regular spawn with multiple arguments too (to avoid going through "sh"),
-    // but you need to manually put each argument in separate "" quotes.
-    xf86monbrightnessup allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    xf86monbrightnessdown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    xf86audioprev allow-when-locked=true { spawn "playerctl" "previous"; }
+    xf86audioplay allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    xf86audionext allow-when-locked=true { spawn "playerctl" "next"; }
+
+    xf86monbrightnessdown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+    xf86monbrightnessup allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
 
     // open/close the overview: a zoomed-out view of workspaces and windows.
     // you can also move the mouse into the top-left hot corner,
