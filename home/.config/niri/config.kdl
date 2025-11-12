@@ -236,17 +236,20 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
+// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
+// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-at-startup "1password" "--silent"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
-// spawn-at-startup "feishin"
-// spawn-at-startup "obsidian"
-
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+// Laptop Switch events
+// See https://github.com/YaLTeR/niri/wiki/Configuration:-Switch-Events
+switch-events {
+    lid-close { spawn "systemctl" "sleep"; }
+    // lid-open { spawn "notify-send" "The laptop lid is open!"; }
+}
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
