@@ -3,13 +3,13 @@ work = 50.0
 break = 10.0
 long_break = 30.0
 sessions = 2
-auto_advance = false
+auto_advance = true
 
 [sound]
 enabled = true
 system_beep = false
 use_embedded = true
-volume = 0.8
+volume = 1.0
 
 # Custom sound files (optional - will override embedded sounds)
 # work_to_break = "/path/to/custom/work-to-break.wav"
@@ -19,7 +19,7 @@ volume = 0.8
 [notification]
 enabled = true
 icon = "auto"
-timeout = 5000
+timeout = 10000
 
 # Icon mode options:
 # "auto"               - Use embedded icon, cached to ~/.cache/tomat/icon.png (works with mako)
