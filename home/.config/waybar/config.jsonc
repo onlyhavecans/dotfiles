@@ -3,13 +3,12 @@
   "margin-left": 10,
   "margin-right": 10,
   "modules-left": [
-    "battery",
     "cpu",
     "memory",
     "disk",
     "wireplumber",
     "wireplumber#source",
-    "power-profiles-daemon",
+    "battery",
     "backlight",
     "mpris"
   ],
@@ -30,11 +29,11 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
-    "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": " {capacity}% ",
+    "format-plugged": " {capacity}% ",
+    "format-alt": "{icon} {time}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": [
@@ -45,20 +44,9 @@
       ""
     ]
   },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
-  },
   "backlight": {
     // "device": "acpi_video1",
-    "format": "{percent}% {icon}",
+    "format": "{icon} {percent}%",
     "format-icons": [
       "",
       "",
@@ -91,8 +79,10 @@
     "scroll-step": 5
   },
   "mpris": {
-    "format": "{status_icon} {dynamic}",
-    "dynamic-len": 42,
+    "format": "󰝚 {status_icon}",
+    "tooltip": true,
+    "tooltip-format": "{player}: {dynamic}",
+    "dynamic-len": 45,
     "status-icons": {
       "playing": "",
       "paused": ""
