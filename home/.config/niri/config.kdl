@@ -10,7 +10,7 @@ input {
     keyboard {
         xkb {
             layout "us"
-            options "ctrl:nocaps"
+            options "ctrl:nocaps,altwin:menu_win"
             // localectl set-x11-keymap.
         }
         // Enable numlock on startup, omitting this setting disables it.
@@ -400,17 +400,10 @@ binds {
     mod+space hotkey-overlay-title="run an application: fuzzel" { spawn "fuzzel"; }
     mod+b hotkey-overlay-title="run an application: firefox" { spawn "firefox"; }
 
-    super+w hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
+    mod+escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
+    alt+tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
 
-    super+shift+v hotkey-overlay-title="show clipboard" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
-    super+alt+l hotkey-overlay-title="lock the screen: swaylock" { spawn "swaylock"; }
-
-    super+escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
-
-    // use spawn-sh to run a shell command. do this if you need pipes, multiple commands, etc.
-    // note: the entire command goes as a single argument. it's passed verbatim to `sh -c`.
-    // for example, this is a standard bind to toggle the screen reader (orca).
-    super+alt+s allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    mod+shift+c hotkey-overlay-title="show clipboard" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 
     // the allow-when-locked=true property makes them work even when the session is locked.
     xf86audiomute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
@@ -635,7 +628,7 @@ binds {
     Print { spawn "~/bin/screenshot.sh"; }
     Shift+Print { spawn "~/bin/record-screen.sh"; }
     Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Mod+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
@@ -645,7 +638,7 @@ binds {
     //
     // The allow-inhibiting=false property can be applied to other binds as well,
     // which ensures niri always processes them, even when an inhibitor is active.
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    // Mod+Escape allow-inhibiting=true { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
