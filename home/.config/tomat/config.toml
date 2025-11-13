@@ -19,7 +19,7 @@ volume = 1.0
 [notification]
 enabled = true
 icon = "auto"
-timeout = 10000
+timeout = 60000
 
 # Icon mode options:
 # "auto"               - Use embedded icon, cached to ~/.cache/tomat/icon.png (works with mako)
