@@ -113,7 +113,7 @@ cursor {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 14
+    gaps 10
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -372,10 +372,9 @@ window-rule {
   default-floating-position x=10 y=10 relative-to="top-right"
 }
 
-// example: enable rounded corners for all windows.
-// (this example rule is commented out with a "/-" in front.)
+// enable rounded corners for all windows.
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 15
     clip-to-geometry true
 }
 
