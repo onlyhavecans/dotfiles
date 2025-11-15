@@ -2,8 +2,9 @@
 {
   "margin-left": 5,
   "margin-right": 5,
+  "margin-top": 5,
+  "margin-bottom": 2,
   "modules-left": [
-    "power-profiles-daemon",
     "battery",
     "cpu",
     "memory",
@@ -59,17 +60,6 @@
       "",
       ""
     ]
-  },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
   },
   "wireplumber": {
     "format": " {volume}%",
@@ -147,8 +137,8 @@
     "custom/recording",
     "gamemode",
     "systemd-failed-units",
-    "custom/weather",
     "clock",
+    "power-profiles-daemon",
     "group/power"
   ],
   "tray": {
@@ -176,11 +166,6 @@
     "system": true,
     "user": true
   },
-  "custom/weather": {
-    "format": "{}",
-    "interval": 1800,
-    "exec": "curl -s 'wttr.in?m&format=1'"
-  },
   "custom/tomat": {
     "exec": "tomat status",
     "interval": 1,
@@ -205,6 +190,17 @@
         "weekdays": "{}",
         "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
+    }
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
     }
   },
   "group/power": {

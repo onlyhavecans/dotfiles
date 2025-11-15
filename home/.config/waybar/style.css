@@ -14,8 +14,7 @@
 window#waybar {
   color: @text;
   background: @surface;
-  opacity: 0.9;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 4px solid @highlightHigh;
 }
 
@@ -40,35 +39,32 @@ tooltip {
 .modules-left > widget > *,
 .modules-center > widget > *,
 .modules-right > widget > * {
-  /* Spacing */
-  padding: 2px 5px; /* top and bottom | left and right */
-
-  /* Connected bar effect */
-  border: 1px solid @highlightHigh; /* Thin divider */
-  border-right: 1px solid @highlightHigh; /* Thin divider */
+  padding: 1px 5px 2px; /* top | left and right | bottom */
+  border: 1px solid @highlightHigh;
 }
 
 /* First module in ANY section */
 .modules-left > widget:first-child > *,
 .modules-center > widget:first-child > *,
 .modules-right > widget:first-child > * {
-  border-radius: 8px 0 0 8px;
-  padding-left: 8px;
+  border-radius: 10px 0 0 10px; /* top-left | top-right | bottom-right | bottom-left */
+  border-left: 2px solid @highlightHigh;
+  padding-left: 9px;
 }
 
 /* Last module in ANY section */
 .modules-left > widget:last-child > *,
 .modules-center > widget:last-child > *,
 .modules-right > widget:last-child > * {
-  border-radius: 0 8px 8px 0;
-  padding-right: 8px;
+  border-radius: 0 10px 10px 0;
+  border-right: 2px solid @highlightHigh;
+  padding-right: 9px;
 }
 
 /* ========================================
    Left Side: Module Colors
    ======================================== */
 
-#power-profiles-daemon { color: @love; }
 #battery { color: @gold; }
 #cpu { color: @rose; }
 #memory { color: @pine; }
@@ -81,6 +77,10 @@ tooltip {
 /* ========================================
    Center: Workspaces & Taskbar
    ======================================== */
+
+button {
+  border-radius: 5px;
+}
 
 /* Workspaces button states */
 #workspaces button { color: @muted; }
@@ -100,8 +100,13 @@ tooltip {
    Right Side: Module-Specific Overrides
    ======================================== */
 
-/* Recording indicator styling */
+/* why is tray like this? */
+#tray {
+  padding-right: 11px;
+}
+
 #custom-recording { color: @love; }
+#power-profiles-daemon { color: @foam; }
 
 /* tomat custom colors */
 #custom-tomat.work-paused { color: @muted; }
