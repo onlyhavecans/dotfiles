@@ -12,18 +12,24 @@
 }
 
 window#waybar {
-  background-color: transparent;
   color: @text;
+  background: @surface;
+  opacity: 0.9;
+  border-radius: 8px;
+  border: 4px solid @highlightHigh;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
 }
 
 tooltip {
-  color: @text;
-  background: @overlay;
-  border-color: @highlightHigh;
   font-size: 14px;
-  border-radius: 9px;
-  border-width: 2px;
-  border-style: solid;
+  color: @text;
+  background-color: @surface;
+  opacity: 0.9;
+  border: 2px solid @highlightHigh;
+  border-radius: 2px;
 }
 
 /* ========================================
@@ -35,18 +41,11 @@ tooltip {
 .modules-center > widget > *,
 .modules-right > widget > * {
   /* Spacing */
-  margin: 5px 0 1px 0;
-  padding: 0 5px;
-
-  /* Appearance */
-  background: @surface;
-  border: 3px solid @highlightHigh;
-  border-radius: 0;
-  opacity: 0.9;
+  padding: 2px 5px; /* top and bottom | left and right */
 
   /* Connected bar effect */
-  border-left: 1px solid @highlightHigh; /* Thin divider */
-  border-right: 0;
+  border: 1px solid @highlightHigh; /* Thin divider */
+  border-right: 1px solid @highlightHigh; /* Thin divider */
 }
 
 /* First module in ANY section */
@@ -54,7 +53,7 @@ tooltip {
 .modules-center > widget:first-child > *,
 .modules-right > widget:first-child > * {
   border-radius: 8px 0 0 8px;
-  border-left: 3px solid @highlightHigh; /* Thick border on edge */
+  padding-left: 8px;
 }
 
 /* Last module in ANY section */
@@ -62,33 +61,26 @@ tooltip {
 .modules-center > widget:last-child > *,
 .modules-right > widget:last-child > * {
   border-radius: 0 8px 8px 0;
-  border-right: 3px solid @highlightHigh; /* Thick border on edge */
+  padding-right: 8px;
 }
 
 /* ========================================
    Left Side: Module Colors
    ======================================== */
 
-#battery { color: @rose; }
+#power-profiles-daemon { color: @love; }
+#battery { color: @gold; }
 #cpu { color: @rose; }
-#memory { color: @love; }
-#disk { color: @gold; }
-#temperature { color: @gold; }
-#temperature.critical { color: @love; }
+#memory { color: @pine; }
+#disk { color: @foam; }
 #wireplumber { color: @iris; }
-#wireplumber.source { color: @foam; }
-#power-profiles-daemon { color: @gold; }
-#backlight { color: @foam; }
-#mpris { color: @text; }
+#wireplumber.source { color: @iris; }
+#mpris { color: @love; }
+#backlight { color: @gold; }
 
 /* ========================================
    Center: Workspaces & Taskbar
    ======================================== */
-
-/* All buttons in center modules */
-.modules-center > widget > * button {
-  border-radius: 7px;
-}
 
 /* Workspaces button states */
 #workspaces button { color: @muted; }
@@ -111,6 +103,11 @@ tooltip {
 /* Recording indicator styling */
 #custom-recording { color: @love; }
 
+/* tomat custom colors */
+#custom-tomat.work-paused { color: @muted; }
+#custom-tomat.break-paused { color: @muted; }
+#custom-tomat.long-break-paused { color: @muted; }
+
 /* Power menu button colors */
 #custom-lock { color: @iris; }
 #custom-logout { color: @gold; }
@@ -122,8 +119,3 @@ tooltip {
 #custom-logout:hover { color: @base; background: @gold; }
 #custom-reboot:hover { color: @base; background: @foam; }
 #custom-shutdown:hover { color: @base; background: @love; }
-
-/* tomat custom colors */
-#custom-tomat.work-paused { color: @muted; }
-#custom-tomat.break-paused { color: @muted; }
-#custom-tomat.long-break-paused { color: @muted; }
