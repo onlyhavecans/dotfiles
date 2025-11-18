@@ -1,5 +1,4 @@
-#!/bin/bash
-## Using system /bin/bash is intentional. The script crashes when brew upgrades bash
+#!/usr/bin/env bash
 
 ##
 # Helpers

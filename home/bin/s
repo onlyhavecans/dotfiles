@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 URL="https://kagi.com/search?q=$*"
 export PATH=/usr/bin:/Applications/Firefox.app/Contents/MacOS
