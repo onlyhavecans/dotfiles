@@ -33,6 +33,7 @@ input {
         // scroll-method "two-finger"
         // disabled-on-external-mouse
         tap-button-map "left-right-middle"
+        scroll-factor 0.85
     }
 
     mouse {
