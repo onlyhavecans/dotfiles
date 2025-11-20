@@ -140,22 +140,24 @@ if command_exists zoxide; then
   source <(zoxide init zsh)
 fi
 
+if command_exists claude; then
+  alias claude="claude --verbose"
+  alias c=claude
+  alias cc="claude --continue"
+fi
+
 #
 ## Aliases
 #
-
-alias ce="chef exec"
-alias cet="chef exec thor"
-alias cek="chef exec knife"
 
 if ! command_exists xdg-open; then
   # hack around mac/linux
   alias xdg-open=open
 fi
 
-alias tf=terraform
-alias plan="terraform plan -out=tfplan | bat"
-alias gen='terraform plan -out=tfplan -generate-config-out="generated_resources.tf" | bat'
+alias ce="chef exec"
+alias cet="chef exec thor"
+alias cek="chef exec knife"
 
 alias cl=clear
 
@@ -163,12 +165,14 @@ alias g=git
 alias grs="git remote set-url origin"
 
 alias lg=lazygit
-alias lzd=lazydocker
 alias gv="lazygit --path=$HOME/Documents/Obsidian/Vault/"
+alias lzd=lazydocker
+
+alias tf=terraform
+alias plan="terraform plan -out=tfplan | bat"
 
 alias tm="tmux new-session -A -c ~"
-alias tc="mosh catra.local -- tmux new-session -A -c ~"
-alias tp="mosh piper.local -- tmux new-session -A -c ~"
+alias tp="mosh piper.bunni.biz -- tmux new-session -A -c ~"
 alias tw="mosh webby.bunni.biz -- tmux new-session -A -c ~"
 
 #
