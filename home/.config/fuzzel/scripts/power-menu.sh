@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # Fuzzel-based power menu for niri
 
-set -euo pipefail
-
 # Power options
 options=(
+  "🔒 Lock"
   "⏻ Shutdown"
   "⟲ Reboot"
   "⏾ Suspend"
   "⇠ Logout"
-  "🔒 Lock"
 )
 
 # Show menu and get selection

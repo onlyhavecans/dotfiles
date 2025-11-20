@@ -2,8 +2,6 @@
 # Fuzzel-based window selector for niri
 # Jump to any window by selecting its title
 
-set -euo pipefail
-
 # Get list of windows from niri
 windows=$(niri msg --json windows)
 
