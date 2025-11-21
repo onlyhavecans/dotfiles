@@ -149,9 +149,11 @@ fi
 ## Aliases
 #
 
+# hack around mac/linux
 if ! command_exists xdg-open; then
-  # hack around mac/linux
   alias xdg-open=open
+elif ! command_exists open; then
+  alias open=xdg-open
 fi
 
 alias ce="chef exec"
