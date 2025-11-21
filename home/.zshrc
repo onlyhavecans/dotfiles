@@ -141,7 +141,6 @@ if command_exists zoxide; then
 fi
 
 if command_exists claude; then
-  alias claude="claude --verbose"
   alias c=claude
   alias cc="claude --continue"
 fi
