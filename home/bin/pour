@@ -51,6 +51,13 @@ fi
 # The package manager upgrades
 ##
 
+if path_exists "${HOME}/Code/nixos-skwrls/flake.nix" NixOS; then
+  status_message "[nix] Update packages"
+  pushd "$HOME/Code/nixos-skwrls" || return
+  just update
+  popd || return
+fi
+
 if command_exists flatpak; then
   status_message "[flatpak] Update packages"
   flatpak update --assumeyes
