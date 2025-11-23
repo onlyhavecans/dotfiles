@@ -401,6 +401,7 @@ binds {
     mod+b hotkey-overlay-title="run an application: firefox" { spawn "firefox"; }
 
     mod+f12 hotkey-overlay-title="lock" { spawn "swaylock"; }
+    mod+XF86AudioMedia { spawn "swaylock"; }
 
     mod+escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
     alt+tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
