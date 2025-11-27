@@ -136,10 +136,9 @@
     "custom/tomat",
     "custom/recording",
     "gamemode",
-    "systemd-failed-units",
-    "clock",
     "power-profiles-daemon",
-    "group/power"
+    "systemd-failed-units",
+    "clock"
   ],
   "tray": {
     "icon-size": 18,
@@ -202,35 +201,5 @@
       "balanced": "",
       "power-saver": ""
     }
-  },
-  "group/power": {
-    "orientation": "horizontal",
-    "drawer": {},
-    "modules": [
-      "custom/lock",
-      "custom/logout",
-      "custom/reboot",
-      "custom/shutdown"
-    ]
-  },
-  "custom/lock": {
-    "format": "󰌾",
-    "on-click": "swaylock",
-    "tooltip": false
-  },
-  "custom/logout": {
-    "format": "󰍃",
-    "on-click": "niri msg action quit",
-    "tooltip": false
-  },
-  "custom/reboot": {
-    "format": "󰜉",
-    "on-click": "systemctl reboot",
-    "tooltip": false
-  },
-  "custom/shutdown": {
-    "format": "󰐥",
-    "on-click": "systemctl poweroff",
-    "tooltip": false
   }
 }
