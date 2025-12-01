@@ -348,7 +348,7 @@ binds {
   // the allow-when-locked=true property makes them work even when the session is locked.
   xf86audiomute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
   xf86audiolowervolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  xf86audioraisevolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+ -l 1.5"; }
+  xf86audioraisevolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" "-l" "1.5"; }
 
   xf86audioprev allow-when-locked=true { spawn "playerctl" "previous"; }
   xf86audioplay allow-when-locked=true { spawn "playerctl" "play-pause"; }
