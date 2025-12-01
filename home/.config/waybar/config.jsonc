@@ -11,8 +11,8 @@
     "disk",
     "wireplumber",
     "wireplumber#source",
-    "mpris",
-    "backlight"
+    "backlight",
+    "mpris"
   ],
   "cpu": {
     "format": " {usage}%"
