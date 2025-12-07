@@ -41,7 +41,7 @@ output "Dell Inc. DELL G2725D 4H65S34" {
 }
 output "BOE Display 0x00000144" {
   // lil work addon display
-  mode "1920x1080@59.940"
+  scale 1.5
 }
 output "PNP(BNQ) BenQ PJ 0x00000001" {
   // projector
@@ -253,13 +253,14 @@ window-rule {
 
 window-rule {
   match app-id=r#"^feishin$"#
-  open-on-output "HDMI-A-1"
+  match at-startup=true
+  open-on-output "BOE Display 0x00000144"
   open-maximized true
 }
 
 window-rule {
   match app-id=r#"^com\.obsproject\.Studio"# is-floating=true
-  open-on-output "HDMI-A-1"
+  open-on-output "BOE Display 0x00000144"
 }
 
 window-rule {
@@ -270,11 +271,6 @@ window-rule {
 window-rule {
   match app-id=r#"^veadotube-mini$"#
   open-fullscreen true
-}
-
-window-rule {
-  match app-id=r#"^chrome-pomofocus"#
-  default-column-width { proportion 0.33333; }
 }
 
 window-rule {
@@ -301,6 +297,7 @@ window-rule {
 
 window-rule {
   match app-id=r"^obsidian$"
+  match at-startup=true
   open-on-output "DP-3"
   default-column-width { proportion 0.33333; }
 }
