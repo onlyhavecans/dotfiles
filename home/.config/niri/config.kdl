@@ -252,8 +252,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"^feishin$"#
-  match at-startup=true
+  match app-id=r#"^feishin$"# at-startup=true
   open-on-output "BOE Display 0x00000144"
   open-maximized true
 }
@@ -296,8 +295,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r"^obsidian$"
-  match at-startup=true
+  match app-id=r"^obsidian$" at-startup=true
   open-on-output "DP-3"
   default-column-width { proportion 0.33333; }
 }
