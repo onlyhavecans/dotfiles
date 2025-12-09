@@ -13,9 +13,7 @@
 
 window#waybar {
   color: @text;
-  background: @surface;
-  border-radius: 10px;
-  border: 4px solid @highlightHigh;
+  background: transparent;
 }
 
 window#waybar.hidden {
@@ -41,6 +39,7 @@ tooltip {
 .modules-right > widget > * {
   padding: 1px 5px 2px; /* top | left and right | bottom */
   border: 1px solid @highlightHigh;
+  background-color: @surface;
 }
 
 /* First module in ANY section */
