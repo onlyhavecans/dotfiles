@@ -106,6 +106,14 @@ if command_exists bat; then
   alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 fi
 
+if command_exists dua; then
+  alias du=dua
+fi
+
+if command_exists duf; then
+  alias df=duf
+fi
+
 if command_exists eza; then
   alias ls=eza
   alias la="eza -a"
