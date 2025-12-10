@@ -6,13 +6,23 @@
   "margin-bottom": 2,
   "modules-left": [
     "battery",
+    "gamemode",
+    "systemd-failed-units",
     "cpu",
     "memory",
     "disk",
-    "wireplumber",
-    "wireplumber#source",
+    "niri/workspaces",
+    "wlr/taskbar"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "tray",
+    "custom/tomat",
+    "custom/recording",
+    "group/audio",
     "backlight",
-    "mpris"
+    "power-profiles-daemon",
+    "clock"
   ],
   "cpu": {
     "format": " {usage}%"
@@ -46,64 +56,6 @@
       ""
     ]
   },
-  "backlight": {
-    // "device": "acpi_video1",
-    "format": "{icon} {percent}%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "wireplumber": {
-    "format": " {volume}%",
-    "format-muted": " ミュート",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-    "scroll-step": 5
-  },
-  "wireplumber#source": {
-    "node-type": "Audio/Source",
-    "format": "{volume}%",
-    "format-muted": " ミュート",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ -l 1.0",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
-    "scroll-step": 5
-  },
-  "mpris": {
-    "format": "󰝚 {status_icon}",
-    "tooltip": true,
-    "tooltip-format": "{player}: {dynamic}",
-    "dynamic-len": 45,
-    "status-icons": {
-      "playing": "",
-      "paused": ""
-    },
-    "dynamic-order": [
-      "title",
-      "artist",
-      "album",
-      "length"
-    ],
-    "ignored-players": [
-      "firefox",
-      "chromium"
-    ]
-  },
-  "modules-center": [
-    "niri/workspaces",
-    "wlr/taskbar"
-  ],
   "niri/workspaces": {
     "disable-scroll": true,
     "on-click": "activate",
@@ -131,15 +83,6 @@
     "icon-size": 24,
     "on-click": "activate"
   },
-  "modules-right": [
-    "tray",
-    "custom/tomat",
-    "custom/recording",
-    "gamemode",
-    "power-profiles-daemon",
-    "systemd-failed-units",
-    "clock"
-  ],
   "tray": {
     "icon-size": 18,
     "spacing": 8
@@ -201,5 +144,47 @@
       "balanced": "",
       "power-saver": ""
     }
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": [
+      "wireplumber",
+      "wireplumber#source"
+    ],
+    "drawer": {}
+  },
+  "wireplumber": {
+    "format": " {volume}%",
+    "format-muted": " ミュート",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5
+  },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "{volume}%",
+    "format-muted": " ミュート",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ -l 1.0",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "scroll-step": 5
   }
 }

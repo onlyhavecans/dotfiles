@@ -64,17 +64,13 @@ tooltip {
    Left Side: Module Colors
    ======================================== */
 
-#battery { color: @gold; }
 #cpu { color: @rose; }
 #memory { color: @pine; }
 #disk { color: @foam; }
-#wireplumber { color: @iris; }
-#wireplumber.source { color: @iris; }
-#mpris { color: @love; }
-#backlight { color: @gold; }
+
 
 /* ========================================
-   Center: Workspaces & Taskbar
+   Left Side: Workspaces & Taskbar
    ======================================== */
 
 button {
@@ -104,6 +100,10 @@ button {
   padding-right: 11px;
 }
 
+#battery { color: @gold; }
+#wireplumber { color: @iris; }
+#wireplumber.source { color: @iris; }
+#backlight { color: @love; }
 #custom-recording { color: @love; }
 #power-profiles-daemon { color: @foam; }
 
