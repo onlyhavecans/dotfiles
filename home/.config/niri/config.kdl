@@ -239,24 +239,15 @@ animations {
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
-  // This regular expression is intentionally made as specific as possible,
-  // since this is the default config, and we want no false positives.
-  // You can get away with just app-id="wezterm" if you want.
   match app-id=r#"^org\.wezfurlong\.wezterm$"#
   default-column-width {}
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-  // This app-id regular expression will work for both:
-  // - host Firefox (app-id is "firefox")
-  // - Flatpak Firefox (app-id is "org.mozilla.firefox")
   match app-id=r#"firefox$"# title="^Picture-in-Picture$"
   open-floating true
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
 window-rule {
   match app-id=r#"^org\.keepassxc\.KeePassXC$"#
   match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -265,45 +256,34 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"^feishin$"# at-startup=true
-  open-on-output "BOE Display 0x00000144"
-  open-maximized true
-}
-
-window-rule {
-  match app-id=r#"^com\.obsproject\.Studio"# is-floating=true
-  open-on-output "BOE Display 0x00000144"
-}
-
-window-rule {
-  match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
-  open-maximized true
-}
-
-window-rule {
   match app-id=r#"^veadotube-mini$"#
   open-fullscreen true
 }
 
 window-rule {
+  match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
+  match app-id=r#"^feishin$"#
+  open-maximized true
+}
+
+window-rule {
   match app-id=r#"^Slack$"#
-  default-column-width { proportion 0.66667; }
-}
-
-window-rule {
   match app-id=r#"^chrome-twitch"#
-  default-column-width { proportion 0.66667; }
-}
-
-window-rule {
   match app-id=r#"^thunderbird$"#
   default-column-width { proportion 0.66667; }
+}
+
+window-rule {
+  match app-id=r#"^foot$"#
+  default-column-width { proportion 0.5; }
 }
 
 // Keep more specific rules last
 window-rule {
   match app-id="thunderbird" title="Reminder"
+  match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
   open-floating true
+  baba-is-float true
   default-floating-position x=10 y=10 relative-to="top-right"
 }
 
@@ -314,8 +294,8 @@ window-rule {
 }
 
 window-rule {
-  match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-  default-floating-position x=10 y=10 relative-to="top-right"
+  match app-id=r#"^feishin$"# at-startup=true
+  open-on-output "BOE Display 0x00000144"
 }
 
 // enable rounded corners for all windows.
@@ -325,17 +305,9 @@ window-rule {
 }
 
 binds {
-  // keys consist of modifiers separated by + signs, followed by an xkb key name
-  // in the end. to find an xkb name for a particular key, you may use a program
-  // like wev.
-  //
   // "mod" is a special modifier equal to super when running on a tty, and to alt
   // when running as a winit window.
-  //
-  // most actions that you can bind here can also be invoked programmatically with
-  // `niri msg action do-something`.
 
-  // mod-shift-/, which is usually the same as mod-?,
   // shows a list of important hotkeys.
   mod+shift+slash { show-hotkey-overlay; }
 
