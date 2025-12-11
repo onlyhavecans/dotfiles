@@ -17,7 +17,7 @@ window#waybar {
 }
 
 window#waybar > box {
-  background-color: alpha(@surface, 0.8);
+  background-color: @base;
   border-radius: 10px;
 }
 
