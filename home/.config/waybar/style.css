@@ -16,6 +16,11 @@ window#waybar {
   background: transparent;
 }
 
+window#waybar > box {
+  background-color: @surface;
+  border-radius: 10px;
+}
+
 window#waybar.hidden {
   opacity: 0.2;
 }
