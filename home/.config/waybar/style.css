@@ -17,7 +17,7 @@ window#waybar {
 }
 
 window#waybar > box {
-  background-color: @surface;
+  background-color: alpha(@surface, 0.8);
   border-radius: 10px;
 }
 
@@ -29,9 +29,9 @@ tooltip {
   font-size: 14px;
   color: @text;
   background-color: @surface;
-  opacity: 0.9;
+  opacity: 0.8;
   border: 2px solid @highlightHigh;
-  border-radius: 2px;
+  padding: 20px;
 }
 
 /* ========================================

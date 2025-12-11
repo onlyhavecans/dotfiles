@@ -10,11 +10,12 @@
     "systemd-failed-units",
     "cpu",
     "memory",
-    "disk",
+    "disk"
+  ],
+  "modules-center": [
     "niri/workspaces",
     "wlr/taskbar"
   ],
-  "modules-center": [],
   "modules-right": [
     "tray",
     "custom/tomat",
