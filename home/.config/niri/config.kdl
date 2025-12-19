@@ -254,6 +254,13 @@ window-rule {
   match app-id=r#"^Signal$"#
   match app-id=r#"^discord$"#
   match app-id=r#"^Slack$"#
+  block-out-from "screencast"
+}
+
+
+window-rule {
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+  match app-id=r#"1password$"#
   block-out-from "screen-capture"
 }
 
