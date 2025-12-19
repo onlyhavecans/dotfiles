@@ -249,9 +249,11 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
   match app-id=r#"^org\.gnome\.World\.Secrets$"#
   match app-id=r#"1password$"#
+  match app-id=r#"^Signal$"#
+  match app-id=r#"^discord$"#
+  match app-id=r#"^Slack$"#
   block-out-from "screen-capture"
 }
 
