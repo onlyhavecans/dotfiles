@@ -1,0 +1,31 @@
+{
+  "alwaysThinkingEnabled": false,
+  "permissions": {
+    "deny": [
+      "Read(.envrc)",
+      "Read(.env)"
+    ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send 'Claude Code' 'Awaiting your input'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send 'Claude Code' 'Task completed - check results' --urgency=critical"
+          }
+        ]
+      }
+    ]
+  }
+}
