@@ -1,5 +1,4 @@
 {
-  "alwaysThinkingEnabled": false,
   "permissions": {
     "deny": [
       "Read(.envrc)",
