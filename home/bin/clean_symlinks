@@ -5,11 +5,13 @@
 ##
 
 fd --hidden --follow --type l \
-  --exclude lock \
+  --exclude .local/share/Steam \
   --exclude .local/share/flatpak \
+  --exclude .local/state/Steam \
   --exclude .local/state/home-manager \
   --exclude .local/state/nix \
   --exclude .nix-defexpr \
+  --exclude .steam \
   --exclude .var/app \
   --exclude Code \
   --exclude Desktop \
@@ -17,5 +19,6 @@ fd --hidden --follow --type l \
   --exclude Library \
   --exclude OrbStack \
   --exclude Photos \
+  --exclude lock \
   . ~ \
   --exec rm -v {}
