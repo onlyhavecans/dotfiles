@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+function status_message {
+  GREEN='\033[0;32m'
+  NOCOLOR='\033[0m'
+  echo ""
+  echo -e "${GREEN}~ Starting $*${NOCOLOR}"
+}
+
+status_message "Performance Mode"
+powerprofilesctl set performance
+
+status_message "VTuber Apps"
+steam -applaunch 1898830 # VBridger
+steam -applaunch 1325860 # VTube Studio
+
+sleep 45
+
+status_message "Firebot"
+firebot &
+
+status_message "Discord"
+discord &
+
+status_message "OBS-Studio"
+obs &
+
+status_message "Dahsboard"
+xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
+
+status_message "Music"
+feishin &
+current_song --player Feishin
