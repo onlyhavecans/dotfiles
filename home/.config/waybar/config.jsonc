@@ -22,6 +22,7 @@
     "custom/recording",
     "group/audio",
     "backlight",
+    "idle_inhibitor",
     "power-profiles-daemon",
     "clock"
   ],
@@ -133,6 +134,13 @@
         "weekdays": "{}",
         "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
+    }
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
     }
   },
   "power-profiles-daemon": {
