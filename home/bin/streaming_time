@@ -10,24 +10,29 @@ function status_message {
 status_message "Performance Mode"
 powerprofilesctl set performance
 
-status_message "VTuber Apps"
-steam -applaunch 1898830 # VBridger
-steam -applaunch 1325860 # VTube Studio
+status_message "Stream"
+niri msg action spawn -- steam
+sleep 10
 
-sleep 45
+status_message "VBridger"
+niri msg action spawn -- steam -applaunch 1898830
+sleep 10
+
+status_message "VTube Studio"
+niri msg action spawn -- steam -applaunch 1325860
 
 status_message "Firebot"
-firebot &
+niri msg action spawn -- firebot
 
 status_message "Discord"
-discord &
+niri msg action spawn -- discord
 
 status_message "OBS-Studio"
-obs &
+niri msg action spawn -- obs
 
 status_message "Dahsboard"
 xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
 
 status_message "Music"
-feishin &
-current_song --player Feishin
+niri msg action spawn -- strawberry
+current_song --player strawberry
