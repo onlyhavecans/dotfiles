@@ -4,4 +4,4 @@ deps = []
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"
 rev = "2c61c90"
-hash = "d19603f80eba19ae01c42cb6a565283a"
+hash = "3685f7557e7425381b65c883c688f593"
