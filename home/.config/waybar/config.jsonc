@@ -18,7 +18,7 @@
   ],
   "modules-right": [
     "tray",
-    "custom/tomat",
+    // "custom/tomat",
     "custom/recording",
     "group/audio",
     "backlight",
