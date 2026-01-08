@@ -324,10 +324,6 @@ binds {
   mod+t hotkey-overlay-title="open file manager" {spawn "nautilus";}
   mod+b hotkey-overlay-title="open firefox" { spawn "firefox"; }
 
-  xf86audioprev allow-when-locked=true { spawn "playerctl" "previous"; }
-  xf86audioplay allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  xf86audionext allow-when-locked=true { spawn "playerctl" "next"; }
-
   // open/close the overview: a zoomed-out view of workspaces and windows.
   // you can also move the mouse into the top-left hot corner,
   // or do a four-finger swipe up on a touchpad.
