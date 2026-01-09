@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 grim -g "$(slurp)" - |
   satty --filename - \
     --save-after-copy \
