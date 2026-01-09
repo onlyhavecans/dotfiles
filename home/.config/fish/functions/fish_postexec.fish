@@ -1,7 +1,6 @@
 function fish_postexec --on-event fish_postexec
     set -l duration $CMD_DURATION
-    set -l cmd_name (string split ' ' $argv[1])[1]
-
+    set -l cmd_name $argv[1]
     # Only show for commands > 1 second
     test -z "$duration" -o "$duration" -lt 1000; and return
 
