@@ -44,6 +44,7 @@ abbr -a --position command lla "eza -la"
 abbr -a --position command tree "eza --tree"
 abbr -a --position command cl clear
 abbr -a --position command nv nvim
+abbr -a --position command man batman
 abbr -a --position command jbat "bat -l json"
 abbr -a --position command pretty prettybat
 abbr -a --position command c claude
@@ -55,6 +56,7 @@ abbr -a --position command https xhs
 abbr -a --position command o "op run --"
 abbr -a --position command plan "terraform plan -out=tfplan | bat"
 abbr -a --position command tf terraform
+abbr -a --position anywhere -- --help '--help 2>&1 | bat --language=help --plain'
 
 # Git abbreviations
 abbr -a --position command g git
