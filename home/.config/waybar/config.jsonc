@@ -5,6 +5,7 @@
   "margin-top": 5,
   "margin-bottom": 2,
   "modules-left": [
+    "niri/workspaces",
     "battery",
     "gamemode",
     "systemd-failed-units",
@@ -13,12 +14,11 @@
     "disk"
   ],
   "modules-center": [
-    "niri/workspaces",
+    "niri/window",
     "wlr/taskbar"
   ],
   "modules-right": [
     "tray",
-    // "custom/tomat",
     "custom/recording",
     "group/audio",
     "backlight",
@@ -26,6 +26,23 @@
     "power-profiles-daemon",
     "clock"
   ],
+  "niri/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "八",
+      "10": "十"
+    }
+  },
   "cpu": {
     "format": " {usage}%"
   },
@@ -58,26 +75,9 @@
       ""
     ]
   },
-  "niri/workspaces": {
-    "disable-scroll": true,
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "八",
-      "10": "十"
-    }
-  },
   "niri/window": {
     "format": "{}",
-    "max-length": 69
+    "max-length": 50
   },
   "wlr/taskbar": {
     "icon-theme": "rose-pine",
@@ -109,15 +109,6 @@
     "format-ok": "✓",
     "system": true,
     "user": true
-  },
-  "custom/tomat": {
-    "exec": "tomat status",
-    "interval": 1,
-    "return-type": "json",
-    "format": "{text}",
-    "tooltip": true,
-    "on-click": "tomat toggle",
-    "on-click-right": "tomat skip"
   },
   "clock": {
     "format": "{:%a, %b %d%H:%M}",
