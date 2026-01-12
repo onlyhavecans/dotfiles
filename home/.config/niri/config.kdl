@@ -38,6 +38,9 @@ input {
 output "Dell Inc. DELL G2725D 4H65S34" {
   // Center the Center
   focus-at-startup
+  layout {
+    always-center-single-column
+  }
 }
 output "Dell Inc. DELL U2715H H7YCC7A60C0S" {
   // Right monitor
@@ -53,6 +56,7 @@ output "PNP(BNQ) BenQ PJ 0x00000001" {
 output "eDP-1" {
   // Laptops are smaller screens
   layout {
+    always-center-single-column
     default-column-width { proportion 1.0; }
     preset-column-widths {
       proportion 0.5
@@ -68,7 +72,6 @@ layout {
   gaps 16
 
   center-focused-column "never"
-  always-center-single-column
 
   preset-column-widths {
     proportion 0.33333
