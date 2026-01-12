@@ -18,7 +18,6 @@
   ],
   "modules-right": [
     "tray",
-    "custom/recording",
     "group/audio",
     "backlight",
     "idle_inhibitor",
@@ -77,13 +76,6 @@
   "tray": {
     "icon-size": 18,
     "spacing": 8
-  },
-  "custom/recording": {
-    "interval": 2,
-    "exec-if": "pgrep wf-recorder",
-    "exec": "echo ",
-    "on-click": "kill $(pgrep wf-recorder)",
-    "tooltip": false
   },
   "gamemode": {
     "format": "{glyph}",
