@@ -127,6 +127,8 @@ spawn-at-startup "1password" "--silent"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
+
 hotkey-overlay {
   skip-at-startup
 }
@@ -472,12 +474,9 @@ binds {
   // Mod+Space       { switch-layout "next"; }
   // Mod+Shift+Space { switch-layout "prev"; }
 
-  // Print { screenshot; }
-  // TODO: maybe these tools should be somewhere betta
-  Print hotkey-overlay-title="Take a Screensot" { spawn "~/bin/screenshot.sh"; }
-  Shift+Print hotkey-overlay-title="Record Screen" { spawn "~/bin/record-screen.sh"; }
-  Ctrl+Print { screenshot-screen; }
+  Print { screenshot; }
   Mod+Print { screenshot-window; }
+  Ctrl+Print { screenshot-screen; }
 
   // Applications such as remote-desktop clients and software KVM switches may
   // request that niri stops processing the keyboard shortcuts defined here

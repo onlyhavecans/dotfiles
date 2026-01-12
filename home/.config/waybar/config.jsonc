@@ -5,7 +5,6 @@
   "margin-top": 5,
   "margin-bottom": 2,
   "modules-left": [
-    "niri/workspaces",
     "battery",
     "gamemode",
     "systemd-failed-units",
@@ -15,7 +14,7 @@
   ],
   "modules-center": [
     "niri/window",
-    "wlr/taskbar"
+    "niri/workspaces"
   ],
   "modules-right": [
     "tray",
@@ -26,23 +25,6 @@
     "power-profiles-daemon",
     "clock"
   ],
-  "niri/workspaces": {
-    "disable-scroll": true,
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "八",
-      "10": "十"
-    }
-  },
   "cpu": {
     "format": " {usage}%"
   },
@@ -75,15 +57,22 @@
       ""
     ]
   },
-  "niri/window": {
-    "format": "{}",
-    "max-length": 50
-  },
-  "wlr/taskbar": {
-    "icon-theme": "rose-pine",
+  "niri/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
     "format": "{icon}",
-    "icon-size": 24,
-    "on-click": "activate"
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "八",
+      "10": "十"
+    }
   },
   "tray": {
     "icon-size": 18,
