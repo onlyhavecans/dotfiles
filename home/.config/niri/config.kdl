@@ -116,8 +116,8 @@ layout {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous
 cursor {
-  xcursor-theme "catppuccin-latte-flamingo-cursors"
-  xcursor-size 28
+  xcursor-theme "BreezeX-RosePine-Linux"
+  xcursor-size 32
   hide-when-typing
 }
 
