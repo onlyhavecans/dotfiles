@@ -240,32 +240,28 @@ binds {
 
   mod+return hotkey-overlay-title="open a terminal: foot" { spawn "foot"; }
   mod+t hotkey-overlay-title="open file manager" {spawn "nautilus";}
-  // mod+space hotkey-overlay-title="open fuzzel" { spawn "fuzzel"; }
+  mod+space hotkey-overlay-title="open fuzzel" { spawn "fuzzel"; }
   mod+b hotkey-overlay-title="open firefox" { spawn "firefox"; }
 
-  // xf86audioprev allow-when-locked=true { spawn "playerctl" "previous"; }
-  // xf86audioplay allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  // xf86audionext allow-when-locked=true { spawn "playerctl" "next"; }
-  //
-  // mod+f12 hotkey-overlay-title="lock" { spawn "swaylock"; }
-  // mod+XF86AudioMedia { spawn "swaylock"; }
+  // mod+n hotkey-overlay-title="notification center" { spawn ""; }
+  mod+shift+c hotkey-overlay-title="show clipboard" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+  mod+escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
+  alt+tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
 
-  // mod+escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
-  // alt+tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
-  //
-  // mod+shift+c hotkey-overlay-title="show clipboard" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+  mod+f12 hotkey-overlay-title="lock" { spawn "swaylock"; }
+  mod+XF86AudioMedia { spawn "swaylock"; }
 
   // the allow-when-locked=true property makes them work even when the session is locked.
-  // xf86audiomute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  // xf86audiolowervolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  // xf86audioraisevolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" "-l" "1.5"; }
-  //
-  // xf86audioprev allow-when-locked=true { spawn "playerctl" "previous"; }
-  // xf86audioplay allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  // xf86audionext allow-when-locked=true { spawn "playerctl" "next"; }
-  //
-  // xf86monbrightnessdown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
-  // xf86monbrightnessup allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+  xf86audiomute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  xf86audiolowervolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+  xf86audioraisevolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" "-l" "1.5"; }
+
+  xf86audioprev allow-when-locked=true { spawn "playerctl" "previous"; }
+  xf86audioplay allow-when-locked=true { spawn "playerctl" "play-pause"; }
+  xf86audionext allow-when-locked=true { spawn "playerctl" "next"; }
+
+  xf86monbrightnessdown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+  xf86monbrightnessup allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
 
   // open/close the overview: a zoomed-out view of workspaces and windows.
   mod+o repeat=false { toggle-overview; }
