@@ -1,0 +1,130 @@
+/* @import "./rose-pine.css"; */
+/* @import "./rose-pine-moon.css"; */
+@import "./rose-pine-dawn.css";
+
+/* ========================================
+   Global Styles
+   ======================================== */
+* {
+  font-family: SFProText Nerd Font;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+window#waybar {
+  color: @text;
+  background: transparent;
+}
+
+window#waybar > box {
+  background-color: @base;
+  border-radius: 10px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+tooltip {
+  font-size: 14px;
+  color: @text;
+  background-color: @surface;
+  opacity: 0.8;
+  border: 2px solid @highlightHigh;
+  padding: 20px;
+}
+
+/* ========================================
+   Base Module Styles (All Sections)
+   ======================================== */
+
+/* Universal base styling for ALL modules */
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+  padding: 1px 5px 2px; /* top | left and right | bottom */
+  border: 1px solid @highlightHigh;
+  background-color: @surface;
+}
+
+/* First module in ANY section */
+.modules-left > widget:first-child > *,
+.modules-center > widget:first-child > *,
+.modules-right > widget:first-child > * {
+  border-radius: 10px 0 0 10px; /* top-left | top-right | bottom-right | bottom-left */
+  border-left: 2px solid @highlightHigh;
+  padding-left: 9px;
+}
+
+/* Last module in ANY section */
+.modules-left > widget:last-child > *,
+.modules-center > widget:last-child > *,
+.modules-right > widget:last-child > * {
+  border-radius: 0 10px 10px 0;
+  border-right: 2px solid @highlightHigh;
+  padding-right: 9px;
+}
+
+/* ========================================
+   Left Side: Module Colors
+   ======================================== */
+
+#cpu { color: @rose; }
+#memory { color: @pine; }
+#disk { color: @foam; }
+
+
+/* ========================================
+   Left Side: Workspaces & Taskbar
+   ======================================== */
+
+button {
+  border-radius: 5px;
+}
+
+/* Workspaces button states */
+#workspaces button { color: @muted; }
+#workspaces button.active { color: @text; }
+#workspaces button.focused { color: @base; background: @iris; }
+#workspaces button.urgent { color: @base; background: @love; }
+#workspaces button:hover { color: @text; background: @highlightMed; }
+
+/* Taskbar button states */
+#taskbar button { color: @subtle; }  /* Default unfocused state */
+#taskbar button.active { background: @iris; }
+#taskbar button.minimized { background: @highlightMed; }
+#taskbar button.maximized { background: @foam; }
+#taskbar button.fullscreen { background: @subtle; }
+
+/* ========================================
+   Right Side: Module-Specific Overrides
+   ======================================== */
+
+/* why is tray like this? */
+#tray {
+  padding-right: 11px;
+}
+
+#battery { color: @gold; }
+#wireplumber { color: @iris; }
+#wireplumber.source { color: @iris; }
+#backlight { color: @love; }
+#custom-recording { color: @love; }
+#power-profiles-daemon { color: @foam; }
+
+/* tomat custom colors */
+#custom-tomat.work-paused { color: @muted; }
+#custom-tomat.break-paused { color: @muted; }
+#custom-tomat.long-break-paused { color: @muted; }
+
+/* Power menu button colors */
+#custom-lock { color: @iris; }
+#custom-logout { color: @gold; }
+#custom-reboot { color: @foam; }
+#custom-shutdown { color: @love; }
+
+/* Power menu hover effects */
+#custom-lock:hover { color: @base; background: @iris; }
+#custom-logout:hover { color: @base; background: @gold; }
+#custom-reboot:hover { color: @base; background: @foam; }
+#custom-shutdown:hover { color: @base; background: @love; }
