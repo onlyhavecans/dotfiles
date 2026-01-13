@@ -1,5 +1,28 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(cargo clippy:*)",
+      "Bash(cargo fmt:*)",
+      "Bash(cargo test:*)",
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(go test:*)",
+      "Bash(grep:*)",
+      "Bash(just check:*)",
+      "Bash(just test:*)",
+      "Bash(ls:*)",
+      "Bash(make test:*)",
+      "Bash(nix shell:*)",
+      "Bash(npm test:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(rg:*)",
+      "Bash(tree:*)",
+      "WebFetch(domain:github.com)"
+    ],
     "deny": [
       "Read(.envrc)",
       "Read(.env)"
@@ -28,6 +51,9 @@
     ]
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   }
 }
