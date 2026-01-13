@@ -56,6 +56,9 @@
       ""
     ]
   },
+  "niri/window": {
+    "max-length": 50
+  },
   "niri/workspaces": {
     "disable-scroll": true,
     "on-click": "activate",
