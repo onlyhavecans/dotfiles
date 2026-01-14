@@ -66,6 +66,7 @@ abbr --add --position command lzd lazydocker
 # workstuff
 abbr --add --position command c claude
 abbr --add --position command cc "claude --continue"
+abbr --add --position command cs claude-squad
 abbr --add --position command http xh
 abbr --add --position command https xhs
 abbr --add --position command o "op run --"
