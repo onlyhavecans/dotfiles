@@ -12,14 +12,14 @@ powerprofilesctl set performance
 
 status_message "Stream"
 niri msg action spawn -- steam
-sleep 10
+sleep 20
 
 status_message "VBridger"
-niri msg action spawn -- steam -applaunch 1898830
-sleep 10
+niri msg action spawn -- steam steam://rungameid/1898830
+sleep 3
 
 status_message "VTube Studio"
-niri msg action spawn -- steam -applaunch 1325860
+niri msg action spawn -- steam steam://rungameid/1325860
 
 status_message "Firebot"
 niri msg action spawn -- firebot
@@ -31,7 +31,7 @@ status_message "OBS-Studio"
 niri msg action spawn -- obs
 
 status_message "Dahsboard"
-xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
+xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager"
 
 status_message "Music"
 niri msg action spawn -- strawberry
