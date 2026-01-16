@@ -3,11 +3,11 @@
 
 # Power options
 options=(
-  "🔒 Lock"
-  "⏻ Shutdown"
-  "⟲ Reboot"
-  "⏾ Suspend"
-  "⇠ Logout"
+  "󰌾 Lock"
+  "󰐥 Shutdown"
+  "󰑥 Reboot"
+  "󰤄 Suspend"
+  "󰍃 Logout"
 )
 
 # Show menu and get selection
@@ -16,19 +16,19 @@ selected=$(printf '%s\n' "${options[@]}" |
 
 # Execute based on selection
 case "$selected" in
-  "⏻ Shutdown")
+  "󰐥 Shutdown")
     systemctl poweroff
     ;;
-  "⟲ Reboot")
+  "󰑥 Reboot")
     systemctl reboot
     ;;
-  "⏾ Suspend")
+  "󰤄 Suspend")
     systemctl suspend
     ;;
-  "⇠ Logout")
+  "󰍃 Logout")
     niri msg action quit
     ;;
-  "🔒 Lock")
+  "󰌾 Lock")
     swaylock
     ;;
   *)

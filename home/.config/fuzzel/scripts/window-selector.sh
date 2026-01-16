@@ -24,7 +24,7 @@ display_list=$(echo "$window_data" | awk -F'|' '{
 }')
 
 # Show in fuzzel
-selected=$(echo "$display_list" | fuzzel --dmenu --prompt="Window: " --width=30)
+selected=$(echo "$display_list" | fuzzel --dmenu --prompt="Window: " --width=40)
 
 # Exit if nothing selected
 [ -z "$selected" ] && exit 0
