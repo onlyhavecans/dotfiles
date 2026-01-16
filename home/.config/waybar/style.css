@@ -6,8 +6,7 @@
    Global Styles
    ======================================== */
 * {
-  font-family: Inter Display, Symbols Nerd Font;
-  font-weight: bold;
+  font-family: Inter Display Semibold;
   font-size: 18px;
 }
 
@@ -110,14 +109,15 @@ button {
 #wireplumber.source { color: @iris; }
 #backlight { color: @love; }
 #custom-recording { color: @love; }
-/* fix height spacing for nerdfonts w/o text */
+/* fix nerdfonts w/o text */
 #power-profiles-daemon {
   color: @foam;
-  padding-top: 2px;
+  padding-right: 9px;
 }
 #idle_inhibitor {
   color: @subtle;
-  padding-top: 4px;
+  padding-top: 2px;
+  padding-right: 10px;
 }
 
 /* tomat custom colors */

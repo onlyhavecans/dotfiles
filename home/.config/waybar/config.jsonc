@@ -97,7 +97,7 @@
     "user": true
   },
   "clock": {
-    "format": "{:%a, %b %d  󰥔 %H:%M}",
+    "format": "{:%a, %b %d 󰥔  %H:%M}",
     "tooltip-format": "<big>{:%a, %B %d %Y}</big>\n<tt>{calendar}</tt>",
     "calendar": {
       "mode": "year",
@@ -132,7 +132,7 @@
     }
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{icon}  {percent}%",
     "format-icons": [
       "󰃞",
       "󰃟",
@@ -148,8 +148,8 @@
     "drawer": {}
   },
   "wireplumber": {
-    "format": "󰕾 {volume}%",
-    "format-muted": "󰝟 ミュート",
+    "format": "󰕾  {volume}%",
+    "format-muted": "󰝟  ミュート",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
