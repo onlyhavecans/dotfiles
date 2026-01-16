@@ -252,7 +252,7 @@ binds {
   mod+space hotkey-overlay-title="open fuzzel" { spawn "fuzzel"; }
   mod+b hotkey-overlay-title="open firefox" { spawn "firefox"; }
 
-  mod+n hotkey-overlay-title="show clipboard" { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+  mod+n hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
   mod+escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
   alt+tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
 
