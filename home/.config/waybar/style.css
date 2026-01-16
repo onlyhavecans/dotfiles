@@ -6,7 +6,7 @@
    Global Styles
    ======================================== */
 * {
-  font-family: SFProText Nerd Font;
+  font-family: Inter Display, Symbols Nerd Font;
   font-weight: bold;
   font-size: 16px;
 }
@@ -110,7 +110,14 @@ button {
 #wireplumber.source { color: @iris; }
 #backlight { color: @love; }
 #custom-recording { color: @love; }
-#power-profiles-daemon { color: @foam; }
+#power-profiles-daemon {
+  color: @foam;
+  padding-top: 2px;
+}
+#idle_inhibitor {
+  color: @subtle;
+  padding-top: 4px;
+}
 
 /* tomat custom colors */
 #custom-tomat.work-paused { color: @muted; }

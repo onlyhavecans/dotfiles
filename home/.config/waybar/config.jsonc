@@ -25,10 +25,10 @@
     "clock"
   ],
   "cpu": {
-    "format": " {usage}%"
+    "format": "󰍛 {usage}%"
   },
   "memory": {
-    "format": " {percentage}%"
+    "format": "󰘚 {percentage}%"
   },
   "disk": {
     "interval": 60,
@@ -37,27 +37,30 @@
   },
   "battery": {
     "states": {
-      // "good": 95,
       "warning": 30,
       "critical": 15
     },
     "format": "{icon} {capacity}%",
     "format-full": "{icon} {capacity}%",
-    "format-charging": "󱎗 {capacity}% ",
-    "format-plugged": " {capacity}% ",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
     "format-alt": "{icon} {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
     ]
   },
   "niri/window": {
-    "max-length": 50
+    "max-length": 20
   },
   "niri/workspaces": {
     "disable-scroll": true,
@@ -72,7 +75,7 @@
       "6": "六",
       "7": "七",
       "8": "八",
-      "9": "八",
+      "9": "九",
       "10": "十"
     }
   },
@@ -89,13 +92,13 @@
   },
   "systemd-failed-units": {
     "hide-on-ok": true,
-    "format": "✗ {nr_failed}",
-    "format-ok": "✓",
+    "format": "󰅚 {nr_failed}",
+    "format-ok": "󰄬",
     "system": true,
     "user": true
   },
   "clock": {
-    "format": "{:%a, %b %d%H:%M}",
+    "format": "{:%a, %b %d  󰥔 %H:%M}",
     "tooltip-format": "<big>{:%a, %B %d %Y}</big>\n<tt>{calendar}</tt>",
     "calendar": {
       "mode": "year",
@@ -114,8 +117,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "activated": "󰅶",
+      "deactivated": "󰛊"
     }
   },
   "power-profiles-daemon": {
@@ -123,25 +126,18 @@
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
+      "default": "󰁹",
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰌪"
     }
   },
   "backlight": {
-    // "device": "acpi_video1",
     "format": "{icon} {percent}%",
     "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "󰃞",
+      "󰃟",
+      "󰃠"
     ]
   },
   "group/audio": {
@@ -153,8 +149,8 @@
     "drawer": {}
   },
   "wireplumber": {
-    "format": " {volume}%",
-    "format-muted": " ミュート",
+    "format": "󰕾 {volume}%",
+    "format-muted": "󰝟 ミュート",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
@@ -163,8 +159,8 @@
   },
   "wireplumber#source": {
     "node-type": "Audio/Source",
-    "format": "{volume}%",
-    "format-muted": " ミュート",
+    "format": " 󰍬 {volume}%",
+    "format-muted": " 󰍭 ミュート",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
     "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ -l 1.0",

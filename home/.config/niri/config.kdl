@@ -169,7 +169,7 @@ window-rule {
 
 window-rule {
   match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-  match app-id=r#"^filebot"#
+  match app-id=r#"^net-filebot-Main"#
   match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
   match app-id=r#"^pomodorolm"#
   open-floating true
