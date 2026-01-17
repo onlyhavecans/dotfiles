@@ -79,8 +79,8 @@
     }
   },
   "tray": {
-    "icon-size": 18,
-    "spacing": 8
+    "icon-size": 21,
+    "spacing": 5
   },
   "gamemode": {
     "format": "{glyph}",
