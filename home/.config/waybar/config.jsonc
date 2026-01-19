@@ -150,20 +150,12 @@
   "wireplumber": {
     "format": "󰕾  {volume}%",
     "format-muted": "󰝟  ミュート",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
     "scroll-step": 5
   },
   "wireplumber#source": {
     "node-type": "Audio/Source",
     "format": " 󰍬 {volume}%",
     "format-muted": " 󰍭 ミュート",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ -l 1.0",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
     "scroll-step": 5
   }
 }
