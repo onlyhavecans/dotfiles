@@ -22,17 +22,9 @@ niri msg action spawn -- discord
 status_message "OBS-Studio"
 niri msg action spawn -- obs
 
-status_message "VBridger"
-sleep 5
-niri msg action spawn -- steam steam://rungameid/1898830
-
 status_message "Dahsboard"
 xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
 
-status_message "VTube Studio"
-sleep 5
-niri msg action spawn -- steam steam://rungameid/1325860
-
 status_message "Music"
-niri msg action spawn -- audacious
-current_song --player audacious
+niri msg action spawn -- rhythmbox
+current_song --player rhythmbox

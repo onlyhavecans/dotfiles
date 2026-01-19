@@ -57,11 +57,14 @@ abbr --add --position command pretty prettybat
 # Git abbreviations
 abbr --add --position command g git
 abbr --add --position command lg lazygit
-abbr --add --position command gcm --set-cursor 'git commit -m "%"'
+abbr --add --position command gad "git add --all"
 abbr --add --position command gca --set-cursor 'git commit -am "%"'
+abbr --add --position command gcm --set-cursor 'git commit -m "%"'
 abbr --add --position command grs "git remote set-url origin"
+abbr --add --position command gs "git switch"
+abbr --add --position command gsc "git switch --force-create"
+abbr --add --position command gsm "git switch main; and git pull"
 abbr --add --position command gv "lazygit --path=$HOME/Documents/Obsidian/Vault/"
-abbr --add --position command lzd lazydocker
 
 # workstuff
 abbr --add --position command c claude
@@ -69,6 +72,7 @@ abbr --add --position command cc "claude --continue"
 abbr --add --position command cs claude-squad
 abbr --add --position command http xh
 abbr --add --position command https xhs
+abbr --add --position command lzd lazydocker
 abbr --add --position command o "op run --"
 abbr --add --position command plan "terraform plan -out=tfplan | bat"
 abbr --add --position command tf terraform
