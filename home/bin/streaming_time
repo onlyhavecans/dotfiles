@@ -10,6 +10,11 @@ function status_message {
 status_message "Performance Mode"
 powerprofilesctl set performance
 
+status_message "Set Audio"
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
+wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
+
 status_message "Stream"
 niri msg action spawn -- steam
 
