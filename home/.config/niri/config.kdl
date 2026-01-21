@@ -57,10 +57,11 @@ output "eDP-1" {
   // Laptops are smaller screens
   layout {
     always-center-single-column
-    default-column-width { proportion 1.0; }
+    default-column-width { proportion  0.66667; }
     preset-column-widths {
       proportion 0.5
       proportion 0.66667
+      proportion 1.0
     }
   }
 }
