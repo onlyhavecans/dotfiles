@@ -5,11 +5,11 @@
   "margin-bottom": 1,
   "modules-left": [
     "battery",
-    "gamemode",
-    "systemd-failed-units",
     "cpu",
     "memory",
-    "disk"
+    "disk",
+    "gamemode",
+    "systemd-failed-units"
   ],
   "modules-center": [
     "niri/window",
@@ -58,6 +58,18 @@
       "󰁹"
     ]
   },
+  "gamemode": {
+    "format": "{glyph} {count}",
+    "glyph": "󰊖",
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": true,
+    "format": "󰅚 {nr_failed}",
+    "system": true,
+    "user": true
+  },
   "niri/window": {
     "max-length": 20
   },
@@ -81,20 +93,6 @@
   "tray": {
     "icon-size": 21,
     "spacing": 5
-  },
-  "gamemode": {
-    "format": "{glyph}",
-    "format-alt": "{glyph} {count}",
-    "glyph": "󰊖",
-    "tooltip": true,
-    "tooltip-format": "Games running: {count}"
-  },
-  "systemd-failed-units": {
-    "hide-on-ok": true,
-    "format": "󰅚 {nr_failed}",
-    "format-ok": "󰄬",
-    "system": true,
-    "user": true
   },
   "clock": {
     "format": "{:%a, %b %d 󰥔  %H:%M}",
