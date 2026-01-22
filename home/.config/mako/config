@@ -3,7 +3,7 @@ width=330
 margin=20,20,0
 padding=7
 height=110
-border-size=2
+border-size=4
 border-radius=12
 icons=1
 max-icon-size=64
@@ -14,15 +14,12 @@ output=DP-2
 
 background-color=#faf4ed
 text-color=#575279
-border-color=#56949f
+border-color=#907aa9
 progress-color=over #fffaf3
 
 [urgency=low]
 border-color=#f4ede8
 default-timeout=2000
-
-[urgency=normal]
-border-color=#286983
 
 [urgency=high]
 border-color=#b4637a

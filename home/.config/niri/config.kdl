@@ -96,12 +96,12 @@ layout {
 
   shadow {
     on
-    draw-behind-window true
     softness 30
     spread 5
     offset x=0 y=5
-    // You can also change the shadow color and opacity.
-    color "#403d52"
+    // draw-behind-window true
+    color "#00000070"
+    inactive-color "#00000054"
   }
 
   // Struts shrink the area occupied by windows, similarly to layer-shell panels.
