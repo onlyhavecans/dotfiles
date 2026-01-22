@@ -64,6 +64,17 @@ tooltip {
   padding-right: 9px;
 }
 
+/* Only module in ANY section (both first and last) */
+.modules-left > widget:only-child > *,
+.modules-center > widget:only-child > *,
+.modules-right > widget:only-child > * {
+  border-radius: 10px;
+  border-left: 2px solid @highlightHigh;
+  border-right: 2px solid @highlightHigh;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
 /* ========================================
    Left Side: Module Colors
    ======================================== */

@@ -12,7 +12,6 @@
     "systemd-failed-units"
   ],
   "modules-center": [
-    "niri/window",
     "niri/workspaces"
   ],
   "modules-right": [
@@ -69,9 +68,6 @@
     "format": "󰅚 {nr_failed}",
     "system": true,
     "user": true
-  },
-  "niri/window": {
-    "max-length": 20
   },
   "niri/workspaces": {
     "disable-scroll": true,
