@@ -6,10 +6,13 @@
       "Bash(cargo test:*)",
       "Bash(cat:*)",
       "Bash(find:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
       "Bash(gh pr checks:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
+      "Bash(gh search:*)",
       "Bash(go test:*)",
       "Bash(grep:*)",
       "Bash(just check:*)",
@@ -44,7 +47,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "notify-send 'Claude Code' 'Task completed - check results' --urgency=critical"
+            "command": "notify-send 'Claude Code' 'Task completed - check results'"
           }
         ]
       }
