@@ -481,9 +481,10 @@ binds {
   // Mod+Space       { switch-layout "next"; }
   // Mod+Shift+Space { switch-layout "prev"; }
 
-  Print { screenshot; }
-  Mod+Print { screenshot-window; }
-  Ctrl+Print { screenshot-screen; }
+  // Screenshots with grim + slurp + satty for flameshot-like workflow
+  Print { spawn "~/bin/screenshot"; }
+  Mod+Print { spawn "~/bin/screenshot" "window"; }
+  Ctrl+Print { spawn "~/bin/screenshot" "screen"; }
 
   // Applications such as remote-desktop clients and software KVM switches may
   // request that niri stops processing the keyboard shortcuts defined here

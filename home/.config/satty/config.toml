@@ -1,0 +1,23 @@
+[general]
+output-filename = "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
+save-after-copy = true
+initial-tool = "arrow"
+actions-on-escape = ["save-to-clipboard", "exit"]
+annotation-size-factor = 4
+brush-smooth-history-size = 5
+corner-roundness = 12
+
+[font]
+family = "Inter"
+style = "Bold"
+
+[color-palette]
+# These will be shown in the toolbar for quick selection
+palette = [
+  "#ff1493",
+  "#00ffff",
+  "#a52a2a",
+  "#dc143c",
+  "#ffd700",
+  "#008000",
+]

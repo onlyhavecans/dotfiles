@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+case "${1:-region}" in
+  window)
+    file=~/Pictures/Screenshots/$(date '+%Y-%m-%d-%H-%M-%S').png
+    niri msg action screenshot-window
+    while [[ ! -f "$file" ]]; do sleep 0.05; done
+    satty -f "$file"
+    ;;
+  screen)
+    output=$(niri msg -j focused-output | jq -r '.name')
+    grim -o "$output" - | satty -f -
+    ;;
+  *)
+    grim -g "$(slurp)" - | satty -f -
+    ;;
+esac
