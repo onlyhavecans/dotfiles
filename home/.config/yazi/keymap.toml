@@ -3,9 +3,15 @@ prepend_keymap = [
   # Switch these two
   { on = "Z", run = "plugin fzf", desc = "Jump via fzf" },
   { on = "z", run = "plugin zoxide", desc = "Jump via zoxide" },
-  # add them to go menu
-  { on = ["g", "Z"], run = "plugin fzf", desc = "Jump via fzf" },
+  # bookmarks jump
+  { on = ["g", "c"], run = "cd ~/Code", desc = "Go Code" },
+  { on = ["g", "e"], run = "cd sftp://edelgard//deep_end", desc = "Go Edelgard" },
+  { on = ["g", "i"], run = "cd ~/Sync/Inbox", desc = "Go Inbox" },
+  { on = ["g", "n"], run = "cd ~/Code/nixos-skwrls", desc = "Go Nix" },
+  { on = ["g", "o"], run = "cd ~/.homesick/repos/dotfiles", desc = "Go Dotfiles" },
+  { on = ["g", "p"], run = "cd sftp://piper", desc = "Go Piper" },
+  { on = ["g", "G"], run = "arrow bot", desc = "Go to bottom" },
+  # add fzf and zoxide
   { on = ["g", "z"], run = "plugin zoxide", desc = "Jump via zoxide" },
-  # edelgard jump
-  { on = ["g", "s"], run = "cd sftp://edelgard//deep_end", desc = "Jump to Edelgard" },
+  { on = ["g", "Z"], run = "plugin fzf", desc = "Jump via fzf" },
 ]
