@@ -1,6 +1,11 @@
 [mgr]
 prepend_keymap = [
   # Switch these two
-  { on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
-  { on = "z", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
+  { on = "Z", run = "plugin fzf", desc = "Jump via fzf" },
+  { on = "z", run = "plugin zoxide", desc = "Jump via zoxide" },
+  # add them to go menu
+  { on = ["g", "Z"], run = "plugin fzf", desc = "Jump via fzf" },
+  { on = ["g", "z"], run = "plugin zoxide", desc = "Jump via zoxide" },
+  # edelgard jump
+  { on = ["g", "s"], run = "cd sftp://edelgard//deep_end", desc = "Jump to Edelgard" },
 ]
