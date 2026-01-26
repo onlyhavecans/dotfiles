@@ -1,0 +1,5 @@
+[services.edelgard]
+type = "sftp"
+host = "edelgard.bunni.biz"
+port = 22
+user = "dos"
