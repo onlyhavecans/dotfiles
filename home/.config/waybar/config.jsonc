@@ -65,7 +65,7 @@
   },
   "systemd-failed-units": {
     "hide-on-ok": true,
-    "format": "󰅚 {nr_failed}",
+    "format": "󰒓 {nr_failed}",
     "system": true,
     "user": true
   },

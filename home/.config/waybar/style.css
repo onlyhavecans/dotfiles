@@ -82,6 +82,7 @@ tooltip {
 #cpu { color: @rose; }
 #memory { color: @pine; }
 #disk { color: @foam; }
+#systemd-failed-units { color: @love; }
 
 
 /* ========================================
