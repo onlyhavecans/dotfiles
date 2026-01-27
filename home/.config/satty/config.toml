@@ -1,11 +1,11 @@
 [general]
 output-filename = "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
-save-after-copy = true
-initial-tool = "arrow"
-actions-on-escape = ["save-to-clipboard", "exit"]
+actions-on-escape = ["save-to-clipboard", "save-to-file", "exit"]
 annotation-size-factor = 4
 brush-smooth-history-size = 5
+copy-command = "wl-copy"
 corner-roundness = 12
+initial-tool = "arrow"
 
 [font]
 family = "Inter"
