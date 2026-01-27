@@ -249,7 +249,7 @@ binds {
   mod+shift+slash { show-hotkey-overlay; }
 
   mod+return hotkey-overlay-title="open a terminal: foot" { spawn "foot"; }
-  mod+t hotkey-overlay-title="open file manager" {spawn "nautilus";}
+  mod+t hotkey-overlay-title="open file manager" {spawn "foot" "-e" "yazi";}
   mod+space hotkey-overlay-title="open fuzzel" { spawn "fuzzel"; }
   mod+b hotkey-overlay-title="open firefox" { spawn "firefox"; }
 
