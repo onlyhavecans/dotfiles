@@ -47,6 +47,7 @@ abbr --add --position command cl clear
 abbr --add --position command nv nvim
 abbr --add --position command hcd "homeshick cd"
 abbr --add --position command htrack "homeshick track"
+abbr --add --position command lsusb "cyme --lsusb"
 
 # pretty things
 abbr --add --position anywhere -- --help '--help 2>&1 | bat --language=help --plain'
