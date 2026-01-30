@@ -79,9 +79,8 @@ abbr --add --position command plan "terraform plan -out=tfplan | bat"
 abbr --add --position command tf terraform
 
 # Shell In Abbreviations
-abbr --add --position command tm "direnv exec / tmux new-session -A -c ~"
-abbr --add --position command tp "mosh piper.bunni.biz -- tmux new-session -A -c ~"
-abbr --add --position command tw "mosh webby.bunni.biz -- tmux new-session -A -c ~"
+abbr --add --position command tp "mosh piper.bunni.biz -- fish --command tm"
+abbr --add --position command tw "mosh webby.bunni.biz -- fish --command tm"
 
 # Tool init
 if type -q fzf
