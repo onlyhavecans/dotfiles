@@ -12,6 +12,7 @@
     "systemd-failed-units"
   ],
   "modules-center": [
+    "cffi/niri-taskbar",
     "niri/workspaces"
   ],
   "modules-right": [
@@ -85,6 +86,9 @@
       "9": "九",
       "10": "十"
     }
+  },
+  "cffi/niri-taskbar": {
+    "module_path": "/run/current-system/sw/lib/libniri_taskbar.so"
   },
   "tray": {
     "icon-size": 21,

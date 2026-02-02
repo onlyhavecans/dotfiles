@@ -100,12 +100,11 @@ button {
 #workspaces button.urgent { color: @base; background: @love; }
 #workspaces button:hover { color: @text; background: @highlightMed; }
 
-/* Taskbar button states */
-#taskbar button { color: @subtle; }  /* Default unfocused state */
-#taskbar button.active { background: @iris; }
-#taskbar button.minimized { background: @highlightMed; }
-#taskbar button.maximized { background: @foam; }
-#taskbar button.fullscreen { background: @subtle; }
+/* Niri taskbar button states */
+.niri-taskbar button { color: @subtle; }
+.niri-taskbar button:hover { color: @text; background: @highlightMed; }
+.niri-taskbar button.focused { color: @base; background: @iris; }
+.niri-taskbar button.urgent { color: @base; background: @love; }
 
 /* ========================================
    Right Side: Module-Specific Overrides
