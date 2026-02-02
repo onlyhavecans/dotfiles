@@ -6,6 +6,7 @@
       "Bash(cargo test:*)",
       "Bash(cat:*)",
       "Bash(find:*)",
+      "Bash(gh api:*)",
       "Bash(gh issue list:*)",
       "Bash(gh issue view:*)",
       "Bash(gh pr checkout:*)",
@@ -20,7 +21,7 @@
       "Bash(just test:*)",
       "Bash(ls:*)",
       "Bash(make test:*)",
-      "Bash(nix shell:*)",
+      "Bash(nix:*)",
       "Bash(npm test:*)",
       "Bash(python -m pytest:*)",
       "Bash(rg:*)",
@@ -55,11 +56,11 @@
     ]
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   }
 }
