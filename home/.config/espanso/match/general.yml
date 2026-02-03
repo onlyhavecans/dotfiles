@@ -1,0 +1,50 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# espanso match file
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+matches:
+  - trigger: " r "
+    replace: "®"
+
+  - trigger: " tm "
+    replace: "™"
+
+  - trigger: " t "
+    replace: "🍅"
+
+  - trigger: " mu "
+    replace: "無"
+
+  # The x completes
+  - trigger: "xflip"
+    replace: "(╯°□°)╯︵ ┻━┻"
+
+  - trigger: "xunflip"
+    replace: "┬─┬ノ(º_°ノ)"
+
+  - trigger: "xcheer"
+    replace: "Excuse me? This is not a cheerocricy, I am the cheertator, I make the cheercisions around here and I will deal wth the cheeronquinces. Yea, now if there are no more cheeruptions we can cheertinue."
+
+  - trigger: "xno"
+    replace: |
+      Short answer no, long answer
+      nnnnnnnnnnoooooooooooooo
+
+  - trigger: "xnote"
+    replace: |
+      Thank you for the particularly insulting [[kind]]. I’m keeping this one on a list because it actually made me laugh. I bet your mother is proud.
+      xoxo, Ame.
+
+  # weird ones
+  - trigger: "#!b"
+    replace: "#!/usr/bin/env bash"
+
+  # Print the current date
+  - trigger: "xdd"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
