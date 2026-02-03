@@ -58,13 +58,6 @@ output "eDP-1" {
   layout {
     always-center-single-column
     default-column-width { proportion  0.66667; }
-    preset-column-widths {
-      proportion 0.33333
-      proportion 0.5
-      fixed 800
-      proportion 0.66667
-      proportion 1.0
-    }
   }
 }
 
