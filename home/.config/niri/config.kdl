@@ -241,43 +241,44 @@ binds {
   // when running as a winit window.
 
   // shows a list of important hotkeys.
-  mod+shift+slash { show-hotkey-overlay; }
+  Mod+Shift+Slash { show-hotkey-overlay; }
 
-  mod+return hotkey-overlay-title="open a terminal" { spawn "foot"; }
-  mod+t hotkey-overlay-title="open file manager" {spawn "foot" "-e" "yazi";}
-  mod+space hotkey-overlay-title="open fuzzel" { spawn "fuzzel"; }
-  mod+b hotkey-overlay-title="open firefox" { spawn "firefox"; }
-  mod+backslash hotkey-overlay-title="1password quick-access" { spawn "1password" "--quick-access"; }
+  Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
+  Mod+T hotkey-overlay-title="open file manager" {spawn "foot" "-e" "yazi";}
+  Mod+Space hotkey-overlay-title="open fuzzel" { spawn "fuzzel"; }
+  Mod+B hotkey-overlay-title="open firefox" { spawn "firefox"; }
+  Mod+Shift+B hotkey-overlay-title="open brave" { spawn "brave"; }
+  Mod+Backslash hotkey-overlay-title="1password quick-access" { spawn "1password" "--quick-access"; }
 
-  mod+n hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
-  mod+escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
-  alt+tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
+  Mod+N hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
+  Mod+Escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
+  Alt+Tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
 
-  mod+f12 hotkey-overlay-title="lock" { spawn "swaylock"; }
-  mod+XF86AudioMedia { spawn "swaylock"; }
+  Mod+F12 hotkey-overlay-title="lock" { spawn "swaylock"; }
+  Mod+XF86AudioMedia { spawn "swaylock"; }
 
   // the allow-when-locked=true property makes them work even when the session is locked.
-  xf86audiomute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  xf86audiolowervolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  xf86audioraisevolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" "-l" "1.5"; }
+  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" "-l" "1.5"; }
 
-  xf86audioprev allow-when-locked=true { spawn "playerctl" "previous"; }
-  xf86audioplay allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  xf86audionext allow-when-locked=true { spawn "playerctl" "next"; }
+  XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
+  XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
+  XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
 
-  xf86monbrightnessdown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
-  xf86monbrightnessup allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
 
   // open/close the overview: a zoomed-out view of workspaces and windows.
-  mod+o repeat=false { toggle-overview; }
-  mod+q repeat=false { close-window; }
+  Mod+O repeat=false { toggle-overview; }
+  Mod+Q repeat=false { close-window; }
 
-  mod+left  { focus-column-left; }
-  mod+down  { focus-window-down; }
-  mod+up    { focus-window-up; }
-  mod+right { focus-column-right; }
-  mod+h     { focus-column-left; }
-  // mod+j     { focus-window-down; }
+  Mod+Left  { focus-column-left; }
+  Mod+Down  { focus-window-down; }
+  Mod+Up    { focus-window-up; }
+  Mod+Right { focus-column-right; }
+  Mod+H     { focus-column-left; }
+  // Mod+J     { focus-window-down; }
   // Mod+K     { focus-window-up; }
   Mod+L     { focus-column-right; }
 
