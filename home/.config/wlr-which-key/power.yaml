@@ -1,0 +1,31 @@
+---
+# Theming
+font: Inter Display 24
+background: "#faf4edd0"
+color: "#575279"
+border: "#907aa9"
+separator: " ➜ "
+border_width: 4
+corner_r: 12
+padding: 15 # Defaults to corner_r
+rows_per_column: 5 # No limit by default
+column_padding: 25 # Defaults to padding
+
+anchor: center
+
+menu:
+  - key: "l"
+    desc: "\U000F033E Lock"
+    cmd: swaylock
+  - key: "S"
+    desc: "\U000F0425 Shutdown"
+    cmd: systemctl poweroff
+  - key: "R"
+    desc: "\U000F0465 Reboot"
+    cmd: systemctl reboot
+  - key: "U"
+    desc: "\U000F0904 S[u]spend"
+    cmd: systemctl suspend
+  - key: "O"
+    desc: "\U000F0343 L[o]gout"
+    cmd: niri msg action quit
