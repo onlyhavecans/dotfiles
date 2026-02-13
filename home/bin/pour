@@ -52,8 +52,9 @@ fi
 ##
 
 if path_exists "${HOME}/Code/nixos-skwrls/configuration.nix" NixOS; then
-  status_message "[nix] Update packages"
+  status_message "[nix] Update Pins, Switch, & Clean"
   pushd "$HOME/Code/nixos-skwrls" || return
+  git pull
   nix-shell --run "just update; just clean"
   popd || return
 fi
