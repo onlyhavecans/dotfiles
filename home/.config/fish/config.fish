@@ -37,17 +37,18 @@ set -g __fish_git_prompt_char_upstream_ahead '↑'
 set -g __fish_git_prompt_char_upstream_behind '↓'
 
 # Basic Abbreviations
+abbr --add --position command cl clear
+abbr --add --position command hcd "homeshick cd"
+abbr --add --position command htrack "homeshick track"
 abbr --add --position command l eza
-abbr --add --position command ls eza
 abbr --add --position command la "eza -a"
 abbr --add --position command ll "eza -l"
 abbr --add --position command lla "eza -la"
-abbr --add --position command tree "eza --tree"
-abbr --add --position command cl clear
-abbr --add --position command nv nvim
-abbr --add --position command hcd "homeshick cd"
-abbr --add --position command htrack "homeshick track"
+abbr --add --position command ls eza
 abbr --add --position command lsusb "cyme --lsusb"
+abbr --add --position command n nvim
+abbr --add --position command s ssh
+abbr --add --position command tree "eza --tree"
 
 # pretty things
 abbr --add --position anywhere -- --help '--help 2>&1 | bat --language=help --plain'
