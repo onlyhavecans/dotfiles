@@ -23,6 +23,13 @@ matches:
   - trigger: "xunflip"
     replace: "┬─┬ノ(º_°ノ)"
 
+  - trigger: "xspd"
+    replace: |-
+      ,/'/'(°;;°)'\'\,
+
+  - trigger: "xeye"
+    replace: "88vv88"
+
   - trigger: "xcheer"
     replace: "Excuse me? This is not a cheerocricy, I am the cheertator, I make the cheercisions around here and I will deal wth the cheeronquinces. Yea, now if there are no more cheeruptions we can cheertinue."
 
