@@ -57,8 +57,8 @@ menu:
         desc: Yazi
         cmd: foot -e yazi
       - key: n
-        desc: nautalus
-        cmd: nautalus
+        desc: Nautilus
+        cmd: nautilus
 
   - key: g
     desc: Gaming
