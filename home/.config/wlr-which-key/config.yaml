@@ -1,0 +1,116 @@
+---
+# Theming
+font: Inter Display 18
+background: "#faf4edd0"
+color: "#575279"
+border: "#907aa9"
+separator: " ➜ "
+border_width: 4
+corner_r: 12
+padding: 15 # Defaults to corner_r
+# rows_per_column: 5 # No limit by default
+column_padding: 25 # Defaults to padding
+
+anchor: center
+
+menu:
+  - key: space
+    desc: Fuzzel
+    cmd: fuzzel
+  - key: Return
+    desc: Terminal
+    cmd: foot
+  - key: e
+    desc: email
+    cmd: thunderbird
+  - key: "p"
+    desc: 1Password
+    cmd: 1password --quick-access
+
+  - key: b
+    desc: Browser
+    submenu:
+      - key: b
+        desc: Firefox
+        cmd: firefox
+      - key: B
+        desc: Brave
+        cmd: brave
+
+  - key: c
+    desc: Chats
+    submenu:
+      - key: d
+        desc: Discord
+        cmd: discord
+      - key: s
+        desc: Signal
+        cmd: signal
+      - key: w
+        desc: Slack
+        cmd: slack
+
+  - key: f
+    desc: File Manager
+    submenu:
+      - key: y
+        desc: Yazi
+        cmd: foot -e yazi
+      - key: n
+        desc: nautalus
+        cmd: nautalus
+
+  - key: g
+    desc: Gaming
+    submenu:
+      - key: S
+        desc: Steam
+        cmd: steam
+      - key: l
+        desc: Lutris
+        cmd: lutris
+
+  - key: m
+    desc: Music
+    submenu:
+      - key: a
+        desc: Audacity
+        cmd: audacity
+      - key: f
+        desc: Feishin
+        cmd: feishin
+      - key: p
+        desc: Picard
+        cmd: picard
+
+  - key: n
+    desc: Notes
+    submenu:
+      - key: d
+        desc: Obsidian DNSimple
+        cmd: xdg-open "obsidian://open?vault=DNSimple"
+      - key: n
+        desc: NeoVim
+        cmd: foot -e nvim
+      - key: v
+        desc: Obsidian Vault
+        cmd: xdg-open "obsidian://open?vault=Vault"
+
+  - key: p
+    desc: Power
+    submenu:
+      - key: "l"
+        desc: "\U000F033E Lock"
+        cmd: swaylock
+      - key: "S"
+        desc: "\U000F0425 Shutdown"
+        cmd: systemctl poweroff
+      - key: "R"
+        desc: "\U000F0465 Reboot"
+        cmd: systemctl reboot
+      - key: "U"
+        desc: "\U000F0904 S[u]spend"
+        cmd: systemctl suspend
+      - key: "O"
+        desc: "\U000F0343 L[o]gout"
+        cmd: niri msg action quit
