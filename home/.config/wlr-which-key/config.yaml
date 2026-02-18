@@ -45,7 +45,7 @@ menu:
         cmd: discord
       - key: s
         desc: Signal
-        cmd: signal
+        cmd: signal-desktop
       - key: w
         desc: Slack
         cmd: slack
