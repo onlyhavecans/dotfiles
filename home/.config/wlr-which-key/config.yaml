@@ -20,12 +20,12 @@ menu:
   - key: Return
     desc: Terminal
     cmd: foot
+  - key: backslash
+    desc: 1Password
+    cmd: 1password --quick-access
   - key: e
     desc: email
     cmd: thunderbird
-  - key: "p"
-    desc: 1Password
-    cmd: 1password --quick-access
 
   - key: b
     desc: Browser
@@ -49,6 +49,19 @@ menu:
       - key: w
         desc: Slack
         cmd: slack
+      - key: z
+        desc: Zoom
+        cmd: zoom
+
+  - key: d
+    desc: Development
+    submenu:
+      - key: c
+        desc: Cursor
+        cmd: code-cursor
+      - key: n
+        desc: NeoVim
+        cmd: foot -e nvim
 
   - key: f
     desc: File Manager
@@ -69,19 +82,46 @@ menu:
       - key: l
         desc: Lutris
         cmd: lutris
+      - key: r
+        desc: RetroArch
+        cmd: retroarch
 
   - key: m
-    desc: Music
+    desc: Media
     submenu:
       - key: a
         desc: Audacity
         cmd: audacity
+      - key: b
+        desc: Amberol
+        cmd: amberol
+      - key: c
+        desc: coppwr
+        cmd: coppwr
+      - key: e
+        desc: EasyEffects
+        cmd: easyeffects
       - key: f
         desc: Feishin
         cmd: feishin
+      - key: j
+        desc: Jellyfin
+        cmd: jellyfin-chromium
+      - key: m
+        desc: mpv
+        cmd: mpv
+      - key: n
+        desc: Navidrome
+        cmd: navidrome-chromium
       - key: p
         desc: Picard
         cmd: picard
+      - key: q
+        desc: qpwgraph
+        cmd: qpwgraph
+      - key: v
+        desc: pwvucontrol
+        cmd: pwvucontrol
 
   - key: n
     desc: Notes
@@ -89,9 +129,9 @@ menu:
       - key: d
         desc: Obsidian DNSimple
         cmd: xdg-open "obsidian://open?vault=DNSimple"
-      - key: n
-        desc: NeoVim
-        cmd: foot -e nvim
+      - key: t
+        desc: Today Journal
+        cmd: foot -e ~/bin/today
       - key: v
         desc: Obsidian Vault
         cmd: xdg-open "obsidian://open?vault=Vault"
@@ -114,3 +154,69 @@ menu:
       - key: "O"
         desc: "\U000F0343 L[o]gout"
         cmd: niri msg action quit
+
+  - key: r
+    desc: Recording
+    submenu:
+      - key: r
+        desc: Record Screen
+        cmd: ~/bin/record-screen
+      - key: s
+        desc: Screenshot
+        cmd: ~/bin/screenshot
+      - key: f
+        desc: Clip Firefox Audio
+        cmd: ~/bin/clip_firefox
+      - key: m
+        desc: Clip mpv Audio
+        cmd: ~/bin/clip_mpv
+
+  - key: s
+    desc: Streaming
+    submenu:
+      - key: s
+        desc: Start Streaming
+        cmd: foot -e ~/bin/streaming_time
+      - key: o
+        desc: OBS
+        cmd: obs
+      - key: f
+        desc: Firebot
+        cmd: firebot
+      - key: c
+        desc: StreamController
+        cmd: streamcontroller
+      - key: v
+        desc: Veadotube Mini
+        cmd: veadotube-mini
+      - key: t
+        desc: Twitch
+        cmd: twitch-chromium
+
+  - key: t
+    desc: Tools
+    submenu:
+      - key: b
+        desc: btop
+        cmd: foot -e btop
+      - key: c
+        desc: Calculator
+        cmd: gnome-calculator
+      - key: d
+        desc: Document Viewer
+        cmd: papers
+      - key: f
+        desc: Font Viewer
+        cmd: gnome-font-viewer
+      - key: i
+        desc: Photopea
+        cmd: photopea-chromium
+      - key: l
+        desc: Loupe
+        cmd: loupe
+      - key: p
+        desc: Pomodorolm
+        cmd: pomodorolm
+      - key: v
+        desc: Video Trimmer
+        cmd: video-trimmer
