@@ -59,6 +59,9 @@ menu:
       - key: c
         desc: Cursor
         cmd: code-cursor
+      - key: d
+        desc: LazyDocker
+        cmd: lazydocker
       - key: n
         desc: NeoVim
         cmd: foot -e nvim
