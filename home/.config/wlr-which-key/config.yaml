@@ -23,19 +23,12 @@ menu:
   - key: backslash
     desc: 1Password
     cmd: 1password --quick-access
+  - key: b
+    desc: Broswer
+    cmd: firefox
   - key: e
     desc: Email
     cmd: thunderbird
-
-  - key: b
-    desc: Browser
-    submenu:
-      - key: b
-        desc: Firefox
-        cmd: firefox
-      - key: B
-        desc: Brave
-        cmd: brave
 
   - key: c
     desc: Chats
@@ -46,25 +39,6 @@ menu:
       - key: s
         desc: Signal
         cmd: signal-desktop
-      - key: w
-        desc: Slack
-        cmd: slack
-      - key: z
-        desc: Zoom
-        cmd: zoom
-
-  - key: d
-    desc: Development
-    submenu:
-      - key: c
-        desc: Cursor
-        cmd: code-cursor
-      - key: d
-        desc: LazyDocker
-        cmd: lazydocker
-      - key: n
-        desc: NeoVim
-        cmd: foot -e nvim
 
   - key: f
     desc: File Manager
@@ -98,12 +72,6 @@ menu:
       - key: b
         desc: Amberol
         cmd: amberol
-      - key: c
-        desc: coppwr
-        cmd: coppwr
-      - key: e
-        desc: EasyEffects
-        cmd: easyeffects
       - key: f
         desc: Feishin
         cmd: feishin
@@ -119,25 +87,22 @@ menu:
       - key: p
         desc: Picard
         cmd: picard
-      - key: q
-        desc: qpwgraph
-        cmd: qpwgraph
-      - key: v
-        desc: pwvucontrol
-        cmd: pwvucontrol
+      - key: t
+        desc: Twitch
+        cmd: twitch-chromium
 
   - key: n
     desc: Notes
     submenu:
-      - key: d
-        desc: Obsidian DNSimple
-        cmd: xdg-open "obsidian://open?vault=DNSimple"
+      - key: n
+        desc: NeoVim
+        cmd: foot -e nvim
+      - key: o
+        desc: Obsidian Vault
+        cmd: xdg-open "obsidian://open?vault=Vault"
       - key: t
         desc: Today Journal
         cmd: foot -e ~/bin/today
-      - key: v
-        desc: Obsidian Vault
-        cmd: xdg-open "obsidian://open?vault=Vault"
 
   - key: p
     desc: Power
@@ -198,9 +163,6 @@ menu:
       - key: s
         desc: Start Streaming
         cmd: foot -e ~/bin/streaming_time
-      - key: t
-        desc: Twitch
-        cmd: twitch-chromium
       - key: v
         desc: VTube Studio
         cmd: steam steam://rungameid/1325860
@@ -220,6 +182,9 @@ menu:
       - key: d
         desc: Document Viewer
         cmd: papers
+      - key: e
+        desc: EasyEffects
+        cmd: easyeffects
       - key: f
         desc: Font Viewer
         cmd: gnome-font-viewer
@@ -227,11 +192,39 @@ menu:
         desc: Photopea
         cmd: photopea-chromium
       - key: l
-        desc: Loupe
+        desc: Loupe PDF
         cmd: loupe
       - key: p
         desc: Pomodorolm
         cmd: pomodorolm
+      - key: q
+        desc: qpwgraph
+        cmd: qpwgraph
       - key: v
         desc: Video Trimmer
         cmd: video-trimmer
+      - key: v
+        desc: pwvucontrol
+        cmd: pwvucontrol
+
+  - key: w
+    desc: Work
+    submenu:
+      - key: b
+        desc: Brave
+        cmd: brave
+      - key: c
+        desc: Cursor
+        cmd: code-cursor
+      - key: d
+        desc: LazyDocker
+        cmd: lazydocker
+      - key: o
+        desc: Obsidian DNSimple
+        cmd: xdg-open "obsidian://open?vault=DNSimple"
+      - key: s
+        desc: Slack
+        cmd: slack
+      - key: z
+        desc: Zoom
+        cmd: zoom
