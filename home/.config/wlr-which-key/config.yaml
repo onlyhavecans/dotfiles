@@ -171,8 +171,14 @@ menu:
         desc: Record Screen
         cmd: ~/bin/record-screen
       - key: s
-        desc: Screenshot
+        desc: Screenshot Select
         cmd: ~/bin/screenshot
+      - key: S
+        desc: Screenshot Screen
+        cmd: ~/bin/screenshot screen
+      - key: w
+        desc: Screenshot Window
+        cmd: ~/bin/screenshot window
 
   - key: s
     desc: Streaming
