@@ -85,7 +85,7 @@ menu:
       - key: r
         desc: RetroArch
         cmd: retroarch
-      - key: S
+      - key: s
         desc: Steam
         cmd: steam
 
