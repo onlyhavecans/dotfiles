@@ -177,6 +177,9 @@ menu:
   - key: s
     desc: Streaming
     submenu:
+      - key: b
+        desc: VBridger
+        cmd: steam steam://rungameid/1898830
       - key: c
         desc: StreamController
         cmd: streamcontroller
@@ -193,6 +196,9 @@ menu:
         desc: Twitch
         cmd: twitch-chromium
       - key: v
+        desc: VTube Studio
+        cmd: steam steam://rungameid/1325860
+      - key: V
         desc: Veadotube Mini
         cmd: veadotube-mini
 
