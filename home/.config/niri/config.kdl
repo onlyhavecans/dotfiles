@@ -250,7 +250,7 @@ binds {
   Mod+Backslash hotkey-overlay-title="1password quick-access" { spawn "1password" "--quick-access"; }
 
   Mod+N hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
-  Mod+Escape hotkey-overlay-title="power menu" { spawn "~/.config/fuzzel/scripts/power-menu.sh"; }
+  Mod+Escape hotkey-overlay-title="power menu" { spawn "wlr-which-key" "power"; }
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
 
   Mod+F12 hotkey-overlay-title="lock" { spawn "swaylock"; }
