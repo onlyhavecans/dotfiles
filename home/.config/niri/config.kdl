@@ -244,10 +244,9 @@ binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
-  Mod+T hotkey-overlay-title="open file manager" {spawn "foot" "-e" "yazi";}
-  Mod+Space hotkey-overlay-title="open fuzzel" { spawn "fuzzel"; }
+  Mod+Space hotkey-overlay-title="open whichkey" { spawn "wlr-which-key"; }
+  Mod+Shift+Space hotkey-overlay-title="open fuzzel" { spawn "fuzzel"; }
   Mod+B hotkey-overlay-title="open firefox" { spawn "firefox"; }
-  Mod+Shift+B hotkey-overlay-title="open brave" { spawn "brave"; }
   Mod+Backslash hotkey-overlay-title="1password quick-access" { spawn "1password" "--quick-access"; }
 
   Mod+N hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
