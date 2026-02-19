@@ -467,7 +467,7 @@ menu:
     desc: Tools
     submenu:
       - key: b
-        desc: btop
+        desc: Btop
         cmd: foot -e btop
       - key: c
         desc: Calculator
@@ -485,13 +485,13 @@ menu:
         desc: Photopea
         cmd: photopea-chromium
       - key: l
-        desc: Loupe PDF
+        desc: Loupe Image Viewer
         cmd: loupe
       - key: p
         desc: Pomodorolm
         cmd: pomodorolm
       - key: q
-        desc: qpwgraph
+        desc: qpwgraph Pipewire
         cmd: qpwgraph
       - key: v
         desc: Video Trimmer
