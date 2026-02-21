@@ -1,6 +1,6 @@
 ---
 # Theming
-font: Inter Display 32
+font: Inter Display 28
 background: "#faf4edf0"
 color: "#575279"
 border: "#907aa9"
@@ -17,13 +17,13 @@ menu:
     desc: 1Password
     cmd: 1password --quick-access
   - key: b
-    desc: Broswer
+    desc: Browser
     cmd: firefox
   - key: e
     desc: Email
     cmd: thunderbird
   - key: o
-    desc: Obsidian Vault
+    desc: Obsidian
     cmd: xdg-open "obsidian://open?vault=Vault"
   - key: v
     desc: NeoVim
@@ -504,7 +504,7 @@ menu:
     desc: Work
     submenu:
       - key: b
-        desc: Brave
+        desc: Browser
         cmd: brave
       - key: c
         desc: Cursor
@@ -513,7 +513,7 @@ menu:
         desc: LazyDocker
         cmd: lazydocker
       - key: o
-        desc: Obsidian DNSimple
+        desc: Obsidian
         cmd: xdg-open "obsidian://open?vault=DNSimple"
       - key: s
         desc: Slack
