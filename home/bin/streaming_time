@@ -15,7 +15,7 @@ wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
 wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
 
-status_message "Stream"
+status_message "Steam"
 niri msg action spawn -- steam
 
 status_message "Firebot"
@@ -26,6 +26,9 @@ niri msg action spawn -- discord
 
 status_message "OBS-Studio"
 niri msg action spawn -- obs
+
+status_message "Steam"
+xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist" &
 
 status_message "Dashboard"
 xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
