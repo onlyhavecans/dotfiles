@@ -27,15 +27,19 @@ niri msg action spawn -- discord
 status_message "OBS-Studio"
 niri msg action spawn -- obs
 
-status_message "Dahsboard"
+status_message "Dashboard"
 xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
 
 status_message "VBridger"
 sleep 5
 niri msg action spawn -- steam steam://rungameid/1898830
 
+status_message "Waiting for VBridger to launch..."
+while ! niri msg windows | grep -qi "vbridger"; do
+  sleep 2
+done
+
 status_message "VTube Studio"
-sleep 2
 niri msg action spawn -- steam steam://rungameid/1325860
 
 status_message "Music"
