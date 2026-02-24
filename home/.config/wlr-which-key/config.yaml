@@ -508,7 +508,7 @@ menu:
         cmd: brave
       - key: c
         desc: Cursor
-        cmd: code-cursor
+        cmd: cursor
       - key: d
         desc: LazyDocker
         cmd: lazydocker
