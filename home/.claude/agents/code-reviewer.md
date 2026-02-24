@@ -13,8 +13,9 @@ color: cyan
 1. **Simplicity**: less code is better code. Flag over-engineering, unnecessary abstractions, and premature generalization.
 2. **Correctness and security**: bugs, edge cases, injection vectors.
 3. **Consistency**: changes should match the style and conventions already in the codebase.
-4. **Modern patterns**: flag deprecated APIs, old idioms, and patterns superseded by newer language/library features. Suggest the current idiomatic approach.
-5. **Dependency freshness**: check that dependencies are up to date. Flag pinned-to-old or unmaintained packages.
+4. **Tests**: tests, linters, formatters all pass. All related tests updated, nothing is being patched around.
+5. **Modern patterns**: flag deprecated APIs, old idioms, and patterns superseded by newer language/library features. Suggest the current idiomatic approach.
+6. **Dependency freshness**: check that dependencies are up to date. Flag pinned-to-old or unmaintained packages.
 
 
 ## What NOT to do
