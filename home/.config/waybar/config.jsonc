@@ -4,35 +4,38 @@
   "margin-top": 3,
   "margin-bottom": 1,
   "modules-left": [
+    "niri/workspaces",
     "battery",
     "cpu",
     "memory",
     "disk",
+    "group/audio",
+    "backlight",
     "gamemode",
     "systemd-failed-units"
   ],
-  "modules-center": [
-    "cffi/niri-taskbar",
-    "niri/workspaces"
-  ],
+  "modules-center": [],
   "modules-right": [
     "tray",
-    "group/audio",
-    "backlight",
     "idle_inhibitor",
     "power-profiles-daemon",
     "clock"
   ],
-  "cpu": {
-    "format": "󰍛 {usage}%"
-  },
-  "memory": {
-    "format": "󰘚 {percentage}%"
-  },
-  "disk": {
-    "interval": 60,
-    "format": "󰋊 {percentage_used}%",
-    "path": "/"
+  "niri/workspaces": {
+    "current-only": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十"
+    }
   },
   "battery": {
     "states": {
@@ -58,84 +61,16 @@
       "󰁹"
     ]
   },
-  "gamemode": {
-    "format": "{glyph} {count}",
-    "glyph": "󰊖",
-    "tooltip": true,
-    "tooltip-format": "Games running: {count}"
+  "cpu": {
+    "format": "󰍛 {usage}%"
   },
-  "systemd-failed-units": {
-    "hide-on-ok": true,
-    "format": "󰒓 {nr_failed}",
-    "system": true,
-    "user": true
+  "memory": {
+    "format": "󰘚 {percentage}%"
   },
-  "niri/workspaces": {
-    "disable-scroll": true,
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十"
-    }
-  },
-  "cffi/niri-taskbar": {
-    "module_path": "/run/current-system/sw/lib/libniri_taskbar.so"
-  },
-  "tray": {
-    "icon-size": 21,
-    "spacing": 5
-  },
-  "clock": {
-    "format": "{:%a, %b %d 󰥔  %H:%M}",
-    "tooltip-format": "<big>{:%a, %B %d %Y}</big>\n<tt>{calendar}</tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#000000'><b>{}</b></span>",
-        "days": "{}",
-        "weeks": "<i>w{}</i>",
-        "weekdays": "{}",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
-    }
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "󰅶",
-      "deactivated": "󰛊"
-    }
-  },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "󰁹",
-      "performance": "󰓅",
-      "balanced": "󰾅",
-      "power-saver": "󰾆"
-    }
-  },
-  "backlight": {
-    "format": "{icon}  {percent}%",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ]
+  "disk": {
+    "interval": 60,
+    "format": "󰋊 {percentage_used}%",
+    "path": "/"
   },
   "group/audio": {
     "orientation": "horizontal",
@@ -155,5 +90,64 @@
     "format": " 󰍬 {volume}%",
     "format-muted": " 󰍭 ミュート",
     "scroll-step": 5
+  },
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ]
+  },
+  "gamemode": {
+    "format": "{glyph} {count}",
+    "glyph": "󰊖",
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": true,
+    "format": "󰒓 {nr_failed}",
+    "system": true,
+    "user": true
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 5
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰛊"
+    }
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰁹",
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆"
+    }
+  },
+  "clock": {
+    "format": "{:%a, %b %d 󰥔  %H:%M}",
+    "tooltip-format": "<big>{:%a, %B %d %Y}</big>\n<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#000000'><b>{}</b></span>",
+        "days": "{}",
+        "weeks": "<i>w{}</i>",
+        "weekdays": "{}",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
   }
 }

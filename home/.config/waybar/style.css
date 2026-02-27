@@ -96,9 +96,9 @@ button {
 /* Workspaces button states */
 #workspaces button { color: @muted; }
 #workspaces button.active { color: @text; }
-#workspaces button.focused { color: @base; background: @iris; }
-#workspaces button.urgent { color: @base; background: @love; }
-#workspaces button:hover { color: @text; background: @highlightMed; }
+/* #workspaces button.focused { color: @base; background: @iris; } */
+/* #workspaces button.urgent { color: @base; background: @love; } */
+/* #workspaces button:hover { color: @text; background: @highlightMed; } */
 
 /* Niri taskbar button states */
 .niri-taskbar button { color: @subtle; }
@@ -130,20 +130,3 @@ button {
   padding-top: 2px;
   padding-right: 10px;
 }
-
-/* tomat custom colors */
-#custom-tomat.work-paused { color: @muted; }
-#custom-tomat.break-paused { color: @muted; }
-#custom-tomat.long-break-paused { color: @muted; }
-
-/* Power menu button colors */
-#custom-lock { color: @iris; }
-#custom-logout { color: @gold; }
-#custom-reboot { color: @foam; }
-#custom-shutdown { color: @love; }
-
-/* Power menu hover effects */
-#custom-lock:hover { color: @base; background: @iris; }
-#custom-logout:hover { color: @base; background: @gold; }
-#custom-reboot:hover { color: @base; background: @foam; }
-#custom-shutdown:hover { color: @base; background: @love; }
