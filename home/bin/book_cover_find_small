@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+DIR="${1:-.}"
+
+fd --type f -e jpg -e jpeg -e png -e gif -e webp . "$DIR" | while read -r file; do
+  read w h <<<$(identify -format "%w %h" "$file" 2>/dev/null)
+  if [[ "$w" -lt 500 && "$h" -lt 500 ]]; then
+    f=$(basename "$file")
+    echo "$f (${w}x${h})"
+  fi
+done
