@@ -7,7 +7,7 @@
    ======================================== */
 * {
   font-family: Inter Display Semibold;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 window#waybar {
@@ -16,8 +16,9 @@ window#waybar {
 }
 
 window#waybar > box {
-  background-color: @base;
+  background-color: alpha(@base, 0.3);
   border-radius: 12px;
+  opacity: 0.8;
 }
 
 window#waybar.hidden {
@@ -79,48 +80,23 @@ tooltip {
    Left Side: Module Colors
    ======================================== */
 
+#workspaces { color: @text; }
+#battery { color: @gold; }
 #cpu { color: @rose; }
 #memory { color: @pine; }
 #disk { color: @foam; }
-#systemd-failed-units { color: @love; }
-
-
-/* ========================================
-   Left Side: Workspaces & Taskbar
-   ======================================== */
-
-button {
-  border-radius: 5px;
-}
-
-/* Workspaces button states */
-#workspaces button { color: @muted; }
-#workspaces button.active { color: @text; }
-/* #workspaces button.focused { color: @base; background: @iris; } */
-/* #workspaces button.urgent { color: @base; background: @love; } */
-/* #workspaces button:hover { color: @text; background: @highlightMed; } */
-
-/* Niri taskbar button states */
-.niri-taskbar button { color: @subtle; }
-.niri-taskbar button:hover { color: @text; background: @highlightMed; }
-.niri-taskbar button.focused { color: @base; background: @iris; }
-.niri-taskbar button.urgent { color: @base; background: @love; }
-
-/* ========================================
-   Right Side: Module-Specific Overrides
-   ======================================== */
-
-/* why is tray like this? */
-#tray {
-  padding-right: 11px;
-}
-
-#battery { color: @gold; }
 #wireplumber { color: @iris; }
 #wireplumber.source { color: @iris; }
 #backlight { color: @love; }
-#custom-recording { color: @love; }
-/* fix nerdfonts w/o text */
+#systemd-failed-units { color: @text; }
+
+/* ========================================
+   Right Side: Module Colors
+   ======================================== */
+
+#tray {
+  padding-right: 11px;
+}
 #power-profiles-daemon {
   color: @foam;
   padding-right: 9px;
