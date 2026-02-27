@@ -11,7 +11,6 @@
     "disk",
     "group/audio",
     "backlight",
-    "gamemode",
     "systemd-failed-units"
   ],
   "modules-center": [],
@@ -99,15 +98,10 @@
       "󰃠"
     ]
   },
-  "gamemode": {
-    "format": "{glyph} {count}",
-    "glyph": "󰊖",
-    "tooltip": true,
-    "tooltip-format": "Games running: {count}"
-  },
   "systemd-failed-units": {
-    "hide-on-ok": true,
+    "hide-on-ok": false,
     "format": "󰒓 {nr_failed}",
+    "format-ok": "󰄬",
     "system": true,
     "user": true
   },
