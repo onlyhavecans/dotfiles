@@ -106,8 +106,8 @@
     "user": true
   },
   "tray": {
-    "icon-size": 19,
-    "spacing": 5
+    "icon-size": 20,
+    "spacing": 4
   },
   "idle_inhibitor": {
     "format": "{icon}",

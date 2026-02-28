@@ -7,7 +7,7 @@
    ======================================== */
 * {
   font-family: Inter Display Semibold;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 window#waybar {
@@ -18,7 +18,7 @@ window#waybar {
 window#waybar > box {
   background-color: alpha(@base, 0.3);
   border-radius: 12px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 window#waybar.hidden {
@@ -95,7 +95,7 @@ tooltip {
    ======================================== */
 
 #tray {
-  padding-right: 11px;
+  padding-right: 10px;
 }
 #power-profiles-daemon {
   color: @foam;
