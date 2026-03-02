@@ -47,6 +47,7 @@ abbr --add --position command lla "eza -la"
 abbr --add --position command ls eza
 abbr --add --position command lsusb "cyme --lsusb"
 abbr --add --position command n nvim
+abbr --add --position command nv nvim
 abbr --add --position command s ssh
 abbr --add --position command tree "eza --tree"
 
