@@ -24,9 +24,6 @@ niri msg action spawn -- firebot
 status_message "Discord"
 niri msg action spawn -- discord
 
-status_message "OBS-Studio"
-niri msg action spawn -- obs
-
 status_message "Steam"
 xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist" &
 
@@ -45,6 +42,13 @@ done
 status_message "VTube Studio"
 niri msg action spawn -- steam steam://rungameid/1325860
 
+niri msg action spawn -- qpwgraph
+
 status_message "Music"
 niri msg action spawn -- amberol
+
+status_message "OBS-Studio"
+niri msg action spawn -- obs
+
+status_message "Holding on current song"
 current_song --player io.bassi.Amberol
