@@ -245,6 +245,7 @@ binds {
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
   Mod+Space hotkey-overlay-title="open fuzzel" { spawn "fuzzel" "--width" "20"; }
+  Mod+T hotkey-overlay-title="open yazi" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open firefox" { spawn "firefox"; }
   Mod+Backslash hotkey-overlay-title="1password quick-access" { spawn "1password" "--quick-access"; }
 
