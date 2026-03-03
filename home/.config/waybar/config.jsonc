@@ -9,7 +9,8 @@
     "cpu",
     "memory",
     "disk",
-    "group/audio",
+    "wireplumber",
+    "wireplumber#source",
     "backlight",
     "systemd-failed-units"
   ],
@@ -71,14 +72,6 @@
     "format": "󰋊 {percentage_used}%",
     "path": "/"
   },
-  "group/audio": {
-    "orientation": "horizontal",
-    "modules": [
-      "wireplumber",
-      "wireplumber#source"
-    ],
-    "drawer": {}
-  },
   "wireplumber": {
     "format": "󰕾  {volume}%",
     "format-muted": "󰝟  ミュート",
@@ -86,7 +79,7 @@
   },
   "wireplumber#source": {
     "node-type": "Audio/Source",
-    "format": " 󰍬 {volume}%",
+    "format": "󰍬 {volume}%",
     "format-muted": " 󰍭 ミュート",
     "scroll-step": 5
   },
