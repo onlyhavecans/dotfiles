@@ -12,7 +12,8 @@
     "wireplumber",
     "wireplumber#source",
     "backlight",
-    "systemd-failed-units"
+    "systemd-failed-units",
+    "privacy"
   ],
   "modules-center": [],
   "modules-right": [
@@ -97,6 +98,9 @@
     "format-ok": "󰄬",
     "system": true,
     "user": true
+  },
+  "privacy": {
+    "icon-size": 16
   },
   "tray": {
     "icon-size": 20,
