@@ -53,7 +53,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "notify-send 'Claude Code' 'Task completed - check results'"
+            "command": "notify-send 'Claude Code' 'Task completed'"
           }
         ]
       }
