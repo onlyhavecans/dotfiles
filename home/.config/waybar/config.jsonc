@@ -12,6 +12,9 @@
     "wireplumber",
     "wireplumber#source",
     "backlight",
+    "network#wifi",
+    "network#ethernet",
+    "network#vpn",
     "systemd-failed-units",
     "privacy"
   ],
@@ -81,7 +84,7 @@
   "wireplumber#source": {
     "node-type": "Audio/Source",
     "format": "󰍬 {volume}%",
-    "format-muted": " 󰍭 ミュート",
+    "format-muted": "󰍭 ミュート",
     "scroll-step": 5
   },
   "backlight": {
@@ -92,12 +95,42 @@
       "󰃠"
     ]
   },
+  "network#wifi": {
+    "interface": "wl*",
+    "family": "ipv4_6",
+    "format": "{icon}  {signalStrength}%",
+    "format-disconnected": "",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "tooltip-format": "{essid}\n{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%\n⬆ {bandwidthUpBytes}  ⬇ {bandwidthDownBytes}"
+  },
+  "network#ethernet": {
+    "interface": "en*",
+    "family": "ipv4_6",
+    "format": "󰈀 {ifname}",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n⬆ {bandwidthUpBytes}  ⬇ {bandwidthDownBytes}"
+  },
+  "network#vpn": {
+    "interface": "wg*",
+    "family": "ipv4_6",
+    "format": "󰒃",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+  },
   "systemd-failed-units": {
     "hide-on-ok": false,
     "format": "󰒓 {nr_failed}",
     "format-ok": "󰄬",
     "system": true,
-    "user": true
+    "user": true,
+    "interval": 60,
+    "tooltip-format": "System: {nr_failed_system}\nUser: {nr_failed_user}"
   },
   "privacy": {
     "icon-size": 16
@@ -133,7 +166,7 @@
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#000000'><b>{}</b></span>",
+        "months": "<b>{}</b>",
         "days": "{}",
         "weeks": "<i>w{}</i>",
         "weekdays": "{}",

@@ -88,6 +88,12 @@ tooltip {
 #wireplumber { color: @iris; }
 #wireplumber.source { color: @iris; }
 #backlight { color: @love; }
+#network.wifi { color: @foam; }
+#network.ethernet { color: @foam; }
+#network.vpn {
+  color: @pine;
+  padding-right: 8px;
+}
 #systemd-failed-units { color: @text; }
 
 /* ========================================
