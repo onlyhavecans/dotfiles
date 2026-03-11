@@ -13,7 +13,6 @@
     "wireplumber#source",
     "backlight",
     "network#wifi",
-    "network#ethernet",
     "network#vpn",
     "systemd-failed-units",
     "privacy"
@@ -77,14 +76,24 @@
     "path": "/"
   },
   "wireplumber": {
-    "format": "󰕾  {volume}%",
+    "format": "{icon} {volume}%",
     "format-muted": "󰝟  ミュート",
+    "format-icons": [
+      "󰕿",
+      "󰖀",
+      "󰕾"
+    ],
     "scroll-step": 5
   },
   "wireplumber#source": {
     "node-type": "Audio/Source",
-    "format": "󰍬 {volume}%",
+    "format": "{icon} {volume}%",
     "format-muted": "󰍭 ミュート",
+    "format-icons": [
+      "󰍬",
+      "󰍬",
+      "󰍬"
+    ],
     "scroll-step": 5
   },
   "backlight": {
@@ -108,13 +117,6 @@
       "󰤨"
     ],
     "tooltip-format": "{essid}\n{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}%\n⬆ {bandwidthUpBytes}  ⬇ {bandwidthDownBytes}"
-  },
-  "network#ethernet": {
-    "interface": "en*",
-    "family": "ipv4_6",
-    "format": "󰈀 {ifname}",
-    "format-disconnected": "",
-    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n⬆ {bandwidthUpBytes}  ⬇ {bandwidthDownBytes}"
   },
   "network#vpn": {
     "interface": "wg*",
