@@ -1,8 +1,17 @@
 [mgr]
 prepend_keymap = [
+  # trash
+  { on = ["T", "b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+  { on = ["T", "o"], run = "plugin recycle-bin -- open", desc = "Open Trash" },
+  { on = ["T", "e"], run = "plugin recycle-bin -- empty", desc = "Empty Trash" },
+  { on = ["T", "D"], run = "plugin recycle-bin -- emptyDays", desc = "Empty by days deleted" },
+  { on = ["T", "d"], run = "plugin recycle-bin -- delete", desc = "Delete from Trash" },
+  { on = ["T", "r"], run = "plugin recycle-bin -- restore", desc = "Restore from Trash" },
+
   # Switch these two
   { on = "Z", run = "plugin fzf", desc = "Jump via fzf" },
   { on = "z", run = "plugin zoxide", desc = "Jump via zoxide" },
+
   # bookmarks jump
   { on = ["g", "c"], run = "cd ~/Code", desc = "Go Code" },
   { on = ["g", "e"], run = "cd sftp://edelgard//deep_end", desc = "Go Edelgard" },
@@ -10,8 +19,26 @@ prepend_keymap = [
   { on = ["g", "n"], run = "cd ~/Code/nixos-skwrls", desc = "Go Nix" },
   { on = ["g", "o"], run = "cd ~/.homesick/repos/dotfiles", desc = "Go Dotfiles" },
   { on = ["g", "p"], run = "cd sftp://piper", desc = "Go Piper" },
+  { on = ["g", "t"], run = "plugin recycle-bin -- open", desc = "Go Trash" },
   { on = ["g", "G"], run = "arrow bot", desc = "Go to bottom" },
+
   # add fzf and zoxide
   { on = ["g", "z"], run = "plugin zoxide", desc = "Jump via zoxide" },
   { on = ["g", "Z"], run = "plugin fzf", desc = "Jump via fzf" },
+
+  # Mount
+  { on = ["M", "m"], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
+  { on = ["M", "u"], run = "plugin gvfs -- select-then-unmount --eject", desc = "Select device then eject" },
+  { on = ["M", "U"], run = "plugin gvfs -- select-then-unmount --eject --force", desc = "Select device then force to eject/unmount" },
+
+  { on = ["M", "a"], run = "plugin gvfs -- add-mount", desc = "Add a GVFS mount URI" },
+  { on = ["M", "e"], run = "plugin gvfs -- edit-mount", desc = "Edit a GVFS mount URI" },
+  { on = ["M", "r"], run = "plugin gvfs -- remove-mount", desc = "Remove a GVFS mount URI" },
+
+  # Jump
+  { on = ["g", "m"], run = "plugin gvfs -- jump-to-device", desc = "Select device then jump to its mount point" },
+  { on = ["`", "`"], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
+
+  { on = ["M", "t"], run = "plugin gvfs -- automount-when-cd", desc = "Enable automount when cd to device under cwd" },
+  { on = ["M", "T"], run = "plugin gvfs -- automount-when-cd --disabled", desc = "Disable automount when cd to device under cwd" },
 ]

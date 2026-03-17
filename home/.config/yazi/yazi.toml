@@ -5,3 +5,10 @@ ratio = [1, 2, 4]
 sort_by = "mtime"
 sort_reverse = true
 sort_dir_first = true
+
+[plugin]
+prepend_preloaders = [
+  # Do not preload files in mounted locations:
+  { name = "/run/user/1000/gvfs/**/*", run = "noop" },
+  { name = "/run/media/dos/**/*", run = "noop" },
+]
