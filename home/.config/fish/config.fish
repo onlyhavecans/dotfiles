@@ -37,52 +37,52 @@ set -g __fish_git_prompt_char_upstream_ahead '↑'
 set -g __fish_git_prompt_char_upstream_behind '↓'
 
 # Basic Abbreviations
-abbr --add --position command cl clear
-abbr --add --position command hcd "homeshick cd"
-abbr --add --position command htrack "homeshick track"
-abbr --add --position command l eza
-abbr --add --position command la "eza -a"
-abbr --add --position command ll "eza -l"
-abbr --add --position command lla "eza -la"
-abbr --add --position command ls eza
-abbr --add --position command lsusb "cyme --lsusb"
-abbr --add --position command n nvim
-abbr --add --position command nv nvim
-abbr --add --position command s ssh
-abbr --add --position command tree "eza --tree"
+abbr --add cl clear
+abbr --add hcd "homeshick cd"
+abbr --add htrack "homeshick track"
+abbr --add l eza
+abbr --add la "eza -a"
+abbr --add ll "eza -l"
+abbr --add lla "eza -la"
+abbr --add ls eza
+abbr --add lsusb "cyme --lsusb"
+abbr --add n nvim
+abbr --add nv nvim
+abbr --add s ssh
+abbr --add tree "eza --tree"
 
 # pretty things
 abbr --add --position anywhere -- --help '--help 2>&1 | bat --language=help --plain'
-abbr --add --position command man batman
-abbr --add --position command jbat "bat -l json"
-abbr --add --position command pretty prettybat
+abbr --add man batman
+abbr --add jbat "bat -l json"
+abbr --add pretty prettybat
 
 # Git abbreviations
-abbr --add --position command g git
-abbr --add --position command lg lazygit
-abbr --add --position command gad "git add --all"
-abbr --add --position command gca --set-cursor 'git commit -am "%"'
-abbr --add --position command gcm --set-cursor 'git commit -m "%"'
-abbr --add --position command grs "git remote set-url origin"
-abbr --add --position command gs "git switch"
-abbr --add --position command gsc "git switch --force-create"
-abbr --add --position command gsm "git switch main; and git pull"
-abbr --add --position command gv "lazygit --path=$HOME/Documents/Obsidian/Vault/"
+abbr --add g git
+abbr --add lg lazygit
+abbr --add gad "git add --all"
+abbr --add gca --set-cursor 'git commit -am "%"'
+abbr --add gcm --set-cursor 'git commit -m "%"'
+abbr --add grs "git remote set-url origin"
+abbr --add gs "git switch"
+abbr --add gsc "git switch --force-create"
+abbr --add gsm "git switch main; and git pull"
+abbr --add gv "lazygit --path=$HOME/Documents/Obsidian/Vault/"
 
 # workstuff
-abbr --add --position command c claude
-abbr --add --position command cc "claude --continue"
-abbr --add --position command cs claude-squad
-abbr --add --position command http xh
-abbr --add --position command https xhs
-abbr --add --position command lzd lazydocker
-abbr --add --position command o "op run --"
-abbr --add --position command plan "terraform plan -out=tfplan | bat"
-abbr --add --position command tf terraform
+abbr --add c claude
+abbr --add cc "claude --continue"
+abbr --add cs claude-squad
+abbr --add http xh
+abbr --add https xhs
+abbr --add lzd lazydocker
+abbr --add o "op run --"
+abbr --add plan "terraform plan -out=tfplan | bat"
+abbr --add tf terraform
 
 # Shell In Abbreviations
-abbr --add --position command tp "mosh piper.bunni.biz -- fish --command tm"
-abbr --add --position command tw "mosh webby.bunni.biz -- fish --command tm"
+abbr --add tp "mosh piper.bunni.biz -- fish --command tm"
+abbr --add tw "mosh webby.bunni.biz -- fish --command tm"
 
 # Tool init
 if type -q fzf

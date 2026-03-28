@@ -5,7 +5,7 @@ function gcl --description 'Git clone and cd into the cloned directory'
     test -z "$repo"; and echo "Usage: gcl <repo-url> [git-clone-args...]"; and return 1
 
     # Extract directory name from repo URL
-    set -l dir (string replace -r '\.git$' '' (string replace -r '^.*/' '' $repo))
+    set -l dir (path basename $repo | path change-extension '')
 
     git clone $repo $rest
     and cd $dir
