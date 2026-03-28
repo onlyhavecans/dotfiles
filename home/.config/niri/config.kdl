@@ -52,12 +52,16 @@ output "BOE Display 0x00000144" {
 output "PNP(BNQ) BenQ PJ 0x00000001" {
   // projector
   mode "1920x1080@60.000"
+  layout {
+    always-center-single-column
+    default-column-width { proportion 1.0; }
+  }
 }
 output "eDP-1" {
   // Laptops are smaller screens
   layout {
     always-center-single-column
-    default-column-width { proportion  0.66667; }
+    default-column-width { proportion 0.66667; }
   }
 }
 
@@ -156,13 +160,6 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 // Use `niri msg windows` to get window details
 
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-  match app-id=r#"^org\.wezfurlong\.wezterm$"#
-  default-column-width {}
-}
-
 window-rule {
   match app-id=r#"firefox$"# title="^Picture-in-Picture$"
   match app-id=r#"^net-filebot-Main"#
@@ -180,7 +177,6 @@ window-rule {
   block-out-from "screencast"
 }
 
-
 window-rule {
   match app-id=r#"^org\.gnome\.World\.Secrets$"#
   match app-id=r#"1password$"#
@@ -189,6 +185,8 @@ window-rule {
 
 window-rule {
   match app-id=r#"^veadotube-mini$"#
+  match app-id=r"^steam$" title="Big Picture Mode"
+  match app-id=r"^steam_app"
   open-fullscreen true
 }
 
@@ -210,7 +208,6 @@ window-rule {
   default-column-width { proportion 0.5; }
 }
 
-// Keep more specific rules last
 window-rule {
   match app-id="thunderbird" title="Reminder"
   match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
@@ -219,6 +216,7 @@ window-rule {
   default-floating-position x=10 y=10 relative-to="top-right"
 }
 
+// Keep more specific rules last
 window-rule {
   match app-id=r"^obsidian$" at-startup=true
   open-on-output "DP-3"
@@ -228,11 +226,6 @@ window-rule {
 window-rule {
   match app-id=r#"^feishin$"# at-startup=true
   open-on-output "BOE Display 0x00000144"
-}
-
-window-rule {
-  match app-id=r"steam" title="Big Picture Mode"
-  open-fullscreen true
 }
 
 // enable rounded corners for all windows.
