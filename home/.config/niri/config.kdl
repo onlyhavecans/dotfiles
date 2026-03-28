@@ -230,6 +230,11 @@ window-rule {
   open-on-output "BOE Display 0x00000144"
 }
 
+window-rule {
+  match app-id=r"steam" title="Big Picture Mode"
+  open-fullscreen true
+}
+
 // enable rounded corners for all windows.
 window-rule {
   geometry-corner-radius 12
