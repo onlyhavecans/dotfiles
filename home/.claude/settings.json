@@ -20,6 +20,7 @@
       "Bash(gh pr view:*)",
       "Bash(gh search:*)",
       "Bash(go test:*)",
+      "Bash(go doc:*)",
       "Bash(grep:*)",
       "Bash(just check:*)",
       "Bash(just test:*)",
@@ -30,6 +31,7 @@
       "Bash(python -m pytest:*)",
       "Bash(rg:*)",
       "Bash(tree:*)",
+      "Bash(wc:*)",
       "WebFetch(domain:github.com)"
     ],
     "deny": [
