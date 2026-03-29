@@ -17,14 +17,17 @@ wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
 
 status_message "Steam"
 niri msg action spawn -- steam
+sleep 2
 
 status_message "Firebot"
 niri msg action spawn -- firebot
+sleep 2
 
 status_message "Discord"
 niri msg action spawn -- discord
+sleep 2
 
-status_message "Steam"
+status_message "Obsidian"
 xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist" &
 
 status_message "Dashboard"
@@ -41,11 +44,11 @@ done
 
 status_message "VTube Studio"
 niri msg action spawn -- steam steam://rungameid/1325860
-
-niri msg action spawn -- qpwgraph
+sleep 2
 
 status_message "Music"
 niri msg action spawn -- amberol
+sleep 2
 
 status_message "OBS-Studio"
 niri msg action spawn -- obs
