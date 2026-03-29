@@ -5,8 +5,8 @@ hash = "8714306b5cac6359edbacbf545fbd691"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "a908b62"
-hash = "5b6bd533139461c620968c1d860b4dce"
+rev = "3abc0a2"
+hash = "eed89e75671723c8f9390a2862af0e4e"
 
 [flavor]
 deps = []
