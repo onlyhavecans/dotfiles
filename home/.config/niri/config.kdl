@@ -160,14 +160,7 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 // Use `niri msg windows` to get window details
 
-window-rule {
-  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-  match app-id=r#"^net-filebot-Main"#
-  match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
-  match app-id=r#"^pomodorolm"#
-  open-floating true
-}
-
+// Keep more specific rules last
 window-rule {
   match app-id=r#"^org\.gnome\.World\.Secrets$"#
   match app-id=r#"1password$"#
@@ -181,6 +174,14 @@ window-rule {
   match app-id=r#"^org\.gnome\.World\.Secrets$"#
   match app-id=r#"1password$"#
   block-out-from "screen-capture"
+}
+
+window-rule {
+  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  match app-id=r#"^net-filebot-Main"#
+  match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
+  match app-id=r#"^pomodorolm"#
+  open-floating true
 }
 
 window-rule {
@@ -216,7 +217,6 @@ window-rule {
   default-floating-position x=10 y=10 relative-to="top-right"
 }
 
-// Keep more specific rules last
 window-rule {
   match app-id=r"^obsidian$" at-startup=true
   match app-id=r"^electron$" title=r#"Obsidian \d+\.\d+.\d+$"# at-startup=true
