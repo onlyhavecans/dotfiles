@@ -219,6 +219,7 @@ window-rule {
 // Keep more specific rules last
 window-rule {
   match app-id=r"^obsidian$" at-startup=true
+  match app-id=r"^electron$" title=r#"Obsidian \d+\.\d+.\d+$"# at-startup=true
   open-on-output "DP-3"
   default-column-width { proportion 0.33333; }
 }
