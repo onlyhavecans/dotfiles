@@ -16,5 +16,7 @@ for filename in "$@"; do
   fi
 
   echo "Processing: $filename"
-  magick "$filename" -resize "500x500>" "${filename%.*}.jpg"
+  output_file="${filename%.*}.jpg"
+  magick "$filename" -resize "500x500>" "${output_file}"
+  mv -v "$output_file" ~/Documents/Obsidian/Vault/books/covers/
 done
