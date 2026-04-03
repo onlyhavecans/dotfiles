@@ -15,7 +15,7 @@ if test -z "$SSH_TTY"; and test -S "$HOME/.1password/agent.sock"
 end
 
 # Paths
-fish_add_path ~/bin ~/.local/bin ~/.cargo/bin ~/go/bin ~/.asdf/shims
+fish_add_path ~/bin ~/.local/bin ~/.cargo/bin ~/go/bin ~/.asdf/shims /usr/local/bin /opt/homebrew/bin /home/linuxbrew/.linuxbrew/bin
 
 #
 # Stop here if not interactive
@@ -83,6 +83,23 @@ abbr --add tf terraform
 # Shell In Abbreviations
 abbr --add tp "mosh piper.bunni.biz -- fish --command tm"
 abbr --add tw "mosh webby.bunni.biz -- fish --command tm"
+
+# Brewpaths
+if type -q brew
+    brew shellenv | source
+    set -x HOMEBREW_NO_ENV_HINTS 1
+
+    ## brew --prefix is way too slow in 4.0 so hardcode
+    function _brew_prefix
+        printf "$HOMEBREW_PREFIX/opt/$1"
+    end
+
+    ## Brew overlays
+    set -l apps whois curl libpq
+    for app in $apps
+        fish_add_path "(_brew_prefix app)/bin"
+    end
+end
 
 # Tool init
 if type -q fzf
