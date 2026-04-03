@@ -16,10 +16,12 @@ function tm --description "Tmux session manager - attach or create predefined se
     cd ~ || exit 2
 
     # Session 0: Demo
-    tmux new-session -d -s Demo -n Main -c ~/Code
-    tmux new-window -t Demo -n Tests -c ~/Code
-    tmux new-window -t Demo -n Live -c ~/Code
-    tmux select-window -t Demo:Main
+    if test (prompt_hostname) = Morgan
+        tmux new-session -d -s Demo -n Main -c ~/Code
+        tmux new-window -t Demo -n Tests -c ~/Code
+        tmux new-window -t Demo -n Live -c ~/Code
+        tmux select-window -t Demo:Main
+    end
 
     # Session 1: InsideOut
     tmux new-session -d -s InsideOut -n nix -c ~/Code/nixos-skwrls
@@ -30,16 +32,18 @@ function tm --description "Tmux session manager - attach or create predefined se
     tmux select-window -t InsideOut:nix
 
     # Session 2: WorkWork
-    tmux new-session -d -s WorkWork -n Project -c ~/Code/dnsimple
-    tmux new-window -t WorkWork -n Incident -c ~/Downloads
-    tmux new-window -t WorkWork -n Reviews -c ~/Code/dnsimple
-    tmux select-window -t WorkWork:Project
+    if test (prompt_hostname) = Morgan -o (prompt_hostname) = Amity
+        tmux new-session -d -s WorkWork -n Project -c ~/Code/dnsimple
+        tmux new-window -t WorkWork -n Incident -c ~/Downloads
+        tmux new-window -t WorkWork -n Reviews -c ~/Code/dnsimple
+        tmux select-window -t WorkWork:Project
+    end
 
     # Session 3: Dream
-    tmux new-session -d -s Dream -n 🐰 -c ~/Sync/muck
-    tmux new-window -t Dream -n 🐴 -c ~/Sync/muck
-    tmux new-window -t Dream -n 🕷 -c ~/Sync/muck
-    tmux select-window -t Dream:🐰
+    if test (prompt_hostname) = Webby
+        tmux new-session -d -s Dream -n 🐰 -c ~/Sync/muck
+        tmux select-window -t Dream:🐰
+    end
 
     # Attach to InsideOut
     tmux attach-session -t InsideOut
