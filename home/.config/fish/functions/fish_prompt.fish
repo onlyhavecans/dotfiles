@@ -7,7 +7,7 @@ function fish_prompt
     set_color yellow
     echo -n "["(date +%H:%M:%S)"] "
     set_color green
-    echo -n (hostname)" $icon_dir "(prompt_pwd)
+    echo -n (prompt_hostname)" $icon_dir "(prompt_pwd)
     set_color magenta
     echo -n (fish_git_prompt " $icon_git %s")
     echo
@@ -15,5 +15,5 @@ function fish_prompt
     # Bottom line: simple chevron
     set_color blue
     echo -n "❯ "
-    set_color normal
+    set_color --reset
 end
