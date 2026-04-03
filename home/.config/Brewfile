@@ -1,9 +1,7 @@
 brew "asdf"
-brew "ast-grep"
 brew "bat"
 brew "bat-extras"
 brew "btop"
-brew "chafa"
 brew "cmake"
 brew "csvlens"
 brew "curl"
@@ -14,6 +12,7 @@ brew "eza"
 brew "fastfetch"
 brew "fd"
 brew "ffmpeg"
+brew "fish"
 brew "fx"
 brew "fzf"
 brew "gawk"
@@ -41,7 +40,6 @@ brew "msmtp"
 brew "ncdu"
 brew "nmap"
 brew "openssh"
-brew "tmux"
 brew "overmind"
 brew "poppler"
 brew "qpdf"
@@ -51,8 +49,10 @@ brew "ripgrep"
 brew "rsync"
 brew "sevenzip"
 brew "syncthing", restart_service: :changed
+brew "tf-summarize"
 brew "tintin"
 brew "tlrc"
+brew "tmux"
 brew "uv"
 brew "watch"
 brew "wget"
@@ -63,20 +63,46 @@ brew "yazi"
 brew "yq"
 brew "yt-dlp"
 brew "zoxide"
-brew "fish"
-brew "tf-summarize"
 
 # NeoVim mass
 brew "neovim"
 
-brew "gnu-sed"
-brew "golangci-lint"
-brew "luarocks"
+brew "ast-grep" # grug-far
+brew "chafa" # fzf-lua
+brew "node@24"
+brew "tree-sitter"
 brew "tree-sitter-cli"
-brew "tflint"
-brew "viu"
-brew "ueberzugpp"
+brew "viu" # fzf-lua
 
+# lua
+brew "lua-language-server"
+brew "lua"
+brew "luarocks"
+brew "stylua"
+
+# markdown
+brew "markdownlint-cli2"
+brew "marksman"
+
+# configuration
+# brew "fixjson"
+brew "tombi"
+brew "vacuum"
+brew "vscode-langservers-extracted" # json, html, css
+brew "yaml-language-server"
+brew "yamlfmt"
+brew "yamllint"
+
+# shells
+brew "bash-language-server"
+brew "fish-lsp"
+brew "shellcheck"
+brew "shfmt"
+
+# docker
+brew "docker-compose-langserver"
+brew "docker-language-server"
+brew "hadolint"
 
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"

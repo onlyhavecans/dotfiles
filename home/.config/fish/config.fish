@@ -88,6 +88,7 @@ abbr --add tw "mosh webby.bunni.biz -- fish --command tm"
 if type -q brew
     brew shellenv | source
     set -x HOMEBREW_NO_ENV_HINTS 1
+    set -x HOMEBREW_BUNDLE_FILE ~/.config/Brewfile
 
     ## brew --prefix is way too slow in 4.0 so hardcode
     function _brew_prefix
