@@ -20,10 +20,10 @@
   "modules-center": [],
   "modules-right": [
     "tray",
-    "custom/moon",
-    "custom/weather",
     "idle_inhibitor",
     "power-profiles-daemon",
+    "custom/moon",
+    "custom/weather",
     "clock"
   ],
   "niri/workspaces": {
@@ -158,7 +158,7 @@
     "restart-interval": 21600
   },
   "custom/weather": {
-    "exec": "wttrbar",
+    "exec": "wttrbar --location las",
     "format": "{}°C",
     "return-type": "json",
     "on-click": "",
