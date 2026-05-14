@@ -20,6 +20,8 @@
   "modules-center": [],
   "modules-right": [
     "tray",
+    "custom/moon",
+    "custom/weather",
     "idle_inhibitor",
     "power-profiles-daemon",
     "clock"
@@ -140,6 +142,19 @@
   "tray": {
     "icon-size": 20,
     "spacing": 4
+  },
+  "custom/moon": {
+    "exec": "curl --silent 'https://wttr.in/?format=%m'",
+    "format": "{text}",
+    "on-click": "",
+    "restart-interval": 21600
+  },
+  "custom/weather": {
+    "exec": "wttrbar",
+    "format": "{}°C",
+    "return-type": "json",
+    "on-click": "",
+    "restart-interval": 1800
   },
   "idle_inhibitor": {
     "format": "{icon}",
