@@ -193,6 +193,7 @@ window-rule {
 
 window-rule {
   match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
+  match app-id=r#"^com\.bitwig\.BitwigStudio"# is-floating=false
   match app-id=r#"^feishin$"#
   open-maximized true
 }
