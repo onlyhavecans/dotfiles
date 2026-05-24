@@ -2,12 +2,12 @@ layer=overlay
 width=330
 margin=20,20,0
 padding=7
-height=110
+height=1000
 border-size=4
 border-radius=12
 icons=1
 max-icon-size=64
-default-timeout=5000
+default-timeout=6000
 font=Inter Display 13
 
 output=DP-2
