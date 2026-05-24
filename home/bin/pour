@@ -92,7 +92,7 @@ fi
 
 if command_exists yazi; then
   status_message "[yazi] Updating yazi plugins"
-  ya pkg upgrade
+  ya pkg upgrade --discard
 fi
 
 if command_exists asdf; then
