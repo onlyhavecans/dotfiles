@@ -57,6 +57,15 @@ output "PNP(BNQ) BenQ PJ 0x00000001" {
     default-column-width { proportion 1.0; }
   }
 }
+output "Samsung Electric Company SAMSUNG 0x00000001" {
+  // entertainment center audio
+  // keep matching the BenQ above
+  mode "1920x1080@60.000"
+  layout {
+    always-center-single-column
+    default-column-width { proportion 1.0; }
+  }
+}
 output "eDP-1" {
   // Laptops are smaller screens
   layout {
