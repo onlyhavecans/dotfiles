@@ -190,6 +190,7 @@ window-rule {
   match app-id=r#"^net-filebot-Main"#
   match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
   match app-id=r#"^pomodorolm"#
+  match app-id=r#"^gnome-pomodoro"#
   open-floating true
 }
 
