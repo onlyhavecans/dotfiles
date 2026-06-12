@@ -15,6 +15,7 @@ function error_message {
 status_message "git fsck"
 if ! git fsck --full --no-progress; then
   error_message "Repo failed FSCK: $PWD"
+  exit 1
 fi
 
 status_message "git gc"

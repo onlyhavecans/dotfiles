@@ -57,7 +57,10 @@ for dir in $(fd --hidden --no-ignore --fixed-strings .git --type d --exclude .di
   fi
 
   status_message "running maint"
-  git_maint
+  if ! git_maint; then
+    errors+=("git_maint errored $PWD")
+    continue
+  fi
 
   echo ""
 done
