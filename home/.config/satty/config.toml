@@ -1,7 +1,6 @@
 [general]
 output-filename = "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
 actions-on-escape = ["save-to-clipboard", "save-to-file", "exit"]
-annotation-size-factor = 4
 brush-smooth-history-size = 5
 copy-command = "wl-copy"
 corner-roundness = 12
