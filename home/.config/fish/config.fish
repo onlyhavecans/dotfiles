@@ -87,7 +87,6 @@ abbr --add tw "mosh webby.bunni.biz -- fish --command tm"
 # Brewpaths
 if type -q brew
     brew shellenv | source
-    set -x HOMEBREW_NO_ENV_HINTS 1
     set -x HOMEBREW_BUNDLE_FILE ~/.config/Brewfile
 
     ## brew --prefix is way too slow in 4.0 so hardcode
@@ -120,11 +119,10 @@ type -q direnv; and direnv hook fish | source
 # Homeshick
 test -f ~/.homesick/repos/homeshick/homeshick.fish; and source ~/.homesick/repos/homeshick/homeshick.fish
 
+# OrbStack (macOS)
+test -f ~/.orbstack/shell/init2.fish; and source ~/.orbstack/shell/init2.fish
+
 # Startup banner (not in tmux)
 if test -z "$TMUX"
     type -q fastfetch; and fastfetch
 end
-
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
