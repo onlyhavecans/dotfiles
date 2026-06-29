@@ -128,6 +128,3 @@ cask "1password-cli"
 cask "espanso"
 
 go "github.com/StackExchange/dnscontrol/v4"
-
-cargo "bandsnatch"
-cargo "sqlx-cli"
