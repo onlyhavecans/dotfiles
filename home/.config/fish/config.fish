@@ -124,5 +124,5 @@ test -f ~/.orbstack/shell/init2.fish; and source ~/.orbstack/shell/init2.fish
 
 # Startup banner (not in tmux)
 if test -z "$TMUX"
-    type -q fastfetch; and fastfetch
+    type -q fastfetch; and fastfetch --disable-linewrap true
 end
