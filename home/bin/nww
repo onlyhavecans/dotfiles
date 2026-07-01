@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+WIDTH=800
+if [[ -n "$1" ]]; then
+  WIDTH=$1
+fi
+
+niri msg action set-window-width $WIDTH
