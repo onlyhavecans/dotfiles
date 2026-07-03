@@ -1,5 +1,8 @@
 [mgr]
 prepend_keymap = [
+  # tabs
+  { on = ["t", "c"], run = "close", desc = "Close the current tab, or quit if it's last" },
+
   # trash
   { on = ["T", "b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
   { on = ["T", "o"], run = "plugin recycle-bin -- open", desc = "Open Trash" },
@@ -27,7 +30,7 @@ prepend_keymap = [
   { on = ["g", "Z"], run = "plugin fzf", desc = "Jump via fzf" },
 
   # Mount
-  { on = ["M", "m"], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
+  { on = ["M", "m"], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount then jump to its mount point" },
   { on = ["M", "u"], run = "plugin gvfs -- select-then-unmount --eject", desc = "Select device then eject" },
   { on = ["M", "U"], run = "plugin gvfs -- select-then-unmount --eject --force", desc = "Select device then force to eject/unmount" },
 
@@ -38,7 +41,4 @@ prepend_keymap = [
   # Jump
   { on = ["g", "m"], run = "plugin gvfs -- jump-to-device", desc = "Select device then jump to its mount point" },
   { on = ["`", "`"], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
-
-  { on = ["M", "t"], run = "plugin gvfs -- automount-when-cd", desc = "Enable automount when cd to device under cwd" },
-  { on = ["M", "T"], run = "plugin gvfs -- automount-when-cd --disabled", desc = "Disable automount when cd to device under cwd" },
 ]
