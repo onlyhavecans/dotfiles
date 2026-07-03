@@ -8,5 +8,10 @@ use = "boydaihungst/gvfs"
 rev = "3abc0a2"
 hash = "eed89e75671723c8f9390a2862af0e4e"
 
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "e73fd74"
+hash = "6ea5f37c7f219671ec504cb8311f889d"
+
 [flavor]
 deps = []
