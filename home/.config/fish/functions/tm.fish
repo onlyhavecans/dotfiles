@@ -29,6 +29,10 @@ function tm --description "Tmux session manager - attach or create predefined se
     tmux split-window -v -t dots -c ~/.homesick/repos/neovim
     tmux new-window -t InsideOut -n blog -c ~/Code/websites/squirrels.wtf
     tmux split-window -v -l 10 -t blog -c ~/Code/websites/squirrels.wtf
+    if test (prompt_hostname) = Edelgard
+        tmux new-window -t InsideOut -n flex -c /deep_end/AppConfigs/Flexget
+        tmux split-window -v -l 10 -t flex -c /deep_end/AppConfigs/Flexget
+    end
     tmux select-window -t InsideOut:nix
 
     # Session 2: WorkWork
