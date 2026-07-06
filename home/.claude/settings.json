@@ -39,6 +39,7 @@
       "Read(.env)"
     ]
   },
+  "model": "opusplan",
   "hooks": {
     "Notification": [
       {
@@ -69,6 +70,6 @@
     "security-guidance@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "tui": "fullscreen"
 }
