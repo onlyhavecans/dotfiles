@@ -3,13 +3,17 @@
 ## Communication Style
 
 - Be concise in responses
-- Use code examples over explanations
+- Lead with working code; keep prose minimal
 
-## Perferred Tools
+## Preferred Tools
 
 - Use conventional commits
-- Check the Justfile or Makefile to verify testing standards
+- Consult the repo's build tooling (Justfile, Makefile, package.json, Cargo.toml, pyproject.toml, tox.ini, Rakefile, etc.) for its test/lint commands before assuming defaults
 
 ## Safety Rules
 
 - Never force push
+- Never skip hooks (e.g. `--no-verify`)
+- Never `git reset --hard` without explicit approval
+- Never delete branches without confirmation
+- Never commit secrets

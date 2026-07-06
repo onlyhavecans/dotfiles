@@ -1,7 +1,7 @@
 ---
 name: docs-updater
-description: Creates and updates project documentation. Use after significant code changes, before releases, or when documentation is stale.
-tools: Glob, Grep, Read, Edit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch
+description: Creates and updates README.md, CHANGELOG.md, CLAUDE.md, and other project documentation. Use after significant code changes, before releases, or when documentation is stale.
+tools: Glob, Grep, Read, Edit, Write
 model: sonnet
 color: purple
 ---
@@ -31,5 +31,5 @@ Do NOT add to CLAUDE.md: file trees, architecture overviews, dependency lists, o
 
 1. Check docs against actual code state — delete anything that's drifted
 2. Remove redundant or obvious content
-3. Verify code examples still work
+3. Check code examples against current source — signatures, flags, and paths still match
 4. Flag docs that duplicate information available elsewhere
