@@ -12,6 +12,7 @@ color: purple
 
 - **Simplicity over completeness** — write the minimum that's useful. Delete more than you add.
 - **Don't document what you can look up** — skip things that change often or are easily found in source.
+- **Clean out old context** - comments that refer to the way things were are rarely helpful.
 
 ## File-specific guidance
 
