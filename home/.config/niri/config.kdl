@@ -267,6 +267,7 @@ binds {
   Mod+T hotkey-overlay-title="open yazi" { spawn "foot" "yazi"; }
   Mod+Y hotkey-overlay-title="open nautilus" { spawn "nautilus" "-w" "Downloads"; }
   Mod+B hotkey-overlay-title="open firefox" { spawn "firefox"; }
+  Mod+Shift+B hotkey-overlay-title="open firefox" { spawn "firefox" "--new-instance" "--private-window"; }
   Mod+Backslash hotkey-overlay-title="1password quick-access" { spawn "1password" "--quick-access"; }
 
   Mod+N hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
