@@ -5,8 +5,8 @@ hash = "8714306b5cac6359edbacbf545fbd691"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "3abc0a2"
-hash = "eed89e75671723c8f9390a2862af0e4e"
+rev = "c5a0bb9"
+hash = "480fde69fef0bcaeb2c21a726f94412c"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
