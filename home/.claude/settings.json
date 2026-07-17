@@ -66,10 +66,11 @@
     "code-review@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "skill-creator@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": false
   },
   "effortLevel": "high",
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true
 }
