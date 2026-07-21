@@ -9,6 +9,7 @@
 
 - Use conventional commits
 - Consult the repo's build tooling (Justfile, Makefile, package.json, Cargo.toml, pyproject.toml, tox.ini, Rakefile, etc.) for its test/lint commands before assuming defaults
+- Use `tea` for managing prs on the onlyhavecans.works forgejo instance
 
 ## Safety Rules
 
