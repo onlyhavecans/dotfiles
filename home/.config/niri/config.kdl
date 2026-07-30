@@ -246,6 +246,7 @@ window-rule {
 
 window-rule {
   match app-id=r#"^feishin$"# at-startup=true
+  match app-id=r#"^io.m51.Gelly$"# at-startup=true
   open-on-output "BOE Display 0x00000144"
 }
 
