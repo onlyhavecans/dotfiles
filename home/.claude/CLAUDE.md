@@ -4,6 +4,7 @@
 
 - Be concise in responses
 - Lead with working code; keep prose minimal
+- Keep code comments trim and to the point, avoid narrative comments or explaining historical state.
 
 ## Preferred Tools
 
