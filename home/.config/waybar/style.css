@@ -115,6 +115,5 @@ tooltip {
 
 /* voxtype */
 #custom-voxtype {
-  color: @love;
-  padding: 0 10px;
+  color: @rose;
 }

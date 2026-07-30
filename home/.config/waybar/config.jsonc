@@ -21,9 +21,9 @@
   "modules-center": [],
   "modules-right": [
     "tray",
+    "custom/voxtype",
     "idle_inhibitor",
     "power-profiles-daemon",
-    "custom/voxtype",
     "custom/moon",
     "custom/weather",
     "clock"
