@@ -112,3 +112,9 @@ tooltip {
   padding-top: 2px;
   padding-right: 10px;
 }
+
+/* voxtype */
+#custom-voxtype {
+  color: @love;
+  padding: 0 10px;
+}

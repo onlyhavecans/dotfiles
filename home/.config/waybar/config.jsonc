@@ -23,6 +23,7 @@
     "tray",
     "idle_inhibitor",
     "power-profiles-daemon",
+    "custom/voxtype",
     "custom/moon",
     "custom/weather",
     "clock"
@@ -160,6 +161,13 @@
   "tray": {
     "icon-size": 20,
     "spacing": 4
+  },
+  "custom/voxtype": {
+    "exec": "voxtype status --follow --format json --icon-theme material",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "systemctl --user restart voxtype"
   },
   "custom/moon": {
     "exec": "curl --silent 'https://wttr.in/?format=%m'",
