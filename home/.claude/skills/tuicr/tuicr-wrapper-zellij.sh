@@ -12,6 +12,10 @@ case "${TUICR_PANE_POSITION:-}" in
   stacked) TUICR_PANE_DIRECTION="stacked" ;;
 esac
 
+# Globals so the EXIT trap can reach them
+output_file=""
+fifo=""
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -88,6 +92,20 @@ check_tuicr_running() {
   return 1
 }
 
+cleanup() {
+  local status=$?
+
+  if [[ -n "$output_file" ]]; then
+    rm -f "$output_file"
+  fi
+
+  if [[ -n "$fifo" ]]; then
+    rm -f "$fifo"
+  fi
+
+  return "$status"
+}
+
 launch_tuicr_pane() {
   local target_dir="$1"
 
@@ -104,13 +122,12 @@ launch_tuicr_pane() {
   log_info "Directory: $target_dir"
 
   # FIFO for blocking until tuicr exits (zellij has no wait-for primitive)
-  local fifo
   fifo=$(mktemp -u "/tmp/tuicr-fifo.XXXXXX")
   mkfifo "$fifo"
 
   # Optional --stdout capture
-  local output_file=""
-  local tuicr_cmd="$(command -v tuicr)"
+  local tuicr_cmd
+  tuicr_cmd=$(command -v tuicr)
   local use_stdout=false
 
   if check_tuicr_stdout_support; then
@@ -141,9 +158,12 @@ launch_tuicr_pane() {
   log_info "tuicr is running in a $TUICR_PANE_DIRECTION pane"
   log_info "Waiting for tuicr to exit..."
 
-  # Block until the spawned command writes to the FIFO
+  # Block until the spawned command writes to the FIFO. No timeout: a review can
+  # legitimately run for hours. If the pane is killed without tuicr exiting, this
+  # blocks until interrupted, and the EXIT trap removes the FIFO.
   read -r _ < "$fifo"
   rm -f "$fifo"
+  fifo=""
 
   log_info "tuicr finished"
 
@@ -159,6 +179,7 @@ launch_tuicr_pane() {
       log_info "If you exported to clipboard, paste the instructions here"
     fi
     rm -f "$output_file"
+    output_file=""
   else
     log_info "If you exported instructions, they are in your clipboard - paste them here"
   fi
@@ -170,6 +191,10 @@ main() {
     usage
     exit 0
   fi
+
+  trap cleanup EXIT
+  trap 'exit 130' INT
+  trap 'exit 143' TERM
 
   # Check for tuicr
   if ! check_tuicr; then

@@ -5,6 +5,9 @@ set -e -u -o pipefail
 TUICR_PANE_POSITION="${TUICR_PANE_POSITION:-top}"    # top or bottom
 TUICR_PANE_SIZE="${TUICR_PANE_SIZE:-80}"              # percentage of screen
 
+# Global so the EXIT trap can reach it
+output_file=""
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -80,6 +83,16 @@ check_tuicr_running() {
   return 1
 }
 
+cleanup() {
+  local status=$?
+
+  if [[ -n "$output_file" ]]; then
+    rm -f "$output_file"
+  fi
+
+  return "$status"
+}
+
 launch_tuicr_pane() {
   local target_dir="$1"
 
@@ -110,7 +123,6 @@ launch_tuicr_pane() {
   local wait_channel="tuicr-$$"
 
   # Check if --stdout is supported and set up output capture
-  local output_file=""
   local tuicr_cmd="tuicr"
   local use_stdout=false
 
@@ -152,6 +164,7 @@ launch_tuicr_pane() {
       log_info "If you exported to clipboard, paste the instructions here"
     fi
     rm -f "$output_file"
+    output_file=""
   else
     log_info "If you exported instructions, they are in your clipboard - paste them here"
   fi
@@ -163,6 +176,10 @@ main() {
     usage
     exit 0
   fi
+
+  trap cleanup EXIT
+  trap 'exit 130' INT
+  trap 'exit 143' TERM
 
   # Check for tuicr
   if ! check_tuicr; then

@@ -91,11 +91,15 @@ Wrapper paths are relative to this skill directory:
 The Herdr wrapper requires `jq` to read pane IDs and completion results from
 Herdr's JSON responses.
 
-If your tool supports command timeouts, use a long timeout, such as 10 minutes,
-because the wrappers wait for the TUI to exit. Once the TUI creates its active
-session, use `tuicr review list --repo /path/to/repo` to capture the slug. If
-your environment cannot run another command while the wrapper is waiting, read
-the comments after the user exits tuicr.
+All three wrappers block until the TUI exits. Launch them in the background so
+you can keep running commands while the user reviews — in Claude Code, pass
+`run_in_background: true` to the Bash tool. A foreground wrapper occupies the
+call for the whole review and makes the polling loop below unreachable.
+
+Once the TUI creates its active session, use `tuicr review list --repo
+/path/to/repo` to capture the slug. If you cannot background the wrapper, run it
+in the foreground with the longest timeout available (10 minutes is the
+maximum), skip polling, and read comments once after the user exits tuicr.
 
 ## Read User Comments
 
@@ -128,10 +132,13 @@ Treat these comments as the user's review feedback:
 - `note`: answer or acknowledge
 - `praise`: no action required
 
-If you are waiting during an active review, poll this command about every 30
-seconds and compare comment IDs with the previous result. Read immediately when
-the user says comments are ready. Stop polling once the user says the review is
-done or your tooling would block other work.
+If you are waiting during an active review and the wrapper is running in the
+background, poll this command about every 30 seconds and compare comment IDs
+with the previous result. Read immediately when the user says comments are
+ready. Stop polling once the user says the review is done.
+
+If the wrapper is running in the foreground, you cannot poll — wait for it to
+exit, then read comments once.
 
 If the result is empty, ask whether the user saved comments in the intended
 session or whether another active session should be selected. If the review may
@@ -180,9 +187,10 @@ For structured input, use `--input` with literal JSON, `@path/to/file.json`, or
 `-` for stdin. Supported target types are `review`, `file`, `line`, and
 `line_range`.
 
-## Legacy Export Output
+## Exported Instructions
 
-Older wrapper-driven flows may emit:
+Separate from stored comments, tuicr's in-TUI export action emits an instruction
+block. The tmux and Zellij wrappers capture it with `tuicr --stdout` and print:
 
 ```text
 === TUICR INSTRUCTIONS ===
@@ -190,10 +198,13 @@ Older wrapper-driven flows may emit:
 === END TUICR INSTRUCTIONS ===
 ```
 
-If present, process those instructions. Otherwise prefer
-`tuicr review comments`; it is the primary source of review feedback. If the
-wrapper mentions clipboard export, ask the user to paste it only when the CLI
-comments are unavailable.
+The Herdr wrapper does not capture this; on Herdr, use the CLI only.
+
+`tuicr review comments` is the primary source of review feedback. Treat an
+instruction block as a supplement: process it when present, but still run
+`tuicr review comments` before acting, and prefer the CLI if the two disagree.
+If a wrapper reports the export went to the clipboard, ask the user to paste it
+only when the CLI shows no comments.
 
 ## Multiplexer Tips
 
