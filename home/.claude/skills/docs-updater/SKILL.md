@@ -1,9 +1,6 @@
 ---
 name: docs-updater
-description: Creates and updates README.md, CHANGELOG.md, CLAUDE.md, and other project documentation. Use after significant code changes, before releases, or when documentation is stale.
-tools: Glob, Grep, Read, Edit, Write
-model: sonnet
-color: purple
+description: Write or update README.md, CHANGELOG.md, CLAUDE.md, and other project docs. Use when documentation needs creating, refreshing after code changes, auditing for drift, or before a release. Triggers on "update the README", "document this", "the docs are stale", "add a changelog entry".
 ---
 
 # Documentation Updates
@@ -12,7 +9,7 @@ color: purple
 
 - **Simplicity over completeness** — write the minimum that's useful. Delete more than you add.
 - **Don't document what you can look up** — skip things that change often or are easily found in source.
-- **Clean out old context** - comments that refer to the way things were are rarely helpful.
+- **Clean out old context** — comments that refer to the way things were are rarely helpful.
 
 ## File-specific guidance
 
@@ -33,3 +30,9 @@ Do NOT add to CLAUDE.md: file trees, architecture overviews, dependency lists, o
 2. Remove redundant or obvious content
 3. Check code examples against current source — signatures, flags, and paths still match
 4. Flag docs that duplicate information available elsewhere
+
+## Verify before documenting
+
+Run any command you're about to put in the docs. An install step or test invocation that
+doesn't work is worse than no documentation. Prefer commands the repo's own build tooling
+already defines over ones you infer.

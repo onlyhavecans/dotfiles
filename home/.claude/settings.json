@@ -4,42 +4,12 @@
     "pr": ""
   },
   "permissions": {
-    "allow": [
-      "Bash(cargo clippy:*)",
-      "Bash(cargo fmt:*)",
-      "Bash(cargo test:*)",
-      "Bash(cat:*)",
-      "Bash(find:*)",
-      "Bash(gh api:*)",
-      "Bash(gh issue list:*)",
-      "Bash(gh issue view:*)",
-      "Bash(gh pr checkout:*)",
-      "Bash(gh pr checks:*)",
-      "Bash(gh pr diff:*)",
-      "Bash(gh pr list:*)",
-      "Bash(gh pr view:*)",
-      "Bash(gh search:*)",
-      "Bash(go test:*)",
-      "Bash(go doc:*)",
-      "Bash(grep:*)",
-      "Bash(just check:*)",
-      "Bash(just test:*)",
-      "Bash(ls:*)",
-      "Bash(make test:*)",
-      "Bash(nix:*)",
-      "Bash(npm test:*)",
-      "Bash(python -m pytest:*)",
-      "Bash(rg:*)",
-      "Bash(tree:*)",
-      "Bash(wc:*)",
-      "WebFetch(domain:github.com)"
-    ],
     "deny": [
       "Read(.envrc)",
       "Read(.env)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
-  "model": "opusplan",
   "hooks": {
     "Notification": [
       {
@@ -65,10 +35,7 @@
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": false
+    "security-guidance@claude-plugins-official": true
   },
   "effortLevel": "high",
   "tui": "fullscreen",
