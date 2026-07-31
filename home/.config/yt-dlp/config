@@ -1,17 +1,19 @@
-## Don't fail on an error, skip
+# Don't fail on an error, skip
 --no-abort-on-error
 
-## Restart afrer error
---continue
+# Clean up filenames
+--restrict-filenames
 
-## Write part file
---part
+# Thumbnails for Jellyfin
+--convert-thumbnails jpg
+--write-thumbnail
 
-## embed-subs
+# Subtitles
+--write-subs
 --embed-subs
 
-## Write data for me
---write-info-json
+## Chapters and Metadata
+--embed-metadata
 
-## Default to wav audio
+# Default to flac audio
 --audio-format flac
