@@ -1,11 +1,11 @@
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
-// https://yalter.github.io/niri/Configuration:-Introduction
+// https://niri-wm.github.io/niri/Configuration:-Introduction
 
 // Input device configuration.
 // Find the full list of options on the wiki:
-// https://yalter.github.io/niri/Configuration:-Input
+// https://niri-wm.github.io/niri/Configuration:-Input
 input {
   keyboard {
     xkb {
@@ -34,7 +34,7 @@ input {
 // Output device configuration.
 // Find the modes and names with `niri msg outputs`
 // Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Outputs
+// https://niri-wm.github.io/niri/Configuration:-Outputs
 output "Dell Inc. DELL G2725D 4H65S34" {
   // Center the Center
   focus-at-startup
@@ -85,7 +85,7 @@ output "eDP-1" {
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Layout
+// https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
   gaps 6
 
@@ -132,7 +132,7 @@ layout {
 
 // Miscellaneous configuration.
 // Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous
+// https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
 cursor {
   xcursor-theme "BreezeX-RosePine-Linux"
   xcursor-size 32
@@ -160,14 +160,14 @@ clipboard {
 }
 
 // Laptop Switch events
-// See https://github.com/YaLTeR/niri/wiki/Configuration:-Switch-Events
+// See https://github.com/niri-wm/niri/wiki/Configuration:-Switch-Events
 switch-events {
   lid-close { spawn "systemctl" "sleep"; }
   // lid-open { spawn "notify-send" "The laptop lid is open!"; }
 }
 
 // Animation settings.
-// https://yalter.github.io/niri/Configuration:-Animations
+// https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
   // off
   // Values below 1 speed them up instead.
@@ -175,57 +175,53 @@ animations {
 }
 
 // Window rules let you adjust behavior for individual windows.
-// https://yalter.github.io/niri/Configuration:-Window-Rules
+// https://niri-wm.github.io/niri/Configuration:-Window-Rules
 // Use `niri msg windows` to get window details
 
 // Keep more specific rules last
 window-rule {
-  match app-id=r#"^org\.gnome\.World\.Secrets$"#
-  match app-id=r#"1password$"#
-  match app-id=r#"^signal$"#
-  match app-id=r#"^discord$"#
-  match app-id=r#"^Slack$"#
+  match app-id="1password"
+  match app-id="signal"
+  match app-id="discord"
+  match app-id="slack"
   block-out-from "screencast"
 }
 
 window-rule {
-  match app-id=r#"^org\.gnome\.World\.Secrets$"#
-  match app-id=r#"1password$"#
+  match app-id="1password"
   block-out-from "screen-capture"
 }
 
 window-rule {
-  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-  match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
-  match app-id=r#"^pomodorolm"#
-  match app-id=r#"^gnome-pomodoro"#
+  match app-id="firefox" title="^Picture-in-Picture$"
+  match app-id="gnome-pomodoro"
+  match app-id="mpv"
   open-floating true
 }
 
 window-rule {
-  match app-id=r#"^veadotube-mini$"#
-  match app-id=r"^steam$" title="Big Picture Mode"
-  match app-id=r"^steam_app"
+  match app-id="veadotube-mini"
+  match app-id="steam" title="Big Picture Mode"
+  match app-id="steam_app"
   open-fullscreen true
 }
 
 window-rule {
-  match app-id=r#"^net-filebot-Main"#
+  match app-id="net-filebot-Main"
   match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
   match app-id=r#"^com\.bitwig\.BitwigStudio"# is-floating=false
-  match app-id=r#"^feishin$"#
   open-maximized true
 }
 
 window-rule {
-  match app-id=r#"^Slack$"#
-  match app-id=r#"^chrome-twitch"#
-  match app-id=r#"^thunderbird$"#
+  match app-id="slack"
+  match app-id=r"chrome-twitch"
+  match app-id="thunderbird"
   default-column-width { proportion 0.66667; }
 }
 
 window-rule {
-  match app-id=r#"^foot$"#
+  match app-id="foot"
   default-column-width { proportion 0.5; }
 }
 
@@ -238,15 +234,14 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r"^obsidian$" at-startup=true
-  match app-id=r"^electron$" title=r#"Obsidian \d+\.\d+.\d+$"# at-startup=true
+  match app-id="obsidian" at-startup=true
+  match app-id="electron" title=r#"Obsidian \d+\.\d+.\d+$"# at-startup=true
   open-on-output "DP-3"
   default-column-width { proportion 0.33333; }
 }
 
 window-rule {
-  match app-id=r#"^feishin$"# at-startup=true
-  match app-id=r#"^io.m51.Gelly$"# at-startup=true
+  match app-id=r#"io\.m51\.Gelly$"# at-startup=true
   open-on-output "BOE Display 0x00000144"
 }
 
