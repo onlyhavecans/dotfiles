@@ -184,6 +184,7 @@ window-rule {
   match app-id="signal"
   match app-id="discord"
   match app-id="slack"
+  match app-id=r#"md\.Obsidian"#
   block-out-from "screencast"
 }
 
@@ -200,7 +201,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id="veadotube-mini"
   match app-id="steam" title="Big Picture Mode"
   match app-id="steam_app"
   open-fullscreen true
@@ -215,7 +215,7 @@ window-rule {
 
 window-rule {
   match app-id="slack"
-  match app-id=r"chrome-twitch"
+  match app-id="chrome-twitch"
   match app-id="thunderbird"
   default-column-width { proportion 0.66667; }
 }
@@ -234,8 +234,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id="obsidian" at-startup=true
-  match app-id="electron" title=r#"Obsidian \d+\.\d+.\d+$"# at-startup=true
+  match app-id=r#"md\.Obsidian"# at-startup=true
   open-on-output "DP-3"
   default-column-width { proportion 0.33333; }
 }
