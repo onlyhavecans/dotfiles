@@ -75,7 +75,6 @@
     "format": "󰘚 {percentage}%"
   },
   "disk": {
-    "interval": 60,
     "format": "󰋊 {percentage_used}%",
     "path": "/"
   },
@@ -152,8 +151,8 @@
     "format-ok": "󰄬",
     "system": true,
     "user": true,
-    "interval": 60,
-    "tooltip-format": "System: {nr_failed_system}\nUser: {nr_failed_user}"
+    "tooltip-format": "System: {nr_failed_system}\nUser: {nr_failed_user}",
+    "tooltip-unit-format": "{scope}: {name} ({active_state})"
   },
   "privacy": {
     "icon-size": 16
