@@ -3,4 +3,4 @@
 sed -i \
   '/touchpad-disabled/ {s|.*|    // touchpad-enabled|; b};
    /touchpad-enabled/  {s|.*|    off // touchpad-disabled|}' \
-  ~/.config/niri/config.kdl
+  /home/dos/.homesick/repos/dotfiles/home/.config/niri/config.kdl
