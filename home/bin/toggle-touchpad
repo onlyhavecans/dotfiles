@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sed -i \
+  '/touchpad-disabled/ {s|.*|    // touchpad-enabled|; b};
+   /touchpad-enabled/  {s|.*|    off // touchpad-disabled|}' \
+  ~/.config/niri/config.kdl

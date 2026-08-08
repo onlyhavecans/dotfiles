@@ -16,6 +16,7 @@ input {
   }
 
   touchpad {
+    // touchpad-enabled
     tap
     dwt // disable when typing
     drag true // tap and drag
