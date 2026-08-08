@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 
+CONFIG=/home/dos/.homesick/repos/dotfiles/home/.config/niri/config.kdl
+
 sed -i \
   '/touchpad-disabled/ {s|.*|    // touchpad-enabled|; b};
    /touchpad-enabled/  {s|.*|    off // touchpad-disabled|}' \
-  /home/dos/.homesick/repos/dotfiles/home/.config/niri/config.kdl
+  "$CONFIG"
+
+STATE=Broken
+if grep -q touchpad-disabled "$CONFIG"; then
+  STATE=Disabled
+elif grep -q touchpad-enabled "$CONFIG"; then
+  STATE=Enabled
+fi
+
+notify-send Niri "Touchpad is now $STATE"

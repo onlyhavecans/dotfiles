@@ -16,7 +16,7 @@ input {
   }
 
   touchpad {
-    // touchpad-enabled
+    off // touchpad-disabled
     tap
     dwt // disable when typing
     drag true // tap and drag
@@ -270,7 +270,7 @@ binds {
   Mod+Escape hotkey-overlay-title="power menu" { spawn "wlr-which-key" "power"; }
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/.config/fuzzel/scripts/window-selector.sh"; }
 
-  Mod+F12 hotkey-overlay-title="lock" { spawn "swaylock"; }
+  Mod+F12 hotkey-overlay-title="Toggle Touchpad" { spawn "~/bin/toggle-touchpad"; }
   Mod+XF86AudioMedia { spawn "swaylock"; }
 
   F12 { spawn "voxtype" "record" "toggle"; }
