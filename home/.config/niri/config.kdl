@@ -16,7 +16,6 @@ input {
   }
 
   touchpad {
-    off // touchpad-disabled
     tap
     dwt // disable when typing
     drag true // tap and drag
@@ -31,6 +30,8 @@ input {
 
   focus-follows-mouse max-scroll-amount="20%"
 }
+
+include "touchpad.kdl"
 
 // Output device configuration.
 // Find the modes and names with `niri msg outputs`

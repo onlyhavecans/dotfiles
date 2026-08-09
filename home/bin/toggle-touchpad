@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CONFIG=/home/dos/.homesick/repos/dotfiles/home/.config/niri/config.kdl
+CONFIG=/home/dos/.config/niri/touchpad.kdl
 
 sed -i \
   '/touchpad-disabled/ {s|.*|    // touchpad-enabled|; b};
