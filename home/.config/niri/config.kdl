@@ -210,6 +210,7 @@ window-rule {
 
 window-rule {
   match app-id="net-filebot-Main"
+  match app-id="feishin"
   match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
   match app-id=r#"^com\.bitwig\.BitwigStudio"# is-floating=false
   open-maximized true
@@ -242,7 +243,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"io\.m51\.Gelly$"# at-startup=true
+  match app-id="feishin" at-startup=true
   open-on-output "BOE Display 0x00000144"
 }
 
