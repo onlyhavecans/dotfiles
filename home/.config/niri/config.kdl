@@ -213,7 +213,7 @@ window-rule {
   match app-id="feishin"
   match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
   match app-id=r#"^com\.bitwig\.BitwigStudio"# is-floating=false
-  open-maximized true
+  default-column-width { proportion 1.0; }
 }
 
 window-rule {
