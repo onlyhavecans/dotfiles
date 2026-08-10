@@ -1,20 +1,58 @@
 #!/usr/bin/env bash
+set -ou pipefail
+
+OUTFILE=~/Pictures/Screenshots/$(date +%F_%H-%M-%S).png
+
+annotate() {
+  satty --output-filename "$OUTFILE" --filename -
+}
 
 case "${1:-region}" in
   window)
     niri msg action screenshot-window --write-to-disk false
     sleep 0.2
-    wl-paste | satty --filename -
+    wl-paste | annotate
     ;;
   screen)
     output=$(niri msg --json focused-output | jq --raw-output '.name')
-    grim -o "$output" -t ppm - | satty --filename -
+    grim -o "$output" -t ppm - | annotate
     ;;
   selection)
-    grim -g "$(slurp)" -t ppm - | satty --filename -
+    grim -g "$(slurp)" -t ppm - | annotate
     ;;
   *)
     echo "usage: $0 [window|screen|selection]"
     exit 1
     ;;
 esac
+
+##
+# Auto upload mah screenshots
+##
+upload() {
+  TOKEN=$(op read "op://Personal/Zipline/api-key")
+  URL=$(op read "op://Personal/Zipline/api-upload-url")
+
+  if [[ -z "$TOKEN" || -z "$URL" ]]; then
+    echo "No upload till you auth"
+  fi
+
+  if [[ ! -f $OUTFILE ]]; then
+    echo "Skipping upload without file"
+  fi
+
+  UPLOAD_URL=$(
+    curl \
+      "$URL" \
+      --header "authorization: $TOKEN" \
+      --header 'content-type: multipart/form-data' \
+      --form file=@"$OUTFILE" |
+      jq --raw-output .files[0].url
+  )
+
+  if [[ -n "$UPLOAD_URL" ]]; then
+    notify-send "Screenshot" "Uploaded to $UPLOAD_URL"
+  fi
+}
+
+upload
