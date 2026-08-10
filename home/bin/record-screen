@@ -1,3 +1,13 @@
 #!/usr/bin/env bash
+
+echo "Checking for previous run"
+if killall -s SIGINT wf-recorder; then
+  notify-send Recorder "Recorder stopped"
+  exit 0
+fi
+
 start_time=$(date +"%Y-%m-%d_%H:%M:%S")
-wf-recorder -g "$(slurp)" -f "$HOME/Downloads/recording_${start_time}.mp4"
+outfile=$HOME/Pictures/Screenshots/recording_${start_time}.mp4
+
+notify-send Recorder "Recorder started"
+wf-recorder -g "$(slurp)" -f "$outfile"

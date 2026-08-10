@@ -504,6 +504,7 @@ binds {
   Print hotkey-overlay-title="Screenshot Window" { spawn "~/bin/screenshot" "window"; }
   Shift+Print hotkey-overlay-title="Screenshot Selection" { spawn "~/bin/screenshot" "selection"; }
   Ctrl+Print hotkey-overlay-title="Screenshot Screen" { spawn "~/bin/screenshot" "screen"; }
+  Mod+Print hotkey-overlay-title="Record Screen" { spawn "~/bin/record-screen"; }
 
   // Applications such as remote-desktop clients and software KVM switches may
   // request that niri stops processing the keyboard shortcuts defined here
