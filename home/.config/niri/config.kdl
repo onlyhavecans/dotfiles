@@ -147,7 +147,7 @@ spawn-at-startup "1password" "--silent"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
-screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 hotkey-overlay {
   skip-at-startup
@@ -199,6 +199,7 @@ window-rule {
   match app-id="firefox" title="^Picture-in-Picture$"
   match app-id="gnome-pomodoro"
   match app-id="mpv"
+  match app-id="com.gabm.satty"
   open-floating true
 }
 
@@ -500,8 +501,8 @@ binds {
   // Mod+Shift+Space { switch-layout "prev"; }
 
   // Screenshots with grim + slurp + satty for flameshot-like workflow
-  Print hotkey-overlay-title="Screenshot Selection" { spawn "~/bin/screenshot"; }
-  Mod+Print hotkey-overlay-title="Screenshot Window" { spawn "~/bin/screenshot" "window"; }
+  Print hotkey-overlay-title="Screenshot Window" { spawn "~/bin/screenshot" "window"; }
+  Shift+Print hotkey-overlay-title="Screenshot Selection" { spawn "~/bin/screenshot" "selection"; }
   Ctrl+Print hotkey-overlay-title="Screenshot Screen" { spawn "~/bin/screenshot" "screen"; }
 
   // Applications such as remote-desktop clients and software KVM switches may

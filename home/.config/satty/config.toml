@@ -1,10 +1,13 @@
 [general]
-output-filename = "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
-actions-on-escape = ["save-to-clipboard", "save-to-file", "exit"]
-brush-smooth-history-size = 5
-copy-command = "wl-copy"
 corner-roundness = 12
 initial-tool = "arrow"
+copy-command = "wl-copy"
+annotation-size-factor = 2
+output-filename = "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
+default-fill-shapes = false
+actions-on-escape = ["save-to-clipboard", "save-to-file", "exit"]
+
+zoom-factor = 1.2
 
 [font]
 family = "Inter"

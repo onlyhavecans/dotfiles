@@ -2,16 +2,19 @@
 
 case "${1:-region}" in
   window)
-    file=~/Pictures/Screenshots/$(date '+%Y-%m-%d-%H-%M-%S').png
-    niri msg action screenshot-window
-    while [[ ! -f "$file" ]]; do sleep 0.05; done
-    satty -f "$file"
+    niri msg action screenshot-window --write-to-disk false
+    sleep 0.2
+    wl-paste | satty --filename -
     ;;
   screen)
-    output=$(niri msg -j focused-output | jq -r '.name')
-    grim -o "$output" - | satty -f -
+    output=$(niri msg --json focused-output | jq --raw-output '.name')
+    grim -o "$output" -t ppm - | satty --filename -
+    ;;
+  selection)
+    grim -g "$(slurp)" -t ppm - | satty --filename -
     ;;
   *)
-    grim -g "$(slurp)" - | satty -f -
+    echo "usage: $0 [window|screen|selection]"
+    exit 1
     ;;
 esac
