@@ -169,8 +169,14 @@
     "tooltip": true,
     "on-click": "systemctl --user restart voxtype"
   },
+  "custom/recording": {
+    "exec": "pgrep -x wf-recorder >/dev/null && echo '󰻃' || echo ''",
+    "format": "{text}",
+    "on-click": "pkill -INT --older 5 -x wf-recorder",
+    "restart-interval": 5
+  },
   "custom/moon": {
-    "exec": "curl --silent 'https://wttr.in/?format=%m'",
+    "exec": "curl --silent 'https://wttr.is/?format=%m'",
     "format": "{text}",
     "on-click": "",
     "restart-interval": 21600
@@ -181,12 +187,6 @@
     "return-type": "json",
     "on-click": "",
     "restart-interval": 1800
-  },
-  "custom/recording": {
-    "exec": "pgrep -x wf-recorder >/dev/null && echo '󰻃' || echo ''",
-    "format": "{text}",
-    "on-click": "pkill -INT --older 5 -x wf-recorder",
-    "restart-interval": 5
   },
   "idle_inhibitor": {
     "format": "{icon}",
