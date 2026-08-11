@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Checking for previous run"
-if killall -s SIGINT wf-recorder; then
+if pkill -INT --older 5 -x wf-recorder; then
   notify-send Recorder "Recorder stopped"
   exit 0
 fi

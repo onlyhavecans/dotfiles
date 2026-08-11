@@ -80,21 +80,43 @@ tooltip {
    Left Side: Module Colors
    ======================================== */
 
-#workspaces { color: @text; }
-#battery { color: @gold; }
-#cpu { color: @rose; }
-#memory { color: @pine; }
-#disk { color: @foam; }
-#wireplumber { color: @iris; }
-#wireplumber.source { color: @iris; }
-#backlight { color: @love; }
-#bluetooth { color: @iris; }
-#network.wifi { color: @foam; }
+#workspaces {
+  color: @text;
+}
+#battery {
+  color: @gold;
+}
+#cpu {
+  color: @rose;
+}
+#memory {
+  color: @pine;
+}
+#disk {
+  color: @foam;
+}
+#wireplumber {
+  color: @iris;
+}
+#wireplumber.source {
+  color: @iris;
+}
+#backlight {
+  color: @love;
+}
+#bluetooth {
+  color: @iris;
+}
+#network.wifi {
+  color: @foam;
+}
 #network.vpn {
   color: @pine;
   padding-right: 8px;
 }
-#systemd-failed-units { color: @text; }
+#systemd-failed-units {
+  color: @text;
+}
 
 /* ========================================
    Right Side: Module Colors
@@ -110,6 +132,10 @@ tooltip {
 #idle_inhibitor {
   color: @subtle;
   padding-top: 2px;
+  padding-right: 10px;
+}
+#custom-recording {
+  color: @rose;
   padding-right: 10px;
 }
 

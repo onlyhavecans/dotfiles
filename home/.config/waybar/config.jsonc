@@ -22,6 +22,7 @@
   "modules-right": [
     "tray",
     "custom/voxtype",
+    "custom/recording",
     "idle_inhibitor",
     "power-profiles-daemon",
     "custom/moon",
@@ -180,6 +181,12 @@
     "return-type": "json",
     "on-click": "",
     "restart-interval": 1800
+  },
+  "custom/recording": {
+    "exec": "pgrep -x wf-recorder >/dev/null && echo '󰻃' || echo ''",
+    "format": "{text}",
+    "on-click": "pkill -INT --older 5 -x wf-recorder",
+    "restart-interval": 5
   },
   "idle_inhibitor": {
     "format": "{icon}",
