@@ -3,3 +3,9 @@ type = "sftp"
 host = "edelgard.bunni.biz"
 port = 22
 user = "dos"
+
+[services.piper]
+type = "sftp"
+host = "piper.bunni.biz"
+port = 22
+user = "dos"
