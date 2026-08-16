@@ -35,9 +35,6 @@ menu:
     desc: Audio
     submenu:
       - key: a
-        desc: Audacity
-        cmd: audacity
-      - key: b
         desc: Amberol
         cmd: amberol
       - key: f
@@ -52,6 +49,9 @@ menu:
       - key: q
         desc: qpwgraph Pipewire
         cmd: qpwgraph
+      - key: u
+        desc: A[u]dacity
+        cmd: audacity
       - key: v
         desc: pwvucontrol
         cmd: pwvucontrol
@@ -135,7 +135,7 @@ menu:
     submenu:
       - key: a
         desc: AMDGpuTop
-        cmd: amdgpu_top
+        cmd: amdgpu_top --gui
       - key: b
         desc: Btop
         cmd: foot -e btop
