@@ -9,6 +9,9 @@ prepend_keymap = [
   # fastjump
   { on = "f", run = "plugin jump-to-char", desc = "Jump to char" },
 
+  # lazy
+  { on = "L", run = "shell --block -- lazygit", desc = "LazyGit CWD" },
+
   # tabs
   { on = "<C-n>", run = "tab_switch --relative 1", desc = "Switch to next tab" },
   { on = "<C-p>", run = "tab_switch --relative -1", desc = "Switch to previous tab" },
