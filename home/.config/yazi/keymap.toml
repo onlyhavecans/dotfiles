@@ -25,9 +25,6 @@ prepend_keymap = [
   { on = ["g", "p"], run = "cd sftp://piper", desc = "Go Piper" },
   { on = ["g", "t"], run = "plugin recycle-bin -- open", desc = "Go Trash" },
 
-  # add lazygit quick access
-  { on = ["g", "l"], run = "plugin lazygit", desc = "Open lazygit" },
-
   # add fzf and zoxide
   { on = ["g", "z"], run = "plugin zoxide", desc = "Jump via zoxide" },
   { on = ["g", "Z"], run = "plugin fzf", desc = "Jump via fzf" },
