@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+URL=$*
+if [[ -z "$URL" ]]; then
+  URL=$(wl-paste)
+fi
+
+if [[ "$URL" != http* ]]; then
+  notify-send "watch-url" "Not a URL: $URL"
+  exit 1
+fi
+
+notify-send "watch-url" "Playing $URL"
+mpv "$URL"

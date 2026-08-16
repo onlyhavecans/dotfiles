@@ -183,9 +183,6 @@ menu:
       - key: j
         desc: Jellyfin
         cmd: jellyfin-chromium
-      - key: m
-        desc: mpv
-        cmd: mpv
       - key: t
         desc: Twitch
         cmd: twitch-chromium
@@ -194,7 +191,7 @@ menu:
         cmd: video-trimmer
       - key: w
         desc: Watch url in clipboad
-        cmd: sh -c "mpv $(wl-paste)"
+        cmd: ~/bin/watch-url
 
   - key: w
     desc: Work
