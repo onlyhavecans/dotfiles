@@ -51,6 +51,7 @@ upload() {
   )
 
   if [[ -n "$UPLOAD_URL" ]]; then
+    echo "$UPLOAD_URL" | wl-copy
     notify-send "Screenshot" "Uploaded to $UPLOAD_URL"
   fi
 }
