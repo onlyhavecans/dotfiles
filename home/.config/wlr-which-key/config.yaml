@@ -5,18 +5,17 @@ color: "#575279"
 border: "#907aa9"
 border_width: 4
 corner_r: 12
-padding: 15 # Defaults to corner_r
+padding: 30 # Defaults to corner_r
 rows_per_column: 8 # No limit by default
-column_padding: 25 # Defaults to padding
 
 anchor: center
 
 menu:
   - key: space
-    desc: fuzzel
+    desc: Fuzzel
     cmd: fuzzel --width 20
   - key: \
-    desc: 1Password
+    desc: Passwords
     cmd: 1password
   - key: b
     desc: Browser
@@ -27,8 +26,8 @@ menu:
   - key: f
     desc: File Manager
     cmd: foot -e yazi
-  - key: o
-    desc: Obsidian
+  - key: n
+    desc: Notepad
     cmd: xdg-open "obsidian://open?vault=Vault"
 
   - key: a
@@ -37,23 +36,29 @@ menu:
       - key: a
         desc: Amberol
         cmd: amberol
-      - key: f
-        desc: Feishin
-        cmd: feishin
+      - key: b
+        desc: Bitwig Studio
+        cmd: bitwig-studio
       - key: e
         desc: EasyEffects
         cmd: easyeffects
+      - key: f
+        desc: Feishin
+        cmd: feishin
+      - key: m
+        desc: MilkyTracker
+        cmd: milkytracker
       - key: p
         desc: Picard
         cmd: picard
       - key: q
-        desc: qpwgraph Pipewire
+        desc: qPWGraph
         cmd: qpwgraph
       - key: u
         desc: A[u]dacity
         cmd: audacity
       - key: v
-        desc: pwvucontrol
+        desc: PWVuControl
         cmd: pwvucontrol
 
   - key: c
@@ -70,14 +75,14 @@ menu:
     desc: Documents
     submenu:
       - key: d
-        desc: Document Viewer
+        desc: PDF Viewer
         cmd: papers
-      - key: p
-        desc: Photopea
-        cmd: photopea-chromium
       - key: i
         desc: Image Viewer
         cmd: loupe
+      - key: p
+        desc: Image Editor
+        cmd: photopea-chromium
 
   - key: g
     desc: Gaming
@@ -131,7 +136,7 @@ menu:
         cmd: ~/bin/screenshot window
 
   - key: s
-    desc: System Tools
+    desc: System Utils
     submenu:
       - key: a
         desc: AMDGpuTop
@@ -205,6 +210,9 @@ menu:
       - key: c
         desc: Cursor
         cmd: cursor
+      - key: n
+        desc: Netbird-ui
+        cmd: netbird-ui
       - key: o
         desc: Obsidian
         cmd: xdg-open "obsidian://open?vault=DNSimple"
