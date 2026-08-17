@@ -39,6 +39,9 @@ menu:
       - key: b
         desc: Bitwig Studio
         cmd: bitwig-studio
+      - key: c
+        desc: Crosspipe
+        cmd: crosspipe
       - key: e
         desc: EasyEffects
         cmd: easyeffects
@@ -51,9 +54,6 @@ menu:
       - key: p
         desc: Picard
         cmd: picard
-      - key: q
-        desc: qPWGraph
-        cmd: qpwgraph
       - key: u
         desc: A[u]dacity
         cmd: audacity
