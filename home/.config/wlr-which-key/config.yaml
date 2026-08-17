@@ -70,6 +70,9 @@ menu:
       - key: s
         desc: Signal
         cmd: signal-desktop
+      - key: w
+        desc: Slack
+        cmd: slack
 
   - key: d
     desc: Documents
@@ -171,7 +174,7 @@ menu:
         cmd: firebot
       - key: o
         desc: OBS
-        cmd: obs-studio
+        cmd: obs
       - key: s
         desc: Start Streaming
         cmd: foot -e ~/bin/streaming_time
