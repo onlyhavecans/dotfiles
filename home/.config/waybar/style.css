@@ -26,12 +26,18 @@ window#waybar.hidden {
 }
 
 tooltip {
+  background-color: @surface;
+  border: 2px solid @highlightHigh;
+  border-radius: 12px;
+}
+
+/* No GTK theme is installed, so anything unstyled falls back to Adwaita:
+   white tooltip text and oversized buttons. Keep these explicit. */
+tooltip label {
   font-size: 16px;
   color: @text;
-  background-color: @surface;
-  opacity: 0.8;
-  border: 2px solid @highlightHigh;
-  padding: 20px;
+  text-shadow: none;
+  padding: 4px 8px;
 }
 
 /* ========================================
@@ -82,6 +88,22 @@ tooltip {
 
 #workspaces {
   color: @text;
+}
+#workspaces button {
+  min-width: 0;
+  min-height: 0;
+  padding: 0 4px;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: @subtle;
+}
+#workspaces button.active,
+#workspaces button.focused {
+  color: @text;
+}
+#workspaces button:hover {
+  background: alpha(@overlay, 0.6);
 }
 #battery {
   color: @gold;
