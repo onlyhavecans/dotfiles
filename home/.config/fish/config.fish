@@ -55,7 +55,6 @@ abbr --add tree "eza --tree"
 abbr --add --position anywhere -- --help '--help 2>&1 | bat --language=help --plain'
 abbr --add man batman
 abbr --add jbat "bat -l json"
-abbr --add pretty prettybat
 
 # Git abbreviations
 abbr --add g git
