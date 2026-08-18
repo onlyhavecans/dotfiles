@@ -150,9 +150,15 @@ menu:
       - key: c
         desc: Calculator
         cmd: gnome-calculator
+      - key: d
+        desc: Disks
+        cmd: gnome-disks
       - key: f
         desc: Font Viewer
         cmd: gnome-font-viewer
+      - key: n
+        desc: Files
+        cmd: nautilus
       - key: p
         desc: Pomodoro Timer
         cmd: gnome-pomodoro
