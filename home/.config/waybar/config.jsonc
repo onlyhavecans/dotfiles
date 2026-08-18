@@ -47,8 +47,13 @@
   },
   "battery": {
     "states": {
-      "warning": 30,
-      "critical": 15
+      "warning": 20,
+      "critical": 5
+    },
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full!'"
     },
     "format": "{icon} {capacity}%",
     "format-full": "{icon} {capacity}%",
@@ -176,7 +181,7 @@
     "restart-interval": 5
   },
   "custom/moon": {
-    "exec": "curl --silent 'https://wttr.is/?format=%m'",
+    "exec": "curl --silent 'https://wttr.in/?format=%m'",
     "format": "{text}",
     "on-click": "",
     "restart-interval": 21600
