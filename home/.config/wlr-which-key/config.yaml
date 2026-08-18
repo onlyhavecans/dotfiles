@@ -5,7 +5,7 @@ color: "#575279"
 border: "#907aa9"
 border_width: 4
 corner_r: 12
-padding: 30 # Defaults to corner_r
+padding: 15 # Defaults to corner_r
 rows_per_column: 8 # No limit by default
 
 anchor: center

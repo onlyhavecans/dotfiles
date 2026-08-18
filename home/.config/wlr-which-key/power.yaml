@@ -1,6 +1,6 @@
 ---
 # Theming
-font: Inter Display 24
+font: Inter Display 32
 background: "#faf4edf0"
 color: "#575279"
 border: "#907aa9"
@@ -8,7 +8,6 @@ separator: " ➜ "
 border_width: 4
 corner_r: 12
 padding: 15 # Defaults to corner_r
-column_padding: 25 # Defaults to padding
 
 anchor: center
 
