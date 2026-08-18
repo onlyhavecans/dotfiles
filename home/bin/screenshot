@@ -25,35 +25,3 @@ case "${1:-region}" in
     exit 1
     ;;
 esac
-
-##
-# Auto upload mah screenshots
-##
-upload() {
-  TOKEN=$(op read "op://Personal/Zipline/api-key")
-  URL=$(op read "op://Personal/Zipline/api-upload-url")
-
-  if [[ -z "$TOKEN" || -z "$URL" ]]; then
-    echo "No upload till you auth"
-  fi
-
-  if [[ ! -f $OUTFILE ]]; then
-    echo "Skipping upload without file"
-  fi
-
-  UPLOAD_URL=$(
-    curl \
-      "$URL" \
-      --header "authorization: $TOKEN" \
-      --header 'content-type: multipart/form-data' \
-      --form file=@"$OUTFILE" |
-      jq --raw-output .files[0].url
-  )
-
-  if [[ -n "$UPLOAD_URL" ]]; then
-    echo "$UPLOAD_URL" | wl-copy
-    notify-send "Screenshot" "Uploaded to $UPLOAD_URL"
-  fi
-}
-
-upload
