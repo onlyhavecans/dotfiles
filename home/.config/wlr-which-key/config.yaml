@@ -8,12 +8,7 @@ corner_r: 12
 padding: 15 # Defaults to corner_r
 rows_per_column: 8 # No limit by default
 
-anchor: center
-
 menu:
-  - key: space
-    desc: Fuzzel
-    cmd: fuzzel --width 20
   - key: \
     desc: Passwords
     cmd: 1password
@@ -36,27 +31,15 @@ menu:
       - key: a
         desc: Amberol
         cmd: amberol
-      - key: b
-        desc: Bitwig Studio
-        cmd: bitwig-studio
-      - key: c
-        desc: Crosspipe
-        cmd: crosspipe
       - key: e
         desc: EasyEffects
         cmd: easyeffects
       - key: f
         desc: Feishin
         cmd: feishin
-      - key: m
-        desc: MilkyTracker
-        cmd: milkytracker
       - key: p
         desc: Picard
         cmd: picard
-      - key: u
-        desc: A[u]dacity
-        cmd: audacity
       - key: v
         desc: PWVuControl
         cmd: pwvucontrol
@@ -97,6 +80,22 @@ menu:
         desc: Steam
         cmd: steam
 
+  - key: m
+    desc: Music Prod
+    submenu:
+      - key: a
+        desc: Audacity
+        cmd: audacity
+      - key: b
+        desc: Bitwig Studio
+        cmd: bitwig-studio
+      - key: c
+        desc: Crosspipe
+        cmd: crosspipe
+      - key: m
+        desc: MilkyTracker
+        cmd: milkytracker
+
   - key: p
     desc: Power
     submenu:
@@ -119,6 +118,9 @@ menu:
   - key: r
     desc: Recording
     submenu:
+      - key: o
+        desc: OBS
+        cmd: obs
       - key: f
         desc: Clip Firefox Audio
         cmd: ~/bin/clip_firefox
@@ -173,11 +175,11 @@ menu:
         desc: StreamController
         cmd: streamcontroller
       - key: f
-        desc: Firefox
-        cmd: firefox
-      - key: i
-        desc: F[i]rebot
+        desc: Firebot
         cmd: firebot
+      - key: i
+        desc: F[i]refox
+        cmd: firefox
       - key: o
         desc: OBS
         cmd: obs
