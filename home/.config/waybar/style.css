@@ -18,11 +18,11 @@ window#waybar {
 window#waybar > box {
   background-color: alpha(@base, 0.3);
   border-radius: 12px;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 window#waybar.hidden {
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 tooltip {
@@ -31,8 +31,6 @@ tooltip {
   border-radius: 12px;
 }
 
-/* No GTK theme is installed, so anything unstyled falls back to Adwaita:
-   white tooltip text and oversized buttons. Keep these explicit. */
 tooltip label {
   font-size: 16px;
   color: @text;
@@ -48,7 +46,7 @@ tooltip label {
 .modules-left > widget > *,
 .modules-center > widget > *,
 .modules-right > widget > * {
-  padding: 0px 5px 1px; /* top | left and right | bottom */
+  padding: 1px 5px 2px; /* top | left and right | bottom */
   border: 1px solid @highlightHigh;
   background-color: @surface;
 }
@@ -105,40 +103,20 @@ tooltip label {
 #workspaces button:hover {
   background: alpha(@overlay, 0.6);
 }
-#battery {
-  color: @gold;
-}
-#cpu {
-  color: @rose;
-}
-#memory {
-  color: @pine;
-}
-#disk {
-  color: @foam;
-}
-#wireplumber {
-  color: @iris;
-}
-#wireplumber.source {
-  color: @iris;
-}
-#backlight {
-  color: @love;
-}
-#bluetooth {
-  color: @iris;
-}
-#network.wifi {
-  color: @foam;
-}
+#battery { color: @gold; }
+#cpu { color: @rose; }
+#memory { color: @pine; }
+#disk { color: @foam; }
+#wireplumber { color: @iris; }
+#wireplumber.source { color: @iris; }
+#backlight { color: @love; }
+#bluetooth { color: @iris; }
+#network.wifi { color: @foam; }
 #network.vpn {
   color: @pine;
   padding-right: 8px;
 }
-#systemd-failed-units {
-  color: @text;
-}
+#systemd-failed-units { color: @text; }
 
 /* ========================================
    Right Side: Module Colors
@@ -162,6 +140,4 @@ tooltip label {
 }
 
 /* voxtype */
-#custom-voxtype {
-  color: @rose;
-}
+#custom-voxtype { color: @rose; }
