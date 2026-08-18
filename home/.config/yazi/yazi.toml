@@ -3,6 +3,16 @@ sort_by = "mtime"
 sort_reverse = true
 sort_dir_first = true
 
+[[opener.set-wallpaper]]
+run = "awww img %s1"
+for = "linux"
+desc = "Set as wallpaper"
+
+[open]
+prepend_rules = [
+  { mime = "image/**", use = ["open", "set-wallpaper", "reveal"] },
+]
+
 [plugin]
 prepend_fetchers = [
   # ftp.yazi: custom schemes aren't matched by remote://, route mime manually
