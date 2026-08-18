@@ -1,11 +1,20 @@
-[services.edelgard]
-type = "sftp"
+# ad-hoc hosts: cd ftp://<ip>/  (port via host%3Aport, or add a named entry)
+[ftp."*"]
+kind = "mount"
+run  = "ftp"
+
+# named hosts mount as ftp://<name>/; custom providers take settings as run
+# args (--host --port --user --pass), not sftp-style fields
+# [ftp.rocky]
+# kind = "mount"
+# run  = "ftp --host=192.168.1.50 --port=2121"
+
+[sftp.edelgard]
 host = "edelgard.bunni.biz"
 port = 22
 user = "dos"
 
-[services.piper]
-type = "sftp"
+[sftp.piper]
 host = "piper.bunni.biz"
 port = 22
 user = "dos"

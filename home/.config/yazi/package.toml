@@ -1,17 +1,12 @@
 [[plugin.deps]]
-use = "uhs-robert/recycle-bin"
-rev = "82da16a"
-hash = "7383d80862d3cdcc85f8658dac7b90c2"
-
-[[plugin.deps]]
-use = "boydaihungst/gvfs"
-rev = "ebdb87c"
-hash = "69c24ef7e0a591864c76ac6e6dedc805"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
 rev = "3d25b67"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "3d25b67"
+hash = "46cbdc05596a3ecd730b288e28c7079d"
 
 [flavor]
 deps = []

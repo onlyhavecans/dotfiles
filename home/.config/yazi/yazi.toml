@@ -4,6 +4,10 @@ sort_reverse = true
 sort_dir_first = true
 
 [plugin]
+prepend_fetchers = [
+  # ftp.yazi: custom schemes aren't matched by remote://, route mime manually
+  { url = "ftp://*", run = "mime.remote", prio = "high", group = "mime" },
+]
 prepend_preloaders = [
   # Do not preload files in mounted locations:
   { url = "/run/user/1000/gvfs/**/*", run = "noop" },
