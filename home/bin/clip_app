@@ -7,7 +7,7 @@ fi
 
 app="$1"
 file="$HOME/Downloads/${app}_$(date +%F-%T).wav"
-timeout=30s
+timeout=60s
 
 if [[ "$2" != "" ]]; then
   timeout="$2"

@@ -25,25 +25,6 @@ menu:
     desc: Notepad
     cmd: xdg-open "obsidian://open?vault=Vault"
 
-  - key: a
-    desc: Audio
-    submenu:
-      - key: a
-        desc: Amberol
-        cmd: amberol
-      - key: e
-        desc: EasyEffects
-        cmd: easyeffects
-      - key: f
-        desc: Feishin
-        cmd: feishin
-      - key: p
-        desc: Picard
-        cmd: picard
-      - key: v
-        desc: PwvuControl
-        cmd: pwvucontrol
-
   - key: c
     desc: Chats
     submenu:
@@ -81,20 +62,26 @@ menu:
         cmd: steam
 
   - key: m
-    desc: Music Prod
+    desc: Music
     submenu:
       - key: a
-        desc: Audacity
-        cmd: audacity
+        desc: Amberol
+        cmd: amberol
+      - key: f
+        desc: Feishin
+        cmd: feishin
+      - key: p
+        desc: Picard
+        cmd: picard
       - key: b
         desc: Bitwig Studio
         cmd: bitwig-studio
-      - key: c
-        desc: Crosspipe
-        cmd: crosspipe
       - key: m
         desc: MilkyTracker
         cmd: milkytracker
+      - key: u
+        desc: A[u]dacity
+        cmd: audacity
 
   - key: p
     desc: Power
@@ -118,15 +105,18 @@ menu:
   - key: r
     desc: Recording
     submenu:
+      - key: b
+        desc: Clip Brave Audio
+        cmd: ~/bin/clip_app brave-origin
+      - key: f
+        desc: Clip Firefox Audio
+        cmd: ~/bin/clip_app firefox
+      - key: m
+        desc: Clip mpv Audio
+        cmd: ~/bin/clip_app mpv
       - key: o
         desc: OBS
         cmd: obs
-      - key: f
-        desc: Clip Firefox Audio
-        cmd: ~/bin/clip_firefox
-      - key: m
-        desc: Clip mpv Audio
-        cmd: ~/bin/clip_mpv
       - key: r
         desc: Record Screen
         cmd: ~/bin/record-screen
@@ -141,32 +131,7 @@ menu:
         cmd: ~/bin/screenshot window
 
   - key: s
-    desc: System Utils
-    submenu:
-      - key: a
-        desc: AMDGpuTop
-        cmd: amdgpu_top --gui
-      - key: b
-        desc: Btop
-        cmd: foot -e btop
-      - key: c
-        desc: Calculator
-        cmd: gnome-calculator
-      - key: d
-        desc: Disks
-        cmd: gnome-disks
-      - key: f
-        desc: Font Viewer
-        cmd: gnome-font-viewer
-      - key: n
-        desc: Files
-        cmd: nautilus
-      - key: p
-        desc: Pomodoro Timer
-        cmd: gnome-pomodoro
-
-  - key: t
-    desc: S[t]reaming
+    desc: Streaming
     submenu:
       - key: b
         desc: VBridger
@@ -177,9 +142,6 @@ menu:
       - key: f
         desc: Firebot
         cmd: firebot
-      - key: i
-        desc: F[i]refox
-        cmd: firefox
       - key: o
         desc: OBS
         cmd: obs
@@ -192,6 +154,43 @@ menu:
       - key: v
         desc: VTube Studio
         cmd: steam steam://rungameid/1325860
+
+  - key: u
+    desc: Utilities
+    submenu:
+      - key: b
+        desc: Btop
+        cmd: foot -e btop
+      - key: c
+        desc: Calculator
+        cmd: gnome-calculator
+      - key: d
+        desc: Disks
+        cmd: gnome-disks
+      - key: f
+        desc: Font Viewer
+        cmd: gnome-font-viewer
+      - key: g
+        desc: GPU Top
+        cmd: amdgpu_top --gui
+      - key: n
+        desc: Files
+        cmd: nautilus
+      - key: p
+        desc: Pipewire
+        submenu:
+          - key: c
+            desc: Crosspipe
+            cmd: crosspipe
+          - key: e
+            desc: EasyEffects
+            cmd: easyeffects
+          - key: v
+            desc: pwVuControl
+            cmd: pwvucontrol
+      - key: t
+        desc:  Timer
+        cmd: gnome-pomodoro
 
   - key: v
     desc: Video
