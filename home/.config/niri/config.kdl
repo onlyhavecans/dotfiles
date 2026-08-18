@@ -262,11 +262,11 @@ binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
-  Mod+Space hotkey-overlay-title="open menu" { spawn "wlr-which-key"; }
-  Mod+T hotkey-overlay-title="open yazi" { spawn "foot" "yazi"; }
-  Mod+B hotkey-overlay-title="open brave-origin" { spawn "brave-origin"; }
-  Mod+Shift+B hotkey-overlay-title="open brave-origin (private)" { spawn "brave-origin" "--incognito"; }
-  Mod+Backslash hotkey-overlay-title="1password quick-access" { spawn "1password" "--quick-access"; }
+  Mod+Space hotkey-overlay-title="open launcher" { spawn "wlr-which-key"; }
+  Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
+  Mod+B hotkey-overlay-title="open browser" { spawn "brave-origin"; }
+  Mod+Shift+B hotkey-overlay-title="open browser (private)" { spawn "brave-origin" "--incognito"; }
+  Mod+Backslash hotkey-overlay-title="password quick-access" { spawn "1password" "--quick-access"; }
 
   Mod+N hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
   Mod+Escape hotkey-overlay-title="power menu" { spawn "wlr-which-key" "power"; }
