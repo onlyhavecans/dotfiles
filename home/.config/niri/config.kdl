@@ -263,6 +263,7 @@ binds {
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
   Mod+Space hotkey-overlay-title="open launcher" { spawn "wlr-which-key"; }
+  Mod+Shift+Space hotkey-overlay-title="open alt launcher" { spawn "fuzzel" "--width" "20"; }
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "brave-origin"; }
   Mod+Shift+B hotkey-overlay-title="open browser (private)" { spawn "brave-origin" "--incognito"; }
