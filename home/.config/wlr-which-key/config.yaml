@@ -190,7 +190,7 @@ menu:
             cmd: pwvucontrol
       - key: t
         desc:  Timer
-        cmd: gnome-pomodoro
+        cmd: focus-timer
 
   - key: v
     desc: Video
@@ -229,6 +229,9 @@ menu:
       - key: s
         desc: Slack
         cmd: slack
+      - key: t
+        desc:  Timer
+        cmd: focus-timer
       - key: z
         desc: Zoom
         cmd: zoom

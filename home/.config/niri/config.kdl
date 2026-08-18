@@ -197,7 +197,7 @@ window-rule {
 
 window-rule {
   match app-id="firefox" title="^Picture-in-Picture$"
-  match app-id="gnome-pomodoro"
+  match app-id="FocusTimer"
   match app-id="mpv"
   match app-id="com.gabm.satty"
   open-floating true
