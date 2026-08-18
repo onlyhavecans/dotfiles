@@ -139,10 +139,13 @@ cursor {
   xcursor-theme "BreezeX-RosePine-Linux"
   xcursor-size 32
   hide-when-typing
+  hide-after-inactive-ms 1000
 }
 
-// spawn-at-startup "waybar"
-// spawn-at-startup "mako"
+overview {
+    backdrop-color "pink"
+}
+
 spawn-at-startup "1password" "--silent"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
