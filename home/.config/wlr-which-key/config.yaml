@@ -41,7 +41,7 @@ menu:
         desc: Picard
         cmd: picard
       - key: v
-        desc: PWVuControl
+        desc: PwvuControl
         cmd: pwvucontrol
 
   - key: c
