@@ -25,6 +25,22 @@ menu:
     desc: Notepad
     cmd: xdg-open "obsidian://open?vault=Vault"
 
+  - key: a
+    desc: Wall
+    submenu:
+      - key: m
+        desc: Get mood
+        cmd: notify-send "Wall" "$(wall which)"
+      - key: s
+        desc: Set Mood
+        cmd: wall menu
+      - key: n
+        desc: Next Wall
+        cmd: wall next
+      - key: r
+        desc: Random Wall
+        cmd: wall random
+
   - key: c
     desc: Chats
     submenu:
