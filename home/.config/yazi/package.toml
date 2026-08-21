@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "efa4d79"
+rev = "4848aac"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "efa4d79"
+rev = "4848aac"
 hash = "46cbdc05596a3ecd730b288e28c7079d"
 
 [flavor]
