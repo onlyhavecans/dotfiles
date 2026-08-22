@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# focus-app [app-id-pattern] [launch-cmd...]
+# Jump to a niri window.
+#
+# With no arguments: pick from every window.
+# With a pattern (case-insensitive regex against app-id):
+#   multiple matches -> picker, one match -> focus it directly,
+#   no match -> launch the app (launch-cmd if given, else the pattern).
+set -euo pipefail
+
+pattern="${1:-}"
+if (($#)); then shift; fi
+
+# One window per line: "column \t tile \t id \t app_id \t title",
+# sorted by column then tile so the list follows the on-screen layout.
+# Floating windows have no layout position and sort to the end.
+window_data=$(niri msg --json windows | jq -r --arg p "$pattern" '
+  .[]
+  | select($p == "" or (.app_id // "" | test($p; "i")))
+  | [ (.layout.pos_in_scrolling_layout // [999, 999])[],
+      .id, (.app_id // "unknown"), (.title // "Untitled") ]
+  | @tsv' | sort -t$'\t' -k1,1n -k2,2n)
+
+# Nothing to focus: launch when we were asked for a specific app,
+# otherwise just say so.
+if [[ -z $window_data ]]; then
+  if [[ -n $pattern ]]; then
+    if (($#)); then exec "$@"; else exec "$pattern"; fi
+  fi
+  notify-send "Focus App" "No windows found"
+  exit 0
+fi
+
+mapfile -t windows <<<"$window_data"
+
+if ((${#windows[@]} == 1)) && [[ -n $pattern ]]; then
+  # A specific app with a single match: jump straight there
+  choice=${windows[0]}
+else
+  # Show "app_id | title" (long titles truncated); --index maps the
+  # selection back to the window unambiguously, even with duplicate titles
+  display=$(printf '%s\n' "${windows[@]}" | awk -F'\t' '{
+    title = $5
+    if (length(title) > 80) title = substr(title, 1, 77) "..."
+    printf "%s | %s\n", $4, title
+  }')
+  idx=$(fuzzel --dmenu --index --width 50 --prompt="Window: " <<<"$display") || exit 0
+  [[ -n $idx ]] || exit 0
+  choice=${windows[idx]}
+fi
+
+window_id=$(cut -f3 <<<"$choice")
+niri msg action focus-window --id "$window_id"

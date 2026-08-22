@@ -6,37 +6,84 @@ border: "#907aa9"
 border_width: 4
 corner_r: 12
 padding: 15 # Defaults to corner_r
-rows_per_column: 9
+rows_per_column: 12
 
+# NOTE: Keep launchers shallow: depth <= 2
+# NOTE: Nest attributes e.g. music->volume->mute
+# NOTE: keep desc terse, skimmability wins
+# NOTE: Keep it alpha sorted
+# NOTE: Double-tap = the group's default action
+# NOTE: Same app should strive for same key in every menu
+# NOTE: Mark non-initial keys like S[l]ack
 menu:
-  - key: b
-    desc: Browser
-    cmd: brave-origin
+  - key: " "
+    desc: Terminal
+    cmd: foot
+  - key: \
+    desc: Passwords
+    cmd: 1password --quick-access
   - key: e
     desc: Email
     cmd: thunderbird
   - key: f
     desc: File Manager
-    cmd: foot -e yazi
-  - key: n
+    cmd: foot --app-id=yazi --title=yazi yazi
+  - key: o
     desc: Notepad
     cmd: xdg-open "obsidian://open?vault=Vault"
+  - key: x
+    desc: Vo[x]type
+    cmd: voxtype record toggle
 
   - key: a
-    desc: Wall
+    desc: Audio
     submenu:
+      - key: b
+        desc: Bitwig Studio
+        cmd: bitwig-studio
+      - key: c
+        desc: Crosspipe
+        cmd: crosspipe
+      - key: e
+        desc: EasyEffects
+        cmd: easyeffects
+      - key: i
+        desc: M[i]c
+        submenu:
+          - key: "0"
+            desc: 100%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
+          - key: "3"
+            desc: 30%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
+          - key: m
+            desc: Mute
+            cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       - key: m
-        desc: Get mood
-        cmd: notify-send "Wall" "$(wall which)"
-      - key: s
-        desc: Set Mood
-        cmd: wall menu
-      - key: n
-        desc: Next Wall
-        cmd: wall next
-      - key: r
-        desc: Random Wall
-        cmd: wall random
+        desc: MilkyTracker
+        cmd: milkytracker
+      - key: p
+        desc: pwvuControl
+        cmd: pwvucontrol
+      - key: y
+        desc: Audacit[y]
+        cmd: audacity
+
+  - key: b
+    desc: Browse
+    submenu:
+      - key: a
+        desc: Alt/Backup
+        cmd: firefox
+      - key: b
+        desc: Main
+        cmd: brave-origin
+      - key: p
+        desc: Private
+        cmd: brave-origin --incognito
+      - key: w
+        desc: Work
+        cmd: brave
 
   - key: c
     desc: Chats
@@ -44,15 +91,15 @@ menu:
       - key: d
         desc: Discord
         cmd: discord
+      - key: "l"
+        desc: S[l]ack
+        cmd: slack
       - key: n
         desc: NWW
-        cmd: nww "+1"
+        cmd: nww
       - key: s
         desc: Signal
         cmd: signal-desktop
-      - key: w
-        desc: Slack
-        cmd: slack
 
   - key: d
     desc: Documents
@@ -87,42 +134,138 @@ menu:
         desc: wipe
         cmd: cliphist wipe
 
+  - key: n
+    desc: Niri
+    submenu:
+      - key: ","
+        desc: Consume
+        cmd: niri msg action consume-window-into-column
+      - key: "."
+        desc: Expel
+        cmd: niri msg action expel-window-from-column
+      - key: c
+        desc: Center
+        cmd: niri msg action center-visible-columns
+      - key: e
+        desc: Expand
+        cmd: niri msg action expand-column-to-available-width
+      - key: f
+        desc: Float
+        cmd: niri msg action toggle-window-floating
+      - key: m
+        desc: Move Col
+        submenu:
+          - key: h
+            desc: Left
+            cmd: niri msg action move-column-to-monitor-left
+          - key: j
+            desc: Down
+            cmd: niri msg action move-column-to-monitor-down
+          - key: k
+            desc: Up
+            cmd: niri msg action move-column-to-monitor-up
+          - key: "l"
+            desc: Right
+            cmd: niri msg action move-column-to-monitor-right
+      - key: r
+        desc: Reset Height
+        cmd: niri msg action reset-window-height
+      - key: s
+        desc: Swap Focus
+        cmd: niri msg action switch-focus-between-floating-and-tiling
+      - key: t
+        desc: Tabbed
+        cmd: niri msg action toggle-column-tabbed-display
+      - key: w
+        desc: Move Wkspc
+        submenu:
+          - key: h
+            desc: Left
+            cmd: niri msg action move-workspace-to-monitor-left
+          - key: j
+            desc: Down
+            cmd: niri msg action move-workspace-to-monitor-down
+          - key: k
+            desc: Up
+            cmd: niri msg action move-workspace-to-monitor-up
+          - key: "l"
+            desc: Right
+            cmd: niri msg action move-workspace-to-monitor-right
+      - key: z
+        desc: Maximi[z]e
+        cmd: niri msg action maximize-window-to-edges
+
+  - key: j
+    desc: Jump
+    submenu:
+      - key: b
+        desc: Browser
+        cmd: ~/bin/focus-app brave brave-origin
+      - key: j
+        desc: Jump to win
+        cmd: ~/bin/focus-app
+      - key: "l"
+        desc: S[l]ack
+        cmd: ~/bin/focus-app slack slack
+      - key: o
+        desc: Obsidian
+        cmd: ~/bin/focus-app obsidian xdg-open "obsidian://open?vault=Vault"
+      - key: t
+        desc: Terminal
+        cmd: ~/bin/focus-app foot foot
+
+  - key: "l"
+    desc: Light
+    submenu:
+      - key: "1"
+        desc: 10%
+        cmd: brightnessctl --class=backlight set 10%
+      - key: "4"
+        desc: 40%
+        cmd: brightnessctl --class=backlight set 40%
+      - key: "7"
+        desc: 70%
+        cmd: brightnessctl --class=backlight set 70%
+
   - key: m
     desc: Music
     submenu:
+      - key: " "
+        desc: Play/Pause
+        cmd: playerctl play-pause
       - key: a
         desc: Amberol
         cmd: amberol
-      - key: f
+      - key: b
+        desc: Prev Track
+        cmd: playerctl previous
+      - key: m
         desc: Feishin
         cmd: feishin
+      - key: n
+        desc: Next Track
+        cmd: playerctl next
       - key: p
         desc: Picard
         cmd: picard
-      - key: e
-        desc: Editors
+      - key: v
+        desc: Volume
         submenu:
-          - key: b
-            desc: Bitwig Studio
-            cmd: bitwig-studio
+          - key: "0"
+            desc: 100%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
+          - key: "3"
+            desc: 30%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
+          - key: "6"
+            desc: 60%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
+          - key: "9"
+            desc: 90%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 90%
           - key: m
-            desc: MilkyTracker
-            cmd: milkytracker
-          - key: y
-            desc: Audacit[y]
-            cmd: audacity
-      - key: u
-        desc: Utilities
-        submenu:
-          - key: c
-            desc: Crosspipe
-            cmd: crosspipe
-          - key: e
-            desc: EasyEffects
-            cmd: easyeffects
-          - key: p
-            desc: pwvuControl
-            cmd: pwvucontrol
+            desc: Mute
+            cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
   - key: p
     desc: Power
@@ -130,18 +273,21 @@ menu:
       - key: "l"
         desc: "\U000F033E Lock"
         cmd: swaylock
-      - key: "s"
-        desc: "\U000F0425 Shutdown"
-        cmd: systemctl poweroff
+      - key: "m"
+        desc: "\U000F037A [M]onitors Off"
+        cmd: niri msg action power-off-monitors
+      - key: "q"
+        desc: "\U000F0343 Quit Niri"
+        cmd: niri msg action quit
       - key: "r"
         desc: "\U000F0465 Reboot"
         cmd: systemctl reboot
+      - key: "s"
+        desc: "\U000F0425 Shutdown"
+        cmd: systemctl poweroff
       - key: "u"
         desc: "\U000F0904 S[u]spend"
         cmd: systemctl suspend
-      - key: "o"
-        desc: "\U000F0343 L[o]gout"
-        cmd: niri msg action quit
 
   - key: r
     desc: Recording
@@ -149,6 +295,9 @@ menu:
       - key: b
         desc: Clip Brave Audio
         cmd: ~/bin/clip_app brave-origin
+      - key: d
+        desc: Recor[d] Screen
+        cmd: ~/bin/record-screen
       - key: f
         desc: Clip Firefox Audio
         cmd: ~/bin/clip_app firefox
@@ -159,9 +308,6 @@ menu:
         desc: OBS
         cmd: obs
       - key: r
-        desc: Record Screen
-        cmd: ~/bin/record-screen
-      - key: d
         desc: Screenshot Screen
         cmd: ~/bin/screenshot screen
       - key: s
@@ -180,6 +326,18 @@ menu:
       - key: c
         desc: StreamController
         cmd: streamcontroller
+      - key: d
+        desc: Cast
+        submenu:
+          - key: c
+            desc: Clear
+            cmd: niri msg action clear-dynamic-cast-target
+          - key: m
+            desc: Monitor
+            cmd: niri msg action set-dynamic-cast-monitor
+          - key: w
+            desc: Window
+            cmd: niri msg action set-dynamic-cast-window
       - key: f
         desc: Firebot
         cmd: firebot
@@ -188,13 +346,29 @@ menu:
         cmd: obs
       - key: s
         desc: Start Streaming
-        cmd: foot -e ~/bin/streaming_time
+        cmd: foot ~/bin/streaming_time
       - key: t
         desc: Tuber
         cmd: tuber
       - key: v
         desc: VTube Studio
         cmd: steam steam://rungameid/1325860
+
+  - key: t
+    desc: Theme
+    submenu:
+      - key: m
+        desc: Get Wall Mood
+        cmd: notify-send "Wall" "$(wall which)"
+      - key: n
+        desc: Next Wall
+        cmd: wall next
+      - key: r
+        desc: Random Wall
+        cmd: wall random
+      - key: s
+        desc: Set Wall Mood
+        cmd: wall menu
 
   - key: u
     desc: Utilities
@@ -204,7 +378,7 @@ menu:
         cmd: 1password
       - key: b
         desc: Btop
-        cmd: foot -e btop
+        cmd: foot --app-id=btop --title=btop btop
       - key: c
         desc: Calculator
         cmd: gnome-calculator
@@ -216,12 +390,15 @@ menu:
         cmd: gnome-font-viewer
       - key: g
         desc: GPU Top
-        cmd: amdgpu_top --gui
+        cmd: foot --app-id=amdgpu_top --title=amdgpu_top amdgpu_top
       - key: n
         desc: Files
         cmd: nautilus
+      - key: p
+        desc: Touch[p]ad Toggle
+        cmd: ~/bin/toggle-touchpad
       - key: t
-        desc:  Timer
+        desc: " Timer"
         cmd: focus-timer
 
   - key: v
@@ -233,14 +410,14 @@ menu:
       - key: j
         desc: Jellyfin
         cmd: jellyfin-chromium
+      - key: r
+        desc: T[r]immer
+        cmd: video-trimmer
       - key: t
         desc: Twitch
         cmd: twitch-chromium
       - key: v
-        desc: Video Trimmer
-        cmd: video-trimmer
-      - key: w
-        desc: Watch url in clipboad
+        desc: Watch url in clipboard
         cmd: ~/bin/watch-url
 
   - key: w
@@ -252,17 +429,20 @@ menu:
       - key: c
         desc: Cursor
         cmd: cursor
+      - key: e
+        desc: Email
+        cmd: thunderbird
+      - key: "l"
+        desc: S[l]ack
+        cmd: slack
       - key: n
         desc: Netbird-ui
         cmd: netbird-ui
       - key: o
         desc: Obsidian
         cmd: xdg-open "obsidian://open?vault=DNSimple"
-      - key: s
-        desc: Slack
-        cmd: slack
       - key: t
-        desc:  Timer
+        desc: " Timer"
         cmd: focus-timer
       - key: z
         desc: Zoom

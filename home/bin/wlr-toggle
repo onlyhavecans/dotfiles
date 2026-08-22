@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# wlr-toggle [config]
+# Toggle wlr-which-key: if a menu is open, close it; otherwise open one.
+# Keeps repeated presses of the bind from stacking copies.
+if pkill -x wlr-which-key; then
+  exit 0
+fi
+exec wlr-which-key "$@"

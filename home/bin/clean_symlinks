@@ -6,6 +6,8 @@
 
 fd --hidden --follow --type l \
   --exclude .local/share/Steam \
+  --exclude .local/share/containers \
+  --exclude .local/share/docker \
   --exclude .local/share/flatpak \
   --exclude .local/state/Steam \
   --exclude .local/state/home-manager \
