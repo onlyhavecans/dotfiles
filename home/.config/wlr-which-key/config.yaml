@@ -6,7 +6,7 @@ border: "#907aa9"
 border_width: 4
 corner_r: 12
 padding: 15 # Defaults to corner_r
-rows_per_column: 8 # No limit by default
+rows_per_column: 9
 
 menu:
   - key: b
@@ -77,6 +77,16 @@ menu:
         desc: Steam
         cmd: steam
 
+  - key: h
+    desc: Clip[H]ist
+    submenu:
+      - key: h
+        desc: pick
+        cmd: cliphist-fuzzel-img
+      - key: w
+        desc: wipe
+        cmd: cliphist wipe
+
   - key: m
     desc: Music
     submenu:
@@ -89,15 +99,30 @@ menu:
       - key: p
         desc: Picard
         cmd: picard
-      - key: b
-        desc: Bitwig Studio
-        cmd: bitwig-studio
-      - key: m
-        desc: MilkyTracker
-        cmd: milkytracker
+      - key: e
+        desc: Editors
+        submenu:
+          - key: b
+            desc: Bitwig Studio
+            cmd: bitwig-studio
+          - key: m
+            desc: MilkyTracker
+            cmd: milkytracker
+          - key: y
+            desc: Audacit[y]
+            cmd: audacity
       - key: u
-        desc: A[u]dacity
-        cmd: audacity
+        desc: Utilities
+        submenu:
+          - key: c
+            desc: Crosspipe
+            cmd: crosspipe
+          - key: e
+            desc: EasyEffects
+            cmd: easyeffects
+          - key: p
+            desc: pwvuControl
+            cmd: pwvucontrol
 
   - key: p
     desc: Power
@@ -195,18 +220,6 @@ menu:
       - key: n
         desc: Files
         cmd: nautilus
-      - key: p
-        desc: Pipewire
-        submenu:
-          - key: c
-            desc: Crosspipe
-            cmd: crosspipe
-          - key: e
-            desc: EasyEffects
-            cmd: easyeffects
-          - key: v
-            desc: pwVuControl
-            cmd: pwvucontrol
       - key: t
         desc:  Timer
         cmd: focus-timer
