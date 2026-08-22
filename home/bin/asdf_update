@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-asdf list | grep -v '^ ' | xargs -I $ asdf install $ latest
