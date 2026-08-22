@@ -1,8 +1,33 @@
 #!/usr/bin/env bash
+# Resize the focused niri window so its terminal grid is N columns
+# (default 80). A +N arg adds N extra pixels to the width.
+set -euo pipefail
 
-WIDTH=800
-if [[ -n "$1" ]]; then
-  WIDTH=$1
+cols=80 pad=0
+for arg in "$@"; do
+  case $arg in
+    +*) pad=${arg#+} ;;
+    *) cols=$arg ;;
+  esac
+done
+
+win=$(niri msg --json focused-window)
+pid=$(jq '.pid' <<<"$win")
+cur_width=$(jq '.layout.window_size[0]' <<<"$win")
+scale=$(niri msg --json focused-output | jq '.logical.scale')
+
+width=0
+pts=$(ps -o tty= --ppid "$pid" | awk '/pts/ { print $1; exit }')
+if [[ -n $pts ]]; then
+  cur_cols=$(stty -F "/dev/$pts" size | cut -d' ' -f2)
+  # cell width = current physical width / current columns;
+  # then the smallest logical width that fits the requested grid
+  width=$(awk -v c="$cols" -v cc="$cur_cols" -v w="$cur_width" -v s="$scale" \
+    'BEGIN { cw = int(w * s / cc); t = c * cw / s; printf "%d", (t == int(t)) ? t : int(t) + 1 }')
 fi
 
-niri msg action set-window-width $WIDTH
+if [[ $width -eq 0 ]]; then
+  notify-send "NWW" "Window detection failed"
+  exit 2
+fi
+niri msg action set-window-width "$((width + pad))"
