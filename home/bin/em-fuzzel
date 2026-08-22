@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Pop a fuzzel text box and send the typed line via em.
+text=$(fuzzel --dmenu --prompt-only="EmailMe: " </dev/null) || exit 0
+[[ -n $text ]] || exit 0
+exec ~/bin/em "$text"

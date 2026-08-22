@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+nww
+exec mosh webby.bunni.biz -- fish --command tm

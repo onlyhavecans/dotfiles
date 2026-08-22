@@ -276,7 +276,7 @@ binds {
 
   Mod+N hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
   Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
-  Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app"; }
+  Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
 
   Mod+F12 hotkey-overlay-title="Toggle Touchpad" { spawn "~/bin/toggle-touchpad"; }
   Mod+XF86AudioMedia { spawn "swaylock"; }
@@ -527,5 +527,5 @@ binds {
 
   // Powers off the monitors. To turn them back on, do any input like
   // moving the mouse or pressing any other key.
-  Mod+Shift+P { power-off-monitors; }
+  // Mod+Shift+P { power-off-monitors; }
 }

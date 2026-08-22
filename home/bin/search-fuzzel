@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Pop a fuzzel text box and search the web via s.
+q=$(fuzzel --dmenu --prompt-only="Search: " </dev/null) || exit 0
+[[ -n $q ]] || exit 0
+exec ~/bin/s "$q"

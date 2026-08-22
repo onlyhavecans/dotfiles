@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# em-dictate [seconds]
+# Record a short voice note, transcribe it offline with voxtype,
+# and send the text via em. Never types into the focused window.
+set -euo pipefail
+
+secs="${1:-5}"
+wav=$(mktemp --suffix=.wav)
+trap 'rm -f "$wav"' EXIT
+
+notify-send -t "$((secs * 1000))" "EmailMe" "Recording ${secs}s..."
+ffmpeg -hide_banner -loglevel error -f pulse -i default \
+  -t "$secs" -ar 16000 -ac 1 -y "$wav"
+
+text=$(voxtype transcribe "$wav")
+if [[ -z $text ]]; then
+  notify-send "EmailMe" "Nothing transcribed"
+  exit 1
+fi
+
+~/bin/em "$text" >/dev/null
+notify-send "EmailMe" "Sent: $text"

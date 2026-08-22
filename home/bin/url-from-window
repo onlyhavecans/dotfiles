@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# url-from-window [md]
+# Copy the focused browser's URL to the clipboard by driving
+# Ctrl+L / Ctrl+C with wtype. "md" copies "[page title](url)" instead.
+set -euo pipefail
+
+sleep 0.3 # let focus return to the browser after the menu closes
+
+win=$(niri msg --json focused-window)
+app=$(jq -r '.app_id // ""' <<<"$win")
+title=$(jq -r '.title // ""' <<<"$win")
+
+case $app in
+  brave* | firefox* | *hromium*) ;;
+  *)
+    notify-send "URL Grab" "Focused window is not a browser ($app)"
+    exit 1
+    ;;
+esac
+
+wtype -M ctrl -k l -m ctrl
+sleep 0.2
+wtype -M ctrl -k c -m ctrl
+sleep 0.2
+wtype -k Escape
+
+url=$(wl-paste)
+
+if [[ ${1:-} == md ]]; then
+  title=${title% - Brave*}
+  title=${title% — Mozilla Firefox*}
+  title=${title% - Mozilla Firefox*}
+  printf '[%s](%s)' "$title" "$url" | wl-copy
+  notify-send "URL Grab" "Copied markdown: $title"
+else
+  notify-send "URL Grab" "Copied $url"
+fi

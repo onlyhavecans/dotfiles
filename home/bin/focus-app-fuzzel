@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# focus-app [app-id-pattern] [launch-cmd...]
+# focus-fuzzel [app-id-pattern]
 # Jump to a niri window.
 #
 # With no arguments: pick from every window.
 # With a pattern (case-insensitive regex against app-id):
-#   multiple matches -> picker, one match -> focus it directly,
-#   no match -> launch the app (launch-cmd if given, else the pattern).
+#   multiple matches -> picker
+#   one match -> focus it directly
+#   no match -> error
 set -euo pipefail
 
 pattern="${1:-}"
-if (($#)); then shift; fi
 
 # One window per line: "column \t tile \t id \t app_id \t title",
 # sorted by column then tile so the list follows the on-screen layout.
@@ -21,14 +21,9 @@ window_data=$(niri msg --json windows | jq -r --arg p "$pattern" '
       .id, (.app_id // "unknown"), (.title // "Untitled") ]
   | @tsv' | sort -t$'\t' -k1,1n -k2,2n)
 
-# Nothing to focus: launch when we were asked for a specific app,
-# otherwise just say so.
 if [[ -z $window_data ]]; then
-  if [[ -n $pattern ]]; then
-    if (($#)); then exec "$@"; else exec "$pattern"; fi
-  fi
-  notify-send "Focus App" "No windows found"
-  exit 0
+  notify-send "Focus App" "No $pattern windows found"
+  exit 1
 fi
 
 mapfile -t windows <<<"$window_data"

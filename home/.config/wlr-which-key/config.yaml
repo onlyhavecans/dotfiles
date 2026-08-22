@@ -10,30 +10,19 @@ rows_per_column: 12
 
 # NOTE: Keep launchers shallow: depth <= 2
 # NOTE: Nest attributes e.g. music->volume->mute
-# NOTE: keep desc terse, skimmability wins
-# NOTE: Keep it alpha sorted
+# NOTE: Keep desc terse, skimmability wins
+# NOTE: Keep alpha sorted
 # NOTE: Double-tap = the group's default action
 # NOTE: Same app should strive for same key in every menu
 # NOTE: Mark non-initial keys like S[l]ack
+# NOTE: Submenu by what I am doing
 menu:
   - key: " "
     desc: Terminal
-    cmd: foot
+    cmd: foot --login tm
   - key: \
-    desc: Passwords
+    desc: Quick Pass
     cmd: 1password --quick-access
-  - key: e
-    desc: Email
-    cmd: thunderbird
-  - key: f
-    desc: File Manager
-    cmd: foot --app-id=yazi --title=yazi yazi
-  - key: o
-    desc: Notepad
-    cmd: xdg-open "obsidian://open?vault=Vault"
-  - key: x
-    desc: Vo[x]type
-    cmd: voxtype record toggle
 
   - key: a
     desc: Audio
@@ -78,9 +67,18 @@ menu:
       - key: b
         desc: Main
         cmd: brave-origin
+      - key: c
+        desc: Copy URL
+        cmd: ~/bin/url-from-window
+      - key: m
+        desc: MD URL
+        cmd: ~/bin/url-from-window md
       - key: p
         desc: Private
         cmd: brave-origin --incognito
+      - key: s
+        desc: Search
+        cmd: ~/bin/search-fuzzel
       - key: w
         desc: Work
         cmd: brave
@@ -91,7 +89,7 @@ menu:
       - key: d
         desc: Discord
         cmd: discord
-      - key: "l"
+      - key: l
         desc: S[l]ack
         cmd: slack
       - key: n
@@ -100,6 +98,9 @@ menu:
       - key: s
         desc: Signal
         cmd: signal-desktop
+      - key: w
+        desc: TinTin
+        cmd: ~/bin/tw
 
   - key: d
     desc: Documents
@@ -114,6 +115,38 @@ menu:
         desc: Image Editor
         cmd: photopea-chromium
 
+  - key: e
+    desc: Email
+    submenu:
+      - key: d
+        desc: Dictate Note
+        cmd: ~/bin/em-dictate
+      - key: e
+        desc: Thunderbird
+        cmd: thunderbird
+      - key: t
+        desc: Type Note
+        cmd: ~/bin/em-fuzzel
+
+  - key: f
+    desc: File Manager
+    submenu:
+      - key: b
+        desc: Backup
+        cmd: nautilus
+      - key: f
+        desc: Main
+        cmd: foot --app-id=yazi --title=yazi yazi
+      - key: u
+        desc: Upload
+        submenu:
+          - key: d
+            desc: Downloads
+            cmd: ~/bin/upload-fuzzel ~/Downloads
+          - key: s
+            desc: Screenshots
+            cmd: ~/bin/upload-fuzzel ~/Pictures/Screenshots
+
   - key: g
     desc: Gaming
     submenu:
@@ -125,7 +158,7 @@ menu:
         cmd: steam
 
   - key: h
-    desc: Clip[H]ist
+    desc: Clip[h]ist
     submenu:
       - key: h
         desc: pick
@@ -134,88 +167,30 @@ menu:
         desc: wipe
         cmd: cliphist wipe
 
-  - key: n
-    desc: Niri
-    submenu:
-      - key: ","
-        desc: Consume
-        cmd: niri msg action consume-window-into-column
-      - key: "."
-        desc: Expel
-        cmd: niri msg action expel-window-from-column
-      - key: c
-        desc: Center
-        cmd: niri msg action center-visible-columns
-      - key: e
-        desc: Expand
-        cmd: niri msg action expand-column-to-available-width
-      - key: f
-        desc: Float
-        cmd: niri msg action toggle-window-floating
-      - key: m
-        desc: Move Col
-        submenu:
-          - key: h
-            desc: Left
-            cmd: niri msg action move-column-to-monitor-left
-          - key: j
-            desc: Down
-            cmd: niri msg action move-column-to-monitor-down
-          - key: k
-            desc: Up
-            cmd: niri msg action move-column-to-monitor-up
-          - key: "l"
-            desc: Right
-            cmd: niri msg action move-column-to-monitor-right
-      - key: r
-        desc: Reset Height
-        cmd: niri msg action reset-window-height
-      - key: s
-        desc: Swap Focus
-        cmd: niri msg action switch-focus-between-floating-and-tiling
-      - key: t
-        desc: Tabbed
-        cmd: niri msg action toggle-column-tabbed-display
-      - key: w
-        desc: Move Wkspc
-        submenu:
-          - key: h
-            desc: Left
-            cmd: niri msg action move-workspace-to-monitor-left
-          - key: j
-            desc: Down
-            cmd: niri msg action move-workspace-to-monitor-down
-          - key: k
-            desc: Up
-            cmd: niri msg action move-workspace-to-monitor-up
-          - key: "l"
-            desc: Right
-            cmd: niri msg action move-workspace-to-monitor-right
-      - key: z
-        desc: Maximi[z]e
-        cmd: niri msg action maximize-window-to-edges
-
   - key: j
     desc: Jump
     submenu:
       - key: b
         desc: Browser
-        cmd: ~/bin/focus-app brave brave-origin
+        cmd: ~/bin/focus-app-fuzzel brave
+      - key: e
+        desc: Email
+        cmd: ~/bin/focus-app-fuzzel thunderbird
       - key: j
-        desc: Jump to win
-        cmd: ~/bin/focus-app
+        desc: Jump to Win
+        cmd: ~/bin/focus-app-fuzzel
       - key: "l"
         desc: S[l]ack
-        cmd: ~/bin/focus-app slack slack
+        cmd: ~/bin/focus-app-fuzzel slack
       - key: o
         desc: Obsidian
-        cmd: ~/bin/focus-app obsidian xdg-open "obsidian://open?vault=Vault"
+        cmd: ~/bin/focus-app-fuzzel obsidian
       - key: t
         desc: Terminal
-        cmd: ~/bin/focus-app foot foot
+        cmd: ~/bin/focus-app-fuzzel foot
 
   - key: "l"
-    desc: Light
+    desc: Backk[l]ight
     submenu:
       - key: "1"
         desc: 10%
@@ -260,12 +235,71 @@ menu:
           - key: "6"
             desc: 60%
             cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
-          - key: "9"
-            desc: 90%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 90%
           - key: m
             desc: Mute
             cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+  - key: n
+    desc: Niri
+    submenu:
+      - key: "["
+        desc: Consume
+        cmd: niri msg action consume-window-into-column
+      - key: "]"
+        desc: Expel
+        cmd: niri msg action expel-window-from-column
+      - key: c
+        desc: Center
+        cmd: niri msg action center-column
+      - key: e
+        desc: Expand
+        cmd: niri msg action expand-column-to-available-width
+      - key: f
+        desc: Float
+        cmd: niri msg action toggle-window-floating
+      - key: m
+        desc: Move Col
+        submenu:
+          - key: h
+            desc: Left
+            cmd: niri msg action move-column-to-monitor-left
+          - key: j
+            desc: Down
+            cmd: niri msg action move-column-to-monitor-down
+          - key: k
+            desc: Up
+            cmd: niri msg action move-column-to-monitor-up
+          - key: "l"
+            desc: Right
+            cmd: niri msg action move-column-to-monitor-right
+      - key: r
+        desc: Reset Height
+        cmd: niri msg action reset-window-height
+      - key: s
+        desc: Swap Focus
+        cmd: niri msg action switch-focus-between-floating-and-tiling
+      - key: w
+        desc: Move Wkspc
+        submenu:
+          - key: h
+            desc: Left
+            cmd: niri msg action move-workspace-to-monitor-left
+          - key: j
+            desc: Down
+            cmd: niri msg action move-workspace-to-monitor-down
+          - key: k
+            desc: Up
+            cmd: niri msg action move-workspace-to-monitor-up
+          - key: "l"
+            desc: Right
+            cmd: niri msg action move-workspace-to-monitor-right
+      - key: z
+        desc: Maximi[z]e
+        cmd: niri msg action maximize-window-to-edges
+
+  - key: o
+    desc: N[o]tepad
+    cmd: xdg-open "obsidian://open?vault=Vault"
 
   - key: p
     desc: Power
@@ -273,9 +307,6 @@ menu:
       - key: "l"
         desc: "\U000F033E Lock"
         cmd: swaylock
-      - key: "m"
-        desc: "\U000F037A [M]onitors Off"
-        cmd: niri msg action power-off-monitors
       - key: "q"
         desc: "\U000F0343 Quit Niri"
         cmd: niri msg action quit
@@ -391,9 +422,6 @@ menu:
       - key: g
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top --title=amdgpu_top amdgpu_top
-      - key: n
-        desc: Files
-        cmd: nautilus
       - key: p
         desc: Touch[p]ad Toggle
         cmd: ~/bin/toggle-touchpad
@@ -429,6 +457,9 @@ menu:
       - key: c
         desc: Cursor
         cmd: cursor
+      - key: d
+        desc: DNPull
+        cmd: foot --working-directory=~/Code --hold ~/bin/dnpull
       - key: e
         desc: Email
         cmd: thunderbird
@@ -447,3 +478,7 @@ menu:
       - key: z
         desc: Zoom
         cmd: zoom
+
+  - key: x
+    desc: Vo[x]type
+    cmd: voxtype record toggle

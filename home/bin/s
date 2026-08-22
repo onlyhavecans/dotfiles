@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
 URL="https://kagi.com/search?q=$*"
-export PATH=/usr/bin:/Applications/Firefox.app/Contents/MacOS
-open "$URL" || xdg-open "$URL" || exec firefox --search "$*"
+exec xdg-open "$URL"

@@ -71,7 +71,6 @@ abbr --add gv "lazygit --path=$HOME/Documents/Obsidian/Vault/"
 # workstuff
 abbr --add c claude
 abbr --add cc "claude --continue"
-abbr --add cs claude-squad
 abbr --add http xh
 abbr --add https xhs
 abbr --add lzd lazydocker
@@ -81,7 +80,6 @@ abbr --add tf terraform
 
 # Shell In Abbreviations
 abbr --add tp "mosh piper.bunni.biz -- fish --command tm"
-abbr --add tw "mosh webby.bunni.biz -- fish --command tm"
 
 # Brewpaths
 if type -q brew
