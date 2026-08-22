@@ -1,0 +1,55 @@
+#!/usr/bin/env fish
+# Tmux session manager - attach or create predefined sessions
+
+# If already in tmux, switch sessions
+if test -n "$TMUX"
+    tmux choose-tree -s
+    exit
+end
+
+# If any session exists, attach
+if tmux has-session 2>/dev/null
+    tmux attach-session
+    exit
+end
+
+# First time: create all sessions
+# This prevents direnv bugs
+cd ~ || exit 2
+
+# Session 0: Demo
+if test (prompt_hostname) = Morgan
+    tmux new-session -d -s Demo -n Main -c ~/Code
+    tmux new-window -t Demo -n Tests -c ~/Code
+    tmux new-window -t Demo -n Live -c ~/Code
+    tmux select-window -t Demo:Main
+end
+
+# Session 1: InsideOut
+tmux new-session -d -s InsideOut -n nix -c ~/Code/nixos-skwrls
+tmux new-window -t InsideOut -n dots -c ~/.homesick/repos/dotfiles
+tmux split-window -v -t dots -c ~/.homesick/repos/neovim
+tmux new-window -t InsideOut -n blog -c ~/Code/websites/squirrels.wtf
+tmux split-window -v -l 10 -t blog -c ~/Code/websites/squirrels.wtf
+if test (prompt_hostname) = Edelgard
+    tmux new-window -t InsideOut -n flex -c /deep_end/AppConfigs/Flexget
+    tmux split-window -v -l 10 -t flex -c /deep_end/AppConfigs/Flexget
+end
+tmux select-window -t InsideOut:nix
+
+# Session 2: WorkWork
+if test (prompt_hostname) = Morgan -o (prompt_hostname) = Amity
+    tmux new-session -d -s WorkWork -n Project -c ~/Code/dnsimple
+    tmux new-window -t WorkWork -n Incident -c ~/Downloads
+    tmux new-window -t WorkWork -n Reviews -c ~/Code/dnsimple
+    tmux select-window -t WorkWork:Project
+end
+
+# Session 3: Dream
+if test (prompt_hostname) = Webby
+    tmux new-session -d -s Dream -n 🐰 -c ~/Sync/muck
+    tmux select-window -t Dream:🐰
+end
+
+# Attach to InsideOut
+tmux attach-session -t InsideOut
