@@ -147,6 +147,7 @@ overview {
 }
 
 spawn-at-startup "1password" "--silent"
+spawn-at-startup "cliphist" "wipe"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
