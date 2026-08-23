@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# upload-yazi [dir]
+# Pick file(s) with yazi in a floating terminal and upload them via zipline.
+set -euo pipefail
+
+out=$(mktemp)
+trap 'rm -f "$out"' EXIT
+
+foot --app-id=file-picker -- yazi --chooser-file="$out" "${1:-$HOME/Downloads}"
+
+mapfile -t files <"$out"
+((${#files[@]})) || exit 0
+exec ~/bin/upload "${files[@]}"

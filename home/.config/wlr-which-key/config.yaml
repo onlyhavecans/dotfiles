@@ -136,16 +136,11 @@ menu:
         cmd: nautilus
       - key: f
         desc: Main
-        cmd: foot --app-id=yazi --title=yazi yazi
+        cmd: foot --app-id=yazi --working-directory=$HOME/Downloads yazi
       - key: u
         desc: Upload
         submenu:
-          - key: d
-            desc: Downloads
-            cmd: ~/bin/upload-fuzzel ~/Downloads
-          - key: s
-            desc: Screenshots
-            cmd: ~/bin/upload-fuzzel ~/Pictures/Screenshots
+        cmd: ~/bin/upload-yazi
 
   - key: g
     desc: Gaming
@@ -409,7 +404,7 @@ menu:
         cmd: 1password
       - key: b
         desc: Btop
-        cmd: foot --app-id=btop --title=btop btop
+        cmd: foot --app-id=btop btop
       - key: c
         desc: Calculator
         cmd: gnome-calculator
@@ -421,7 +416,7 @@ menu:
         cmd: gnome-font-viewer
       - key: g
         desc: GPU Top
-        cmd: foot --app-id=amdgpu_top --title=amdgpu_top amdgpu_top
+        cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: p
         desc: Touch[p]ad Toggle
         cmd: ~/bin/toggle-touchpad
@@ -459,7 +454,7 @@ menu:
         cmd: cursor
       - key: d
         desc: DNPull
-        cmd: foot --working-directory=~/Code --hold ~/bin/dnpull
+        cmd: foot --working-directory=$HOME/Code --hold ~/bin/dnpull
       - key: e
         desc: Email
         cmd: thunderbird

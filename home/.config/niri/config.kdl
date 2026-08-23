@@ -200,11 +200,12 @@ window-rule {
 }
 
 window-rule {
-  match app-id="satty"
   match app-id="espanso"
+  match app-id="file-picker" // Custom Yazi Picker
   match app-id="firefox" title="^Picture-in-Picture$"
   match app-id="focustimer"
   match app-id="mpv"
+  match app-id="satty"
   open-floating true
 }
 

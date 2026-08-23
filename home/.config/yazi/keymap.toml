@@ -19,12 +19,13 @@ prepend_keymap = [
 
   # bookmarks jump
   { on = ["g", "b"], run = "back", desc = "Go back" },
-  { on = ["g", "C"], run = "cd ~/Code", desc = "Go Code" },
-  { on = ["g", "e"], run = "cd sftp://edelgard//deep_end", desc = "Go Edelgard" },
-  { on = ["g", "i"], run = "cd ~/Sync/Inbox", desc = "Go Inbox" },
-  { on = ["g", "n"], run = "cd ~/Code/nixos-skwrls", desc = "Go Nix" },
-  { on = ["g", "o"], run = "cd ~/.homesick/repos/dotfiles", desc = "Go Dotfiles" },
+  { on = ["g", "c"], run = "cd ~/Code", desc = "Go code" },
+  { on = ["g", "e"], run = "cd sftp://edelgard//deep_end", desc = "Go Edelard" },
+  { on = ["g", "i"], run = "cd ~/Sync/Inbox", desc = "Go inbox" },
+  { on = ["g", "n"], run = "cd ~/Code/nixos-skwrls", desc = "Go nix" },
+  { on = ["g", "o"], run = "cd ~/.homesick/repos/dotfiles", desc = "Go dotfiles" },
   { on = ["g", "p"], run = "cd sftp://piper", desc = "Go Piper" },
+  { on = ["g", "s"], run = "cd ~/Pictures/Screenshots", desc = "Go screenshots" },
 
   # add fzf and zoxide
   { on = ["g", "z"], run = "plugin zoxide", desc = "Jump via zoxide" },
