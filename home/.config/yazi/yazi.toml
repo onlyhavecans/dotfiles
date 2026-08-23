@@ -8,9 +8,14 @@ run = "awww img %s1"
 for = "linux"
 desc = "Set as wallpaper"
 
+[[opener.upload-zipline]]
+run = "upload %s"
+for = "linux"
+desc = "Upload to zipline"
+
 [open]
 prepend_rules = [
-  { mime = "image/**", use = ["open", "set-wallpaper", "reveal"] },
+  { mime = "image/**", use = ["open", "set-wallpaper", "upload-zipline", "reveal"] },
 ]
 
 [plugin]
