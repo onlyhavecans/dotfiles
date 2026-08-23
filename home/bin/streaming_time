@@ -46,7 +46,7 @@ status_message "Obsidian"
 xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist" &
 
 status_message "Dashboard"
-xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
+firefox "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
 
 status_message "VBridger"
 launch_steam_app 1898830 "VBridger"
