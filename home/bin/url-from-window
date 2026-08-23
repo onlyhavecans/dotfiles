@@ -4,7 +4,7 @@
 # Ctrl+L / Ctrl+C with wtype. "md" copies "[page title](url)" instead.
 set -euo pipefail
 
-sleep 0.3 # let focus return to the browser after the menu closes
+sleep 0.1 # let focus return to the browser after the menu closes
 
 win=$(niri msg --json focused-window)
 app=$(jq -r '.app_id // ""' <<<"$win")
@@ -19,9 +19,7 @@ case $app in
 esac
 
 wtype -M ctrl -k l -m ctrl
-sleep 0.2
 wtype -M ctrl -k c -m ctrl
-sleep 0.2
 wtype -k Escape
 
 url=$(wl-paste)
