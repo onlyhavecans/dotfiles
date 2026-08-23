@@ -3,17 +3,12 @@
 function status_message {
   GREEN='\033[0;32m'
   NOCOLOR='\033[0m'
-  echo ""
   echo -e "${GREEN}~ Starting $*${NOCOLOR}"
 }
 
-status_message "Performance Mode"
-powerprofilesctl set performance
-
-status_message "Set Audio"
-wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
-wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
+function launch {
+  niri msg action spawn -- "$@"
+}
 
 # Re-fire a steam://rungameid URL until its window appears
 function launch_steam_app {
@@ -27,26 +22,34 @@ function launch_steam_app {
   done
 }
 
+status_message "Performance Mode"
+powerprofilesctl set performance
+
+status_message "Set Audio"
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
+wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
+
 status_message "Steam"
-niri msg action spawn -- steam
+launch steam
 while ! pgrep -x steam >/dev/null || [ ! -e ~/.steam/steam.pipe ]; do
   sleep 1
 done
 
 status_message "Firebot"
-niri msg action spawn -- firebot
+launch firebot
 
 status_message "Discord"
-niri msg action spawn -- discord
+launch discord
 
 status_message "Music"
-niri msg action spawn -- amberol
+launch amberol
 
 status_message "Obsidian"
-xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist" &
+launch xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist"
 
 status_message "Dashboard"
-xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager" &
+launch xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager"
 
 status_message "VBridger"
 launch_steam_app 1898830 "VBridger"
@@ -55,7 +58,12 @@ status_message "VTube Studio"
 launch_steam_app 1325860 "VTube Studio"
 
 status_message "OBS-Studio"
-niri msg action spawn -- obs
+launch obs
 
 status_message "Holding on current song"
-current_song --player io.bassi.Amberol
+current_song --player io.bassi.Amberol >/dev/null
+
+status_message "Power Profile Reset"
+powerprofilesctl set balanced
+
+echo "Hope you had a great stream"
