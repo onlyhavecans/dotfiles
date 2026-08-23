@@ -100,7 +100,7 @@ menu:
         cmd: signal-desktop
       - key: w
         desc: TinTin
-        cmd: ~/bin/tw
+        cmd: foot --app-id=tintin ~/bin/tw
 
   - key: d
     desc: Documents
