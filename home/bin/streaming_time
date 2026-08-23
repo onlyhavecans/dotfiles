@@ -6,7 +6,7 @@ function status_message {
   echo -e "${GREEN}~ Starting $*${NOCOLOR}"
 }
 
-function launch {
+function launch_app {
   niri msg action spawn -- "$@"
 }
 
@@ -31,25 +31,25 @@ wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
 wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
 
 status_message "Steam"
-launch steam
+launch_app steam
 while ! pgrep -x steam >/dev/null || [ ! -e ~/.steam/steam.pipe ]; do
   sleep 1
 done
 
 status_message "Firebot"
-launch firebot
+launch_app firebot
 
 status_message "Discord"
-launch discord
+launch_app discord
 
 status_message "Music"
-launch amberol
+launch_app amberol
 
 status_message "Obsidian"
-launch xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist"
+launch_app xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist"
 
 status_message "Dashboard"
-launch xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager"
+launch_app xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager"
 
 status_message "VBridger"
 launch_steam_app 1898830 "VBridger"
@@ -58,7 +58,7 @@ status_message "VTube Studio"
 launch_steam_app 1325860 "VTube Studio"
 
 status_message "OBS-Studio"
-launch obs
+launch_app obs
 
 status_message "Holding on current song"
 current_song --player io.bassi.Amberol >/dev/null
