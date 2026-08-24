@@ -82,7 +82,8 @@ run() {
       ;;
   esac
 
-  xdg-open "$repo_url" || open "$repo_url"
+  # setsid -f detaches so the script doesn't hold the browser; falls through to macOS open
+  setsid -f xdg-open "$repo_url" >/dev/null 2>&1 || open "$repo_url"
 }
 
 run "$@"

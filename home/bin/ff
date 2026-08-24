@@ -10,4 +10,4 @@ if [[ "$URL" != http* ]]; then
   URL=https://$URL
 fi
 
-open "$URL" || xdg-open "$URL"
+setsid -f xdg-open "$URL" >/dev/null 2>&1 || open "$URL"
