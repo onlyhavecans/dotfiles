@@ -414,12 +414,15 @@ menu:
       - key: g
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top amdgpu_top
+      - key: l
+        desc: Co[l]or Picker
+        cmd: wl-color-picker
       - key: p
-        desc: Touch[p]ad Toggle
-        cmd: ~/bin/toggle-touchpad
-      - key: t
         desc: " Timer"
         cmd: focus-timer
+      - key: t
+        desc: Touchpad Toggle
+        cmd: ~/bin/toggle-touchpad
 
   - key: v
     desc: Video
