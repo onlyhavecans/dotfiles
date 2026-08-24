@@ -43,8 +43,6 @@ if path_exists "${HOME}/.homesick/repos/homeshick/homeshick.sh" homeshick; then
   source "${HOME}/.homesick/repos/homeshick/homeshick.sh"
   homeshick pull
   homeshick link
-  status_message "[homeshick] Checking for local changes"
-  homeshick check
 fi
 
 ##
@@ -120,4 +118,10 @@ if path_exists "${HOME}/.config/tmux/plugins/tpm/bin/update_plugins" tpm; then
   ~/.config/tmux/plugins/tpm/bin/install_plugins
   ~/.config/tmux/plugins/tpm/bin/update_plugins all
   ~/.config/tmux/plugins/tpm/bin/clean_plugins
+fi
+
+# Keep it last to offer up next actions
+if path_exists "${HOME}/.homesick/repos/homeshick/homeshick.sh" homeshick; then
+  status_message "[homeshick] Checking for local changes"
+  homeshick check
 fi
