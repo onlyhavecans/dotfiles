@@ -48,7 +48,6 @@ abbr --add ls eza
 abbr --add lsusb "cyme --lsusb"
 abbr --add n nvim
 abbr --add nv nvim
-abbr --add s ssh
 abbr --add tree "eza --tree"
 
 # pretty things
