@@ -4,11 +4,11 @@
     "pr": ""
   },
   "permissions": {
+    "defaultMode": "auto",
     "deny": [
       "Read(.envrc)",
       "Read(.env)"
-    ],
-    "defaultMode": "auto"
+    ]
   },
   "hooks": {
     "Notification": [
@@ -35,12 +35,13 @@
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
   "effortLevel": "high",
-  "tui": "fullscreen",
+  "model": "claude-fable-5[1m]",
+  "outputStyle": "Concise",
   "skipWorkflowUsageWarning": true,
-  "model": "claude-fable-5[1m]"
+  "tui": "fullscreen"
 }
