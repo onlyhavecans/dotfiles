@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-pushd ~/Code/ || exit 1
-git standup -F -s -m 4 -d 8

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-pushd ~/Documents/Obsidian/Vault || exit 1
-nvim "journal/$(date '+%Y-W%W.md')"

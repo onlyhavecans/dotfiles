@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # upload-yazi [dir]
 # Pick file(s) with yazi in a floating terminal and upload them via zipline.
-set -euo pipefail
 
 out=$(mktemp)
 trap 'rm -f "$out"' EXIT
