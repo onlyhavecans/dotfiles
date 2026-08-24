@@ -36,8 +36,8 @@ menu:
       - key: e
         desc: EasyEffects
         cmd: easyeffects
-      - key: i
-        desc: M[i]c
+      - key: m
+        desc: Mic
         submenu:
           - key: "0"
             desc: 100%
@@ -48,15 +48,15 @@ menu:
           - key: m
             desc: Mute
             cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-      - key: m
-        desc: MilkyTracker
-        cmd: milkytracker
       - key: p
         desc: pwvuControl
         cmd: pwvucontrol
       - key: q
         desc: qpwGraph
         cmd: qpwgraph
+      - key: t
+        desc: Milky[T]racker
+        cmd: milkytracker
       - key: y
         desc: Audacit[y]
         cmd: audacity
@@ -92,9 +92,6 @@ menu:
       - key: d
         desc: Discord
         cmd: discord
-      - key: l
-        desc: S[l]ack
-        cmd: slack
       - key: n
         desc: NWW
         cmd: nww
@@ -177,18 +174,18 @@ menu:
       - key: j
         desc: Jump to Win
         cmd: ~/bin/focus-app-fuzzel
-      - key: "l"
-        desc: S[l]ack
-        cmd: ~/bin/focus-app-fuzzel slack
       - key: o
         desc: Obsidian
         cmd: ~/bin/focus-app-fuzzel obsidian
+      - key: s
+        desc: Slack
+        cmd: ~/bin/focus-app-fuzzel slack
       - key: t
         desc: Terminal
         cmd: ~/bin/focus-app-fuzzel foot
 
   - key: "l"
-    desc: Backk[l]ight
+    desc: Back[l]ight
     submenu:
       - key: "1"
         desc: 10%
@@ -327,9 +324,6 @@ menu:
       - key: d
         desc: Recor[d] Screen
         cmd: ~/bin/record-screen
-      - key: f
-        desc: Clip Firefox Audio
-        cmd: ~/bin/clip_app firefox
       - key: m
         desc: Clip mpv Audio
         cmd: ~/bin/clip_app mpv
@@ -437,7 +431,7 @@ menu:
         desc: Jellyfin
         cmd: jellyfin-chromium
       - key: r
-        desc: T[r]immer
+        desc: Video T[r]immer
         cmd: video-trimmer
       - key: t
         desc: Twitch
@@ -461,15 +455,15 @@ menu:
       - key: e
         desc: Email
         cmd: thunderbird
-      - key: "l"
-        desc: S[l]ack
-        cmd: slack
       - key: n
         desc: Netbird-ui
         cmd: netbird-ui
       - key: o
         desc: Obsidian
         cmd: xdg-open "obsidian://open?vault=DNSimple"
+      - key: s
+        desc: Slack
+        cmd: slack
       - key: t
         desc: " Timer"
         cmd: focus-timer
