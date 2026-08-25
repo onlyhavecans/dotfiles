@@ -142,10 +142,6 @@ cursor {
   hide-after-inactive-ms 1000
 }
 
-overview {
-    backdrop-color "pink"
-}
-
 spawn-at-startup "1password" "--silent"
 spawn-at-startup "cliphist" "wipe"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
@@ -521,7 +517,7 @@ binds {
   //
   // The allow-inhibiting=false property can be applied to other binds as well,
   // which ensures niri always processes them, even when an inhibitor is active.
-  // Mod+Escape allow-inhibiting=true { toggle-keyboard-shortcuts-inhibit; }
+  Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
   // The quit action will show a confirmation dialog to avoid accidental exits.
   Mod+Shift+E { quit; }
