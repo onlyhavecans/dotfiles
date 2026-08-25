@@ -139,6 +139,12 @@
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "dynamic-order": [
+      "title",
+      "artist",
+      "album",
+      "length"
+    ],
     "dynamic-len": 60,
     "player-icons": {
       "default": "▶",
