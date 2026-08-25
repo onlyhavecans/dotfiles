@@ -142,8 +142,7 @@
     "dynamic-order": [
       "title",
       "artist",
-      "album",
-      "length"
+      "album"
     ],
     "dynamic-len": 60,
     "player-icons": {
