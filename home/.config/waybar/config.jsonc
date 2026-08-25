@@ -8,7 +8,6 @@
     "battery",
     "cpu",
     "memory",
-    "disk",
     "wireplumber",
     "wireplumber#source",
     "network#wifi",
@@ -17,7 +16,9 @@
     "systemd-failed-units",
     "privacy"
   ],
-  "modules-center": [],
+  "modules-center": [
+    "mpris"
+  ],
   "modules-right": [
     "tray",
     "custom/voxtype",
@@ -63,10 +64,6 @@
   },
   "memory": {
     "format": "󰘚 {percentage}%"
-  },
-  "disk": {
-    "format": "󰋊 {percentage_used}%",
-    "path": "/"
   },
   "wireplumber": {
     "format": "{icon} {volume}%",
@@ -138,6 +135,22 @@
   },
   "privacy": {
     "icon-size": 16
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "dynamic-len": 60,
+    "player-icons": {
+      "default": "▶",
+      "Feishin": "🎵",
+      "mpv": "🎥"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "ignored-players": [
+      "brave"
+    ]
   },
   "tray": {
     "icon-size": 20,

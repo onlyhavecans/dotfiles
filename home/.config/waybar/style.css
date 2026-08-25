@@ -87,6 +87,7 @@ tooltip label {
 #workspaces button {
   color: @muted;
   padding: 0;
+  border: 0;
 }
 #workspaces button.focused {
   color: @text;
@@ -121,6 +122,12 @@ tooltip label {
   padding-right: 8px;
 }
 #systemd-failed-units { color: @text; }
+
+/* ========================================
+   Center: Module Colors
+   ======================================== */
+
+#mpris { font-size: 0.75em; }
 
 /* ========================================
    Right Side: Module Colors
