@@ -194,10 +194,9 @@
   },
   "clock": {
     "format": "{:%a, %b %d 󰥔  %H:%M}",
-    "tooltip-format": "<big>{:%a, %B %d %Y}</big>\n<tt>{calendar}</tt>",
+    "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
+      "mode": "month",
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
