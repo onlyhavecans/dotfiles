@@ -266,18 +266,15 @@ binds {
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
   Mod+Space hotkey-overlay-title="open launcher" { spawn "~/bin/wlr-toggle"; }
-  Mod+Shift+Space hotkey-overlay-title="open alt launcher" { spawn "fuzzel" "--width" "20"; }
+  Alt+Space hotkey-overlay-title="open app search" { spawn "fuzzel" "--width" "20"; }
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "brave-origin"; }
-  Mod+Shift+B hotkey-overlay-title="open browser (private)" { spawn "brave-origin" "--incognito"; }
-  Mod+Backslash hotkey-overlay-title="password quick-access" { spawn "1password" "--quick-access"; }
 
-  Mod+N hotkey-overlay-title="show clipboard" { spawn "cliphist-fuzzel-img"; }
+  Mod+N hotkey-overlay-title="show clipboard history" { spawn "cliphist-fuzzel-img"; }
   Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
 
   Mod+F12 hotkey-overlay-title="Toggle Touchpad" { spawn "~/bin/toggle-touchpad"; }
-  Mod+XF86AudioMedia { spawn "swaylock"; }
 
   F12 { spawn "voxtype" "record" "toggle"; }
   Alt+F12 { spawn "voxtype" "record" "cancel"; }
