@@ -4,11 +4,11 @@
     "pr": ""
   },
   "permissions": {
-    "defaultMode": "auto",
     "deny": [
       "Read(.envrc)",
       "Read(.env)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "hooks": {
     "Notification": [
@@ -39,9 +39,8 @@
     "security-guidance@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
-  "effortLevel": "high",
-  "model": "claude-fable-5[1m]",
   "outputStyle": "Concise",
-  "skipWorkflowUsageWarning": true,
-  "tui": "fullscreen"
+  "effortLevel": "medium",
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true
 }
