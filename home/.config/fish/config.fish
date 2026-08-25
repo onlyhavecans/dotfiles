@@ -117,8 +117,3 @@ test -f ~/.homesick/repos/homeshick/homeshick.fish; and source ~/.homesick/repos
 
 # OrbStack (macOS)
 test -f ~/.orbstack/shell/init2.fish; and source ~/.orbstack/shell/init2.fish
-
-# Startup banner (not in tmux)
-if test -z "$TMUX"
-    type -q fastfetch; and fastfetch --disable-linewrap true
-end
