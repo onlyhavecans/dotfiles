@@ -11,7 +11,6 @@
     "disk",
     "wireplumber",
     "wireplumber#source",
-    "backlight",
     "network#wifi",
     "network#vpn",
     "bluetooth",
@@ -28,20 +27,7 @@
     "clock"
   ],
   "niri/workspaces": {
-    "current-only": true,
-    "format": "{icon}",
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十"
-    }
+    "format": "{value}"
   },
   "battery": {
     "states": {
@@ -110,14 +96,6 @@
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ -l 1.0",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
     "scroll-step": 5
-  },
-  "backlight": {
-    "format": "{icon}  {percent}%",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ]
   },
   "network#wifi": {
     "interface": "wl*",

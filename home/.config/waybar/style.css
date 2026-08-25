@@ -84,24 +84,28 @@ tooltip label {
    Left Side: Module Colors
    ======================================== */
 
-#workspaces {
-  color: @text;
-}
 #workspaces button {
-  min-width: 0;
-  min-height: 0;
-  padding: 0 4px;
-  margin: 0;
-  border: none;
-  background: transparent;
-  color: @subtle;
+  color: @muted;
+  padding: 0;
 }
-#workspaces button.active,
 #workspaces button.focused {
   color: @text;
+  background: alpha(@iris, 0.6);
+  border-radius: 10px;
 }
-#workspaces button:hover {
-  background: alpha(@overlay, 0.6);
+#workspaces button.urgent {
+  background: @love;
+  border-radius: 10px;
+}
+#workspaces button.empty {
+  color: alpha(@muted, 0.5);
+}
+#workspaces button.empty:not(.focused),
+#workspaces button.empty:not(.focused) label {
+  font-size: 0px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
 }
 #battery { color: @gold; }
 #cpu { color: @rose; }
@@ -122,9 +126,7 @@ tooltip label {
    Right Side: Module Colors
    ======================================== */
 
-#tray {
-  padding-right: 10px;
-}
+#tray { padding-right: 10px; }
 #power-profiles-daemon {
   color: @foam;
   padding-right: 9px;
