@@ -25,8 +25,6 @@
     "custom/recording",
     "idle_inhibitor",
     "power-profiles-daemon",
-    "custom/moon",
-    "custom/weather",
     "clock"
   ],
   "niri/workspaces": {
@@ -179,19 +177,6 @@
     "format": "{text}",
     "on-click": "pkill -INT --older 5 -x wf-recorder",
     "restart-interval": 5
-  },
-  "custom/moon": {
-    "exec": "curl --silent 'https://wttr.in/?format=%m'",
-    "format": "{text}",
-    "on-click": "",
-    "restart-interval": 21600
-  },
-  "custom/weather": {
-    "exec": "wttrbar --location las",
-    "format": "{}°C",
-    "return-type": "json",
-    "on-click": "",
-    "restart-interval": 1800
   },
   "idle_inhibitor": {
     "format": "{icon}",
