@@ -4,10 +4,12 @@
   "margin-top": 3,
   "margin-bottom": 1,
   "modules-left": [
+    "custom/logo",
     "niri/workspaces",
     "battery",
     "cpu",
     "memory",
+    "disk",
     "wireplumber",
     "wireplumber#source",
     "network#wifi",
@@ -27,6 +29,9 @@
     "power-profiles-daemon",
     "clock"
   ],
+  "custom/logo": {
+    "format": "󱄅"
+  },
   "niri/workspaces": {
     "format": "{value}"
   },
@@ -40,10 +45,10 @@
       "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
       "on-charging-100": "notify-send -u normal 'Battery Full!'"
     },
-    "format": "{icon} {capacity}%",
-    "format-full": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰚥 {capacity}%",
+    "format": "{icon} {capacity}",
+    "format-full": "{icon} {capacity}",
+    "format-charging": "󰂄 {capacity}",
+    "format-plugged": "󰚥 {capacity}",
     "format-alt": "{icon} {time}",
     "format-icons": [
       "󰂎",
@@ -60,14 +65,17 @@
     ]
   },
   "cpu": {
-    "format": "󰍛 {usage}%"
+    "format": "󰍛 {usage}"
   },
   "memory": {
-    "format": "󰘚 {percentage}%"
+    "format": "󰘚 {percentage}"
+  },
+  "disk": {
+    "format": "󰋊 {percentage_used}"
   },
   "wireplumber": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟  ミュート",
+    "format": "{icon} {volume}",
+    "format-muted": "󰝟  Mute",
     "format-icons": [
       "󰕿",
       "󰖀",
@@ -81,11 +89,10 @@
   },
   "wireplumber#source": {
     "node-type": "Audio/Source",
-    "format": "{icon} {volume}%",
-    "format-muted": "󰍭 ミュート",
+    "format": "{icon} {volume}",
+    "format-muted": "󰍭 Mute",
     "format-icons": [
-      "󰍬",
-      "󰍬",
+      "󰍮",
       "󰍬"
     ],
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
@@ -97,10 +104,10 @@
   "network#wifi": {
     "interface": "wl*",
     "family": "ipv4_6",
-    "format": "{icon}  {signalStrength}%",
+    "format": "{icon}  {signalStrength}",
     "format-disconnected": "",
     "format-icons": [
-      "󰤯",
+      "󰟂",
       "󰤟",
       "󰤢",
       "󰤥",

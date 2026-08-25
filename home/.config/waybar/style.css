@@ -16,7 +16,7 @@ window#waybar {
 }
 
 window#waybar > box {
-  background-color: alpha(@base, 0.3);
+  background-color: alpha(@surface, 0.9);
   border-radius: 12px;
   opacity: 0.95;
 }
@@ -48,7 +48,7 @@ tooltip label {
 .modules-right > widget > * {
   padding: 1px 5px 2px; /* top | left and right | bottom */
   border: 1px solid @highlightHigh;
-  background-color: @surface;
+  /* background-color: @surface; */
 }
 
 /* First module in ANY section */
@@ -84,6 +84,11 @@ tooltip label {
    Left Side: Module Colors
    ======================================== */
 
+#custom-logo {
+  padding-right: 10px;
+  padding-left: 8px;
+  color: @pine;
+}
 #workspaces button {
   color: @muted;
   padding: 0;
@@ -91,7 +96,7 @@ tooltip label {
 }
 #workspaces button.focused {
   color: @text;
-  background: alpha(@iris, 0.6);
+  background: alpha(@iris, 0.5);
   border-radius: 10px;
 }
 #workspaces button.urgent {
@@ -114,14 +119,13 @@ tooltip label {
 #disk { color: @foam; }
 #wireplumber { color: @iris; }
 #wireplumber.source { color: @iris; }
-#backlight { color: @love; }
-#bluetooth { color: @iris; }
-#network.wifi { color: @foam; }
+#network.wifi { color: @love; }
 #network.vpn {
-  color: @pine;
+  color: @gold;
   padding-right: 8px;
 }
-#systemd-failed-units { color: @text; }
+#bluetooth { color: @rose; }
+#systemd-failed-units { color: @pine; }
 
 /* ========================================
    Center: Module Colors
