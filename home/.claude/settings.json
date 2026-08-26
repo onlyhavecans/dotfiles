@@ -10,6 +10,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "Notification": [
       {
@@ -40,7 +41,7 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "outputStyle": "Concise",
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true
 }

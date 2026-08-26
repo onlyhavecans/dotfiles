@@ -31,7 +31,7 @@ input {
   focus-follows-mouse max-scroll-amount="20%"
 }
 
-include "touchpad.kdl"
+include optional=true "touchpad.kdl"
 
 // Output device configuration.
 // Find the modes and names with `niri msg outputs`
@@ -143,9 +143,7 @@ cursor {
 }
 
 spawn-at-startup "1password" "--silent"
-spawn-at-startup "cliphist" "wipe"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+// dms shell itself starts via its systemd user unit (dms.service)
 
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
@@ -176,6 +174,12 @@ animations {
   // slowdown 3.0
 }
 
+// DMS
+layer-rule {
+    match namespace="^quickshell$" // Only if transparent backgrounds
+    place-within-backdrop true
+}
+
 // Window rules let you adjust behavior for individual windows.
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
 // Use `niri msg windows` to get window details
@@ -203,6 +207,7 @@ window-rule {
   match app-id="mpv"
   match app-id="satty"
   match app-id="zenity" title="Copy color to Clipboard"
+  match app-id=r#"org.quickshell$"# // DMS
   open-floating true
 }
 
@@ -251,6 +256,11 @@ window-rule {
   open-on-output "BOE Display 0x00000144"
 }
 
+window-rule {
+  match is-active=false
+  opacity 0.9
+}
+
 // enable rounded corners for all windows.
 window-rule {
   geometry-corner-radius 12
@@ -266,30 +276,32 @@ binds {
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
   Mod+Space hotkey-overlay-title="open launcher" { spawn "~/bin/wlr-toggle"; }
-  Alt+Space hotkey-overlay-title="open app search" { spawn "fuzzel" "--width" "20"; }
+  Alt+Space hotkey-overlay-title="open spotlight" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "brave-origin"; }
 
-  Mod+N hotkey-overlay-title="show clipboard history" { spawn "cliphist-fuzzel-img"; }
-  Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
-  Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
+  Mod+N hotkey-overlay-title="show clipboard history" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+  Mod+Escape hotkey-overlay-title="power menu" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+  Mod+Comma hotkey-overlay-title="show DMS settings" { spawn "dms" "ipc" "call" "settings" "toggle"; }
 
+  Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
   Mod+F12 hotkey-overlay-title="Toggle Touchpad" { spawn "~/bin/toggle-touchpad"; }
 
   F12 { spawn "voxtype" "record" "toggle"; }
   Alt+F12 { spawn "voxtype" "record" "cancel"; }
 
   // the allow-when-locked=true property makes them work even when the session is locked.
-  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" "-l" "1.5"; }
+  // routed through dms so the OSD shows
+  XF86AudioMute        allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
 
-  XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
-  XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
+  XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
+  XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+  XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
 
-  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
 
   // open/close the overview: a zoomed-out view of workspaces and windows.
   Mod+O repeat=false { toggle-overview; }
@@ -441,9 +453,9 @@ binds {
   Mod+BracketRight { consume-or-expel-window-right; }
 
   // Consume one window from the right to the bottom of the focused column.
-  Mod+Comma  { consume-window-into-column; }
+  // Mod+Comma  { consume-window-into-column; }
   // Expel the bottom window from the focused column to the right.
-  Mod+Period { expel-window-from-column; }
+  // Mod+Period { expel-window-from-column; }
 
   Mod+R { switch-preset-column-width; }
   // Cycling through the presets in reverse order is also possible.
@@ -524,3 +536,12 @@ binds {
   // moving the mouse or pressing any other key.
   // Mod+Shift+P { power-off-monitors; }
 }
+
+// Add to the end of ~/.config/niri/config.kdl
+include optional=true "dms/alttab.kdl"
+include optional=true "dms/binds.kdl"
+include optional=true "dms/colors.kdl"
+include optional=true "dms/cursor.kdl"
+include optional=true "dms/layout.kdl"
+include optional=true "dms/outputs.kdl"
+include optional=true "dms/windowrules.kdl"

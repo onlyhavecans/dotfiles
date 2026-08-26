@@ -13,7 +13,6 @@ rows_per_column: 12
 # NOTE: Keep desc terse, skimmability wins
 # NOTE: Keep alpha sorted
 # NOTE: Double-tap = the group's default action
-# NOTE: Same app should strive for same key in every menu
 # NOTE: Mark non-initial keys like S[l]ack
 # NOTE: Submenu by what I am doing
 menu:
@@ -41,13 +40,13 @@ menu:
         submenu:
           - key: "0"
             desc: 100%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
+            cmd: dms ipc call mic setvolume 100
           - key: "3"
             desc: 30%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
+            cmd: dms ipc call mic setvolume 30
           - key: m
             desc: Mute
-            cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+            cmd: dms ipc call mic mute
       - key: p
         desc: pwvuControl
         cmd: pwvucontrol
@@ -103,17 +102,29 @@ menu:
         cmd: foot --app-id=tintin ~/bin/tw
 
   - key: d
-    desc: Documents
+    desc: "Dank Shell"
     submenu:
+      - key: c
+        desc: Control Center
+        cmd: dms ipc call control-center toggle
       - key: d
-        desc: PDF Viewer
-        cmd: papers
-      - key: i
-        desc: Image Viewer
-        cmd: loupe
+        desc: Do Not Disturb
+        cmd: dms ipc call notifications toggleDoNotDisturb
+      - key: n
+        desc: Notifications
+        cmd: dms ipc call notifications toggle
       - key: p
-        desc: Image Editor
-        cmd: photopea-chromium
+        desc: Processes
+        cmd: dms ipc call processlist toggle
+      - key: s
+        desc: Settings
+        cmd: dms ipc call settings toggle
+      - key: t
+        desc: Notepad
+        cmd: dms ipc call notepad toggle
+      - key: x
+        desc: Clear Notifs
+        cmd: dms ipc call notifications clearAll
 
   - key: e
     desc: Email
@@ -153,14 +164,21 @@ menu:
         cmd: steam
 
   - key: h
-    desc: Clip[h]ist
+    desc: Clip [h]istory
+    cmd: dms ipc call clipboard toggle
+
+  - key: i
+    desc: V[i]ewers
     submenu:
-      - key: h
-        desc: pick
-        cmd: cliphist-fuzzel-img
-      - key: w
-        desc: wipe
-        cmd: cliphist wipe
+      - key: d
+        desc: PDF Viewer
+        cmd: papers
+      - key: i
+        desc: Image Viewer
+        cmd: loupe
+      - key: p
+        desc: Image Editor
+        cmd: photopea-chromium
 
   - key: j
     desc: Jump
@@ -189,13 +207,13 @@ menu:
     submenu:
       - key: "1"
         desc: 10%
-        cmd: brightnessctl --class=backlight set 10%
+        cmd: dms ipc call brightness set 10
       - key: "4"
         desc: 40%
-        cmd: brightnessctl --class=backlight set 40%
+        cmd: dms ipc call brightness set 40
       - key: "7"
         desc: 70%
-        cmd: brightnessctl --class=backlight set 70%
+        cmd: dms ipc call brightness set 70
 
   - key: m
     desc: Music
@@ -223,26 +241,20 @@ menu:
         submenu:
           - key: "0"
             desc: 100%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
+            cmd: dms ipc call audio setvolume 100
           - key: "3"
             desc: 30%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
+            cmd: dms ipc call audio setvolume 30
           - key: "6"
             desc: 60%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
+            cmd: dms ipc call audio setvolume 60
           - key: m
             desc: Mute
-            cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+            cmd: dms ipc call audio mute
 
   - key: n
     desc: Niri
     submenu:
-      - key: "["
-        desc: Consume
-        cmd: niri msg action consume-window-into-column
-      - key: "]"
-        desc: Expel
-        cmd: niri msg action expel-window-from-column
       - key: c
         desc: Center
         cmd: niri msg action center-column
@@ -253,7 +265,7 @@ menu:
         desc: Float
         cmd: niri msg action toggle-window-floating
       - key: m
-        desc: Move Col
+        desc: Move Column
         submenu:
           - key: h
             desc: Left
@@ -274,7 +286,7 @@ menu:
         desc: Swap Focus
         cmd: niri msg action switch-focus-between-floating-and-tiling
       - key: w
-        desc: Move Wkspc
+        desc: Move Workspace
         submenu:
           - key: h
             desc: Left
@@ -301,7 +313,7 @@ menu:
     submenu:
       - key: "l"
         desc: "\U000F033E Lock"
-        cmd: swaylock
+        cmd: dms ipc call lock lock
       - key: "q"
         desc: "\U000F0343 Quit Niri"
         cmd: niri msg action quit
@@ -380,18 +392,21 @@ menu:
   - key: t
     desc: Theme
     submenu:
-      - key: m
-        desc: Get Wall Mood
-        cmd: notify-send "Wall" "$(wall which)"
+      - key: d
+        desc: Dark/Light
+        cmd: dms ipc call theme toggle
+      - key: g
+        desc: Night Light
+        cmd: dms ipc call night toggle
       - key: n
         desc: Next Wall
-        cmd: wall next
-      - key: r
-        desc: Random Wall
-        cmd: wall random
+        cmd: dms ipc call wallpaper next
+      - key: p
+        desc: Prev Wall
+        cmd: dms ipc call wallpaper prev
       - key: s
-        desc: Set Wall Mood
-        cmd: wall menu
+        desc: Set Wall
+        cmd: dms ipc call file browse wallpaper
 
   - key: u
     desc: Utilities
@@ -416,7 +431,7 @@ menu:
         cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: l
         desc: Co[l]or Picker
-        cmd: wl-color-picker
+        cmd: dms ipc call color-picker open
       - key: p
         desc: " Timer"
         cmd: focus-timer
