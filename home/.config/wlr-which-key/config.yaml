@@ -105,8 +105,8 @@ menu:
     desc: "Dank Shell"
     submenu:
       - key: c
-        desc: Control Center
-        cmd: dms ipc call control-center toggle
+        desc: Clipboard
+        cmd: dms ipc call clipboard toggle
       - key: d
         desc: Do Not Disturb
         cmd: dms ipc call notifications toggleDoNotDisturb
@@ -119,9 +119,9 @@ menu:
       - key: s
         desc: Settings
         cmd: dms ipc call settings toggle
-      - key: t
-        desc: Notepad
-        cmd: dms ipc call notepad toggle
+      - key: w
+        desc: Window Rules
+        cmd: dms ipc call window-rules toggle
       - key: x
         desc: Clear Notifs
         cmd: dms ipc call notifications clearAll
@@ -162,10 +162,6 @@ menu:
       - key: s
         desc: Steam
         cmd: steam
-
-  - key: h
-    desc: Clip [h]istory
-    cmd: dms ipc call clipboard toggle
 
   - key: i
     desc: V[i]ewers
@@ -302,7 +298,7 @@ menu:
             cmd: niri msg action move-workspace-to-monitor-right
       - key: z
         desc: Maximi[z]e
-        cmd: niri msg action maximize-window-to-edges
+        cmd: niri msg action maximize-column
 
   - key: o
     desc: N[o]tepad
@@ -314,17 +310,17 @@ menu:
       - key: "l"
         desc: "\U000F033E Lock"
         cmd: dms ipc call lock lock
+      - key: "p"
+        desc: "\U000F0425 Power Off"
+        cmd: systemctl poweroff
       - key: "q"
-        desc: "\U000F0343 Quit Niri"
+        desc: "\U000F0343 Quit Session"
         cmd: niri msg action quit
       - key: "r"
         desc: "\U000F0465 Reboot"
         cmd: systemctl reboot
       - key: "s"
-        desc: "\U000F0425 Shutdown"
-        cmd: systemctl poweroff
-      - key: "u"
-        desc: "\U000F0904 S[u]spend"
+        desc: "\U000F0904 Suspend"
         cmd: systemctl suspend
 
   - key: r
