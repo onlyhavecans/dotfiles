@@ -278,7 +278,7 @@ binds {
   Mod+Space hotkey-overlay-title="open launcher" { spawn "~/bin/wlr-toggle"; }
   Alt+Space hotkey-overlay-title="open spotlight" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
-  Mod+B hotkey-overlay-title="open browser" { spawn "brave-origin"; }
+  Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
 
   Mod+Shift+C hotkey-overlay-title="show clipboard history" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
   Mod+N hotkey-overlay-title="show notifications" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
