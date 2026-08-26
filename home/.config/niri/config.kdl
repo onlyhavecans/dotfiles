@@ -285,13 +285,12 @@ binds {
   Mod+Comma hotkey-overlay-title="show DMS settings" { spawn "dms" "ipc" "call" "settings" "toggle"; }
 
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
-  Mod+F12 hotkey-overlay-title="Toggle Touchpad" { spawn "~/bin/toggle-touchpad"; }
+  Mod+F12 hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
 
   F12 { spawn "voxtype" "record" "toggle"; }
   Alt+F12 { spawn "voxtype" "record" "cancel"; }
 
   // the allow-when-locked=true property makes them work even when the session is locked.
-  // routed through dms so the OSD shows
   XF86AudioMute        allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
   XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
