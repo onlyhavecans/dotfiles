@@ -1,12 +1,12 @@
 # Bar layout + widget tuning
 
 [bar.default]
+start = ["taskbar", "media_space", "media"]
 center = ["clock", "privacy", "bar"]
-end = ["tray", "group:g4", "group:g5", "group:g1", "group:g2", "group:g3", "session"]
+end = ["tray", "group:g4", "group:g5", "group:g1", "group:g2", "group:g3"]
 font_weight = 700
 margin_ends = 60
 margin_opposite_edge = 1
-start = ["control-center", "workspaces", "media_space", "media"]
 
 [[bar.default.capsule_group]]
 accordion = false
@@ -58,10 +58,10 @@ accordion_direction = "end"
 enabled = true
 fill = "surface_variant"
 id = "g5"
-members = ["battery", "power_profile", "caffeine"]
+members = ["caffeine", "power_profile", "battery"]
 opacity = 1.0
 padding = 2.0
-widget_spacing = 1
+widget_spacing = 2
 
 [widget.bar]
 type = "noctalia/world_clock:bar"
@@ -93,6 +93,10 @@ type = "noctalia/screen_recorder:recorder"
 
 [widget.status]
 type = "gabedunn/voxtype:status"
+
+[widget.taskbar]
+group_by_workspace = true
+hide_empty_workspaces = true
 
 [widget.vpn]
 type = "dos/vpn:status"
