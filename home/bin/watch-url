@@ -2,6 +2,7 @@
 
 URL=$*
 if [[ -z "$URL" ]]; then
+  ~/bin/url-from-window
   URL=$(wl-paste)
 fi
 
