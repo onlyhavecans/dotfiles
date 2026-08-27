@@ -19,7 +19,7 @@ prepend_keymap = [
 
   # bookmarks jump
   { on = ["g", "b"], run = "back", desc = "Go back" },
-  { on = ["g", "c"], run = "cd ~/Code", desc = "Go code" },
+  { on = ["g", "C"], run = "cd ~/Code", desc = "Go code" },
   { on = ["g", "e"], run = "cd sftp://edelgard//deep_end", desc = "Go Edelard" },
   { on = ["g", "i"], run = "cd ~/Sync/Inbox", desc = "Go inbox" },
   { on = ["g", "n"], run = "cd ~/Code/nixos-skwrls", desc = "Go nix" },
