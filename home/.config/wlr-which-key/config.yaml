@@ -101,43 +101,15 @@ menu:
         desc: TinTin++
         cmd: foot --app-id=tintin ~/bin/tw
 
-  - key: d
-    desc: Shell
-    submenu:
-      - key: b
-        desc: Bar Toggle
-        cmd: noctalia msg bar-toggle
-      - key: c
-        desc: Clipboard
-        cmd: noctalia msg panel-toggle clipboard
-      - key: d
-        desc: Do Not Disturb
-        cmd: noctalia msg notification-dnd-toggle
-      - key: i
-        desc: Caffeine
-        cmd: noctalia msg caffeine-toggle
-      - key: n
-        desc: Notifications
-        cmd: noctalia msg panel-toggle control-center
-      - key: o
-        desc: OSD Toggle
-        cmd: noctalia msg osd-toggle
-      - key: s
-        desc: Settings
-        cmd: noctalia msg settings-toggle
-      - key: x
-        desc: Clear Notifs
-        cmd: noctalia msg notification-clear-active
-
   - key: e
     desc: Email
     submenu:
-      - key: d
-        desc: Dictate Note
-        cmd: ~/bin/em-dictate
       - key: e
         desc: Thunderbird
         cmd: thunderbird
+      - key: d
+        desc: Dictate Note
+        cmd: ~/bin/em-dictate
       - key: t
         desc: Type Note
         cmd: ~/bin/em-fuzzel
@@ -153,7 +125,6 @@ menu:
         cmd: nautilus
       - key: u
         desc: Upload
-        submenu:
         cmd: ~/bin/upload-yazi
 
   - key: g
@@ -207,9 +178,9 @@ menu:
       - key: "1"
         desc: 10%
         cmd: noctalia msg brightness-set 10
-      - key: "4"
-        desc: 40%
-        cmd: noctalia msg brightness-set 40
+      - key: "3"
+        desc: 30%
+        cmd: noctalia msg brightness-set 30
       - key: "7"
         desc: 70%
         cmd: noctalia msg brightness-set 70
@@ -252,56 +223,38 @@ menu:
             cmd: noctalia msg volume-mute
 
   - key: n
-    desc: Niri
+    desc: Noctalia
     submenu:
+      - key: b
+        desc: Bar Toggle
+        cmd: noctalia msg bar-toggle
       - key: c
-        desc: Center
-        cmd: niri msg action center-column
-      - key: e
-        desc: Expand
-        cmd: niri msg action expand-column-to-available-width
-      - key: f
-        desc: Float
-        cmd: niri msg action toggle-window-floating
-      - key: m
-        desc: Move Column
-        submenu:
-          - key: h
-            desc: Left
-            cmd: niri msg action move-column-to-monitor-left
-          - key: j
-            desc: Down
-            cmd: niri msg action move-column-to-monitor-down
-          - key: k
-            desc: Up
-            cmd: niri msg action move-column-to-monitor-up
-          - key: "l"
-            desc: Right
-            cmd: niri msg action move-column-to-monitor-right
-      - key: r
-        desc: Reset Height
-        cmd: niri msg action reset-window-height
+        desc: Clipboard
+        cmd: noctalia msg panel-toggle clipboard
+      - key: d
+        desc: Do Not Disturb
+        cmd: noctalia msg notification-dnd-toggle
+      - key: h
+        desc: Home Panel
+        cmd: noctalia msg panel-toggle control-center home
+      - key: i
+        desc: Caffeine
+        cmd: noctalia msg caffeine-toggle
+      - key: n
+        desc: Notifications
+        cmd: noctalia msg panel-toggle control-center notifications
+      - key: o
+        desc: OSD Toggle
+        cmd: noctalia msg osd-toggle
       - key: s
-        desc: Swap Focus
-        cmd: niri msg action switch-focus-between-floating-and-tiling
+        desc: Settings
+        cmd: noctalia msg settings-toggle
       - key: w
-        desc: Move Workspace
-        submenu:
-          - key: h
-            desc: Left
-            cmd: niri msg action move-workspace-to-monitor-left
-          - key: j
-            desc: Down
-            cmd: niri msg action move-workspace-to-monitor-down
-          - key: k
-            desc: Up
-            cmd: niri msg action move-workspace-to-monitor-up
-          - key: "l"
-            desc: Right
-            cmd: niri msg action move-workspace-to-monitor-right
-      - key: z
-        desc: Maximi[z]e
-        cmd: niri msg action maximize-column
+        desc: World Clock
+        cmd: noctalia msg panel-toggle noctalia/world_clock:panel
+      - key: x
+        desc: Clear Notifs
+        cmd: noctalia msg notification-clear-active
 
   - key: o
     desc: N[o]tepad
@@ -335,20 +288,17 @@ menu:
       - key: b
         desc: Clip Firefox Audio
         cmd: ~/bin/clip_app firefox
-      - key: d
-        desc: Recor[d] Screen
-        cmd: noctalia msg plugin noctalia/screen_recorder:service all toggle
-      - key: f
-        desc: Record Fallback
-        cmd: ~/bin/record-screen
       - key: m
         desc: Clip mpv Audio
         cmd: ~/bin/clip_app mpv
       - key: o
-        desc: OBS
+        desc: OBS Studio
         cmd: obs
       - key: r
-        desc: Screenshot Screen
+        desc: Record Screen
+        cmd: noctalia msg plugin noctalia/screen_recorder:service all toggle
+      - key: f
+        desc: Screenshot Full Screen
         cmd: noctalia msg screenshot-fullscreen
       - key: s
         desc: Screenshot Selection
@@ -440,14 +390,11 @@ menu:
       - key: g
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top amdgpu_top
-      - key: l
-        desc: Co[l]or Picker
-        cmd: wl-color-picker clipboard
       - key: p
-        desc: " Timer"
-        cmd: focus-timer
+        desc: Color [P]icker
+        cmd: wl-color-picker clipboard
       - key: t
-        desc: Touchpad Toggle
+        desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
 
   - key: v
@@ -465,8 +412,8 @@ menu:
       - key: t
         desc: Twitch
         cmd: twitch-chromium
-      - key: v
-        desc: Watch url in clipboard
+      - key: w
+        desc: Watch in mpv
         cmd: ~/bin/watch-url
 
   - key: w
