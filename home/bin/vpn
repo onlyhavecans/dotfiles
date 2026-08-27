@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# vpn <name> — toggle a wg-quick unit (e.g. `vpn home`, `vpn ams`)
+# vpn up|down|status <name> for the explicit forms
+# promptless for wheel via the polkit rule next to the wg-quick interfaces
+set -euo pipefail
+
+usage="usage: vpn [up|down|toggle|status] <name>"
+cmd=${1:?$usage}
+case "$cmd" in
+  up | down | toggle | status) name=${2:?$usage} ;;
+  *)
+    name=$cmd
+    cmd=toggle
+    ;;
+esac
+
+unit="wg-quick-wg-${name}.service"
+systemctl cat "$unit" &>/dev/null || unit="wg-quick-${name}.service"
+
+case "$cmd" in
+  up)
+    systemctl start "$unit"
+    notify-send "vpn" "${name} up"
+    ;;
+  down)
+    systemctl stop "$unit"
+    notify-send "vpn" "${name} down"
+    ;;
+  toggle)
+    if systemctl is-active -q "$unit"; then
+      "$0" down "$name"
+    else
+      "$0" up "$name"
+    fi
+    ;;
+  status)
+    systemctl is-active "$unit"
+    ;;
+esac

@@ -1,0 +1,42 @@
+// DankMaterialShell overlay — active when shell.kdl points here (shell-swap).
+// Includes are positional: binds here override the piecemeal baseline.
+
+layer-rule {
+  match namespace="^quickshell$" // Only if transparent backgrounds
+  place-within-backdrop true
+}
+
+window-rule {
+  match app-id=r#"org.quickshell$"#
+  open-floating true
+}
+
+binds {
+  Alt+Space hotkey-overlay-title="open spotlight" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+
+  Mod+Shift+C hotkey-overlay-title="show clipboard history" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+  Mod+N hotkey-overlay-title="show notifications" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+  Mod+Escape hotkey-overlay-title="power menu" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+  Mod+Comma hotkey-overlay-title="show DMS settings" { spawn "dms" "ipc" "call" "settings" "toggle"; }
+
+  // through DMS IPC so the OSD shows
+  XF86AudioMute        allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
+
+  XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
+  XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+  XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
+
+  XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
+}
+
+// Written by DMS itself into ~/.config/niri/dms/
+include optional=true "dms/alttab.kdl"
+include optional=true "dms/binds.kdl"
+include optional=true "dms/colors.kdl"
+include optional=true "dms/cursor.kdl"
+include optional=true "dms/layout.kdl"
+include optional=true "dms/outputs.kdl"
+include optional=true "dms/windowrules.kdl"

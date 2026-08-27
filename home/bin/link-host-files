@@ -30,3 +30,10 @@ host_links=(
 for link in "${host_links[@]}"; do
   link_host_file "$link"
 done
+
+# seed the shell overlay if shell-swap hasn't picked one yet
+shell_link="${HOME}/.config/niri/shell.kdl"
+if [[ ! -e $shell_link ]]; then
+  ln -sf "shell/dms.kdl" "$shell_link"
+  echo "linked: ${shell_link} -> shell/dms.kdl (default)"
+fi

@@ -40,13 +40,13 @@ menu:
         submenu:
           - key: "0"
             desc: 100%
-            cmd: dms ipc call mic setvolume 100
+            cmd: shellctl mic-volume 100
           - key: "3"
             desc: 30%
-            cmd: dms ipc call mic setvolume 30
+            cmd: shellctl mic-volume 30
           - key: m
             desc: Mute
-            cmd: dms ipc call mic mute
+            cmd: shellctl mic-mute
       - key: p
         desc: pwvuControl
         cmd: pwvucontrol
@@ -102,29 +102,32 @@ menu:
         cmd: foot --app-id=tintin ~/bin/tw
 
   - key: d
-    desc: "Dank Shell"
+    desc: Shell
     submenu:
       - key: c
         desc: Clipboard
-        cmd: dms ipc call clipboard toggle
+        cmd: shellctl clipboard
       - key: d
         desc: Do Not Disturb
-        cmd: dms ipc call notifications toggleDoNotDisturb
+        cmd: shellctl dnd
+      - key: i
+        desc: Caffeine
+        cmd: shellctl caffeine
       - key: n
         desc: Notifications
-        cmd: dms ipc call notifications toggle
+        cmd: shellctl notifications
       - key: p
         desc: Processes
-        cmd: dms ipc call processlist toggle
+        cmd: shellctl processlist
       - key: s
         desc: Settings
-        cmd: dms ipc call settings toggle
+        cmd: shellctl settings
       - key: w
         desc: Window Rules
-        cmd: dms ipc call window-rules toggle
+        cmd: shellctl window-rules
       - key: x
         desc: Clear Notifs
-        cmd: dms ipc call notifications clearAll
+        cmd: shellctl notifications-clear
 
   - key: e
     desc: Email
@@ -203,13 +206,13 @@ menu:
     submenu:
       - key: "1"
         desc: 10%
-        cmd: dms ipc call brightness set 10
+        cmd: shellctl brightness 10
       - key: "4"
         desc: 40%
-        cmd: dms ipc call brightness set 40
+        cmd: shellctl brightness 40
       - key: "7"
         desc: 70%
-        cmd: dms ipc call brightness set 70
+        cmd: shellctl brightness 70
 
   - key: m
     desc: Music
@@ -237,16 +240,16 @@ menu:
         submenu:
           - key: "0"
             desc: 100%
-            cmd: dms ipc call audio setvolume 100
+            cmd: shellctl volume 100
           - key: "3"
             desc: 30%
-            cmd: dms ipc call audio setvolume 30
+            cmd: shellctl volume 30
           - key: "6"
             desc: 60%
-            cmd: dms ipc call audio setvolume 60
+            cmd: shellctl volume 60
           - key: m
             desc: Mute
-            cmd: dms ipc call audio mute
+            cmd: shellctl mute
 
   - key: n
     desc: Niri
@@ -309,7 +312,7 @@ menu:
     submenu:
       - key: "l"
         desc: "\U000F033E Lock"
-        cmd: dms ipc call lock lock
+        cmd: shellctl lock
       - key: "p"
         desc: "\U000F0425 Power Off"
         cmd: systemctl poweroff
@@ -390,19 +393,22 @@ menu:
     submenu:
       - key: d
         desc: Dark/Light
-        cmd: dms ipc call theme toggle
+        cmd: shellctl theme-toggle
       - key: g
         desc: Night Light
-        cmd: dms ipc call night toggle
+        cmd: shellctl night-toggle
       - key: n
         desc: Next Wall
-        cmd: dms ipc call wallpaper next
+        cmd: shellctl wallpaper next
       - key: p
         desc: Prev Wall
-        cmd: dms ipc call wallpaper prev
+        cmd: shellctl wallpaper prev
+      - key: r
+        desc: Random Wall
+        cmd: shellctl wallpaper-random
       - key: s
         desc: Set Wall
-        cmd: dms ipc call file browse wallpaper
+        cmd: shellctl wallpaper-browse
 
   - key: u
     desc: Utilities
@@ -427,7 +433,7 @@ menu:
         cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: l
         desc: Co[l]or Picker
-        cmd: dms ipc call color-picker open
+        cmd: shellctl color-picker
       - key: p
         desc: " Timer"
         cmd: focus-timer
@@ -481,6 +487,21 @@ menu:
       - key: t
         desc: " Timer"
         cmd: focus-timer
+      - key: v
+        desc: VPN
+        submenu:
+          - key: a
+            desc: Amsterdam
+            cmd: ~/bin/vpn ams
+          - key: h
+            desc: Home
+            cmd: ~/bin/vpn home
+          - key: n
+            desc: New York
+            cmd: ~/bin/vpn nyc
+          - key: s
+            desc: San Francisco
+            cmd: ~/bin/vpn sfo
       - key: z
         desc: Zoom
         cmd: zoom

@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+# shellctl <verb> [args] — shell-agnostic IPC dispatch for menus and scripts.
+# Maps one verb set onto `dms ipc call` or `noctalia msg` depending on which
+# shell is running, so configs never hard-code a shell.
+set -euo pipefail
+
+verb=${1:?usage: shellctl <verb> [args]}
+shift || true
+
+if systemctl --user is-active -q dms.service; then
+  shell=dms
+elif systemctl --user is-active -q noctalia.service; then
+  shell=noctalia
+else
+  notify-send "shellctl" "no desktop shell running"
+  exit 1
+fi
+
+unmapped() {
+  notify-send "shellctl" "'${verb}' not mapped for ${shell} yet"
+  exit 1
+}
+
+if [[ $shell == dms ]]; then
+  case "$verb" in
+    launcher) exec dms ipc call spotlight toggle ;;
+    caffeine) exec dms ipc call inhibit toggle ;;
+    clipboard) exec dms ipc call clipboard toggle ;;
+    notifications) exec dms ipc call notifications toggle ;;
+    notifications-clear) exec dms ipc call notifications clearAll ;;
+    dnd) exec dms ipc call notifications toggleDoNotDisturb ;;
+    powermenu) exec dms ipc call powermenu toggle ;;
+    settings) exec dms ipc call settings toggle ;;
+    processlist) exec dms ipc call processlist toggle ;;
+    window-rules) exec dms ipc call window-rules toggle ;;
+    lock) exec dms ipc call lock lock ;;
+    volume) exec dms ipc call audio setvolume "$1" ;;
+    mute) exec dms ipc call audio mute ;;
+    mic-volume) exec dms ipc call mic setvolume "$1" ;;
+    mic-mute) exec dms ipc call mic mute ;;
+    brightness) exec dms ipc call brightness set "$1" ;;
+    theme-toggle) exec dms ipc call theme toggle ;;
+    night-toggle) exec dms ipc call night toggle ;;
+    wallpaper) exec dms ipc call wallpaper "$@" ;; # next|prev|set <path>
+    wallpaper-browse) exec dms ipc call file browse wallpaper ;;
+    wallpaper-random) unmapped ;; # not in DMS core IPC (noctalia-only)
+    color-picker) exec dms ipc call color-picker open ;;
+    *) unmapped ;;
+  esac
+else
+  case "$verb" in
+    launcher) exec noctalia msg panel-toggle launcher ;;
+    caffeine) exec noctalia msg caffeine-toggle ;;
+    clipboard) exec noctalia msg panel-toggle clipboard ;;
+    notifications) exec noctalia msg panel-toggle control-center ;;
+    notifications-clear) exec noctalia msg notification-clear-active ;;
+    dnd) exec noctalia msg notification-dnd-toggle ;;
+    powermenu) exec noctalia msg panel-toggle session ;;
+    settings) exec noctalia msg settings-toggle ;;
+    lock) exec noctalia msg session lock ;;
+    volume) exec noctalia msg volume-set "$1" ;;
+    mute) exec noctalia msg volume-mute ;;
+    mic-volume) exec noctalia msg mic-volume-set "$1" ;;
+    mic-mute) exec noctalia msg mic-mute ;;
+    brightness) exec noctalia msg brightness-set "$1" ;;
+    theme-toggle) exec noctalia msg theme-mode-toggle ;;
+    night-toggle) exec noctalia msg nightlight-toggle ;;
+    wallpaper)
+      sub=${1:-next}
+      shift || true
+      [[ $sub == prev ]] && sub=previous
+      exec noctalia msg "wallpaper-${sub}" "$@"
+      ;;
+    wallpaper-random) exec noctalia msg wallpaper-random ;;
+    wallpaper-browse) exec noctalia msg panel-toggle wallpaper ;;
+    # processlist / window-rules / color-picker are DMS-only → unmapped
+    *) unmapped ;;
+  esac
+fi

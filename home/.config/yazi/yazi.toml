@@ -4,7 +4,7 @@ sort_reverse = true
 sort_dir_first = true
 
 [[opener.set-wallpaper]]
-run = "dms ipc call wallpaper set %s1"
+run = "shellctl wallpaper set %s1"
 for = "linux"
 desc = "Set as wallpaper"
 

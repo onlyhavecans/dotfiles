@@ -1,0 +1,63 @@
+// Noctalia v5 overlay — active when shell.kdl points here (shell-swap).
+// Includes are positional: binds here override the piecemeal baseline.
+// https://docs.noctalia.dev/noctalia/compositor-settings/niri/
+
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+window-rule {
+  geometry-corner-radius 20
+  clip-to-geometry true
+}
+
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+switch-events {
+    lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+binds {
+  alt+space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+  mod+s     hotkey-overlay-title="control center" { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+  mod+comma hotkey-overlay-title="show noctalia settings" { spawn "noctalia" "msg" "settings-toggle"; }
+  alt+tab   hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "window-switcher"; }
+
+  Mod+Shift+C hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+  Mod+N       hotkey-overlay-title="show notifications" { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+  Mod+Escape  hotkey-overlay-title="power menu" { spawn "noctalia" "msg" "panel-toggle" "session"; }
+
+  // through noctalia IPC so the OSD shows
+  XF86AudioMute        allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+
+  XF86AudioPrev allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
+  XF86AudioPlay allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
+  XF86AudioNext allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
+
+  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
+
+  //
+
+  Print       { spawn "~/bin/screenshot" "window"; }
+  Shift+Print { spawn "noctalia" "msg" "screenshot-region"; }
+  Ctrl+Print  { spawn "noctalia" "msg" "screenshot-fullscreen"; }
+  Mod+Print   { spawn "~/bin/record-screen"; }
+}
+
+// How it sets theme
+include "noctalia.kdl"
