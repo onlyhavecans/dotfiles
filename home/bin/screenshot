@@ -10,7 +10,7 @@ annotate() {
 case "${1:-region}" in
   window)
     niri msg action screenshot-window --write-to-disk false
-    sleep 0.2
+    sleep 0.3
     wl-paste | annotate
     ;;
   screen)
