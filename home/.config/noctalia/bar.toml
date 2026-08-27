@@ -1,34 +1,12 @@
 # Bar layout + widget tuning
 
 [bar.default]
-start = ["taskbar", "media_space", "media"]
-center = ["clock", "privacy", "bar"]
-end = ["tray", "group:g4", "group:g5", "group:g1", "group:g2", "group:g3"]
+start = ["taskbar", "tray"]
+center = ["media"]
+end = ["privacy", "group:g4", "group:g5", "group:g3", "group:g1"]
 font_weight = 700
 margin_ends = 60
 margin_opposite_edge = 1
-
-[[bar.default.capsule_group]]
-accordion = false
-accordion_direction = "end"
-enabled = true
-fill = "surface_variant"
-id = "g1"
-members = ["cpu", "ram"]
-opacity = 1.0
-padding = 2.0
-widget_spacing = 1
-
-[[bar.default.capsule_group]]
-accordion = false
-accordion_direction = "end"
-enabled = true
-fill = "surface_variant"
-id = "g2"
-members = ["output_volume", "input_volume"]
-opacity = 1.0
-padding = 2.0
-widget_spacing = 1
 
 [[bar.default.capsule_group]]
 accordion = false
@@ -63,30 +41,32 @@ opacity = 1.0
 padding = 2.0
 widget_spacing = 2
 
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_variant"
+id = "g1"
+members = ["bar", "clock"]
+opacity = 1.0
+padding = 5.0
+widget_spacing = 4
+
 [widget.bar]
 type = "noctalia/world_clock:bar"
 
 [widget.clock]
 format = "{:%a %b %e %H:%M}"
 
-[widget.cpu]
-label_min_width = 26
-visualization = "none"
-
-[widget.media_space]
-length = 25
-type = "spacer"
+[widget.media]
+max_length = 300
 
 [widget.network]
 show_label = false
 vpn_status = "both"
 
 [widget.privacy]
-hide_inactive = true
-
-[widget.ram]
-stat = "ram_pct"
-visualization = "none"
+capsule = true
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
@@ -97,6 +77,9 @@ type = "gabedunn/voxtype:status"
 [widget.taskbar]
 group_by_workspace = true
 hide_empty_workspaces = true
+
+[widget.tray]
+capsule = true
 
 [widget.vpn]
 type = "dos/vpn:status"
