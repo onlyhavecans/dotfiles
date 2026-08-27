@@ -1,11 +1,11 @@
 ---
-font: JetBrainsMono Nerd Font 32
+font: RecMonoDuotone Nerd Font Propo 28
 background: "#faf4edf0"
 color: "#575279"
 border: "#907aa9"
-border_width: 4
-corner_r: 12
-padding: 15 # Defaults to corner_r
+border_width: 5
+corner_r: 30
+padding: 25 # Defaults to corner_r
 rows_per_column: 12
 
 # NOTE: Keep launchers shallow: depth <= 2
