@@ -8,4 +8,4 @@ builtin = "Rosé Pine"
 
 [theme.templates]
 builtin_ids = ["gtk3", "gtk4", "niri", "qt"]
-community_ids = ["feishin"]
+community_ids = ["feishin", "pywalfox-beta4", "fuzzel"]

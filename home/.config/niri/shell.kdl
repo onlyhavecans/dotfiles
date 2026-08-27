@@ -31,7 +31,7 @@ debug {
 }
 
 binds {
-  alt+space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+  // alt+space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
   mod+s     hotkey-overlay-title="control center" { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
   mod+comma hotkey-overlay-title="show noctalia settings" { spawn "noctalia" "msg" "settings-toggle"; }
   alt+tab   hotkey-overlay-title="window switcher" { spawn "noctalia" "msg" "window-switcher"; }
