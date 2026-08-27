@@ -43,6 +43,9 @@ if path_exists "${HOME}/.homesick/repos/homeshick/homeshick.sh" homeshick; then
   source "${HOME}/.homesick/repos/homeshick/homeshick.sh"
   homeshick pull
   homeshick link
+
+  status_message "[link-host-files] Link machine-specific configs"
+  link-host-files
 fi
 
 ##

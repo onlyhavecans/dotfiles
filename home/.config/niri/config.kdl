@@ -545,3 +545,6 @@ include optional=true "dms/cursor.kdl"
 include optional=true "dms/layout.kdl"
 include optional=true "dms/outputs.kdl"
 include optional=true "dms/windowrules.kdl"
+
+// Machine-specific overrides; symlinked to host/<hostname>.kdl by link-host-files
+include optional=true "host.kdl"

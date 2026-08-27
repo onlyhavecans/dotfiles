@@ -29,6 +29,9 @@ fi
 # Link everything
 homeshick link --force
 
+## Link machine-specific configs
+"$HOME/bin/link-host-files"
+
 ## Install packages
 if ! command -v brew &>/dev/null && ! command -v nixos-version &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

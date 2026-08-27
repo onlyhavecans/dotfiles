@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Link machine-specific config variants into place.
+# Configs include a fixed path (e.g. host.kdl); we point it at hosts/<hostname>.<ext>
+
+function short_hostname {
+  hostname -s | tr '[:upper:]' '[:lower:]'
+}
+
+# link_host_file <target-link>
+# Links <target-minus-ext>/<hostname>.<ext> to <target-link>,
+function link_host_file {
+  local target=$1
+  local src
+  src="${target%.*}/$(short_hostname).${target##*.}"
+  if [[ -e $src ]]; then
+    ln -sf "$src" "$target"
+    echo "linked: ${target} -> ${src}"
+  else
+    echo "no host file for $(short_hostname), skipping: ${target}"
+  fi
+}
+
+##
+# The links
+##
+host_links=(
+  "${HOME}/.config/niri/host.kdl"
+)
+
+for link in "${host_links[@]}"; do
+  link_host_file "$link"
+done
