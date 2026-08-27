@@ -40,13 +40,13 @@ menu:
         submenu:
           - key: "0"
             desc: 100%
-            cmd: shellctl mic-volume 100
+            cmd: noctalia msg mic-volume-set 100
           - key: "3"
             desc: 30%
-            cmd: shellctl mic-volume 30
+            cmd: noctalia msg mic-volume-set 30
           - key: m
             desc: Mute
-            cmd: shellctl mic-mute
+            cmd: noctalia msg mic-mute
       - key: p
         desc: pwvuControl
         cmd: pwvucontrol
@@ -104,30 +104,30 @@ menu:
   - key: d
     desc: Shell
     submenu:
+      - key: b
+        desc: Bar Toggle
+        cmd: noctalia msg bar-toggle
       - key: c
         desc: Clipboard
-        cmd: shellctl clipboard
+        cmd: noctalia msg panel-toggle clipboard
       - key: d
         desc: Do Not Disturb
-        cmd: shellctl dnd
+        cmd: noctalia msg notification-dnd-toggle
       - key: i
         desc: Caffeine
-        cmd: shellctl caffeine
+        cmd: noctalia msg caffeine-toggle
       - key: n
         desc: Notifications
-        cmd: shellctl notifications
-      - key: p
-        desc: Processes
-        cmd: shellctl processlist
+        cmd: noctalia msg panel-toggle control-center
+      - key: o
+        desc: OSD Toggle
+        cmd: noctalia msg osd-toggle
       - key: s
         desc: Settings
-        cmd: shellctl settings
-      - key: w
-        desc: Window Rules
-        cmd: shellctl window-rules
+        cmd: noctalia msg settings-toggle
       - key: x
         desc: Clear Notifs
-        cmd: shellctl notifications-clear
+        cmd: noctalia msg notification-clear-active
 
   - key: e
     desc: Email
@@ -206,32 +206,32 @@ menu:
     submenu:
       - key: "1"
         desc: 10%
-        cmd: shellctl brightness 10
+        cmd: noctalia msg brightness-set 10
       - key: "4"
         desc: 40%
-        cmd: shellctl brightness 40
+        cmd: noctalia msg brightness-set 40
       - key: "7"
         desc: 70%
-        cmd: shellctl brightness 70
+        cmd: noctalia msg brightness-set 70
 
   - key: m
     desc: Music
     submenu:
       - key: " "
         desc: Play/Pause
-        cmd: playerctl play-pause
+        cmd: noctalia msg media toggle
       - key: a
         desc: Amberol
         cmd: amberol
       - key: b
         desc: Prev Track
-        cmd: playerctl previous
+        cmd: noctalia msg media previous
       - key: m
         desc: Feishin
         cmd: feishin
       - key: n
         desc: Next Track
-        cmd: playerctl next
+        cmd: noctalia msg media next
       - key: p
         desc: Picard
         cmd: picard
@@ -240,16 +240,16 @@ menu:
         submenu:
           - key: "0"
             desc: 100%
-            cmd: shellctl volume 100
+            cmd: noctalia msg volume-set 100
           - key: "3"
             desc: 30%
-            cmd: shellctl volume 30
+            cmd: noctalia msg volume-set 30
           - key: "6"
             desc: 60%
-            cmd: shellctl volume 60
+            cmd: noctalia msg volume-set 60
           - key: m
             desc: Mute
-            cmd: shellctl mute
+            cmd: noctalia msg volume-mute
 
   - key: n
     desc: Niri
@@ -310,9 +310,12 @@ menu:
   - key: p
     desc: Power
     submenu:
+      - key: "c"
+        desc: "\U000F0210 Cycle Power Profile"
+        cmd: noctalia msg power-cycle
       - key: "l"
         desc: "\U000F033E Lock"
-        cmd: shellctl lock
+        cmd: noctalia msg session lock
       - key: "p"
         desc: "\U000F0425 Power Off"
         cmd: systemctl poweroff
@@ -334,6 +337,9 @@ menu:
         cmd: ~/bin/clip_app firefox
       - key: d
         desc: Recor[d] Screen
+        cmd: noctalia msg plugin noctalia/screen_recorder:service all toggle
+      - key: f
+        desc: Record Fallback
         cmd: ~/bin/record-screen
       - key: m
         desc: Clip mpv Audio
@@ -343,10 +349,10 @@ menu:
         cmd: obs
       - key: r
         desc: Screenshot Screen
-        cmd: ~/bin/screenshot screen
+        cmd: noctalia msg screenshot-fullscreen
       - key: s
         desc: Screenshot Selection
-        cmd: ~/bin/screenshot selection
+        cmd: noctalia msg screenshot-region
       - key: w
         desc: Screenshot Window
         cmd: ~/bin/screenshot window
@@ -393,22 +399,22 @@ menu:
     submenu:
       - key: d
         desc: Dark/Light
-        cmd: shellctl theme-toggle
+        cmd: noctalia msg theme-mode-toggle
       - key: g
         desc: Night Light
-        cmd: shellctl night-toggle
+        cmd: noctalia msg nightlight-toggle
       - key: n
         desc: Next Wall
-        cmd: shellctl wallpaper next
+        cmd: noctalia msg wallpaper-next
       - key: p
         desc: Prev Wall
-        cmd: shellctl wallpaper prev
+        cmd: noctalia msg wallpaper-previous
       - key: r
         desc: Random Wall
-        cmd: shellctl wallpaper-random
+        cmd: noctalia msg wallpaper-random
       - key: s
         desc: Set Wall
-        cmd: shellctl wallpaper-browse
+        cmd: noctalia msg panel-toggle wallpaper
 
   - key: u
     desc: Utilities
@@ -425,6 +431,9 @@ menu:
       - key: d
         desc: Disks
         cmd: gnome-disks
+      - key: e
+        desc: Emoji Picker
+        cmd: noctalia msg panel-open launcher /emo
       - key: f
         desc: Font Viewer
         cmd: gnome-font-viewer
@@ -433,7 +442,7 @@ menu:
         cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: l
         desc: Co[l]or Picker
-        cmd: shellctl color-picker
+        cmd: wl-color-picker clipboard
       - key: p
         desc: " Timer"
         cmd: focus-timer

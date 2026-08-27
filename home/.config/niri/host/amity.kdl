@@ -1,2 +1,14 @@
 // Host overrides for Amity
 // Sections merge with config.kdl; set only what differs on this machine.
+//
+
+// De-float settings
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating false
+}
+
+window-rule {
+  match app-id="thunderbird"
+  open-maximized true
+}

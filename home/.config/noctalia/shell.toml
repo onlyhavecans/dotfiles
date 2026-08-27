@@ -1,0 +1,28 @@
+# Core shell behavior: font, polkit, screenshots, notifications, nav keys
+
+[backdrop]
+enabled = true
+
+[keybinds]
+down = ["Down", "Ctrl+j"]
+left = ["Left", "Ctrl+h"]
+right = ["Right", "Ctrl+l"]
+up = ["Up", "Ctrl+k"]
+
+[location]
+address = "Las Vegas, Nevada"
+
+[notification]
+history_retention_hours = 24
+layer = "overlay"
+
+[shell]
+font_family = "Inter"
+polkit_agent = true
+settings_show_advanced = false
+telemetry_enabled = true
+
+[shell.screenshot]
+directory = "/home/dos/Pictures/Screenshots"
+pipe_command = "satty -f -"
+pipe_to_command = true

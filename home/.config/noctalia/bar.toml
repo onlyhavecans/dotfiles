@@ -1,0 +1,98 @@
+# Bar layout + widget tuning
+
+[bar.default]
+center = ["clock", "privacy", "bar"]
+end = ["tray", "group:g4", "group:g5", "group:g1", "group:g2", "group:g3", "session"]
+font_weight = 700
+margin_ends = 60
+margin_opposite_edge = 1
+start = ["control-center", "workspaces", "media_space", "media"]
+
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_variant"
+id = "g1"
+members = ["battery", "cpu", "ram"]
+opacity = 1.0
+padding = 2.0
+widget_spacing = 1
+
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_variant"
+id = "g2"
+members = ["output_volume", "input_volume"]
+opacity = 1.0
+padding = 2.0
+widget_spacing = 1
+
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_variant"
+id = "g3"
+members = ["bluetooth", "network"]
+opacity = 1.0
+padding = 2.0
+widget_spacing = 0
+
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_variant"
+id = "g4"
+members = ["status", "recorder"]
+opacity = 1.0
+padding = 2.0
+widget_spacing = 1
+
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+enabled = true
+fill = "surface_variant"
+id = "g5"
+members = ["power_profile", "caffeine", "vpn"]
+opacity = 1.0
+padding = 2.0
+widget_spacing = 1
+
+[widget.bar]
+type = "noctalia/world_clock:bar"
+
+[widget.clock]
+format = "{:%a %b %e %H:%M}"
+
+[widget.cpu]
+label_min_width = 26
+visualization = "none"
+
+[widget.media_space]
+length = 25
+type = "spacer"
+
+[widget.network]
+show_label = false
+vpn_status = "both"
+
+[widget.privacy]
+hide_inactive = true
+
+[widget.ram]
+stat = "ram_pct"
+visualization = "none"
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.status]
+type = "gabedunn/voxtype:status"
+
+[widget.vpn]
+type = "dos/vpn:status"

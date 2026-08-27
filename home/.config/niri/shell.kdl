@@ -1,6 +1,7 @@
-// Noctalia v5 overlay — active when shell.kdl points here (shell-swap).
-// Includes are positional: binds here override the piecemeal baseline.
+// Noctalia v5 personal overlay
+// Noctalia makes it's own noctalia.kdl it manages, but this is our adjustments
 // https://docs.noctalia.dev/noctalia/compositor-settings/niri/
+
 
 layer-rule {
   match namespace="^noctalia-backdrop"
@@ -33,7 +34,7 @@ binds {
   alt+space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
   mod+s     hotkey-overlay-title="control center" { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
   mod+comma hotkey-overlay-title="show noctalia settings" { spawn "noctalia" "msg" "settings-toggle"; }
-  alt+tab   hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "window-switcher"; }
+  alt+tab   hotkey-overlay-title="window switcher" { spawn "noctalia" "msg" "window-switcher"; }
 
   Mod+Shift+C hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
   Mod+N       hotkey-overlay-title="show notifications" { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
@@ -51,12 +52,10 @@ binds {
   XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
   XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
 
-  //
-
-  Print       { spawn "~/bin/screenshot" "window"; }
+  // Print       { spawn "~/bin/screenshot" "window"; } // No Noctalia equivilant, still doin my hack
   Shift+Print { spawn "noctalia" "msg" "screenshot-region"; }
   Ctrl+Print  { spawn "noctalia" "msg" "screenshot-fullscreen"; }
-  Mod+Print   { spawn "~/bin/record-screen"; }
+  Mod+Print   { spawn "noctalia" "msg" "plugin" "noctalia/screen_recorder:service" "all" "toggle"; }
 }
 
 // How it sets theme

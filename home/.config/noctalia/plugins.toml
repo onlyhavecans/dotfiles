@@ -1,0 +1,7 @@
+# Plugins + their settings
+
+[plugins]
+enabled = ["noctalia/screen_recorder", "noctalia/world_clock", "gabedunn/voxtype", "dos/vpn"]
+
+[plugin_settings."noctalia/screen_recorder"]
+directory = "/home/dos/Pictures/Screenshots"

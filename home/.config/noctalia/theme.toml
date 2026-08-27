@@ -1,0 +1,11 @@
+# Palette + app theming templates; mode (dark/light) stays runtime state
+
+[nightlight]
+enabled = true
+
+[theme]
+builtin = "Rosé Pine"
+
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4", "niri", "qt"]
+community_ids = ["feishin"]

@@ -143,8 +143,7 @@ cursor {
 }
 
 spawn-at-startup "1password" "--silent"
-// the desktop shell (dms/noctalia) starts via its systemd user unit;
-// pick it with shell-swap or nixos/desktop/shell-select.nix
+// the desktop shell noctalia starts via its systemd user unit
 
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
@@ -532,7 +531,10 @@ binds {
   // Mod+Shift+P { power-off-monitors; }
 }
 
-// Active shell overlay; symlinked to shell/{dms,noctalia}.kdl by shell-swap
+// noctalia's auto-gen
+include optional=true "noctalia.kdl"
+
+// Personal noctalia overlay
 include optional=true "shell.kdl"
 
 // Machine-specific overrides; symlinked to host/<hostname>.kdl by link-host-files
