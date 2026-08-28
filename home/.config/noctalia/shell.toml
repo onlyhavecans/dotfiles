@@ -2,6 +2,8 @@
 
 [backdrop]
 enabled = true
+blur_intensity = 0.10
+tint_intensity = 0.10
 
 [keybinds]
 down = ["Down", "Ctrl+j"]
