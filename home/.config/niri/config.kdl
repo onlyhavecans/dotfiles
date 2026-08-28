@@ -249,11 +249,6 @@ window-rule {
   open-on-output "BOE Display 0x00000144"
 }
 
-window-rule {
-  match is-active=false
-  opacity 0.9
-}
-
 // enable rounded corners for all windows.
 window-rule {
   geometry-corner-radius 12
