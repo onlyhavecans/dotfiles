@@ -43,5 +43,7 @@
   "outputStyle": "Concise",
   "effortLevel": "high",
   "tui": "fullscreen",
-  "skipWorkflowUsageWarning": true
+  "skipWorkflowUsageWarning": true,
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": true
 }
