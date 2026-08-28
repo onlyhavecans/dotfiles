@@ -5,6 +5,7 @@ enabled = true
 
 [theme]
 builtin = "Rosé Pine"
+mode = "auto"
 
 [theme.templates]
 builtin_ids = ["gtk3", "gtk4", "niri", "qt"]

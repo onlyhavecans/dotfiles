@@ -7,3 +7,6 @@ it. Never commit the state file.
 
 Workflow: tweak in the GUI, then move keys that should be universal out of the
 state file into a `*.toml` here (split by concern: `bar.toml`, `theme.toml`, …).
+
+`noctalia-diff` (in `~/bin`) lists every state override and which file here owns
+it; `noctalia-diff extract <dotted.path>` prints a paste-ready TOML snippet.
