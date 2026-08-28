@@ -27,8 +27,6 @@ input {
   mouse {
     natural-scroll
   }
-
-  focus-follows-mouse max-scroll-amount="20%"
 }
 
 include optional=true "touchpad.kdl"
