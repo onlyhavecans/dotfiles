@@ -22,6 +22,11 @@ polkit_agent = true
 settings_show_advanced = false
 telemetry_enabled = true
 
+[shell.greeter_sync]
+auto_sync = true
+# pairs with a rule to make this passwordless
+privilege_command = "pkexec"
+
 [shell.screenshot]
 directory = "/home/dos/Pictures/Screenshots"
 pipe_command = "satty -f -"
