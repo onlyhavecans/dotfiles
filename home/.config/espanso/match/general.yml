@@ -4,9 +4,6 @@
 # For a complete introduction, visit the official docs at: https://espanso.org/docs/
 
 matches:
-  - trigger: "... "
-    replace: "… "
-
   - trigger: " r "
     replace: "®"
 
