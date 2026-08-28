@@ -5,8 +5,10 @@ start = ["taskbar", "tray"]
 center = ["media"]
 end = ["privacy", "group:g4", "group:g5", "group:g3", "group:g1"]
 font_weight = 700
-margin_ends = 60
-margin_opposite_edge = 1
+margin_ends = 30
+margin_opposit420 = 1
+background_opacity = 0.67
+radius = 15
 
 [[bar.default.capsule_group]]
 accordion = false
@@ -59,7 +61,8 @@ type = "noctalia/world_clock:bar"
 format = "{:%a %b %e, %H:%M}"
 
 [widget.media]
-max_length = 300
+capsule = true
+max_length = 420
 
 [widget.network]
 show_label = false
