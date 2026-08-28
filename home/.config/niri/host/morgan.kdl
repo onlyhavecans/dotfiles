@@ -1,0 +1,25 @@
+output "Dell Inc. DELL G2725D 4H65S34" {
+  // Center the Center
+  focus-at-startup
+  layout {
+    always-center-single-column
+  }
+}
+output "Dell Inc. DELL U2715H H7YCC7A60C0S" {
+  // Right monitor
+}
+output "BOE Display 0x00000144" {
+  // lil work addon display left
+  scale 1.5
+}
+
+window-rule {
+  match app-id=r#"md\.Obsidian"# at-startup=true
+  open-on-output "Dell Inc. DELL U2715H H7YCC7A60C0S"
+  default-column-width { proportion 0.33333; }
+}
+
+window-rule {
+  match app-id="feishin" at-startup=true
+  open-on-output "BOE Display 0x00000144"
+}

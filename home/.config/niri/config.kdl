@@ -37,46 +37,6 @@ include optional=true "touchpad.kdl"
 // Find the modes and names with `niri msg outputs`
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Outputs
-output "Dell Inc. DELL G2725D 4H65S34" {
-  // Center the Center
-  focus-at-startup
-  layout {
-    always-center-single-column
-  }
-}
-output "Dell Inc. DELL U2715H H7YCC7A60C0S" {
-  // Right monitor
-}
-output "BOE Display 0x00000144" {
-  // lil work addon display left
-  scale 1.5
-}
-output "PNP(BNQ) BenQ PJ 0x00000001" {
-  // projector
-  mode "1920x1080@60.000"
-  layout {
-    always-center-single-column
-    default-column-width { proportion 1.0; }
-  }
-}
-output "PNP(GSV) HDMI SWITCH 0x00000001" {
-  // HDMI switch
-  // keep matching the BenQ above
-  mode "1920x1080@60.000"
-  layout {
-    always-center-single-column
-    default-column-width { proportion 1.0; }
-  }
-}
-output "Samsung Electric Company SAMSUNG 0x00000001" {
-  // entertainment center audio
-  // keep matching the BenQ above
-  mode "1920x1080@60.000"
-  layout {
-    always-center-single-column
-    default-column-width { proportion 1.0; }
-  }
-}
 output "eDP-1" {
   // Laptops are smaller screens
   layout {
@@ -115,7 +75,7 @@ layout {
 
   shadow {
     on
-    softness 30
+    softness 15
     spread 5
     offset x=0 y=5
     // draw-behind-window true
@@ -238,20 +198,9 @@ window-rule {
   default-floating-position x=10 y=10 relative-to="top-right"
 }
 
-window-rule {
-  match app-id=r#"md\.Obsidian"# at-startup=true
-  open-on-output "Dell Inc. DELL U2715H H7YCC7A60C0S"
-  default-column-width { proportion 0.33333; }
-}
-
-window-rule {
-  match app-id="feishin" at-startup=true
-  open-on-output "BOE Display 0x00000144"
-}
-
 // enable rounded corners for all windows.
 window-rule {
-  geometry-corner-radius 12
+  geometry-corner-radius 20
   clip-to-geometry true
 }
 

@@ -57,6 +57,3 @@ binds {
   Ctrl+Print  { spawn "noctalia" "msg" "screenshot-fullscreen"; }
   Mod+Print   { spawn "noctalia" "msg" "plugin" "noctalia/screen_recorder:service" "all" "toggle"; }
 }
-
-// How it sets theme
-include "noctalia.kdl"

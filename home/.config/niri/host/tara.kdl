@@ -1,0 +1,9 @@
+// Don't use name/serial because detection is rough though the switch and speakers
+output "HDMI-1" {
+  // hardcode to appease projector
+  mode "1920x1080@60.000"
+  layout {
+    always-center-single-column
+    default-column-width { proportion 1.0; }
+  }
+}
