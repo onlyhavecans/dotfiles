@@ -28,7 +28,6 @@ if [[ -d "$HOME/.local/state/home-manager" ]]; then
 fi
 
 if ((force)); then
-  homeshick link dotfiles
   echo "Done. Run nix-collect-garbage to reclaim old HM generations."
 else
   echo
