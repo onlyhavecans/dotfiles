@@ -27,6 +27,8 @@ input {
   mouse {
     natural-scroll
   }
+
+  focus-follows-mouse max-scroll-amount="0%"
 }
 
 include optional=true "touchpad.kdl"
@@ -388,10 +390,9 @@ binds {
   Mod+BracketRight { consume-or-expel-window-right; }
 
   // Consume one window from the right to the bottom of the focused column.
-  // (shell overlays rebind Mod+Comma to the shell settings panel)
-  Mod+Comma  { consume-window-into-column; }
+  // Mod+Comma  { consume-window-into-column; }
   // Expel the bottom window from the focused column to the right.
-  Mod+Period { expel-window-from-column; }
+  // Mod+Period { expel-window-from-column; }
 
   Mod+R { switch-preset-column-width; }
   // Cycling through the presets in reverse order is also possible.
@@ -405,7 +406,7 @@ binds {
   // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
   // This bind corresponds to normal window maximizing,
   // e.g. by double-clicking on the titlebar.
-  Mod+M { maximize-window-to-edges; }
+  // Mod+M { maximize-window-to-edges; }
 
   // Expand the focused column to space not taken up by other fully visible columns.
   // Makes the column "fill the rest of the space".
