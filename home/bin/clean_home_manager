@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Remove stale home-manager symlinks after HM was dropped from the NixOS config.
+# Dry-run by default; -f deletes and relinks the castle.
+
+set -euo pipefail
+
+force=0
+[[ "${1:-}" == "-f" ]] && force=1
+
+mapfile -t links < <(find "$HOME" \
+  -path "$HOME/.local/share/Trash" -prune -o \
+  -path "$HOME/.cache" -prune -o \
+  -type l -lname '/nix/store/*home-manager*' -print 2>/dev/null)
+
+if ((${#links[@]} == 0)); then
+  echo "No home-manager symlinks found."
+else
+  printf '%s\n' "${links[@]}"
+  if ((force)); then
+    rm -v "${links[@]}"
+  fi
+fi
+
+if [[ -d "$HOME/.local/state/home-manager" ]]; then
+  echo "$HOME/.local/state/home-manager (gc root)"
+  ((force)) && rm -rf "$HOME/.local/state/home-manager"
+fi
+
+if ((force)); then
+  homeshick link dotfiles
+  echo "Done. Run nix-collect-garbage to reclaim old HM generations."
+else
+  echo
+  echo "Dry run — re-run with -f to delete the above and relink dotfiles."
+fi
