@@ -29,6 +29,9 @@ auto_sync = true
 # pairs with a rule to make this passwordless
 privilege_command = "pkexec"
 
+[shell.mpris]
+blacklist = ["chromium"]
+
 [shell.screenshot]
 directory = "/home/dos/Pictures/Screenshots"
 pipe_command = "satty -f -"

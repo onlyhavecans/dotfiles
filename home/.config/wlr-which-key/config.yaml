@@ -246,6 +246,9 @@ menu:
       - key: o
         desc: OSD Toggle
         cmd: noctalia msg osd-toggle
+      - key: "p"
+        desc: "Power Profile Cycle"
+        cmd: noctalia msg power-cycle
       - key: s
         desc: Settings
         cmd: noctalia msg settings-toggle
@@ -263,9 +266,6 @@ menu:
   - key: p
     desc: Power
     submenu:
-      - key: "c"
-        desc: "\U000F0210 Cycle Power Profile"
-        cmd: noctalia msg power-cycle
       - key: "l"
         desc: "\U000F033E Lock"
         cmd: noctalia msg session lock

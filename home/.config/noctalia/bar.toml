@@ -18,7 +18,7 @@ fill = "surface_variant"
 id = "g3"
 members = ["network", "bluetooth", "vpn"]
 opacity = 1.0
-padding = 2.0
+padding = 3.0
 widget_spacing = 0
 
 [[bar.default.capsule_group]]
@@ -29,7 +29,7 @@ fill = "surface_variant"
 id = "g4"
 members = ["status", "recorder"]
 opacity = 1.0
-padding = 2.0
+padding = 3.0
 widget_spacing = 1
 
 [[bar.default.capsule_group]]
@@ -40,7 +40,7 @@ fill = "surface_variant"
 id = "g5"
 members = ["caffeine", "power_profile", "battery"]
 opacity = 1.0
-padding = 2.0
+padding = 3.0
 widget_spacing = 2
 
 [[bar.default.capsule_group]]
