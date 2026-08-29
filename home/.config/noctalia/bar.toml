@@ -6,7 +6,7 @@ center = ["media"]
 end = ["privacy", "group:g4", "group:g5", "group:g3", "group:g1"]
 font_weight = 700
 margin_ends = 30
-margin_opposit420 = 1
+margin_opposite_edge = 1
 background_opacity = 0.67
 radius = 15
 
@@ -18,7 +18,7 @@ fill = "surface_variant"
 id = "g3"
 members = ["network", "bluetooth", "vpn"]
 opacity = 1.0
-padding = 3.0
+padding = 4.0
 widget_spacing = 0
 
 [[bar.default.capsule_group]]
@@ -29,7 +29,7 @@ fill = "surface_variant"
 id = "g4"
 members = ["status", "recorder"]
 opacity = 1.0
-padding = 3.0
+padding = 4.0
 widget_spacing = 1
 
 [[bar.default.capsule_group]]
@@ -40,7 +40,7 @@ fill = "surface_variant"
 id = "g5"
 members = ["caffeine", "power_profile", "battery"]
 opacity = 1.0
-padding = 3.0
+padding = 4.0
 widget_spacing = 2
 
 [[bar.default.capsule_group]]
@@ -51,7 +51,7 @@ fill = "surface_variant"
 id = "g1"
 members = ["bar", "clock"]
 opacity = 1.0
-padding = 5.0
+padding = 4.0
 widget_spacing = 4
 
 [widget.bar]
