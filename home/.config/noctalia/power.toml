@@ -1,12 +1,5 @@
 [idle]
-behavior_order = ["idle-behavior", "lock", "screen-off", "lock-and-suspend"]
-
-[idle.behavior.idle-behavior]
-action = "command"
-command = "notify-send \"Locking in one minute\""
-enabled = true
-resume_command = "notify-send \"Oh, nvrmd. Welcome back.\""
-timeout = 240.0
+behavior_order = ["lock", "screen-off", "lock-and-suspend"]
 
 [idle.behavior.lock]
 action = "lock"
