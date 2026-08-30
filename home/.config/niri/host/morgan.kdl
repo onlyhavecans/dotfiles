@@ -20,6 +20,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id="feishin" at-startup=true
+  match app-id="feishin"
   open-on-output "BOE Display 0x00000144"
 }
