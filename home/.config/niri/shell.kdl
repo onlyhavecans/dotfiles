@@ -31,11 +31,12 @@ debug {
 
 binds {
   // Alt+Space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
-  Mod+S     hotkey-overlay-title="control center" { spawn "noctalia" "msg" "panel-toggle" "control-center" "system"; }
+  Alt+H     hotkey-overlay-title="Show noctalia home" { spawn "noctalia" "msg" "panel-toggle" "control-center" "home"; }
+  Mod+S     hotkey-overlay-title="Show system stats" { spawn "noctalia" "msg" "panel-toggle" "control-center" "system"; }
   Mod+Comma hotkey-overlay-title="show noctalia settings" { spawn "noctalia" "msg" "settings-toggle"; }
   // Alt+Tab   hotkey-overlay-title="window switcher" { spawn "noctalia" "msg" "window-switcher"; }
 
-  Mod+Shift+C hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+  Mod+Alt+V hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
   Mod+N       hotkey-overlay-title="show notifications" { spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"; }
   Mod+Escape  hotkey-overlay-title="power menu" { spawn "noctalia" "msg" "panel-toggle" "session"; }
 
