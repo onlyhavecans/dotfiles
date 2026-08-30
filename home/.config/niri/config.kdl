@@ -49,7 +49,7 @@ output "eDP-1" {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
-  gaps 6
+  gaps 5
 
   center-focused-column "never"
 
@@ -63,7 +63,7 @@ layout {
   default-column-width { proportion 0.5; }
 
   focus-ring {
-    width 4
+    width 3
     active-color "#907aa9"
     inactive-color "#cecacd"
   }
