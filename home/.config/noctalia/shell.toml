@@ -25,9 +25,7 @@ settings_show_advanced = false
 telemetry_enabled = true
 
 [shell.greeter_sync]
-auto_sync = true
-# pairs with a rule to make this passwordless
-privilege_command = "pkexec"
+auto_sync = false
 
 [shell.mpris]
 blacklist = ["chromium"]
