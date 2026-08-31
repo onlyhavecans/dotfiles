@@ -4,7 +4,7 @@ sort_reverse = true
 sort_dir_first = true
 
 [[opener.set-wallpaper]]
-run = "noctalia msg wallpaper-set %s1"
+run = "wall set %s1"
 for = "linux"
 desc = "Set as wallpaper"
 
