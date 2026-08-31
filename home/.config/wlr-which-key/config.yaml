@@ -46,7 +46,7 @@ menu:
             cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
           - key: m
             desc: Mute
-            cmd: swayosd-client --input-volume mute-toggle
+            cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       - key: p
         desc: pwvuControl
         cmd: pwvucontrol
@@ -233,7 +233,7 @@ menu:
             cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
           - key: m
             desc: Mute
-            cmd: swayosd-client --output-volume mute-toggle
+            cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
   - key: o
     desc: N[o]tepad
@@ -246,10 +246,10 @@ menu:
         desc: "\U000F033E Lock"
         cmd: swaylock
       - key: "p"
-        desc: "\U000F0425 Power Off"
+        desc: "\U000F0425 Poweroff"
         cmd: systemctl poweroff
       - key: "q"
-        desc: "\U000F0343 Quit Session"
+        desc: "\U000F0343 Quit"
         cmd: niri msg action quit
       - key: "r"
         desc: "\U000F0465 Reboot"
