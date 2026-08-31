@@ -5,16 +5,17 @@ color: "#575279"
 border: "#907aa9"
 border_width: 4
 corner_r: 30
-padding: 25 # Defaults to corner_r
-rows_per_column: 12
+padding: 20 # Defaults to corner_r
+rows_per_column: 11
 
+# NOTE: Top level = one-tap dailies, app groups, or "what I am doing" groups
 # NOTE: Keep launchers shallow: depth <= 2
-# NOTE: Nest attributes e.g. music->volume->mute
+# NOTE: Nest attributes e.g. audio->volume->mute
 # NOTE: Keep desc terse, skimmability wins
-# NOTE: Keep alpha sorted
+# NOTE: Keep alpha sorted, symbols first
 # NOTE: Double-tap = the group's default action
 # NOTE: Mark non-initial keys like S[l]ack
-# NOTE: Submenu by what I am doing
+# NOTE: Free keys: d i k q y z
 menu:
   - key: " "
     desc: Terminal
@@ -56,12 +57,27 @@ menu:
       - key: t
         desc: Milky[T]racker
         cmd: milkytracker
+      - key: v
+        desc: Volume
+        submenu:
+          - key: "0"
+            desc: 100%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
+          - key: "3"
+            desc: 30%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
+          - key: "6"
+            desc: 60%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
+          - key: m
+            desc: Mute
+            cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       - key: y
         desc: Audacit[y]
         cmd: audacity
 
   - key: b
-    desc: Browse
+    desc: Browser
     submenu:
       - key: b
         desc: Firefox
@@ -69,21 +85,18 @@ menu:
       - key: c
         desc: Copy URL
         cmd: ~/bin/url-from-window
-      - key: p
-        desc: Private
-        cmd: firefox --private-window
       - key: m
         desc: MD URL
         cmd: ~/bin/url-from-window md
       - key: o
         desc: Brave Origin
         cmd: brave-origin
+      - key: p
+        desc: Private
+        cmd: firefox --private-window
       - key: s
         desc: Search
         cmd: ~/bin/search-fuzzel
-      - key: w
-        desc: Work Brave
-        cmd: brave
 
   - key: c
     desc: Chats
@@ -103,19 +116,10 @@ menu:
 
   - key: e
     desc: Email
-    submenu:
-      - key: e
-        desc: Thunderbird
-        cmd: thunderbird
-      - key: d
-        desc: Dictate Note
-        cmd: ~/bin/em-dictate
-      - key: t
-        desc: Type Note
-        cmd: ~/bin/em-fuzzel
+    cmd: thunderbird
 
   - key: f
-    desc: File Manager
+    desc: Files
     submenu:
       - key: f
         desc: Yazi
@@ -139,26 +143,7 @@ menu:
 
   - key: h
     desc: Clip[h]ist
-    submenu:
-      - key: h
-        desc: pick
-        cmd: cliphist-fuzzel-img
-      - key: w
-        desc: wipe
-        cmd: cliphist wipe
-
-  - key: i
-    desc: V[i]ewers
-    submenu:
-      - key: d
-        desc: PDF Viewer
-        cmd: papers
-      - key: i
-        desc: Image Viewer
-        cmd: loupe
-      - key: p
-        desc: Image Editor
-        cmd: photopea-chromium
+    cmd: cliphist-fuzzel-img
 
   - key: j
     desc: Jump
@@ -183,7 +168,7 @@ menu:
         cmd: ~/bin/focus-app-fuzzel foot
 
   - key: "l"
-    desc: Back[l]ight
+    desc: Light
     submenu:
       - key: "1"
         desc: 10%
@@ -204,36 +189,34 @@ menu:
       - key: " "
         desc: Play/Pause
         cmd: playerctl play-pause
+      - key: ","
+        desc: Prev
+        cmd: playerctl previous
+      - key: "."
+        desc: Next
+        cmd: playerctl next
       - key: a
         desc: Amberol
         cmd: amberol
-      - key: b
-        desc: Prev Track
-        cmd: playerctl previous
       - key: m
         desc: Feishin
         cmd: feishin
-      - key: n
-        desc: Next Track
-        cmd: playerctl next
       - key: p
         desc: Picard
         cmd: picard
-      - key: v
-        desc: Volume
-        submenu:
-          - key: "3"
-            desc: 30%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
-          - key: "6"
-            desc: 60%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
-          - key: "0"
-            desc: 100%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
-          - key: m
-            desc: Mute
-            cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+  - key: n
+    desc: Notes
+    submenu:
+      - key: d
+        desc: Dictate Note
+        cmd: ~/bin/em-dictate
+      - key: n
+        desc: Type Note
+        cmd: ~/bin/em-fuzzel
+      - key: o
+        desc: Obsidian
+        cmd: xdg-open "obsidian://open?vault=Vault"
 
   - key: o
     desc: N[o]tepad
@@ -259,32 +242,29 @@ menu:
         cmd: systemctl suspend
 
   - key: r
-    desc: Recording
+    desc: Capture
     submenu:
       - key: b
         desc: Clip Firefox Audio
         cmd: ~/bin/clip_app firefox
+      - key: f
+        desc: Shot Full Screen
+        cmd: ~/bin/screenshot screen
       - key: m
         desc: Clip mpv Audio
         cmd: ~/bin/clip_app mpv
-      - key: o
-        desc: OBS Studio
-        cmd: obs
       - key: r
+        desc: Shot Selection
+        cmd: ~/bin/screenshot selection
+      - key: v
         desc: Record Screen
         cmd: ~/bin/record-screen
-      - key: f
-        desc: Screenshot Full Screen
-        cmd: ~/bin/screenshot screen
-      - key: s
-        desc: Screenshot Selection
-        cmd: ~/bin/screenshot selection
       - key: w
-        desc: Screenshot Window
+        desc: Shot Window
         cmd: ~/bin/screenshot window
 
   - key: s
-    desc: Streaming
+    desc: Stream
     submenu:
       - key: b
         desc: VBridger
@@ -321,19 +301,19 @@ menu:
         cmd: steam steam://rungameid/1325860
 
   - key: t
-    desc: Theme
+    desc: Wall [T]heme
     submenu:
       - key: m
-        desc: Get Wall Mood
+        desc: Get Mood
         cmd: notify-send "Wall" "$(wall which)"
       - key: n
-        desc: Next Wall
+        desc: Next
         cmd: wall next
       - key: r
-        desc: Random Wall
+        desc: Random
         cmd: wall random
       - key: s
-        desc: Set Wall Mood
+        desc: Set Mood
         cmd: wall menu
 
   - key: u
@@ -357,9 +337,15 @@ menu:
       - key: g
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top amdgpu_top
+      - key: h
+        desc: Wipe Clip[h]ist
+        cmd: cliphist wipe
+      - key: i
+        desc: Image Editor
+        cmd: photopea-chromium
       - key: p
         desc: Color [P]icker
-        cmd: wl-color-picker clipboard
+        cmd: wl-color-picker --no-notify
       - key: t
         desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
@@ -395,9 +381,6 @@ menu:
       - key: d
         desc: DNPull
         cmd: foot --working-directory=$HOME/Code --hold ~/bin/dnpull
-      - key: e
-        desc: Email
-        cmd: thunderbird
       - key: n
         desc: Netbird-ui
         cmd: netbird-ui
@@ -408,7 +391,7 @@ menu:
         desc: Slack
         cmd: slack
       - key: t
-        desc: " Timer"
+        desc: " Timer"
         cmd: focus-timer
       - key: v
         desc: VPN
