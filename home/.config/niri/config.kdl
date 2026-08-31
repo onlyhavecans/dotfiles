@@ -41,7 +41,7 @@ output "eDP-1" {
   // Laptops are smaller screens
   layout {
     always-center-single-column
-    default-column-width { proportion 0.66667; }
+    // default-column-width { proportion 0.66667; }
   }
 }
 
@@ -64,7 +64,7 @@ layout {
 
   focus-ring {
     width 3
-    active-color "#907aa9"
+    active-color "#d7827e"
     inactive-color "#cecacd"
   }
 
