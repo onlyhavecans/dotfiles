@@ -14,12 +14,34 @@ output "BOE Display 0x00000144" {
 }
 
 window-rule {
-  match app-id=r#"md\.Obsidian"# at-startup=true
+  // center
+  match app-id=r#"^com\.obsproject\.Studio"#
+  match app-id="^steam_app"
+  match app-id="steam"
+  open-on-output "Dell Inc. DELL G2725D 4H65S34"
+}
+
+window-rule {
+  // right
+  match app-id=r#"md\.Obsidian"#
+  match app-id="firebotv5"
   open-on-output "Dell Inc. DELL U2715H H7YCC7A60C0S"
+}
+
+window-rule {
+  // left
+  match app-id="feishin"
+  match app-id="focustimer"
+  match app-id=r#"io\.bassi\.Amberol"#
+  open-on-output "BOE Display 0x00000144"
+}
+
+window-rule {
+  match app-id=r#"md\.Obsidian"#
   default-column-width { proportion 0.33333; }
 }
 
 window-rule {
-  match app-id="feishin"
-  open-on-output "BOE Display 0x00000144"
+  match app-id="focustimer"
+  default-floating-position x=50 y=30 relative-to="top-right"
 }
