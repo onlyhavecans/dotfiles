@@ -219,7 +219,7 @@ menu:
         cmd: xdg-open "obsidian://open?vault=Vault"
 
   - key: o
-    desc: N[o]tepad
+    desc: Obsidian
     cmd: xdg-open "obsidian://open?vault=Vault"
 
   - key: p
