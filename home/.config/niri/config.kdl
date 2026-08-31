@@ -103,7 +103,9 @@ cursor {
 }
 
 spawn-at-startup "1password" "--silent"
-// the desktop shell noctalia starts via its systemd user unit
+spawn-at-startup "cliphist" "wipe"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+// bar, notifications, and idle run as systemd user units from the NixOS repo
 
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
@@ -217,9 +219,8 @@ binds {
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
 
-  // clipboard / notifications / power menu / shell settings binds live in
-  // the shell overlays (shell/dms.kdl, shell/noctalia.kdl) — no shell-free
-  // tools remain for these since the DMS migration
+  Mod+N hotkey-overlay-title="show clipboard history" { spawn "cliphist-fuzzel-img"; }
+  Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
 
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
   Mod+F12 hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
@@ -228,17 +229,17 @@ binds {
   Alt+F12 { spawn "voxtype" "record" "cancel"; }
 
   // the allow-when-locked=true property makes them work even when the session is locked.
-  // shell overlays rebind these through the shell's IPC for OSD
-  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" "-l" "1.5"; }
+  // swayosd-client drives wpctl/brightnessctl and shows an OSD
+  XF86AudioMute        allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
 
   XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
   XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
   XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
 
-  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
 
   // open/close the overview: a zoomed-out view of workspaces and windows.
   Mod+O repeat=false { toggle-overview; }
@@ -473,12 +474,6 @@ binds {
   // moving the mouse or pressing any other key.
   // Mod+Shift+P { power-off-monitors; }
 }
-
-// noctalia's auto-gen
-include optional=true "noctalia.kdl"
-
-// Personal noctalia overlay
-include optional=true "shell.kdl"
 
 // Machine-specific overrides; symlinked to host/<hostname>.kdl by link-host-files
 include optional=true "host.kdl"
