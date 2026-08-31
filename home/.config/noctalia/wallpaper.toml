@@ -1,9 +1,0 @@
-# Wallpaper + lockscreen; per-monitor overrides stay in machine state
-
-[lockscreen]
-blur_intensity = 0.0
-tint_intensity = 0.0
-wallpaper = "/home/dos/Sync/wallpapers/best-os/wlock.jpg"
-
-[wallpaper]
-directory = "/home/dos/Sync/wallpapers"
