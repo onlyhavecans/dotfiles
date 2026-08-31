@@ -6,7 +6,7 @@ border: "#907aa9"
 border_width: 4
 corner_r: 30
 padding: 20 # Defaults to corner_r
-rows_per_column: 11
+rows_per_column: 12
 
 # NOTE: Top level = one-tap dailies, app groups, or "what I am doing" groups
 # NOTE: Keep launchers shallow: depth <= 2
@@ -77,11 +77,11 @@ menu:
         cmd: audacity
 
   - key: b
+    desc: Firefox
+    cmd: firefox
+  - key: B
     desc: Browser
     submenu:
-      - key: b
-        desc: Firefox
-        cmd: firefox
       - key: c
         desc: Copy URL
         cmd: ~/bin/url-from-window
@@ -120,10 +120,10 @@ menu:
 
   - key: f
     desc: Files
+    cmd: foot --app-id=yazi --working-directory=$HOME/Downloads yazi
+  - key: F
+    desc: Files
     submenu:
-      - key: f
-        desc: Yazi
-        cmd: foot --app-id=yazi --working-directory=$HOME/Downloads yazi
       - key: n
         desc: Nautilus
         cmd: nautilus
@@ -350,6 +350,9 @@ menu:
         desc: Color [P]icker
         cmd: wl-color-picker --no-notify
       - key: t
+        desc: Timer
+        cmd: focus-timer
+      - key: u
         desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
 
@@ -394,7 +397,7 @@ menu:
         desc: Slack
         cmd: slack
       - key: t
-        desc: " Timer"
+        desc: Timer
         cmd: focus-timer
       - key: v
         desc: VPN
