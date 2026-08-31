@@ -216,11 +216,11 @@ binds {
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
   Mod+Space hotkey-overlay-title="open launcher" { spawn "~/bin/wlr-toggle"; }
   Alt+Space hotkey-overlay-title="open app search" { spawn "fuzzel" "--width" "22"; }
+  Alt+Comma hotkey-overlay-title="open emoji search" { spawn "bemoji" "--type"; }
+  Alt+N hotkey-overlay-title="show clipboard history" { spawn "cliphist-fuzzel-img"; }
+
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
-
-  Mod+N hotkey-overlay-title="show clipboard history" { spawn "cliphist-fuzzel-img"; }
-  Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
 
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
   Mod+F12 hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
@@ -463,7 +463,7 @@ binds {
   //
   // The allow-inhibiting=false property can be applied to other binds as well,
   // which ensures niri always processes them, even when an inhibitor is active.
-  Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
   // The quit action will show a confirmation dialog to avoid accidental exits.
   Mod+Shift+E { quit; }

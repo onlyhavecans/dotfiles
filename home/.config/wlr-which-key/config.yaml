@@ -331,6 +331,9 @@ menu:
       - key: d
         desc: Disks
         cmd: gnome-disks
+      - key: e
+        desc: Emoji
+        cmd: bemoji --type
       - key: f
         desc: Font Viewer
         cmd: gnome-font-viewer
