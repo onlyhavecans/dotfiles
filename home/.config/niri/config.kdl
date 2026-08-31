@@ -215,7 +215,7 @@ binds {
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
   Mod+Space hotkey-overlay-title="open launcher" { spawn "~/bin/wlr-toggle"; }
-  Alt+Space hotkey-overlay-title="open app search" { spawn "fuzzel" "--width" "20"; }
+  Alt+Space hotkey-overlay-title="open app search" { spawn "fuzzel" "--width" "22"; }
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
 
