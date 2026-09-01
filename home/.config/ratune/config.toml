@@ -1,0 +1,72 @@
+[server]
+url = "https://music.squirrels.services"
+username = "squirrel"
+password_command = 'op read "op://Personal/Navidrome Edelgard/password"'
+
+[player]
+default_volume = 70
+max_bit_rate = 0  # 0 = unlimited
+mpris = true
+queue_loop = true
+
+[ratings]
+enabled = false
+
+[keybinds]
+
+[theme]
+preset = "dynamic"  # static | dynamic (default) | terminal | os
+# accent        = "#ff8c00"   # highlighted items, active borders, progress fill
+# background    = "#1a1a1a"   # popups, list fallbacks; legacy default for tab/status bars
+# tab_bar       = "#1a1a1a"   # Home | Browse | Now Playing strip (falls back to background)
+# status_bar    = "#1a1a1a"   # bottom status line (falls back to background)
+# surface       = "#161616"   # panel backgrounds (browser columns, queue)
+# foreground    = "#d4d0c8"   # primary text
+# dimmed        = "#5a5858"   # muted / secondary text
+# border        = "#252525"   # inactive pane borders
+# border_active = "#3a3a3a"   # active pane borders
+
+[theme.border_lines]
+type = "rounded"
+
+[ui.general]
+tab_bar_position = "bottom"
+
+[ui.hometab.recent_albums]
+show_art = true
+# cover_fetch_max_px = 320  # getCoverArt size (0 = full image; lower = faster)
+
+[ui.hometab.layout]
+top_height_percent = 50
+panels = ["recent_albums", "recent_tracks", "rediscover"]
+
+[ui.browsetab]
+mode = "artists"
+
+[ui.nptab.art]
+show = true
+position = "left"
+
+[ui.nptab.lyrics_pane]
+enabled = true
+visible = true
+location = "right"
+
+[library]
+enabled = true
+# index_path = ""          # empty = ~/.cache/ratune/library_index.json
+# max_age_secs = 86400     # refresh in background when older (0 = always stale)
+# fetch_album_parallelism = 12    # concurrent getAlbum per artist during index refresh
+# fetch_artist_parallelism = 4    # concurrent artists during index refresh
+navidrome_skip_unchanged_scan = true  # Navidrome: skip full walk when lastScan unchanged
+notify_on_forced_index_refresh = true
+
+[cache]
+enabled = true
+max_size_gb = 2
+
+[lyrics]
+source = "subsonic"
+
+[scrobble]
+scrobble_to_server = true  # Subsonic /scrobble for Navidrome play counts

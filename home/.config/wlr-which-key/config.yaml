@@ -201,9 +201,12 @@ menu:
       - key: a
         desc: Amberol
         cmd: amberol
-      - key: m
+      - key: f
         desc: Feishin
         cmd: feishin
+      - key: m
+        desc: Ratune
+        cmd: foot --app-id ratune ratune
       - key: p
         desc: Picard
         cmd: picard
