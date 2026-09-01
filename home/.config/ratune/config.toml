@@ -1,72 +1,644 @@
+# =============================================================================
+# ratune — sample config (every recognized key + comments)
+# =============================================================================
+#
+# Installed config path (first match):
+#   $XDG_CONFIG_HOME/ratune/config.toml
+#   ~/.config/ratune/config.toml
+#
+# First run: if that file is missing, ratune writes a small starter config
+# (credentials + common UI). Copy sections from here when you need the full
+# menu; see `create_default` in `ratune/src/config.rs`.
+#
+# Quick test with an isolated config dir:
+#   mkdir -p /tmp/ratune-cfg/ratune
+#   cp docs/sample-config.toml /tmp/ratune-cfg/ratune/config.toml
+#   # edit url / username / password in that copy
+#   XDG_CONFIG_HOME=/tmp/ratune-cfg ratune
+#
+# Environment overrides (applied after parsing the file):
+#   TERMUSIC_SUBSONIC_URL  or  SUBSONIC_URL
+#   TERMUSIC_SUBSONIC_USER or  SUBSONIC_USER
+#   TERMUSIC_SUBSONIC_PASS or  SUBSONIC_PASS
+#
+# -----------------------------------------------------------------------------
+# UI precedence
+# -----------------------------------------------------------------------------
+#
+# Root `[ui]` only has `album_art_backend`. Everything else is nested:
+#   `[ui.general]`, `[ui.row_now_playing]`, `[ui.nptab]`, `[ui.hometab]`, `[ui.browsetab]`.
+#
+# Bottom now-playing strip (Home, Browse, NP row mode), progress glyphs, bar height, etc.:
+#   [ui.nptab.now_playing]  >  [ui.row_now_playing]  >  built-in defaults
+#
+# Row strip `lines` (ncmpcpp-style `%` / `$`): only `[ui.row_now_playing].lines`.
+# Boxed pane text on the NP tab: `[ui.nptab.now_playing].lines` only; if unset/empty, reuses row strip lines.
+#
+# Tab bar: `[ui.general].tab_bar_position` (default bottom).
+# Status bar (bottom row): optional `N%` playback level via `[ui.general].show_volume_indicator`.
+#
+# Queue row template: `[ui.nptab.queue].queue_template` > `[ui.nptab].queue_template` > empty = built-in default.
+#
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# [server] — Subsonic-compatible API endpoint
+# -----------------------------------------------------------------------------
+#
+# url       — Base URL of the server (no trailing path required in most setups).
+# username  — Subsonic username.
+# alias     — Optional label shown in the status bar instead of the server URL (privacy).
+#
+# Secret (pick one):
+#   password = "" (default) — OS keyring via keyring-core. First run prompts once; stored as service
+#             "ratune", user "{url}|{username}". Needs url + username set.
+#             On Linux, choose the backend with password_keyring:
+#               "keyutils" (default) — kernel keyutils; lightweight, may not survive reboot
+#               "secret-service"     — gnome-keyring / KWallet (same as secret-tool)
+#   password_command — Shell command; stdout (trimmed) is the secret. Good for secret-tool,
+#             pass, KeePassXC CLI, etc. Example:
+#             password_command = "secret-tool lookup --label=ratune service subsonic user you"
+#   password — Plaintext in config (least secure). SUBSONIC_PASS / TERMUSIC_SUBSONIC_PASS override.
+#
+# Subsonic API auth (v1.16.1): random salt per request + MD5(secret+salt). See:
+# https://www.navidrome.org/docs/developers/subsonic-api/
+
 [server]
 url = "https://music.squirrels.services"
 username = "squirrel"
 password_command = 'op read "op://Personal/Navidrome Edelgard/password"'
+alias = "Navidrome"
+# password_keyring = "keyutils"       # Linux only: "keyutils" (default) or "secret-service"
+# password_command = "secret-tool lookup service subsonic user you"
+# connection_check_interval_secs = 45  # background ping for online/offline; 0 = startup only
+
+# -----------------------------------------------------------------------------
+# [player]
+# -----------------------------------------------------------------------------
+#
+# default_volume — Initial UI/player volume after connect (0–100). Default: 70.
+# max_bit_rate   — Cap streaming bitrate in kbps. 0 = unlimited (server decides).
+# mpris          — Linux only: register an MPRIS player on the session bus so
+#                  media keys / playerctl work. Default: true.
+# queue_loop     — When true, playback wraps to the first queue track after the
+#                  last one ends. Default: true. Toggle at runtime with R / ↻.
 
 [player]
 default_volume = 70
-max_bit_rate = 0  # 0 = unlimited
+max_bit_rate = 0
 mpris = true
 queue_loop = true
 
+# -----------------------------------------------------------------------------
+# [ratings] — per-user song ratings (Subsonic setRating)
+# -----------------------------------------------------------------------------
+#
+# This section turns on ratings everywhere:
+# browse lists, Now Playing queue/bar, Shift+1…5 keybinds, and MPRIS UserRating.
+#
+# enabled — Master switch. Default: false.
+#
+# Rating display glyphs live under `[theme.icon]` (`rating_filled`, `rating_empty`,
+# `rating_bracket_open`, `rating_bracket_close`). Legacy keys below still work if
+# the theme.icon equivalents are unset:
+#   star_filled / star_empty / bracket_open / bracket_close
+
 [ratings]
-enabled = false
+# enabled = false
+# star_filled = "⭑"      # legacy — prefer [theme.icon].rating_filled
+# star_empty = "⭒"       # legacy — prefer [theme.icon].rating_empty
+# bracket_open = "["     # legacy — prefer [theme.icon].rating_bracket_open
+# bracket_close = "]"    # legacy — prefer [theme.icon].rating_bracket_close
+
+# -----------------------------------------------------------------------------
+# [keybinds] — optional overrides
+# -----------------------------------------------------------------------------
+#
+# For library_fzf / library_refresh: empty string "" disables that action.
+#
+# Defaults shown in comments (omit the key to get the default).
 
 [keybinds]
+# scroll_up          = "k"           # list / queue / home: move selection up
+# scroll_down        = "j"
+# column_left        = "h"           # browser: previous column; home art strip: previous thumb
+# column_right       = "l"
+# play_pause         = "p"
+# next_track          = "n"
+# prev_track          = "Shift+n"     # or "N", same meaning
+# seek_forward        = "Right"
+# seek_backward       = "Left"
+# add_track           = "a"           # browser + playlist overlay (tracks pane): append to queue
+# add_all             = "Shift+a"     # browser + playlist overlay (list pane): append all to queue
+# add_all_replace_album  = "Ctrl+r"   # browser, playlist overlay, favorites: replace queue and play
+# add_all_replace_artist = "Ctrl+Shift+r"  # browser: replace queue with all tracks for artist
+# add_all_prepend     = "Ctrl+Shift+p"     # browser: prepend artist/album tracks
+# shuffle             = "x"
+# unshuffle           = "z"
+# toggle_queue_loop   = "Shift+q"     # wrap queue after last track
+# toggle_radio        = "Shift+r"     # open/close internet radio picker
+# clear_queue         = "Shift+d"     # clear entire queue
+# remove_from_queue   = "d"           # now playing: remove highlighted track
+# search              = "/"           # filter lists where supported
+# volume_up           = "+"
+# volume_down         = "-"
+# tab_switch          = "Tab"
+# tab_switch_reverse  = "`"
+# go_to_home          = "1"
+# go_to_browser       = "2"
+# go_to_nowplaying    = "3"
+# quit                = "q"
+# library_fzf         = "Ctrl+f"      # "" disables fuzzy picker
+# library_refresh     = "Ctrl+g"      # "" disables; forced refresh if still Ctrl+g
+#                       # If you set library_refresh to Ctrl+r while album replace is also Ctrl+r,
+#                       # the app treats refresh as unset so Ctrl+g default wins.
+# library_index_append_queue = "Ctrl+a"  # append full indexed library to queue (y/n); "" disables
+# connection_check    = "Shift+c"   # ping server and update online/offline mode; "" disables
+# toggle_help         = "i"
+# toggle_dynamic_theme = "t"          # cycles dynamic accent (ignored when theme preset is terminal)
+# toggle_lyrics       = "Shift+l"
+# toggle_visualizer   = "Shift+v"    # bare "V" is also accepted in the key mapper
+# playlist_overlay    = "Shift+p"    # browser: open playlist overlay (r rename, c create, X delete)
+# browser_add_to_playlist = ">"      # browser: add focused track, or all tracks of focused album, to a playlist
+# remove_from_playlist = "<"         # playlist overlay (tracks pane): remove highlighted track
+# home_section_next   = "Shift+j"   # home: focus next panel block
+# home_section_prev   = "Shift+k"
+# home_refresh        = "r"          # home: refresh / re-roll where applicable
+# toggle_folder_browse = "Ctrl+b"   # browse: toggle folder view (needs [ui.browsetab] folder_navigation); "" disables
+# toggle_favorite     = "f"         # toggle favorite on focused song, album, or artist (Subsonic star)
+# rate_song_1         = "Shift+1"   # rate focused/playing song 1–5 stars (Subsonic setRating)
+# rate_song_2         = "Shift+2"
+# rate_song_3         = "Shift+3"
+# rate_song_4         = "Shift+4"
+# rate_song_5         = "Shift+5"
+# rate_song_clear     = "Shift+0"   # clear song rating
+# favorites_overlay   = "Shift+f"   # favorites panel on Browse tab (`F`)
+
+# -----------------------------------------------------------------------------
+# [theme]
+# -----------------------------------------------------------------------------
+#
+# preset — Optional. Base palette + behaviour:
+#   "dynamic" (default when omitted) — built-in dark greys + album-art accent extraction.
+#   "static"       — same built-in defaults; no album-art accent extraction.
+#   "terminal" / "os" / "term" — ANSI / default fg-bg (e.g. accent idx 4, dimmed idx 8, fg/bg reset).
+#
+# Optional colour fields — Any preset: set only what you want; each overrides that slot on top
+# of the preset defaults (so e.g. terminal + custom list highlight still uses accent for .bg in lists).
+#
+# Each colour value may be:
+#   • Hex: `#rrggbb` or `rrggbb`
+#   • Terminal index (256-colour): `idx:0` … `idx:255` — also `indexed:`, `ansi:`, `color:`, or `i:`
+#     (e.g. list selection uses accent as background: `accent = "idx:2"` maps “primary” to ANSI green)
+#   • `reset` / `inherit` / `default` / `unset` / `none` / `transparent` — do not paint a
+#     background (keeps terminal transparency; unlike `idx:0`, which paints ANSI black).
+#
+# Fields:
+#   accent        — Highlights, progress, focused chrome, list selection background (with fg on top).
+#   background    — Popups, list fallbacks; legacy default for tab_bar + status_bar when unset.
+#   tab_bar       — Home | Browse | Now Playing strip (falls back to background).
+#   status_bar    — Bottom status line (falls back to background).
+#   surface       — Panel backgrounds (browser columns, queue, blocks).
+#   foreground    — Primary text.
+#   dimmed        — Secondary / muted text.
+#   border        — Inactive borders (some panes still use accent when focused).
+#   border_active — Reserved for themes; many panes now use accent for active frames.
+#
+# Pane outlines: optional `[theme.border_lines]` (`type` = plain|rounded|double|thick|ascii,
+# plus optional edge glyphs). Does not clash with the `border` colour key.
+#
+# Glyphs (optional `[theme.icon]`): transport, favorite marker, rating stars/brackets,
+# tab separator, status online/offline / radio live.
+# Progress bar: `[ui.row_now_playing].progress_style` (not under theme.icon).
 
 [theme]
-preset = "dynamic"  # static | dynamic (default) | terminal | os
-# accent        = "#ff8c00"   # highlighted items, active borders, progress fill
-# background    = "#1a1a1a"   # popups, list fallbacks; legacy default for tab/status bars
-# tab_bar       = "#1a1a1a"   # Home | Browse | Now Playing strip (falls back to background)
-# status_bar    = "#1a1a1a"   # bottom status line (falls back to background)
-# surface       = "#161616"   # panel backgrounds (browser columns, queue)
-# foreground    = "#d4d0c8"   # primary text
-# dimmed        = "#5a5858"   # muted / secondary text
-# border        = "#252525"   # inactive pane borders
-# border_active = "#3a3a3a"   # active pane borders
+preset = "dynamic"
+# accent = "#ff8c00"
+# accent = "idx:2"              # terminal green (example) for highlights / selection bar
+# background = "#1a1a1a"
+# background = "unset"          # transparent background
+# tab_bar = "#1a1a1a"
+# status_bar = "#1a1a1a"
+# surface = "#161616"
+# surface = "unset"             # transparent panel backgrounds
+# foreground = "#d4d0c8"
+# dimmed = "#5a5858"
+# border = "#252525"
+# border_active = "#3a3a3a"
 
-[theme.border_lines]
+# -----------------------------------------------------------------------------
+# [theme.border_lines] — pane box-drawing (style + optional edge glyphs)
+# -----------------------------------------------------------------------------
+#
+# type — "plain" (default), "rounded", "double", "thick", or "ascii" (+ - |).
+# Edge overrides (any set builds a custom border): top_left, top_right,
+# bottom_left, bottom_right, vertical, horizontal.
+#
+# Legacy still accepted: flat `[theme].border_type` / `border_top_left` / … and the
+# same keys under `[theme.icon]`.
+
+# [theme.border_lines]
 type = "rounded"
+# top_left = "+"
+# top_right = "+"
+# bottom_left = "+"
+# bottom_right = "+"
+# vertical = "|"
+# horizontal = "-"
+
+# -----------------------------------------------------------------------------
+# [theme.icon] — optional glyph overrides (fonts without media / specialty chars)
+# -----------------------------------------------------------------------------
+#
+# Omit any key to keep the built-in default. Transport labels are full strings as
+# shown in the controls row (including parentheses when you want them).
+#
+# playing / paused / stopped — shown for those playback states (defaults match the
+#   prior Unicode controls: pause while playing, play while paused, bare play idle).
+# favorite — starred marker in lists / queue (default ★).
+# rating_* — 1–5 user-rating display (defaults ⭑ / ⭒ with [ ]). Legacy: [ratings].star_*.
+# Progress bar glyphs are not here — use `[ui.row_now_playing].progress_style`
+#   (or `[ui.nptab.now_playing].progress_style`), e.g. progress_style = "=>-".
+#
+# Box outlines: prefer `[theme.border_lines]` (legacy: flat theme / theme.icon border_*).
+
+# [theme.icon]
+# playing = "( || )"
+# paused = "( > )"
+# stopped = ">"
+# next_song = ">>"
+# previous_song = "<<"
+# mode_shuffle = "><"
+# mode_loop = "o"
+# favorite = "*"
+# rating_filled = "*"
+# rating_empty = "-"
+# rating_bracket_open = "["
+# rating_bracket_close = "]"
+# tab_separator = " | "
+# online = "*"
+# offline = "o"
+# live = "*"
+
+# Example: mostly terminal colours, but a fixed hex for selection/highlight accent:
+# preset = "terminal"
+# accent = "#76cce0"
+
+# -----------------------------------------------------------------------------
+# [ui] — global UI (only album backend here)
+# -----------------------------------------------------------------------------
+#
+# album_art_backend — "ratatui-image" (default) or "kitty-apc" (Kitty terminal APC + post-draw).
+
+[ui]
+# album_art_backend = "ratatui-image"
+
+# -----------------------------------------------------------------------------
+# [ui.general] — cross-tab chrome
+# -----------------------------------------------------------------------------
+#
+# tab_bar_position — "bottom" (default) or "top". Tab strip is always 1 row high;
+#                    status bar stays at the bottom of the terminal.
 
 [ui.general]
 tab_bar_position = "bottom"
+# show_volume_indicator = true   # false = hide N% in the bottom-right status bar (in-app level only)
+
+# -----------------------------------------------------------------------------
+# [ui.row_now_playing] — shared bottom strip defaults (Home + Browse + NP row mode)
+# -----------------------------------------------------------------------------
+#
+# bar_height — Must be ≥ number of `lines` rows you expect to draw.
+# layout     — Usually "row" here; NP tab can switch to "boxed" via `[ui.nptab.now_playing]`.
+# progress_style — Three chars: same first two (e.g. "██░") = block bar; different = playhead style.
+# lines — ncmpcpp-inspired `%` / `$` strings (one per strip row). Examples:
+#   %t title  %a artist  %b album  %y year  %n track#  %l track length
+#   %e elapsed  %E / %T total  %g genre  %f file  %D parent dir  %q quality
+#   %P queue total duration  %i %j queue index & length  %v volume  %K bitrate
+#   %R user rating ([⭑⭑⭒⭒⭒], needs [ratings].enabled; glyphs: [theme.icon].rating_*)  %% literal %
+#   $1–$8 colors, $9 reset, $b$/b bold, $u$/u underline, $r$/r reverse.
+
+[ui.row_now_playing]
+bar_height = 4
+layout = "row"
+box_location = "right"
+show_controls = true
+show_progress = true
+box_include_controls = false
+box_include_progress = false
+progress_style = "██░"
+lines = [
+  "$b$1%t$/b$9",
+  "$2%a$9",
+  "$3%b$9$7 · $9%y",
+  "$4%e$9/$4%l$9  $5%i$9/$5%j$9  $3%P$9  $7%q$9  vol $4%v$9%%",
+]
+
+# -----------------------------------------------------------------------------
+# [ui.hometab] — Home tab
+# -----------------------------------------------------------------------------
+
+# [ui.hometab.recent_albums]
+# show_art — Thumbnail strip when the terminal backend supports it. Default: true.
+# cover_fetch_max_px — Subsonic getCoverArt max edge (px). 0 = full image (slow).
+#                       Omitted default 320; values clamped roughly 64–2048 when set.
 
 [ui.hometab.recent_albums]
 show_art = true
-# cover_fetch_max_px = 320  # getCoverArt size (0 = full image; lower = faster)
+cover_fetch_max_px = 320
+
+# [ui.hometab.layout]
+# top_height_percent — Top band height as percent of Home content (25–75). Default: 50.
+# panels — Exactly three entries, a permutation of:
+#   recent_albums | albums   (synonym)
+#   recent_tracks | tracks   (synonym)
+#   rediscover
 
 [ui.hometab.layout]
 top_height_percent = 50
 panels = ["recent_albums", "recent_tracks", "rediscover"]
+# panels = ["recent_albums", "rediscover", "recent_tracks"]
+
+# -----------------------------------------------------------------------------
+# [ui.browsetab]
+# -----------------------------------------------------------------------------
+#
+# folder_navigation — When true, Ctrl+b toggles the Browse tab between the
+#   normal artist/album/track columns and folder view (getMusicFolders for
+#   libraries, getIndexes + getMusicDirectory under the hood). Default: false.
+# mode — Default layout on startup when folder_navigation is true: "artists" or
+#   "files". When folder_navigation is false, the Browse tab always starts as
+#   artists. "genre" is still a stub.
+# mouse_wheel_scroll_lines — Rows to move per mouse wheel tick in Browse lists
+#   (artists, albums, tracks, and folder browse). Default: 1. Keyboard j/k always
+#   moves one row.
 
 [ui.browsetab]
+folder_navigation = false
 mode = "artists"
+# mouse_wheel_scroll_lines = 10
+
+# -----------------------------------------------------------------------------
+# [ui.nptab] — Now Playing tab overrides
+# -----------------------------------------------------------------------------
+#
+# Lyrics — `[ui.nptab.lyrics_pane]` (enabled / visible / location), same idea as visualizer_pane.
+#   Lyrics and visualizer can both be visible; set each pane's `location` to split them (e.g. left/right).
+# queue_template — Per-row queue format; prefer `[ui.nptab.queue].queue_template`.
+#   Placeholders: {n} track # (` 3. `), {title} (prepends `★ ` when favorited, inside
+#   `{title:<N}` width so columns stay aligned), {artist}, {album}, {duration},
+#   {rating} ([⭑⭑⭒⭒⭒] when rated), {suffix}, {favorite} (standalone star prefix).
+#   Spacing is reflected in output e.g. add space before {rating}:
+#   `{n}{title:<40}  {artist:<25}  {duration:>5}    {rating}`
+# show_fzf_hint — Empty-queue hint mentioning library picker when enabled.
+
+[ui.nptab]
+queue_template = ""
+show_fzf_hint = false
+
+# [ui.nptab.art]
+# show      — Album art column on NP tab. Default: true.
+# position  — "left" | "right"
 
 [ui.nptab.art]
 show = true
 position = "left"
 
+# [ui.nptab.layout]
+# left_width_percent — When NP splits into two columns (1–99). Default: 50.
+# vertical_fill_top_percent — When exactly two panes stack in one column, percent height of the
+#   TOP pane (1–99). Default: 50.
+
+[ui.nptab.layout]
+left_width_percent = 50
+# vertical_fill_top_percent = 60
+
+# [ui.nptab.queue]
+# position      — "left" | "right" | "full". Omitted → opposite of art.position.
+# queue_template — Overrides `[ui.nptab].queue_template` when set.
+
+[ui.nptab.queue]
+position = "right"
+# queue_template = "{n}{title:<40}  {artist:<25}  {duration:>5}    {rating}"
+
+# [ui.nptab.lyrics_pane]
+# enabled — If false, lyrics cannot be opened. Default: true.
+# visible — Start visible. Default: false.
+# location — "left" | "right" | "full" (dock row). Omitted → same side as queue.
+
 [ui.nptab.lyrics_pane]
 enabled = true
-visible = true
+visible = false
 location = "right"
+
+# [ui.nptab.visualizer_pane]
+# enabled — If false, visualizer cannot be opened. Default: true.
+# visible — Start visible. Default: false.
+# location — "left" | "right" | "full".
+#
+# type — "spectrum" (default) | "wave"
+# fps — update rate while visible (higher = smoother, more CPU). Default: 30.
+# fft_size — spectrum FFT window size: 1024 | 2048 (default) | 4096
+# gain_db — spectrum/waveform gain in dB. Default: 0.0.
+# color_mode — "accent" (default) | "fixed" | "gradient_height" | "gradient_theme"
+# colors — list of colors used by color_mode:
+#   - "accent" uses the current accent (dynamic accent if enabled).
+#   - "gradient_theme" ignores this list and uses theme dimmed→foreground→accent.
+#   - "#RRGGBB" uses truecolor.
+#   - "0".."255" uses 256-color indices.
+#   (tmux 3.2+). Ratune wraps OSC queries in DCS passthrough when $TMUX is set.
+
+[ui.nptab.visualizer_pane]
+enabled = true
+visible = false
+location = "right"
+type = "spectrum"
+fps = 30
+fft_size = 2048
+gain_db = 0.0
+color_mode = "gradient_height"
+colors = ["#00aaff", "#00ff99", "#ffee55", "#ff3355"]
+
+# [ui.nptab.now_playing] — NP tab only: overrides [ui.row_now_playing] for strip + boxed pane
+#
+# lines here apply to the boxed pane text; omit or [] to reuse row strip lines.
+# bar_height / layout / box_location / progress_style / controls flags follow same meanings
+# as [ui.row_now_playing].
+
+[ui.nptab.now_playing]
+# layout = "boxed"
+# box_location = "right"
+# bar_height = 4
+# show_controls = true
+# show_progress = true
+# box_include_controls = false
+# box_include_progress = false
+# progress_style = "██░"
+# lines = ["$b$1%t$/b$9", "$2%a$9", "$3%b$9"]
+
+# -----------------------------------------------------------------------------
+# [lyrics] — lyrics fetch source
+# -----------------------------------------------------------------------------
+#
+# source — "lrclib" (default) | "netease" | "subsonic"
+#   lrclib   — query LRCLib (public API; requests only when the lyrics pane is open)
+#   netease  — query NetEase Cloud Music by title and artist (no login required)
+#   subsonic — query your Subsonic server (getLyricsBySongId / getLyrics; no third party)
+# lrclib_url — LRCLib base URL when source = "lrclib". Default: https://lrclib.net
+# cache_enabled — store lyrics under ~/.cache/ratune/lyrics/ for offline use. Default: true
+
+[lyrics]
+source = "lrclib"
+# lrclib_url = "https://lrclib.net"
+# cache_enabled = false
+# source = "netease"
+# source = "subsonic"
+
+# -----------------------------------------------------------------------------
+# [library] — on-disk metadata index + fzf picker
+# -----------------------------------------------------------------------------
+#
+# enabled — Build/use index for Ctrl+f picker and online Browse columns. Default: true.
+#   First startup (or first enable with no index yet) may be slower while Ratune walks the
+#   library to build ~/.cache/ratune/library_index.json; later launches use that file.
+# index_path — JSON index file. Empty → ~/.cache/ratune/library_index.json (see code).
+# max_age_secs — Staleness threshold; background refresh when older. 0 = always stale at startup.
+# fetch_*_parallelism — Tunables for full index refresh (minimum 1 enforced at runtime).
+# navidrome_skip_unchanged_scan — Navidrome: skip full walk when lastScan unchanged.
+# notify_on_forced_index_refresh — Desktop notification when forced refresh completes.
+#
+# When enabled and a fresh/local index exists, the Browse tab (artists / albums / tracks)
+# is served from this cache instead of per-navigation Subsonic getArtist/getAlbum calls.
 
 [library]
 enabled = true
-# index_path = ""          # empty = ~/.cache/ratune/library_index.json
-# max_age_secs = 86400     # refresh in background when older (0 = always stale)
-# fetch_album_parallelism = 12    # concurrent getAlbum per artist during index refresh
-# fetch_artist_parallelism = 4    # concurrent artists during index refresh
-navidrome_skip_unchanged_scan = true  # Navidrome: skip full walk when lastScan unchanged
+index_path = ""
+max_age_secs = 86400
+fetch_album_parallelism = 12
+fetch_artist_parallelism = 4
+navidrome_skip_unchanged_scan = true
 notify_on_forced_index_refresh = true
+
+# [library.fzf] — fuzzy picker (legacy: fzf_binary / fzf_args under [library])
+# binary — Executable ("fzf", "sk", …). For skim, ratune appends --bind=ctrl-r:accept(ctrl-r).
+# args   — Picker argv (delimiter, columns, …). Auto --header follows --with-nth unless
+#          you pass your own --header=…
+# [library.fzf.columns] — max TSV field width (terminal columns); 0 = no truncation.
+
+[library.fzf]
+binary = "fzf"
+args = [
+  "--delimiter=\t",
+  "--with-nth=2,3,4,5",
+  "--nth=1,2,3",
+  "--multi",
+  "--expect=ctrl-r",
+  "--border=rounded",
+]
+
+# [library.fzf.columns]
+# artist = 26
+# album = 28
+# title = 36
+# duration = 6
+
+# -----------------------------------------------------------------------------
+# [cache] — offline streamed audio cache
+# -----------------------------------------------------------------------------
+#
+# enabled     — Master switch. Default: true.
+# max_size_gb — Total on-disk budget for cached audio. Default: 2.0.
+# cache_starred — When true, prefetch favorite tracks while online (Subsonic getStarred2 /
+#   star API). Shares the same max_size_gb LRU pool as normal playback caching. Default: false.
+# cache_starred_albums — When true, prefetch all tracks from a favorited album. Default: false.
+# cache_starred_parallelism — Concurrent favorite-track downloads. Default: 2.
 
 [cache]
 enabled = true
-max_size_gb = 2
+max_size_gb = 2.0
+cache_starred = false
+cache_starred_albums = false
+cache_starred_parallelism = 2
 
-[lyrics]
-source = "subsonic"
+# [radio] — Internet radio
+#
+# enabled             — Show radio picker (Shift+R) and Now Playing radio pane (default: true)
+# fetch_station_icons — When true (default), download homepage icons for Now Playing
+#                       art if the station has no logo uploaded in Navidrome.
+#                       Set false to avoid outbound HTTP to station websites.
+
+[radio]
+enabled = false
+# fetch_station_icons = true
+
+# -----------------------------------------------------------------------------
+# [scrobble] — Last.fm / Libre.fm + Subsonic play counts
+# -----------------------------------------------------------------------------
+#
+# Ratune owns playback, so scrobbling is reliable (no MPRIS guessing).
+#
+# enabled — Submit listens to Last.fm or Libre.fm. Default: false.
+# service — "lastfm" (default) or "librefm". Same Audioscrobbler API; only the
+#           base URL differs.
+#
+# Credentials for Audioscrobbler (all required when enabled):
+#   api_key     — From https://www.last.fm/api/account/create (or Libre.fm equivalent)
+#   api_secret  — Shared secret paired with api_key (signs POST requests)
+#   session_key — Per-user token from `ratune scrobble-auth`
+#
+# Plaintext in this file is fine for personal setups (same idea as [server].password).
+# Prefer keyring or *_command when the config is synced or shared.
+#
+# Resolution order (first match wins):
+#   api_secret  — api_secret → api_secret_command → OS keyring (lastfm|api_secret)
+#   session_key — session_key → session_key_command → OS keyring (lastfm|session)
+# Keyring service name is always "ratune". On Linux, scrobble keyring uses Secret Service
+# (gnome-keyring / KWallet), not kernel keyutils.
+#
+# Quick start (all in config):
+#   api_key = "…"
+#   api_secret = "…"
+#   session_key = "…"    # from `ratune scrobble-auth` (no --save-keyring)
+#
+# Optional — keep secrets out of the file:
+#   ratune scrobble-api-secret --save-keyring
+#   ratune scrobble-auth --save-keyring
+#   # then leave api_secret / session_key empty and use command or keyring instead
+#
+# Failed scrobbles are queued in ~/.local/share/ratune/scrobble-queue.json
+# and retried on the next startup (entries older than 14 days are dropped).
+#
+# Optional listen thresholds (omit for defaults):
+#   [scrobble.thresholds.local] — history + Subsonic /scrobble
+#     min_percent = 50          # fraction of track length (1–100)
+#     max_listen_seconds = 30   # cap on listen time
+#   [scrobble.thresholds.audioscrobbler] — Last.fm / Libre.fm
+#     min_percent = 50
+#     max_listen_seconds = 240  # 4 minutes (Last.fm convention)
+#     min_track_seconds = 30    # skip tracks this long or shorter
+# WARNING: Audioscrobbler defaults match Last.fm’s documented rules; changing them may
+# cause the service to ignore scrobbles.
+#
+# Examples:
+#   api_secret_command = "secret-tool lookup service ratune username 'lastfm|api_secret'"
+#   session_key_command = "secret-tool lookup service ratune username 'lastfm|session'"
+#
+# Environment overrides (applied after the file):
+#   LASTFM_API_KEY / LIBREFM_API_KEY
+#   LASTFM_API_SECRET / LASTFM_SHARED_SECRET / LIBREFM_API_SECRET
+#   LASTFM_SESSION_KEY / LIBREFM_SESSION_KEY
+#
+# scrobble_to_server — When true (default), also call the Subsonic /scrobble REST
+#                      endpoint so Navidrome (etc.) records play counts. Uses the
+#                      local listen threshold (min(50%, 30 s)), independent of
+#                      Last.fm's min(50%, 4 min) rule.
 
 [scrobble]
-scrobble_to_server = true  # Subsonic /scrobble for Navidrome play counts
+enabled = false
+service = "lastfm"
+# api_key = ""
+# api_secret = ""            # plaintext here is supported
+# session_key = ""           # from `ratune scrobble-auth`
+# api_secret_command = ""    # optional; checked if api_secret is empty
+# session_key_command = ""   # optional; checked if session_key is empty
+scrobble_to_server = true
