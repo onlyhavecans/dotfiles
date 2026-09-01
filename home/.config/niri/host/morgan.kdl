@@ -31,6 +31,7 @@ window-rule {
 window-rule {
   // left
   match app-id="feishin"
+  match app-id="ratune"
   match app-id="focustimer"
   match app-id=r#"io\.bassi\.Amberol"#
   open-on-output "BOE Display 0x00000144"

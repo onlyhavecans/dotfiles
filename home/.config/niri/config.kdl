@@ -194,6 +194,7 @@ window-rule {
 window-rule {
   match app-id="net-filebot-Main"
   match app-id="feishin"
+  match app-id="ratune"
   match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
   match app-id=r#"^com\.bitwig\.BitwigStudio"# is-floating=false
   open-maximized true
