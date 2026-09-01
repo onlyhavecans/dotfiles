@@ -356,8 +356,9 @@ cover_fetch_max_px = 320
 
 [ui.hometab.layout]
 top_height_percent = 50
-panels = ["recent_albums", "recent_tracks", "rediscover"]
+panels = ["recent_albums", "recently_added", "rediscover"]
 # panels = ["recent_albums", "rediscover", "recent_tracks"]
+# panels = ["recently_added", "recently_released", "rediscover"]
 
 # -----------------------------------------------------------------------------
 # [ui.browsetab]
