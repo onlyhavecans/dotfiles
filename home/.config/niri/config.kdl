@@ -91,6 +91,16 @@ layout {
     // top 64
     // bottom 64
   }
+
+  tab-indicator {
+      width 8
+      length total-proportion=0.95
+      position "top"
+      place-within-column
+      active-color "#56949f"
+      inactive-color "#cecacd"
+      urgent-color "#b4637a"
+  }
 }
 
 // Miscellaneous configuration.
@@ -135,6 +145,14 @@ animations {
   // off
   // Values below 1 speed them up instead.
   // slowdown 3.0
+}
+
+// Gesture settings
+// https://niri-wm.github.io/niri/Configuration:-Gestures
+gestures {
+  hot-corners {
+    off // not a fan
+  }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -198,6 +216,7 @@ window-rule {
   match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
   open-floating true
   open-focused false
+  baba-is-float true
   default-floating-position x=10 y=10 relative-to="top-right"
 }
 

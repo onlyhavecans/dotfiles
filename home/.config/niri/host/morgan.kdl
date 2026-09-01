@@ -42,6 +42,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id="focustimer"
+  match app-id="focustimer" title="Timer"
   default-floating-position x=50 y=30 relative-to="top-right"
 }
