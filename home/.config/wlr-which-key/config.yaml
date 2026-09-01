@@ -15,7 +15,7 @@ rows_per_column: 13
 # NOTE: Keep alpha sorted, symbols first
 # NOTE: Double-tap = the group's default action
 # NOTE: Mark non-initial keys like S[l]ack
-# NOTE: Free keys: d i k q y z
+# NOTE: Free keys: d k q y z
 menu:
   - key: " "
     desc: Terminal
@@ -147,6 +147,22 @@ menu:
   - key: h
     desc: Clip[h]ist
     cmd: cliphist-fuzzel-img
+
+  - key: i
+    desc: Timer
+    submenu:
+      - key: s
+        desc: Start
+        cmd: tomat start
+      - key: t
+        desc: Toggle
+        cmd: tomat toggle
+      - key: k
+        desc: Skip
+        cmd: tomat skip
+      - key: e
+        desc: End
+        cmd: tomat stop
 
   - key: j
     desc: Jump
@@ -355,9 +371,6 @@ menu:
       - key: p
         desc: Color [P]icker
         cmd: wl-color-picker --no-notify
-      - key: t
-        desc: Timer
-        cmd: focus-timer
       - key: u
         desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
@@ -402,9 +415,6 @@ menu:
       - key: s
         desc: Slack
         cmd: slack
-      - key: t
-        desc: Timer
-        cmd: focus-timer
       - key: v
         desc: VPN
         submenu:
