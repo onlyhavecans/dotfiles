@@ -243,7 +243,11 @@ binds {
   Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
 
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
+
   Mod+F12 hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
+  Mod+XF86AudioMedia hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
+
+  Mod+Comma hotkey-overlay-title="toggle bar" { spawn "pkill" "--signal" "SIGUSR1" "waybar"; }
 
   F12 { spawn "voxtype" "record" "toggle"; }
   Alt+F12 { spawn "voxtype" "record" "cancel"; }

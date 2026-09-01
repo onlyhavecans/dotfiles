@@ -6,7 +6,7 @@ border: "#907aa9"
 border_width: 4
 corner_r: 30
 padding: 20 # Defaults to corner_r
-rows_per_column: 12
+rows_per_column: 13
 
 # NOTE: Top level = one-tap dailies, app groups, or "what I am doing" groups
 # NOTE: Keep launchers shallow: depth <= 2
@@ -20,6 +20,9 @@ menu:
   - key: " "
     desc: Terminal
     cmd: foot --login tm
+  - key: ","
+    desc: Toggle Bar
+    cmd: pkill --signal SIGUSR1 waybar
   - key: \
     desc: Quick Pass
     cmd: 1password --quick-access
