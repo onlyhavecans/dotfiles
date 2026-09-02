@@ -1,11 +1,11 @@
 ---
 font: RecMonoDuotone Nerd Font Propo 26
-background: "#faf4edf0"
-color: "#575279"
-border: "#907aa9"
+background: "#faf4eddd"
+color: "#575279ff"
+border: "#d7827edd"
 border_width: 4
-corner_r: 30
-padding: 20 # Defaults to corner_r
+corner_r: 20
+padding: 25 # Defaults to corner_r
 rows_per_column: 13
 
 # NOTE: Top level = one-tap dailies, app groups, or "what I am doing" groups
