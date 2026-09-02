@@ -212,7 +212,7 @@ queue_loop = true
 # Progress bar: `[ui.row_now_playing].progress_style` (not under theme.icon).
 
 [theme]
-preset = "dynamic"
+preset = "static"
 # accent = "#ff8c00"
 # accent = "idx:2"              # terminal green (example) for highlights / selection bar
 # background = "#1a1a1a"
@@ -237,7 +237,7 @@ preset = "dynamic"
 # Legacy still accepted: flat `[theme].border_type` / `border_top_left` / … and the
 # same keys under `[theme.icon]`.
 
-# [theme.border_lines]
+[theme.border_lines]
 type = "rounded"
 # top_left = "+"
 # top_right = "+"
@@ -489,7 +489,7 @@ colors = ["#00aaff", "#00ff99", "#ffee55", "#ff3355"]
 # cache_enabled — store lyrics under ~/.cache/ratune/lyrics/ for offline use. Default: true
 
 [lyrics]
-source = "lrclib"
+source = "subsonic"
 # lrclib_url = "https://lrclib.net"
 # cache_enabled = false
 # source = "netease"
