@@ -76,20 +76,12 @@ layout {
 
   shadow {
     on
-    softness 15
-    spread 5
+    softness 10
+    spread 10
     offset x=0 y=5
     // draw-behind-window true
-    color "#00000070"
-    inactive-color "#00000054"
-  }
-
-  // Struts shrink the area occupied by windows, similarly to layer-shell panels.
-  struts {
-    // left 64
-    // right 64
-    // top 64
-    // bottom 64
+    color "#d7827e80"
+    inactive-color "#cecacd54"
   }
 
   tab-indicator {
@@ -101,11 +93,23 @@ layout {
       inactive-color "#cecacd"
       urgent-color "#b4637a"
   }
+
+  background-color "#faf4ed"
 }
 
 // Miscellaneous configuration.
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
+spawn-at-startup "1password" "--silent"
+spawn-at-startup "cliphist" "wipe"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+// bar, notifications, and idle run as systemd user units from the NixOS repo
+
+// ask the clients to omit their client-side decorations
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
+
 cursor {
   xcursor-theme "BreezeX-RosePine-Linux"
   xcursor-size 32
@@ -113,23 +117,17 @@ cursor {
   hide-after-inactive-ms 1000
 }
 
-spawn-at-startup "1password" "--silent"
-spawn-at-startup "cliphist" "wipe"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-// bar, notifications, and idle run as systemd user units from the NixOS repo
-
-screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
-
-hotkey-overlay {
-  skip-at-startup
+overview {
+    backdrop-color "#faf4ed"
 }
-
-// ask the clients to omit their client-side decorations
-prefer-no-csd
 
 clipboard {
   // I don't love the highlight to middelclick buffer
   disable-primary
+}
+
+hotkey-overlay {
+  skip-at-startup
 }
 
 // Laptop Switch events
