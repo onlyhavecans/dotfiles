@@ -49,7 +49,7 @@ output "eDP-1" {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
-  gaps 5
+  gaps 4
 
   center-focused-column "never"
 
@@ -63,7 +63,7 @@ layout {
   default-column-width { proportion 0.5; }
 
   focus-ring {
-    width 3
+    width 2
     active-color "#fabd2f"
     inactive-color "#7c6f64"
     urgent-color "#fb4934"
@@ -108,7 +108,7 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 cursor {
-  xcursor-theme "Simp1e-Gruvbox-Dark"
+  xcursor-theme "oreo_white_cursors"
   xcursor-size 32
   hide-when-typing
   hide-after-inactive-ms 1000
