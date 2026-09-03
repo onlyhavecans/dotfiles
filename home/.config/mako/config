@@ -23,4 +23,5 @@ progress-color=over #8ec07cff
 default-timeout=60000
 
 [mode=do-not-disturb]
+default-timeout=0
 invisible=1
