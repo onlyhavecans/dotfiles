@@ -179,6 +179,10 @@ tooltip label {
   color: @blue;
 }
 
+#power-profiles-daemon {
+  padding-bottom: 2px;
+}
+
 /* balanced stays plain text */
 #power-profiles-daemon.performance {
   color: @orange;
