@@ -5,8 +5,6 @@
 
 * {
   font-family: "RecMonoDuotone Nerd Font Propo", monospace;
-  /* Rec Mono NF only ships 400/700; 600 would silently snap to 700 anyway */
-  font-weight: 700;
   font-size: 16px;
   min-height: 0;
 }
@@ -105,7 +103,6 @@ tooltip label {
 #mpris {
   padding: 0 10px;
   font-size: 14px;
-  font-weight: 400;
   color: @grey2;
 }
 
