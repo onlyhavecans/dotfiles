@@ -83,9 +83,17 @@
             "format": "{ipv4} ({ifname})"
         },
         {
+            "condition": { "!system":"macOS" },
             "key": "│ {#34}󰃭 os age  {#keys}│",
             "type": "disk",
             "folders": "/",
+            "format": "{create-time:10} [{days} days]"
+        },
+        {
+            "condition": { "system":"macOS" },
+            "key": "│ {#34}󰃭 os age  {#keys}│",
+            "type": "disk",
+            "folders": "/System/Volumes/VM",
             "format": "{create-time:10} [{days} days]"
         },
         {
