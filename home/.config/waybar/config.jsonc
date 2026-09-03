@@ -145,7 +145,7 @@
     "return-type": "json",
     "format": "{icon}",
     "format-icons": {
-      "idle": "󰗋",
+      "idle": "",
       "recording": "󰗋",
       "transcribing": "󰔟",
       "stopped": "󰻔"
@@ -158,14 +158,16 @@
     "exec": "[[ \"$(makoctl mode)\" =~ 'do-not-disturb' ]] && echo '󰂛' || echo '󰂜'",
     "interval": "once",
     "on-click": "makoctl mode -t do-not-disturb; pkill -RTMIN+11 waybar",
-    "signal": 11
+    "signal": 11,
+    "tooltip": false
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "󰅶",
       "deactivated": "󰛊"
-    }
+    },
+    "signal": 8
   },
   "systemd-failed-units": {
     "hide-on-ok": true,

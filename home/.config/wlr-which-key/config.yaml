@@ -247,21 +247,39 @@ menu:
   - key: p
     desc: Power
     submenu:
-      - key: "l"
+      - key: l
         desc: "\U000F033E Lock"
         cmd: swaylock
-      - key: "p"
+      - key: p
         desc: "\U000F0425 Poweroff"
         cmd: systemctl poweroff
-      - key: "q"
+      - key: q
         desc: "\U000F0343 Quit"
         cmd: niri msg action quit
-      - key: "r"
+      - key: r
         desc: "\U000F0465 Reboot"
         cmd: systemctl reboot
-      - key: "s"
+      - key: s
         desc: "\U000F0904 Suspend"
         cmd: systemctl suspend
+      - key: P
+        desc: Power Profiles
+        submenu:
+          - key: s
+            desc: Saver
+            cmd: powerprofilectl set power-saver
+          - key: b
+            desc: Balanced
+            cmd: powerprofilectl set balanced
+          - key: p
+            desc: Performance
+            cmd: powerprofilectl set performance
+      - key: i
+        desc: Idle Inhibit
+        cmd: pkill -SIGRTMIN+8 waybar
+      - key: d
+        desc: Do Not Disturb
+        cmd: makoctl -t do-not-disturb
 
   - key: r
     desc: Capture
