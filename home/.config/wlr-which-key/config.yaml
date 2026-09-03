@@ -276,10 +276,10 @@ menu:
             cmd: powerprofilectl set performance
       - key: i
         desc: Idle Inhibit
-        cmd: pkill -SIGRTMIN+8 waybar
+        cmd: ~/bin/idle-toggle
       - key: d
         desc: Do Not Disturb
-        cmd: makoctl -t do-not-disturb
+        cmd: makoctl mode -t do-not-disturb; pkill -RTMIN+11 waybar
 
   - key: r
     desc: Capture

@@ -197,7 +197,7 @@ tooltip label {
   color: @grey0;
 }
 
-#idle_inhibitor.activated {
+#custom-idle {
   color: @yellow;
 }
 

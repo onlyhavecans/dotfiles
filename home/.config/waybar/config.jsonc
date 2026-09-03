@@ -25,7 +25,7 @@
     "bluetooth",
     "battery",
     "power-profiles-daemon",
-    "idle_inhibitor",
+    "custom/idle",
     "custom/dnd",
     "group/time"
   ],
@@ -155,19 +155,18 @@
     "on-click-right": "systemctl --user restart voxtype"
   },
   "custom/dnd": {
-    "exec": "[[ \"$(makoctl mode)\" =~ 'do-not-disturb' ]] && echo '󰂛' || echo '󰂜'",
+    "exec": "[[ \"$(makoctl mode)\" =~ 'do-not-disturb' ]] && echo '󰂛' || echo ''",
     "interval": "once",
     "on-click": "makoctl mode -t do-not-disturb; pkill -RTMIN+11 waybar",
     "signal": 11,
     "tooltip": false
   },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "󰅶",
-      "deactivated": "󰛊"
-    },
-    "signal": 8
+  "custom/idle": {
+    "exec": "systemctl --user is-active --quiet swayidle && echo '' || echo '󰅶'",
+    "interval": "once",
+    "on-click": "~/bin/idle-toggle",
+    "signal": 8,
+    "tooltip": false
   },
   "systemd-failed-units": {
     "hide-on-ok": true,
@@ -209,6 +208,9 @@
   },
   "group/sound": {
     "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": true
+    },
     "modules": [
       "wireplumber",
       "wireplumber#source"
