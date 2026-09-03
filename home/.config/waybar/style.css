@@ -114,12 +114,13 @@ tooltip label {
   color: @aqua;
 }
 
+/* leave idle to @fg */
+/* alert when paused or dc */
 #custom-tomat.work-paused,
 #custom-tomat.break-paused,
 #custom-tomat.long-break-paused,
-#custom-tomat.idle,
 #custom-tomat.disconnected {
-  color: @grey0;
+  color: @red;
 }
 
 /* right: quiet by default, colored when something needs attention.
