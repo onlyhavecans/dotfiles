@@ -3,7 +3,7 @@
   "margin-right": 5,
   "margin-top": 3,
   "margin-bottom": 0,
-  "height": 30,
+  "height": 28, // only needs 26
   "spacing": 0,
   "modules-left": [
     "group/hardware",
@@ -99,8 +99,7 @@
     "dynamic-separator": " | ",
     "dynamic-order": [
       "title",
-      "artist",
-      "album"
+      "artist"
     ],
     "dynamic-len": 70,
     "player-icons": {
@@ -125,11 +124,11 @@
     "on-click-right": "tomat skip"
   },
   "tray": {
-    "icon-size": 18,
+    "icon-size": 16,
     "spacing": 4
   },
   "privacy": {
-    "icon-size": 18
+    "icon-size": 16
   },
   "custom/recording": {
     "exec": "pgrep -x wf-recorder >/dev/null && echo '󰻃' || echo ''",
@@ -182,7 +181,7 @@
   "network#wifi": {
     "interface": "wl*",
     "family": "ipv4_6",
-    "format": "{icon}{signalStrength}",
+    "format": "{icon}",
     "format-disconnected": "",
     "format-icons": [
       "󰟂",
