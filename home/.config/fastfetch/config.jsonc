@@ -3,7 +3,7 @@
     "logo": {
         // NixOS snowflake in Lix colors (lix.systems ecosystem-nixpkgs.svg)
         "type": "builtin",
-        "source": "nixos",
+        "source": "auto",
         "position": "top",
         "color": {
             "1": "38;2;211;98;164", // top-left: pink
