@@ -44,7 +44,9 @@ accent column — upstream's convention.
 - niri shadows: active `66`, inactive `40`
 - swaylock is deliberately stock (image + font only)
 
-## Palette-independent settings (cannot drift)
+## Currently ANSI-inheriting (retheme for free via the terminal palette)
 
 `BAT_THEME=ansi`, delta `syntax-theme = ansi`, ratune `preset = "terminal"`,
-fzf/btop/fish-prompt inherit terminal ANSI.
+fzf/fish-prompt inherit terminal ANSI. This is an inventory, not a rule —
+any of these can switch to an explicit gruvbox theme if it looks better
+(btop already uses explicit `gruvbox_dark_v2`).
