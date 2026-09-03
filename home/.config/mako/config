@@ -1,0 +1,26 @@
+font=Inter Display 13
+height=1000
+border-size=4
+border-radius=20
+icons=1
+icon-border-radius=10
+default-timeout=10000
+layer=overlay
+
+# Gruvbox Dark medium (see docs/gruvbox.md)
+background-color=#282828ee
+text-color=#ebdbb2ff
+border-color=#fabd2fff
+progress-color=over #8ec07cee
+
+[urgency=low]
+border-color=#665c54ff
+
+[urgency=high]
+background-color=#282828ff
+border-color=#fb4934ff
+progress-color=over #8ec07cff
+default-timeout=60000
+
+[mode=do-not-disturb]
+invisible=1
