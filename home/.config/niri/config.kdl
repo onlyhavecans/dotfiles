@@ -108,7 +108,7 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 cursor {
-  xcursor-theme "oreo_white_cursors"
+  xcursor-theme "oreo_spark_orange_cursors"
   xcursor-size 32
   hide-when-typing
   hide-after-inactive-ms 1000
