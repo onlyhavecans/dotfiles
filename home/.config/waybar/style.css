@@ -70,10 +70,8 @@ tooltip label {
 }
 
 #workspaces button {
-  padding: 0 2px;
-  margin: 2px 0;
-  border-radius: 8px;
-  color: @grey2;
+  padding: 0;
+  color: inherit;
 }
 
 /* niri/workspaces has no hide-empty option; collapse empties (GTK CSS has no display:none).
@@ -91,13 +89,10 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: @bg0;
-  background-color: @yellow;
+  color: @yellow;
 }
-
 #workspaces button.urgent {
-  color: @bg0;
-  background-color: @red;
+  color: @red;
 }
 
 #mpris {

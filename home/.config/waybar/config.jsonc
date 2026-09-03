@@ -40,8 +40,7 @@
       "cpu",
       "memory",
       "disk",
-      "temperature",
-      "custom/gpu-usage"
+      "temperature"
     ]
   },
   "custom/nix": {
@@ -87,15 +86,12 @@
     "critical-threshold": 90,
     "tooltip": false
   },
-  "custom/gpu-usage": {
-    "format": "{icon}{text} ",
-    "exec": "gpu-usage-waybar --text-format '{gpu_utilization}󰘚{mem_utilization}󰔏{temperature}' --interval 10000",
-    "return-type": "json",
-    "format-icons": "󰾲",
-    "on-click": "foot amg_gputop"
-  },
   "niri/workspaces": {
-    "format": "{value}"
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": "󰥲"
+    }
   },
   "mpris": {
     "format": "{player_icon} {dynamic}",
