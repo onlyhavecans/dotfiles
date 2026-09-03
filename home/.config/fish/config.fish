@@ -117,3 +117,5 @@ test -f ~/.homesick/repos/homeshick/homeshick.fish; and source ~/.homesick/repos
 
 # OrbStack (macOS)
 test -f ~/.orbstack/shell/init2.fish; and source ~/.orbstack/shell/init2.fish
+
+test -n "$TMUX"; or fastfetch
