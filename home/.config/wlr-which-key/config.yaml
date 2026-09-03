@@ -1,8 +1,8 @@
 ---
 font: RecMonoDuotone Nerd Font Propo 26
-background: "#fffbefee" # everforest bg0
-color: "#5c6a72ff" # everforest fg
-border: "#8da101ff" # everforest green
+background: "#282828ee" # gruvbox bg0
+color: "#ebdbb2ff" # gruvbox fg
+border: "#fabd2fff" # gruvbox yellow
 border_width: 4
 corner_r: 20
 padding: 25 # Defaults to corner_r

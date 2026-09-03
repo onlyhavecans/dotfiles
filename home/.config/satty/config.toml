@@ -14,12 +14,12 @@ family = "Inter"
 style = "Bold"
 
 [color-palette]
-# Everforest light-hard accents (docs/everforest.md); distinguishable on screenshots
+# Gruvbox bright accents (docs/gruvbox.md); distinguishable on screenshots
 palette = [
-  "#f85552",
-  "#f57d26",
-  "#dfa000",
-  "#8da101",
-  "#3a94c5",
-  "#df69ba",
+  "#fb4934",
+  "#fe8019",
+  "#fabd2f",
+  "#b8bb26",
+  "#83a598",
+  "#d3869b",
 ]

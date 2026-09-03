@@ -7,7 +7,5 @@
 # on Ghostty's website, at https://ghostty.org/docs/config.
 
 font-size = 15
-# Everforest Dark Hard; on ghostty < 1.2.2 the name is "Everforest Dark - Hard"
-theme = Everforest Dark Hard
-# built-in theme uses bg_dim; pin bg0 to match foot/nvim/tmux
-background = #272e33
+# Gruvbox Dark medium (see docs/gruvbox.md); built-in bg is already bg0 #282828
+theme = Gruvbox Dark
