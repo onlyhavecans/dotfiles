@@ -45,7 +45,8 @@
     ]
   },
   "custom/nix": {
-    "format": "󱄅"
+    "format": "󱄅",
+    "tooltip": false
   },
   "cpu": {
     "format": "󰍛{usage:2}",
