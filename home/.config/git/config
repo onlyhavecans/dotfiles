@@ -64,7 +64,8 @@
 [delta]
 	navigate = true
 	line-numbers = true
-	theme = gruvbox-dark
+	dark = true
+	syntax-theme = ansi
 
 # include for work
 [includeIf "gitdir:~/Code/dnsimple/"]

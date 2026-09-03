@@ -14,12 +14,12 @@ family = "Inter"
 style = "Bold"
 
 [color-palette]
-# These will be shown in the toolbar for quick selection
+# Everforest light-hard accents (docs/everforest.md); distinguishable on screenshots
 palette = [
-  "#ff1493",
-  "#00ffff",
-  "#a52a2a",
-  "#dc143c",
-  "#ffd700",
-  "#008000",
+  "#f85552",
+  "#f57d26",
+  "#dfa000",
+  "#8da101",
+  "#3a94c5",
+  "#df69ba",
 ]

@@ -212,7 +212,7 @@ queue_loop = true
 # Progress bar: `[ui.row_now_playing].progress_style` (not under theme.icon).
 
 [theme]
-preset = "static"
+preset = "terminal"   # inherit terminal ANSI (everforest via foot/ghostty)
 # accent = "#ff8c00"
 # accent = "idx:2"              # terminal green (example) for highlights / selection bar
 # background = "#1a1a1a"
@@ -458,7 +458,7 @@ fps = 30
 fft_size = 2048
 gain_db = 0.0
 color_mode = "gradient_height"
-colors = ["#00aaff", "#00ff99", "#ffee55", "#ff3355"]
+colors = ["#7fbbb3", "#a7c080", "#dbbc7f", "#e67e80"]   # everforest dark-hard, cool→hot
 
 # [ui.nptab.now_playing] — NP tab only: overrides [ui.row_now_playing] for strip + boxed pane
 #

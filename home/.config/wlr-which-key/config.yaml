@@ -1,8 +1,8 @@
 ---
 font: RecMonoDuotone Nerd Font Propo 26
-background: "#faf4eddd"
-color: "#575279ff"
-border: "#d7827edd"
+background: "#fffbefee" # everforest bg0
+color: "#5c6a72ff" # everforest fg
+border: "#8da101ff" # everforest green
 border_width: 4
 corner_r: 20
 padding: 25 # Defaults to corner_r

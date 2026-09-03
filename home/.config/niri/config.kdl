@@ -64,9 +64,9 @@ layout {
 
   focus-ring {
     width 3
-    active-color "#d7827e"
-    inactive-color "#cecacd"
-    urgent-color "#b4637a"
+    active-color "#8da101"
+    inactive-color "#bec5b2"
+    urgent-color "#f85552"
   }
 
   border {
@@ -77,8 +77,8 @@ layout {
   shadow {
     on
     offset x=0 y=5
-    color "#d7827e70"
-    inactive-color "#cecacd54"
+    color "#8da10166"
+    inactive-color "#bec5b240"
   }
 
   tab-indicator {
@@ -86,12 +86,12 @@ layout {
       length total-proportion=0.95
       position "top"
       place-within-column
-      active-color "#56949f"
-      inactive-color "#cecacd"
-      urgent-color "#b4637a"
+      active-color "#3a94c5"
+      inactive-color "#bec5b2"
+      urgent-color "#f85552"
   }
 
-  background-color "#faf4ed"
+  background-color "#fffbef"
 }
 
 // Miscellaneous configuration.
@@ -108,14 +108,14 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 cursor {
-  xcursor-theme "BreezeX-RosePine-Linux"
+  xcursor-theme "everforest-cursors"
   xcursor-size 32
   hide-when-typing
   hide-after-inactive-ms 1000
 }
 
 overview {
-    backdrop-color "#faf4ed"
+    backdrop-color "#f2efdf"
 }
 
 clipboard {

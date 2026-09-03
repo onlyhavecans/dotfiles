@@ -1,9 +1,9 @@
 ---
 # Theming
 font: Inter Display 32
-background: "#faf4edf0"
-color: "#575279"
-border: "#907aa9"
+background: "#fffbefee" # everforest bg0
+color: "#5c6a72ff" # everforest fg
+border: "#df69baff" # everforest purple: destructive menu
 separator: " ➜ "
 border_width: 4
 corner_r: 20

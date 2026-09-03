@@ -94,7 +94,7 @@ fi
 export EDITOR VISUAL
 
 if command_exists bat; then
-  export BAT_THEME=gruvbox-dark
+  export BAT_THEME=ansi
   source <(batman --export-env)
 
   alias pretty=prettybat

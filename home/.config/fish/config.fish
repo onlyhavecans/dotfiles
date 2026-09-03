@@ -5,7 +5,7 @@ set -gx LANG en_US.UTF-8
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx EDITOR nvim
 set -gx VISUAL nvim
-set -gx BAT_THEME gruvbox-dark
+set -gx BAT_THEME ansi
 set -gx MOSH_SERVER_SIGNAL_TMOUT 60
 set -gx MOSH_SERVER_NETWORK_TMOUT 2592000
 
