@@ -15,7 +15,7 @@ rows_per_column: 13
 # NOTE: Keep alpha sorted, symbols first
 # NOTE: Double-tap = the group's default action
 # NOTE: Mark non-initial keys like S[l]ack
-# NOTE: Free keys: d k q y z
+# NOTE: Free keys: d h k q y z
 menu:
   - key: " "
     desc: Terminal
@@ -25,7 +25,7 @@ menu:
     cmd: pkill --signal SIGUSR1 waybar
   - key: \
     desc: Quick Pass
-    cmd: 1password --quick-access
+    cmd: rofi-rbw
 
   - key: a
     desc: Audio
@@ -129,7 +129,7 @@ menu:
     submenu:
       - key: n
         desc: Nautilus
-        cmd: nautilus
+        cmd: pcmanfm-qt
       - key: u
         desc: Upload
         cmd: ~/bin/upload-yazi
@@ -143,10 +143,6 @@ menu:
       - key: s
         desc: Steam
         cmd: steam
-
-  - key: h
-    desc: Clip[h]ist
-    cmd: cliphist-fuzzel-img
 
   - key: i
     desc: Timer
@@ -186,7 +182,7 @@ menu:
         desc: Terminal
         cmd: ~/bin/focus-app-fuzzel foot
 
-  - key: "l"
+  - key: l
     desc: Light
     submenu:
       - key: "1"
@@ -215,8 +211,8 @@ menu:
         desc: Next
         cmd: playerctl next
       - key: a
-        desc: Amberol
-        cmd: amberol
+        desc: Strawberry
+        cmd: strawberry
       - key: f
         desc: Feishin
         cmd: feishin
@@ -361,16 +357,13 @@ menu:
     submenu:
       - key: \
         desc: Passwords
-        cmd: 1password
+        cmd: bitwarden
       - key: b
         desc: Btop
         cmd: foot --app-id=btop btop
       - key: c
         desc: Calculator
-        cmd: gnome-calculator
-      - key: d
-        desc: Disks
-        cmd: gnome-disks
+        cmd: qalculate-qt
       - key: e
         desc: Emoji
         cmd: bemoji --type
@@ -381,8 +374,8 @@ menu:
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: h
-        desc: Wipe Clip[h]ist
-        cmd: cliphist wipe
+        desc: Clip[h]ist
+        cmd: cliphist-fuzzel-img
       - key: i
         desc: Image Editor
         cmd: photopea-chromium
@@ -392,6 +385,9 @@ menu:
       - key: u
         desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
+      - key: w
+        desc: Wipe Cliphist
+        cmd: cliphist wipe
 
   - key: v
     desc: Video
