@@ -8,11 +8,11 @@
 #   cp examples/config.toml ~/.config/tomat/config.toml
 
 [timer]
-work = 25.0                # Work session duration in minutes (default: 25.0)
-break = 5.0                # Break duration in minutes (default: 5.0)
-long_break = 15.0          # Long break duration in minutes (default: 15.0)
-sessions = 4               # Number of work sessions before long break (default: 4)
-auto_advance = "to-break"  # Auto-advance mode (default: "none")
+work = 25.0           # Work session duration in minutes (default: 25.0)
+break = 5.0           # Break duration in minutes (default: 5.0)
+long_break = 15.0     # Long break duration in minutes (default: 15.0)
+sessions = 4          # Number of work sessions before long break (default: 4)
+auto_advance = "all"  # Auto-advance mode (default: "none")
 # Options: "none", "all", "to-break", "to-work"
 # - "none": Pause after every transition (full manual control)
 # - "all": Auto-advance through all phases
