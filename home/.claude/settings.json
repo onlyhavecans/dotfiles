@@ -14,10 +14,11 @@
   "hooks": {
     "Notification": [
       {
+        "matcher": "permission_prompt|idle_prompt|elicitation_dialog|elicitation_url_dialog|worker_permission_prompt|agent_needs_input",
         "hooks": [
           {
             "type": "command",
-            "command": "notify-send 'Claude Code' 'Awaiting your input'"
+            "command": "~/.claude/hooks/notify.sh"
           }
         ]
       }
@@ -27,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "notify-send 'Claude Code' 'Task completed'"
+            "command": "~/.claude/hooks/notify.sh"
           }
         ]
       }
