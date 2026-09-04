@@ -30,12 +30,12 @@ menu:
   - key: a
     desc: Audio
     submenu:
+      - key: a
+        desc: Audacity
+        cmd: audacity
       - key: b
         desc: Bitwig Studio
         cmd: bitwig-studio
-      - key: c
-        desc: Coppwr
-        cmd: coppwr
       - key: e
         desc: EasyEffects
         cmd: easyeffects
@@ -75,9 +75,6 @@ menu:
           - key: m
             desc: Mute
             cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-      - key: y
-        desc: Audacit[y]
-        cmd: audacity
 
   - key: b
     desc: Firefox
@@ -85,15 +82,15 @@ menu:
   - key: B
     desc: Browser
     submenu:
+      - key: b
+        desc: Brave Origin
+        cmd: brave-origin
       - key: c
         desc: Copy URL
         cmd: ~/bin/url-from-window
       - key: m
         desc: MD URL
         cmd: ~/bin/url-from-window md
-      - key: o
-        desc: Brave Origin
-        cmd: brave-origin
       - key: p
         desc: Private
         cmd: firefox --private-window
@@ -127,8 +124,8 @@ menu:
   - key: F
     desc: Files
     submenu:
-      - key: p
-        desc: PcMan
+      - key: f
+        desc: Files GUI
         cmd: pcmanfm-qt
       - key: u
         desc: Upload
@@ -210,9 +207,6 @@ menu:
       - key: "."
         desc: Next
         cmd: playerctl next
-      - key: a
-        desc: Strawberry
-        cmd: strawberry
       - key: f
         desc: Feishin
         cmd: feishin
@@ -222,6 +216,9 @@ menu:
       - key: p
         desc: Picard
         cmd: picard
+      - key: s
+        desc: Strawberry
+        cmd: strawberry
 
   - key: n
     desc: Notes
@@ -324,7 +321,7 @@ menu:
         desc: Firebot
         cmd: firebot
       - key: o
-        desc: OBS
+        desc: OBS Studio
         cmd: obs
       - key: s
         desc: Start Streaming
@@ -408,6 +405,9 @@ menu:
   - key: w
     desc: Work
     submenu:
+      - key: "1"
+        desc: 1Password
+        cmd: 1password
       - key: b
         desc: Browser
         cmd: brave
