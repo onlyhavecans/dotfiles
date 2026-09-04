@@ -8,7 +8,5 @@ use = "yazi-rs/plugins:mount"
 rev = "4dc7f1b"
 hash = "b95f898e6dc60b52edbc415952e14395"
 
-[[flavor.deps]]
-use = "bennyyip/gruvbox-dark"
-rev = "619fdc5"
-hash = "d4c7003ec6dc4efd5d3a050d5c2f2575"
+[flavor]
+deps = []
