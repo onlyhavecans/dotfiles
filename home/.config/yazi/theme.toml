@@ -1,0 +1,37 @@
+# Overlay on yazi's built-in dark preset (ANSI colours from the terminal's
+# gruvbox palette, see docs/gruvbox.md). Only the accent is changed: blue -> yellow.
+
+[tabs]
+active   = { fg = "black", bg = "yellow", bold = true }
+inactive = { fg = "black", bg = "gray" }
+
+[mode]
+normal_main = { fg = "black", bg = "yellow", bold = true }
+normal_alt  = { fg = "black", bg = "gray" }
+
+[which]
+border = { fg = "yellow" }
+
+[confirm]
+border = { fg = "yellow" }
+title  = { fg = "yellow" }
+
+[spot]
+border  = { fg = "yellow" }
+title   = { fg = "yellow" }
+tbl_col = { fg = "yellow" }
+
+[pick]
+border = { fg = "yellow" }
+
+[input]
+border = { fg = "yellow" }
+
+[cmp]
+border = { fg = "yellow" }
+
+[tasks]
+border = { fg = "yellow" }
+
+[help]
+border = { fg = "yellow" }
