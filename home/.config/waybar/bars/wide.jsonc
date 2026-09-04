@@ -1,0 +1,14 @@
+{
+  "margin-left": 5,
+  "margin-right": 5,
+  "margin-top": 3,
+  "margin-bottom": 0,
+  "height": 28,
+  "spacing": 4,
+  "modules-left": ["group/nix", "niri/workspaces", "mpris"],
+  "modules-center": ["group/hw-a", "custom/tomat", "group/hw-b"],
+  "modules-right": ["group/alerts", "group/levels", "group/links", "group/time"],
+  "niri/workspaces": {
+    "workspace-taskbar": { "enable": true, "icon-size": 14 }
+  }
+}

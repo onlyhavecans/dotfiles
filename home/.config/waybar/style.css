@@ -1,7 +1,7 @@
 @import "./gruvbox-dark-medium.css";
 
-/* Each section is one rounded capsule; modules inside get uniform padding.
-   Accent color goes on the module class, not on per-module borders. */
+/* Every top-level item in a section is a neutral pill; groups' children are plain.
+   Colour is reserved for state. The only filled pill is the Pomodoro timer. */
 
 * {
   font-family: "RecMonoDuotone Nerd Font Propo", monospace;
@@ -14,28 +14,22 @@ window#waybar {
   background: transparent;
 }
 
-.modules-left,
-.modules-center,
-.modules-right {
-  background-color: alpha(@bg0, 0.93);
-  border: 2px solid @yellow;
-  border-radius: 20px;
-  /* breathing room so first/last modules don't crowd the capsule curve */
-  padding: 0 4px;
-}
-
 .modules-left > widget > *,
 .modules-center > widget > *,
 .modules-right > widget > * {
-  padding: 0 6px;
-  background: transparent;
+  background-color: alpha(@bg1, 0.93);
+  border: 1px solid @bg3;
+  border-radius: 999px;
+  padding: 0 8px;
 }
 
-/* hairline between modules; GTK skips hidden widgets for :first-child */
-.modules-left > widget:not(:first-child) > *,
-.modules-center > widget:not(:first-child) > *,
-.modules-right > widget:not(:first-child) > * {
-  border-left: 1px solid @bg4;
+.modules-left > widget > box > widget > *,
+.modules-center > widget > box > widget > *,
+.modules-right > widget > box > widget > * {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0 4px;
 }
 
 /* GTK sets the tooltip's opaque region from the decoration node's radius
@@ -47,7 +41,7 @@ tooltip decoration {
 
 tooltip {
   background-color: @bg0;
-  border: 2px solid @yellow;
+  border: 2px solid @bg4;
 }
 
 tooltip * {
@@ -60,18 +54,24 @@ tooltip label {
   padding: 4px 8px;
 }
 
-/* left */
-#hardware .drawer-child > * {
+/* ---- left ---- */
+
+#nix .drawer-child > * {
   padding-left: 6px;
 }
 
+/* each workspace is its own outlined bubble so window icons group visibly */
 #workspaces {
   padding: 0 3px;
 }
 
 #workspaces button {
-  padding: 0;
+  padding: 0 4px;
+  margin: 2px 2px;
+  min-height: 0;
   color: inherit;
+  border: 1px solid @bg4;
+  border-radius: 999px;
 }
 
 /* niri/workspaces has no hide-empty option; collapse empties (GTK CSS has no display:none).
@@ -90,41 +90,75 @@ tooltip label {
 
 #workspaces button.active {
   color: @yellow;
+  border-color: @yellow;
 }
+
 #workspaces button.urgent {
   color: @red;
+  border-color: @red;
+}
+
+/* focused window: full-strength icon on a round backdrop; the rest recede */
+#workspaces button .niri-taskbar-btn {
+  padding: 0 2px;
+  margin: 0;
+  min-height: 0;
+  border-radius: 999px;
+  opacity: 0.6;
+}
+
+/* text fallback for apps without an icon */
+#workspaces button .niri-taskbar-btn label {
+  font-size: 12px;
+}
+
+#workspaces button .niri-taskbar-btn.focused {
+  background-color: @bg3;
+  opacity: 1;
 }
 
 #mpris {
-  padding: 0 10px;
   font-size: 14px;
-  color: @grey2;
 }
 
+#mpris.paused,
+#mpris.stopped {
+  color: @grey1;
+}
+
+/* ---- center ---- */
+
 #custom-tomat {
-  padding: 0 10px;
+  padding: 0 12px;
+  border-color: @yellow;
 }
 
 #custom-tomat.work {
-  color: @yellow;
+  background-color: @yellow;
+  border-color: @yellow;
+  color: @bg0;
+  box-shadow: 0 0 8px alpha(@yellow, 0.45);
 }
 
 #custom-tomat.break,
 #custom-tomat.long-break {
-  color: @aqua;
+  background-color: @aqua;
+  border-color: @aqua;
+  color: @bg0;
+  box-shadow: 0 0 8px alpha(@aqua, 0.45);
 }
 
-/* leave idle to @fg */
-/* alert when paused or dc */
 #custom-tomat.work-paused,
 #custom-tomat.break-paused,
 #custom-tomat.long-break-paused,
 #custom-tomat.disconnected {
-  color: @red;
+  background-color: @red;
+  border-color: @red;
+  color: @bg0;
+  box-shadow: 0 0 8px alpha(@red, 0.45);
 }
 
-/* right: quiet by default, colored when something needs attention.
-   yellow is the accent, so warnings are orange */
+/* yellow is the accent, so warnings are orange */
 #cpu.warning,
 #memory.warning,
 #disk.warning,
@@ -139,21 +173,44 @@ tooltip label {
   color: @red;
 }
 
-#custom-recording {
+/* ---- right: alerts are chips, not a pill ---- */
+
+#alerts {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+#alerts > widget > * {
+  background-color: alpha(@bg1, 0.93);
+  border: 1px solid @red;
+  border-radius: 999px;
+  padding: 0 7px;
+  margin-left: 4px;
   color: @red;
 }
 
-#custom-voxtype {
-  color: @grey0;
+#alerts > widget > #privacy {
+  padding: 0 6px;
+}
+
+#alerts > widget > #custom-idle {
+  border-color: @yellow;
+  color: @yellow;
+}
+
+#alerts > widget > #custom-dnd {
+  border-color: @grey1;
+  color: @fg;
 }
 
 #custom-voxtype.recording,
 #custom-voxtype.streaming {
-  color: @red;
   animation: voxtype-pulse 1s ease-in-out infinite alternate;
 }
 
-#custom-voxtype.transcribing {
+#alerts > widget > #custom-voxtype.transcribing {
+  border-color: @orange;
   color: @orange;
 }
 
@@ -163,12 +220,34 @@ tooltip label {
   }
 }
 
-#systemd-failed-units {
+/* ---- right: levels ---- */
+
+#wireplumber.muted,
+#wireplumber.source.muted {
+  color: @grey0;
+}
+
+#battery.warning:not(.charging) {
+  color: @orange;
+}
+
+#battery.critical:not(.charging) {
   color: @red;
 }
 
-#network.vpn {
+/* ---- right: links ---- */
+
+#network.linked,
+#network.disconnected {
+  color: @grey0;
+}
+
+#network.wg {
   color: @aqua;
+}
+
+#custom-netbird.degraded {
+  color: @orange;
 }
 
 #bluetooth.connected {
@@ -186,33 +265,4 @@ tooltip label {
 
 #power-profiles-daemon.power-saver {
   color: @aqua;
-}
-
-#wireplumber.source {
-  /* break up the group */
-  padding-left: 4px;
-}
-#wireplumber.muted,
-#wireplumber.source.muted {
-  color: @grey0;
-}
-
-#custom-idle {
-  color: @yellow;
-}
-
-#battery.warning:not(.charging) {
-  color: @orange;
-}
-
-#battery.critical:not(.charging) {
-  color: @red;
-}
-
-#privacy {
-  color: @red;
-}
-
-#custom-time {
-  color: @fg;
 }

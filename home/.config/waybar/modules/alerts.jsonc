@@ -1,0 +1,58 @@
+{
+  // Transient indicators. Group box is transparent; each child is its own chip.
+  "group/alerts": {
+    "orientation": "inherit",
+    "modules": [
+      "systemd-failed-units",
+      "privacy",
+      "custom/recording",
+      "custom/voxtype",
+      "custom/idle",
+      "custom/dnd"
+    ]
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": true,
+    "format": "󰒓{nr_failed}",
+    "system": true,
+    "user": true,
+    "tooltip-format": "System: {nr_failed_system}\nUser: {nr_failed_user}",
+    "tooltip-unit-format": "{scope}: {name} ({active_state})"
+  },
+  "privacy": {
+    "icon-size": 16
+  },
+  "custom/recording": {
+    "exec": "pgrep -x wf-recorder >/dev/null && echo '󰻃' || echo ''",
+    "on-click": "pkill -INT --older 5 -x wf-recorder",
+    "restart-interval": 3
+  },
+  "custom/voxtype": {
+    "exec": "voxtype status --follow --format json --extended",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "idle": "",
+      "recording": "󰗋",
+      "transcribing": "󰔟",
+      "stopped": "󰻔"
+    },
+    "tooltip": true,
+    "on-click": "voxtype toggle",
+    "on-click-right": "systemctl --user restart voxtype"
+  },
+  "custom/idle": {
+    "exec": "systemctl --user is-active --quiet swayidle && echo '' || echo '󰅶'",
+    "interval": "once",
+    "on-click": "~/bin/idle-toggle",
+    "signal": 8,
+    "tooltip": false
+  },
+  "custom/dnd": {
+    "exec": "[[ \"$(makoctl mode)\" =~ 'do-not-disturb' ]] && echo '󰂛' || echo ''",
+    "interval": "once",
+    "on-click": "makoctl mode -t do-not-disturb; pkill -RTMIN+11 waybar",
+    "signal": 11,
+    "tooltip": false
+  }
+}

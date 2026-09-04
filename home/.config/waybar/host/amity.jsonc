@@ -1,0 +1,7 @@
+{
+  // LED name from `brightnessctl -l` (class 'leds', *kbd_backlight)
+  "group/levels": {
+    "modules": ["wireplumber", "wireplumber#source", "backlight", "backlight#kbd", "battery"]
+  },
+  "backlight#kbd": { "device": "asus::kbd_backlight" }
+}

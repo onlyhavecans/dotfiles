@@ -1,0 +1,34 @@
+{
+  "group/hw-a": { "orientation": "inherit", "modules": ["cpu", "memory"] },
+  "group/hw-b": { "orientation": "inherit", "modules": ["temperature", "disk"] },
+  "cpu": {
+    "format": "󰍛{usage:2}",
+    "interval": 5,
+    "states": { "warning": 80, "critical": 95 }
+  },
+  "memory": {
+    "format": "󰘚{percentage:2}",
+    "interval": 10,
+    "states": { "warning": 80, "critical": 95 },
+    "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+  },
+  "temperature": {
+    "hwmon-path-abs": [
+      "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+      "/sys/devices/platform/coretemp.0/hwmon"
+    ],
+    "input-filename": "temp1_input",
+    "format": "󰔏{temperatureC:2}",
+    "interval": 5,
+    "warning-threshold": 80,
+    "critical-threshold": 90,
+    "tooltip": false
+  },
+  "disk": {
+    "format": "󰋊{percentage_used:2}",
+    "paths": ["/"],
+    "interval": 60,
+    "states": { "warning": 85, "critical": 95 },
+    "tooltip-format": "{used} / {total} ({percentage_used}%)"
+  }
+}

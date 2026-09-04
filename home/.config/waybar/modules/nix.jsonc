@@ -1,0 +1,15 @@
+{
+  "group/nix": {
+    "orientation": "inherit",
+    "drawer": { "click-to-reveal": true },
+    "modules": ["custom/nix", "tray"]
+  },
+  "custom/nix": {
+    "format": "󱄅",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 4
+  }
+}

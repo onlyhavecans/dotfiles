@@ -1,0 +1,57 @@
+{
+  // No digits: static glyph + one-char meter; numbers live in tooltips.
+  // backlight modules fall back to random LEDs on desktops, so hosts with a
+  // panel add them via host/<host>.jsonc (group/levels.modules is first-wins).
+  "group/levels": {
+    "orientation": "inherit",
+    "modules": ["wireplumber", "wireplumber#source", "battery"]
+  },
+  "wireplumber": {
+    "format": "󰕾{icon}",
+    "format-muted": "󰝟",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "tooltip-format": "{volume}% {node_name}",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5
+  },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "󰍬{icon}",
+    "format-muted": "󰍭",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "tooltip-format": "{volume}% {node_name}",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ -l 1.0",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "scroll-step": 5
+  },
+  "backlight": {
+    "format": "󰃠{icon}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "tooltip-format": "{percent}% screen",
+    "scroll-step": 5
+  },
+  "backlight#kbd": {
+    "format": "󰌌{icon}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "tooltip-format": "{percent}% keyboard",
+    "scroll-step": 34
+  },
+  "battery": {
+    "states": { "warning": 20, "critical": 5 },
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full!'"
+    },
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-plugged": "󰚥",
+    "tooltip-format": "{capacity}% {timeTo}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  }
+}

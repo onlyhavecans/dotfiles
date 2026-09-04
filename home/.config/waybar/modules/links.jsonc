@@ -1,0 +1,52 @@
+{
+  "group/links": {
+    "orientation": "inherit",
+    "modules": ["network", "network#wg", "custom/netbird", "bluetooth", "power-profiles-daemon"]
+  },
+  "network": {
+    "family": "ipv4_6",
+    "format-ethernet": "󰈀",
+    "format-wifi": "{icon}",
+    "format-linked": "󰈂",
+    "format-disconnected": "󰲛",
+    "format-icons": ["󰟂", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}\n⬆ {bandwidthUpBytes}  ⬇ {bandwidthDownBytes}",
+    "tooltip-format-wifi": "{essid}\n{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}% Frequency: {frequency}\n⬆ {bandwidthUpBytes}  ⬇ {bandwidthDownBytes}",
+    "tooltip-format-linked": "{ifname}: no address",
+    "tooltip-format-disconnected": "disconnected"
+  },
+  "network#wg": {
+    "interface": "wg*",
+    "family": "ipv4_6",
+    "format": "󰒃",
+    "format-disconnected": "",
+    "tooltip-format": "WireGuard {ifname}: {ipaddr}/{cidr}"
+  },
+  "custom/netbird": {
+    "exec": "~/bin/netbird-status",
+    "return-type": "json",
+    "interval": 30,
+    "format": "{}",
+    "on-click": "netbird-ui"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "",
+    "format-off": "",
+    "format-connected": "󰂱{num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰁹",
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆"
+    }
+  }
+}

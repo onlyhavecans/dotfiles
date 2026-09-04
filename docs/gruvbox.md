@@ -38,7 +38,17 @@ accent column: upstream's convention.
 
 ## Alpha convention
 
-- Surfaces (mako/fuzzel/wlr-which-key backgrounds, waybar capsules): `ee` — waybar CSS: `alpha(@bg0, 0.93)`
+- Surfaces (mako/fuzzel/wlr-which-key backgrounds, waybar capsules): `ee` — waybar CSS: `alpha(@bg1, 0.93)`
 - Text and borders: opaque `ff`
 - niri shadows: active `66`, inactive `40`
 - swaylock is deliberately stock (image + font only)
+
+## Waybar
+
+- Every top-level item is a neutral pill (`bg1` fill, `bg3` border). Groups' children are unstyled.
+- The Pomodoro pill is the only *filled* one: yellow (work), aqua (break), red (paused/disconnected);
+  it alone glows. Idle keeps a yellow border.
+- Transient alerts are individual chips with a red border; idle-inhibit is yellow, DND is `bg4`/grey1.
+- Levels show a glyph plus a one-char meter (`▁▂▃▄▅▆▇█`), never a number; state colours only
+  (muted grey0, battery orange/red).
+- Links: WireGuard aqua, NetBird blue (orange when degraded), bluetooth blue.

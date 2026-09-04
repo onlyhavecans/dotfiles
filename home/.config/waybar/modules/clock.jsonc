@@ -1,0 +1,46 @@
+{
+  "group/time": {
+    "orientation": "inherit",
+    "modules": ["clock#date", "clock"]
+  },
+  "clock": {
+    "format": "󰥔{:%H:%M}",
+    "tooltip-format": "{tz_list}",
+    "timezone-tooltip-format": "{:%Z: %H:%M %m-%d}",
+    "timezones": [
+      "America/Los_Angeles",
+      "America/Denver",
+      "America/Chicago",
+      "America/New_York",
+      "America/Argentina/Buenos_Aires",
+      "UTC",
+      "Europe/Paris"
+    ],
+    "actions": {
+      "on-click": "tz_up",
+      "on-click-right": "tz_down"
+    }
+  },
+  "clock#date": {
+    "format": "{:%a %d}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<b>{}</b>",
+        "days": "{}",
+        "weeks": "<i>w{}</i>",
+        "weekdays": "{}",
+        "today": "<span color='#fb4934'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click": "shift_up",
+      "on-click-right": "shift_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  }
+}
