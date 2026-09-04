@@ -1,9 +1,12 @@
 {
   "niri/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "active": "󰥲"
+    "hide-empty": true,
+    "workspace-taskbar": {
+      "enable": true,
+      "icon-size": 14
+    },
+    "window-rewrite": {
+      "app-id<tintin>": "󰭹"
     }
   }
 }

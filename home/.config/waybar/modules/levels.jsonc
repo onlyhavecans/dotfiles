@@ -35,12 +35,6 @@
     "tooltip-format": "{percent}% screen",
     "scroll-step": 5
   },
-  "backlight#kbd": {
-    "format": "󰌌{icon}",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "tooltip-format": "{percent}% keyboard",
-    "scroll-step": 34
-  },
   "battery": {
     "states": { "warning": 20, "critical": 5 },
     "events": {
