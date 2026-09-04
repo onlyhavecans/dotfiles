@@ -1,5 +1,5 @@
-// Two bars keyed on output; everything else lives in bars/, modules/, host/.
-// Include precedence: this object > host.jsonc > bars/<bar>.jsonc > modules/*.jsonc
+// One layout, two bars keyed on output; the laptop panel only collapses mpris.
+// Precedence: bar object > host.jsonc > bar.jsonc > modules/*.jsonc (objects deep-merge, first wins).
 // Output ids are "<make> - <model> - <connector>"; see `waybar -l debug`.
 [
   {
@@ -7,7 +7,7 @@
     "output": ["!eDP-1", "!BOE - Display - HDMI-A-1", "*"],
     "include": [
       "~/.config/waybar/host.jsonc",
-      "~/.config/waybar/bars/wide.jsonc",
+      "~/.config/waybar/bar.jsonc",
       "~/.config/waybar/modules/*.jsonc"
     ]
   },
@@ -16,8 +16,12 @@
     "output": "eDP-1",
     "include": [
       "~/.config/waybar/host.jsonc",
-      "~/.config/waybar/bars/compact.jsonc",
+      "~/.config/waybar/bar.jsonc",
       "~/.config/waybar/modules/*.jsonc"
-    ]
+    ],
+    "mpris": {
+      "dynamic-order": ["title"],
+      "title-len": 20
+    }
   }
 ]
