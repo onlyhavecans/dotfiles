@@ -6,7 +6,7 @@ border: "#fabd2fff" # gruvbox yellow
 border_width: 2
 corner_r: 20
 padding: 25 # Defaults to corner_r
-rows_per_column: 13
+rows_per_column: 11
 
 # NOTE: Top level = one-tap dailies, app groups, or "what I am doing" groups
 # NOTE: Keep launchers shallow: depth <= 2
@@ -40,57 +40,30 @@ menu:
         desc: EasyEffects
         cmd: easyeffects
       - key: m
-        desc: Mic
-        submenu:
-          - key: "0"
-            desc: 100%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
-          - key: "3"
-            desc: 30%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
-          - key: m
-            desc: Mute
-            cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        desc: MilkyTracker
+        cmd: milkytracker
       - key: p
         desc: pwvuControl
         cmd: pwvucontrol
       - key: q
         desc: qpwGraph
         cmd: qpwgraph
-      - key: t
-        desc: Milky[T]racker
-        cmd: milkytracker
-      - key: v
-        desc: Volume
-        submenu:
-          - key: "0"
-            desc: 100%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
-          - key: "3"
-            desc: 30%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
-          - key: "6"
-            desc: 60%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
-          - key: m
-            desc: Mute
-            cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
   - key: b
-    desc: Firefox
-    cmd: firefox
-  - key: B
     desc: Browser
     submenu:
       - key: b
-        desc: Brave Origin
-        cmd: brave-origin
+        desc: Firefox
+        cmd: firefox
       - key: c
         desc: Copy URL
         cmd: ~/bin/url-from-window
       - key: m
         desc: MD URL
         cmd: ~/bin/url-from-window md
+      - key: o
+        desc: Brave Origin
+        cmd: brave-origin
       - key: p
         desc: Private
         cmd: firefox --private-window
@@ -116,19 +89,28 @@ menu:
 
   - key: e
     desc: Email
-    cmd: thunderbird
+    submenu:
+      - key: e
+        desc: Email
+        cmd: thunderbird
+      - key: d
+        desc: EmailMe Dictate
+        cmd: ~/bin/em-dictate
+      - key: t
+        desc: EmailMe Type
+        cmd: ~/bin/em-fuzzel
 
   - key: f
     desc: Files
-    cmd: foot --app-id=yazi --working-directory=$HOME/Downloads yazi
-  - key: F
-    desc: Files
     submenu:
       - key: f
+        desc: Files TUI
+        cmd: foot --app-id=yazi --working-directory=$HOME/Downloads yazi
+      - key: g
         desc: Files GUI
         cmd: pcmanfm-qt
       - key: u
-        desc: Upload
+        desc: Upload Pick
         cmd: ~/bin/upload-yazi
 
   - key: g
@@ -142,20 +124,89 @@ menu:
         cmd: steam
 
   - key: i
-    desc: Timer
+    desc: Change...
     submenu:
-      - key: s
-        desc: Start
-        cmd: tomat start
-      - key: t
-        desc: Toggle
-        cmd: tomat toggle
-      - key: k
-        desc: Skip
-        cmd: tomat skip
-      - key: e
-        desc: End
-        cmd: tomat stop
+      - key: b
+        desc: Backlight
+        submenu:
+          - key: "1"
+            desc: 10%
+            cmd: brightnessctl --class=backlight set 10%
+          - key: "3"
+            desc: 30%
+            cmd: brightnessctl --class=backlight set 30%
+          - key: "5"
+            desc: 50%
+            cmd: brightnessctl --class=backlight set 50%
+          - key: "7"
+            desc: 70%
+            cmd: brightnessctl --class=backlight set 70%
+      - key: c
+        desc: Cast Target
+        submenu:
+          - key: c
+            desc: Clear
+            cmd: niri msg action clear-dynamic-cast-target
+          - key: m
+            desc: Monitor
+            cmd: niri msg action set-dynamic-cast-monitor
+          - key: w
+            desc: Window
+            cmd: niri msg action set-dynamic-cast-window
+      - key: i
+        desc: Input Vol
+        submenu:
+          - key: "1"
+            desc: 100%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
+          - key: "3"
+            desc: 30%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
+          - key: m
+            desc: Mute
+            cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      - key: o
+        desc: Output Vol
+        submenu:
+          - key: "1"
+            desc: 100%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
+          - key: "3"
+            desc: 30%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
+          - key: "6"
+            desc: 60%
+            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
+          - key: m
+            desc: Mute
+            cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      - key: p
+        desc: Power Profile
+        submenu:
+          - key: s
+            desc: Saver
+            cmd: powerprofilectl set power-saver
+          - key: b
+            desc: Balanced
+            cmd: powerprofilectl set balanced
+          - key: p
+            desc: Performance
+            cmd: powerprofilectl set performance
+      - key: w
+        desc: Wallpaper
+        submenu:
+          - key: m
+            desc: Get Mood
+            cmd: notify-send "Wall" "$(wall which)"
+          - key: n
+            desc: Next
+            cmd: wall next
+          - key: r
+            desc: Random
+            cmd: wall random
+          - key: s
+            desc: Set Mood
+            cmd: wall menu
 
   - key: j
     desc: Jump
@@ -179,22 +230,6 @@ menu:
         desc: Terminal
         cmd: ~/bin/focus-app-fuzzel foot
 
-  - key: l
-    desc: Light
-    submenu:
-      - key: "1"
-        desc: 10%
-        cmd: brightnessctl --class=backlight set 10%
-      - key: "3"
-        desc: 30%
-        cmd: brightnessctl --class=backlight set 30%
-      - key: "5"
-        desc: 50%
-        cmd: brightnessctl --class=backlight set 50%
-      - key: "7"
-        desc: 70%
-        cmd: brightnessctl --class=backlight set 70%
-
   - key: m
     desc: Music
     submenu:
@@ -213,25 +248,13 @@ menu:
       - key: m
         desc: Ratune
         cmd: foot --app-id ratune ratune
-      - key: p
-        desc: Picard
-        cmd: picard
+        # TODO: https://nixpk.gs/pr-tracker.html?pr=559495
+      # - key: p
+      #   desc: Picard
+      #   cmd: picard
       - key: s
         desc: Strawberry
         cmd: strawberry
-
-  - key: n
-    desc: Notes
-    submenu:
-      - key: d
-        desc: Dictate Note
-        cmd: ~/bin/em-dictate
-      - key: n
-        desc: Type Note
-        cmd: ~/bin/em-fuzzel
-      - key: o
-        desc: Obsidian
-        cmd: xdg-open "obsidian://open?vault=Vault"
 
   - key: o
     desc: Obsidian
@@ -255,18 +278,6 @@ menu:
       - key: s
         desc: "\U000F0904 Suspend"
         cmd: systemctl suspend
-      - key: P
-        desc: Power Profiles
-        submenu:
-          - key: s
-            desc: Saver
-            cmd: powerprofilectl set power-saver
-          - key: b
-            desc: Balanced
-            cmd: powerprofilectl set balanced
-          - key: p
-            desc: Performance
-            cmd: powerprofilectl set performance
       - key: i
         desc: Idle Inhibit
         cmd: ~/bin/idle-toggle
@@ -305,18 +316,6 @@ menu:
       - key: c
         desc: StreamController
         cmd: streamcontroller
-      - key: d
-        desc: Cast
-        submenu:
-          - key: c
-            desc: Clear
-            cmd: niri msg action clear-dynamic-cast-target
-          - key: m
-            desc: Monitor
-            cmd: niri msg action set-dynamic-cast-monitor
-          - key: w
-            desc: Window
-            cmd: niri msg action set-dynamic-cast-window
       - key: f
         desc: Firebot
         cmd: firebot
@@ -334,20 +333,20 @@ menu:
         cmd: steam steam://rungameid/1325860
 
   - key: t
-    desc: Wall [T]heme
+    desc: Timer
     submenu:
-      - key: m
-        desc: Get Mood
-        cmd: notify-send "Wall" "$(wall which)"
-      - key: n
-        desc: Next
-        cmd: wall next
-      - key: r
-        desc: Random
-        cmd: wall random
       - key: s
-        desc: Set Mood
-        cmd: wall menu
+        desc: Start
+        cmd: tomat start
+      - key: t
+        desc: Toggle
+        cmd: tomat toggle
+      - key: k
+        desc: Skip
+        cmd: tomat skip
+      - key: e
+        desc: End
+        cmd: tomat stop
 
   - key: u
     desc: Utilities
