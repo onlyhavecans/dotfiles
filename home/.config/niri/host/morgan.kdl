@@ -32,17 +32,11 @@ window-rule {
   // left
   match app-id="feishin"
   match app-id="ratune"
-  match app-id="focustimer"
-  match app-id=r#"io\.bassi\.Amberol"#
+  match app-id="strawberry"
   open-on-output "BOE Display 0x00000144"
 }
 
 window-rule {
   match app-id=r#"md\.Obsidian"#
   default-column-width { proportion 0.33333; }
-}
-
-window-rule {
-  match app-id="focustimer" title="Timer"
-  default-floating-position x=50 y=30 relative-to="top-right"
 }

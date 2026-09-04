@@ -175,7 +175,6 @@ window-rule {
   match app-id="file-picker" // Custom Yazi Picker
   match app-id="firefox" title="^Extension"
   match app-id="firefox" title="^Picture-in-Picture$"
-  match app-id="focustimer"
   match app-id="mpv"
   match app-id="pcmanfm-qt" title="Mount"
   match app-id="satty"
