@@ -97,7 +97,6 @@ layout {
 // Miscellaneous configuration.
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
-spawn-at-startup "1password" "--silent"
 spawn-at-startup "cliphist" "wipe"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // bar, notifications, and idle run as systemd user units from the NixOS repo

@@ -1,0 +1,4 @@
+selector = fuzzel
+clipboarder = wl-copy
+typer = wtype
+clear-after = 30

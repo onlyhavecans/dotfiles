@@ -66,7 +66,7 @@
 [server]
 url = "https://music.squirrels.services"
 username = "squirrel"
-password_command = 'op read "op://Personal/Navidrome Edelgard/password"'
+password_command = "rbw get Navidrome"
 alias = "Navidrome"
 # password_keyring = "keyutils"       # Linux only: "keyutils" (default) or "secret-service"
 # password_command = "secret-tool lookup service subsonic user you"
@@ -212,7 +212,7 @@ queue_loop = true
 # Progress bar: `[ui.row_now_playing].progress_style` (not under theme.icon).
 
 [theme]
-preset = "terminal"   # inherit terminal ANSI (gruvbox via foot/ghostty)
+preset = "terminal"  # inherit terminal ANSI (gruvbox via foot/ghostty)
 # accent = "#ff8c00"
 # accent = "idx:2"              # terminal green (example) for highlights / selection bar
 # background = "#1a1a1a"
@@ -458,7 +458,7 @@ fps = 30
 fft_size = 2048
 gain_db = 0.0
 color_mode = "gradient_height"
-colors = ["#83a598", "#b8bb26", "#fabd2f", "#fb4934"]   # gruvbox brights, cool→hot
+colors = ["#83a598", "#b8bb26", "#fabd2f", "#fb4934"]  # gruvbox brights, cool→hot
 
 # [ui.nptab.now_playing] — NP tab only: overrides [ui.row_now_playing] for strip + boxed pane
 #
