@@ -1,14 +1,4 @@
 {
-  "group/media": {
-    "orientation": "inherit",
-    "modules": ["image#art", "mpris"]
-  },
-  "image#art": {
-    "exec": "~/bin/album-art",
-    "size": 18,
-    "interval": 5,
-    "tooltip": false
-  },
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
@@ -25,6 +15,6 @@
       "mpv": "󰕧"
     },
     "status-icons": { "paused": "󰏤" },
-    "ignored-players": ["brave", "chromium"]
+    "ignored-players": ["brave", "chromium", "strawberry"]
   }
 }

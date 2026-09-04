@@ -145,11 +145,6 @@ menuitem:hover label {
   font-size: 14px;
 }
 
-#media #image {
-  margin-left: 4px;
-  border-radius: 4px;
-}
-
 #mpris.paused,
 #mpris.stopped {
   color: @grey1;
