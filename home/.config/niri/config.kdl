@@ -189,6 +189,7 @@ window-rule {
 }
 
 window-rule {
+  match app-id="btop"
   match app-id="net-filebot-Main"
   match app-id="feishin"
   match app-id="ratune"
