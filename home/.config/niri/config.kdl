@@ -157,8 +157,9 @@ gestures {
 // Keep more specific rules last
 window-rule {
   match app-id="1password"
-  match app-id="signal"
+  match app-id="bitwarden"
   match app-id="discord"
+  match app-id="signal"
   match app-id="slack"
   match app-id=r#"md\.Obsidian"#
   block-out-from "screencast"
@@ -166,12 +167,14 @@ window-rule {
 
 window-rule {
   match app-id="1password"
+  match app-id="bitwarden"
   block-out-from "screen-capture"
 }
 
 window-rule {
   match app-id="espanso"
   match app-id="file-picker" // Custom Yazi Picker
+  match app-id="firefox" title="^Extension"
   match app-id="firefox" title="^Picture-in-Picture$"
   match app-id="focustimer"
   match app-id="mpv"
