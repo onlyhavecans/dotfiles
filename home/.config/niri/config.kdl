@@ -177,6 +177,7 @@ window-rule {
   match app-id="firefox" title="^Picture-in-Picture$"
   match app-id="focustimer"
   match app-id="mpv"
+  match app-id="pcmanfm-qt" title="Mount"
   match app-id="satty"
   match app-id="zenity" title="Copy color to Clipboard"
   open-floating true

@@ -127,8 +127,8 @@ menu:
   - key: F
     desc: Files
     submenu:
-      - key: n
-        desc: Nautilus
+      - key: p
+        desc: PcMan
         cmd: pcmanfm-qt
       - key: u
         desc: Upload
@@ -367,9 +367,6 @@ menu:
       - key: e
         desc: Emoji
         cmd: bemoji --type
-      - key: f
-        desc: Font Viewer
-        cmd: gnome-font-viewer
       - key: g
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top amdgpu_top
