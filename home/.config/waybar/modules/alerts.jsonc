@@ -31,6 +31,7 @@
     "exec": "voxtype status --follow --format json --extended",
     "return-type": "json",
     "format": "{icon}",
+    "hide-empty-text": true,
     "format-icons": {
       "idle": "",
       "recording": "󰗋",

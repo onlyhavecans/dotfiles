@@ -1,0 +1,13 @@
+#!/bin/sh
+# waybar image module: resolve the active player's art to a local file.
+PATH=$PATH:/run/current-system/sw/bin
+url=$(playerctl -i brave,chromium metadata mpris:artUrl 2>/dev/null) || exit 0
+[ -n "$url" ] || exit 0
+case $url in
+  file://*)
+    printf '%b\n' "$(printf '%s' "${url#file://}" | sed 's/%/\\x/g')" ;;
+  http://* | https://*)
+    f=/tmp/waybar-art-$(printf '%s' "$url" | md5sum | cut -c1-16)
+    [ -s "$f" ] || curl -fsSL --max-time 5 -o "$f" "$url" || exit 0
+    printf '%s\n' "$f" ;;
+esac

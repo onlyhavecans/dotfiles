@@ -25,7 +25,10 @@ window#waybar {
 
 .modules-left > widget > box > widget > *,
 .modules-center > widget > box > widget > *,
-.modules-right > widget > box > widget > * {
+.modules-right > widget > box > widget > *,
+.modules-left > widget > box > widget > box > widget > *,
+.modules-center > widget > box > widget > box > widget > *,
+.modules-right > widget > box > widget > box > widget > * {
   background: none;
   border: none;
   border-radius: 0;
@@ -52,6 +55,31 @@ tooltip label {
   font-size: 14px;
   color: @fg;
   padding: 4px 8px;
+}
+
+menu {
+  background-color: @bg0;
+  color: @fg;
+  border: 2px solid @bg4;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+menuitem {
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+menuitem label {
+  color: @fg;
+}
+
+menuitem:hover {
+  background-color: @bg2;
+}
+
+menuitem:hover label {
+  color: @yellow;
 }
 
 /* ---- left ---- */
@@ -103,8 +131,23 @@ tooltip label {
   opacity: 1;
 }
 
+/* just enough title to know what is in front; the * rule sets font-size
+   on the inner label directly, so target it. */
+#window {
+  color: @fg;
+}
+
+#window label {
+  font-size: 11px;
+}
+
 #mpris {
   font-size: 14px;
+}
+
+#media #image {
+  margin-left: 4px;
+  border-radius: 4px;
 }
 
 #mpris.paused,
@@ -221,7 +264,53 @@ tooltip label {
   color: @red;
 }
 
+/* drawer sliders: hidden handle, thin pill trough. Adwaita's scale nodes
+   carry ~30px of min-height/margins that would inflate the bar even while
+   the revealer is collapsed, so zero every node explicitly. */
+#pulseaudio-slider,
+#backlight-slider,
+#pulseaudio-slider scale,
+#backlight-slider scale,
+#pulseaudio-slider contents,
+#backlight-slider contents {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#pulseaudio-slider slider,
+#backlight-slider slider {
+  min-height: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  border: none;
+  box-shadow: none;
+  background-image: none;
+}
+
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  min-height: 6px;
+  min-width: 70px;
+  border-radius: 999px;
+  background-color: @bg3;
+}
+
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  min-height: 6px;
+  border-radius: 999px;
+  background-color: @yellow;
+}
+
+#pulseaudio-slider.muted highlight {
+  background-color: @grey0;
+}
+
 /* ---- right: links ---- */
+
 
 #network.linked,
 #network.disconnected {

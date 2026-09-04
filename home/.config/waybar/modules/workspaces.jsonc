@@ -4,9 +4,12 @@
     "workspace-taskbar": {
       "enable": true,
       "icon-size": 14
-    },
-    "window-rewrite": {
-      "app-id<tintin>": "󰭹"
     }
+  },
+  "niri/window": {
+    "format": "{title}",
+    "max-length": 24,
+    "icon": false,
+    "separate-outputs": true
   }
 }

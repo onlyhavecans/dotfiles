@@ -4,11 +4,35 @@
   // panel add them via host/<host>.jsonc (group/levels.modules is first-wins).
   "group/levels": {
     "orientation": "inherit",
-    "modules": ["wireplumber", "wireplumber#source", "battery"]
+    "modules": ["group/audio", "group/mic", "battery"]
+  },
+  // hover the speaker or mic glyph to slide out its volume slider
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "reveal-delay": 150 },
+    "modules": ["wireplumber", "pulseaudio/slider"]
+  },
+  "group/mic": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "reveal-delay": 150 },
+    "modules": ["wireplumber#source", "pulseaudio/slider#source"]
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+  "pulseaudio/slider#source": {
+    "target": "source",
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
   },
   "wireplumber": {
     "format": "󰕾{icon}",
     "format-muted": "󰝟",
+    "format-bluetooth": "󰂰{icon}",
+    "format-bluetooth-muted": "󰂲",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "tooltip-format": "{volume}% {node_name}",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
@@ -30,10 +54,16 @@
     "scroll-step": 5
   },
   "backlight": {
-    "format": "󰃠{icon}",
+    "format": "󰃠{icon_exp}",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "tooltip-format": "{percent}% screen",
-    "scroll-step": 5
+    "scroll-step": 5,
+    "min-brightness": 5
+  },
+  "backlight/slider": {
+    "min": 5,
+    "max": 100,
+    "orientation": "horizontal"
   },
   "battery": {
     "states": { "warning": 20, "critical": 5 },
@@ -45,7 +75,9 @@
     "format": "{icon}",
     "format-charging": "󰂄",
     "format-plugged": "󰚥",
-    "tooltip-format": "{capacity}% {timeTo}",
+    "full-at-plugged": true,
+    "smooth-power": true,
+    "tooltip-format": "{capacity}% {timeTo}\nHealth {health}%, {cycles} cycles",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   }
 }

@@ -9,11 +9,13 @@
     "format-wifi": "{icon}",
     "format-linked": "󰈂",
     "format-disconnected": "󰲛",
+    "format-disabled": "󰀝",
     "format-icons": ["󰟂", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}\n⬆ {bandwidthUpBytes}  ⬇ {bandwidthDownBytes}",
-    "tooltip-format-wifi": "{essid}\n{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}% Frequency: {frequency}\n⬆ {bandwidthUpBytes}  ⬇ {bandwidthDownBytes}",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}\n⬆ {bandwidthUpBytes:>M}  ⬇ {bandwidthDownBytes:>M}",
+    "tooltip-format-wifi": "{essid}\n{ifname}: {ipaddr}/{cidr}\nSignal: {signalStrength}% Frequency: {frequency}\n⬆ {bandwidthUpBytes:>M}  ⬇ {bandwidthDownBytes:>M}",
     "tooltip-format-linked": "{ifname}: no address",
-    "tooltip-format-disconnected": "disconnected"
+    "tooltip-format-disconnected": "disconnected",
+    "tooltip-format-disabled": "radio off"
   },
   "network#wg": {
     "interface": "wg*",
@@ -36,11 +38,12 @@
     "format-connected": "󰂱{num_connections}",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
   },
   "power-profiles-daemon": {
     "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip-format": "Power profile: {profile}\nCPU: {cpu_driver}\nPlatform: {platform_driver}",
     "tooltip": true,
     "format-icons": {
       "default": "󰁹",

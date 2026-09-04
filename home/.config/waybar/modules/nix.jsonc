@@ -2,14 +2,29 @@
   "group/nix": {
     "orientation": "inherit",
     "drawer": { "click-to-reveal": true },
-    "modules": ["custom/nix", "tray"]
+    "modules": ["custom/nix", "custom/power", "tray"]
   },
+  // no click handlers here: any handler on the leader would swallow the
+  // group's click-to-reveal
   "custom/nix": {
     "format": "󱄅",
     "tooltip": false
   },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "~/.config/waybar/menus/power.xml",
+    "menu-actions": {
+      "lock": "loginctl lock-session",
+      "suspend": "systemctl suspend",
+      "reboot": "systemctl reboot",
+      "poweroff": "systemctl poweroff"
+    }
+  },
   "tray": {
     "icon-size": 16,
-    "spacing": 4
+    "spacing": 4,
+    "show-passive-items": true
   }
 }

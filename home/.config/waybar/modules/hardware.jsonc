@@ -12,11 +12,9 @@
     "states": { "warning": 80, "critical": 95 },
     "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
   },
+  // AMD hosts; Intel hosts override hwmon-by-name in host/<host>.jsonc
   "temperature": {
-    "hwmon-path-abs": [
-      "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
-      "/sys/devices/platform/coretemp.0/hwmon"
-    ],
+    "hwmon-by-name": "k10temp",
     "input-filename": "temp1_input",
     "format": "󰔏{temperatureC:2}",
     "interval": 5,

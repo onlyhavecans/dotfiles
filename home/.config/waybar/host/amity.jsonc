@@ -1,5 +1,11 @@
 {
+  "temperature": { "hwmon-by-name": "coretemp" },
   "group/levels": {
-    "modules": ["wireplumber", "wireplumber#source", "backlight", "battery"]
+    "modules": ["group/audio", "group/mic", "group/light", "battery"]
+  },
+  "group/light": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "reveal-delay": 150 },
+    "modules": ["backlight", "backlight/slider"]
   }
 }

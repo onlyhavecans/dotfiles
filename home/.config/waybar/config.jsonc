@@ -1,10 +1,13 @@
-// One layout, two bars keyed on output; the laptop panel only collapses mpris.
+// One layout, two bars; the laptop panel only shortens text.
 // Precedence: bar object > host.jsonc > bar.jsonc > modules/*.jsonc (objects deep-merge, first wins).
-// Output ids are "<make> - <model> - <connector>"; see `waybar -l debug`.
+// wide: any output over 2000 logical px (after scale), so the 1.5x BOE panel
+// (1706 wide) gets no bar. compact: the laptop panel by connector name.
+// Fallback if a screen misbehaves: "output" ids are "<make> - <model> - <connector>"
+// (see `waybar -l debug`), e.g. ["!eDP-1", "!BOE - Display - HDMI-A-1", "*"].
 [
   {
     "name": "wide",
-    "output": ["!eDP-1", "!BOE - Display - HDMI-A-1", "*"],
+    "output-dimensions": "width > 2000",
     "include": [
       "~/.config/waybar/host.jsonc",
       "~/.config/waybar/bar.jsonc",
@@ -19,9 +22,7 @@
       "~/.config/waybar/bar.jsonc",
       "~/.config/waybar/modules/*.jsonc"
     ],
-    "mpris": {
-      "dynamic-order": ["title"],
-      "title-len": 20
-    }
+    "niri/window": { "max-length": 16 },
+    "mpris": { "artist-len": 0, "title-len": 20 }
   }
 ]
