@@ -9,9 +9,9 @@ set -gx BAT_THEME ansi
 set -gx MOSH_SERVER_SIGNAL_TMOUT 60
 set -gx MOSH_SERVER_NETWORK_TMOUT 2592000
 
-# 1Password SSH agent (needed for scripts)
-if test -z "$SSH_TTY"; and test -S "$HOME/.1password/agent.sock"
-    set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
+# SSH agent (needed for scripts)
+if test -z "$SSH_TTY"; and test -S "$HOME/.bitwarden-ssh-agent.sock"
+    set -gx SSH_AUTH_SOCK $HOME/.bitwarden-ssh-agent.sock
 end
 
 # Paths
