@@ -248,8 +248,7 @@ binds {
 
   Mod+Comma hotkey-overlay-title="toggle bar" { spawn "pkill" "--signal" "SIGUSR1" "waybar"; }
 
-  F12 { spawn "voxtype" "record" "toggle"; }
-  Alt+F12 { spawn "voxtype" "record" "cancel"; }
+  Alt+Period { spawn "voxtype" "record" "toggle"; }
 
   // the allow-when-locked=true property makes them work even when the session is locked.
   XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
