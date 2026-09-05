@@ -245,13 +245,15 @@ menu:
       - key: f
         desc: Feishin
         cmd: feishin
+      - key: k
+        desc: Kid3
+        cmd: kid3-qt
       - key: m
         desc: Ratune
         cmd: foot --app-id ratune ratune
       - key: p
         desc: Picard
-        # TODO: https://nixpk.gs/pr-tracker.html?pr=559495
-        cmd: kid3-qt
+        cmd: picard
       - key: s
         desc: Strawberry
         cmd: strawberry
