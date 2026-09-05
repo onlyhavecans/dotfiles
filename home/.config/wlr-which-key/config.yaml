@@ -248,10 +248,10 @@ menu:
       - key: m
         desc: Ratune
         cmd: foot --app-id ratune ratune
+      - key: p
+        desc: Picard
         # TODO: https://nixpk.gs/pr-tracker.html?pr=559495
-      # - key: p
-      #   desc: Picard
-      #   cmd: picard
+        cmd: kid3-qt
       - key: s
         desc: Strawberry
         cmd: strawberry
