@@ -1,0 +1,8 @@
+---
+config:
+  first-line-h1: false
+  line-length: false
+
+ignores:
+  - .git
+  - node_modules
