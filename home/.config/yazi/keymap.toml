@@ -1,13 +1,10 @@
 [mgr]
 prepend_keymap = [
-  # drag from Yazi
-  { on = "<C-d>", run = "shell -- ripdrag %s --all" },
+  { on = ["f", "d"], run = "shell -- ripdrag %s --all", desc = "Drag files" },
+  { on = ["f", "n"], run = "plugin new-folder-from-files", desc = "New folder from files" },
 
   # quickshell
   { on = "!", run = 'shell "$SHELL" --block', desc = "Open $SHELL in CWD" },
-
-  # fastjump
-  { on = "f", run = "plugin jump-to-char", desc = "Jump to char" },
 
   # lazy
   { on = "L", run = "shell --block -- lazygit", desc = "LazyGit CWD" },

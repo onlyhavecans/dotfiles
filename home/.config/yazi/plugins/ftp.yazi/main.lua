@@ -40,7 +40,9 @@ local function upath(url)
 end
 
 local function encode(path)
-	return (path:gsub("[^%w%-_%.~/]", function(c) return ("%%%02X"):format(c:byte()) end))
+	return (path:gsub("[^%w%-_%.~/]", function(c)
+		return ("%%%02X"):format(c:byte())
+	end))
 end
 
 local function split(path)
@@ -82,7 +84,7 @@ local function curl_err(output, action)
 		msg = ("curl exited with code %d"):format(code)
 	end
 	if KINDS[code] then
-		return Error.fs { kind = KINDS[code], message = ("%s: %s"):format(action, msg) }
+		return Error.fs({ kind = KINDS[code], message = ("%s: %s"):format(action, msg) })
 	end
 	return Err("%s: %s", action, msg)
 end
@@ -193,12 +195,12 @@ local function cha_of(ent)
 	else
 		mode = tonumber("100644", 8)
 	end
-	return Cha {
+	return Cha({
 		mode = mode,
 		len = ent.size,
 		mtime = ent.mtime,
 		kind = ent.name:sub(1, 1) == "." and 2 or 0, -- ChaKind::HIDDEN
-	}
+	})
 end
 
 local function list_dir(o, path)
@@ -238,13 +240,12 @@ local function stat(o, path)
 			return ent
 		end
 	end
-	return nil, Error.fs { kind = "NotFound", message = ("No such file: %s"):format(path) }
+	return nil, Error.fs({ kind = "NotFound", message = ("No such file: %s"):format(path) })
 end
 
 local function upload(o, path, bytes, append)
 	local extra = append and { "-T", "-", "--append" } or { "-T", "-" }
-	local child, err =
-		curl(o, path, extra):stdin(Command.PIPED):stdout(Command.PIPED):stderr(Command.PIPED):spawn()
+	local child, err = curl(o, path, extra):stdin(Command.PIPED):stdout(Command.PIPED):stderr(Command.PIPED):spawn()
 	if not child then
 		return false, Err("Failed to spawn `curl`: %s", err)
 	end
@@ -359,7 +360,7 @@ function M:provide(job)
 		end
 		for i, ent in ipairs(ents) do
 			local cha = cha_of(ent)
-			ents[i] = { cha = cha, file = File { url = job.url:join(ent.name), cha = cha } }
+			ents[i] = { cha = cha, file = File({ url = job.url:join(ent.name), cha = cha }) }
 		end
 		return ents
 	elseif op == "File" then
@@ -367,20 +368,20 @@ function M:provide(job)
 		if not ent then
 			return nil, err
 		end
-		return File { url = job.url, cha = cha_of(ent) }
+		return File({ url = job.url, cha = cha_of(ent) })
 	elseif op == "Revalidate" then
 		local ent, err = stat(o, upath(job.file.url))
 		if not ent then
 			return nil, err
 		end
-		return File { url = job.file.url, cha = cha_of(ent) }
+		return File({ url = job.file.url, cha = cha_of(ent) })
 	elseif op == "Open" then
 		local path, d = upath(job.url), job.demand
 		local ent, err = stat(o, path)
 		if not ent and err and err.kind ~= "NotFound" then
 			return nil, err
 		elseif ent and d.create_new then
-			return nil, Error.fs { kind = "AlreadyExists", message = path .. " already exists" }
+			return nil, Error.fs({ kind = "AlreadyExists", message = path .. " already exists" })
 		elseif not ent and not (d.create or d.create_new) then
 			return nil, err
 		end
@@ -418,10 +419,10 @@ function M:provide(job)
 			return false, err
 		elseif ent.size ~= job.offset then
 			return false,
-				Error.fs {
+				Error.fs({
 					kind = "InvalidData",
 					message = ("remote size %d != write offset %d; refusing to append"):format(ent.size, job.offset),
-				}
+				})
 		end
 		return upload(o, path, job.bytes, true)
 	elseif op == "CreateDir" then
@@ -458,7 +459,7 @@ function M:provide(job)
 		if not ent then
 			return nil, err
 		elseif not ent.target then
-			return nil, Error.fs { kind = "InvalidInput", message = "Not a symlink" }
+			return nil, Error.fs({ kind = "InvalidInput", message = "Not a symlink" })
 		end
 		return Path.os(ent.target)
 	elseif op == "SetAttrs" then
@@ -478,10 +479,10 @@ end
 function M:entry(job)
 	local host = job.args[1]
 	if not host then
-		local value, event = ya.input {
+		local value, event = ya.input({
 			title = "FTP host[:port]:",
 			pos = { "center", w = 40 },
-		}
+		})
 		if event ~= 1 or not value or value == "" then
 			return
 		end

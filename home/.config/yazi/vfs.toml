@@ -1,7 +1,7 @@
 # ad-hoc hosts: cd ftp://<ip>/  (port via host%3Aport, or add a named entry)
 [ftp."*"]
 kind = "mount"
-run  = "ftp"
+run = "ftp"
 
 # named hosts mount as ftp://<name>/; custom providers take settings as run
 # args (--host --port --user --pass), not sftp-style fields

@@ -3,15 +3,9 @@ sort_by = "mtime"
 sort_reverse = true
 sort_dir_first = true
 
-[[opener.set-wallpaper]]
-run = "wall set %s1"
-for = "linux"
-desc = "Set as wallpaper"
-
-[[opener.upload-zipline]]
-run = "upload %s"
-for = "linux"
-desc = "Upload to zipline"
+[opener]
+set-wallpaper = [{ run = "wall set %s1", for = "linux", desc = "Set as wallpaper" }]
+upload-zipline = [{ run = "upload %s", for = "linux", desc = "Upload to zipline" }]
 
 [open]
 prepend_rules = [
@@ -22,9 +16,26 @@ prepend_rules = [
 prepend_fetchers = [
   # ftp.yazi: custom schemes aren't matched by remote://, route mime manually
   { url = "ftp://*", run = "mime.remote", prio = "high", group = "mime" },
+
+  # git.yazi
+  { url = "*", run = "git", group = "git" },
+  { url = "*/", run = "git", group = "git" }
 ]
+
 prepend_preloaders = [
   # Do not preload files in mounted locations:
   { url = "/run/user/1000/gvfs/**/*", run = "noop" },
   { url = "/run/media/dos/**/*", run = "noop" },
+
+  # Mediainfo plugin
+  { mime = "{audio,video,image}/*", run = "mediainfo" },
+  { mime = "application/{subrip,postscript,illustrator,dvb.ait,vnd.adobe.illustrator,eps}", run = "mediainfo" },
+  { url = "*.{ai,eps,ait}", run = "mediainfo" },
+]
+
+prepend_previewers = [
+  # Mediainfo plugin
+  { mime = "{audio,video,image}/*", run = "mediainfo" },
+  { mime = "application/{subrip,postscript,illustrator,dvb.ait,vnd.adobe.illustrator,eps}", run = "mediainfo" },
+  { url = "*.{ai,eps,ait}", run = "mediainfo" },
 ]
