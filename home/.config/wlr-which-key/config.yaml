@@ -108,7 +108,7 @@ menu:
         cmd: foot --app-id=yazi --working-directory=$HOME/Downloads yazi
       - key: g
         desc: Files GUI
-        cmd: pcmanfm-qt
+        cmd: nautilus
       - key: u
         desc: Upload Pick
         cmd: ~/bin/upload-yazi
