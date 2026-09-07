@@ -161,16 +161,19 @@ window-rule {
   match app-id="signal"
   match app-id="slack"
   match app-id=r#"md\.Obsidian"#
+  match app-id="^$" title="Authentication Required" // stupid bitwarden
   block-out-from "screencast"
 }
 
 window-rule {
   match app-id="1password"
   match app-id="bitwarden"
+  match app-id="^$" title="Authentication Required" // stupid bitwarden
   block-out-from "screen-capture"
 }
 
 window-rule {
+  match app-id="^$" title="Authentication Required" // stupid bitwarden
   match app-id="espanso"
   match app-id="file-picker" // Custom Yazi Picker
   match app-id="firefox" title="^Extension"
@@ -218,6 +221,12 @@ window-rule {
   baba-is-float true
   default-floating-position x=10 y=10 relative-to="top-right"
 }
+
+window-rule {
+  match app-id="^$" title="Authentication Required" // stupid bitwarden
+  baba-is-float true
+}
+
 
 // enable rounded corners for all windows.
 window-rule {
