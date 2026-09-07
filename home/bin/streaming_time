@@ -43,7 +43,7 @@ status_message "Discord"
 launch_app discord
 
 status_message "Music"
-launch_app amberol
+launch_app strawberry
 
 status_message "Obsidian"
 launch_app xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist"
@@ -61,7 +61,7 @@ status_message "OBS-Studio"
 launch_app obs
 
 status_message "Holding on current song"
-current_song --player io.bassi.Amberol >/dev/null
+current_song --player strawberry >/dev/null
 
 status_message "Power Profile Reset"
 powerprofilesctl set balanced
