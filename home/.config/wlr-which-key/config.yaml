@@ -185,17 +185,17 @@ menu:
         submenu:
           - key: s
             desc: Saver
-            cmd: powerprofilectl set power-saver
+            cmd: powerprofilesctl set power-saver
           - key: b
             desc: Balanced
-            cmd: powerprofilectl set balanced
+            cmd: powerprofilesctl set balanced
           - key: p
             desc: Performance
-            cmd: powerprofilectl set performance
+            cmd: powerprofilesctl set performance
       - key: w
         desc: Wallpaper
         submenu:
-          - key: m
+          - key: g
             desc: Get Mood
             cmd: notify-send "Wall" "$(wall which)"
           - key: n
