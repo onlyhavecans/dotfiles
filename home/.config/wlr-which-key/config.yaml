@@ -353,11 +353,11 @@ menu:
   - key: u
     desc: Utilities
     submenu:
-      - key: \
-        desc: Passwords
-        cmd: bitwarden
       - key: b
-        desc: Btop
+        desc: Bitwarden
+        cmd: bitwarden
+      - key: t
+        desc: Top
         cmd: foot --app-id=btop btop
       - key: c
         desc: Calculator
