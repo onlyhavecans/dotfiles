@@ -27,15 +27,11 @@ prepend_preloaders = [
   { url = "/run/user/1000/gvfs/**/*", run = "noop" },
   { url = "/run/media/dos/**/*", run = "noop" },
 
-  # Mediainfo plugin
-  { mime = "{audio,video,image}/*", run = "mediainfo" },
-  { mime = "application/{subrip,postscript,illustrator,dvb.ait,vnd.adobe.illustrator,eps}", run = "mediainfo" },
-  { url = "*.{ai,eps,ait}", run = "mediainfo" },
+  # media.yazi: thumbnail + mediainfo
+  { mime = "{audio,video,image}/*", run = "media" },
 ]
 
 prepend_previewers = [
-  # Mediainfo plugin
-  { mime = "{audio,video,image}/*", run = "mediainfo" },
-  { mime = "application/{subrip,postscript,illustrator,dvb.ait,vnd.adobe.illustrator,eps}", run = "mediainfo" },
-  { url = "*.{ai,eps,ait}", run = "mediainfo" },
+  # media.yazi: thumbnail + mediainfo
+  { mime = "{audio,video,image}/*", run = "media" },
 ]
