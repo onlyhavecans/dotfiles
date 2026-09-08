@@ -242,7 +242,7 @@ binds {
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
   Mod+Space hotkey-overlay-title="open launcher" { spawn "~/bin/wlr-toggle"; }
-  Alt+Space hotkey-overlay-title="open app search" { spawn "fuzzel" "--width" "22"; }
+  Alt+Space hotkey-overlay-title="open app search" { spawn "fuzzel"; }
   Alt+Comma hotkey-overlay-title="open emoji search" { spawn "bemoji" "--type"; }
   Alt+N hotkey-overlay-title="show clipboard history" { spawn "cliphist-fuzzel-img"; }
 
