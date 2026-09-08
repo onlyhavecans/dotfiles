@@ -255,8 +255,8 @@ menu:
         desc: Picard
         cmd: picard
       - key: s
-        desc: Strawberry
-        cmd: strawberry
+        desc: Amberol
+        cmd: amberol
 
   - key: o
     desc: Obsidian
@@ -361,7 +361,7 @@ menu:
         cmd: foot --app-id=btop btop
       - key: c
         desc: Calculator
-        cmd: qalculate-qt
+        cmd: gnome-calculator
       - key: e
         desc: Emoji
         cmd: bemoji --type
