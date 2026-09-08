@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # vpn <name> — toggle a wg-quick unit (e.g. `vpn home`, `vpn ams`)
 # vpn up|down|status <name> for the explicit forms
-# promptless for wheel via the polkit rule next to the wg-quick interfaces
 set -euo pipefail
 
 usage="usage: vpn [up|down|toggle|status] <name>"
