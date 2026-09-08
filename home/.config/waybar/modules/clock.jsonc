@@ -8,6 +8,7 @@
     "tooltip-format": "{tz_list}",
     "timezone-tooltip-format": "{:%Z: %H:%M %m-%d}",
     "timezones": [
+      "",
       "America/Los_Angeles",
       "America/Denver",
       "America/Chicago",
