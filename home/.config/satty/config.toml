@@ -10,7 +10,7 @@ actions-on-escape = ["save-to-clipboard", "save-to-file", "exit"]
 zoom-factor = 1.2
 
 [font]
-family = "Inter"
+family = "Adwaita Sans"
 style = "Bold"
 
 [color-palette]
