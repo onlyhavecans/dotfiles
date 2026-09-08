@@ -1,7 +1,7 @@
 [mgr]
 prepend_keymap = [
-  { on = ["f", "d"], run = "shell -- ripdrag %s --all", desc = "Drag files" },
-  { on = ["f", "n"], run = "plugin new-folder-from-files", desc = "New folder from files" },
+  { on = "<C-d>", run = "shell -- ripdrag %s --all", desc = "Drag files" },
+  { on = "<C-f>", run = "plugin new-folder-from-files", desc = "New folder from files" },
 
   # quickshell
   { on = "!", run = 'shell "$SHELL" --block', desc = "Open $SHELL in CWD" },
