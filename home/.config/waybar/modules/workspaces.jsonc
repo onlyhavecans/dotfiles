@@ -3,7 +3,7 @@
     "hide-empty": true,
     "workspace-taskbar": {
       "enable": true,
-      "icon-size": 14
+      "icon-size": 20
     }
   },
   "niri/window": {

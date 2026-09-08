@@ -20,7 +20,7 @@
     "tooltip-unit-format": "{scope}: {name} ({active_state})"
   },
   "privacy": {
-    "icon-size": 16
+    "icon-size": 18
   },
   "custom/recording": {
     "exec": "pgrep -x wf-recorder >/dev/null && echo '󰻃' || echo ''",

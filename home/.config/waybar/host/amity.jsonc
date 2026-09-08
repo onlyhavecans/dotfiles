@@ -1,4 +1,6 @@
 {
+  // 2x panel: drop the window title so the bigger taskbar icons fit
+  "modules-left": ["group/nix", "niri/workspaces", "mpris"],
   "group/levels": {
     "modules": ["group/audio", "group/mic", "group/light", "battery"]
   },
