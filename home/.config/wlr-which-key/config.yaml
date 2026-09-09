@@ -6,7 +6,7 @@ border: "#fabd2fff" # gruvbox yellow
 border_width: 2
 corner_r: 20
 padding: 25 # Defaults to corner_r
-rows_per_column: 11
+rows_per_column: 10
 
 # NOTE: Top level = one-tap dailies, app groups, or "what I am doing" groups
 # NOTE: Keep launchers shallow: depth <= 2
@@ -23,9 +23,6 @@ menu:
   - key: ","
     desc: Toggle Bar
     cmd: pkill --signal SIGUSR1 waybar
-  - key: \
-    desc: Quick Pass
-    cmd: rofi-rbw
 
   - key: a
     desc: Audio
@@ -242,21 +239,21 @@ menu:
       - key: "."
         desc: Next
         cmd: playerctl next
+      - key: a
+        desc: Amberol
+        cmd: amberol
       - key: f
         desc: Feishin
         cmd: feishin
       - key: k
         desc: Kid3
         cmd: kid3-qt
-      - key: m
-        desc: Ratune
-        cmd: foot --app-id ratune ratune
       - key: p
         desc: Picard
         cmd: picard
-      - key: s
-        desc: Amberol
-        cmd: amberol
+      - key: r
+        desc: Ratune
+        cmd: foot --app-id ratune ratune
 
   - key: o
     desc: Obsidian
