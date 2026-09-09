@@ -19,7 +19,9 @@ case $app in
 esac
 
 wtype -M ctrl -k l -m ctrl
+sleep 0.1
 wtype -M ctrl -k c -m ctrl
+sleep 0.1
 wtype -k Escape
 
 url=$(wl-paste)
