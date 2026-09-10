@@ -85,7 +85,7 @@ alias = "Navidrome"
 
 [player]
 default_volume = 70
-max_bit_rate = 0
+max_bit_rate = 320   # use mp3 encoding capped in navidrome
 mpris = true
 queue_loop = true
 
@@ -212,12 +212,12 @@ queue_loop = true
 # Progress bar: `[ui.row_now_playing].progress_style` (not under theme.icon).
 
 [theme]
-preset = "terminal"  # inherit terminal ANSI (gruvbox via foot/ghostty)
+preset = "terminal"   # inherit terminal ANSI (gruvbox via foot/ghostty)
 # accent = "#ff8c00"
-# accent = "idx:2"              # terminal green (example) for highlights / selection bar
-accent = "idx:11"             # bright yellow: the gruvbox accent (docs/gruvbox.md)
-background = "idx:0"             # selected-row text; terminal preset leaves this Reset -> fg on accent
-tab_bar = "unset"                # keep bars unpainted (they inherit `background` otherwise)
+# accent = "idx:2"    # terminal green (example) for highlights / selection bar
+accent = "idx:11"     # bright yellow: the gruvbox accent (docs/gruvbox.md)
+background = "idx:0"  # selected-row text; terminal preset leaves this Reset -> fg on accent
+tab_bar = "unset"     # keep bars unpainted (they inherit `background` otherwise)
 status_bar = "unset"
 # background = "#1a1a1a"
 # background = "unset"          # transparent background
@@ -560,9 +560,9 @@ args = [
 
 [cache]
 enabled = true
-max_size_gb = 2.0
+max_size_gb = 30.0
 cache_starred = false
-cache_starred_albums = false
+cache_starred_albums = true
 cache_starred_parallelism = 2
 
 # [radio] — Internet radio
