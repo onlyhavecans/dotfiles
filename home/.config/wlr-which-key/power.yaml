@@ -1,6 +1,6 @@
 ---
 # Theming
-font: Adwaita Sans 32
+font: RecMonoDuotone Nerd Font Propo 26
 background: "#282828ee" # gruvbox bg0
 color: "#ebdbb2ff" # gruvbox fg
 border: "#d3869bff" # gruvbox purple: destructive menu
@@ -8,21 +8,22 @@ separator: " ➜ "
 border_width: 4
 corner_r: 20
 
-anchor: center
-
 menu:
-  - key: "l"
+  - key: l
     desc: "\U000F033E Lock"
     cmd: swaylock
-  - key: "p"
+  - key: p
     desc: "\U000F0425 Poweroff"
     cmd: systemctl poweroff
-  - key: "r"
-    desc: "\U000F0465 Reboot"
-    cmd: systemctl reboot
-  - key: "s"
-    desc: "\U000F0904 Suspend"
-    cmd: systemctl suspend
-  - key: "q"
+  - key: q
     desc: "\U000F0343 Quit"
     cmd: niri msg action quit
+  - key: r
+    desc: "\U000F0465 Reboot"
+    cmd: systemctl reboot
+  - key: s
+    desc: "\U000F0904 Suspend"
+    cmd: systemctl suspend
+  - key: i
+    desc: Idle Inhibit
+    cmd: ~/bin/idle-toggle

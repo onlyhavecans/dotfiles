@@ -121,89 +121,8 @@ menu:
         cmd: steam
 
   - key: i
-    desc: Change...
-    submenu:
-      - key: b
-        desc: Backlight
-        submenu:
-          - key: "1"
-            desc: 10%
-            cmd: brightnessctl --class=backlight set 10%
-          - key: "3"
-            desc: 30%
-            cmd: brightnessctl --class=backlight set 30%
-          - key: "5"
-            desc: 50%
-            cmd: brightnessctl --class=backlight set 50%
-          - key: "7"
-            desc: 70%
-            cmd: brightnessctl --class=backlight set 70%
-      - key: c
-        desc: Cast Target
-        submenu:
-          - key: c
-            desc: Clear
-            cmd: niri msg action clear-dynamic-cast-target
-          - key: m
-            desc: Monitor
-            cmd: niri msg action set-dynamic-cast-monitor
-          - key: w
-            desc: Window
-            cmd: niri msg action set-dynamic-cast-window
-      - key: i
-        desc: Input Vol
-        submenu:
-          - key: "1"
-            desc: 100%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
-          - key: "3"
-            desc: 30%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
-          - key: m
-            desc: Mute
-            cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-      - key: o
-        desc: Output Vol
-        submenu:
-          - key: "1"
-            desc: 100%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
-          - key: "3"
-            desc: 30%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
-          - key: "6"
-            desc: 60%
-            cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
-          - key: m
-            desc: Mute
-            cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-      - key: p
-        desc: Power Profile
-        submenu:
-          - key: s
-            desc: Saver
-            cmd: powerprofilesctl set power-saver
-          - key: b
-            desc: Balanced
-            cmd: powerprofilesctl set balanced
-          - key: p
-            desc: Performance
-            cmd: powerprofilesctl set performance
-      - key: w
-        desc: Wallpaper
-        submenu:
-          - key: g
-            desc: Get Mood
-            cmd: notify-send "Wall" "$(wall which)"
-          - key: n
-            desc: Next
-            cmd: wall next
-          - key: r
-            desc: Random
-            cmd: wall random
-          - key: s
-            desc: Set Mood
-            cmd: wall menu
+    desc: +Change...
+    cmd: wlr-which-key tasks
 
   - key: j
     desc: Jump
@@ -230,15 +149,6 @@ menu:
   - key: m
     desc: Music
     submenu:
-      - key: " "
-        desc: Play/Pause
-        cmd: playerctl play-pause
-      - key: ","
-        desc: Prev
-        cmd: playerctl previous
-      - key: "."
-        desc: Next
-        cmd: playerctl next
       - key: a
         desc: Amberol
         cmd: amberol
@@ -260,29 +170,8 @@ menu:
     cmd: xdg-open "obsidian://open?vault=Vault"
 
   - key: p
-    desc: Power
-    submenu:
-      - key: l
-        desc: "\U000F033E Lock"
-        cmd: swaylock
-      - key: p
-        desc: "\U000F0425 Poweroff"
-        cmd: systemctl poweroff
-      - key: q
-        desc: "\U000F0343 Quit"
-        cmd: niri msg action quit
-      - key: r
-        desc: "\U000F0465 Reboot"
-        cmd: systemctl reboot
-      - key: s
-        desc: "\U000F0904 Suspend"
-        cmd: systemctl suspend
-      - key: i
-        desc: Idle Inhibit
-        cmd: ~/bin/idle-toggle
-      - key: d
-        desc: Do Not Disturb
-        cmd: makoctl mode -t do-not-disturb; pkill -RTMIN+11 waybar
+    desc: +Power
+    cmd: wlr-which-key power
 
   - key: r
     desc: Capture
@@ -424,21 +313,6 @@ menu:
       - key: s
         desc: Slack
         cmd: slack
-      - key: v
-        desc: VPN
-        submenu:
-          - key: a
-            desc: Amsterdam
-            cmd: ~/bin/vpn ams
-          - key: h
-            desc: Home
-            cmd: ~/bin/vpn home
-          - key: n
-            desc: New York
-            cmd: ~/bin/vpn nyc
-          - key: s
-            desc: San Francisco
-            cmd: ~/bin/vpn sfo
       - key: z
         desc: Zoom
         cmd: zoom
