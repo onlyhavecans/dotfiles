@@ -22,7 +22,6 @@
       "~/.config/waybar/bar.jsonc",
       "~/.config/waybar/modules/*.jsonc"
     ],
-    "niri/window": { "max-length": 16 },
     "mpris": { "artist-len": 0, "title-len": 20 }
   }
 ]
