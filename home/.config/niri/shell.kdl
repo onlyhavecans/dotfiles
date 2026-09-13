@@ -4,6 +4,13 @@
 
 spawn-at-startup "noctalia"
 
+layout {
+  gaps 5
+  focus-ring {
+    width 3
+  }
+}
+
 layer-rule {
   match namespace="^noctalia-backdrop"
   place-within-backdrop true
