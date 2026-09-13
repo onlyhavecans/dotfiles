@@ -11,19 +11,19 @@ corner_r: 20
 menu:
   - key: l
     desc: "\U000F033E Lock"
-    cmd: swaylock
+    cmd: noctalia msg session lock
   - key: p
     desc: "\U000F0425 Poweroff"
-    cmd: systemctl poweroff
+    cmd: noctalia msg session shutdown
   - key: q
     desc: "\U000F0343 Quit"
-    cmd: niri msg action quit
+    cmd: noctalia msg session logout
   - key: r
     desc: "\U000F0465 Reboot"
-    cmd: systemctl reboot
+    cmd: noctalia msg session reboot
   - key: s
     desc: "\U000F0904 Suspend"
-    cmd: systemctl suspend
+    cmd: noctalia msg session suspend
   - key: i
     desc: Idle Inhibit
-    cmd: ~/bin/idle-toggle
+    cmd: noctalia msg caffeine-toggle

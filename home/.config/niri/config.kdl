@@ -97,9 +97,6 @@ layout {
 // Miscellaneous configuration.
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
-spawn-at-startup "cliphist" "wipe"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-// bar, notifications, and idle run as systemd user units from the NixOS repo
 
 // ask the clients to omit their client-side decorations
 prefer-no-csd
@@ -124,13 +121,6 @@ clipboard {
 
 hotkey-overlay {
   skip-at-startup
-}
-
-// Laptop Switch events
-// See https://github.com/niri-wm/niri/wiki/Configuration:-Switch-Events
-switch-events {
-  lid-close { spawn "systemctl" "sleep"; }
-  // lid-open { spawn "notify-send" "The laptop lid is open!"; }
 }
 
 // Animation settings.
@@ -241,39 +231,13 @@ binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
-  Mod+Space hotkey-overlay-title="open launcher" { spawn "~/bin/wlr-toggle"; }
-  Alt+Space hotkey-overlay-title="open app search" { spawn "fuzzel"; }
-  Alt+Comma hotkey-overlay-title="open emoji search" { spawn "bemoji" "--type"; }
-  Alt+N hotkey-overlay-title="show clipboard history" { spawn "cliphist-fuzzel-img"; }
-
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
-
-  Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
 
   Mod+F12 hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
   Mod+XF86AudioMedia hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
 
-  Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
-  Mod+Comma hotkey-overlay-title="toggle bar" { spawn "pkill" "--signal" "SIGUSR1" "waybar"; }
-  Mod+Period hotkey-overlay-title="run task" { spawn "~/bin/wlr-toggle" "tasks"; }
-
   Alt+Period { spawn "voxtype" "record" "toggle"; }
-
-  // the allow-when-locked=true property makes them work even when the session is locked.
-  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" "5%+"; }
-
-  XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
-  XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
-
-  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
-
-  // Framework Key
-  XF86AudioMedia { spawn "swaylock"; }
 
   // open/close the overview: a zoomed-out view of workspaces and windows.
   Mod+O repeat=false { toggle-overview; }
@@ -484,12 +448,6 @@ binds {
   // Mod+Space       { switch-layout "next"; }
   // Mod+Shift+Space { switch-layout "prev"; }
 
-  // Screenshots with grim + slurp + satty for flameshot-like workflow
-  Print hotkey-overlay-title="Screenshot Window" { spawn "~/bin/screenshot" "window"; }
-  Shift+Print hotkey-overlay-title="Screenshot Selection" { spawn "~/bin/screenshot" "selection"; }
-  Ctrl+Print hotkey-overlay-title="Screenshot Screen" { spawn "~/bin/screenshot" "screen"; }
-  Mod+Print hotkey-overlay-title="Record Screen" { spawn "~/bin/record-screen"; }
-
   // Applications such as remote-desktop clients and software KVM switches may
   // request that niri stops processing the keyboard shortcuts defined here
   // so they may, for example, forward the key presses as-is to a remote machine.
@@ -509,5 +467,11 @@ binds {
   // Mod+Shift+P { power-off-monitors; }
 }
 
+// Shell binds and rules (launcher, bar, OSD, lock, screenshots)
+include "shell.kdl"
+
 // Machine-specific overrides; symlinked to host/<hostname>.kdl by link-host-files
 include optional=true "host.kdl"
+
+// Noctalia's theme
+include "noctalia.kdl"

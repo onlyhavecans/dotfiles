@@ -22,7 +22,7 @@ menu:
     cmd: foot --login tm
   - key: ","
     desc: Toggle Bar
-    cmd: pkill --signal SIGUSR1 waybar
+    cmd: noctalia msg bar-toggle
 
   - key: a
     desc: Audio
@@ -66,7 +66,7 @@ menu:
         cmd: firefox --private-window
       - key: s
         desc: Search
-        cmd: ~/bin/search-fuzzel
+        cmd: noctalia msg panel-open launcher "/s "
 
   - key: c
     desc: Chats
@@ -95,7 +95,7 @@ menu:
         cmd: ~/bin/em-dictate
       - key: t
         desc: EmailMe Type
-        cmd: ~/bin/em-fuzzel
+        cmd: noctalia msg panel-open launcher "/em "
 
   - key: f
     desc: Files
@@ -129,22 +129,22 @@ menu:
     submenu:
       - key: b
         desc: Browser
-        cmd: ~/bin/focus-app-fuzzel firefox
+        cmd: noctalia msg panel-open launcher "/win firefox"
       - key: e
         desc: Email
-        cmd: ~/bin/focus-app-fuzzel thunderbird
+        cmd: noctalia msg panel-open launcher "/win thunderbird"
       - key: j
         desc: Jump to Win
-        cmd: ~/bin/focus-app-fuzzel
+        cmd: noctalia msg panel-open launcher "/win "
       - key: o
         desc: Obsidian
-        cmd: ~/bin/focus-app-fuzzel obsidian
+        cmd: noctalia msg panel-open launcher "/win obsidian"
       - key: s
         desc: Slack
-        cmd: ~/bin/focus-app-fuzzel slack
+        cmd: noctalia msg panel-open launcher "/win slack"
       - key: t
         desc: Terminal
-        cmd: ~/bin/focus-app-fuzzel foot
+        cmd: noctalia msg panel-open launcher "/win foot"
 
   - key: m
     desc: Music
@@ -181,13 +181,13 @@ menu:
         cmd: ~/bin/clip_app firefox
       - key: f
         desc: Shot Full Screen
-        cmd: ~/bin/screenshot screen
+        cmd: noctalia msg screenshot-fullscreen
       - key: m
         desc: Clip mpv Audio
         cmd: ~/bin/clip_app mpv
       - key: r
         desc: Shot Selection
-        cmd: ~/bin/screenshot selection
+        cmd: noctalia msg screenshot-region
       - key: v
         desc: Record Screen
         cmd: ~/bin/record-screen
@@ -247,16 +247,16 @@ menu:
         cmd: foot --app-id=btop btop
       - key: c
         desc: Calculator
-        cmd: gnome-calculator
+        cmd: noctalia msg panel-open launcher "/calc "
       - key: e
         desc: Emoji
-        cmd: bemoji --type
+        cmd: noctalia msg panel-open launcher "/emo "
       - key: g
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: h
         desc: Clip[h]ist
-        cmd: cliphist-fuzzel-img
+        cmd: noctalia msg panel-toggle clipboard
       - key: i
         desc: Image Editor
         cmd: photopea-chromium
@@ -267,8 +267,8 @@ menu:
         desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
       - key: w
-        desc: Wipe Cliphist
-        cmd: cliphist wipe
+        desc: Wipe Clipboard
+        cmd: noctalia msg clipboard-clear
 
   - key: v
     desc: Video

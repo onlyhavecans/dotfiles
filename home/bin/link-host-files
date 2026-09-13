@@ -25,7 +25,6 @@ function link_host_file {
 ##
 host_links=(
   "${HOME}/.config/niri/host.kdl"
-  "${HOME}/.config/waybar/host.jsonc"
 )
 
 for link in "${host_links[@]}"; do

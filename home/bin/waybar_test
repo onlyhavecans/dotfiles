@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-pushd ~/.homesick/repos/dotfiles/home/.config/waybar/ || exit 1
-find . -type f | entr -r -- waybar -l debug
