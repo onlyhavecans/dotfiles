@@ -32,7 +32,7 @@ Upstream: <https://github.com/sainnhe/everforest/blob/master/palette.md>
 | red | `#F85552` | `#E67E80` | error, keywords, diff deleted sign |
 | orange | `#F57D26` | `#E69875` | operators, titles, tags |
 | yellow | `#DFA000` | `#DBBC7F` | warning, types |
-| green | `#8DA101` | `#A7C080` | **accent**: search, strings, functions, selection |
+| green | `#8DA101` | `#A7C080` | **accent**: search, strings, functions |
 | aqua | `#35A77C` | `#83C092` | constants, macros |
 | blue | `#3A94C5` | `#7FBBB3` | info, identifiers, diff changed text |
 | purple | `#DF69BA` | `#D699B6` | numbers, booleans, attributes |
@@ -64,7 +64,7 @@ Use the semantic, not the hue. Pick from this table when writing hex by hand.
 | text on accent | bg0 | `#FFFBEF` | `#272E33` |
 | secondary text | grey1 | `#939F91` | `#859289` |
 | disabled / placeholder | grey0 | `#A6B0A0` | `#7A8478` |
-| **primary accent** (focus, active border, match) | green | `#8DA101` | `#A7C080` |
+| **primary accent** (focus, border, match) | green | `#8DA101` | `#A7C080` |
 | warning / counter | yellow | `#DFA000` | `#DBBC7F` |
 | urgent / error / destructive | red | `#F85552` | `#E67E80` |
 | info / tertiary | blue | `#3A94C5` | `#7FBBB3` |
