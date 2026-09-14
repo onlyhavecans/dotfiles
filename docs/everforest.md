@@ -141,13 +141,12 @@ Hand-written hex, **pinned to Light Hard** (does not follow mode):
 
 - `home/.config/wlr-which-key/*.yaml`: bg0 `ee`, fg, green border; power menu
   red border.
+- `home/.config/niri/shell.kdl`: shadow (green `66` / bg5 `40`), layout
+  `background-color` bg0, overview `backdrop-color` bg_dim. Everything else
+  niri colors comes from `noctalia.kdl`; keep hex out of `config.kdl`.
 
-Known drift (still gruvbox, overridden or unused):
-
-- `home/.config/niri/config.kdl`: `shadow` colors, layout `background-color`,
-  overview `backdrop-color`. Focus-ring/border/tab-indicator values there are
-  dead; `noctalia.kdl` wins.
-- `home/.config/ghostty/config`: `theme = Gruvbox Dark`.
+Ghostty (macOS) uses the bundled themes and follows system appearance:
+`theme = light:Everforest Light - Hard,dark:Everforest Dark - Hard`.
 
 ## Alpha convention
 

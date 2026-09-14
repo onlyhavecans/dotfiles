@@ -4,11 +4,22 @@
 
 spawn-at-startup "noctalia"
 
+// Colors noctalia.kdl does not render; pinned to Everforest Light Hard.
+// See docs/everforest.md.
 layout {
   gaps 5
   focus-ring {
     width 3
   }
+  shadow {
+    color "#8da10166"          // green
+    inactive-color "#bec5b240" // bg5
+  }
+  background-color "#fffbef"   // bg0
+}
+
+overview {
+  backdrop-color "#f2efdf"     // bg_dim
 }
 
 layer-rule {

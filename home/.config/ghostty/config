@@ -7,5 +7,5 @@
 # on Ghostty's website, at https://ghostty.org/docs/config.
 
 font-size = 15
-# Gruvbox Dark medium (see docs/gruvbox.md); built-in bg is already bg0 #282828
-theme = Gruvbox Dark
+# Everforest Hard, follows system appearance (see docs/everforest.md)
+theme = light:Everforest Light - Hard,dark:Everforest Dark - Hard
