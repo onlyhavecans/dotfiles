@@ -3,7 +3,7 @@
 font: RecMonoDuotone Nerd Font Propo 26
 background: "#FFFBEFee" # everforest light hard bg0
 color: "#5C6A72ff" # everforest light hard fg
-border: "#DF69BAff" # everforest light hard purple: destructive menu
+border: "#F85552ff" # everforest light hard red (noctalia error): destructive menu
 separator: " ➜ "
 border_width: 4
 corner_r: 20
