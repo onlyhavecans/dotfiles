@@ -1,34 +1,6 @@
+---
 git:
   autoFetch: false
   diffRenderers:
     - command: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 notARepository: "quit"
-
-gui:
-  theme:
-    activeBorderColor:
-      - "#a7c080"
-      - bold
-    inactiveBorderColor:
-      - "#7fbbb3"
-    searchingActiveBorderColor:
-      - "#e69875"
-      - bold
-    optionsTextColor:
-      - "#d3c6aa"
-    selectedLineBgColor:
-      - "#465358"
-    inactiveViewSelectedLineBgColor:
-      - bold
-    cherryPickedCommitFgColor:
-      - "#d3c6aa"
-    cherryPickedCommitBgColor:
-      - "#e69875"
-    markedBaseCommitFgColor:
-      - "#e69875"
-    markedBaseCommitBgColor:
-      - "#e67e80"
-    unstagedChangesColor:
-      - "#e67e80"
-    defaultFgColor:
-      - "#d3c6aa"

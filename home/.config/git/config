@@ -64,12 +64,14 @@
 [delta]
 	navigate = true
 	line-numbers = true
-	dark = true
 	syntax-theme = ansi
 
 # include for work
 [includeIf "gitdir:~/Code/dnsimple/"]
 	path = ~/Code/dnsimple/.gitconfig
+
+[include]
+	path = ~/.config/delta/noctalia.gitconfig
 
 #Silly tools fight for config down here
 [filter "lfs"]

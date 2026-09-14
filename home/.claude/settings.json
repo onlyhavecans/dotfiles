@@ -45,6 +45,7 @@
   "effortLevel": "high",
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
+  "theme": "custom:noctalia",
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true
 }
