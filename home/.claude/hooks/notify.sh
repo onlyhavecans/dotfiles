@@ -18,6 +18,6 @@ case "$event" in
     ;;
   Notification)
     body=$(jq -r '.message // "Awaiting your input"' <<<"$input")
-    notify-send -a 'Claude Code' -u critical "$title" "$body"
+    notify-send -a 'Claude Code' -u normal "$title" "$body"
     ;;
 esac
