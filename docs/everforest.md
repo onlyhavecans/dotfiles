@@ -142,8 +142,9 @@ Hand-written hex, **pinned to Light Hard** (does not follow mode):
 - `home/.config/wlr-which-key/*.yaml`: bg0 `ee`, fg, green border; power menu
   red border.
 - `home/.config/niri/shell.kdl`: shadow (green `66` / bg5 `40`), layout
-  `background-color` bg0, overview `backdrop-color` bg_dim. Everything else
-  niri colors comes from `noctalia.kdl`; keep hex out of `config.kdl`.
+  `background-color` bg0, overview `backdrop-color` bg_dim. All other niri
+  colors come from `noctalia.kdl`. The gruvbox hex still in `config.kdl` is
+  dead: both includes come later and win.
 
 Ghostty (macOS) uses the bundled themes and follows system appearance:
 `theme = light:Everforest Light - Hard,dark:Everforest Dark - Hard`.
