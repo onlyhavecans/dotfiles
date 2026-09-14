@@ -2,7 +2,7 @@
 font: RecMonoDuotone Nerd Font Propo 26
 background: "#FFFBEFee" # everforest light hard bg0
 color: "#5C6A72ff" # everforest light hard fg
-border: "#DFA000ff" # everforest light hard yellow
+border: "#8DA101ff" # everforest light hard green (noctalia primary)
 border_width: 3
 corner_r: 20
 padding: 25 # Defaults to corner_r

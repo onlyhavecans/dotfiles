@@ -35,8 +35,8 @@ switch-events {
 
 binds {
   // Launchers and panels
-  Mod+Space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
-  Alt+Space hotkey-overlay-title="open which-key menu" { spawn "~/bin/wlr-toggle"; }
+  Alt+Space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+  Mod+Space hotkey-overlay-title="open which-key menu" { spawn "~/bin/wlr-toggle"; }
   Alt+Comma hotkey-overlay-title="open emoji search" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo "; }
   Alt+N hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
   Alt+Tab hotkey-overlay-title="select window" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/win"; }
