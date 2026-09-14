@@ -1,0 +1,58 @@
+---
+font: RecMonoDuotone Nerd Font Propo 26
+background: "#FFFBEFee" # everforest light hard bg0
+color: "#5C6A72ff" # everforest light hard fg
+border: "#8DA101ff" # everforest light hard green (noctalia primary)
+border_width: 3
+corner_r: 20
+padding: 25 # Defaults to corner_r
+rows_per_column: 8
+
+# NOTE: Panel ids: noctalia msg panel-toggle <bogus> lists them
+# NOTE: Control Center tab ids follow the control-center.tabs.* i18n keys
+menu:
+  - key: a
+    desc: Audio
+    cmd: noctalia msg panel-toggle control-center audio
+  - key: b
+    desc: Bluetooth
+    cmd: noctalia msg panel-toggle control-center bluetooth
+  - key: c
+    desc: Control Center
+    cmd: noctalia msg panel-toggle control-center home
+  - key: e
+    desc: W[e]ather
+    cmd: noctalia msg panel-toggle control-center weather
+  - key: g
+    desc: Settin[g]s
+    cmd: noctalia msg settings-toggle
+  - key: h
+    desc: Clip[h]ist
+    cmd: noctalia msg panel-toggle clipboard
+  - key: i
+    desc: Mon[i]tor
+    cmd: noctalia msg panel-toggle control-center monitor
+  - key: l
+    desc: Ca[l]endar
+    cmd: noctalia msg panel-toggle control-center calendar
+  - key: m
+    desc: Media
+    cmd: noctalia msg panel-toggle control-center media
+  - key: n
+    desc: Network
+    cmd: noctalia msg panel-toggle control-center network
+  - key: o
+    desc: N[o]tifications
+    cmd: noctalia msg panel-toggle control-center notifications
+  - key: p
+    desc: Power
+    cmd: noctalia msg panel-toggle control-center power
+  - key: s
+    desc: System
+    cmd: noctalia msg panel-toggle control-center system
+  - key: t
+    desc: Screen [T]ime
+    cmd: noctalia msg panel-toggle control-center screen-time
+  - key: w
+    desc: Wallpaper
+    cmd: noctalia msg panel-toggle wallpaper
