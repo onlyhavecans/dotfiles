@@ -286,6 +286,8 @@ binds {
   XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
   XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
 
+  XF86AudioMedia { spawn "noctalia" "msg" "session" "lock"; } // Framework Key
+
   // Screenshots
   Print hotkey-overlay-title="Screenshot Region" { spawn "noctalia" "msg" "screenshot-annotate"; }
   Mod+Print hotkey-overlay-title="Record Screen" { spawn "~/bin/record-screen"; }
