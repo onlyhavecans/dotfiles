@@ -34,5 +34,11 @@ fd --hidden --type empty --type directory \
   --exclude .local/share/flatpak \
   --exclude .local/state/Steam \
   --exclude .local/state/nix \
+  --exclude Code \
+  --exclude Desktop \
+  --exclude Documents \
+  --exclude Library \
+  --exclude OrbStack \
+  --exclude Photos \
   . ~ \
   --exec rmdir -v {}
