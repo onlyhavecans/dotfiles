@@ -49,6 +49,7 @@ abbr --add lsusb "cyme --lsusb"
 abbr --add n nvim
 abbr --add nv nvim
 abbr --add tree "eza --tree"
+abbr --add t tomat
 
 # pretty things
 abbr --add --position anywhere -- --help '--help 2>&1 | bat --language=help --plain'
