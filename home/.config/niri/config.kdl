@@ -49,7 +49,7 @@ output "eDP-1" {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
-  gaps 4
+  gaps 5
 
   center-focused-column "never"
 
@@ -63,10 +63,10 @@ layout {
   default-column-width { proportion 0.5; }
 
   focus-ring {
-    width 2
-    active-color "#fabd2f"
-    inactive-color "#7c6f64"
-    urgent-color "#fb4934"
+    width 3
+    active-color   "#8da101"
+    inactive-color "#fffbef"
+    urgent-color   "#f85552"
   }
 
   border {
@@ -77,18 +77,18 @@ layout {
   shadow {
     on
     offset x=0 y=5
-    color "#fabd2f66"
-    inactive-color "#7c6f6440"
+    color "#8da10166"          // green
+    inactive-color "#bec5b240" // bg5
   }
 
   tab-indicator {
-      width 8
-      length total-proportion=0.95
-      position "top"
-      place-within-column
-      active-color "#83a598"
-      inactive-color "#7c6f64"
-      urgent-color "#fb4934"
+    width 8
+    length total-proportion=0.95
+    position "top"
+    place-within-column
+    active-color "#83a598"
+    inactive-color "#7c6f64"
+    urgent-color "#fb4934"
   }
 
   background-color "#282828"
@@ -97,6 +97,8 @@ layout {
 // Miscellaneous configuration.
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
+
+spawn-at-startup "noctalia"
 
 // ask the clients to omit their client-side decorations
 prefer-no-csd
@@ -108,10 +110,6 @@ cursor {
   xcursor-size 32
   hide-when-typing
   hide-after-inactive-ms 1000
-}
-
-overview {
-    backdrop-color "#1d2021"
 }
 
 clipboard {
@@ -137,6 +135,28 @@ gestures {
   hot-corners {
     off // not a fan
   }
+}
+
+// Layer rules let you adjust behavior for individual layer-shell surfaces
+// https://niri-wm.github.io/niri/Configuration%3A-Layer-Rules.html
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+
+// Debug and control
+// https://niri-wm.github.io/niri/Configuration:-Debug-Options.html
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  // see: https://docs.noctalia.dev/noctalia/compositor-settings/niri/
+  honor-xdg-activation-with-invalid-serial
+}
+
+// Hardware switch-events
+// https://niri-wm.github.io/niri/Configuration:-Switch-Events.html
+switch-events {
+  lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -212,10 +232,12 @@ window-rule {
 }
 
 window-rule {
-  match app-id="^$" title="Authentication Required" // stupid bitwarden
-  baba-is-float true
+  // Floating Noctalia settings window.
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
 }
-
 
 // enable rounded corners for all windows.
 window-rule {
@@ -230,14 +252,47 @@ binds {
   // shows a list of important hotkeys.
   Mod+Shift+Slash { show-hotkey-overlay; }
 
+  // Direct Apps
   Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
+  Alt+Period { spawn "voxtype" "record" "toggle"; }
 
+  // Launchers and panels
+  Alt+Space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+  Mod+Space hotkey-overlay-title="open which-key menu" { spawn "~/bin/wlr-toggle"; }
+  Alt+Comma hotkey-overlay-title="open emoji search" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo "; }
+  Alt+Tab hotkey-overlay-title="select window" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/win"; }
+  Mod+Period hotkey-overlay-title="run task" { spawn "~/bin/wlr-toggle" "tasks"; }
+
+  // Noctalia
+  Alt+N hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+  Mod+N hotkey-overlay-title="show notification history" { spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"; }
+  Mod+S hotkey-overlay-title="control center" { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+  Mod+Escape hotkey-overlay-title="power menu" { spawn "noctalia" "msg" "panel-toggle" "session"; }
+  Mod+Comma hotkey-overlay-title="shell settings" { spawn "noctalia" "msg" "settings-toggle"; }
+  Mod+Alt+Comma hotkey-overlay-title="toggle bar" { spawn "noctalia" "msg" "bar-toggle"; }
+
+  // Hardware keys through Noctalia IPC so the OSD shows.
+  XF86AudioMute        allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
+
+  XF86AudioPrev allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
+  XF86AudioPlay allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
+  XF86AudioNext allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
+
+  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
+
+  // Screenshots
+  Print hotkey-overlay-title="Screenshot Region" { spawn "noctalia" "msg" "screenshot-annotate"; }
+  Mod+Print hotkey-overlay-title="Record Screen" { spawn "~/bin/record-screen"; }
+
+  // Touchpad control
   Mod+F12 hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
   Mod+XF86AudioMedia hotkey-overlay-title="toggle touchpad" { spawn "~/bin/toggle-touchpad"; }
-
-  Alt+Period { spawn "voxtype" "record" "toggle"; }
 
   // open/close the overview: a zoomed-out view of workspaces and windows.
   Mod+O repeat=false { toggle-overview; }
@@ -466,9 +521,6 @@ binds {
   // moving the mouse or pressing any other key.
   // Mod+Shift+P { power-off-monitors; }
 }
-
-// Shell binds and rules (launcher, bar, OSD, lock, screenshots)
-include "shell.kdl"
 
 // Machine-specific overrides; symlinked to host/<hostname>.kdl by link-host-files
 include optional=true "host.kdl"
