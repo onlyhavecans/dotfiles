@@ -4,13 +4,13 @@
 # Clean up after removing things from homeshick castles
 ##
 
-fd --hidden --follow --type l \
+echo "~~ cleaning links directories"
+fd --hidden --follow --type symlink \
   --exclude .local/share/Steam \
   --exclude .local/share/containers \
   --exclude .local/share/docker \
   --exclude .local/share/flatpak \
   --exclude .local/state/Steam \
-  --exclude .local/state/home-manager \
   --exclude .local/state/nix \
   --exclude .nix-defexpr \
   --exclude .steam \
@@ -24,3 +24,15 @@ fd --hidden --follow --type l \
   --exclude lock \
   . ~ \
   --exec rm -v {}
+
+echo "~~ cleaning empty directories"
+fd --hidden --type empty --type directory \
+  --exclude .config/espanso/match/packages \
+  --exclude .local/share/Steam \
+  --exclude .local/share/containers \
+  --exclude .local/share/docker \
+  --exclude .local/share/flatpak \
+  --exclude .local/state/Steam \
+  --exclude .local/state/nix \
+  . ~ \
+  --exec rmdir -v {}
