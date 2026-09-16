@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# vpn <name> — toggle a NetworkManager wireguard connection (e.g. `vpn home`, `vpn ams`)
+# vpn up|down|toggle|status <name> for the explicit forms
+set -euo pipefail
+
+usage="usage: vpn [up|down|toggle|status] <name>"
+cmd=${1:?$usage}
+case "$cmd" in
+  up | down | toggle | status) name=${2:?$usage} ;;
+  *)
+    name=$cmd
+    cmd=toggle
+    ;;
+esac
+
+conn="wg-${name}"
+nmcli -t -f NAME connection show | grep -qx "$conn" || conn="$name"
+
+is_active() {
+  nmcli -t -f NAME connection show --active | grep -qx "$conn"
+}
+
+case "$cmd" in
+  up)
+    nmcli connection up "$conn" >/dev/null
+    notify-send "vpn" "${name} up"
+    ;;
+  down)
+    nmcli connection down "$conn" >/dev/null
+    notify-send "vpn" "${name} down"
+    ;;
+  toggle)
+    if is_active; then
+      "$0" down "$name"
+    else
+      "$0" up "$name"
+    fi
+    ;;
+  status)
+    if is_active; then
+      echo active
+    else
+      echo inactive
+      exit 1
+    fi
+    ;;
+esac
