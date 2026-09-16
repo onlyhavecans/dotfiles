@@ -212,23 +212,16 @@ queue_loop = true
 # Progress bar: `[ui.row_now_playing].progress_style` (not under theme.icon).
 
 [theme]
-preset = "terminal"   # inherit terminal ANSI (gruvbox via foot/ghostty)
-# accent = "#ff8c00"
-# accent = "idx:2"    # terminal green (example) for highlights / selection bar
-accent = "idx:11"     # bright yellow: the gruvbox accent (docs/gruvbox.md)
-background = "idx:0"  # selected-row text; terminal preset leaves this Reset -> fg on accent
-tab_bar = "unset"     # keep bars unpainted (they inherit `background` otherwise)
-status_bar = "unset"
-# background = "#1a1a1a"
-# background = "unset"          # transparent background
-# tab_bar = "#1a1a1a"
-# status_bar = "#1a1a1a"
-# surface = "#161616"
-# surface = "unset"             # transparent panel backgrounds
-# foreground = "#d4d0c8"
-# dimmed = "#5a5858"
-# border = "#252525"
-# border_active = "#3a3a3a"
+preset = "static"  # Everforest Light Hard (docs/everforest.md); no album-art accent
+accent = "#8DA101"         # green: selection bar, progress, focused chrome
+background = "#FFFBEF"     # bg0: popups + text on accent
+tab_bar = "#F8F5E4"        # bg1
+status_bar = "#F8F5E4"     # bg1
+surface = "#FFFBEF"        # bg0
+foreground = "#5C6A72"     # fg
+dimmed = "#939F91"         # grey1
+border = "#BEC5B2"         # bg5
+border_active = "#8DA101"  # green
 
 # -----------------------------------------------------------------------------
 # [theme.border_lines] — pane box-drawing (style + optional edge glyphs)
@@ -462,7 +455,7 @@ fps = 30
 fft_size = 2048
 gain_db = 0.0
 color_mode = "gradient_height"
-colors = ["#83a598", "#b8bb26", "#fabd2f", "#fb4934"]  # gruvbox brights, cool→hot
+colors = ["#3A94C5", "#8DA101", "#DFA000", "#F85552"]  # everforest blue→green→yellow→red
 
 # [ui.nptab.now_playing] — NP tab only: overrides [ui.row_now_playing] for strip + boxed pane
 #
