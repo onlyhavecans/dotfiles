@@ -5,8 +5,8 @@ if [[ -z "$*" ]]; then
   exit 1
 fi
 
-TOKEN=$(op read "op://Personal/Zipline/api-key")
-URL=$(op read "op://Personal/Zipline/api-upload-url")
+TOKEN=$(rbw get Zipline --field api-key)
+URL=$(rbw get Zipline --field api-upload-url)
 
 if [[ -z "$TOKEN" || -z "$URL" ]]; then
   echo "No upload till you auth"
