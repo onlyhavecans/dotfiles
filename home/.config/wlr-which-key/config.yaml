@@ -195,9 +195,6 @@ menu:
       - key: v
         desc: Record Screen
         cmd: ~/bin/record-screen
-      - key: w
-        desc: Shot Window
-        cmd: ~/bin/screenshot window
 
   - key: s
     desc: Stream
@@ -239,6 +236,9 @@ menu:
       - key: e
         desc: End
         cmd: tomat stop
+      - key: r
+        desc: Restart
+        cmd: tomat stop; tomat start
 
   - key: u
     desc: Utilities
