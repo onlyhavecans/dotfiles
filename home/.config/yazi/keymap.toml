@@ -26,7 +26,8 @@ prepend_keymap = [
 
   # add fzf and zoxide
   { on = ["g", "z"], run = "plugin zoxide", desc = "Jump via zoxide" },
-  { on = ["g", "Z"], run = "plugin fzf", desc = "Jump via fzf" },
+  { on = "z", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
+  { on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
 
   # mount local disks (mount/unmount/eject/jump inside the picker)
   { on = ["M", "m"], run = "plugin mount", desc = "Mount manager" },
