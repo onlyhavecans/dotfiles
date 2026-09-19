@@ -67,4 +67,8 @@ venv/*
 .direnv
 .envrc
 
+# Jujutsu
+.jj
+
+# Claude
 **/.claude/settings.local.json

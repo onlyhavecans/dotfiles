@@ -9,7 +9,7 @@ function fish_prompt
     set_color green
     echo -n (prompt_hostname)" $icon_dir "(prompt_pwd)
     set_color magenta
-    echo -n (fish_git_prompt " $icon_git %s")
+    echo -n (fish_vcs_prompt " $icon_git %s")
     echo
 
     # Bottom line: simple chevron

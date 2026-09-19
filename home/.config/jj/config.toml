@@ -1,0 +1,10 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Amelia Aronsohn"
+email = "squirrel@wearing.black"
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDbf3akk3YGBxen4nREECgDKyGOZTb+1Mqak7HxNYvt5"
