@@ -38,10 +38,8 @@ include optional=true "touchpad.kdl"
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Outputs
 output "eDP-1" {
-  // Laptops are smaller screens
   layout {
     always-center-single-column
-    // default-column-width { proportion 0.66667; }
   }
 }
 
@@ -50,8 +48,8 @@ output "eDP-1" {
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
   gaps 5
-
   center-focused-column "never"
+  background-color "#282828"
 
   preset-column-widths {
     proportion 0.33333
@@ -70,15 +68,12 @@ layout {
   }
 
   border {
-    // border is the focus ring but always so they clash
+    // border clashes with focus ring
     off
   }
 
   shadow {
     on
-    offset x=0 y=5
-    color "#8da10166"          // green
-    inactive-color "#bec5b240" // bg5
   }
 
   tab-indicator {
@@ -90,14 +85,11 @@ layout {
     inactive-color "#7c6f64"
     urgent-color "#fb4934"
   }
-
-  background-color "#282828"
 }
 
 // Miscellaneous configuration.
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
-
 spawn-at-startup "noctalia"
 
 // ask the clients to omit their client-side decorations
@@ -241,7 +233,7 @@ window-rule {
 
 // enable rounded corners for all windows.
 window-rule {
-  geometry-corner-radius 20
+  geometry-corner-radius 15
   clip-to-geometry true
 }
 
