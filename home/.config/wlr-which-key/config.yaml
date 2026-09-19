@@ -20,9 +20,6 @@ menu:
   - key: " "
     desc: Terminal
     cmd: foot --login tm
-  - key: "."
-    desc: Launcher
-    cmd: noctalia msg panel-toggle launcher
   - key: ","
     desc: Toggle Bar
     cmd: noctalia msg bar-toggle
