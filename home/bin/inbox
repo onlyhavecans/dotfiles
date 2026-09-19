@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# inbox <text>
+# Append a task to the Obsidian vault inbox, after the last non-blank line.
+# Same format as the QuickAdd "Quick Capture to Inbox" choice.
+set -euo pipefail
+
+INBOX="${OBSIDIAN_INBOX:-$HOME/Documents/Obsidian/Vault/notes/Inbox.md}"
+BODY=$*
+
+if [[ -z $BODY ]]; then
+  echo "usage: inbox <text>" >&2
+  exit 1
+fi
+
+tmp=$(mktemp -p "$(dirname "$INBOX")" .inbox.XXXXXX)
+trap 'rm -f "$tmp"' EXIT
+
+awk -v line="- [ ] $BODY" '
+  { lines[NR] = $0 }
+  /[^[:space:]]/ { last = NR }
+  NR == 1 && $0 == "---" { fm = 1; next }
+  fm == 1 && $0 == "---" { fm = 2; fm_end = NR }
+  END {
+    for (i = 1; i <= last; i++) print lines[i]
+    # Keep one empty line between the frontmatter and the first task.
+    if (last && last == fm_end) { print ""; last++ }
+    print line
+    for (i = last + 1; i <= NR; i++) print lines[i]
+  }
+' "$INBOX" >"$tmp"
+
+mv -- "$tmp" "$INBOX"
+echo "$BODY"

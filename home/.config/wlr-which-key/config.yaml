@@ -20,6 +20,9 @@ menu:
   - key: " "
     desc: Terminal
     cmd: foot --login tm
+  - key: "."
+    desc: Launcher
+    cmd: noctalia msg panel-toggle launcher
   - key: ","
     desc: Toggle Bar
     cmd: noctalia msg bar-toggle
@@ -86,16 +89,7 @@ menu:
 
   - key: e
     desc: Email
-    submenu:
-      - key: e
-        desc: Email
-        cmd: thunderbird
-      - key: d
-        desc: EmailMe Dictate
-        cmd: ~/bin/em-dictate
-      - key: t
-        desc: EmailMe Type
-        cmd: noctalia msg panel-open launcher "/em "
+    cmd: thunderbird
 
   - key: f
     desc: Files
@@ -171,7 +165,16 @@ menu:
 
   - key: o
     desc: Obsidian
-    cmd: xdg-open "obsidian://open?vault=Vault"
+    submenu:
+      - key: d
+        desc: Inbox Dictate
+        cmd: ~/bin/inbox-dictate
+      - key: o
+        desc: Obsidian
+        cmd: xdg-open "obsidian://open?vault=Vault"
+      - key: t
+        desc: Inbox Type
+        cmd: noctalia msg panel-open launcher "/in "
 
   - key: p
     desc: +Power
