@@ -1,9 +1,8 @@
 # Everforest Hard — palette and usage guide
 
-Everything themes to **Everforest, hard contrast**. Noctalia owns the palette
-(`~/.config/noctalia/palettes/everforest-hard.json`, `theme.custom_palette =
-"everforest-hard"`, `theme.mode = "auto"`) and renders every app it has a
-template for. This file is for the rest: anything with hand-written hex.
+Everything themes to **Everforest, hard contrast**. Each app
+is pinned to Light Hard with static files in this castle. This file is the
+palette and the rules for all hand-written hex.
 
 Upstream: <https://github.com/sainnhe/everforest/blob/master/palette.md>
 (tables below are copied verbatim, so no lookup is needed).
@@ -21,7 +20,7 @@ Upstream: <https://github.com/sainnhe/everforest/blob/master/palette.md>
 | bg2 | `#F2EFDF` | `#374145` | popup menu, floating window, toolbar |
 | bg3 | `#EDEADA` | `#414B50` | list chars, inactive tab label |
 | bg4 | `#E8E5D5` | `#495156` | window splits, whitespace |
-| bg5 | `#BEC5B2` | `#4F5B58` | unused upstream; noctalia `mOutline` |
+| bg5 | `#BEC5B2` | `#4F5B58` | unused upstream; inactive outline here |
 | bg_visual | `#F0F2D4` | `#4C3743` | visual selection |
 | bg_red | `#FFE7DE` | `#493B40` | diff deleted line, error highlight |
 | bg_yellow | `#FEF2D5` | `#45443C` | warning highlight |
@@ -43,8 +42,7 @@ Upstream: <https://github.com/sainnhe/everforest/blob/master/palette.md>
 | statusline2 | `#708089` | `#D3C6AA` | mode indicator |
 | statusline3 | `#E66868` | `#E67E80` | mode indicator |
 
-Note: in Light Hard `bg_dim` and `bg2` are the same hex. Medium and soft
-variants live in the sibling noctalia palette JSONs; do not hand-copy them.
+Note: in Light Hard `bg_dim` and `bg2` are the same hex.
 
 ## Desktop roles
 
@@ -78,80 +76,76 @@ Rules:
   the warning color.
 - Red is the only alert color. Destructive menus (wlr-which-key power) use red,
   not purple.
-- Everforest is low contrast by design. Borders that carried on gruvbox yellow
-  need more weight: 3px for normal menus, 4px for destructive.
-
-## Noctalia token map
-
-`everforest-hard.json` keys → everforest names. `mOn*` keys are all `bg0`.
-
-| noctalia key | light | dark |
-| --- | --- | --- |
-| mSurface | bg0 | bg0 |
-| mSurfaceVariant | bg1 | bg1 |
-| mShadow | bg_dim | bg_dim |
-| mOutline | bg5 | bg5 |
-| mOnSurface | fg | fg |
-| mOnSurfaceVariant | grey1 | grey2 |
-| mPrimary, mHover | green | green |
-| mSecondary | yellow | yellow |
-| mTertiary | blue | blue |
-| mError | red | red |
-| terminal.normal.black | fg | bg3 |
-| terminal.normal.white | bg3 | fg |
-| terminal.bright.black | grey2 | grey0 |
-| terminal.bright.white | bg0 | fg |
-| terminal.selectionBg | bg_visual | bg_visual |
-
-Template tokens (`{{ colors.<name>.<light|dark|default>.hex }}`) that map
-1:1: `surface`, `on_surface`, `on_surface_variant`, `primary`, `on_primary`,
-`secondary`, `tertiary`, `error`, `on_error`, `terminal_normal_*`.
-
-Noctalia derives the rest; they are not everforest colors. Observed Light Hard
-values (read `~/.config/tmux/themes/noctalia.conf` for the current mode):
-
-| token | hex |
-| --- | --- |
-| surface_container_low | `#fbf8e9` |
-| surface_container | `#f8f5e4` (= bg1) |
-| surface_container_high | `#f4efd4` |
-| surface_container_highest | `#f0e9c4` |
-| outline | `#8e9482` |
-| outline_variant | `#b3b7ab` |
-| primary_container / on_primary_container | `#dced67` / `#434c00` |
-| secondary_container / on_secondary_container | `#f4dc9d` / `#4d3700` |
-| tertiary_container / on_tertiary_container | `#ccdde6` / `#112c3b` |
-| error_container / on_error_container | `#f4bebd` / `#4a0403` |
-
-Template filters used for diff backgrounds (delta, tuicr): green
-`set_saturation 60 | set_lightness 91`, red `set_saturation 100 |
-set_lightness 94`.
+- Geometry: 15px corner radius and 3px borders on all surfaces. Destructive
+  surfaces (wlr-which-key power menu, mako critical) use a 4px red border.
+  The waybar is the exception: pills are fully round (`999px`) with 1px
+  borders on a 30px bar. Only its tooltips and menus use 15px and 3px.
 
 ## Who owns what
 
-Rendered by noctalia (`theme.mode = "auto"`, flips light/dark by schedule):
-btop, foot, gtk3/4, kcolorscheme, niri (`noctalia.kdl`: focus-ring, border,
-tab-indicator, insert-hint, recent-windows), qt, claude-code, feishin, neovim,
-obsidian, pywalfox, tmux, yazi, delta, tuicr.
+Everything is pinned to **Light Hard**. The Dark Hard column above is for
+reference only; no app reads it. There is no mode switch.
+
+| app | where the colors live |
+| --- | --- |
+| niri | hex in `niri/config.kdl` (rings, shadow, tab indicator, insert hint). Background and overview backdrop stay neutral grey, not theme colors |
+| waybar | `waybar/everforest-light.css`, imported by `style.css` |
+| mako | `mako/config` |
+| fuzzel | `fuzzel/fuzzel.ini` |
+| wlr-which-key | header of each `wlr-which-key/*.yaml`; power menu has the red border |
+| foot | `[colors-light]` in `foot/foot.ini`, `initial-color-theme=light` |
+| tmux | `tmux/themes/everforest-light.conf`; `bar.conf` reads its `@theme_*` |
+| btop | `btop/themes/everforest-light.theme` |
+| yazi | `yazi/flavors/everforest-hard-light.yazi` |
+| tuicr | `tuicr/themes/everforest-hard-light.toml` |
+| delta | `[delta]` in `git/config` |
+| claude-code | `.claude/themes/everforest-light.json` |
+| neovim | `sainnhe/everforest`, hard, light (neovim castle) |
+| Firefox, Thunderbird | `pywalfox/everforest-light.json`, linked to `~/.cache/wal/colors.json` by `link-host-files` |
+| GTK, Qt, icons, cursor | NixOS repo, `nixos/desktop/theme/` |
+| satty | light accents in `satty/config.toml` |
 
 Palette-independent, inherit terminal ANSI: `BAT_THEME=ansi`, delta
 `syntax-theme = ansi`, ratune `preset = "terminal"`, fzf, fish prompt.
 
-Hand-written hex, **pinned to Light Hard** (does not follow mode):
-
-- `home/.config/wlr-which-key/*.yaml`: bg0 `ee`, fg, green border; power menu
-  red border.
-- `home/.config/niri/shell.kdl`: shadow (green `66` / bg5 `40`), layout
-  `background-color` bg0, overview `backdrop-color` bg_dim. All other niri
-  colors come from `noctalia.kdl`. The gruvbox hex still in `config.kdl` is
-  dead: both includes come later and win.
+swaylock is stock (image and font only). The waybar calendar "today" color is
+hex in `modules/clock.jsonc` because Pango markup cannot read CSS colors.
 
 Ghostty (macOS) uses the bundled themes and follows system appearance:
 `theme = light:Everforest Light - Hard,dark:Everforest Dark - Hard`.
 
+## tmux variables
+
+`tmux/bar.conf` reads `@theme_*` at render time.
+
+| variable | use | color |
+| --- | --- | --- |
+| surface_container_low | bar background | bg1 |
+| surface_container | inactive window, clock | bg2 |
+| surface_container_highest | session, host | bg4 |
+| on_surface | text | fg |
+| on_surface_variant | secondary text | grey1 |
+| primary / on_primary | active window | green / bg0 |
+| tertiary_container / on_ | prefix held | blue / bg0 |
+| secondary_container / on_ | copy mode | yellow / bg0 |
+| error_container / on_ | synchronized panes | red / bg0 |
+
+## Waybar
+
+- Each top-level item is a neutral pill (`bg1` fill, `bg5` border). The children
+  of a group have no style.
+- The Pomodoro pill is the only filled pill: green (work), aqua (break), red
+  (paused or disconnected). Only this pill glows. Idle keeps a green border.
+- Transient alerts are chips with a red border. Idle-inhibit is green. DND is
+  `grey1`.
+- Levels show a glyph and a one-character meter, never a number. State colors
+  only: muted `grey0`, battery yellow then red.
+- Links: WireGuard aqua, NetBird blue (yellow when degraded), bluetooth blue.
+
 ## Alpha convention
 
-- Surfaces (wlr-which-key backgrounds, popups): `ee`
+- Surfaces (mako, fuzzel, wlr-which-key backgrounds, waybar pills): `ee`;
+  waybar CSS: `alpha(@bg1, 0.93)`
 - Text and borders: opaque `ff`
 - niri shadows: active `66`, inactive `40`
-- niri insert-hint (noctalia): `80`
+- niri insert-hint: `80`

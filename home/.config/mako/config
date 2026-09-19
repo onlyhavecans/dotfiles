@@ -1,0 +1,29 @@
+font=Adwaita Sans 13
+height=1000
+border-size=3
+border-radius=15
+icons=1
+icon-border-radius=10
+default-timeout=10000
+layer=overlay
+max-history=50
+
+# Everforest Light Hard (see docs/everforest.md)
+background-color=#FFFBEFee
+text-color=#5C6A72ff
+border-color=#8DA101ff
+progress-color=over #35A77Cee
+
+[urgency=low]
+border-color=#BEC5B2ff
+
+[urgency=high]
+background-color=#FFFBEFff
+border-color=#F85552ff
+border-size=4
+progress-color=over #35A77Cff
+default-timeout=60000
+
+[mode=do-not-disturb]
+default-timeout=0
+invisible=1

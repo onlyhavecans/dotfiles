@@ -65,13 +65,16 @@
 	navigate = true
 	line-numbers = true
 	syntax-theme = ansi
+	# Everforest Light Hard: bg_red, red, bg_green, green
+	light = true
+	minus-style = syntax "#FFE7DE"
+	minus-emph-style = "#F85552" bold
+	plus-style = syntax "#F3F5D9"
+	plus-emph-style = "#8DA101" bold
 
 # include for work
 [includeIf "gitdir:~/Code/dnsimple/"]
 	path = ~/Code/dnsimple/.gitconfig
-
-[include]
-	path = ~/.config/delta/noctalia.gitconfig
 
 #Silly tools fight for config down here
 [filter "lfs"]

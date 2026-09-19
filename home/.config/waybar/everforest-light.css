@@ -1,0 +1,20 @@
+/* Everforest Light Hard palette (see docs/everforest.md) */
+@define-color bg_dim #F2EFDF;
+@define-color bg0 #FFFBEF;
+@define-color bg1 #F8F5E4;
+@define-color bg2 #F2EFDF;
+@define-color bg3 #EDEADA;
+@define-color bg4 #E8E5D5;
+@define-color bg5 #BEC5B2;
+@define-color bg_visual #F0F2D4;
+@define-color fg #5C6A72;
+@define-color grey0 #A6B0A0;
+@define-color grey1 #939F91;
+@define-color grey2 #829181;
+@define-color red #F85552;
+@define-color orange #F57D26;
+@define-color yellow #DFA000;
+@define-color green #8DA101;
+@define-color aqua #35A77C;
+@define-color blue #3A94C5;
+@define-color purple #DF69BA;

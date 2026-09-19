@@ -1,0 +1,3 @@
+{
+  "temperature": { "hwmon-by-name": "coretemp" }
+}

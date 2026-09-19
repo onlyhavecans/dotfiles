@@ -1,10 +1,10 @@
 ---
 font: RecMonoDuotone Nerd Font Propo 26
-background: "#FFFBEFee" # everforest light hard bg0
-color: "#5C6A72ff" # everforest light hard fg
-border: "#8DA101ff" # everforest light hard green (noctalia primary)
+background: "#FFFBEFee" # bg0
+color: "#5C6A72ff" # fg
+border: "#8DA101ff" # green
 border_width: 3
-corner_r: 20
+corner_r: 15
 padding: 25 # Defaults to corner_r
 
 menu:
@@ -13,16 +13,16 @@ menu:
     submenu:
       - key: "1"
         desc: 10%
-        cmd: noctalia msg brightness-set 10
+        cmd: brightnessctl --class=backlight set 10%
       - key: "3"
         desc: 30%
-        cmd: noctalia msg brightness-set 30
+        cmd: brightnessctl --class=backlight set 30%
       - key: "5"
         desc: 50%
-        cmd: noctalia msg brightness-set 50
+        cmd: brightnessctl --class=backlight set 50%
       - key: "7"
         desc: 70%
-        cmd: noctalia msg brightness-set 70
+        cmd: brightnessctl --class=backlight set 70%
   - key: c
     desc: Cast Target
     submenu:
@@ -37,58 +37,58 @@ menu:
         cmd: niri msg action set-dynamic-cast-window
   - key: d
     desc: Do Not Disturb
-    cmd: noctalia msg notification-dnd-toggle
+    cmd: makoctl mode -t do-not-disturb; pkill -RTMIN+11 waybar
   - key: i
     desc: Input Vol
     submenu:
       - key: "1"
         desc: 100%
-        cmd: noctalia msg mic-volume-set 100
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
       - key: "3"
         desc: 30%
-        cmd: noctalia msg mic-volume-set 30
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
       - key: m
         desc: Mute
-        cmd: noctalia msg mic-mute
+        cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
   - key: m
     desc: Music
     submenu:
       - key: " "
         desc: Play/Pause
-        cmd: noctalia msg media toggle
+        cmd: playerctl play-pause
       - key: ","
         desc: Prev
-        cmd: noctalia msg media previous
+        cmd: playerctl previous
       - key: "."
         desc: Next
-        cmd: noctalia msg media next
+        cmd: playerctl next
   - key: o
     desc: Output Vol
     submenu:
       - key: "1"
         desc: 100%
-        cmd: noctalia msg volume-set 100
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
       - key: "3"
         desc: 30%
-        cmd: noctalia msg volume-set 30
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
       - key: "6"
         desc: 60%
-        cmd: noctalia msg volume-set 60
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
       - key: m
         desc: Mute
-        cmd: noctalia msg volume-mute
+        cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
   - key: p
     desc: Power Profile
     submenu:
       - key: s
         desc: Saver
-        cmd: noctalia msg power-set power-saver
+        cmd: powerprofilesctl set power-saver
       - key: b
         desc: Balanced
-        cmd: noctalia msg power-set balanced
+        cmd: powerprofilesctl set balanced
       - key: p
         desc: Performance
-        cmd: noctalia msg power-set performance
+        cmd: powerprofilesctl set performance
   - key: v
     desc: VPN
     submenu:
@@ -108,17 +108,14 @@ menu:
     desc: Wallpaper
     submenu:
       - key: g
-        desc: Get Path
-        cmd: notify-send "Wall" "$(noctalia msg wallpaper-get)"
+        desc: Get Mood
+        cmd: notify-send "Wall" "$(wall which)"
       - key: n
         desc: Next
-        cmd: noctalia msg wallpaper-next
-      - key: p
-        desc: Prev
-        cmd: noctalia msg wallpaper-previous
+        cmd: wall next
       - key: r
         desc: Random
-        cmd: noctalia msg wallpaper-random
+        cmd: wall random
       - key: s
-        desc: Select
-        cmd: noctalia msg panel-toggle wallpaper
+        desc: Set Mood
+        cmd: wall menu

@@ -1,0 +1,25 @@
+[general]
+corner-roundness = 15
+initial-tool = "arrow"
+copy-command = "wl-copy"
+annotation-size-factor = 2
+output-filename = "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
+default-fill-shapes = false
+actions-on-escape = ["save-to-clipboard", "save-to-file", "exit"]
+
+zoom-factor = 1.2
+
+[font]
+family = "Adwaita Sans"
+style = "Bold"
+
+[color-palette]
+# Everforest light-hard accents (docs/everforest.md); distinguishable on screenshots
+palette = [
+  "#f85552",
+  "#f57d26",
+  "#dfa000",
+  "#8da101",
+  "#3a94c5",
+  "#df69ba",
+]

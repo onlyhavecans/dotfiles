@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -ou pipefail
+
+OUTFILE=~/Pictures/Screenshots/$(date +%F_%H-%M-%S).png
+
+annotate() {
+  satty --output-filename "$OUTFILE" --filename -
+}
+
+case "${1:-region}" in
+  window)
+    niri msg action screenshot-window --write-to-disk false
+    sleep 0.3
+    wl-paste | annotate
+    ;;
+  screen)
+    output=$(niri msg --json focused-output | jq --raw-output '.name')
+    grim -o "$output" -t ppm - | annotate
+    ;;
+  selection)
+    grim -g "$(slurp)" -t ppm - | annotate
+    ;;
+  *)
+    echo "usage: $0 [window|screen|selection]"
+    exit 1
+    ;;
+esac

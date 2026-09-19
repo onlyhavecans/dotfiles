@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Pick a notification from the mako history with fuzzel and copy its text.
+# makoctl restore takes no id, so a picked entry cannot be shown again.
+set -euo pipefail
+
+history=$(makoctl history -j)
+
+idx=$(jq -r '.[] | "\(.app_name // "") | \(.summary // "") \(.body // "")" | gsub("\n"; " ")' <<<"$history" |
+  fuzzel --dmenu --index --width 60 --prompt="Notification: ") || exit 0
+[[ -n $idx && $idx != -1 ]] || exit 0
+
+jq -r --argjson i "$idx" '.[$i] | [.summary, .body] | map(select(. != null and . != "")) | join("\n")' <<<"$history" |
+  wl-copy --trim-newline

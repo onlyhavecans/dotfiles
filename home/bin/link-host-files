@@ -25,8 +25,19 @@ function link_host_file {
 ##
 host_links=(
   "${HOME}/.config/niri/host.kdl"
+  "${HOME}/.config/waybar/host.jsonc"
 )
 
 for link in "${host_links[@]}"; do
   link_host_file "$link"
 done
+
+# The pywalfox addon (Firefox, Thunderbird) reads its colors from the wal cache
+wal_colors="${HOME}/.config/pywalfox/everforest-light.json"
+if [[ -e $wal_colors ]] && command -v pywalfox >/dev/null; then
+  mkdir -p "${HOME}/.cache/wal"
+  ln -sf "$wal_colors" "${HOME}/.cache/wal/colors.json"
+  pywalfox light >/dev/null 2>&1
+  pywalfox update >/dev/null 2>&1
+  echo "linked: ${HOME}/.cache/wal/colors.json -> ${wal_colors}"
+fi

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# waybar custom module: netbird login state as json.
+if ! command -v netbird >/dev/null || ! command -v jq >/dev/null; then
+  echo '{"text":""}'
+  exit 0
+fi
+
+netbird status --json 2>/dev/null | jq -c '
+  if (.management.connected and .signal.connected) then
+    { text: "󰖂", class: "connected",
+      tooltip: "NetBird \(.fqdn)\n\(.netbirdIp)\npeers \(.peers.connected)/\(.peers.total)\nsession until \(.sessionExpiresAt // "?" | .[0:16])" }
+  elif (.netbirdIp // "") != "" then
+    { text: "󰖂", class: "degraded",
+      tooltip: "NetBird degraded\nmanagement: \(.management.connected)\nsignal: \(.signal.connected)\n\(.management.error // "")" }
+  else
+    { text: "" }
+  end' || echo '{"text":""}'

@@ -1,10 +1,10 @@
 ---
 font: RecMonoDuotone Nerd Font Propo 26
-background: "#FFFBEFee" # everforest light hard bg0
-color: "#5C6A72ff" # everforest light hard fg
-border: "#8DA101ff" # everforest light hard green (noctalia primary)
+background: "#FFFBEFee" # bg0
+color: "#5C6A72ff" # fg
+border: "#8DA101ff" # green
 border_width: 3
-corner_r: 20
+corner_r: 15
 padding: 25 # Defaults to corner_r
 rows_per_column: 11
 
@@ -15,14 +15,14 @@ rows_per_column: 11
 # NOTE: Keep alpha sorted, symbols first
 # NOTE: Double-tap = the group's default action
 # NOTE: Mark non-initial keys like S[l]ack
-# NOTE: Free keys: d h k q y z
+# NOTE: Free keys: d h k n q y z
 menu:
   - key: " "
     desc: Terminal
     cmd: foot --login tm
   - key: ","
     desc: Toggle Bar
-    cmd: noctalia msg bar-toggle
+    cmd: pkill --signal SIGUSR1 waybar
 
   - key: a
     desc: Audio
@@ -66,7 +66,7 @@ menu:
         cmd: firefox --private-window
       - key: s
         desc: Search
-        cmd: noctalia msg panel-open launcher "/s "
+        cmd: ~/bin/search-fuzzel
 
   - key: c
     desc: Chats
@@ -100,6 +100,9 @@ menu:
       - key: u
         desc: Upload Pick
         cmd: ~/bin/upload-yazi
+      - key: r
+        desc: Upload [R]ecent
+        cmd: ~/bin/upload-fuzzel
 
   - key: g
     desc: Gaming
@@ -120,22 +123,22 @@ menu:
     submenu:
       - key: b
         desc: Browser
-        cmd: noctalia msg panel-open launcher "/win firefox"
+        cmd: ~/bin/focus-app-fuzzel firefox
       - key: e
         desc: Email
-        cmd: noctalia msg panel-open launcher "/win thunderbird"
+        cmd: ~/bin/focus-app-fuzzel thunderbird
       - key: j
         desc: Jump to Win
-        cmd: noctalia msg panel-open launcher "/win "
+        cmd: ~/bin/focus-app-fuzzel
       - key: o
         desc: Obsidian
-        cmd: noctalia msg panel-open launcher "/win obsidian"
+        cmd: ~/bin/focus-app-fuzzel obsidian
       - key: s
         desc: Slack
-        cmd: noctalia msg panel-open launcher "/win slack"
+        cmd: ~/bin/focus-app-fuzzel slack
       - key: t
         desc: Terminal
-        cmd: noctalia msg panel-open launcher "/win foot"
+        cmd: ~/bin/focus-app-fuzzel foot
 
   - key: m
     desc: Music
@@ -156,10 +159,6 @@ menu:
         desc: Ratune
         cmd: foot --app-id ratune ratune
 
-  - key: n
-    desc: +Noctalia
-    cmd: wlr-which-key noctalia
-
   - key: o
     desc: Obsidian
     submenu:
@@ -171,7 +170,7 @@ menu:
         cmd: xdg-open "obsidian://open?vault=Vault"
       - key: t
         desc: Inbox Type
-        cmd: noctalia msg panel-open launcher "/in "
+        cmd: ~/bin/inbox-fuzzel
 
   - key: p
     desc: +Power
@@ -185,16 +184,19 @@ menu:
         cmd: ~/bin/clip_app firefox
       - key: f
         desc: Shot Full Screen
-        cmd: noctalia msg screenshot-fullscreen
+        cmd: ~/bin/screenshot screen
       - key: m
         desc: Clip mpv Audio
         cmd: ~/bin/clip_app mpv
       - key: r
         desc: Shot Selection
-        cmd: noctalia msg screenshot-region
+        cmd: ~/bin/screenshot selection
       - key: v
         desc: Record Screen
         cmd: ~/bin/record-screen
+      - key: w
+        desc: Shot Window
+        cmd: ~/bin/screenshot window
 
   - key: s
     desc: Stream
@@ -246,21 +248,24 @@ menu:
       - key: b
         desc: Bitwarden
         cmd: bitwarden
+      - key: r
+        desc: Passwo[r]ds
+        cmd: ~/bin/rbw-fuzzel
       - key: t
         desc: Top
         cmd: foot --app-id=btop btop
       - key: c
         desc: Calculator
-        cmd: noctalia msg panel-open launcher "/calc "
+        cmd: gnome-calculator
       - key: e
         desc: Emoji
-        cmd: noctalia msg panel-open launcher "/emo "
+        cmd: bemoji --type
       - key: g
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: h
         desc: Clip[h]ist
-        cmd: noctalia msg panel-toggle clipboard
+        cmd: cliphist-fuzzel-img
       - key: i
         desc: Image Editor
         cmd: photopea-chromium
@@ -271,8 +276,8 @@ menu:
         desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
       - key: w
-        desc: Wipe Clipboard
-        cmd: noctalia msg clipboard-clear
+        desc: Wipe Cliphist
+        cmd: cliphist wipe
 
   - key: v
     desc: Video

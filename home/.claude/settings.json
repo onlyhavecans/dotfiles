@@ -45,7 +45,7 @@
   "effortLevel": "high",
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
-  "theme": "custom:noctalia",
+  "theme": "custom:everforest-light",
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true
 }

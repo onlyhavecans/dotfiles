@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Presentation mode: swayidle ignores wayland/logind inhibitors, so toggle the service.
+
+if systemctl --user is-active --quiet swayidle; then
+  systemctl --user stop swayidle
+else
+  systemctl --user start swayidle
+fi
+pkill -RTMIN+8 waybar

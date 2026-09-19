@@ -1,29 +1,29 @@
 ---
 # Theming
 font: RecMonoDuotone Nerd Font Propo 26
-background: "#FFFBEFee" # everforest light hard bg0
-color: "#5C6A72ff" # everforest light hard fg
-border: "#F85552ff" # everforest light hard red (noctalia error): destructive menu
+background: "#FFFBEFee" # bg0
+color: "#5C6A72ff" # fg
+border: "#F85552ff" # red: destructive menu
 separator: " ➜ "
 border_width: 4
-corner_r: 20
+corner_r: 15
 
 menu:
   - key: l
     desc: "\U000F033E Lock"
-    cmd: noctalia msg session lock
+    cmd: swaylock
   - key: p
     desc: "\U000F0425 Poweroff"
-    cmd: noctalia msg session shutdown
+    cmd: systemctl poweroff
   - key: q
     desc: "\U000F0343 Quit"
-    cmd: noctalia msg session logout
+    cmd: niri msg action quit
   - key: r
     desc: "\U000F0465 Reboot"
-    cmd: noctalia msg session reboot
+    cmd: systemctl reboot
   - key: s
     desc: "\U000F0904 Suspend"
-    cmd: noctalia msg session suspend
+    cmd: systemctl suspend
   - key: i
     desc: Idle Inhibit
-    cmd: noctalia msg caffeine-toggle
+    cmd: ~/bin/idle-toggle

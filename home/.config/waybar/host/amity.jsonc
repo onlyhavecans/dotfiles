@@ -1,0 +1,10 @@
+{
+  "group/levels": {
+    "modules": ["group/audio", "group/mic", "group/light", "battery"]
+  },
+  "group/light": {
+    "orientation": "inherit",
+    "drawer": { "transition-duration": 300, "reveal-delay": 150 },
+    "modules": ["backlight", "backlight/slider"]
+  }
+}
