@@ -2,8 +2,8 @@
 corner-roundness = 15
 initial-tool = "arrow"
 copy-command = "wl-copy"
-annotation-size-factor = 2
-output-filename = "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
+annotation-size-factor = 4
+output-filename = "~/Pictures/Screenshots/%F_%H-%M-%S.png"
 default-fill-shapes = false
 actions-on-escape = ["save-to-clipboard", "save-to-file", "exit"]
 
