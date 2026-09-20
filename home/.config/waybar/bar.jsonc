@@ -1,6 +1,5 @@
 {
   // Geometry and module layout shared by every bar; per-bar deltas live in config.jsonc.
-  "layer": "top",
   "reload_style_on_change": true,
   "height": 32,
   "spacing": 0,
