@@ -1,7 +1,7 @@
 {
   "group/links": {
     "orientation": "inherit",
-    "modules": ["network", "network#wg", "custom/netbird", "bluetooth", "power-profiles-daemon"]
+    "modules": ["network", "network#wg", "bluetooth", "power-profiles-daemon"]
   },
   "network": {
     "family": "ipv4_6",
@@ -23,13 +23,6 @@
     "format": "󰒃",
     "format-disconnected": "",
     "tooltip-format": "WireGuard {ifname}: {ipaddr}/{cidr}"
-  },
-  "custom/netbird": {
-    "exec": "~/bin/netbird-status",
-    "return-type": "json",
-    "interval": 30,
-    "format": "{}",
-    "on-click": "netbird-ui"
   },
   "bluetooth": {
     "format": "󰂯",
