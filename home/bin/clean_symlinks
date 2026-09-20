@@ -28,17 +28,5 @@ fd --hidden --follow --type symlink \
 echo "~~ cleaning empty directories"
 fd --hidden --type empty --type directory \
   --exclude .config/espanso/match/packages \
-  --exclude .local/share/Steam \
-  --exclude .local/share/containers \
-  --exclude .local/share/docker \
-  --exclude .local/share/flatpak \
-  --exclude .local/state/Steam \
-  --exclude .local/state/nix \
-  --exclude Code \
-  --exclude Desktop \
-  --exclude Documents \
-  --exclude Library \
-  --exclude OrbStack \
-  --exclude Photos \
-  . ~ \
+  . ~/.config \
   --exec rmdir -v {}
