@@ -106,6 +106,9 @@ if type -q fzf
     set -gx FZF_ALT_C_COMMAND 'fd --follow --hidden --type d'
     test -n "$TMUX"; and set -gx FZF_TMUX_OPTS '-p80%,60%'
 
+    # ANSI colors only. The terminal palette sets the theme.
+    set -gx FZF_DEFAULT_OPTS '--color=base16,bg+:7,fg+:-1:bold,gutter:-1,hl:2,hl+:2:bold,pointer:1,marker:5,prompt:4,info:8,spinner:8,border:8,separator:8,scrollbar:8,header:6'
+
     # FZF preview options
     set -gx FZF_CTRL_T_OPTS '--preview "bat --color=always --style=numbers --line-range=:500 {} 2>/dev/null || eza -la --color=always {}"'
     set -gx FZF_ALT_C_OPTS '--preview "eza --tree --level=2 --color=always {}"'
