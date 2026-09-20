@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# Pick a clipboard entry from cliphist with fuzzel. Images show as thumbnails.
+# Local copy of cliphist-fuzzel-img, which takes no fuzzel options.
+# Alt+1 deletes the selected entry.
+set -uo pipefail
+
+thumbs="${XDG_CACHE_HOME:-$HOME/.cache}/cliphist/thumbnails"
+list=$(cliphist list)
+if [[ -z $list ]]; then
+  notify-send "Cliphist" "History is empty."
+  rm -rf "$thumbs"
+  exit 0
+fi
+mkdir -p "$thumbs"
+
+# Decode each image entry to a cache file and set it as the row icon.
+read -r -d '' prog <<'AWK'
+/^[0-9]+\s<meta http-equiv=/ { next }
+match($0, /^([0-9]+)\s(\[\[\s)?binary.*(jpg|jpeg|png|bmp)/, grp) {
+  file = dir "/" grp[1] "." grp[3]
+  system("[ -f " file " ] || echo " grp[1] "\\\\\t | cliphist decode >" file)
+  print $0 "\0icon\x1f" file
+  next
+}
+1
+AWK
+
+item=$(gawk -v dir="$thumbs" "$prog" <<<"$list" |
+  fuzzel --dmenu --width 40 --placeholder "Search clipboard..." \
+    --counter --no-sort --with-nth 2)
+code=$?
+
+if [[ $code -eq 10 && -n $item ]]; then
+  id=${item%%$'\t'*}
+  cliphist delete <<<"$id"
+  rm -f "$thumbs/$id".*
+elif [[ $code -eq 0 && -n $item ]]; then
+  cliphist decode <<<"$item" | wl-copy
+fi
+
+# Remove thumbnails of entries that are no longer in the history.
+for f in "$thumbs"/*; do
+  [[ -e $f ]] || continue
+  id=$(basename "${f%.*}")
+  grep -q "^${id}\s\[\[ binary data" <<<"$list" || rm "$f"
+done

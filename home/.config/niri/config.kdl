@@ -243,7 +243,7 @@ binds {
   Mod+Space hotkey-overlay-title="open which-key menu" { spawn "~/bin/wlr-toggle"; }
   Alt+Comma hotkey-overlay-title="open emoji search" { spawn "bemoji" "--type"; }
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
-  Alt+N hotkey-overlay-title="show clipboard history" { spawn "cliphist-fuzzel-img"; }
+  Alt+N hotkey-overlay-title="show clipboard history" { spawn "~/bin/cliphist-fuzzel"; }
   Mod+N hotkey-overlay-title="show notification history" { spawn "~/bin/notif-history"; }
   Mod+Period hotkey-overlay-title="run task" { spawn "~/bin/wlr-toggle" "tasks"; }
   Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }

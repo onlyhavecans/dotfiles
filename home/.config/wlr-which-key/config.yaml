@@ -15,7 +15,7 @@ rows_per_column: 11
 # NOTE: Keep alpha sorted, symbols first
 # NOTE: Double-tap = the group's default action
 # NOTE: Mark non-initial keys like S[l]ack
-# NOTE: Free keys: d h k n q y z
+# NOTE: Free keys: d h k n y z
 menu:
   - key: " "
     desc: Terminal
@@ -176,6 +176,10 @@ menu:
     desc: +Power
     cmd: wlr-which-key power
 
+  - key: q
+    desc: Qalc
+    cmd: ~/bin/calc-fuzzel
+
   - key: r
     desc: Capture
     submenu:
@@ -265,7 +269,7 @@ menu:
         cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: h
         desc: Clip[h]ist
-        cmd: cliphist-fuzzel-img
+        cmd: ~/bin/cliphist-fuzzel
       - key: i
         desc: Image Editor
         cmd: photopea-chromium

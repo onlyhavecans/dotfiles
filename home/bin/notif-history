@@ -5,8 +5,16 @@ set -euo pipefail
 
 history=$(makoctl history -j)
 
-idx=$(jq -r '.[] | "\(.app_name // "") | \(.summary // "") \(.body // "")" | gsub("\n"; " ")' <<<"$history" |
-  fuzzel --dmenu --index --width 60 --prompt="Notification: ") || exit 0
+# Label = summary without the app name prefix. Fall back to the app name.
+labels='.[] | (.app_name // "") as $app | (.summary // "") as $s
+  | (if ($s | ascii_downcase | startswith($app | ascii_downcase))
+     then $s[($app | length):] | sub("^[\\s·:|-]+"; "") else $s end) as $l
+  | [(if $l == "" then $app else $l end), (.body // "")]
+  | map(select(. != "")) | join(" │ ") | gsub("\\s+"; " ")'
+
+idx=$(jq -r "$labels" <<<"$history" |
+  fuzzel --dmenu --index --font "RecMonoDuotone Nerd Font Propo:size=16" \
+    --width 100 --prompt="Notification: ") || exit 0
 [[ -n $idx && $idx != -1 ]] || exit 0
 
 jq -r --argjson i "$idx" '.[$i] | [.summary, .body] | map(select(. != null and . != "")) | join("\n")' <<<"$history" |
