@@ -7,9 +7,9 @@
     "player-icons": {
       "default": "󰐊",
       "Feishin": "󰝚",
-      "ratune": "󰝚",
-      "Firefox": "󰈹",
-      "mpv": "󰕧"
+      "firefox": "󰈹",
+      "mpv": "󰕧",
+      "ratune": "󰝚"
     },
     "status-icons": { "paused": "󰏤" },
     "ignored-players": ["brave", "chromium"]
