@@ -1,38 +1,69 @@
 @import "./everforest-light.css";
 
-/* Every top-level item in a section is a neutral pill; groups' children are plain.
-   Colour is reserved for state. The only filled pill is the Pomodoro timer. */
+/* One solid bar; modules are plain text on it. Only workspaces and the
+   Pomodoro timer keep a pill. Colour is reserved for state. */
 
 * {
-  font-family: "RecMonoDuotone Nerd Font Propo", monospace;
-  font-size: 18px;
+  font-family: "Inter", "Adwaita Sans", "RecMonoDuotone Nerd Font Propo", sans-serif;
+  font-size: 16px;
   min-height: 0;
 }
 
+/* Tab shape: the window spans the screen and is transparent. The inner box
+   is the opaque body; two corner gradients flare it into the top edge.
+   Body margin and flare size must be equal, and flare size + body radius
+   must equal the bar height (16 + 16 = 32) or the S-curve gets a spike. */
 window#waybar {
   color: @fg;
-  background: transparent;
+  background-color: transparent;
+  background-image:
+    radial-gradient(circle farthest-side at 0% 100%, transparent 94%, @bg0 98%),
+    radial-gradient(circle farthest-side at 100% 100%, transparent 94%, @bg0 98%);
+  background-size: 16px 16px;
+  background-position: left top, right top;
+  background-repeat: no-repeat;
 }
 
+window#waybar > box {
+  margin: 0 16px;
+  background-color: @bg0;
+  border-radius: 0 0 16px 16px;
+}
+
+.modules-left,
+.modules-right {
+  padding: 0 10px;
+}
+
+/* Spacing: 6px between glyphs in a cluster, 10px between clusters.
+   Every glyph carries 3px each side; a cluster adds 2px each side. */
 .modules-left > widget > *,
 .modules-center > widget > *,
 .modules-right > widget > * {
-  background-color: alpha(@bg1, 0.93);
-  border: 1px solid @bg5;
-  border-radius: 999px;
-  padding: 0 8px;
+  padding: 0 5px;
 }
 
-.modules-left > widget > box > widget > *,
-.modules-center > widget > box > widget > *,
-.modules-right > widget > box > widget > *,
-.modules-left > widget > box > widget > box > widget > *,
-.modules-center > widget > box > widget > box > widget > *,
-.modules-right > widget > box > widget > box > widget > * {
-  background: none;
-  border: none;
-  border-radius: 0;
-  padding: 0 4px;
+.modules-right > widget > box {
+  padding: 0 2px;
+}
+
+.modules-right > widget > box widget > * {
+  padding: 0 3px;
+}
+
+/* nested groups add nothing; tray icons are spaced by the tray itself */
+.modules-right > widget > box widget > box,
+#tray widget > * {
+  padding: 0;
+}
+
+#tray {
+  padding: 0 5px;
+}
+
+/* every alert can hide, so the group itself must take no room */
+.modules-right > widget > #alerts {
+  padding: 0;
 }
 
 /* GTK sets the tooltip's opaque region from the decoration node's radius
@@ -84,19 +115,15 @@ menuitem:hover label {
 
 /* ---- left ---- */
 
-#nix .drawer-child > * {
-  padding-left: 6px;
-}
-
 /* each workspace is its own outlined bubble so window icons group visibly */
 #workspaces {
-  padding: 0 3px;
+  padding: 0;
 }
 
 #workspaces button {
   padding: 0 4px;
-  margin: 2px 2px;
-  min-height: 0;
+  margin: 3px 2px;
+  background-color: @bg1;
   color: inherit;
   border: 1px solid @bg5;
   border-radius: 999px;
@@ -116,7 +143,6 @@ menuitem:hover label {
 #workspaces button .niri-taskbar-btn {
   padding: 0 2px;
   margin: 0;
-  min-height: 0;
   border-radius: 999px;
   opacity: 0.6;
 }
@@ -131,20 +157,6 @@ menuitem:hover label {
   opacity: 1;
 }
 
-/* just enough title to know what is in front; the * rule sets font-size
-   on the inner label directly, so target it. */
-#window {
-  color: @fg;
-}
-
-#window label {
-  font-size: 11px;
-}
-
-#mpris {
-  font-size: 14px;
-}
-
 #mpris.paused,
 #mpris.stopped {
   color: @grey1;
@@ -152,9 +164,20 @@ menuitem:hover label {
 
 /* ---- center ---- */
 
+/* The Pomodoro timer is the only pill, and the only thing that glows.
+   Nerd Font first: Adwaita Sans maps its own glyphs in the icon range. */
+#custom-tomat,
+#custom-tomat label {
+  font-family: "RecMonoDuotone Nerd Font Propo", monospace;
+  font-size: 18px;
+}
+
 #custom-tomat {
+  margin: 3px 12px;
   padding: 0 12px;
-  border-color: @green;
+  background-color: @bg1;
+  border: 1px solid @green;
+  border-radius: 999px;
 }
 
 #custom-tomat.work {
@@ -182,7 +205,29 @@ menuitem:hover label {
   box-shadow: 0 0 8px alpha(@red, 0.45);
 }
 
-/* green is the accent; warnings are yellow */
+/* hardware flanks the timer: small and grey until a threshold trips.
+   Equal min-width keeps the timer centred. */
+#cpu,
+#memory,
+#temperature,
+#disk {
+  min-width: 30px;
+  padding: 0 3px;
+  color: @grey1;
+}
+
+#cpu,
+#cpu label,
+#memory,
+#memory label,
+#temperature,
+#temperature label,
+#disk,
+#disk label {
+  font-family: "RecMonoDuotone Nerd Font Propo", monospace;
+  font-size: 14px;
+}
+
 #cpu.warning,
 #memory.warning,
 #disk.warning,
@@ -197,51 +242,22 @@ menuitem:hover label {
   color: @red;
 }
 
-/* ---- right: alerts are chips, not a pill ---- */
-
-#alerts {
-  background: none;
-  border: none;
-  padding: 0;
-}
+/* ---- right: alerts are coloured glyphs ---- */
 
 #alerts > widget > * {
-  background-color: alpha(@bg1, 0.93);
-  border: 1px solid @red;
-  border-radius: 999px;
-  padding: 0 7px;
-  margin-left: 4px;
   color: @red;
 }
 
-#alerts > widget > #privacy {
-  padding: 0 6px;
+#privacy-item {
+  padding: 0 3px;
 }
 
 #alerts > widget > #custom-idle {
-  border-color: @green;
   color: @green;
 }
 
 #alerts > widget > #custom-dnd {
-  border-color: @grey1;
-  color: @fg;
-}
-
-#custom-voxtype.recording,
-#custom-voxtype.streaming {
-  animation: voxtype-pulse 1s ease-in-out infinite alternate;
-}
-
-#alerts > widget > #custom-voxtype.transcribing {
-  border-color: @yellow;
-  color: @yellow;
-}
-
-@keyframes voxtype-pulse {
-  to {
-    opacity: 0.4;
-  }
+  color: @grey1;
 }
 
 /* ---- right: levels ---- */
@@ -263,18 +279,14 @@ menuitem:hover label {
    carry ~30px of min-height/margins that would inflate the bar even while
    the revealer is collapsed, so zero every node explicitly. */
 #pulseaudio-slider,
-#backlight-slider,
 #pulseaudio-slider scale,
-#backlight-slider scale,
-#pulseaudio-slider contents,
-#backlight-slider contents {
+#pulseaudio-slider contents {
   min-height: 0;
   margin: 0;
   padding: 0;
 }
 
-#pulseaudio-slider slider,
-#backlight-slider slider {
+#pulseaudio-slider slider {
   min-height: 0;
   min-width: 0;
   margin: 0;
@@ -285,16 +297,14 @@ menuitem:hover label {
   background-image: none;
 }
 
-#pulseaudio-slider trough,
-#backlight-slider trough {
+#pulseaudio-slider trough {
   min-height: 6px;
   min-width: 70px;
   border-radius: 999px;
   background-color: @bg3;
 }
 
-#pulseaudio-slider highlight,
-#backlight-slider highlight {
+#pulseaudio-slider highlight {
   min-height: 6px;
   border-radius: 999px;
   background-color: @green;
@@ -305,7 +315,6 @@ menuitem:hover label {
 }
 
 /* ---- right: links ---- */
-
 
 #network.linked,
 #network.disconnected {

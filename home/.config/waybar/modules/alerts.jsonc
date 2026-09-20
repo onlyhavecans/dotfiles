@@ -1,12 +1,11 @@
 {
-  // Transient indicators. Group box is transparent; each child is its own chip.
+  // Status glyphs. All hide when idle; colour comes from style.css.
   "group/alerts": {
     "orientation": "inherit",
     "modules": [
       "systemd-failed-units",
       "privacy",
       "custom/recording",
-      "custom/voxtype",
       "custom/idle",
       "custom/dnd"
     ]
@@ -20,27 +19,12 @@
     "tooltip-unit-format": "{scope}: {name} ({active_state})"
   },
   "privacy": {
-    "icon-size": 18
+    "icon-size": 14
   },
   "custom/recording": {
     "exec": "pgrep -x wf-recorder >/dev/null && echo '󰻃' || echo ''",
     "on-click": "pkill -INT --older 2 --exact wf-recorder",
     "restart-interval": 3
-  },
-  "custom/voxtype": {
-    "exec": "voxtype status --follow --format json --extended",
-    "return-type": "json",
-    "format": "{icon}",
-    "hide-empty-text": true,
-    "format-icons": {
-      "idle": "",
-      "recording": "󰗋",
-      "transcribing": "󰔟",
-      "stopped": "󰻔"
-    },
-    "tooltip": true,
-    "on-click": "voxtype toggle",
-    "on-click-right": "systemctl --user restart voxtype"
   },
   "custom/idle": {
     "exec": "systemctl --user is-active --quiet swayidle && echo '' || echo '󰅶'",

@@ -1,7 +1,6 @@
 {
-  // No digits: static glyph + one-char meter; numbers live in tooltips.
-  // backlight modules fall back to random LEDs on desktops, so hosts with a
-  // panel add them via host/<host>.jsonc (group/levels.modules is first-wins).
+  // Glyphs only; numbers live in tooltips.
+  // Hosts can replace the list in host/<host>.jsonc (first wins).
   "group/levels": {
     "orientation": "inherit",
     "modules": ["group/audio", "group/mic", "battery"]
@@ -29,41 +28,25 @@
     "orientation": "horizontal"
   },
   "wireplumber": {
-    "format": "󰕾{icon}",
+    "format": "󰕾",
     "format-muted": "󰝟",
-    "format-bluetooth": "󰂰{icon}",
+    "format-bluetooth": "󰂰",
     "format-bluetooth-muted": "󰂲",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "tooltip-format": "{volume}% {node_name}",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-    "scroll-step": 5
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
   "wireplumber#source": {
     "node-type": "Audio/Source",
-    "format": "󰍬{icon}",
+    "format": "󰍬",
     "format-muted": "󰍭",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "tooltip-format": "{volume}% {node_name}",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
     "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ -l 1.0",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
-    "scroll-step": 5
-  },
-  "backlight": {
-    "format": "󰃠{icon_exp}",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "tooltip-format": "{percent}% screen",
-    "scroll-step": 5,
-    "min-brightness": 5
-  },
-  "backlight/slider": {
-    "min": 5,
-    "max": 100,
-    "orientation": "horizontal"
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"
   },
   "battery": {
     "states": { "warning": 20, "critical": 5 },

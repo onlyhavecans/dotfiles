@@ -22,6 +22,6 @@
       "~/.config/waybar/bar.jsonc",
       "~/.config/waybar/modules/*.jsonc"
     ],
-    "mpris": { "artist-len": 0, "title-len": 20 }
+    "mpris": { "title-len": 20 }
   }
 ]

@@ -78,8 +78,9 @@ Rules:
   not purple.
 - Geometry: 15px corner radius and 3px borders on all surfaces. Destructive
   surfaces (wlr-which-key power menu, mako critical) use a 4px red border.
-  The waybar is the exception: pills are fully round (`999px`) with 1px
-  borders on a 30px bar. Only its tooltips and menus use 15px and 3px.
+  The waybar is the exception: a 32px opaque tab with 16px curves, and fully
+  round (`999px`) pills with 1px borders. Only its tooltips and menus use 15px
+  and 3px.
 
 ## Who owns what
 
@@ -132,20 +133,32 @@ Ghostty (macOS) uses the bundled themes and follows system appearance:
 
 ## Waybar
 
-- Each top-level item is a neutral pill (`bg1` fill, `bg5` border). The children
-  of a group have no style.
+- The bar is one opaque `bg0` tab against the top edge of the screen. The
+  window is transparent. Two corner gradients flare the body into the screen
+  edge, and the bottom corners are round. Flare size and body margin must be
+  equal, and flare size + bottom radius must equal the bar height (16 + 16 =
+  32).
+- Modules are plain text on the bar. Text is Inter (Adwaita Sans as fallback);
+  the Nerd Font supplies the glyphs.
+- Spacing: 6px between glyphs in a cluster, 10px between clusters. An empty
+  cluster takes no room.
+- Pills are for workspaces and the Pomodoro timer only. A workspace pill has a
+  `bg1` fill and a `bg5` border; the active one has a green border.
 - The Pomodoro pill is the only filled pill: green (work), aqua (break), red
   (paused or disconnected). Only this pill glows. Idle keeps a green border.
-- Transient alerts are chips with a red border. Idle-inhibit is green. DND is
+- Hardware readouts (cpu, memory, temperature, disk) flank the timer. They are
+  small and `grey1`, then yellow (warning) and red (critical).
+- Alerts are red glyphs that hide when idle. Idle-inhibit is green. DND is
   `grey1`.
-- Levels show a glyph and a one-character meter, never a number. State colors
-  only: muted `grey0`, battery yellow then red.
-- Links: WireGuard aqua, NetBird blue (yellow when degraded), bluetooth blue.
+- Levels show a glyph, never a number. State colors only: muted `grey0`,
+  battery yellow then red.
+- Links: WireGuard aqua, NetBird yellow when degraded, bluetooth blue when
+  connected.
 
 ## Alpha convention
 
-- Surfaces (mako, fuzzel, wlr-which-key backgrounds, waybar pills): `ee`;
-  waybar CSS: `alpha(@bg1, 0.93)`
+- Surfaces (mako, fuzzel, wlr-which-key backgrounds): `ee`. The waybar is
+  opaque.
 - Text and borders: opaque `ff`
 - niri shadows: active `66`, inactive `40`
 - niri insert-hint: `80`

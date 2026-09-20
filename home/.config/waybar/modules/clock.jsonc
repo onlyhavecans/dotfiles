@@ -1,11 +1,8 @@
 {
-  "group/time": {
-    "orientation": "inherit",
-    "modules": ["clock#date", "clock"]
-  },
+  // click cycles timezones; scroll moves the calendar month
   "clock": {
-    "format": "󰥔{:%H:%M}",
-    "tooltip-format": "{tz_list}",
+    "format": "{:%a %d, %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>\n\n{tz_list}",
     "timezone-tooltip-format": "{:%Z: %H:%M %m-%d}",
     "timezones": [
       "",
@@ -17,14 +14,6 @@
       "UTC",
       "Europe/Paris"
     ],
-    "actions": {
-      "on-click": "tz_up",
-      "on-click-right": "tz_down"
-    }
-  },
-  "clock#date": {
-    "format": "{:%a %d}",
-    "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "month",
       "weeks-pos": "right",
@@ -39,8 +28,8 @@
       }
     },
     "actions": {
-      "on-click": "shift_up",
-      "on-click-right": "shift_down",
+      "on-click": "tz_up",
+      "on-click-right": "tz_down",
       "on-click-middle": "shift_reset",
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"

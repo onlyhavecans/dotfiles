@@ -5,11 +5,5 @@
       "enable": true,
       "icon-size": 20
     }
-  },
-  "niri/window": {
-    "format": "{title}",
-    "max-length": 24,
-    "icon": false,
-    "separate-outputs": true
   }
 }

@@ -48,7 +48,7 @@ urgency = "normal"  # Urgency level: "low", "normal", "critical" (default: "norm
 # "critical" - High priority, may bypass do-not-disturb settings
 
 [display]
-text_format = "{icon} {time} {state}"  # Text display format (default: "{icon} {time} {state}")
+text_format = "{icon} {time}"  # Text display format (default: "{icon} {time} {state}")
 
 # Available placeholders:
 # {icon}    - Phase icon (🍅 for work, ☕ for break, 🏖️ for long break)
