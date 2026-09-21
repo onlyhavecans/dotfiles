@@ -252,9 +252,6 @@ menu:
       - key: b
         desc: Bitwarden
         cmd: bitwarden
-      - key: r
-        desc: Passwo[r]ds
-        cmd: ~/bin/rbw-fuzzel
       - key: t
         desc: Top
         cmd: foot --app-id=btop btop
