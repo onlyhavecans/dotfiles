@@ -61,6 +61,14 @@ window#waybar > box {
   padding: 0 5px;
 }
 
+/* Waybar renders a tray icon before the item has a parent, so symbolic
+   icons cannot inherit the bar colour. Set it on the item itself. */
+widget.active,
+widget.passive,
+widget.needs-attention {
+  color: @fg;
+}
+
 /* every alert can hide, so the group itself must take no room */
 .modules-right > widget > #alerts {
   padding: 0;
