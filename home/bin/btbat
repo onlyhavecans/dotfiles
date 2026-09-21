@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# List the battery level of every UPower device (laptop, Bluetooth HID, ...).
+
+set -euo pipefail
+
+upower --dump | awk -F': +' '
+  /^Device:/ { model = ""; state = "" }
+  /model:/ { model = $2 }
+  /state:/ { state = $2 }
+  /percentage:/ { if (model) printf "%4s  %-12s %s\n", $2, state, model }
+'
