@@ -71,6 +71,9 @@ menu:
   - key: c
     desc: Chats
     submenu:
+      - key: c
+        desc: Chatterino
+        cmd: chatterino
       - key: d
         desc: Discord
         cmd: discord
