@@ -21,7 +21,7 @@ input {
     drag true // tap and drag
     natural-scroll
     tap-button-map "left-right-middle"
-    scroll-factor 0.85
+    // scroll-factor 0.85
   }
 
   mouse {
@@ -87,6 +87,23 @@ layout {
 
   insert-hint {
     color "#8da10180"
+  }
+
+  // Set transparent workspace background color
+  // this works with layer-rule place-within-backdrop
+  background-color "transparent"
+}
+
+layer-rule {
+  // Find the right namespace by running niri msg layers.
+  match namespace="^awww-daemon$"
+  place-within-backdrop true
+}
+
+overview {
+  // removes the shadow that shows since we have background-color "transparent"
+  workspace-shadow {
+    off
   }
 }
 
