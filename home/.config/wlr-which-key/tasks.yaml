@@ -50,6 +50,9 @@ menu:
       - key: m
         desc: Mute
         cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+  - key: l
+    desc: Bluetooth Toggle
+    cmd: "bluetoothctl show | grep -q 'PowerState: off' && bluetoothctl power on || bluetoothctl power off"
   - key: m
     desc: Music
     submenu:
