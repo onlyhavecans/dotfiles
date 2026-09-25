@@ -6,7 +6,7 @@ border: "#8DA101ff" # green
 border_width: 3
 corner_r: 15
 padding: 25 # Defaults to corner_r
-rows_per_column: 11
+rows_per_column: 10
 
 # NOTE: Top level = one-tap dailies, app groups, or "what I am doing" groups
 # NOTE: Keep launchers shallow: depth <= 2
