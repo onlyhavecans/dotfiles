@@ -18,7 +18,7 @@ read -r -d '' prog <<'AWK'
 /^[0-9]+\s<meta http-equiv=/ { next }
 match($0, /^([0-9]+)\s(\[\[\s)?binary.*(jpg|jpeg|png|bmp)/, grp) {
   file = dir "/" grp[1] "." grp[3]
-  system("[ -f " file " ] || echo " grp[1] "\\\\\t | cliphist decode >" file)
+  system("[ -f " file " ] || echo " grp[1] "\\\t | cliphist decode >" file)
   print $0 "\0icon\x1f" file
   next
 }
