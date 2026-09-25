@@ -118,7 +118,8 @@ recent-windows {
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
 spawn-at-startup "cliphist" "wipe"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 // bar, notifications, and idle run as systemd user units from the NixOS repo
 
 // ask the clients to omit their client-side decorations
