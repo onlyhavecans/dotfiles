@@ -176,26 +176,28 @@ window-rule {
   match app-id="signal"
   match app-id="slack"
   match app-id=r#"md\.Obsidian"#
-  match app-id="^$" title="Authentication Required" // stupid bitwarden
+  match title="Authentication Required" // stupid bitwarden
   block-out-from "screencast"
 }
 
 window-rule {
   match app-id="1password"
   match app-id="bitwarden"
-  match app-id="^$" title="Authentication Required" // stupid bitwarden
+  match title="Authentication Required" // stupid bitwarden
   block-out-from "screen-capture"
 }
 
 window-rule {
-  match app-id="^$" title="Authentication Required" // stupid bitwarden
+  match app-id="Calculator"
   match app-id="espanso"
   match app-id="file-picker" // Custom Yazi Picker
   match app-id="firefox" title="^Extension"
   match app-id="firefox" title="^Picture-in-Picture$"
   match app-id="mpv"
+  match app-id="qalculate"
   match app-id="satty"
   match app-id="zenity" title="Copy color to Clipboard"
+  match title="Authentication Required" // stupid bitwarden
   open-floating true
 }
 
@@ -207,8 +209,8 @@ window-rule {
 
 window-rule {
   match app-id="btop"
-  match app-id="net-filebot-Main"
   match app-id="feishin"
+  match app-id="net-filebot-Main"
   match app-id="ratune"
   match app-id=r#"^com\.obsproject\.Studio"# is-floating=false
   match app-id=r#"^com\.bitwig\.BitwigStudio"# is-floating=false
@@ -216,8 +218,8 @@ window-rule {
 }
 
 window-rule {
-  match app-id="slack"
   match app-id="chrome-twitch"
+  match app-id="slack"
   match app-id="thunderbird"
   default-column-width { proportion 0.66667; }
 }
