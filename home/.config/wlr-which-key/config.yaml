@@ -179,31 +179,21 @@ menu:
     desc: +Power
     cmd: wlr-which-key power
 
-  - key: q
-    desc: Qalc
-    cmd: ~/bin/calc-fuzzel
-
   - key: r
     desc: Capture
     submenu:
       - key: b
         desc: Clip Firefox Audio
         cmd: ~/bin/clip_app firefox
-      - key: f
-        desc: Shot Full Screen
-        cmd: ~/bin/screenshot screen
       - key: m
         desc: Clip mpv Audio
         cmd: ~/bin/clip_app mpv
       - key: r
-        desc: Shot Selection
-        cmd: ~/bin/screenshot selection
-      - key: v
         desc: Record Screen
         cmd: ~/bin/record-screen
-      - key: w
-        desc: Shot Window
-        cmd: ~/bin/screenshot window
+      - key: s
+        desc: Screenshot Screen
+        cmd: ~/bin/screenshot screen
 
   - key: s
     desc: Stream
@@ -276,6 +266,9 @@ menu:
       - key: p
         desc: Color [P]icker
         cmd: wl-color-picker --no-notify
+      - key: q
+        desc: Qalculate
+        cmd: qalculate-gtk
       - key: u
         desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
