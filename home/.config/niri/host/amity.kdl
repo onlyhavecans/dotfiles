@@ -2,6 +2,14 @@
 // Sections merge with config.kdl; set only what differs on this machine.
 //
 
+input {
+  keyboard {
+    xkb {
+      options "ctrl:nocaps,ctrl:swap_rwin_rctl"
+    }
+  }
+}
+
 window-rule {
   match app-id="thunderbird"
   open-maximized true
