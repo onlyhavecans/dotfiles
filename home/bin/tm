@@ -29,8 +29,8 @@ end
 tmux new-session -d -s InsideOut -n nix -c ~/Code/nixos-skwrls
 tmux new-window -t InsideOut -n dots -c ~/.homesick/repos/dotfiles
 tmux split-window -v -t dots -c ~/.homesick/repos/neovim
-tmux new-window -t InsideOut -n blog -c ~/Code/websites/squirrels.wtf
-tmux split-window -v -l 10 -t blog -c ~/Code/websites/squirrels.wtf
+tmux new-window -t InsideOut -n blog -c ~/Code/ohc.works/squirrels.wtf
+tmux split-window -v -l 10 -t blog -c ~/Code/ohc.works/squirrels.wtf
 if test (prompt_hostname) = Edelgard
     tmux new-window -t InsideOut -n flex -c /deep_end/AppConfigs/Flexget
     tmux split-window -v -l 10 -t flex -c /deep_end/AppConfigs/Flexget
