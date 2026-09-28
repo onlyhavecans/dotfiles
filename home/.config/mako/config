@@ -24,6 +24,11 @@ border-size=4
 progress-color=over #35A77Cff
 default-timeout=60000
 
+[body~=".*mail\.proton\.me.*"]
+default-timeout=3000
+format=%b
+ignore-timeout=1
+
 [mode=do-not-disturb]
 default-timeout=0
 invisible=1
