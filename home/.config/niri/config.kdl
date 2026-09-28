@@ -219,6 +219,7 @@ window-rule {
 }
 
 window-rule {
+  match app-id="chrome-mail.proton"
   match app-id="chrome-twitch"
   match app-id="slack"
   match app-id="thunderbird"

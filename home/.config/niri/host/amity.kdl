@@ -11,6 +11,7 @@ input {
 }
 
 window-rule {
+  match app-id="chrome-mail.proton"
   match app-id="thunderbird"
   open-maximized true
 }
