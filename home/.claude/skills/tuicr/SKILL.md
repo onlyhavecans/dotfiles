@@ -1,6 +1,6 @@
 ---
 name: tuicr
-description: Use tuicr's review CLI to read and add comments in active TUI review sessions, and launch tuicr in tmux, Zellij, or Herdr when a user needs an interactive review pane.
+description: Use tuicr's review CLI to read and add comments in active TUI review sessions, and launch tuicr in cmux, tmux, Zellij, or Herdr when a user needs an interactive review pane.
 ---
 
 # tuicr Review Workflow
@@ -49,11 +49,15 @@ If the user's intent is ambiguous, ask which workflow they want.
    local and PR sessions by owner/repo. Each row carries a `kind` (`local` or
    `pr`) and a usable `slug`. Use `--all` when you don't know the repo.
 
+   `[]` with exit 0 also means "not a repo root" — a subdirectory returns it
+   too. Pass the root, then `--all`, before concluding nothing is open.
+
 3. Choose the session:
    - If the CLI clearly reports exactly one relevant active session with
      `"active": true`, attach to it.
    - If multiple sessions are active, or the correct session is not clear, ask
-     the user which slug to use.
+     the user which slug to use. One repo can hold a worktree and a
+     commit-range session at once, and adding to the wrong one exits 0.
    - If the user provided a slug or session JSON path, use it directly.
    - For a PR review, pass the PR slug from the listing (e.g.
      `gh:owner/repo/pr/N`) to `--session`; it is self-contained and needs no
@@ -72,34 +76,70 @@ When the user needs an interactive tuicr pane and no active session exists:
 
 | Environment | Action |
 |-------------|--------|
-| `$TMUX` is set | Run `tuicr-wrapper.sh /path/to/repo` |
-| `$ZELLIJ` is set | Run `tuicr-wrapper-zellij.sh /path/to/repo` |
-| `$HERDR_ENV` is `1` | Run `tuicr-wrapper-herdr.sh /path/to/repo` |
+| `$CMUX_WORKSPACE_ID` is set | Run `tuicr-wrapper-cmux.sh /path/to/repo -- <scope>` |
+| `$TMUX` is set | Run `tuicr-wrapper.sh /path/to/repo -- <scope>` |
+| `$ZELLIJ` is set | Run `tuicr-wrapper-zellij.sh /path/to/repo -- <scope>` |
+| `$HERDR_ENV` is `1` | Run `tuicr-wrapper-herdr.sh /path/to/repo -- <scope>` |
 | None is set | Tell the user you are waiting for them to start `tuicr` in the repo, then attach with `tuicr review list` after they say it is ready |
 
+`<scope>` is `-w` for uncommitted working-tree changes or `-r <revset>` for a
+commit range — always pass one explicitly so the user is never left to pick
+staged/unstaged/commit-range manually in the TUI.
+
 If more than one multiplexer marker is set, prefer the innermost multiplexer if
-that is clear; otherwise ask.
+that is clear; otherwise ask. cmux hosts a Ghostty terminal, so `$TERM_PROGRAM`
+reads `ghostty` inside cmux — check `$CMUX_WORKSPACE_ID`, not the terminal name.
+
+tuicr supports both git and Jujutsu (jj) repositories, and jj workspaces may
+have no `.git` directory at all. Do not pre-check the directory with
+`git rev-parse` or refuse to launch because git does not recognize it; always
+run the wrapper and let it validate the repository.
 
 Wrapper paths are relative to this skill directory:
 
 ```bash
-<skill-directory>/tuicr-wrapper.sh /path/to/repo
-<skill-directory>/tuicr-wrapper-zellij.sh /path/to/repo
-<skill-directory>/tuicr-wrapper-herdr.sh /path/to/repo
+<skill-directory>/tuicr-wrapper-cmux.sh /path/to/repo -- -w
+<skill-directory>/tuicr-wrapper.sh /path/to/repo -- -w
+<skill-directory>/tuicr-wrapper-zellij.sh /path/to/repo -- -w
+<skill-directory>/tuicr-wrapper-herdr.sh /path/to/repo -- -w
 ```
 
 The Herdr wrapper requires `jq` to read pane IDs and completion results from
 Herdr's JSON responses.
 
-All three wrappers block until the TUI exits. Launch them in the background so
-you can keep running commands while the user reviews — in Claude Code, pass
-`run_in_background: true` to the Bash tool. A foreground wrapper occupies the
-call for the whole review and makes the polling loop below unreachable.
+Every wrapper accepts pass-through tuicr arguments after `--`, which is how
+you scope the review instead of leaving the scope selector for the user to
+fill in — for example `-- -w` for uncommitted working-tree changes or
+`-- -r <revset>` for a commit range. Always pass one of these explicitly when
+launching a review pane.
 
-Once the TUI creates its active session, use `tuicr review list --repo
-/path/to/repo` to capture the slug. If you cannot background the wrapper, run it
-in the foreground with the longest timeout available (10 minutes is the
-maximum), skip polling, and read comments once after the user exits tuicr.
+If your tool supports command timeouts, use a long timeout, such as 10 minutes,
+because the tmux, Zellij, and Herdr wrappers wait for the TUI to exit. The cmux
+wrapper is the exception: it returns as soon as the pane is running and prints
+the new surface ref between `=== TUICR SURFACE ===` markers. Capture that ref —
+it is how you close the pane later with `cmux close-surface --surface <ref>`.
+Once the TUI creates its active session, use
+`tuicr review list --repo /path/to/repo` to capture the slug. If your
+environment cannot run another command while a blocking wrapper is waiting,
+read the comments after the user exits tuicr.
+
+## Reconstruct The Diff
+
+To review a patch yourself, rebuild the diff the user sees. The slug's source
+segment says which:
+
+| Slug segment | Diff |
+|--------------|------|
+| `worktree/<head>`, `staged-and-unstaged/<head>` | `git diff HEAD` |
+| `staged/<head>` | `git diff --cached` |
+| `unstaged/<head>` | `git diff` |
+| `commits/<base>..<head>` | `git diff <base>~1..<head>` |
+| `pr/<n>` | `gh pr diff <n>` |
+| `pristine` | none; every tracked file shown in full |
+
+Range endpoints are inclusive and printed oldest-first, so `<base>` without
+`~1` drops the first commit. Check the file count against the listing row's
+`file_count`; a mismatch means every line number you derive will be wrong.
 
 ## Read User Comments
 
@@ -122,6 +162,7 @@ The command emits JSON. Each comment includes fields like:
 - `end_line`
 - `side`
 - `comment_type`
+- `author`
 - `lifecycle_state`
 - `content`
 
@@ -132,18 +173,22 @@ Treat these comments as the user's review feedback:
 - `note`: answer or acknowledge
 - `praise`: no action required
 
-If you are waiting during an active review and the wrapper is running in the
-background, poll this command about every 30 seconds and compare comment IDs
-with the previous result. Read immediately when the user says comments are
-ready. Stop polling once the user says the review is done.
+If you are waiting during an active review, poll this command about every 30
+seconds and compare comment IDs with the previous result. Read immediately when
+the user says comments are ready. Stop polling once the user says the review is
+done or your tooling would block other work.
 
-If the wrapper is running in the foreground, you cannot poll — wait for it to
-exit, then read comments once.
-
-If the result is empty, ask whether the user saved comments in the intended
-session or whether another active session should be selected. If the review may
-have continued while you were working, rerun `tuicr review comments` before
-claiming completion.
+An empty result does not by itself mean the review didn't happen. On exit,
+tuicr always prints a line like `tuicr-summary: reviewed 3/3 files, 0 comments
+added` to stderr (visible in the pane's scrollback), and `tuicr review list`
+reports the same `reviewed_count`/`file_count` for the session. If
+`reviewed_count` equals `file_count`, zero comments is a legitimate "nothing to
+flag" outcome — treat the review as complete, don't ask the user to confirm.
+Only ask whether the user saved comments in the intended session, or whether
+another active session should be selected, when `reviewed_count` is less than
+`file_count` (the user quit before reviewing everything) or you can't find a
+`tuicr-summary:` line at all. If the review may have continued while you were
+working, rerun `tuicr review comments` before claiming completion.
 
 ## Add Agent Comments
 
@@ -185,12 +230,24 @@ unchanged lines in the new file.
 
 For structured input, use `--input` with literal JSON, `@path/to/file.json`, or
 `-` for stdin. Supported target types are `review`, `file`, `line`, and
-`line_range`.
+`line_range`. One object per call — an array is a parse error. The file key is
+`file`, not `path`. `target.type` is inferred from the fields present:
 
-## Exported Instructions
+```bash
+tuicr review add --session <slug> --username "Codex" --input \
+  '{"file":"src/main.rs","line":42,"side":"new","comment_type":"issue","content":"Handle the empty case."}'
+```
 
-Separate from stored comments, tuicr's in-TUI export action emits an instruction
-block. The tmux and Zellij wrappers capture it with `tuicr --stdout` and print:
+Then verify. A line outside the diff stores, prints back, and exits 0, but
+never renders — invisible to the user, successful-looking to you. Re-read
+`tuicr review comments` and check each `start_line` exists on the side you gave
+(`new` for added or unchanged, `old` for removed). Check `author` to distinguish
+your comments from the user's, and keep the returned `id`s to identify the exact
+comments in later reads.
+
+## Legacy Export Output
+
+Older wrapper-driven flows may emit:
 
 ```text
 === TUICR INSTRUCTIONS ===
@@ -198,15 +255,19 @@ block. The tmux and Zellij wrappers capture it with `tuicr --stdout` and print:
 === END TUICR INSTRUCTIONS ===
 ```
 
-The Herdr wrapper does not capture this; on Herdr, use the CLI only.
-
-`tuicr review comments` is the primary source of review feedback. Treat an
-instruction block as a supplement: process it when present, but still run
-`tuicr review comments` before acting, and prefer the CLI if the two disagree.
-If a wrapper reports the export went to the clipboard, ask the user to paste it
-only when the CLI shows no comments.
+If present, process those instructions. Otherwise prefer
+`tuicr review comments`; it is the primary source of review feedback. If the
+wrapper mentions clipboard export, ask the user to paste it only when the CLI
+comments are unavailable.
 
 ## Multiplexer Tips
+
+cmux:
+
+- Switch panes: click the pane, or `cmux focus-pane --pane <ref>`
+- Close tuicr: press `q`; the pane closes itself. Force it with `cmux close-surface --surface <ref>`
+- List panes: `cmux list-panes`
+- Read a pane without focusing it: `cmux read-screen --surface <ref>`
 
 tmux:
 
@@ -233,11 +294,13 @@ Herdr:
 | Situation | Action |
 |-----------|--------|
 | Multiple plausible active sessions | Ask which session slug to use |
-| No active session, tmux/Zellij/Herdr available | Start a new tuicr pane with the matching wrapper |
+| No active session, cmux/tmux/Zellij/Herdr available | Start a new tuicr pane with the matching wrapper |
 | No active session, no multiplexer | Tell the user you are waiting for them to start `tuicr` |
+| cmux wrapper printed no surface ref | Run `cmux list-panes` to find the pane, or ask the user to start `tuicr` themselves |
 | `tuicr` not installed | Tell the user to install tuicr |
 | Not a repository | Ask for the correct repo directory |
-| Comments are empty | Confirm the selected session or ask the user to save/add comments |
+| Comments are empty, but `reviewed_count` == `file_count` | Treat as a completed review with nothing to flag — don't ask |
+| Comments are empty and `reviewed_count` < `file_count` | Confirm the selected session or ask the user to save/add comments |
 
 ## When Not To Use
 
