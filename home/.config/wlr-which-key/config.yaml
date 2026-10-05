@@ -263,6 +263,9 @@ menu:
       - key: i
         desc: Image Editor
         cmd: photopea-chromium
+      - key: l
+        desc: B[l]uetooth
+        cmd: blueman-manager
       - key: p
         desc: Color [P]icker
         cmd: wl-color-picker --no-notify
