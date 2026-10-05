@@ -22,7 +22,7 @@ menu:
     cmd: foot --login tm
   - key: ","
     desc: Toggle Bar
-    cmd: pkill --signal SIGUSR1 waybar
+    cmd: ashell msg toggle-visibility
 
   - key: a
     desc: Audio

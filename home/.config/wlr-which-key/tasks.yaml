@@ -35,9 +35,6 @@ menu:
       - key: w
         desc: Window
         cmd: niri msg action set-dynamic-cast-window
-  - key: d
-    desc: Do Not Disturb
-    cmd: makoctl mode -t do-not-disturb; pkill -RTMIN+11 waybar
   - key: i
     desc: Input Vol
     submenu:
@@ -49,7 +46,7 @@ menu:
         cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
       - key: m
         desc: Mute
-        cmd: wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        cmd: ashell msg microphone-toggle-mute
   - key: l
     desc: Bluetooth Toggle
     cmd: "bluetoothctl show | grep -q 'PowerState: off' && bluetoothctl power on || bluetoothctl power off"
@@ -79,7 +76,7 @@ menu:
         cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
       - key: m
         desc: Mute
-        cmd: wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        cmd: ashell msg volume-toggle-mute
   - key: p
     desc: Power Profile
     submenu:

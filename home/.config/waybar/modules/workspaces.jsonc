@@ -1,9 +1,0 @@
-{
-  "niri/workspaces": {
-    "hide-empty": true,
-    "workspace-taskbar": {
-      "enable": true,
-      "icon-size": 20
-    }
-  }
-}

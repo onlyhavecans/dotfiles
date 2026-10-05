@@ -1,9 +1,0 @@
-{
-  // Geometry and module layout shared by every bar; per-bar deltas live in config.jsonc.
-  "reload_style_on_change": true,
-  "height": 32,
-  "spacing": 0,
-  "modules-left": ["niri/workspaces", "mpris"],
-  "modules-center": ["cpu", "memory", "custom/tomat", "temperature", "disk"],
-  "modules-right": ["tray", "group/alerts", "group/levels", "group/links", "clock"]
-}

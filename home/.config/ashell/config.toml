@@ -1,0 +1,136 @@
+# ashell: bar and notification daemon. Runs as a systemd user unit (NixOS repo).
+# Reference: https://malpenzibo.github.io/ashell/docs/configuration
+# Keys not listed keep their defaults. TOML has no None: omit a key to unset it.
+
+[logging]
+target = "stdout"  # journald via the user unit
+
+[modules]
+left = ["Workspaces", "SystemInfo", "MediaPlayer"]
+center = ["tomat"]
+right = ["Notifications", "Tray", "Privacy", "Settings", "Tempo"]
+
+# ── Workspaces ────────────────────────────────────────────────────────────────
+
+[workspaces]
+visibility_mode = "MonitorSpecific"  # each bar shows its own output's workspaces
+indicator_format = "NameAndIcons"    # app icons per workspace
+
+# ── Custom modules ────────────────────────────────────────────────────────────
+
+[[CustomModule]]
+name = "tomat"
+icon = "󰔟"
+command = "tomat toggle"
+on_right_click = "tomat skip"
+listen_cmd = "tomat watch --interval 1 --format '{time} {phase} {session}' | jq --unbuffered -c '{text, alt: .class}'"
+# class is one of: idle, work, break, long-break, each with an optional -paused suffix.
+# Regexes are anchored because match order is not guaranteed.
+icons = { "^idle$" = "󰔞", "^work$" = "󰔟", "^(long-)?break$" = "󰒲", "-paused$" = "󰏤" }
+
+# ── System info ───────────────────────────────────────────────────────────────
+
+[system_info]
+indicators = ["Cpu", "Memory", { Disk = "/" }, "Temperature"]
+interval = 5
+
+[system_info.cpu]
+warn_threshold = 80
+alert_threshold = 95
+
+[system_info.memory]
+warn_threshold = 80
+alert_threshold = 95
+
+[system_info.temperature]
+# sensor = "Cpu" (default) auto-detects k10temp (AMD) and coretemp (Intel)
+warn_threshold = 80
+alert_threshold = 90
+units = "Celsius"
+
+[system_info.disk]
+warn_threshold = 85
+alert_threshold = 95
+mounts = ["/"]
+
+# ── Media player ──────────────────────────────────────────────────────────────
+
+[media_player]
+indicator_fields = ["Title"]
+max_text_length = 40
+
+# ── Tray ──────────────────────────────────────────────────────────────────────
+
+[tray]
+blocklist = ["discord"]
+
+# ── Tempo (clock) ─────────────────────────────────────────────────────────────
+
+[tempo]
+clock_format = "%a %d %R"
+# scroll the clock to cycle; local zone first so a scroll back lands home
+timezones = [
+  "America/Denver",
+  "America/Los_Angeles",
+  "America/Chicago",
+  "America/New_York",
+  "America/Argentina/Buenos_Aires",
+  "UTC",
+  "Europe/Paris",
+]
+# weather_location left unset: clock only, no network calls
+
+# ── Notifications ─────────────────────────────────────────────────────────────
+
+[notifications]
+format = "%H:%M"
+toast_timeout = 10000
+
+# ── Settings ──────────────────────────────────────────────────────────────────
+
+[settings]
+lock_cmd = "playerctl --all-players pause; swaylock --daemonize"
+audio_sinks_more_cmd = "pwvucontrol -t 4"                                                                                      # Output Devices tab
+audio_sources_more_cmd = "pwvucontrol -t 3"                                                                                    # Input Devices tab
+wifi_more_cmd = "nm-connection-editor"
+vpn_more_cmd = "nm-connection-editor"
+bluetooth_more_cmd = "blueman-manager"
+battery_format = "IconAndPercentage"
+indicators = ["IdleInhibitor", "PowerProfile", "Brightness", "Audio", "Microphone", "Network", "Vpn", "Bluetooth", "Battery"]
+
+[[settings.CustomButton]]
+name = "Record Screen"
+icon = "󰻃"
+command = "~/bin/record-screen"
+status_command = "pgrep -x wf-recorder"
+tooltip = "Start or stop wf-recorder"
+
+# ── OSD ───────────────────────────────────────────────────────────────────────
+# Shown by `ashell msg volume-*`, `brightness-*`, `toggle-idle-inhibitor` (niri binds).
+
+[osd]
+enabled = true
+show_volume_percentage = true
+show_brightness_percentage = true
+
+# ── Appearance ────────────────────────────────────────────────────────────────
+# Everforest Light Hard (see docs/everforest.md)
+
+[appearance]
+font_name = "Inter"
+primary_color = "#8DA101"                             # green
+success_color = "#35A77C"                             # aqua
+warning_color = "#DFA000"                             # yellow
+danger_color = "#F85552"                              # red
+text_color = "#5C6A72"                                # fg
+workspace_colors = ["#8DA101", "#35A77C", "#3A94C5"]  # green, aqua, blue per monitor
+
+[appearance.opacity]
+default = 0.93  # `ee` surfaces
+bar = 1.0       # the bar is opaque
+
+[appearance.background_color]
+base = "#FFFBEF"     # bg0
+weak = "#F8F5E4"     # bg1
+strong = "#EDEADA"   # bg3
+weakest = "#F2EFDF"  # bg_dim

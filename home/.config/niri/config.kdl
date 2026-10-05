@@ -265,22 +265,21 @@ binds {
   Alt+Comma hotkey-overlay-title="open emoji search" { spawn "bemoji" "--type"; }
   Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
   Alt+N hotkey-overlay-title="show clipboard history" { spawn "~/bin/cliphist-fuzzel"; }
-  Mod+N hotkey-overlay-title="show notification history" { spawn "~/bin/notif-history"; }
   Mod+Period hotkey-overlay-title="run task" { spawn "~/bin/wlr-toggle" "tasks"; }
   Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
-  Mod+Comma hotkey-overlay-title="toggle bar" { spawn "pkill" "--signal" "SIGUSR1" "waybar"; }
+  Mod+Comma hotkey-overlay-title="toggle bar" { spawn "ashell" "msg" "toggle-visibility"; }
 
   // the allow-when-locked=true property makes them work even when the session is locked.
-  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+  XF86AudioMute        allow-when-locked=true { spawn "ashell" "msg" "volume-toggle-mute"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "ashell" "msg" "volume-down"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "ashell" "msg" "volume-up"; }
 
   XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
   XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
   XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
 
-  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
-  XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "ashell" "msg" "brightness-down"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "ashell" "msg" "brightness-up"; }
 
   XF86AudioMedia hotkey-overlay-title="lock" { spawn "swaylock"; } // Framework Key
 

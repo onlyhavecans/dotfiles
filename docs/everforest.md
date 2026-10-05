@@ -77,10 +77,8 @@ Rules:
 - Red is the only alert color. Destructive menus (wlr-which-key power) use red,
   not purple.
 - Geometry: 15px corner radius and 3px borders on all surfaces. Destructive
-  surfaces (wlr-which-key power menu, mako critical) use a 4px red border.
-  The waybar is the exception: a 32px opaque tab with 16px curves, and fully
-  round (`999px`) pills with 1px borders. Only its tooltips and menus use 15px
-  and 3px.
+  surfaces (wlr-which-key power menu) use a 4px red border. ashell draws its
+  own geometry (bar islands, menus, toasts); only its palette is themed.
 
 ## Who owns what
 
@@ -90,8 +88,7 @@ reference only; no app reads it. There is no mode switch.
 | app | where the colors live |
 | --- | --- |
 | niri | hex in `niri/config.kdl` (rings, shadow, tab indicator, insert hint). Background and overview backdrop stay neutral grey, not theme colors |
-| waybar | `waybar/everforest-light.css`, imported by `style.css` |
-| mako | `mako/config` |
+| ashell (bar, notifications, OSD) | `[appearance]` in `ashell/config.toml` |
 | fuzzel | `fuzzel/fuzzel.ini` |
 | wlr-which-key | header of each `wlr-which-key/*.yaml`; power menu has the red border |
 | foot | `[colors-light]` in `foot/foot.ini`, `initial-color-theme=light` |
@@ -109,8 +106,7 @@ reference only; no app reads it. There is no mode switch.
 Palette-independent, inherit terminal ANSI: `BAT_THEME=ansi`, delta
 `syntax-theme = ansi`, ratune `preset = "terminal"`, fzf, fish prompt.
 
-swaylock is stock (image and font only). The waybar calendar "today" color is
-hex in `modules/clock.jsonc` because Pango markup cannot read CSS colors.
+swaylock is stock (image and font only).
 
 Ghostty (macOS) uses the bundled themes and follows system appearance:
 `theme = light:Everforest Light - Hard,dark:Everforest Dark - Hard`.
@@ -131,34 +127,30 @@ Ghostty (macOS) uses the bundled themes and follows system appearance:
 | secondary_container / on_ | copy mode | yellow / bg0 |
 | error_container / on_ | synchronized panes | red / bg0 |
 
-## Waybar
+## ashell
 
-- The bar is one opaque `bg0` tab against the top edge of the screen. The
-  window is transparent. Two corner gradients flare the body into the screen
-  edge, and the bottom corners are round. Flare size and body margin must be
-  equal, and flare size + bottom radius must equal the bar height (16 + 16 =
-  32).
-- Modules are plain text on the bar. Text is Inter (Adwaita Sans as fallback);
-  the Nerd Font supplies the glyphs.
-- Spacing: 6px between glyphs in a cluster, 10px between clusters. An empty
-  cluster takes no room.
-- Pills are for workspaces and the Pomodoro timer only. A workspace pill has a
-  `bg1` fill and a `bg5` border; the active one has a green border.
-- The Pomodoro pill is the only filled pill: green (work), aqua (break), red
-  (paused or disconnected). Only this pill glows. Idle keeps a green border.
-- Hardware readouts (cpu, memory, temperature, disk) flank the timer. They are
-  small and `grey1`, then yellow (warning) and red (critical).
-- Alerts are red glyphs that hide when idle. Idle-inhibit is green. DND is
-  `grey1`.
-- Levels show a glyph, never a number. State colors only: muted `grey0`,
-  battery yellow then red.
-- Links: WireGuard aqua, NetBird yellow when degraded, bluetooth blue when
-  connected.
+ashell exposes five palette roles plus a background ramp; map them as follows.
+
+| ashell key | color |
+| --- | --- |
+| `primary_color` | green |
+| `success_color` | aqua |
+| `warning_color` | yellow |
+| `danger_color` | red |
+| `text_color` | fg |
+| `workspace_colors` | green, aqua, blue (one per monitor) |
+| `background_color.base` | bg0 |
+| `background_color.weak` | bg1 |
+| `background_color.strong` | bg3 |
+| `background_color.weakest` | bg_dim |
+
+Text is Inter; the bar is opaque and menus, toasts and the OSD use the `ee`
+surface opacity (`0.93`).
 
 ## Alpha convention
 
-- Surfaces (mako, fuzzel, wlr-which-key backgrounds): `ee`. The waybar is
-  opaque.
+- Surfaces (ashell menus and toasts, fuzzel, wlr-which-key backgrounds): `ee`.
+  The ashell bar is opaque.
 - Text and borders: opaque `ff`
 - niri shadows: active `66`, inactive `40`
 - niri insert-hint: `80`

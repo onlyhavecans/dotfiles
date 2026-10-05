@@ -26,4 +26,4 @@ menu:
     cmd: systemctl suspend
   - key: i
     desc: Idle Inhibit
-    cmd: ~/bin/idle-toggle
+    cmd: ashell msg toggle-idle-inhibitor
