@@ -89,7 +89,7 @@ menu:
 
   - key: e
     desc: Email
-    cmd: proton-chromium
+    cmd: proton-mail
 
   - key: f
     desc: Files
