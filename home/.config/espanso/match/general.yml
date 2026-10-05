@@ -17,6 +17,9 @@ matches:
     replace: "無"
 
   # The x completes
+  - trigger: "xshrug"
+    replace: "¯\\_(ツ)_/¯"
+
   - trigger: "xflip"
     replace: "(╯°□°)╯︵ ┻━┻"
 
