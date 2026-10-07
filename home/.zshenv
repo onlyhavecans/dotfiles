@@ -27,9 +27,12 @@ export LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
 # Set config paths
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Putting this in non-interactive makes Apps use 1Password
+# Putting this in non-interactive makes Apps use the Proton Pass SSH agent
 # The setting is exported instead of in ssh/config so I can have the test and fallback if this isn't set up
-[[ -z "$SSH_TTY" ]] && [[ -S "$HOME/.1password/agent.sock" ]] && export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
+if [[ -z "$SSH_TTY" ]] && [[ -S "$HOME/.ssh/proton-pass-ssh-agent.sock" ]]; then
+  export PROTON_PASS_KEY_PROVIDER=fs
+  export SSH_AUTH_SOCK=$HOME/.ssh/proton-pass-ssh-agent.sock
+fi
 
 ## last
 export PATH

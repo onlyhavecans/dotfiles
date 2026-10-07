@@ -134,9 +134,8 @@ if command_exists fzf; then
   fi
 fi
 
-if command_exists op; then
-  alias o="op run -- "
-  # [ -f "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
+if command_exists pass-cli; then
+  alias o="pass-cli run -- "
 fi
 
 if command_exists xh; then

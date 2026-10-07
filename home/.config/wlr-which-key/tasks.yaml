@@ -101,6 +101,9 @@ menu:
       - key: n
         desc: New York
         cmd: ~/bin/vpn nyc
+      - key: p
+        desc: Proton VPN
+        cmd: protonvpn-app
       - key: s
         desc: San Francisco
         cmd: ~/bin/vpn sfo

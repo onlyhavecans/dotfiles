@@ -41,6 +41,7 @@ brew "ncdu"
 brew "nmap"
 brew "openssh"
 brew "overmind"
+brew "proton-pass-cli" # pass-cli
 brew "python3"
 brew "qpdf"
 brew "qrencode"
@@ -125,7 +126,8 @@ brew "ty"
 brew "uv"
 brew "ruff"
 
-cask "1password-cli"
 cask "espanso"
+cask "proton-pass"
+cask "protonvpn"
 
 go "github.com/StackExchange/dnscontrol/v4"

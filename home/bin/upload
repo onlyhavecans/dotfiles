@@ -5,8 +5,13 @@ if [[ -z "$*" ]]; then
   exit 1
 fi
 
-TOKEN=$(rbw get Zipline --field api-key)
-URL=$(rbw get Zipline --field api-upload-url)
+# Proton Pass: Personal vault, "Zipline" item (ids are ~5x faster than --item-title)
+ZIPLINE_ITEM=(
+  --share-id BZ_ZudkOoossTRnklUKe0o3aKxgV6NmnEgwtEOAUDyHuhXDoQztLZj2yCt4dkRkmVsO19fxjI7zJq0vHwzVE5A==
+  --item-id ix8vuUnZi7ZhEg4uUPSESh39qUJbp5eg7qFyhTQhF-0ROPnqg7ZdfPHM1htxuFV9JpEQPtwsN5iGnyd44dj_dA==
+)
+TOKEN=$(pass-cli item view "${ZIPLINE_ITEM[@]}" --field api-key)
+URL=$(pass-cli item view "${ZIPLINE_ITEM[@]}" --field api-upload-url)
 
 if [[ -z "$TOKEN" || -z "$URL" ]]; then
   echo "No upload till you auth"

@@ -66,7 +66,7 @@
 [server]
 url = "https://music.squirrels.services"
 username = "squirrel"
-password_command = "rbw get Navidrome"
+password_command = "pass-cli item view --share-id BZ_ZudkOoossTRnklUKe0o3aKxgV6NmnEgwtEOAUDyHuhXDoQztLZj2yCt4dkRkmVsO19fxjI7zJq0vHwzVE5A== --item-id 7iiek9-vKlt7Y-HmVEd9JlwvYuEYG__D-BcxOMyMyOl4-lWHg0fDnIPPhVgkWKQ9EPeNTO24cGRLYiKQ02zZhA== --field password"  # ids: ~1.5s, --item-title: 7-13s
 alias = "Navidrome"
 # password_keyring = "keyutils"       # Linux only: "keyutils" (default) or "secret-service"
 # password_command = "secret-tool lookup service subsonic user you"
@@ -212,7 +212,7 @@ queue_loop = true
 # Progress bar: `[ui.row_now_playing].progress_style` (not under theme.icon).
 
 [theme]
-preset = "static"  # Everforest Light Hard (docs/everforest.md); no album-art accent
+preset = "static"          # Everforest Light Hard (docs/everforest.md); no album-art accent
 accent = "#8DA101"         # green: selection bar, progress, focused chrome
 background = "#FFFBEF"     # bg0: popups + text on accent
 tab_bar = "#F8F5E4"        # bg1

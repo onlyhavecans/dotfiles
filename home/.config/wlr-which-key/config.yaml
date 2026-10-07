@@ -242,9 +242,9 @@ menu:
   - key: u
     desc: Utilities
     submenu:
-      - key: b
-        desc: Bitwarden
-        cmd: bitwarden
+      - key: s
+        desc: Proton Pa[s]s
+        cmd: proton-pass
       - key: t
         desc: Top
         cmd: foot --app-id=btop btop

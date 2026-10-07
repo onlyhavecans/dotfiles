@@ -48,7 +48,3 @@ if [[ ! -d $HOME/.config/tmux/plugins/tpm ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 fi
 
-## Link 1Password agent if we have the mac
-if [[ "$(uname)" == "Darwin" ]]; then
-  mkdir -p ~/.1password && ln -sf ~/library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
-fi

@@ -172,19 +172,17 @@ switch-events {
 // Keep more specific rules last
 window-rule {
   match app-id="1password"
-  match app-id="bitwarden"
+  match app-id="proton-pass"
   match app-id="discord"
   match app-id="signal"
   match app-id="slack"
   match app-id=r#"md\.Obsidian"#
-  match title="Authentication Required" // stupid bitwarden
   block-out-from "screencast"
 }
 
 window-rule {
   match app-id="1password"
-  match app-id="bitwarden"
-  match title="Authentication Required" // stupid bitwarden
+  match app-id="proton-pass"
   block-out-from "screen-capture"
 }
 
@@ -192,13 +190,11 @@ window-rule {
   match app-id="Calculator"
   match app-id="espanso"
   match app-id="file-picker" // Custom Yazi Picker
-  match app-id="firefox" title="^Extension"
   match app-id="firefox" title="^Picture-in-Picture$"
   match app-id="mpv"
   match app-id="qalculate"
   match app-id="satty"
   match app-id="zenity" title="Copy color to Clipboard"
-  match title="Authentication Required" // stupid bitwarden
   open-floating true
 }
 
