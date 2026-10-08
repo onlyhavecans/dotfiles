@@ -1,7 +1,8 @@
 {
   "attribution": {
     "commit": "",
-    "pr": ""
+    "pr": "",
+    "sessionUrl": false
   },
   "permissions": {
     "deny": [
@@ -47,5 +48,6 @@
   "skipWorkflowUsageWarning": true,
   "theme": "custom:everforest-light",
   "remoteControlAtStartup": false,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "includeCoAuthoredBy": false
 }
