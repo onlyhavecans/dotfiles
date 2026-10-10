@@ -191,7 +191,6 @@ window-rule {
   match app-id="espanso"
   match app-id="file-picker" // Custom Yazi Picker
   match app-id="firefox" title="^Picture-in-Picture$"
-  match app-id="mpv"
   match app-id="qalculate"
   match app-id="satty"
   match app-id="zenity" title="Copy color to Clipboard"
@@ -218,7 +217,6 @@ window-rule {
   match app-id="chrome-mail.proton"
   match app-id="chrome-twitch"
   match app-id="slack"
-  match app-id="thunderbird"
   default-column-width { proportion 0.66667; }
 }
 
@@ -228,7 +226,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id="thunderbird" title="Reminder"
   match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
   open-floating true
   open-focused false
@@ -259,7 +256,7 @@ binds {
   Alt+Space hotkey-overlay-title="open launcher" { spawn "fuzzel"; }
   Mod+Space hotkey-overlay-title="open which-key menu" { spawn "~/bin/wlr-toggle"; }
   Alt+Comma hotkey-overlay-title="open emoji search" { spawn "bemoji" "--type"; }
-  Alt+Tab hotkey-overlay-title="select window" { spawn "~/bin/focus-app-fuzzel"; }
+  Alt+Tab hotkey-overlay-title="jump to window" { spawn "~/bin/focus-app-fuzzel"; }
   Alt+N hotkey-overlay-title="show clipboard history" { spawn "~/bin/cliphist-fuzzel"; }
   Mod+Period hotkey-overlay-title="run task" { spawn "~/bin/wlr-toggle" "tasks"; }
   Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
