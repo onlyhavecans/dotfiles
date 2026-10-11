@@ -13,23 +13,14 @@
   },
   "model": "fable[1m]",
   "hooks": {
-    "Notification": [
+    "SessionStart": [
       {
-        "matcher": "permission_prompt|idle_prompt|elicitation_dialog|elicitation_url_dialog|worker_permission_prompt|agent_needs_input",
+        "matcher": "^(startup|resume|clear|compact|fork)$",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/notify.sh"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/notify.sh"
+            "command": "bash '/home/dos/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
           }
         ]
       }

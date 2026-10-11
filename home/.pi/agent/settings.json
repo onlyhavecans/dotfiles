@@ -1,0 +1,12 @@
+{
+  "lastChangelogVersion": "1.1.0",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-sonnet-5-5",
+  "enabledModels": [
+    "anthropic/claude-opus-5-5",
+    "anthropic/claude-sonnet-5-5",
+    "anthropic/claude-haiku-5-5",
+    "anthropic/claude-fable-5-1"
+  ],
+  "defaultThinkingLevel": "medium"
+}

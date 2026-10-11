@@ -1,0 +1,14 @@
+onboarding = false
+
+[theme]
+name = "terminal"
+
+[update]
+version_check = false
+
+[[keys.command]]
+key = "prefix+alt+g"
+type = "popup"
+command = "lazygit"
+width = "80%"
+height = "80%"
