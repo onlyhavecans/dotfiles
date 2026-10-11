@@ -65,12 +65,12 @@
 	navigate = true
 	line-numbers = true
 	syntax-theme = ansi
-	# Everforest Light Hard: bg_red, red, bg_green, green
-	light = true
-	minus-style = syntax "#FFE7DE"
-	minus-emph-style = "#F85552" bold
-	plus-style = syntax "#F3F5D9"
-	plus-emph-style = "#8DA101" bold
+	# Everforest Dark Hard: bg_red, red, bg_green, green
+	dark = true
+	minus-style = syntax "#493B40"
+	minus-emph-style = "#E67E80" bold
+	plus-style = syntax "#3C4841"
+	plus-emph-style = "#A7C080" bold
 
 # include for work
 [includeIf "gitdir:~/Code/dnsimple/"]

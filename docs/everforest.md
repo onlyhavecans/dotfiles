@@ -1,7 +1,7 @@
 # Everforest Hard — palette and usage guide
 
 Everything themes to **Everforest, hard contrast**. Each app
-is pinned to Light Hard with static files in this castle. This file is the
+is pinned to a fixed variant (Dark Hard for terminal apps) with static files in this castle. This file is the
 palette and the rules for all hand-written hex.
 
 Upstream: <https://github.com/sainnhe/everforest/blob/master/palette.md>
@@ -82,8 +82,8 @@ Rules:
 
 ## Who owns what
 
-Everything is pinned to **Light Hard**. The Dark Hard column above is for
-reference only; no app reads it. There is no mode switch.
+Terminal apps (foot, tmux, btop, yazi, tuicr, delta, claude-code) are pinned
+to **Dark Hard**. Desktop apps stay on Light Hard. There is no mode switch.
 
 | app | where the colors live |
 | --- | --- |
@@ -91,20 +91,21 @@ reference only; no app reads it. There is no mode switch.
 | ashell (bar, notifications, OSD) | `[appearance]` in `ashell/config.toml` |
 | fuzzel | `fuzzel/fuzzel.ini` |
 | wlr-which-key | header of each `wlr-which-key/*.yaml`; power menu has the red border |
-| foot | `[colors-light]` in `foot/foot.ini`, `initial-color-theme=light` |
-| tmux | `tmux/themes/everforest-light.conf`; `bar.conf` reads its `@theme_*` |
-| btop | `btop/themes/everforest-light.theme` |
-| yazi | `yazi/flavors/everforest-hard-light.yazi` |
-| tuicr | `tuicr/themes/everforest-hard-light.toml` |
+| foot | `[colors-dark]` in `foot/foot.ini`, `initial-color-theme=dark` |
+| tmux | `tmux/themes/everforest-dark.conf`; `bar.conf` reads its `@theme_*` |
+| btop | `btop/themes/everforest-dark.theme` |
+| yazi | `yazi/flavors/everforest-hard-dark.yazi` |
+| tuicr | `tuicr/themes/everforest-hard-dark.toml` |
 | delta | `[delta]` in `git/config` |
-| claude-code | `.claude/themes/everforest-light.json` |
+| ratune | `[theme]` and visualizer colors in `ratune/config.toml` |
+| claude-code | `.claude/themes/everforest-dark.json` |
 | neovim | `sainnhe/everforest`, hard, light (neovim castle) |
-| Firefox, Thunderbird | `pywalfox/everforest-light.json`, linked to `~/.cache/wal/colors.json` by `link-host-files` |
+| Firefox, Thunderbird | `pywalfox/everforest-dark.json`, linked to `~/.cache/wal/colors.json` by `link-host-files` |
 | GTK, Qt, icons, cursor | NixOS repo, `nixos/desktop/theme/` |
 | satty | light accents in `satty/config.toml` |
 
 Palette-independent, inherit terminal ANSI: `BAT_THEME=ansi`, delta
-`syntax-theme = ansi`, ratune `preset = "terminal"`, fzf, fish prompt.
+`syntax-theme = ansi`, fzf, fish prompt.
 
 swaylock is stock (image and font only).
 

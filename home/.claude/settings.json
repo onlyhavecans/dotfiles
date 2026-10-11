@@ -37,7 +37,7 @@
   "effortLevel": "high",
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
-  "theme": "custom:everforest-light",
+  "theme": "custom:everforest-dark",
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
   "includeCoAuthoredBy": false

@@ -1,0 +1,50 @@
+# Everforest Dark Hard (see docs/everforest.md)
+panel_bg = "#272e33"
+bg_highlight = "#374145"
+fg_primary = "#d3c6aa"
+fg_secondary = "#859289"
+fg_dim = "#859289"
+
+diff_add = "#a7c080"
+diff_add_bg = "#3c4841"
+diff_del = "#e67e80"
+diff_del_bg = "#493b40"
+diff_context = "#d3c6aa"
+diff_hunk_header = "#7fbbb3"
+expanded_context_fg = "#859289"
+
+syntax_add_bg = "#3c4841"
+syntax_del_bg = "#493b40"
+
+file_added = "#a7c080"
+file_modified = "#dbbc7f"
+file_deleted = "#e67e80"
+file_renamed = "#d699b6"
+
+reviewed = "#a7c080"
+pending = "#dbbc7f"
+
+comment_note = "#7fbbb3"
+comment_suggestion = "#83c092"
+comment_issue = "#e67e80"
+comment_praise = "#a7c080"
+
+border_focused = "#a7c080"
+border_unfocused = "#4f5b58"
+status_bar_bg = "#2e383c"
+cursor_color = "#dbbc7f"
+cursor_line_bg = "#2e383c"
+branch_name = "#7fbbb3"
+help_indicator = "#859289"
+
+message_info_fg = "#272e33"
+message_info_bg = "#7fbbb3"
+message_warning_fg = "#272e33"
+message_warning_bg = "#dbbc7f"
+message_error_fg = "#272e33"
+message_error_bg = "#e67e80"
+update_badge_fg = "#272e33"
+update_badge_bg = "#dbbc7f"
+
+mode_fg = "#272e33"
+mode_bg = "#a7c080"
