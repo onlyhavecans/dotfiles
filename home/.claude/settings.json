@@ -4,6 +4,7 @@
     "pr": "",
     "sessionUrl": false
   },
+  "includeCoAuthoredBy": false,
   "permissions": {
     "deny": [
       "Read(.envrc)",
@@ -11,7 +12,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "fable[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -37,8 +37,7 @@
   "effortLevel": "high",
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
-  "theme": "custom:everforest-dark",
+  "theme": "auto",
   "remoteControlAtStartup": false,
-  "agentPushNotifEnabled": true,
-  "includeCoAuthoredBy": false
+  "agentPushNotifEnabled": true
 }
