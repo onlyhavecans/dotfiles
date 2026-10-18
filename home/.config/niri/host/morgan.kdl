@@ -23,8 +23,9 @@ window-rule {
 
 window-rule {
   // right
-  match app-id=r#"md\.Obsidian"#
+  match app-id=r#"md\.obsidian\.Obsidian"#
   match app-id="firebotv5"
+  match app-id="proton-pass"
   open-on-output "Dell Inc. DELL U2715H H7YCC7A60C0S"
 }
 
@@ -37,6 +38,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"md\.Obsidian"#
+  match app-id=r#"md\.obsidian\.Obsidian"#
+  match app-id="proton-pass"
   default-column-width { proportion 0.33333; }
 }

@@ -173,10 +173,11 @@ switch-events {
 window-rule {
   match app-id="1password"
   match app-id="proton-pass"
+  match app-id="proton-mail"
   match app-id="discord"
   match app-id="signal"
   match app-id="slack"
-  match app-id=r#"md\.Obsidian"#
+  match app-id=r#"md\.obsidian\.Obsidian"#
   block-out-from "screencast"
 }
 
@@ -214,7 +215,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id="chrome-mail.proton"
+  match app-id="proton-mail"
   match app-id="chrome-twitch"
   match app-id="slack"
   default-column-width { proportion 0.66667; }
