@@ -10,9 +10,8 @@ set -gx MOSH_SERVER_SIGNAL_TMOUT 60
 set -gx MOSH_SERVER_NETWORK_TMOUT 2592000
 
 # SSH agent (needed for scripts)
-if test -z "$SSH_TTY"; and test -S "$HOME/.ssh/proton-pass-ssh-agent.sock"
-    set -gx PROTON_PASS_KEY_PROVIDER fs
-    set -gx SSH_AUTH_SOCK $HOME/.ssh/proton-pass-ssh-agent.sock
+if test -z "$SSH_TTY"; and test -S "$HOME/.ssh/proton-pass-agent.sock"
+    set -gx SSH_AUTH_SOCK $HOME/.ssh/proton-pass-agent.sock
 end
 
 # Paths

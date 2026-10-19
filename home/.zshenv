@@ -29,9 +29,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # Putting this in non-interactive makes Apps use the Proton Pass SSH agent
 # The setting is exported instead of in ssh/config so I can have the test and fallback if this isn't set up
-if [[ -z "$SSH_TTY" ]] && [[ -S "$HOME/.ssh/proton-pass-ssh-agent.sock" ]]; then
-  export PROTON_PASS_KEY_PROVIDER=fs
-  export SSH_AUTH_SOCK=$HOME/.ssh/proton-pass-ssh-agent.sock
+if [[ -z "$SSH_TTY" ]] && [[ -S "$HOME/.ssh/proton-pass-agent.sock" ]]; then
+  export SSH_AUTH_SOCK=$HOME/.ssh/proton-pass-agent.sock
 fi
 
 ## last
