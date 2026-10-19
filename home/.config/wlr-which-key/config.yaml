@@ -22,7 +22,7 @@ menu:
     cmd: foot --login tm
   - key: ","
     desc: Toggle Bar
-    cmd: ashell msg toggle-visibility
+    cmd: noctalia msg bar-toggle
 
   - key: a
     desc: Audio
@@ -66,7 +66,7 @@ menu:
         cmd: firefox --private-window
       - key: s
         desc: Search
-        cmd: ~/bin/search-fuzzel
+        cmd: noctalia msg panel-open launcher "/s "
 
   - key: c
     desc: Chats
@@ -103,9 +103,6 @@ menu:
       - key: u
         desc: Upload Pick
         cmd: ~/bin/upload-yazi
-      - key: r
-        desc: Upload [R]ecent
-        cmd: ~/bin/upload-fuzzel
 
   - key: g
     desc: Gaming
@@ -126,22 +123,22 @@ menu:
     submenu:
       - key: b
         desc: Browser
-        cmd: ~/bin/focus-app-fuzzel firefox
+        cmd: noctalia msg panel-open launcher "/win firefox"
       - key: e
         desc: Email
-        cmd: ~/bin/focus-app-fuzzel proton-mail
+        cmd: noctalia msg panel-open launcher "/win proton-mail"
       - key: j
         desc: Jump to Win
-        cmd: ~/bin/focus-app-fuzzel
+        cmd: noctalia msg panel-open launcher "/win "
       - key: o
         desc: Obsidian
-        cmd: ~/bin/focus-app-fuzzel obsidian
+        cmd: noctalia msg panel-open launcher "/win obsidian"
       - key: s
         desc: Slack
-        cmd: ~/bin/focus-app-fuzzel slack
+        cmd: noctalia msg panel-open launcher "/win slack"
       - key: t
         desc: Terminal
-        cmd: ~/bin/focus-app-fuzzel foot
+        cmd: noctalia msg panel-open launcher "/win foot"
 
   - key: m
     desc: Music
@@ -173,7 +170,7 @@ menu:
         cmd: xdg-open "obsidian://open?vault=Vault"
       - key: t
         desc: Inbox Type
-        cmd: ~/bin/inbox-fuzzel
+        cmd: noctalia msg panel-open launcher "/in "
 
   - key: p
     desc: +Power
@@ -188,12 +185,15 @@ menu:
       - key: m
         desc: Clip mpv Audio
         cmd: ~/bin/clip_app mpv
+      - key: f
+        desc: Shot Full Screen
+        cmd: noctalia msg screenshot-fullscreen
       - key: r
         desc: Record Screen
         cmd: ~/bin/record-screen
       - key: s
-        desc: Screenshot Screen
-        cmd: ~/bin/screenshot screen
+        desc: Shot Selection
+        cmd: noctalia msg screenshot-region
 
   - key: s
     desc: Stream
@@ -253,13 +253,13 @@ menu:
         cmd: gnome-calculator
       - key: e
         desc: Emoji
-        cmd: bemoji --type
+        cmd: noctalia msg panel-open launcher "/emo "
       - key: g
         desc: GPU Top
         cmd: foot --app-id=amdgpu_top amdgpu_top
       - key: h
-        desc: Clip[h]ist
-        cmd: ~/bin/cliphist-fuzzel
+        desc: Clipboard [h]istory
+        cmd: noctalia msg panel-toggle clipboard
       - key: i
         desc: Image Editor
         cmd: photopea-chromium
@@ -276,8 +276,8 @@ menu:
         desc: Toggle Touchpad
         cmd: ~/bin/toggle-touchpad
       - key: w
-        desc: Wipe Cliphist
-        cmd: cliphist wipe
+        desc: Wipe Clipboard
+        cmd: noctalia msg clipboard-clear
 
   - key: v
     desc: Video

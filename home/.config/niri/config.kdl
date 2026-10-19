@@ -94,9 +94,11 @@ layout {
   background-color "transparent"
 }
 
+// Stationary wallpaper: noctalia's wallpaper layer sits on the backdrop.
+// https://docs.noctalia.dev/noctalia/compositor-settings/niri/
 layer-rule {
   // Find the right namespace by running niri msg layers.
-  match namespace="^awww-daemon$"
+  match namespace="^noctalia-wallpaper"
   place-within-backdrop true
 }
 
@@ -117,10 +119,7 @@ recent-windows {
 // Miscellaneous configuration.
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
-spawn-at-startup "cliphist" "wipe"
-spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
-spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-// bar, notifications, and idle run as systemd user units from the NixOS repo
+spawn-at-startup "noctalia"
 
 // ask the clients to omit their client-side decorations
 prefer-no-csd
@@ -143,6 +142,13 @@ hotkey-overlay {
   skip-at-startup
 }
 
+// Debug and control
+// https://niri-wm.github.io/niri/Configuration:-Debug-Options.html
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
 // Animation settings.
 // https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
@@ -162,7 +168,7 @@ gestures {
 // Hardware switch-events
 // https://niri-wm.github.io/niri/Configuration:-Switch-Events.html
 switch-events {
-  lid-close { spawn "systemctl" "sleep"; }
+  lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -234,6 +240,14 @@ window-rule {
   default-floating-position x=10 y=10 relative-to="top-right"
 }
 
+window-rule {
+  // Floating Noctalia settings window.
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
 // enable rounded corners for all windows.
 window-rule {
   geometry-corner-radius 15
@@ -254,31 +268,39 @@ binds {
   Alt+Period { spawn "voxtype" "record" "toggle"; }
 
   // Launchers and menus
-  Alt+Space hotkey-overlay-title="open launcher" { spawn "fuzzel"; }
+  Alt+Space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
   Mod+Space hotkey-overlay-title="open which-key menu" { spawn "~/bin/wlr-toggle"; }
-  Alt+Comma hotkey-overlay-title="open emoji search" { spawn "bemoji" "--type"; }
-  Alt+Tab hotkey-overlay-title="jump to window" { spawn "~/bin/focus-app-fuzzel"; }
-  Alt+N hotkey-overlay-title="show clipboard history" { spawn "~/bin/cliphist-fuzzel"; }
+  Alt+Comma hotkey-overlay-title="open emoji search" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo "; }
+  Alt+Tab hotkey-overlay-title="jump to window" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/win "; }
   Mod+Period hotkey-overlay-title="run task" { spawn "~/bin/wlr-toggle" "tasks"; }
-  Mod+Escape hotkey-overlay-title="power menu" { spawn "~/bin/wlr-toggle" "power"; }
-  Mod+Comma hotkey-overlay-title="toggle bar" { spawn "ashell" "msg" "toggle-visibility"; }
 
-  // the allow-when-locked=true property makes them work even when the session is locked.
-  XF86AudioMute        allow-when-locked=true { spawn "ashell" "msg" "volume-toggle-mute"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "ashell" "msg" "volume-down"; }
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "ashell" "msg" "volume-up"; }
+  // Noctalia
+  Alt+N hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+  Mod+N hotkey-overlay-title="show notification history" { spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"; }
+  Mod+S hotkey-overlay-title="control center" { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+  Mod+Escape hotkey-overlay-title="power menu" { spawn "noctalia" "msg" "panel-toggle" "session"; }
+  Mod+Comma hotkey-overlay-title="shell settings" { spawn "noctalia" "msg" "settings-toggle"; }
+  Mod+Alt+Comma hotkey-overlay-title="toggle bar" { spawn "noctalia" "msg" "bar-toggle"; }
 
-  XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
-  XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
+  // Hardware keys through Noctalia IPC so the OSD shows.
+  // allow-when-locked=true makes them work even when the session is locked.
+  XF86AudioMute        allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
 
-  XF86MonBrightnessDown allow-when-locked=true { spawn "ashell" "msg" "brightness-down"; }
-  XF86MonBrightnessUp   allow-when-locked=true { spawn "ashell" "msg" "brightness-up"; }
+  XF86AudioPrev allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
+  XF86AudioPlay allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
+  XF86AudioNext allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
 
-  XF86AudioMedia hotkey-overlay-title="lock" { spawn "swaylock"; } // Framework Key
+  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
 
-  // Screenshots: grim + slurp + satty
-  Print hotkey-overlay-title="Screenshot Screen" { spawn "~/bin/screenshot" "screen"; }
+  XF86AudioMedia hotkey-overlay-title="lock" { spawn "noctalia" "msg" "session" "lock"; } // Framework Key
+
+  // Screenshots: noctalia captures, satty edits (noctalia [shell.screenshot])
+  Print hotkey-overlay-title="Screenshot Screen" { spawn "noctalia" "msg" "screenshot-fullscreen"; }
+  Shift+Print hotkey-overlay-title="Screenshot Region" { spawn "noctalia" "msg" "screenshot-region"; }
   Mod+Print hotkey-overlay-title="Record Screen" { spawn "~/bin/record-screen"; }
 
   // Touchpad control

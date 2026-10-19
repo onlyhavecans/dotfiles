@@ -1,0 +1,4 @@
+# Suspend after an hour idle
+[idle.behavior.suspend]
+action = "lock_and_suspend"
+timeout = 3600

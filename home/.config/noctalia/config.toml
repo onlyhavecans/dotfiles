@@ -1,0 +1,163 @@
+# Noctalia base config. Files here merge alphabetically, later wins:
+#   config.toml  this file, every host
+#   host.toml    -> host/<hostname>.toml, linked by link-host-files
+# The settings GUI writes ~/.local/state/noctalia/settings.toml, which wins
+# over both. Do not commit it; fold wanted changes back here.
+
+[audio]
+enable_sounds = true
+
+[backdrop]
+enabled = false  # niri puts noctalia-wallpaper on its backdrop instead
+
+[bar.default]
+capsule = false
+start = ["taskbar", "media"]
+center = ["tomat"]
+end = ["tray", "privacy", "power_profile", "network", "battery", "clock"]
+margin_ends = 30
+thickness = 34
+
+[control_center]
+width = 800
+
+[control_center.calendar]
+show_events_card = false
+
+[dock]
+enabled = false
+
+[idle]
+behavior_order = ["lock", "screen-off", "suspend"]
+
+[idle.behavior.lock]
+action = "lock"
+timeout = 300
+
+[idle.behavior.screen-off]
+action = "screen_off"
+timeout = 360
+
+[keybinds]
+down = ["Down", "Ctrl+n"]
+up = ["Up", "Ctrl+p"]
+
+[location]
+address = "Las Vegas, NV"
+
+[lockscreen]
+blur_intensity = 0.0
+tint_intensity = 0.0
+wallpaper = "/home/dos/Sync/wallpapers/best-os/wlock.jpg"
+
+[nightlight]
+enabled = true
+
+[plugins]
+enabled = ["onlyhavecans/tomat"]
+
+[[plugins.source]]
+name = "official"
+kind = "git"
+location = "https://github.com/noctalia-dev/official-plugins"
+
+[[plugins.source]]
+name = "community"
+kind = "git"
+location = "https://github.com/noctalia-dev/community-plugins"
+
+[[plugins.source]]
+name = "onlyhavecans"
+kind = "git"
+location = "https://onlyhavecans.works/tools/noctalia-plugins"
+
+[shell]
+font_family = "Inter"
+polkit_agent = true
+settings_show_advanced = false
+setup_wizard_enabled = false
+telemetry_enabled = true
+
+[shell.launcher]
+categories = false
+
+# Prefix providers: type /s, /in, or /up in the launcher. Scripts live in ~/bin.
+[shell.launcher.dmenu.entry.search]
+label = "Search the web"
+prefix = "s"
+glyph = "world-search"
+global = false
+freeform = true
+exec = "~/bin/s \"{query}\""
+
+[shell.launcher.dmenu.entry.inbox]
+label = "Inbox"
+prefix = "in"
+glyph = "inbox"
+global = false
+freeform = true
+exec = "~/bin/inbox \"{query}\""
+
+[shell.mpris]
+blacklist = ["chromium", "firefox"]
+
+[shell.panel]
+clipboard_placement = "attached"
+
+# Captures go to satty; satty/config.toml owns the save path and clipboard
+[shell.screenshot]
+annotate = false
+confirm_region = true
+copy_to_clipboard = false
+directory = "~/Pictures/Screenshots"
+pipe_command = "satty -f -"
+pipe_to_command = true
+remember_last_region = true
+save_to_file = false
+
+# GUI apps only: Light Hard, recolors GTK and Qt. Terminal apps stay on
+# static Dark Hard themes in this castle (docs/everforest.md).
+[theme]
+source = "custom"
+custom_palette = "everforest-hard"  # palettes/everforest-hard.json
+mode = "light"
+
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4", "qt"]
+
+[wallpaper]
+directory = "~/Sync/wallpapers"
+
+[widget.battery]
+display_mode = "glyph"
+hide_when_full = true
+show_label = false
+
+[widget.clock]
+format = "{:%a %d, %H:%M}"
+
+[widget.media]
+art_size = 35
+hide_artist = true
+hide_when_no_media = true
+
+[widget.network]
+show_label = false
+vpn_status = "both"
+
+[widget.privacy]
+active_color = "error"
+
+[widget.taskbar]
+icon_scale = 1.05
+group_by_workspace = true
+hide_empty_workspaces = true
+
+[widget.tomat]
+color_paused = "secondary"
+glyph_work = "headphones-filled"
+scale = 1.5
+type = "onlyhavecans/tomat:bar"
+
+[widget.volume]
+show_label = false

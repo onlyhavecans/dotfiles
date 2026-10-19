@@ -40,5 +40,6 @@ window-rule {
 window-rule {
   match app-id=r#"md\.obsidian\.Obsidian"#
   match app-id="proton-pass"
+  match app-id="signal"
   default-column-width { proportion 0.33333; }
 }

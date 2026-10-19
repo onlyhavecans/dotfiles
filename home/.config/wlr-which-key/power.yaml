@@ -11,7 +11,7 @@ corner_r: 15
 menu:
   - key: l
     desc: "\U000F033E Lock"
-    cmd: swaylock
+    cmd: noctalia msg session lock
   - key: p
     desc: "\U000F0425 Poweroff"
     cmd: systemctl poweroff
@@ -26,4 +26,4 @@ menu:
     cmd: systemctl suspend
   - key: i
     desc: Idle Inhibit
-    cmd: ashell msg toggle-idle-inhibitor
+    cmd: noctalia msg caffeine-toggle

@@ -1,0 +1,4 @@
+# Laptop: suspend sooner to save battery
+[idle.behavior.suspend]
+action = "lock_and_suspend"
+timeout = 900

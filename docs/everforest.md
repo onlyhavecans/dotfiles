@@ -1,8 +1,10 @@
 # Everforest Hard — palette and usage guide
 
 Everything themes to **Everforest, hard contrast**. Each app
-is pinned to a fixed variant (Dark Hard for terminal apps) with static files in this castle. This file is the
-palette and the rules for all hand-written hex.
+is pinned to a fixed variant (Dark Hard for terminal apps, Light Hard for GUI).
+Noctalia themes itself, GTK, and Qt from `noctalia/palettes/everforest-hard.json`;
+every other app has static files in this castle. This file is the palette and
+the rules for all hand-written hex.
 
 Upstream: <https://github.com/sainnhe/everforest/blob/master/palette.md>
 (tables below are copied verbatim, so no lookup is needed).
@@ -77,8 +79,8 @@ Rules:
 - Red is the only alert color. Destructive menus (wlr-which-key power) use red,
   not purple.
 - Geometry: 15px corner radius and 3px borders on all surfaces. Destructive
-  surfaces (wlr-which-key power menu) use a 4px red border. ashell draws its
-  own geometry (bar islands, menus, toasts); only its palette is themed.
+  surfaces (wlr-which-key power menu) use a 4px red border. Noctalia draws its
+  own geometry (bar, panels, toasts); only its palette is themed.
 
 ## Who owns what
 
@@ -88,8 +90,7 @@ to **Dark Hard**. Desktop apps stay on Light Hard. There is no mode switch.
 | app | where the colors live |
 | --- | --- |
 | niri | hex in `niri/config.kdl` (rings, shadow, tab indicator, insert hint). Background and overview backdrop stay neutral grey, not theme colors |
-| ashell (bar, notifications, OSD) | `[appearance]` in `ashell/config.toml` |
-| fuzzel | `fuzzel/fuzzel.ini` |
+| Noctalia (bar, notifications, launcher, lock, OSD) | `noctalia/palettes/everforest-hard.json`, `mode = "light"` in `noctalia/config.toml` |
 | wlr-which-key | header of each `wlr-which-key/*.yaml`; power menu has the red border |
 | foot | `[colors-dark]` in `foot/foot.ini`, `initial-color-theme=dark` |
 | tmux | `tmux/themes/everforest-dark.conf`; `bar.conf` reads its `@theme_*` |
@@ -100,14 +101,12 @@ to **Dark Hard**. Desktop apps stay on Light Hard. There is no mode switch.
 | ratune | `[theme]` and visualizer colors in `ratune/config.toml` |
 | claude-code | `.claude/themes/everforest-dark.json` |
 | neovim | `sainnhe/everforest`, hard, light (neovim castle) |
-| Firefox, Thunderbird | `pywalfox/everforest-dark.json`, linked to `~/.cache/wal/colors.json` by `link-host-files` |
-| GTK, Qt, icons, cursor | NixOS repo, `nixos/desktop/theme/` |
+| GTK, Qt | Noctalia `gtk3`, `gtk4`, `qt` templates (same palette) |
+| icons, cursor, base GTK/Qt themes | NixOS repo, `nixos/desktop/theme/` |
 | satty | light accents in `satty/config.toml` |
 
 Palette-independent, inherit terminal ANSI: `BAT_THEME=ansi`, delta
 `syntax-theme = ansi`, fzf, fish prompt.
-
-swaylock is stock (image and font only).
 
 Ghostty (macOS) uses the bundled themes and follows system appearance:
 `theme = light:Everforest Light - Hard,dark:Everforest Dark - Hard`.
@@ -128,30 +127,9 @@ Ghostty (macOS) uses the bundled themes and follows system appearance:
 | secondary_container / on_ | copy mode | yellow / bg0 |
 | error_container / on_ | synchronized panes | red / bg0 |
 
-## ashell
-
-ashell exposes five palette roles plus a background ramp; map them as follows.
-
-| ashell key | color |
-| --- | --- |
-| `primary_color` | green |
-| `success_color` | aqua |
-| `warning_color` | yellow |
-| `danger_color` | red |
-| `text_color` | fg |
-| `workspace_colors` | green, aqua, blue (one per monitor) |
-| `background_color.base` | bg0 |
-| `background_color.weak` | bg1 |
-| `background_color.strong` | bg3 |
-| `background_color.weakest` | bg_dim |
-
-Text is Inter; the bar is opaque and menus, toasts and the OSD use the `ee`
-surface opacity (`0.93`).
-
 ## Alpha convention
 
-- Surfaces (ashell menus and toasts, fuzzel, wlr-which-key backgrounds): `ee`.
-  The ashell bar is opaque.
+- Surfaces (wlr-which-key backgrounds): `ee`.
 - Text and borders: opaque `ff`
 - niri shadows: active `66`, inactive `40`
 - niri insert-hint: `80`
