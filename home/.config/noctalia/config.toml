@@ -7,11 +7,7 @@
 [audio]
 enable_sounds = true
 
-[backdrop]
-enabled = false  # niri puts noctalia-wallpaper on its backdrop instead
-
 [bar.default]
-capsule = false
 start = ["taskbar", "media"]
 center = ["tomat"]
 end = ["tray", "privacy", "power_profile", "network", "battery", "clock"]
@@ -78,10 +74,7 @@ settings_show_advanced = false
 setup_wizard_enabled = false
 telemetry_enabled = true
 
-[shell.launcher]
-categories = false
-
-# Prefix providers: type /s, /in, or /up in the launcher. Scripts live in ~/bin.
+# Prefix providers: type /s or /in, in the launcher. Scripts live in ~/bin.
 [shell.launcher.dmenu.entry.search]
 label = "Search the web"
 prefix = "s"
@@ -134,6 +127,7 @@ hide_when_full = true
 show_label = false
 
 [widget.clock]
+capsule = true
 format = "{:%a %d, %H:%M}"
 
 [widget.media]
@@ -146,6 +140,7 @@ show_label = false
 vpn_status = "both"
 
 [widget.privacy]
+capsule = true
 active_color = "error"
 
 [widget.taskbar]
@@ -154,10 +149,14 @@ group_by_workspace = true
 hide_empty_workspaces = true
 
 [widget.tomat]
+capsule = true
 color_paused = "secondary"
 glyph_work = "headphones-filled"
 scale = 1.5
 type = "onlyhavecans/tomat:bar"
+
+[widget.tray]
+capsule = true
 
 [widget.volume]
 show_label = false
