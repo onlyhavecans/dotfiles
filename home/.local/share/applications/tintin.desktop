@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=TinTin++
+Comment=MUD client
+Icon=tintin
+TryExec=foot
+Exec=foot --app-id=tintin bin/tw

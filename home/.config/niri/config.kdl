@@ -120,6 +120,12 @@ recent-windows {
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
 spawn-at-startup "noctalia"
+spawn-at-startup "noctalia" "msg" "clipboard-clear"
+
+// Apps and launcher use the Proton Pass SSH agent, same as shells
+environment {
+  SSH_AUTH_SOCK "/home/dos/.ssh/proton-pass-agent.sock"
+}
 
 // ask the clients to omit their client-side decorations
 prefer-no-csd
@@ -268,11 +274,9 @@ binds {
   Alt+Period { spawn "voxtype" "record" "toggle"; }
 
   // Launchers and menus
-  Alt+Space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
-  Mod+Space hotkey-overlay-title="open which-key menu" { spawn "~/bin/wlr-toggle"; }
-  Alt+Comma hotkey-overlay-title="open emoji search" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo "; }
+  Mod+Space hotkey-overlay-title="open launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+  Alt+Space hotkey-overlay-title="open which-key menu" { spawn "~/bin/wlr-toggle"; }
   Alt+Tab hotkey-overlay-title="jump to window" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/win "; }
-  Mod+Period hotkey-overlay-title="run task" { spawn "~/bin/wlr-toggle" "tasks"; }
 
   // Noctalia
   Alt+N hotkey-overlay-title="show clipboard history" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }

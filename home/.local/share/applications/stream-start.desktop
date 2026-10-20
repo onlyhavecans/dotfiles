@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Stream Start
+Comment=Streaming Init
+Icon=screen
+TryExec=foot
+Exec=foot bin/streaming_time

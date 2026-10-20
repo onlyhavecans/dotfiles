@@ -23,18 +23,6 @@ menu:
       - key: "7"
         desc: 70%
         cmd: brightnessctl --class=backlight set 70%
-  - key: c
-    desc: Cast Target
-    submenu:
-      - key: c
-        desc: Clear
-        cmd: niri msg action clear-dynamic-cast-target
-      - key: m
-        desc: Monitor
-        cmd: niri msg action set-dynamic-cast-monitor
-      - key: w
-        desc: Window
-        cmd: niri msg action set-dynamic-cast-window
   - key: d
     desc: Do Not Disturb
     cmd: noctalia msg notification-dnd-toggle

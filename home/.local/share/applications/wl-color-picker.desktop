@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Color Picker
+Icon=color-select
+TryExec=wl-color-picker
+Exec=wl-color-picker --no-notify

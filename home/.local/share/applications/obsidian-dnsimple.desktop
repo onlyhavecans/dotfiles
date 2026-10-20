@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Obsidian DNSimple
+Comment=Work notes
+Icon=md.obsidian.Obsidian
+TryExec=obsidian
+Exec=xdg-open "obsidian://open?vault=DNSimple"

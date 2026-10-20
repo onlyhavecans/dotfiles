@@ -6,171 +6,38 @@ border: "#8DA101ff" # green
 border_width: 3
 corner_r: 15
 padding: 25 # Defaults to corner_r
-rows_per_column: 10
 
-# NOTE: Top level = one-tap dailies, app groups, or "what I am doing" groups
+# NOTE: Verbs only. Apps live in the noctalia launcher (.desktop files),
+#       one-off scripts in noctalia/actions.tsv
+# NOTE: Top level = one-tap dailies or "what I am doing" groups
 # NOTE: Keep launchers shallow: depth <= 2
 # NOTE: Nest attributes e.g. audio->volume->mute
 # NOTE: Keep desc terse, skimmability wins
 # NOTE: Keep alpha sorted, symbols first
 # NOTE: Double-tap = the group's default action
 # NOTE: Mark non-initial keys like S[l]ack
-# NOTE: Free keys: d h k n y z
+# NOTE: Free keys: a c d f g h j k l m n q s u v w y z
 menu:
-  - key: " "
-    desc: Terminal
-    cmd: foot --login tm
-  - key: ","
-    desc: Toggle Bar
-    cmd: noctalia msg bar-toggle
-
-  - key: a
-    desc: Audio
-    submenu:
-      - key: a
-        desc: Audacity
-        cmd: audacity
-      - key: b
-        desc: Bitwig Studio
-        cmd: bitwig-studio
-      - key: e
-        desc: EasyEffects
-        cmd: easyeffects
-      - key: m
-        desc: MilkyTracker
-        cmd: milkytracker
-      - key: p
-        desc: pwvuControl
-        cmd: pwvucontrol
-      - key: q
-        desc: qpwGraph
-        cmd: qpwgraph
+  - key: /
+    desc: Actions
+    cmd: noctalia msg panel-open launcher "/do "
 
   - key: b
     desc: Browser
     submenu:
-      - key: b
-        desc: Firefox
-        cmd: firefox
       - key: c
         desc: Copy URL
         cmd: ~/bin/url-from-window
       - key: m
         desc: MD URL
         cmd: ~/bin/url-from-window md
-      - key: o
-        desc: Brave Origin
-        cmd: brave-origin
-      - key: p
-        desc: Private
-        cmd: firefox --private-window
       - key: s
         desc: Search
         cmd: noctalia msg panel-open launcher "/s "
 
-  - key: c
-    desc: Chats
-    submenu:
-      - key: c
-        desc: Chatterino
-        cmd: chatterino
-      - key: d
-        desc: Discord
-        cmd: discord
-      - key: n
-        desc: NWW
-        cmd: nww
-      - key: s
-        desc: Signal
-        cmd: signal-desktop
-      - key: t
-        desc: TinTin++
-        cmd: foot --app-id=tintin ~/bin/tw
-
-  - key: e
-    desc: Email
-    cmd: proton-mail
-
-  - key: f
-    desc: Files
-    submenu:
-      - key: f
-        desc: Files TUI
-        cmd: foot --app-id=yazi --working-directory=$HOME/Downloads yazi
-      - key: g
-        desc: Files GUI
-        cmd: nautilus
-      - key: u
-        desc: Upload Pick
-        cmd: ~/bin/upload-yazi
-
-  - key: g
-    desc: Gaming
-    submenu:
-      - key: r
-        desc: RetroArch
-        cmd: retroarch
-      - key: s
-        desc: Steam
-        cmd: steam
-
   - key: i
     desc: +Change...
     cmd: wlr-which-key tasks
-
-  - key: j
-    desc: Jump
-    submenu:
-      - key: b
-        desc: Browser
-        cmd: noctalia msg panel-open launcher "/win firefox"
-      - key: e
-        desc: Email
-        cmd: noctalia msg panel-open launcher "/win proton-mail"
-      - key: j
-        desc: Jump to Win
-        cmd: noctalia msg panel-open launcher "/win "
-      - key: o
-        desc: Obsidian
-        cmd: noctalia msg panel-open launcher "/win obsidian"
-      - key: s
-        desc: Slack
-        cmd: noctalia msg panel-open launcher "/win slack"
-      - key: t
-        desc: Terminal
-        cmd: noctalia msg panel-open launcher "/win foot"
-
-  - key: m
-    desc: Music
-    submenu:
-      - key: a
-        desc: Amberol
-        cmd: amberol
-      - key: f
-        desc: Feishin
-        cmd: feishin
-      - key: k
-        desc: Kid3
-        cmd: kid3-qt
-      - key: p
-        desc: Picard
-        cmd: picard
-      - key: r
-        desc: Ratune
-        cmd: foot --app-id ratune ratune
-
-  - key: o
-    desc: Obsidian
-    submenu:
-      - key: d
-        desc: Inbox Dictate
-        cmd: ~/bin/inbox-dictate
-      - key: o
-        desc: Obsidian
-        cmd: xdg-open "obsidian://open?vault=Vault"
-      - key: t
-        desc: Inbox Type
-        cmd: noctalia msg panel-open launcher "/in "
 
   - key: p
     desc: +Power
@@ -179,12 +46,6 @@ menu:
   - key: r
     desc: Capture
     submenu:
-      - key: b
-        desc: Clip Firefox Audio
-        cmd: ~/bin/clip_app firefox
-      - key: m
-        desc: Clip mpv Audio
-        cmd: ~/bin/clip_app mpv
       - key: f
         desc: Shot Full Screen
         cmd: noctalia msg screenshot-fullscreen
@@ -194,31 +55,6 @@ menu:
       - key: s
         desc: Shot Selection
         cmd: noctalia msg screenshot-region
-
-  - key: s
-    desc: Stream
-    submenu:
-      - key: b
-        desc: VBridger
-        cmd: steam steam://rungameid/1898830
-      - key: c
-        desc: StreamController
-        cmd: streamcontroller
-      - key: f
-        desc: Firebot
-        cmd: firebot
-      - key: o
-        desc: OBS Studio
-        cmd: obs
-      - key: s
-        desc: Start Streaming
-        cmd: foot ~/bin/streaming_time
-      - key: t
-        desc: Tuber
-        cmd: tuber
-      - key: v
-        desc: VTube Studio
-        cmd: steam steam://rungameid/1325860
 
   - key: t
     desc: Timer
@@ -238,96 +74,6 @@ menu:
       - key: r
         desc: Restart
         cmd: tomat stop; tomat start
-
-  - key: u
-    desc: Utilities
-    submenu:
-      - key: s
-        desc: Proton Pa[s]s
-        cmd: proton-pass
-      - key: t
-        desc: Top
-        cmd: foot --app-id=btop btop
-      - key: c
-        desc: Calculator
-        cmd: gnome-calculator
-      - key: e
-        desc: Emoji
-        cmd: noctalia msg panel-open launcher "/emo "
-      - key: g
-        desc: GPU Top
-        cmd: foot --app-id=amdgpu_top amdgpu_top
-      - key: h
-        desc: Clipboard [h]istory
-        cmd: noctalia msg panel-toggle clipboard
-      - key: i
-        desc: Image Editor
-        cmd: photopea-chromium
-      - key: l
-        desc: B[l]uetooth
-        cmd: blueman-manager
-      - key: p
-        desc: Color [P]icker
-        cmd: wl-color-picker --no-notify
-      - key: q
-        desc: Qalculate
-        cmd: qalculate-gtk
-      - key: u
-        desc: Toggle Touchpad
-        cmd: ~/bin/toggle-touchpad
-      - key: w
-        desc: Wipe Clipboard
-        cmd: noctalia msg clipboard-clear
-
-  - key: v
-    desc: Video
-    submenu:
-      - key: f
-        desc: Filebot
-        cmd: filebot
-      - key: j
-        desc: Jellyfin
-        cmd: jellyfin-chromium
-      - key: r
-        desc: Video T[r]immer
-        cmd: video-trimmer
-      - key: t
-        desc: Twitch
-        cmd: twitch-chromium
-      - key: w
-        desc: Watch in mpv
-        cmd: ~/bin/watch-url
-
-  - key: w
-    desc: Work
-    submenu:
-      - key: "1"
-        desc: 1Password
-        cmd: 1password
-      - key: b
-        desc: Browser
-        cmd: brave
-      - key: c
-        desc: Calendar
-        cmd: xdg-open "https://calendar.google.com"
-      - key: d
-        desc: DNPull
-        cmd: foot --working-directory=$HOME/Code --hold ~/bin/dnpull
-      - key: e
-        desc: Email
-        cmd: xdg-open "https://mail.google.com"
-      - key: n
-        desc: Netbird-ui
-        cmd: netbird-ui
-      - key: o
-        desc: Obsidian
-        cmd: xdg-open "obsidian://open?vault=DNSimple"
-      - key: s
-        desc: Slack
-        cmd: slack
-      - key: z
-        desc: Zoom
-        cmd: zoom
 
   - key: x
     desc: Vo[x]type

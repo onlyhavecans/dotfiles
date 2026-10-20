@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Google Calendar
+Comment=Work calendar
+Icon=office-calendar
+TryExec=xdg-open
+Exec=xdg-open "https://calendar.google.com"

@@ -81,6 +81,7 @@ telemetry_enabled = true
 
 [shell.launcher]
 sort_by_usage = true
+show_app_actions = true
 
 # Prefix providers: type /s or /in, in the launcher. Scripts live in ~/bin.
 [shell.launcher.dmenu.entry.search]

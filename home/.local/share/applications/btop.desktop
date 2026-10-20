@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=btop++
+Comment=Resource monitor
+Icon=btop
+TryExec=btop
+Exec=foot --app-id=btop btop

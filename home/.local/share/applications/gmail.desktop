@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Gmail
+Comment=Work email
+Icon=mail-client
+TryExec=xdg-open
+Exec=xdg-open "https://mail.google.com"

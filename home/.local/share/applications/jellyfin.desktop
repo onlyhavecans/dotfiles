@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Jellyfin
+Comment=Media server
+Icon=jellyfin
+TryExec=jellyfin-chromium
+Exec=jellyfin-chromium

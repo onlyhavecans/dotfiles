@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Ratune
+Comment=Music player TUI
+Icon=ratune
+TryExec=ratune
+Exec=foot --app-id=ratune ratune
