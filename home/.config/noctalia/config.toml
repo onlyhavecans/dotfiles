@@ -10,9 +10,14 @@ enable_sounds = true
 [bar.default]
 start = ["taskbar", "media"]
 center = ["tomat"]
-end = ["tray", "privacy", "power_profile", "network", "battery", "clock"]
+end = ["tray", "privacy", "group:end_status", "clock"]
 margin_ends = 30
 thickness = 34
+
+[[bar.default.capsule_group]]
+enabled = true
+id = "end_status"
+members = ["power_profile", "network", "battery"]
 
 [control_center]
 width = 800
@@ -73,6 +78,9 @@ polkit_agent = true
 settings_show_advanced = false
 setup_wizard_enabled = false
 telemetry_enabled = true
+
+[shell.launcher]
+sort_by_usage = true
 
 # Prefix providers: type /s or /in, in the launcher. Scripts live in ~/bin.
 [shell.launcher.dmenu.entry.search]
