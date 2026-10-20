@@ -8,16 +8,16 @@
 enable_sounds = true
 
 [bar.default]
-start = ["taskbar", "media"]
+capsule = true
+start = ["control-center", "taskbar", "media"]
 center = ["tomat"]
 end = ["tray", "privacy", "group:end_status", "clock"]
 margin_ends = 30
-thickness = 34
 
 [[bar.default.capsule_group]]
 enabled = true
 id = "end_status"
-members = ["power_profile", "network", "battery"]
+members = ["volume", "power_profile", "caffeine", "network", "battery"]
 
 [control_center]
 width = 800
@@ -76,6 +76,7 @@ kind = "git"
 location = "https://onlyhavecans.works/tools/noctalia-plugins"
 
 [shell]
+avatar_path = "/home/dos/Pictures/profile.png"
 font_family = "Inter"
 polkit_agent = true
 settings_show_advanced = false
@@ -152,23 +153,20 @@ show_label = false
 vpn_status = "both"
 
 [widget.privacy]
-capsule = true
+hide_inactive = true
 active_color = "error"
 
 [widget.taskbar]
+capsule = false
 icon_scale = 1.05
 group_by_workspace = true
 hide_empty_workspaces = true
 
 [widget.tomat]
-capsule = true
 color_paused = "secondary"
 glyph_work = "headphones-filled"
 scale = 1.5
 type = "onlyhavecans/tomat:bar"
-
-[widget.tray]
-capsule = true
 
 [widget.volume]
 show_label = false
