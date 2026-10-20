@@ -28,6 +28,9 @@ show_events_card = false
 [dock]
 enabled = false
 
+[hooks]
+shutting_down = "noctalia msg clipboard-clear"
+
 [idle]
 behavior_order = ["lock", "screen-off", "suspend"]
 

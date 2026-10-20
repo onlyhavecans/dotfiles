@@ -120,7 +120,6 @@ recent-windows {
 // Find more information on the wiki:
 // https://github.com/niri-wm/niri/wiki/Configuration:-Miscellaneous
 spawn-at-startup "noctalia"
-spawn-at-startup "noctalia" "msg" "clipboard-clear"
 
 // Apps and launcher use the Proton Pass SSH agent, same as shells
 environment {
