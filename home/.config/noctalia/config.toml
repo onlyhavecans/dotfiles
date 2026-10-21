@@ -9,7 +9,7 @@ enable_sounds = true
 
 [bar.default]
 capsule = true
-start = ["control-center", "taskbar", "media"]
+start = ["taskbar", "media"]
 center = ["tomat"]
 end = ["tray", "privacy", "group:end_status", "clock"]
 margin_ends = 30
