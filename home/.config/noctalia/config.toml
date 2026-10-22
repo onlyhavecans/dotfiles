@@ -9,8 +9,8 @@ enable_sounds = true
 
 [bar.default]
 capsule = true
-start = ["taskbar", "media"]
-center = ["tomat"]
+start = ["taskbar", "tomat"]
+center = ["media"]
 end = ["tray", "privacy", "group:end_status", "clock"]
 margin_ends = 30
 
@@ -144,9 +144,10 @@ capsule = true
 format = "{:%a %d, %H:%M}"
 
 [widget.media]
-art_size = 35
+art_size = 42
 hide_artist = true
 hide_when_no_media = true
+show_progress = true
 
 [widget.network]
 show_label = false
