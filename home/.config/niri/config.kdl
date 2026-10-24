@@ -282,8 +282,8 @@ binds {
   Mod+N hotkey-overlay-title="show notification history" { spawn "noctalia" "msg" "panel-toggle" "control-center" "notifications"; }
   Mod+S hotkey-overlay-title="control center" { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
   Mod+Escape hotkey-overlay-title="power menu" { spawn "noctalia" "msg" "panel-toggle" "session"; }
-  Mod+Comma hotkey-overlay-title="shell settings" { spawn "noctalia" "msg" "settings-toggle"; }
-  Mod+Alt+Comma hotkey-overlay-title="toggle bar" { spawn "noctalia" "msg" "bar-toggle"; }
+  Mod+Comma hotkey-overlay-title="toggle bar" { spawn "noctalia" "msg" "bar-toggle"; }
+  Mod+Alt+Comma hotkey-overlay-title="shell settings" { spawn "noctalia" "msg" "settings-toggle"; }
 
   // Hardware keys through Noctalia IPC so the OSD shows.
   // allow-when-locked=true makes them work even when the session is locked.
