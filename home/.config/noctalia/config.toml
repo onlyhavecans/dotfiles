@@ -10,7 +10,7 @@ enable_sounds = true
 [bar.default]
 capsule = true
 start = ["taskbar", "tomat"]
-center = ["media"]
+center = ["group:metrics1", "media", "group:metrics2"]
 end = ["tray", "privacy", "group:end_status", "clock"]
 margin_ends = 30
 
@@ -18,6 +18,16 @@ margin_ends = 30
 enabled = true
 id = "end_status"
 members = ["volume", "power_profile", "caffeine", "network", "battery"]
+
+[[bar.default.capsule_group]]
+enabled = true
+id = "metrics1"
+members = ["cpu", "ram"]
+
+[[bar.default.capsule_group]]
+enabled = true
+id = "metrics2"
+members = ["gpu", "disk"]
 
 [control_center]
 width = 800
@@ -143,6 +153,19 @@ show_label = false
 capsule = true
 format = "{:%a %d, %H:%M}"
 
+[widget.cpu]
+visualization = "none"
+
+[widget.disk]
+stat = "disk_used_pct"
+type = "sysmon"
+visualization = "none"
+
+[widget.gpu]
+stat = "gpu_usage"
+type = "sysmon"
+visualization = "none"
+
 [widget.media]
 art_size = 42
 hide_artist = true
@@ -156,6 +179,10 @@ vpn_status = "both"
 [widget.privacy]
 hide_inactive = true
 active_color = "error"
+
+[widget.ram]
+stat = "ram_pct"
+visualization = "none"
 
 [widget.taskbar]
 capsule = false
