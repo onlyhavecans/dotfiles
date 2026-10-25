@@ -18,6 +18,7 @@ fd --hidden --follow --type symlink \
   --exclude Code \
   --exclude Desktop \
   --exclude Documents \
+  --exclude Games \
   --exclude Library \
   --exclude OrbStack \
   --exclude Photos \
