@@ -46,7 +46,7 @@ status_message "Music"
 launch_app strawberry
 
 status_message "Obsidian"
-launch_app xdg-open "obsidian://open?vault=Vault&file=notes%2FStream%20Startup%20Checklist"
+launch_app xdg-open "obsidian://open?vault=Vault&file=notes%2FStreaming%20Setup"
 
 status_message "Dashboard"
 launch_app xdg-open "https://dashboard.twitch.tv/u/xx_myrii_xx/stream-manager"
