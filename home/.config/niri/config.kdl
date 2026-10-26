@@ -302,8 +302,8 @@ binds {
   XF86AudioMedia hotkey-overlay-title="lock" { spawn "noctalia" "msg" "session" "lock"; } // Framework Key
 
   // Screenshots: noctalia captures, satty edits (noctalia [shell.screenshot])
-  Print hotkey-overlay-title="Screenshot Screen" { spawn "noctalia" "msg" "screenshot-fullscreen"; }
-  Shift+Print hotkey-overlay-title="Screenshot Region" { spawn "noctalia" "msg" "screenshot-region"; }
+  Print hotkey-overlay-title="Screenshot Region" { spawn "noctalia" "msg" "screenshot-region"; }
+  Shift+Print hotkey-overlay-title="Screenshot Screen" { spawn "noctalia" "msg" "screenshot-fullscreen"; }
   Mod+Print hotkey-overlay-title="Record Screen" { spawn "~/bin/record-screen"; }
 
   // Touchpad control
