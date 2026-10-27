@@ -7,20 +7,29 @@ border_width: 3
 corner_r: 15
 padding: 25 # Defaults to corner_r
 
-# NOTE: Verbs only. Apps live in the noctalia launcher (.desktop files),
-#       one-off scripts in noctalia/actions.tsv
-# NOTE: Top level = one-tap dailies or "what I am doing" groups
-# NOTE: Keep launchers shallow: depth <= 2
-# NOTE: Nest attributes e.g. audio->volume->mute
 # NOTE: Keep desc terse, skimmability wins
 # NOTE: Keep alpha sorted, symbols first
 # NOTE: Double-tap = the group's default action
-# NOTE: Mark non-initial keys like S[l]ack
-# NOTE: Free keys: a c d f g h j k l m n q s u v w y z
 menu:
   - key: /
     desc: Actions
     cmd: noctalia msg panel-open launcher "/do "
+
+  - key: a
+    desc: B[a]cklight
+    submenu:
+      - key: "1"
+        desc: 10%
+        cmd: brightnessctl --class=backlight set 10%
+      - key: "3"
+        desc: 30%
+        cmd: brightnessctl --class=backlight set 30%
+      - key: "5"
+        desc: 50%
+        cmd: brightnessctl --class=backlight set 50%
+      - key: "7"
+        desc: 70%
+        cmd: brightnessctl --class=backlight set 70%
 
   - key: b
     desc: Browser
@@ -35,26 +44,68 @@ menu:
         desc: Search
         cmd: noctalia msg panel-open launcher "/s "
 
+  - key: d
+    desc: Do Not Disturb
+    cmd: noctalia msg notification-dnd-toggle
+
   - key: i
-    desc: +Change...
-    cmd: wlr-which-key tasks
+    desc: Input Vol
+    submenu:
+      - key: "1"
+        desc: 100%
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
+      - key: "3"
+        desc: 30%
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 30%
+      - key: m
+        desc: Mute
+        cmd: noctalia msg mic-mute
+
+  - key: l
+    desc: Bluetooth Toggle
+    cmd: "bluetoothctl show | grep -q 'PowerState: off' && bluetoothctl power on || bluetoothctl power off"
+
+  - key: m
+    desc: Music
+    submenu:
+      - key: " "
+        desc: Play/Pause
+        cmd: playerctl play-pause
+      - key: ","
+        desc: Prev
+        cmd: playerctl previous
+      - key: "."
+        desc: Next
+        cmd: playerctl next
+
+  - key: o
+    desc: Output Vol
+    submenu:
+      - key: "1"
+        desc: 100%
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%
+      - key: "3"
+        desc: 30%
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 30%
+      - key: "6"
+        desc: 60%
+        cmd: wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
+      - key: m
+        desc: Mute
+        cmd: noctalia msg volume-mute
 
   - key: p
-    desc: +Power
-    cmd: wlr-which-key power
-
-  - key: r
-    desc: Capture
+    desc: Power Profile
     submenu:
-      - key: f
-        desc: Shot Full Screen
-        cmd: noctalia msg screenshot-fullscreen
-      - key: r
-        desc: Record Screen
-        cmd: ~/bin/record-screen
       - key: s
-        desc: Shot Selection
-        cmd: noctalia msg screenshot-region
+        desc: Saver
+        cmd: powerprofilesctl set power-saver
+      - key: b
+        desc: Balanced
+        cmd: powerprofilesctl set balanced
+      - key: p
+        desc: Performance
+        cmd: powerprofilesctl set performance
 
   - key: t
     desc: Timer
@@ -74,6 +125,25 @@ menu:
       - key: r
         desc: Restart
         cmd: tomat stop; tomat start
+
+  - key: v
+    desc: VPN
+    submenu:
+      - key: a
+        desc: Amsterdam
+        cmd: ~/bin/vpn ams
+      - key: h
+        desc: Home
+        cmd: ~/bin/vpn home
+      - key: n
+        desc: New York
+        cmd: ~/bin/vpn nyc
+      - key: p
+        desc: Proton VPN
+        cmd: protonvpn-app
+      - key: s
+        desc: San Francisco
+        cmd: ~/bin/vpn sfo
 
   - key: x
     desc: Vo[x]type
