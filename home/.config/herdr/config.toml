@@ -6,6 +6,12 @@ name = "terminal"
 [update]
 version_check = false
 
+[keys]
+focus_pane_left = ["prefix+h", "ctrl+h"]
+focus_pane_down = ["prefix+j", "ctrl+j"]
+focus_pane_up = ["prefix+k", "ctrl+k"]
+focus_pane_right = ["prefix+l", "ctrl+l"]
+
 [[keys.command]]
 key = "prefix+alt+g"
 type = "popup"
