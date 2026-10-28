@@ -60,6 +60,7 @@ up = ["Up", "Ctrl+p"]
 address = "Las Vegas, NV"
 
 [lockscreen]
+grace_period_seconds = 5
 blur_intensity = 0.0
 tint_intensity = 0.0
 wallpaper = "/home/dos/Sync/wallpapers/best-os/wlock.jpg"
