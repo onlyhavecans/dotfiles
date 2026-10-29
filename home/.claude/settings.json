@@ -39,5 +39,6 @@
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "remoteControlAtStartup": false,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "model": "opus"
 }
