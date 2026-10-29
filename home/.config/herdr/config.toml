@@ -1,7 +1,29 @@
 onboarding = false
 
 [theme]
-name = "terminal"
+name = "gruvbox"
+
+# Everforest dark medium
+[theme.custom]
+panel_bg = "reset"
+sidebar_bg = "#232a2e"
+active_row_bg = "#3d484d"
+selection_bg = "#425047"
+surface_dim = "#232a2e"
+surface0 = "#343f44"
+surface1 = "#3d484d"
+overlay0 = "#7a8478"
+overlay1 = "#859289"
+text = "#d3c6aa"
+subtext0 = "#9da9a0"
+accent = "#a7c080"
+green = "#a7c080"
+teal = "#83c092"
+blue = "#7fbbb3"
+yellow = "#dbbc7f"
+peach = "#e69875"
+red = "#e67e80"
+mauve = "#d699b6"
 
 [update]
 version_check = false
@@ -18,3 +40,6 @@ type = "popup"
 command = "lazygit"
 width = "80%"
 height = "80%"
+
+[ui.sound]
+enabled = true
