@@ -43,6 +43,7 @@ shutting_down = "noctalia msg clipboard-clear"
 
 [idle]
 behavior_order = ["lock", "screen-off", "suspend"]
+pre_action_fade_seconds = 0
 
 [idle.behavior.lock]
 action = "lock"
@@ -60,7 +61,7 @@ up = ["Up", "Ctrl+p"]
 address = "Las Vegas, NV"
 
 [lockscreen]
-grace_period_seconds = 5
+grace_period_seconds = 2
 blur_intensity = 0.0
 tint_intensity = 0.0
 wallpaper = "/home/dos/Sync/wallpapers/best-os/wlock.jpg"
