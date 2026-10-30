@@ -4,4 +4,4 @@
 # Prevent direnv bugs
 cd ~; or exit 1
 
-exec sesh picker --icons --preview
+exec sesh picker --icons
