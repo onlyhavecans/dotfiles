@@ -46,8 +46,8 @@ abbr --add ll "eza -l"
 abbr --add lla "eza -la"
 abbr --add ls eza
 abbr --add lsusb "cyme --lsusb"
-abbr --add n nvim
 abbr --add nv nvim
+abbr --add o "pass-cli run --"
 abbr --add tree "eza --tree"
 abbr --add t tomat
 
@@ -73,10 +73,9 @@ abbr --add c claude
 abbr --add cc "claude --continue"
 abbr --add http xh
 abbr --add https xhs
-abbr --add lzd lazydocker
-abbr --add o "pass-cli run --"
 abbr --add plan "terraform plan -out=tfplan | bat"
 abbr --add tf terraform
+abbr --add wm workmux
 
 # Shell In Abbreviations
 abbr --add tp "mosh piper.bunni.biz -- fish --command tm"
