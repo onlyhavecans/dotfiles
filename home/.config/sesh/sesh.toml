@@ -1,0 +1,57 @@
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json
+
+sort_order = ["tmux", "config", "zoxide"]
+
+[default_session]
+preview_command = "eza --all --git --icons --color=always {}"
+
+# Sessions
+
+[[session]]
+name = "InsideOut"
+path = "~/Code/nixos-skwrls"
+startup_command = "tmux rename-window nix"
+windows = ["dots", "blog"]
+
+[[session]]
+name = "WorkWork"
+path = "~/Code/dnsimple"
+startup_command = "tmux rename-window Project"
+windows = ["Incident"]
+
+[[session]]
+name = "Demo"
+path = "~/Code"
+startup_command = "tmux rename-window Main"
+windows = ["Tests", "Live"]
+
+[[session]]
+name = "Dream"
+path = "~/Sync/muck"
+startup_command = "tmux rename-window 🐰"
+
+[[session]]
+name = "Flex"
+path = "/deep_end/AppConfigs/Flexget"
+startup_command = "tmux split-window -t $TMUX_PANE -v -l 10 -c /deep_end/AppConfigs/Flexget"
+
+# Windows
+
+[[window]]
+name = "dots"
+path = "~/.homesick/repos/dotfiles"
+
+[[window]]
+name = "blog"
+path = "~/Code/ohc.works/squirrels.wtf"
+startup_script = "tmux split-window -t $TMUX_PANE -v -l 10 -c ~/Code/ohc.works/squirrels.wtf"
+
+[[window]]
+name = "Incident"
+path = "~/Downloads"
+
+[[window]]
+name = "Tests"
+
+[[window]]
+name = "Live"
