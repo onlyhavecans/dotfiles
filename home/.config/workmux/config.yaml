@@ -1,2 +1,26 @@
+---
+nerdfont: true
+
 # Status icon lives in tmux/bar.conf window formats.
 status_format: false
+
+# Everforest Dark Hard palette.
+theme:
+  scheme: graphite-code
+  mode: dark
+  custom:
+    current_row_bg: "#425047"
+    highlight_row_bg: "#374145"
+    current_worktree_fg: "#a7c080"
+    text: "#d3c6aa"
+    dimmed: "#859289"
+    border: "#4f5b58"
+    help_border: "#4f5b58"
+    help_muted: "#7a8478"
+    header: "#83c092"
+    keycap: "#dbbc7f"
+    info: "#dbbc7f"
+    success: "#7fbbb3"
+    warning: "#dbbc7f"
+    danger: "#e67e80"
+    accent: "#e67e80"
