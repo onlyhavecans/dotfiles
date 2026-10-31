@@ -123,8 +123,8 @@ menu:
         desc: End
         cmd: tomat stop
       - key: r
-        desc: Restart
-        cmd: tomat stop; tomat start
+        desc: Reset
+        cmd: tomat reset
 
   - key: v
     desc: VPN
