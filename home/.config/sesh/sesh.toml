@@ -11,7 +11,12 @@ preview_command = "eza --all --git --icons --color=always {}"
 name = "InsideOut"
 path = "~/Code/nixos-skwrls"
 startup_command = "tmux rename-window nix"
-windows = ["dots", "blog"]
+windows = ["dots"]
+
+[[session]]
+name = "blog"
+path = "~/Code/ohc.works/squirrels.wtf"
+startup_command = "tmux split-window -t $TMUX_PANE -v -l 10"
 
 [[session]]
 name = "WorkWork"
@@ -33,7 +38,7 @@ startup_command = "tmux rename-window 🐰"
 [[session]]
 name = "Flex"
 path = "/deep_end/AppConfigs/Flexget"
-startup_command = "tmux split-window -t $TMUX_PANE -v -l 10 -c /deep_end/AppConfigs/Flexget"
+startup_command = "tmux split-window -t $TMUX_PANE -v -l 10"
 
 # Windows
 
@@ -42,13 +47,8 @@ name = "dots"
 path = "~/.homesick/repos/dotfiles"
 
 [[window]]
-name = "blog"
-path = "~/Code/ohc.works/squirrels.wtf"
-startup_script = "tmux split-window -t $TMUX_PANE -v -l 10 -c ~/Code/ohc.works/squirrels.wtf"
-
-[[window]]
 name = "Incident"
-path = "~/Downloads"
+path = "~/Code/dnsimple"
 
 [[window]]
 name = "Tests"
