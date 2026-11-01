@@ -8,4 +8,4 @@
 
 font-size = 15
 # Everforest Hard, follows system appearance (see docs/everforest.md)
-theme = light:Everforest Light - Hard,dark:Everforest Dark - Hard
+theme = Everforest Dark Hard
