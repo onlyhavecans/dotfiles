@@ -23,6 +23,8 @@ brew "git"
 brew "git-delta"
 brew "git-lfs"
 brew "gnupg"
+brew "sesh"
+brew "workmux"
 brew "hugo"
 brew "imagemagick"
 brew "jq" # json parser
@@ -68,7 +70,7 @@ brew "neovim"
 
 brew "ast-grep" # grug-far
 brew "chafa" # fzf-lua
-brew "node@24"
+brew "node@26"
 brew "tree-sitter"
 brew "tree-sitter-cli"
 brew "viu" # fzf-lua
@@ -123,5 +125,3 @@ brew "ruff"
 cask "espanso"
 cask "proton-pass"
 cask "protonvpn"
-
-go "github.com/StackExchange/dnscontrol/v5"
