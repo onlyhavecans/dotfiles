@@ -41,6 +41,9 @@ set -g __fish_git_prompt_char_stashstate '$'
 set -g __fish_git_prompt_char_upstream_ahead '↑'
 set -g __fish_git_prompt_char_upstream_behind '↓'
 
+# Fix tmux&direnv
+alias tmux "direnv exec / tmux"
+
 # Basic Abbreviations
 abbr --add cl clear
 abbr --add hcd "homeshick cd"
