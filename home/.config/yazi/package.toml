@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "25d992d"
+rev = "0f28df2"
 hash = "dbfc342600993eefbb055bff145fa22a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "25d992d"
+rev = "0f28df2"
 hash = "347cc6b190eb0c2fd60513cc7ae37412"
 
 [flavor]
