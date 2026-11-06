@@ -24,15 +24,6 @@ then curlbash the init.sh script!
 
 My primary shell. I try to keep it pretty lean. There is  a few small functions but overall I push most shortcuts and tooling into ~/bin
 
-### zsh
-
-I keep this around so I don't have to change the default shell on macOS.
-
-I try to keep my shell config sparse and rely on a lot of small commands installed in ~/bin
-This is slightly less efficient but more extensible
-
-I also use FZF to get around a lot since I miss fish's completion
-
 ### homebrew
 
 I use a Brewfile to manage my packages and keep it consistent on everything 
