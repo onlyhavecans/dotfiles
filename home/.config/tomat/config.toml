@@ -8,9 +8,9 @@
 #   cp examples/config.toml ~/.config/tomat/config.toml
 
 [timer]
-work = 25.0                # Work session duration in minutes (default: 25.0)
-break = 5.0                # Break duration in minutes (default: 5.0)
-long_break = 15.0          # Long break duration in minutes (default: 15.0)
+work = 50.0                # Work session duration in minutes (default: 25.0)
+break = 10.0               # Break duration in minutes (default: 5.0)
+long_break = 30.0          # Long break duration in minutes (default: 15.0)
 sessions = 4               # Number of work sessions before long break (default: 4)
 auto_advance = "to-break"  # Auto-advance mode (default: "none")
 # Options: "none", "all", "to-break", "to-work"
@@ -32,8 +32,7 @@ volume = 1.0       # Volume level 0.0-1.0 (default: 0.5)
 [sound.ticking]
 enabled = true                                   # Play ticking during running work sessions (default: false)
 volume = 0.7                                     # Independent of transition alert volume (default: 0.2).
-file = "/home/dos/Sync/Sounds/ticking-slow.mp3"
-# file = "/path/to/custom/focus-loop.ogg" # Optional custom loop
+file = "/home/dos/Sync/Sounds/ticking-slow.mp3"  # Optional custom loop
 # Restart the daemon after changing sound settings.
 
 [notification]
