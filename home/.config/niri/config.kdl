@@ -271,6 +271,7 @@ binds {
   Mod+Alt+Return hotkey-overlay-title="open a terminal backup" { spawn "foot"; }
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
+  Mod+Alt+B hotkey-overlay-title="open private browser" { spawn "firefox" "--private-window"; }
   Alt+Period { spawn "voxtype" "record" "toggle"; }
 
   // Launchers and menus
