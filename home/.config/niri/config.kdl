@@ -267,7 +267,8 @@ binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   // Direct Apps
-  Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot"; }
+  Mod+Return hotkey-overlay-title="open a terminal" { spawn "foot" "tm"; }
+  Mod+Alt+Return hotkey-overlay-title="open a terminal backup" { spawn "foot"; }
   Mod+T hotkey-overlay-title="open file manager" { spawn "foot" "yazi"; }
   Mod+B hotkey-overlay-title="open browser" { spawn "firefox"; }
   Alt+Period { spawn "voxtype" "record" "toggle"; }
