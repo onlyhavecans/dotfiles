@@ -25,9 +25,9 @@ mode = "embedded"  # Transition alerts: "embedded", "system-beep", or "none"
 volume = 1.0       # Volume level 0.0-1.0 (default: 0.5)
 
 # Custom sound files (optional - will override embedded sounds)
-# work_to_break = "/path/to/custom/work-to-break.wav"
-# break_to_work = "/path/to/custom/break-to-work.wav"
-# work_to_long_break = "/path/to/custom/work-to-long-break.wav"
+work_to_break = "/home/dos/Sync/Sounds/mixkit-happy-bells-notification-937.wav"
+break_to_work = "/home/dos/Sync/Sounds/bell.mp3"
+work_to_long_break = "/home/dos/Sync/Sounds/mixkit-happy-bells-notification-937.wav"
 
 [sound.ticking]
 enabled = true                                   # Play ticking during running work sessions (default: false)
