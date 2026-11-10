@@ -9,9 +9,10 @@
 
 ## Preferred Tools
 
-- Use conventional commits
+- Use conventional commits UNLESS a repo has an AGENTS or CLAUDE that overrides this.
 - Consult the repo's build tooling (Justfile, Makefile, package.json, Cargo.toml, pyproject.toml, Rakefile, etc.) for its test/lint commands before assuming defaults
 - Use `fj` [forgejo-cli](https://codeberg.org/forgejo-contrib/forgejo-cli) for managing prs on the onlyhavecans.works forgejo instance
+- Use `gh` for all github based repos
 
 ## Safety Rules
 
