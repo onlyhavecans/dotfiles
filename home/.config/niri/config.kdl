@@ -185,7 +185,6 @@ window-rule {
   match app-id="1password"
   match app-id="proton-pass"
   match app-id="proton-mail"
-  match app-id="discord"
   match app-id="signal"
   match app-id="slack"
   match app-id=r#"md\.obsidian\.Obsidian"#
