@@ -9,6 +9,7 @@ enable_sounds = true
 
 [bar.default]
 capsule = true
+background_opacity = 0.75
 start = ["taskbar", "tomat"]
 center = ["group:metrics1", "media", "group:metrics2"]
 end = ["tray", "privacy", "group:end_status", "clock"]
