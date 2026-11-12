@@ -3,14 +3,13 @@
 ## Communication Style
 
 - Be concise in responses
+- Write comments and documentation in Simplified Technical English
 - Lead with working code; keep prose minimal
 - Keep code comments trim and to the point; avoid narrative comments or explaining historical state.
-- Write comments and documentation in Simplified Technical English
 
 ## Preferred Tools
 
-- Use conventional commits UNLESS a repo has an AGENTS or CLAUDE that overrides this.
-- Consult the repo's build tooling (Justfile, Makefile, package.json, Cargo.toml, pyproject.toml, Rakefile, etc.) for its test/lint commands before assuming defaults
+- Use conventional commits unless a repo has an AGENTS or CLAUDE that overrides this.
 - Use `fj` [forgejo-cli](https://codeberg.org/forgejo-contrib/forgejo-cli) for managing prs on the onlyhavecans.works forgejo instance
 - Use `gh` for all github based repos
 
