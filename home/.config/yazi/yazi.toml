@@ -4,7 +4,7 @@ sort_reverse = true
 sort_dir_first = true
 
 [opener]
-set-wallpaper = [{ run = "wall set %s1", for = "linux", desc = "Set as wallpaper" }]
+set-wallpaper = [{ run = "noctalia msg wallpaper-set %s1", for = "linux", desc = "Set as wallpaper" }]
 upload-zipline = [{ run = "upload %s", for = "linux", desc = "Upload to zipline" }]
 
 [open]
@@ -14,9 +14,6 @@ prepend_rules = [
 
 [plugin]
 prepend_fetchers = [
-  # ftp.yazi: custom schemes aren't matched by remote://, route mime manually
-  { url = "ftp://*", run = "mime.remote", prio = "high", group = "mime" },
-
   # git.yazi
   { url = "*", run = "git", group = "git" },
   { url = "*/", run = "git", group = "git" }
