@@ -14,6 +14,11 @@
 - Use `fj` [forgejo-cli](https://codeberg.org/forgejo-contrib/forgejo-cli) for managing prs on the onlyhavecans.works forgejo instance
 - Use `gh` for all github based repos
 
+## Code Changes
+
+- Prefer the stdlib over a third-party package when both are equally simple
+- Before a sweep across many files (modernize, upgrade, refactor), confirm the scope: one file, one module, or the whole project
+
 ## Safety Rules
 
 - Never force push to main/master

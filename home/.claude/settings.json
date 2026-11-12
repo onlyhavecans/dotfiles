@@ -67,12 +67,10 @@
     ]
   },
   "enabledPlugins": {
-    "code-review@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
+    "code-review@claude-plugins-official": false,
+    "codex@openai-codex": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "codex@openai-codex": true
+    "security-guidance@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
