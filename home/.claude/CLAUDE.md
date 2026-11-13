@@ -5,11 +5,11 @@
 - Be concise in responses
 - Write comments and documentation in Simplified Technical English
 - Lead with working code; keep prose minimal
-- Keep code comments trim and to the point; avoid narrative comments or explaining historical state.
+- Keep code comments trim and to the point; avoid narrative comments or explaining historical state
 
 ## Preferred Tools
 
-- Use conventional commits unless a repo has an AGENTS or CLAUDE that overrides this.
+- Follow commit conventions of the repo; If recent commits are inconsistant ask before committing
 - Use `fj` [forgejo-cli](https://codeberg.org/forgejo-contrib/forgejo-cli) for managing prs on the onlyhavecans.works forgejo instance
 - Use `gh` for all github based repos
 
