@@ -40,8 +40,8 @@ lid_close = "noctalia msg session lock-and-suspend"
 # Run `umbriel outputs` to find names and modes.
 # https://docs.noctalia.dev/umbriel/outputs/
 #
-[output.DP-1.layout.scrolling]
-center_underfull_strip = true
+[output.eDP-1]
+scale = 2
 
 # ==============================================================================
 # Appearance
@@ -61,6 +61,11 @@ noise = 0.02
 brightness = 0.9
 contrast = 0.9
 saturation = 1.1
+
+# ==============================================================================
+# Colors
+# https://docs.noctalia.dev/umbriel/appearance#colors
+#
 
 # ==============================================================================
 # Effects
@@ -113,7 +118,7 @@ tap = true
 tap_and_drag = true
 drag_lock = "sticky"
 natural_scroll = true
-disable_when_typing = true
+disable_while_typing = true
 disable_on_external_mouse = true
 tap_button_map = "left_right_middle"
 
@@ -155,6 +160,7 @@ hide_timeout_ms = 1000
 
 "Mod+Q" = { action = "window-close", repeat = false }
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+"Mod+Slash" = "cheatsheet-toggle"
 
 # Noctalia
 "Mod+Escape" = "spawn noctalia msg panel-toggle session"
@@ -176,31 +182,27 @@ hide_timeout_ms = 1000
 "XF86AudioMedia" = "spawn noctalia msg session lock"
 
 # Focus and movement
-"Mod+Left" = "window-focus-left"
-"Mod+Down" = "window-focus-down"
-"Mod+Up" = "window-focus-up"
-"Mod+Right" = "window-focus-right"
-"Mod+H" = "window-focus-left"
-"Mod+J" = "window-focus-down"
-"Mod+K" = "window-focus-up"
-"Mod+L" = "window-focus-right"
-"Mod+F1" = "window-focus-next"
-"Mod+Shift+Left" = "column-move-left"
-"Mod+Shift+Down" = "window-move-down"
-"Mod+Shift+Up" = "window-move-up"
-"Mod+Shift+Right" = "column-move-right"
-"Mod+Shift+H" = "column-move-left"
-"Mod+Shift+J" = "window-move-down"
-"Mod+Shift+K" = "window-move-up"
-"Mod+Shift+L" = "column-move-right"
+"Mod+H" = "window-focus-or-output-left"
+"Mod+J" = "window-focus-or-workspace-down"
+"Mod+K" = "window-focus-or-workspace-up"
+"Mod+L" = "window-focus-or-output-right"
+
+"Mod+Shift+H" = "output-focus-left"
+"Mod+Shift+J" = "workspace-next"
+"Mod+Shift+K" = "workspace-previous"
+"Mod+Shift+L" = "output-focus-right"
+
+"Mod+Ctrl+H" = "window-move-or-output-left"
+"Mod+Ctrl+J" = "window-move-or-workspace-down"
+"Mod+Ctrl+k" = "window-move-or-workspace-up"
+"Mod+Ctrl+L" = "window-move-or-output-right"
 
 # Window state and layout
 "Mod+T" = { action = "window-toggle-floating", repeat = false }
 "Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
 "Mod+P" = { action = "window-toggle-pinned", repeat = false }
-"Mod+M" = { action = "window-toggle-maximize-to-edges", repeat = false }
-"Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
-"Mod+Ctrl+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+Alt+F" = { action = "window-toggle-fullscreen", repeat = false }
 "Mod+R" = "window-cycle-primary-extent"
 "Mod+Shift+R" = "window-cycle-primary-extent-back"
 "Mod+Minus" = "window-modify-primary-extent -0.02"
@@ -212,37 +214,11 @@ hide_timeout_ms = 1000
 "Mod+Ctrl+Comma" = "window-consume-from-left"
 "Mod+Ctrl+Period" = "window-consume-from-right"
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }
-"Mod+Alt+Right" = "column-focus-tab-next"
-"Mod+Alt+Left" = "column-focus-tab-previous"
 "Mod+Alt+H" = "column-focus-tab-next"
 "Mod+Alt+L" = "column-focus-tab-previous"
 "Mod+WheelUp" = "window-focus-left"
 "Mod+WheelDown" = "window-focus-right"
 "Mod+O" = { action = "overview-toggle", repeat = false }
-
-# Workspaces
-# Move the whole workspace, retaining its name, layout, and windows.
-"Mod+Ctrl+Page_Down" = "workspace-move-to-output-next"
-"Mod+Ctrl+Page_Up" = "workspace-move-to-output-previous"
-# "Mod+Ctrl+W" = "workspace-move-to-output current WEB --output DP-1"
-"Mod+1" = "workspace-switch 1"
-"Mod+2" = "workspace-switch 2"
-"Mod+3" = "workspace-switch 3"
-"Mod+4" = "workspace-switch 4"
-"Mod+5" = "workspace-switch 5"
-"Mod+6" = "workspace-switch 6"
-"Mod+7" = "workspace-switch 7"
-"Mod+8" = "workspace-switch 8"
-"Mod+9" = "workspace-switch 9"
-"Mod+Shift+1" = "window-move-to-workspace 1"
-"Mod+Shift+2" = "window-move-to-workspace 2"
-"Mod+Shift+3" = "window-move-to-workspace 3"
-"Mod+Shift+4" = "window-move-to-workspace 4"
-"Mod+Shift+5" = "window-move-to-workspace 5"
-"Mod+Shift+6" = "window-move-to-workspace 6"
-"Mod+Shift+7" = "window-move-to-workspace 7"
-"Mod+Shift+8" = "window-move-to-workspace 8"
-"Mod+Shift+9" = "window-move-to-workspace 9"
 
 # Scratchpad
 "Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
@@ -256,6 +232,7 @@ hide_timeout_ms = 1000
 #
 [layout]
 mode = "scrolling"
+gap = 2
 extent_presets = [0.333, 0.5, 0.667]
 
 [layout.scrolling]
@@ -265,9 +242,6 @@ default_extent_fraction = 0.5
 # Scratchpads
 # https://docs.noctalia.dev/umbriel/scratchpads/
 #
-[[scratchpad]]
-name = "music"
-spawn_when_empty = "feishin"
 
 # ==============================================================================
 # Window rules
@@ -301,12 +275,8 @@ default_focused = false
 default_pinned = true
 
 [[window_rule]]
-match.layout = "stacking"
+match.is_floating = true
 title_bar = "on"
-
-[[window_rule]]
-match.is_maximized_to_edges = true
-title_bar = "off"
 
 [[window_rule]]
 match.app_id = "^obs$"
@@ -322,20 +292,8 @@ match.app_id = "satty"
 default_floating = true
 
 [[window_rule]]
-match.app-id = "steam_app"
-default_fullscreen = true
-
-[[window_rule]]
-app-id.title = "Big Picture Mode"
-default_fullscreen = true
-
-[[window_rule]]
 match.title = "copy color to clipboard"
 default_floating = true
-
-[[window_rule]]
-match.app_id = "^feishin$"
-default_scratchpad = "music"
 
 [[window_rule]]
 match.is_cast_target = true
