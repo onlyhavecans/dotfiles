@@ -12,7 +12,7 @@
 files = []
 
 [include.optional]
-files = ["noctalia.toml", "host.toml"]
+files = ["host.toml", "noctalia.toml"]
 
 # ==============================================================================
 # General
