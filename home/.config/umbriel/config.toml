@@ -1,0 +1,357 @@
+# Umbriel starting configuration
+#
+# Check edits with `umbriel config validate`.
+# Complete reference: https://docs.noctalia.dev/umbriel/
+
+# ==============================================================================
+# Includes
+# Included files are applied in list order. The including file is applied last.
+# https://docs.noctalia.dev/umbriel/configuration/#include
+#
+[include]
+files = []
+
+[include.optional]
+files = ["noctalia.toml", "host.toml"]
+
+# ==============================================================================
+# General
+# https://docs.noctalia.dev/umbriel/configuration/#general
+#
+[general]
+autostart = ["noctalia", "foot tm"]
+
+# ==============================================================================
+# Environment
+# https://docs.noctalia.dev/umbriel/configuration/#environment
+#
+[environment]
+SSH_AUTH_SOCK = "/home/dos/.ssh/proton-pass-agent.sock"
+
+# ==============================================================================
+# Lid events
+# https://docs.noctalia.dev/umbriel/configuration/#events
+#
+[events]
+lid_close = "noctalia msg session lock-and-suspend"
+
+# ==============================================================================
+# Outputs
+# Run `umbriel outputs` to find names and modes.
+# https://docs.noctalia.dev/umbriel/outputs/
+#
+[output.DP-1.layout.scrolling]
+center_underfull_strip = true
+
+# ==============================================================================
+# Appearance
+# https://docs.noctalia.dev/umbriel/appearance/
+#
+[appearance]
+prefer_no_csd = true
+border_width = 3
+corner_radius = 15
+
+[appearance.blur]
+enabled = true
+optimized = true
+passes = 2
+radius = 3
+noise = 0.02
+brightness = 0.9
+contrast = 0.9
+saturation = 1.1
+
+# ==============================================================================
+# Effects
+# https://docs.noctalia.dev/umbriel/effects/
+#
+# [include]
+# files = ["/usr/share/umbriel/effects/border/pulse/effect.toml"]
+# For a cursor tail, include /usr/share/umbriel/effects/cursor/trail/effect.toml
+# and set cursor = "trail" in [effects].
+# For audio-reactive borders, include /usr/share/umbriel/effects/border/audio/effect.toml
+# and set border = "audio" in [effects].
+# Enable Noctalia's Umbriel audio provider in its shell settings, or supply an
+# external effect-audio v2 producer with 64 spectrum bands. Umbriel does not capture audio.
+# Pools accept matching presets defined/included separately. This one-member
+# example uses the bundled pulse preset; add other border names to choose.
+#
+# [effects.pool.borders]
+# kind = "border"
+# choose = ["pulse"]
+# selection = "unused_first" # or round_robin, random
+# Select with border = "borders" in your [effects] table.
+# Add to your existing [keybinds] table:
+# "Mod+Shift+E" = "effect-border-cycle borders"
+# "Mod+Ctrl+E" = "effect-border-toggle"
+# "Mod+Alt+E" = "effect-border-reset"
+#
+# [effects]
+# border = "pulse"
+# Draw the border on every decorated, non-urgent, non-fullscreen window, not
+# just the focused one (overview cards included).
+# border_unfocused = true
+# For a screen effect only while an output is shared (a portal screen share or a
+# screenshot), include /usr/share/umbriel/effects/screen/vignette/effect.toml and
+# set screen_cast = "vignette" in [effects]; add in_capture = true for viewers to see it.
+
+# ==============================================================================
+# Input
+# https://docs.noctalia.dev/umbriel/input/
+#
+[input]
+middle_click_paste = false
+
+[input.keyboard]
+layout = "us"
+options = "ctrl:nocaps,altwin:menu_win"
+numlock_toggle = true
+
+[input.touchpad]
+tap = true
+tap_and_drag = true
+drag_lock = "sticky"
+natural_scroll = true
+disable_when_typing = true
+disable_on_external_mouse = true
+tap_button_map = "left_right_middle"
+
+[input.mouse]
+natural_scroll = true
+
+# TODO: Make a custom Apple Keyboard & Trackpad Input
+# [[input.device]]
+# name = "Acme Split Keyboard"
+# layout = "us"
+# variant = "colemak_dh"
+# model = "pc104angle"
+
+[input.focus]
+follows_mouse = "sloppy"
+
+[input.cursor]
+theme = "everforest-cursors"
+size = 32
+hardware_cursor = true
+hide_when_typing = true
+hide_timeout_ms = 1000
+
+# ==============================================================================
+# Keybinds
+# Syntax: https://docs.noctalia.dev/umbriel/keybinds/
+# Actions: https://docs.noctalia.dev/umbriel/actions/
+#
+[keybinds]
+"Mod" = "spawn noctalia msg panel-toggle launcher"
+"Alt+Space" = "spawn ~/bin/wlr-toggle"
+
+"Mod+Return" = { action = "spawn foot tm", repeat = false }
+"Mod+Alt+Return" = { action = "spawn foot", repeat = false }
+"Mod+Y" = { action = "spawn foot yazi", repeat = false }
+"Mod+B" = { action = "spawn firefox", repeat = false }
+"Mod+Alt+B" = { action = "spawn firefox --private-window", repeat = false }
+"Alt+Period" = { action = "spawn voxtype record start", release = "spawn voxtype record stop", repeat = false }
+
+"Mod+Q" = { action = "window-close", repeat = false }
+"Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+
+# Noctalia
+"Mod+Escape" = "spawn noctalia msg panel-toggle session"
+"Mod+N" = "spawn noctalia msg panel-toggle panel-toggle clipboard"
+"Alt+N" = "spawn noctalia msg panel-toggle control-center notification"
+"Mod+Alt+Comma" = "spawn noctalia msg settings-toggle"
+"Print" = { action = "spawn noctalia msg screenshot-region", repeat = false }
+
+# Media, volume and brightness keys
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
+# Framework Key
+"XF86AudioMedia" = "spawn noctalia msg session lock"
+
+# Focus and movement
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+"Mod+H" = "window-focus-left"
+"Mod+J" = "window-focus-down"
+"Mod+K" = "window-focus-up"
+"Mod+L" = "window-focus-right"
+"Mod+F1" = "window-focus-next"
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+Right" = "column-move-right"
+"Mod+Shift+H" = "column-move-left"
+"Mod+Shift+J" = "window-move-down"
+"Mod+Shift+K" = "window-move-up"
+"Mod+Shift+L" = "column-move-right"
+
+# Window state and layout
+"Mod+T" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
+"Mod+P" = { action = "window-toggle-pinned", repeat = false }
+"Mod+M" = { action = "window-toggle-maximize-to-edges", repeat = false }
+"Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+Ctrl+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+R" = "window-cycle-primary-extent"
+"Mod+Shift+R" = "window-cycle-primary-extent-back"
+"Mod+Minus" = "window-modify-primary-extent -0.02"
+"Mod+Equal" = "window-modify-primary-extent +0.02"
+"Mod+Ctrl+Minus" = "window-modify-secondary-extent -0.02"
+"Mod+Ctrl+Equal" = "window-modify-secondary-extent +0.02"
+"Mod+Comma" = "window-consume-left"
+"Mod+Period" = "window-consume-right"
+"Mod+Ctrl+Comma" = "window-consume-from-left"
+"Mod+Ctrl+Period" = "window-consume-from-right"
+"Mod+W" = { action = "column-toggle-tabbed", repeat = false }
+"Mod+Alt+Right" = "column-focus-tab-next"
+"Mod+Alt+Left" = "column-focus-tab-previous"
+"Mod+Alt+H" = "column-focus-tab-next"
+"Mod+Alt+L" = "column-focus-tab-previous"
+"Mod+WheelUp" = "window-focus-left"
+"Mod+WheelDown" = "window-focus-right"
+"Mod+O" = { action = "overview-toggle", repeat = false }
+
+# Workspaces
+# Move the whole workspace, retaining its name, layout, and windows.
+"Mod+Ctrl+Page_Down" = "workspace-move-to-output-next"
+"Mod+Ctrl+Page_Up" = "workspace-move-to-output-previous"
+# "Mod+Ctrl+W" = "workspace-move-to-output current WEB --output DP-1"
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
+
+# Scratchpad
+"Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
+"Mod+Space" = "scratchpad-toggle"
+"Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
+"Mod+Tab" = "scratchpad-focus-next"
+
+# ==============================================================================
+# Layout
+# https://docs.noctalia.dev/umbriel/layout/
+#
+[layout]
+mode = "scrolling"
+extent_presets = [0.333, 0.5, 0.667]
+
+[layout.scrolling]
+default_extent_fraction = 0.5
+
+# ==============================================================================
+# Scratchpads
+# https://docs.noctalia.dev/umbriel/scratchpads/
+#
+[[scratchpad]]
+name = "music"
+spawn_when_empty = "feishin"
+
+# ==============================================================================
+# Window rules
+# Rules combine in order, with later values overriding earlier ones.
+# https://docs.noctalia.dev/umbriel/window-rules/
+#
+[[window_rule]]
+blur = true
+blur_optimized = true
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_floating_size_px = { width = 1020, height = 900 }
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+[[window_rule]]
+match.layout = "stacking"
+title_bar = "on"
+
+[[window_rule]]
+match.is_maximized_to_edges = true
+title_bar = "off"
+
+[[window_rule]]
+match.app_id = "^obs$"
+background_render = true
+
+# See docs/user/window-rules.md#capture-protection.
+[[window_rule]]
+match.app_id = ["1password", "proton-pass", "proton-mail", "signal", "slack", "md.obsidian.Obsidian"]
+block_capture = true
+
+[[window_rule]]
+match.app_id = "satty"
+default_floating = true
+
+[[window_rule]]
+match.app-id = "steam_app"
+default_fullscreen = true
+
+[[window_rule]]
+app-id.title = "Big Picture Mode"
+default_fullscreen = true
+
+[[window_rule]]
+match.title = "copy color to clipboard"
+default_floating = true
+
+[[window_rule]]
+match.app_id = "^feishin$"
+default_scratchpad = "music"
+
+[[window_rule]]
+match.is_cast_target = true
+border_color_focused = "#40C057FF"
+border_color_unfocused = "#40C057FF"
+
+# ==============================================================================
+# Layer rules
+# https://docs.noctalia.dev/umbriel/layer-rules/
+#
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+
+[[layer_rule]]
+match.namespace = "^noctalia-(notification|dock|panel|attached-panel|osd)$"
+blur_optimized = false
