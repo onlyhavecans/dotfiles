@@ -53,10 +53,10 @@ fi
 ##
 
 if path_exists "${HOME}/Code/nixos-skwrls/configuration.nix" NixOS; then
-  status_message "[nix] Update Pins, Switch, & Clean"
+  status_message "[nix] Pull and boot"
   pushd "$HOME/Code/nixos-skwrls" || return
   git pull
-  just update
+  just boot
   popd || return
 fi
 
