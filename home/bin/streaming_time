@@ -7,16 +7,16 @@ function status_message {
 }
 
 function launch_app {
-  niri msg action spawn -- "$@"
+  umbriel msg spawn "$(printf '%q ' "$@")"
 }
 
 # Re-fire a steam://rungameid URL until its window appears
 function launch_steam_app {
   local appid=$1 window=$2
-  while ! niri msg windows | grep -qi "$window"; do
+  while ! umbriel windows | grep -qi "$window"; do
     steam -ifrunning "steam://rungameid/$appid"
     for _ in {1..10}; do
-      niri msg windows | grep -qi "$window" && return
+      umbriel windows | grep -qi "$window" && return
       sleep 2
     done
   done

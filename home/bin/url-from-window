@@ -6,7 +6,7 @@ set -euo pipefail
 
 sleep 0.1 # let focus return to the browser after the menu closes
 
-win=$(niri msg --json focused-window)
+win=$(umbriel focused-window --json)
 app=$(jq -r '.app_id // ""' <<<"$win")
 title=$(jq -r '.title // ""' <<<"$win")
 

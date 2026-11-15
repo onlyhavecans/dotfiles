@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
+# Toggle the touchpad until the compositor exits.
+set -euo pipefail
 
-CONFIG=/home/dos/.config/niri/touchpad.kdl
-
-sed -i \
-  '/touchpad-disabled/ {s|.*|    // touchpad-enabled|; b};
-   /touchpad-enabled/  {s|.*|    off // touchpad-disabled|}' \
-  "$CONFIG"
-
-STATE=Broken
-if grep -q touchpad-disabled "$CONFIG"; then
-  STATE=Disabled
-elif grep -q touchpad-enabled "$CONFIG"; then
-  STATE=Enabled
+if [[ $(umbriel config get input.touchpad.enabled) == true ]]; then
+  umbriel config set input.touchpad.enabled false
+  state=Disabled
+else
+  umbriel config unset input.touchpad.enabled
+  state=Enabled
 fi
 
-notify-send Niri "Touchpad is now $STATE"
+notify-send Umbriel "Touchpad is now $state"
