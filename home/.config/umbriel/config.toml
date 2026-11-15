@@ -124,8 +124,8 @@ hide_timeout_ms = 1000
 "Mod" = "spawn noctalia msg panel-toggle launcher"
 "Alt+Space" = "spawn ~/bin/wlr-toggle"
 
-"Mod+Return" = { action = "spawn foot ~/bin/tm", repeat = false }
-"Mod+Alt+Return" = { action = "spawn foot", repeat = false }
+"Mod+Return" = { action = "spawn foot", repeat = false }
+"Mod+Shift+Return" = { action = "spawn foot ~/bin/tm", repeat = false }
 "Mod+Y" = { action = "spawn foot yazi", repeat = false }
 "Mod+B" = { action = "spawn firefox", repeat = false }
 "Mod+Alt+B" = { action = "spawn firefox --private-window", repeat = false }
