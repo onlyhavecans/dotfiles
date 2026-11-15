@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Resize the focused niri window so its terminal grid is N columns
+# Resize the focused umbriel window so its terminal grid is N columns
 # (default 80). A +N arg adds N extra pixels to the width.
 set -euo pipefail
 
@@ -11,23 +11,25 @@ for arg in "$@"; do
   esac
 done
 
-win=$(niri msg --json focused-window)
-pid=$(jq '.pid' <<<"$win")
-cur_width=$(jq '.layout.window_size[0]' <<<"$win")
-scale=$(niri msg --json focused-output | jq '.logical.scale')
+fail() { notify-send "NWW" "Window detection failed"; exit 2; }
 
-width=0
+read -r pid w output < <(umbriel focused-window --json | jq -r '"\(.pid) \(.w) \(.output)"')
+read -r scale view < <(umbriel outputs --json |
+  jq -r --arg o "$output" '.[] | select(.name == $o) | "\(.scale) \(.usable_area.width)"')
+gap=$(umbriel config get layout.gap)
+bw=$(umbriel config get appearance.border_width)
+
 pts=$(ps -o tty= --ppid "$pid" | awk '/pts/ { print $1; exit }')
-if [[ -n $pts ]]; then
-  cur_cols=$(stty -F "/dev/$pts" size | cut -d' ' -f2)
-  # cell width = current physical width / current columns;
-  # then the smallest logical width that fits the requested grid
-  width=$(awk -v c="$cols" -v cc="$cur_cols" -v w="$cur_width" -v s="$scale" \
-    'BEGIN { cw = int(w * s / cc); t = c * cw / s; printf "%d", (t == int(t)) ? t : int(t) + 1 }')
-fi
+[[ -n $pts ]] || fail
+cur_cols=$(stty -F "/dev/$pts" size | cut -d' ' -f2)
 
-if [[ $width -eq 0 ]]; then
-  notify-send "NWW" "Window detection failed"
-  exit 2
-fi
-niri msg action set-window-width "$((width + pad))"
+# Cell width = physical width / columns. Round the target up to a
+# logical pixel. Extent is a fraction of (viewport - gap); the tile
+# then loses one gap and both borders.
+frac=$(awk -v c="$cols" -v cc="$cur_cols" -v w="$w" -v s="$scale" \
+  -v p="$pad" -v g="$gap" -v b="$bw" -v v="$view" 'BEGIN {
+    t = c * int(w * s / cc) / s
+    t = (t == int(t) ? t : int(t) + 1) + p
+    printf "%.6f", (t + g + 2 * b + 0.5) / (v - g)
+  }')
+umbriel msg window-set-primary-extent "$frac"
