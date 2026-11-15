@@ -164,10 +164,11 @@ hide_timeout_ms = 1000
 
 # Noctalia
 "Mod+Escape" = "spawn noctalia msg panel-toggle session"
-"Mod+N" = "spawn noctalia msg panel-toggle panel-toggle clipboard"
+"Mod+N" = "spawn noctalia msg panel-toggle clipboard"
 "Alt+N" = "spawn noctalia msg panel-toggle control-center notification"
 "Mod+Alt+Comma" = "spawn noctalia msg settings-toggle"
 "Print" = { action = "spawn noctalia msg screenshot-region", repeat = false }
+"Shift+Print" = { action = "spawn noctalia msg screenshot-fullscreen", repeat = false }
 
 # Media, volume and brightness keys
 "XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
@@ -182,6 +183,8 @@ hide_timeout_ms = 1000
 "XF86AudioMedia" = "spawn noctalia msg session lock"
 
 # Focus and movement
+"Mod+C" = "column-center"
+
 "Mod+H" = "window-focus-or-output-left"
 "Mod+J" = "window-focus-or-workspace-down"
 "Mod+K" = "window-focus-or-workspace-up"
@@ -209,10 +212,8 @@ hide_timeout_ms = 1000
 "Mod+Equal" = "window-modify-primary-extent +0.02"
 "Mod+Ctrl+Minus" = "window-modify-secondary-extent -0.02"
 "Mod+Ctrl+Equal" = "window-modify-secondary-extent +0.02"
-"Mod+Comma" = "window-consume-left"
-"Mod+Period" = "window-consume-right"
-"Mod+Ctrl+Comma" = "window-consume-from-left"
-"Mod+Ctrl+Period" = "window-consume-from-right"
+"Mod+BracketLeft" = "window-consume-or-expel-left"
+"Mod+BracketRight" = "window-consume-or-expel-right"
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }
 "Mod+Alt+H" = "column-focus-tab-next"
 "Mod+Alt+L" = "column-focus-tab-previous"
@@ -288,11 +289,7 @@ match.app_id = ["1password", "proton-pass", "proton-mail", "signal", "slack", "m
 block_capture = true
 
 [[window_rule]]
-match.app_id = "satty"
-default_floating = true
-
-[[window_rule]]
-match.title = "copy color to clipboard"
+match.title = "Copy color to clipboard"
 default_floating = true
 
 [[window_rule]]
