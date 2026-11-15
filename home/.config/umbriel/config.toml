@@ -19,8 +19,9 @@ files = ["host.toml", "noctalia.toml"]
 # https://docs.noctalia.dev/umbriel/configuration/#general
 #
 [general]
-autostart = ["noctalia", "foot tm"]
+autostart = ["noctalia", "foot ~/bin/tm"]
 xwayland_native_resolution = true
+show_cheatsheet = false
 
 # ==============================================================================
 # Environment
@@ -72,35 +73,6 @@ saturation = 1.1
 # Effects
 # https://docs.noctalia.dev/umbriel/effects/
 #
-# [include]
-# files = ["/usr/share/umbriel/effects/border/pulse/effect.toml"]
-# For a cursor tail, include /usr/share/umbriel/effects/cursor/trail/effect.toml
-# and set cursor = "trail" in [effects].
-# For audio-reactive borders, include /usr/share/umbriel/effects/border/audio/effect.toml
-# and set border = "audio" in [effects].
-# Enable Noctalia's Umbriel audio provider in its shell settings, or supply an
-# external effect-audio v2 producer with 64 spectrum bands. Umbriel does not capture audio.
-# Pools accept matching presets defined/included separately. This one-member
-# example uses the bundled pulse preset; add other border names to choose.
-#
-# [effects.pool.borders]
-# kind = "border"
-# choose = ["pulse"]
-# selection = "unused_first" # or round_robin, random
-# Select with border = "borders" in your [effects] table.
-# Add to your existing [keybinds] table:
-# "Mod+Shift+E" = "effect-border-cycle borders"
-# "Mod+Ctrl+E" = "effect-border-toggle"
-# "Mod+Alt+E" = "effect-border-reset"
-#
-# [effects]
-# border = "pulse"
-# Draw the border on every decorated, non-urgent, non-fullscreen window, not
-# just the focused one (overview cards included).
-# border_unfocused = true
-# For a screen effect only while an output is shared (a portal screen share or a
-# screenshot), include /usr/share/umbriel/effects/screen/vignette/effect.toml and
-# set screen_cast = "vignette" in [effects]; add in_capture = true for viewers to see it.
 
 # ==============================================================================
 # Input
@@ -152,7 +124,7 @@ hide_timeout_ms = 1000
 "Mod" = "spawn noctalia msg panel-toggle launcher"
 "Alt+Space" = "spawn ~/bin/wlr-toggle"
 
-"Mod+Return" = { action = "spawn foot tm", repeat = false }
+"Mod+Return" = { action = "spawn foot ~/bin/tm", repeat = false }
 "Mod+Alt+Return" = { action = "spawn foot", repeat = false }
 "Mod+Y" = { action = "spawn foot yazi", repeat = false }
 "Mod+B" = { action = "spawn firefox", repeat = false }
@@ -164,7 +136,9 @@ hide_timeout_ms = 1000
 "Mod+Slash" = "cheatsheet-toggle"
 
 # Noctalia
+"Mod+Period" = "spawn noctalia msg bar-toggle"
 "Mod+Escape" = "spawn noctalia msg panel-toggle session"
+"Alt+Tab" = "spawn noctalia msg panel-toggle launcher /win "
 "Mod+N" = "spawn noctalia msg panel-toggle clipboard"
 "Alt+N" = "spawn noctalia msg panel-toggle control-center notification"
 "Mod+Alt+Comma" = "spawn noctalia msg settings-toggle"
@@ -207,7 +181,7 @@ hide_timeout_ms = 1000
 "Mod+P" = { action = "window-toggle-pinned", repeat = false }
 
 "Mod+F" = { action = "window-toggle-maximize", repeat = false }
-"Mod+Alt+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+Shift+F" = { action = "window-toggle-fullscreen", repeat = false }
 "Mod+R" = "window-cycle-primary-extent"
 "Mod+Shift+R" = "window-cycle-primary-extent-back"
 "Mod+Minus" = "window-modify-primary-extent -0.02"
