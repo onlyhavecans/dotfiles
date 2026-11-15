@@ -67,9 +67,6 @@ abbr --add jbat "bat -l json"
 # Git abbreviations
 abbr --add g git
 abbr --add lg lazygit
-abbr --add gad "git add --all"
-abbr --add gca --set-cursor 'git commit -am "%"'
-abbr --add gcm --set-cursor 'git commit -m "%"'
 abbr --add grs "git remote set-url origin"
 abbr --add gs "git switch"
 abbr --add gsc "git switch --force-create"
@@ -111,7 +108,6 @@ if type -q fzf
     set -gx FZF_DEFAULT_COMMAND 'fd --follow --hidden --type f'
     set -gx FZF_CTRL_T_COMMAND 'fd --follow --hidden'
     set -gx FZF_ALT_C_COMMAND 'fd --follow --hidden --type d'
-    test -n "$TMUX"; and set -gx FZF_TMUX_OPTS '-p80%,60%'
 
     # ANSI colors only. The terminal palette sets the theme.
     set -gx FZF_DEFAULT_OPTS '--color=base16,bg+:0,fg+:-1:bold,gutter:-1,hl:2,hl+:2:bold,pointer:1,marker:5,prompt:4,info:8,spinner:8,border:8,separator:8,scrollbar:8,header:6'
