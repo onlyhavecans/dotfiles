@@ -1,0 +1,9 @@
+# Host overrides for Amity
+# Tables merge with config.toml; set only what differs on this machine.
+
+[input.keyboard]
+options = "ctrl:nocaps,ctrl:swap_rwin_rctl"
+
+[[window_rule]]
+match.app_id = "^chrome-mail\\.proton"
+default_maximize = true

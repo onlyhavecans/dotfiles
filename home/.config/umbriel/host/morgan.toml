@@ -1,0 +1,29 @@
+# Host overrides for Morgan
+# Tables merge with config.toml; set only what differs on this machine.
+
+# Center
+[output."Dell Inc. DELL G2725D 4H65S34"]
+focus_at_startup = true
+
+# Right
+[output."Dell Inc. DELL U2715H H7YCC7A60C0S"]
+
+# Left: small work display
+[output."BOE Display 0x00000144"]
+scale = 1.5
+
+[[window_rule]]
+match.app_id = ["^com\\.obsproject\\.Studio", "^steam_app", "steam"]
+default_output = "Dell Inc. DELL G2725D 4H65S34"
+
+[[window_rule]]
+match.app_id = ["md\\.obsidian\\.Obsidian", "firebotv5", "proton-pass"]
+default_output = "Dell Inc. DELL U2715H H7YCC7A60C0S"
+
+[[window_rule]]
+match.app_id = ["feishin", "ratune", "strawberry"]
+default_output = "BOE Display 0x00000144"
+
+[[window_rule]]
+match.app_id = ["md\\.obsidian\\.Obsidian", "proton-pass", "signal"]
+default_scrolling_extent = 0.333

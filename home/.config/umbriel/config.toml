@@ -7,7 +7,7 @@
 # Includes
 # Included files are applied in list order. The including file is applied last.
 # https://docs.noctalia.dev/umbriel/configuration/#include
-#
+
 [include]
 files = []
 
@@ -20,6 +20,7 @@ files = ["host.toml", "noctalia.toml"]
 #
 [general]
 autostart = ["noctalia", "foot tm"]
+xwayland_native_resolution = true
 
 # ==============================================================================
 # Environment
@@ -204,6 +205,7 @@ hide_timeout_ms = 1000
 "Mod+T" = { action = "window-toggle-floating", repeat = false }
 "Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
 "Mod+P" = { action = "window-toggle-pinned", repeat = false }
+
 "Mod+F" = { action = "window-toggle-maximize", repeat = false }
 "Mod+Alt+F" = { action = "window-toggle-fullscreen", repeat = false }
 "Mod+R" = "window-cycle-primary-extent"
@@ -212,13 +214,14 @@ hide_timeout_ms = 1000
 "Mod+Equal" = "window-modify-primary-extent +0.02"
 "Mod+Ctrl+Minus" = "window-modify-secondary-extent -0.02"
 "Mod+Ctrl+Equal" = "window-modify-secondary-extent +0.02"
+
 "Mod+BracketLeft" = "window-consume-or-expel-left"
 "Mod+BracketRight" = "window-consume-or-expel-right"
+
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }
 "Mod+Alt+H" = "column-focus-tab-next"
 "Mod+Alt+L" = "column-focus-tab-previous"
-"Mod+WheelUp" = "window-focus-left"
-"Mod+WheelDown" = "window-focus-right"
+
 "Mod+O" = { action = "overview-toggle", repeat = false }
 
 # Scratchpad
@@ -233,16 +236,11 @@ hide_timeout_ms = 1000
 #
 [layout]
 mode = "scrolling"
-gap = 2
+gap = 4
 extent_presets = [0.333, 0.5, 0.667]
 
 [layout.scrolling]
 default_extent_fraction = 0.5
-
-# ==============================================================================
-# Scratchpads
-# https://docs.noctalia.dev/umbriel/scratchpads/
-#
 
 # ==============================================================================
 # Window rules
@@ -280,7 +278,7 @@ match.is_floating = true
 title_bar = "on"
 
 [[window_rule]]
-match.app_id = "^obs$"
+match.app_id = "^com\\.obsproject\\.Studio$"
 background_render = true
 
 # See docs/user/window-rules.md#capture-protection.
@@ -289,8 +287,34 @@ match.app_id = ["1password", "proton-pass", "proton-mail", "signal", "slack", "m
 block_capture = true
 
 [[window_rule]]
-match.title = "Copy color to clipboard"
+match.title = "Copy color to Clipboard"
 default_floating = true
+
+[[window_rule]]
+match.app_id = ["^Calculator$", "^espanso$", "^file-picker$", "^qalculate"]
+default_floating = true
+
+[[window_rule]]
+match.app_id = "^steam$"
+match.title = "^Big Picture Mode$"
+default_fullscreen = true
+
+[[window_rule]]
+match.app_id = "^steam_app"
+default_fullscreen = true
+
+[[window_rule]]
+match.app_id = ["^btop$", "^feishin$", "^net-filebot-Main$", "^ratune$"]
+default_maximize = true
+
+[[window_rule]]
+match.app_id = ["^com\\.obsproject\\.Studio$", "^com\\.bitwig\\.BitwigStudio"]
+match.is_floating = false
+default_maximize = true
+
+[[window_rule]]
+match.app_id = ["^proton-mail$", "^chrome-twitch", "^slack$"]
+default_scrolling_extent = 0.667
 
 [[window_rule]]
 match.is_cast_target = true

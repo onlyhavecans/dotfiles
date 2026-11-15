@@ -1,0 +1,6 @@
+# Host overrides for Tara
+# Use the connector name; name/serial detection is unreliable through the switch and speakers.
+
+[output.HDMI-A-1]
+mode = "1920x1080@60"  # hardcode to appease projector
+layout.scrolling.default_extent_fraction = 1.0
