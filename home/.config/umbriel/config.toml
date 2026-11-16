@@ -89,7 +89,7 @@ numlock_toggle = true
 [input.touchpad]
 tap = true
 tap_and_drag = true
-drag_lock = "sticky"
+drag_lock = "timeout"
 natural_scroll = true
 disable_while_typing = true
 disable_on_external_mouse = true
@@ -213,6 +213,7 @@ hide_timeout_ms = 1000
 
 "Mod+F" = { action = "window-toggle-maximize", repeat = false }
 "Mod+Shift+F" = { action = "window-toggle-fullscreen", repeat = false }
+
 "Mod+R" = "window-cycle-primary-extent"
 "Mod+Shift+R" = "window-cycle-primary-extent-back"
 "Mod+Minus" = "window-modify-primary-extent -0.02"
