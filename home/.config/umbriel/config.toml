@@ -80,11 +80,11 @@ accent_secondary = "#dfa000ff"
 warning = "#3a94c5ff"
 error = "#f85552ff"
 insert_hint = "#3a94c580"
-backdrop = "#000000FF"
+backdrop = "#272E33ff"
 
 [colors.border]
 focused = "#8da101ff"
-# unfocused = "#f8f5e4ff"
+#unfocused = "#272E33FF"
 outer = "#fffbefff"
 
 [colors.overview]
@@ -235,10 +235,10 @@ hide_timeout_ms = 1000
 "Mod+9" = "workspace-switch 9"
 
 # Move in output
-"Mod+Shift+H" = "window-move-left"
+"Mod+Shift+H" = "column-move-left"
 "Mod+Shift+J" = "window-move-or-workspace-down"
 "Mod+Shift+k" = "window-move-or-workspace-up"
-"Mod+Shift+L" = "window-move-right"
+"Mod+Shift+L" = "column-move-right"
 
 "Mod+Shift+1" = "window-move-to-workspace 1"
 "Mod+Shift+2" = "window-move-to-workspace 2"
