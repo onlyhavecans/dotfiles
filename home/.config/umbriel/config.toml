@@ -161,20 +161,50 @@ hide_timeout_ms = 1000
 # Focus and movement
 "Mod+C" = "column-center"
 
-"Mod+H" = "window-focus-or-output-left"
+# Focus in output
+"Mod+H" = "window-focus-left"
 "Mod+J" = "window-focus-or-workspace-down"
 "Mod+K" = "window-focus-or-workspace-up"
-"Mod+L" = "window-focus-or-output-right"
+"Mod+L" = "window-focus-right"
 
-"Mod+Shift+H" = "output-focus-left"
-"Mod+Shift+J" = "workspace-next"
-"Mod+Shift+K" = "workspace-previous"
-"Mod+Shift+L" = "output-focus-right"
+# Focus Workspace
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
 
-"Mod+Ctrl+H" = "window-move-or-output-left"
-"Mod+Ctrl+J" = "window-move-or-workspace-down"
-"Mod+Ctrl+k" = "window-move-or-workspace-up"
-"Mod+Ctrl+L" = "window-move-or-output-right"
+# Move in output
+"Mod+Shift+H" = "window-move-left"
+"Mod+Shift+J" = "window-move-or-workspace-down"
+"Mod+Shift+k" = "window-move-or-workspace-up"
+"Mod+Shift+L" = "window-move-right"
+
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
+
+# Focus to output
+"Mod+Left" = "output-focus-left"
+"Mod+Down" = "output-focus-down"
+"Mod+Up" = "output-focus-up"
+"Mod+Right" = "output-focus-right"
+
+# Move to output
+"Mod+Shift+Left" = "window-move-to-output-left"
+"Mod+Shift+Down" = "window-move-to-output-down"
+"Mod+Shift+Up" = "window-move-to-output-up"
+"Mod+Shift+Right" = "window-move-to-output-right"
 
 # Window state and layout
 "Mod+T" = { action = "window-toggle-floating", repeat = false }
@@ -194,8 +224,8 @@ hide_timeout_ms = 1000
 "Mod+BracketRight" = "window-consume-or-expel-right"
 
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }
-"Mod+Alt+H" = "column-focus-tab-next"
-"Mod+Alt+L" = "column-focus-tab-previous"
+"Mod+Alt+L" = "column-focus-tab-next"
+"Mod+Alt+H" = "column-focus-tab-previous"
 
 "Mod+O" = { action = "overview-toggle", repeat = false }
 
@@ -291,11 +321,6 @@ default_maximize = true
 [[window_rule]]
 match.app_id = ["^proton-mail$", "^chrome-twitch", "^slack$"]
 default_scrolling_extent = 0.667
-
-[[window_rule]]
-match.is_cast_target = true
-border_color_focused = "#40C057FF"
-border_color_unfocused = "#40C057FF"
 
 # ==============================================================================
 # Layer rules
