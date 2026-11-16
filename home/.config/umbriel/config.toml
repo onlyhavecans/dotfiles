@@ -9,10 +9,13 @@
 # https://docs.noctalia.dev/umbriel/configuration/#include
 
 [include]
-files = []
+files = [
+  "/run/current-system/sw/share/umbriel/effects/border/pulse/effect.toml",
+  "/run/current-system/sw/share/umbriel/effects/border/audio/effect.toml",
+]
 
 [include.optional]
-files = ["host.toml", "noctalia.toml"]
+files = ["host.toml"]
 
 # ==============================================================================
 # General
@@ -68,6 +71,59 @@ saturation = 1.1
 # Colors
 # https://docs.noctalia.dev/umbriel/appearance#colors
 #
+[colors]
+background = "#f8f5e4ff"
+text_primary = "#5c6a72ff"
+text_muted = "#939f91ff"
+accent_primary = "#8da101ff"
+accent_secondary = "#dfa000ff"
+warning = "#3a94c5ff"
+error = "#f85552ff"
+insert_hint = "#3a94c580"
+backdrop = "#000000FF"
+
+[colors.border]
+focused = "#8da101ff"
+# unfocused = "#f8f5e4ff"
+outer = "#fffbefff"
+
+[colors.overview]
+background_tint = "#fffbef88"
+badge = "#8da101ff"
+workspace_background = "#fffbefff"
+
+[colors.tab_bar]
+background = "#f8f5e4ff"
+text = "#939f91ff"
+active = "#8da101ff"
+active_text = "#fffbefff"
+active_unfocused = "#f8f5e4ff"
+active_unfocused_text = "#5c6a72ff"
+urgent = "#f85552ff"
+urgent_text = "#fffbefff"
+
+[colors.title_bar]
+background = "#f8f5e4ff"
+background_unfocused = "#fffbefff"
+text = "#5c6a72ff"
+text_unfocused = "#939f91ff"
+close = "#f85552ff"
+close_glyph = "#fffbefff"
+close_glyph_hover = "#fffbefff"
+maximize = "#8da101ff"
+maximize_glyph = "#fffbefff"
+maximize_glyph_hover = "#fffbefff"
+minimize = "#dfa000ff"
+minimize_glyph = "#fffbefff"
+minimize_glyph_hover = "#fffbefff"
+
+# ==============================================================================
+# Animations
+# https://docs.noctalia.dev/umbriel/animation/
+#
+[animation.dialogs]
+# Shade over a window while a modal dialog is attached to it.
+dim = 0.3
 
 # ==============================================================================
 # Effects
@@ -242,7 +298,7 @@ hide_timeout_ms = 1000
 #
 [layout]
 mode = "scrolling"
-gap = 4
+gap = 3
 extent_presets = [0.333, 0.5, 0.667]
 
 [layout.scrolling]
@@ -322,6 +378,11 @@ default_maximize = true
 [[window_rule]]
 match.app_id = ["^proton-mail$", "^chrome-twitch", "^slack$"]
 default_scrolling_extent = 0.667
+
+[[window_rule]]
+match.is_scratchpad = true
+border_color_focused = "#3a94c5FF"
+border_color_unfocused = "#c3dce2FF"
 
 # ==============================================================================
 # Layer rules
