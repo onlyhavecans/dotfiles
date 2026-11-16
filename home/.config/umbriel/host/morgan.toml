@@ -4,13 +4,16 @@
 # Center
 [output."Dell Inc. DELL G2725D 4H65S34"]
 focus_at_startup = true
+position = [1706, 0]
 
 # Right
 [output."Dell Inc. DELL U2715H H7YCC7A60C0S"]
+position = [4266, 0]
 
 # Left: small work display
 [output."BOE Display 0x00000144"]
 scale = 1.5
+position = [0, 0]
 
 [[window_rule]]
 match.app_id = ["^com\\.obsproject\\.Studio", "^steam_app", "steam"]
@@ -25,5 +28,5 @@ match.app_id = ["feishin", "ratune", "strawberry"]
 default_output = "BOE Display 0x00000144"
 
 [[window_rule]]
-match.app_id = ["md\\.obsidian\\.Obsidian", "proton-pass", "signal"]
+match.app_id = ["md\\.obsidian\\.Obsidian", "signal"]
 default_scrolling_extent = 0.333

@@ -107,6 +107,7 @@ natural_scroll = true
 
 [input.focus]
 follows_mouse = "sloppy"
+follows_mouse_max_scroll = 0.0
 
 [input.cursor]
 theme = "everforest-cursors"
@@ -125,7 +126,7 @@ hide_timeout_ms = 1000
 "Alt+Space" = "spawn ~/bin/wlr-toggle"
 
 "Mod+Return" = { action = "spawn foot", repeat = false }
-"Mod+Shift+Return" = { action = "spawn foot ~/bin/tm", repeat = false }
+"Mod+Alt+Return" = { action = "spawn foot ~/bin/tm", repeat = false }
 "Mod+Y" = { action = "spawn foot yazi", repeat = false }
 "Mod+B" = { action = "spawn firefox", repeat = false }
 "Mod+Alt+B" = { action = "spawn firefox --private-window", repeat = false }
@@ -215,6 +216,7 @@ extent_presets = [0.333, 0.5, 0.667]
 
 [layout.scrolling]
 default_extent_fraction = 0.5
+center_underfull_strip = false
 
 # ==============================================================================
 # Window rules
