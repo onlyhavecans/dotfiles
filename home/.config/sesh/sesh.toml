@@ -8,27 +8,26 @@ preview_command = "eza --all --git --icons --color=always {}"
 # Sessions
 
 [[session]]
-name = "InsideOut"
+name = "Nix cfg"
 path = "~/Code/nixos-skwrls"
-startup_command = "tmux rename-window nix"
-windows = ["dots"]
 
 [[session]]
-name = "blog"
+name = "Dots"
+path = "~/.homesick/repos/dotfiles"
+
+[[session]]
+name = "Blog"
 path = "~/Code/ohc.works/squirrels.wtf"
-startup_command = "tmux split-window -t $TMUX_PANE -v -l 10"
+windows = ["just test"]
+layout = "main-horizontal"
 
 [[session]]
-name = "WorkWork"
+name = "Work"
 path = "~/Code/dnsimple"
-startup_command = "tmux rename-window Project"
-windows = ["Incident"]
 
 [[session]]
-name = "Demo"
-path = "~/Code"
-startup_command = "tmux rename-window Main"
-windows = ["Tests", "Live"]
+name = "Incident"
+path = "~/Code/dnsimple"
 
 [[session]]
 name = "Dream"
@@ -38,20 +37,20 @@ startup_command = "tmux rename-window 🐰"
 [[session]]
 name = "Flex"
 path = "/deep_end/AppConfigs/Flexget"
-startup_command = "tmux split-window -t $TMUX_PANE -v -l 10"
+panes = ["cmd"]
+layout = "main-horizontal"
 
 # Windows
 
 [[window]]
-name = "dots"
-path = "~/.homesick/repos/dotfiles"
+name = "just test"
+startup_script = "just test"
 
-[[window]]
-name = "Incident"
-path = "~/Code/dnsimple"
+# Panes
 
-[[window]]
-name = "Tests"
+[[pane]]
+name = "just test"
+startup_command = "just test"
 
-[[window]]
-name = "Live"
+[[pane]]
+name = "cmd"
