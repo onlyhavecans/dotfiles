@@ -129,14 +129,14 @@ clipboard_placement = "attached"
 
 # Captures go to satty; satty/config.toml owns the save path and clipboard
 [shell.screenshot]
-annotate = false
+annotate = true
+append_mode_suffix = false
+close_on_save = false
 confirm_region = true
-copy_to_clipboard = false
+copy_on_close = true
 directory = "~/Pictures/Screenshots"
-pipe_command = "satty -f -"
-pipe_to_command = true
-remember_last_region = true
-save_to_file = false
+save_to_file = true
+skip_annotate_on_copy_save = true
 
 # GUI apps only: Light Hard, recolors GTK and Qt. Terminal apps stay on
 # static Dark Hard themes in this castle (docs/everforest.md).
