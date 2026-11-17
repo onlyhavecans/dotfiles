@@ -178,7 +178,7 @@ hide_timeout_ms = 1000
 # Actions: https://docs.noctalia.dev/umbriel/actions/
 #
 [keybinds]
-"Mod" = "spawn noctalia msg panel-toggle launcher"
+"Mod+Space" = "spawn noctalia msg panel-toggle launcher"
 "Alt+Space" = "spawn ~/bin/wlr-toggle"
 
 "Mod+Return" = { action = "spawn foot", repeat = false }
@@ -287,9 +287,9 @@ hide_timeout_ms = 1000
 "Mod+O" = { action = "overview-toggle", repeat = false }
 
 # Scratchpad
-"Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
-"Mod+Space" = "scratchpad-toggle"
-"Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
+"Mod+S" = "scratchpad-toggle"
+"Mod+Shift+S" = { action = "window-move-to-scratchpad", repeat = false }
+"Mod+Ctrl+S" = { action = "window-restore-from-scratchpad", repeat = false }
 "Mod+Tab" = "scratchpad-focus-next"
 
 # ==============================================================================
@@ -332,7 +332,7 @@ default_position = { x = 20, y = 20, anchor = "bottom_right" }
 
 [[window_rule]]
 match.title = "^notificationtoasts_.+_desktop"
-default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_position = { x = 150, y = 150, anchor = "top_right" }
 default_focused = false
 default_pinned = true
 
