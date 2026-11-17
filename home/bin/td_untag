@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Remove the batch and tomato labels from tasks that are not overdue or due today.
+# Usage: td_untag [-n]   (-n: dry run)
+set -euo pipefail
+
+DRY=()
+[[ ${1:-} == -n ]] && DRY=(--dry-run)
+
+FILTER='(@batch | @🍅*) & !overdue & !today'
+
+td task list --filter "$FILTER" --all --json |
+  jq -r '.results[] | [.id, .content, (.labels | map(select(. != "batch" and (startswith("🍅") | not))) | join(","))] | @tsv' |
+  while IFS=$'\t' read -r id content keep; do
+    echo "$content"
+    if [[ -n $keep ]]; then
+      td task update "id:$id" --labels "$keep" "${DRY[@]}" >/dev/null
+    else
+      td task update "id:$id" --no-labels "${DRY[@]}" >/dev/null
+    fi
+  done
