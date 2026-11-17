@@ -10,7 +10,7 @@ enable_sounds = true
 [bar.default]
 capsule = true
 background_opacity = 0.75
-start = ["taskbar", "tomat"]
+start = ["umbriel", "taskbar", "tomat"]
 center = ["group:metrics1", "media", "group:metrics2"]
 end = ["tray", "privacy", "group:end_status", "clock"]
 margin_ends = 30
@@ -71,7 +71,7 @@ wallpaper = "/home/dos/Sync/wallpapers/best-os/wlock.jpg"
 enabled = true
 
 [plugins]
-enabled = ["onlyhavecans/tomat"]
+enabled = ["onlyhavecans/tomat", "noctalia/umbriel-companion"]
 
 [[plugins.source]]
 name = "official"
@@ -143,7 +143,7 @@ custom_palette = "everforest-hard"  # palettes/everforest-hard.json
 mode = "light"
 
 [theme.templates]
-builtin_ids = ["gtk3", "gtk4", "qt"]
+builtin_ids = ["gtk3", "gtk4", "luciole", "qt"]
 
 [wallpaper]
 directory = "~/Sync/wallpapers"
@@ -199,6 +199,9 @@ color_paused = "secondary"
 glyph_work = "headphones-filled"
 scale = 1.5
 type = "onlyhavecans/tomat:bar"
+
+[widget.umbriel]
+type = "noctalia/umbriel-companion:bar"
 
 [widget.volume]
 show_label = false
