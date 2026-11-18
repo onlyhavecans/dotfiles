@@ -1,0 +1,7 @@
+schema_version = 1
+
+[browser]
+grid_icon_size = 256
+show_preview = false
+sidebar_width = 160
+view_mode = "grid"
