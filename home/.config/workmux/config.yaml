@@ -1,5 +1,6 @@
 ---
 nerdfont: true
+agent: claude
 
 # Status icon lives in tmux/bar.conf window formats.
 status_format: false

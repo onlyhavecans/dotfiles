@@ -22,10 +22,6 @@ windows = ["just test"]
 layout = "main-horizontal"
 
 [[session]]
-name = "Work"
-path = "~/Code/dnsimple"
-
-[[session]]
 name = "Incident"
 path = "~/Code/dnsimple"
 
@@ -39,6 +35,12 @@ name = "Flex"
 path = "/deep_end/AppConfigs/Flexget"
 panes = ["cmd"]
 layout = "main-horizontal"
+
+# Wilin out
+
+[[wildcard]]
+pattern = "~/Code/dnsimple/*"
+startup_command = "claude"
 
 # Windows
 
