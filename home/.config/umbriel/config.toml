@@ -23,7 +23,6 @@ files = ["host.toml", "noctalia.toml"]
 #
 [general]
 autostart = ["noctalia", "foot ~/bin/tm"]
-xwayland_native_resolution = true
 show_cheatsheet = false
 
 # ==============================================================================

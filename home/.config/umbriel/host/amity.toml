@@ -1,6 +1,9 @@
 # Host overrides for Amity
 # Tables merge with config.toml; set only what differs on this machine.
 
+[general]
+xwayland_native_resolution = true
+
 [input.keyboard]
 options = "ctrl:nocaps,ctrl:swap_rwin_rctl"
 
